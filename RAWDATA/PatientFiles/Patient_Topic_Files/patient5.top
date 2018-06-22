@@ -1,0 +1,773 @@
+outputmacro: patient5()  # you get patient1 by default
+$patientfirstname = Greta
+$patientlastname = Schmidt
+$chiefcomplaint = ~Vaginal_discharge
+$complaint2 = ~Vaginal_itch
+$complaint3 = ~Vaginal_odor
+$Vpatient5 = Vpatient5
+$vpatient = Vpatient5
+$patientTitle = Ms
+$currentjob = Librarian
+$currentmedication1 = Baby aspirin
+$currentmedication2 = Fish Oil capsules
+$currentmedication3 = Calcium and Vitamin D
+$currentrateofpain = 7
+
+^stdpatient()
+
+table: ^patientdata(Vpatient5) 
+
+# primary
+What_brings_you_in_today "I have been having some vaginal discharge."
+What_do_you_think_is_the_problem "\[ Pain3 \]I am not sure, that's what I was hoping you could help me figure out."
+What_should_we_do "\[ Pain3 \]Find out what is causing this discharge."
+What_would_you_like_me_to_do "\[ Pain3 \] I really just want to know what is causing this and figure out how to fix it."
+What_is_your_goal "I hope you can figure out what the cause of this vaginal discharge is so I can get back to my schedule."
+Does_anything_make_you_feel_better "I fell a bit better after soaking in a hot bath."
+Are_you_around_sick_people "I work at the library, so people come and go all the time and I suppose some of them are sick."
+Tell_me_more "Well, for the last few days, I noticed a greyish white discharge."
+
+
+
+I_am_sorry "Thanks. "
+Why "Why what?"
+Good "\[ Nod \]"
+Got_it "\[ Nod \]"
+Ok "\[ Nod \]"
+
+
+# greetings
+I_am_doctor "Nice to meet you Doctor $drfirstname $drlastname"
+Nice_to_meet_you  "\[ Happiness1 \] Nice to meet you too. I am really glad to see you today."
+Nice_to_see_you "\[ Happiness1 \]  Nice to see you too. I am really glad to see you today. "
+Nice_to_see_you_too "\[ Happiness1 \]  Thanks."
+How_are_you "\[ Pain2 \] Well,  not so good. I am having this vaginal discharge."
+Tell_me_about_yourself "\[ Fear2 \] I have a very active life. I enjoy being outdoors and travelling."
+Hello "Hello Doctor.  I am so glad to see you."
+
+# followupidalogue
+Any_other_problems1 "I am having some terrible itching as well."
+Any_other_problems2 "I have noticed a weird smell too. "
+Any_other_problems3 "I also am having some burning with urination."
+Have_you_seen_anyone_else "You're the first person I've seen about this. "
+
+# PATIENT INFORMATION
+# age, date of birth
+How_old_are_you "I am 53 years old"
+When_were_you_born "March 11, 1961"
+
+# name, greetings
+What_is_your_name ^"$patientfirstname $patientlastname"
+Did_I_pronounce_that_correctly "Yes, that is correct."
+Do_you_mind_if_I_call_you "I usually go by Greta."
+How_do_you_pronounce_that "Sh-mid-t"
+What_should_I_call_you ^"You can call me $patientfirstname."
+Are_you_mr_patientlastname ^"Yes, I am $patientfirstname $patientlastname. Good to meet you Doctor."
+Are_you_mr_someoneelse ^"No, I am $patientfirstname $patientlastname" 
+Hello_mr_patientlastname "Hello Doctor.  I am so glad to see you."
+Hello_mr_someoneelse ^"Hello Doctor, however my name is $patientlastname, not  '_0. "
+Mr_patientlastname ^"Yes.  That is me, but  please just call me $patientfirstname"
+Mr_someoneelse ^"No, I am $patientfirstname $patientlastname. " 
+
+# MEDICATIONS
+# current medications
+Do_you_take_any_medication "I take baby aspirin daily, but nothing so far for this."
+When_did_you_take_medicine "I take my medicine every night."
+Need_to_take_the_medicine_that_often "Yes, daily."
+How_often_did_you_take_the_medicine "I take my medicine every night."
+How_long_taking_medicine "I've been taking my medicine for about 5 years."
+How_much_medicine_have_you_taken "Well, I have just been taking one."
+Would_you_like_a_stronger_prescription "Well,I'm not really sure. Maybe that would help, but I don't know."
+What_is_the_strength_of_the_medicine "I think it is 81 mg per pill."
+What_kind_of_medicine_is_that "Just a painkiller as far as I know.  "
+Did_the_medicine_help "I think so. I don't know how to tell."
+Did_you_take_medicine_today "Yes, I took my medicine today."
+Are_you_still_taking_medicine "Yes, I have continued to take it."
+Are_you_taking_any_medication "I take baby aspirin daily, but nothing so far for this."
+What_was_the_dose "Well, I was taking 81 mg daily. "
+What_is_medicine "I am usung it for prevention of heart problems."
+What_pills_did_you_take "I take baby aspirin daily."
+Would_you_like_some_pain_medication "Maybe, if it will help.."
+Doctor_prescribe_the_medicine "For prevention, since my family has a history of heart disease. "
+Who_prescribed_the_medicine "I don't need a prescription. It was over the counter."
+
+# supplements
+Are_you_taking_supplements "I take fish oil capsules and calcium/Vitamin D supplements"
+
+# other medications
+Take_any_other_medication "I take fish oil capsules everyday."
+       How_much_medication "I take one capsule which has about 1200mg, I think."
+       How_often_medication "Just once a day"
+Take_any_other_medication1 "I also take calcium and vitamin D."
+       How_much_medication1 "Umm, the calcium is maybe 600mg and the vitamin D is 1000 IU."
+       How_often_medication1 "Just once a day"
+
+# past medications
+Ever_taken_other_medication "Nothing else"
+
+# ALLERGIES
+
+Do_you_have_any_allergies "I do not have any allergies."
+
+# SOCIAL HISTORY
+# activity
+How_often_do_you_exercise "Everyday."
+Do_you_exercise "Yes, I run or bike everyday."
+Are_you_active "I am usually very active. My girlfriend and I like to bike and run."
+How_is_your_energy "Usually I have a lot of energy or at least enough to do the things I want to do."
+Have_you_been_resting "I have been trying to rest but when you are responsible for shelving everything, it is kinda hard."
+Have_you_been_bedridden "No, not at all."
+Are_you_able_to_drive "I can drive, I drove here."
+Are_you_able_to_drive_home "I can drive myself home. That shouldn't be a problem.   "
+
+# alcohol use
+How_much_do_you_drink "I drink a glass of wine with dinner about 5 times a week."
+Do_you_drink "Yes, I do drink. "
+What_kind_of_drinks "Just a glass of wine."
+
+# caffeine use
+Do_you_drink_coffee "One or two cups of coffee a day."
+
+# diet
+Do_you_drink_enough_fluid "Yes, I drink 6-8 glasses of water every day."
+Do_you_eat_dairy "\[ Happy2 \]I have milk on cereal, but I eat yogurt about every day. I try to limit cheese though. "
+Do_you_eat_fiber "Yes, I am trying to be very conscientious about my health. If I don't feel like I am eating enough, I will supplement with a drink like metamucil."
+Do_you_eat_fast_food "We don't eat much fast food. Usually only when we are travelling."
+Do_you_eat_fruit "Oh yes, I love fruit."
+Any_changes_in_your_diet "Nope, not recently anyway."
+How_is_your_diet "I stay on track most of the time, but as everybody else I like to have some of the fun things too. I eat dessert just about every day."
+Appetite "My appettite has been fine."
+Have_you_been_eating "I have been eating normally."
+What_snacks "Well, I try to limit my snacking, but I found this white cheddar cheese popcorn that is hard to top eating. I stay away from candy for the most part."
+What_do_you_eat "I try to eat my three meals and a couple of snacks every day."
+Can_you_eat "I can eat, this is not affecting my eating at all."
+
+# tobacco use
+How_much_do_you_smoke "\[ Contempt1 \]I don't smoke.  I hate the smell of that.   I have never and will never smoke."
+Have_you_ever_smoked "\[ Contempt2 \]I have never smoked."
+Do_you_smoke "\[ Contempt1 \]I have never smoked."
+
+# education
+How_much_schooling "I graduated from college."
+
+#  in relation to hpi
+Has_the_pain_affected_your_activity "I am not really having pain."
+Can_you_do_normal_activities "So far I have been able to, but I worry that my exercise may make it worse."
+How_have_you_been_handling_this "Ok, but I am starting to get concerned. "
+How_has_this_affected_you "Just been irritating mostly."
+What_bothers_you_the_most "That it hasn't resolved itself yet."
+Can_you_care_for_yourself "Of course, this isn't debilitating me."
+
+#  job
+Do_you_do_any_heavy_lifting_at_work "No, some books and occaional moving of desks, but nothing that strenous."
+Is_your_job_physically_demanding "Not really, a lot of on your feet time every day but that's ok."
+Is_your_job_stressful "Not really."
+Are_you_on_your_feet_a_lot "Oh yes, I am on my feet pretty much all day."
+Are_you_currently_working "Yes, I have only taken today off of work to come here."
+Why_are_you_off_work "So I could come here to find out about this pain in my side."
+Have_you_been_off_work "Just today."
+Have_you_been_able_to_work "I have been working."
+What_else_can't_you_do "Nothing really. I am concerned that exercising is making it worse though because of sweat."
+How_is_work "Work is fine."
+When_was_the_last_time_you_worked "I worked yesterday."
+Do_you_need_a_note_for_work "No, it is not required."
+Does_the_pain_interfere_with_work "Well, I am not having any pain."
+Where_do_you_work "\[ Happy2 \]At the community college library."
+How_long_have_you_been_a_worker "I think it has been 21 years now,but I have only had this job for the last 5 years."
+Do_you_have_insurance "Yes, I have pretty good insurance."
+What_do_you_do_for_a_living "I work fulltime as a  librarian at a community college."
+Do_you_work "I am a librarian."
+
+# recreational drug use
+Do_you_use_illegal_drugs "\[ Contempt4 \]I smoked marijuana when I was in my twenties, but none for a long time."
+Are_you_sure "Yes, of course I'm sure."
+
+# tattoos
+Do_you_have_a_tattoo "I don't have any."
+Ever_had_a_tattoo "I have never had one, but I have thought about it."
+
+# general health
+Are_you_healthy "I am generally pretty healthy. No real issues."
+
+#  CURRENTGENERALSYMPTOMS
+Do_you_have_any_medical_problems "Nothing really, I have been pretty healthy my whole life."
+What_symptoms_are_you_having "I am having vaginal discharge with a weird smell thrown in. Also, some burning while urinating."
+
+Why_are_you_having_trouble_sleeping "\[ Pain1 \]Mostly because of the itching."
+Have_you_had_any_trouble_sleeping "\[ Pain1 \]I wasn't having any problems, but last night I really never was able to get comfortable."
+Have_you_had_any_weight_change "Yes, I have gained about 5 pounds in the last few years."
+
+# CURRENTABDOMINALSYMPTOMS
+# bowel
+Are_you_able_to_control_your_bowels "Ummm, yes. I really haven't had any trouble like that."
+Do_you_have_any_bowel_problems "No, I have been going to the bathroom ok."
+When_was_last_bowel_movement "I just had one this morning, why?"
+
+# both bowel and bladder
+Loss_of_bowel_or_bladder_control "No, nothing along that line."
+Do_you_have_bowel_or_bladder_control "Sure, I haven't had any problems with that."
+
+# abdominal pain
+
+
+# CURRENTGUSYMPTOMS
+# bladder
+Blood_in_urine "I haven't noticed anything like that."
+Are_you_able_to_control_your_bladder "I am not having problems like that."
+Do_you_have_any_bladder_problems "Yes, it burns after I start my urine stream."
+How_about_your_bladder "No problems with my bladder."
+Any_pain_while_urinating "Yes, I have some burning on the outside when I pee."
+Have_you_been_incontinent "No. Not usually."
+
+# Onset
+How_long_with_urination_difficulty "for the last three days."
+How_long_a_problem "Just the last three days."
+
+# CURRENTCARDIACSYMPTOMS
+# blood pressure
+
+# chest pain
+
+# heartproblems
+
+# CURRENT GYN SYMPTOMS
+#  sexual activity
+How_many_sexual_partners "I have one partner that I have been with for the past 7 years."
+Do_you_prefer_men_or_women "I am a lesbian. I have had both male and female partners in the past, but I have been with my current partner for 7 years. "
+Who_are_your_sexual_partners "My partner is a woman, Teri.  I have had both male and female partners in the past, but I have been with my current partner for 7 years."
+Any_other_sexual_partners "No!"
+Are_you_sexually_active_with_spouse "I am not married."
+Are_you_sexually_active "Yes, with my partner Teri."
+When_did_you_last_have_intercourse "I don't really know."
+Do_you_have_an_STI "Not that I am aware of."
+
+#  contraception
+Do_you_use_contraception "I used the pill when I was in my twenties, but have not had any male partners for a long time."
+Have_you_had_unprotected_sex "Yes, with my partner."
+Do_you_have_sexual_symptoms "Yes, I have had less interest in sex over the past few years."
+
+# bleeding
+
+# periods
+First_day_of_last_period "Not exactly sure, it was 8 months ago though."
+When_was_your_last_period "8 months ago."
+Are_you_having_your_period "No, I am not, like I said I haven't had one in 8 months."
+Are_your_periods_regular "I always had regular periods, but the last one I had was 8 months ago and it was a bit lighter than ever before."
+Are_your_periods_irregular "They have always been regular, until this last 8 months when I haven't even had one."
+Is_your_period_late "About 8 months late."
+How_long_do_your_periods_last "Well, usually about 5 days."
+Can_you_describe_your_periods "I used to always  have moderate to heavy flow. "
+What_is_flow_like "It is usually moderate to heavy."
+How_often_are_your_periods "They used to always be like clockwork at 28 days."
+Are_your_periods_painful "No."
+Does_pain_change_with_period "I am not having any pain or periods."
+Do_you_menstruate "My menstrual cycles used to be  regular but I haven't had a period in 8 months."
+Use_tampons "I usually use tampons."
+How_many_tampons "I usually use 5 or 6 regular or super tampons a day."
+
+# menstrual cycles
+Have_you_had_any_menstrual_changes "Yes, Ithink I have been starting menopause this past year. My periods are definitely less frequent."
+Have_you_had_any_spotting "Not really. But my periods have been spacing out recently"
+Tell_me_about_your_menstrual_cycles "They used to always be regular and last for about 5 days, but my last period has been 8 months ago now."
+When_was_your_first_menstrual_cycle "Gosh, I think I was around 12 years old."
+
+# pain
+Any_vaginal_sores "Not that I have noticed. But I have had some itching recently."
+Any_vaginal_pain "Yes, sometimes. This seems to be worse recently."
+
+# discharge
+
+
+What_caused_the_vaginal_discharge "I can't think of anything that would have caused it."
+Any_vaginal_discharge "I am having a discharge."
+
+# itch
+What_caused_the_itch "I am not sure anything did."
+Any_vaginal_itching "Yes, the itching is driving me crazy."
+Any_vaginal_dryness "Yes, recently."
+
+# odor
+Have_you_noticed_a_vaginal_odor "There is an odor too."
+
+# pregnancy
+
+# breast
+Any_changes_in_breast_size "Yes, I think my breasts are smaller as I get older."
+
+# menopause
+Do_you_have_hot_flashes "Yes, I have hot flashes and sweats frequently"
+Are_you_in_menopause "I don't know for sure, but I think I am definitely on my way."
+
+
+
+
+# CURRENTHEENTSYMPTOMS
+# headaches
+Do_you_have_headaches "No, I don't really have headaches."
+
+# neck stiffness/soreness
+
+# CURRENTMUSCLESYMPTOMS
+# back pain
+
+
+# back injury
+
+# muscle pain
+
+# back stiffness
+
+# spine pain
+
+# CURRENTNEUROLOGICSYMPTOMS
+# walking
+Can_you_climb_stairs "Usually I have no problems and often I take the stairs for exercise, but I don't think I could do it today."
+
+# weakness
+Do_you_have_any_weakness "I have actually been feeling a bit weak the past week or so. "
+
+# CURRENTPAINSYMPTOMS
+# Onset
+
+
+# Exacerbation
+Does_rest_make_the_pain_go_away  "\[ Sad2 \] I don't really see how it would."
+Do_you_have_pain_at_rest  "\[ Sad2 \] I have discharge and itching pretty much all the time"
+Does_it_hurt_to_move "\[ Fear2 \] Yes, moving around seems to make the itching more intense."
+
+# Intensity
+Can_you_rate_it "\[ Pain2 \]The itching is about a 7 and the discharge is too. The burning with urination is about a 6."
+Does_the_pain_hurt_a_lot  "It is pretty bothersome."
+
+# General
+You_seem_uncomfortable  "I am pretty uncomfortable right now."
+
+# Description
+Does_the_pain_radiate  "What? No it is pretty localized."
+Do_you_have_any_radiating_pain  "I don't."
+Is_the_pain_sharp  "It is itchy and there is burning when I go to the bathroom."
+Is_the_pain_dull  "It is itchy and burning."
+
+
+
+# CURRENTTREATMENTS
+Have_you_tried_a_heating_pad "I haven't tried that yet, but I was thinking about it."
+Have_you_tried_heat_or_ice "No, nothing like that."
+Have_you_tried_heat "No, nothing like that."
+Have_you_tried_ice "No, nothing like that."
+Have_you_tried_any_topical_treatments "No, nothing like that."
+What_treatment_would_you_like_to_try "Something that will take this itching and discharge away."
+Have_you_tried_any_treatment "I haven't  tried anything yet."
+What_treatment_have_you_tried "I haven't  tried anything yet."
+Have_you_had_any_labs "Not for many years."
+Run_some_tests "Ok, that sounds great, I really want to know what is causing this so it doesn't happen agaIn."
+
+# PAST GENERAL SYMPTOMS
+# general
+Have_you_ever_had_any_serious_illnesses  "This pain is my first real issue."
+Have_you_ever_had_any_chronic_illnesses "I have been healthy. I don't have any medical problems"
+Have_you_ever_been_in_an_accident "I broke my left ankle while I was ice skating a few years ago. Other than that, nothing really."
+What_is_your_past_medical_history "I have not really had any issues. Just my tonsils and that broken ankle not much else out of the ordinary cold."
+
+# past surgical history and hospitalizations
+Any_other_surgeries "Not that I recall."
+Any_prior_surgeries "I have not had any surgeries other than I had my tonsils taken out when I was 4."
+Any_surgery_problems "None that I am aware of."
+Any_other_hospitalizations "I have never been in the hospital."
+Ever_been_in_the_hospital "Just when I had my tonsils out."
+
+# sleeping problems
+Any_history_of_insomnia "I've always slept fine.  "
+
+# PAST ABDOMINAL SYMPTOMS
+# bowel
+Have_you_had_past_incontinence "No, I haven't."
+Have_you_had_any_past_bowel_problems "I have no problems with my bowels.  "
+
+# bowel and bladder
+Any_previous_bowel_or_bladder_problems "No, no problems there."
+
+# abdominal pain
+Have_you_been_nauseous_before "Yes, hasn't everyone."
+
+# PAST CARDIAC SYMPTOMS
+# blood pressure
+Any_previous_blood_pressure_problems "My blood pressure has always been normal."
+
+# PAST GYN SYMPTOMS
+#  sexual activity
+How_many_sexual_partners_in_the_past "Not very many. Probably less than 5 total."
+Take_anything_for_the_infection "I got some antibiotics I think. I don't remember which kind."
+
+# pregnancy
+Have_you_been_pregnant_before "I have never been pregnant."
+
+# bleeding
+Have_you_had_vaginal_bleeding_before "Not that I remember, at least nothing besides my regular period."
+When_did_you_have_vaginal_bleeding "I haven't had any that I remember."
+
+# discharge
+Have_you_had_vaginal_discharge_before "I have had  occasional vaginal discharge when I had another partner."
+
+# PAST GU SYMPTOMS
+# bladder
+Have_you_had_incontinence_before "No, I haven't had that problem yet. Some of my friends that have kids seem to have a bit of that though."
+Have_you_had_any_past_bladder_problems "I have had UTI's in the past,but I haven't had one in a very long time, probably 10 years or more."
+
+# PAST HEENT SYMPTOMS
+# headache
+Have_you_ever_had_headaches "Well, I get an occasional headache."
+
+# neck stiffness/soreness
+
+# PASTMUSCLESYMPTOMS
+# back pain, injury, stiffness, muscle pain, spine pain, leg pain
+
+# PASTNEUROLOGISYMPTOMS
+# walking
+
+# numbness or tingling
+
+# weakness
+
+# PASTPAIN
+# Onset
+
+# Intensity
+
+# Description
+
+# FAMILY GENERAL SYMPTOMS
+Family_history "My mom had breast cancer and my aunt had ovarian cancer."
+Any_conditions_that_run_in_your_family "High blood pressure. My dad had it and so does my sister. "
+Any_family_history_of_illness  "Cancer. My mother had breast cancer and my aunt had ovarian cancer. Also, hypertension. My sister has it and my father had it as well."
+Parents_have_any_medical_problems "My mother had breast cancer and my father had heart disease."
+
+# FAMILY ABDOMINAL/GI SYMPTOMS
+# bowel
+Family_history_of_bowel_problems "No, as far as I know."
+
+# bowel and bladder
+Bowel_or_bladder_problems_in_your_family "No, as far as I know."
+
+# FAMILY CARDIAC SYMPTOMS
+# blood pressure
+Family_history_of_hypertension "My sister has high blood pressure."
+
+# FAMILY GU SYMPTOMS
+# bladder
+Family_history_of_incontinence "No.  I didn't even know that sort of things ran in families. "
+
+# FAMILY HEENT SYMPTOMS
+# headaches, neck stiffness
+Family_history_of_headaches  "My Mom had migraines.  "
+Family_history_of_neck_stiffness  "No, not that I know of."
+
+# FAMILY MUSCLE SYMPTOMS
+# back pain, injury, muscle pain
+
+# FAMILY GYN SYMPTOMS
+Family_had_an_STI "Not that I know of."
+Family_had_cancer "My mom had breast cancer and my aunt had ovarian cancer but I don't know what types of cancers they were."
+
+# WELLNESS
+# vaccines
+have_you_been_vaccinated_for_MMR "Yes."
+have_you_been_vaccinated_for_HIB "Yes, I believe so "
+have_you_been_vaccinated_for_hepatitis_a  "Yes, I believe I did before I did some traveling.  "
+have_you_been_vaccinated_for_hepatitis_b "Yes, I think so "
+have_you_been_vaccinated_for_hepatitis "Which type? "
+have_you_had_hpv_vaccine "I did not get that."
+have_you_had_flu_shot "Yes, I get one every year. "
+have_you_had_the_pneumonia_vaccine "No, I haven't had that. "
+when_was_your_last_tetanus_shot "I had my last booster within the last 5 years "
+are_you_current_on_vaccinations "I had a tetanus shot when I started my job 5 years ago, but that is all I can remember."
+
+
+# seeing a doctor
+When_did_you_see_a_gynecologist_last "More than 5 years ago, I think. The doctor was critical because of my lifestyle, so I never went back."
+When_did_you_see_a_doctor_last "More than 5 years ago, I think. The doctor was critical because of my lifestyle, so I never went back."
+Did_you_have_any_trouble_finding_us "No, it was pretty easy to get here.  "
+Did_you_find_a_parking_spot "I had no problems parking.  Things around here are actually pretty easy.  There are a lot of clear signs."
+How_did_you_get_here_today "I drove myself."
+How_did_you_come_to_find_us "One of my friends recommended this office."
+How_did_you_learn_about_this_office  "One of my friends recommended this office."
+Have_you_been_seen_at_this_office_before  "This is my first visit here or anywhere for about five years."
+Are_you_a_new_patient "I am a new patient."
+Where_are_you_usually_seen "I haven't seen a doctor in 5 years."
+Have_you_been_waiting_long "I have not been waiting very long.  I am pretty impressed by how quickly things have moved.  "
+
+# mentalhealth
+Are_you_depressed "Sometimes I do feel a little down, but not that often."
+Having_mood_changes "Not really, but I think I have been more moody with menopause. "
+Are_you_depressed "Sometimes I do feel a little down, but not that often."
+Are_you_stressed "A little more stress recently. My partner thinks I need to lose weight."
+
+# MOVEMENTS
+# range of motion
+Can_you_bend_down "Yes, I was a gymnast in high school, so I  am pretty limber."
+
+# past range of motion
+
+# CHITCHAT
+# weather and seasons
+What_is_it_like_outside "The usual for this time of year. Kind of gray and overcast."
+Is_it_starting_to_get_cold_outside "It is supposed to start getting colder in the next couple of days."
+It_is_starting_to_get_cold_outside "\[ Surprise1 \]I heard it was supposed to get cold again."
+Is_it_still_raining "It wasn't when I came in, but I think we are supposed to get some more rain today."
+What_do_you_think_about_this_weather "Eh, I like the cold, but not the dreariness."
+Doesn't_seem_like_summer_any_more   "The seasons seem to change quickly these days. "
+
+# sports
+see_game "I didn't get to see it, I had a school function to attend."
+What_do_you_think_about_the_buckeyes  "Well, I like to watch them. They usually have a really good team."
+
+# reading
+Read_any_good_books_lately "I try to read everything that Dr. Danforth writes, but other than that I don't read very often."
+
+# watching TV, movies, etc
+Seen_any_good_movies_lately "I don't watch that many movies. I like to do more active things with my free time."
+Watch_NCIS_last_night "No, I haven't watched much TV lately. "
+
+# hobbies
+Do_you_have_any_hobbies "I like to garden and cook. I enjoy running also. I also volunteer at the local animal shelter."
+
+# politics
+Who_are_you_going_to_vote_for "\[ Contempt \]I don't like discussing politics.  There is too much hate out there."
+
+# dining
+Been_to_any_good_restaurants_lately "I had a great lunch at a little sandwich place recently, but I forget the name."
+
+# general conversation
+How_was_your_day "My '_0 was just fine, thanks for asking. I wish I were feeling better though"
+How_has_your_day_been_going "My '_0 was just fine, thanks for asking. I wish I were feeling better though"
+
+
+
+# feelingquestions
+Are_you_frustrated "I really just want to know what is going on."
+Are_you_nervous "Well I am a little anxious this will get worse and it is something serious.  "
+
+# CLOSURE
+# closing the conversation
+Do_you_have_any_questions ^"^print(  [No] [No, I think that's all. Thank you for your time])"
+Anything_else_I_can_help_with "No, thank you for seeing me.  Hopefully we can get this taken care of before it gets any worse."
+Have_everything_you_need "Yes, thank you.  Just tell me what to try and I will do my best.  I really want to get this fixed."
+Have_all_the_information "\[ Happy1 \]OK Thanks."
+Do_an_exam_now "Sounds good,  I hope you can tell me what is wrong."
+Goodbye ^"^print(\[ Happy2 \][Goodbye then] [Goodbye and thanks])"
+Thanks "\[ Happy2 \]Thank you"
+
+# summarizing statements
+Can_you_summarize "Well, I started having this vaginal discharge a few days ago and it has an odor associated with it. I am also experiencing some burning when I go to the bathroom."
+To_summarize ^"^print([That sounds about right] [I think that is correct])" 
+Did_I_miss_anything "I don't think so."
+
+
+# SCREENING
+# colon section
+have_you_had_a_colonoscopy "No, I've never had one."
+
+# breast section
+have_you_had_your_mammogram "No, I haven't had one."
+
+# female GU section
+Have_you_had_a_pap_smear "My last pap was 5 years ago. The doctor was critical because of my lifestyle, so I never went back."
+Results_of_pap_smear "It was normal."
+Have_you_ever_had_an_abnormal_pap "I've never  had an abnormal pap smear."
+When_was_your_last_pap_smear "About 5 years ago. The doctor was critical because of my lifestyle, so I never went back."
+
+
+# family life
+
+Do_you_have_a_family "Yes,  my sister. "
+Do_you_have_any_pets "Yes, we have two cats. My partner wants to get a dog too, but so far I have been able to win that one."
+How_is_your_family "My sister is doing well."
+Who_do_you_live_with "I live with my partner and our two cats."
+Do_you_live_alone "I live with my partner and our two cats."
+Where_do_you_live "We live in Victorian Village."
+Where_is_home "Well, home is actually what I call where I grew up, which is Toledo, Ohio."
+
+# parents
+
+Are_your_parents_living "Both of my parents have died."
+Are_your_parents_healthy "My parents are dead."
+How_old_are_your_parents "My mother was 69 when she died and my father was 48 when he died"
+Tell_me_about_your_parents "My mother died of breast cancer , and my father died of a heart attack."
+
+# grandparents
+Are_your_grandparents_living "Both of my grandparents are deceased."
+How_old_are_your_grandparents "Both of my grandparents are deceased."
+Are_your_grandparents_healthy  "Both of my grandparents are deceased."
+Tell_me_about_your_grandparents "Both of my grandparents are deceased."
+
+# siblings
+
+Do_you_have_siblings "Yes, I have one sister"
+How_old_are_your_siblings "She is 55"
+Are_your_siblings_healthy  "She has hypertension."
+Tell_me_about_your_siblings "I have one sister. She has hypertension."
+
+# relatives
+Tell_me_about_your_relatives "I used to have an aunt who was my mother's sister, but she died of ovarian cancer in her 50's."
+
+# children
+
+How_many_children "I don't have any children."
+How_old_are_your_children "I don't have any children."
+Are_your_children_healthy  "I don't have any children."
+How_are_your_children "I don't have any children."
+Do_you_want_children "No."
+Do_you_have_any_children "I don't have any children."
+Tell_me_about_your_children "I don't have any children."
+
+
+# spouse
+
+Are_you_divorced "No."
+Are_you_married "No."
+How_long_have_you_been_married "I have been with my partner for 7 years."
+Are_you_single "I am not married."
+Are_you_in_a_relationship "Yes."
+Are_you_dating_anyone "No, I am in a relationship."
+Are_you_widowed "No."
+Do_you_have_a_boyfriend "No."
+Do_you_have_a_girlfriend "Yes."
+Do_you_have_a_significant_other "Yes."
+Do_you_have_a_partner "Yes."
+Tell_me_about_your_partner "I have been with my partner for 7 years."
+How_old_is_your_partner "She is 50."
+Is_your_partner_healthy  "She is very healthy and is not experiencing any of the same symptoms."
+What_is_your_partners_name "Her name is Teri."
+Is_your_partner_male "No."
+Is_your_partner_female "Yes."
+
+# support
+
+Are_you_abused "I have no concerns about my home life."
+Do_you_feel_safe "I feel safe.  Our home is in a nice area."
+Do_you_have_support "Sure, I have my partner, Teri."
+
+# CHIEFCOMPLAINT
+# onset
+Did_anything_happen_to_cause_the_1 "I can't think of anything."
+How_did_the_1_start "It started right after I noticed some itching in my vulvar area."
+Doing_anything_when_the_1_started "I wasn't doing anything."
+Is_the_1_new "It is new."
+When_did_the_1_start "It started about 3 days ago."
+1_worse_morning_or_night "Maybe at night because I am not busy and it bothers me more then."
+How_has_the_1_changed "The discharge as remained about the same."
+How_long_have_you_had_1 "For three days now. "
+Is_the_1_constant "It is always there."
+Do_you_have_a_cause_for_1 "I can't think of anything that would have caused it."
+
+# exacerbation
+What_makes_the_1_worse "I don't know of anything that I can think of that makes it worse."
+Does_anything_change_1_intensity "Not really."
+What_makes_the_1_better "Soaking in the bathtub seems to help make it feel better. At least it relieves the itching for a bit."
+Does_the_1_improve_with_exercise "It seems a bit worse after exercising."
+Avoid_exacerbate_1 "Well, I have stopped my biking and other exercise. "
+Is_the_1_improving "It seems to be staying about the same."
+Does_the_1_get_worse_with_period "I wouldn't know since I haven't had one for 8 months now."
+
+# intensity
+How_intense_is_the_1 "The dishcarge itself is not that bad, but the itching is driving me crazy."
+Has_the_intensity1_changed "Not really. It has pretty much stayed the same."
+Has_the_1_become_worse "The amount and color of the discharge have stayed the same. "
+When_is_the_1_most_severe "It seems worse in the evening, but that just may be because I am not distracted and notice it more."
+
+# general
+Do_you_currently_have_1 "I am currently having vaginal discharge, that's why I'm here."
+How_is_your_1_now "It is about the same as when it started. "
+Do_you_have_any_1 "I do have vaginal discharge."
+
+# description
+Has_the_1_changed "Not really. It has pretty much stayed the same."
+What_color_is_the_1 "It is a greyish white color."
+Is_the_1_thick "It is actually greyish-white in color and sort of thin and frothy."
+When_do_you_have_the_1 "Most all of the time."
+How_long_does_the_1_last "It hasn't stopped yet."
+How_frequent_is_the_1 "Constant."
+What_concerns_you_about_the_1 "It is messy and keeping me from my activities."
+Where_is_the_1 "What? It is down there."
+Describe_the_1 "It is a greyish white discharge that started about 3 days ago and is incredibly itchy. "
+
+
+# COMPLAINT2
+# onset
+Did_anything_happen_to_cause_the_2 "Nothing actually happened, but I am assuming it has to do with the discharge."
+How_did_the_2_start "I noticed some itching around my vulvar area right before the discharge began."
+Doing_anything_when_the_2_started "Nothing unusual."
+Is_the_2_new "It is not something I have all the time, that's for sure, so I would call it new."
+When_did_the_2_start "It started about 3 days ago about the same time as the discharge."
+2_worse_morning_or_night "I'm not sure it is worse either time, I think it seems worse at night though."
+How_has_the_2_changed "It hasn''t changed much at all."
+How_long_have_you_had_2 "About three or four days now."
+Is_the_2_constant "It is there all the time, but if I keep busy I don't notice it as much."
+
+# exacerbation
+What_makes_the_2_worse "It seems worse with tight clothes."
+Does_anything_change_2_intensity "Exercising seems to make it much more intense."
+What_makes_the_2_better "Soaking in the bathtub seems to help make it feel better."
+Does_the_2_improve_with_exercise "Actually, it gets worse with exercise."
+Does_the_2_keep_you_up_at_night "It is starting  to really bother me, especially at night. It is hard to get to sleep with the itching."
+Avoid_exacerbate_2 "I have pretty much stopped exercising."
+Is_the_2_improving "It seems to be about the same."
+Does_the_2_get_worse_with_period "I wouldn't know since I haven't had one for 8 months now."
+
+# intensity
+How_intense_is_the_2 "the itching is driving me crazy."
+Has_the_intensity2_changed "The only time the intensity has changed was when I exercised. That increased the intensity a whole bunch."
+Has_the_2_become_worse "It is about the same, but gets worse when I exercise or the area gets warm."
+When_is_the_2_most_severe "It seems to be at its worst in the evening and at night."
+
+# general
+Do_you_currently_have_2 "I am currently having vaginal itching."
+How_is_your_2_now "Very itchy."
+Do_you_have_any_2 "I do have vaginal itch."
+
+# description
+Is_the_2_thick "I guess I would describe it as a crawling, very itchy, itch."
+When_do_you_have_the_2 "All of the time, constantly."
+How_long_does_the_2_last "It doesn't go away."
+How_frequent_is_the_2 "Constant."
+What_concerns_you_about_the_2 "That I need some medication or something since it is not going away on its own."
+Where_is_the_2 "In my vulvar area."
+Describe_the_2 "Well, it is really itchy like the kind of itch that makes you crazy cause it won't stop."
+
+# COMPLAINT3
+# onset
+Did_anything_happen_to_cause_the_3 "Noting happened, but I assume it goes along with the discharge and itch I am having."
+How_did_the_3_start "I am not really sure, but it started after the discharge was there for about a day or so. Probably started at the same time as the itching."
+Doing_anything_when_the_3_started "Nothing out of the ordinary."
+Is_the_3_new "I don't usually have this odor, so it is new."
+When_did_the_3_start "It started about 3 days ago about the same time as the discharge."
+3_worse_morning_or_night "I would say it is worse at night."
+How_has_the_3_changed "The odor really hasn't changed at all."
+How_long_have_you_had_3 "About three days now."
+Is_the_3_constant "the odor is there most of the time I think."
+
+# exacerbation
+What_makes_the_3_worse "It seems worse with tight clothes."
+Does_anything_change_3_intensity "Maybe when I get hot and sweaty from exercising."
+What_makes_the_3_better "I don't know that anything has helped that. Maybe getting in the bathtub."
+Does_anything_else_help_the_3 "I haven't noticed anything that takes it away totally."
+Does_the_3_improve_with_exercise "It gets worse with exercise."
+Is_the_3_improving "It is not."
+Does_the_3_get_worse_with_period "I wouldn't know since I haven't had one for 8 months now."
+
+# intensity
+How_intense_is_the_3 "It is really not that intense."
+Has_the_3_become_worse "I don't think it is any different."
+When_is_the_3_most_severe "I would say it is most intense after I would exercise and before showering."
+
+# general
+Do_you_currently_have_3 "I do have the odor now."
+How_is_your_3_now "It is still there."
+Do_you_have_any_3 "I do have the odor now."
+
+# description
+Is_the_3_thick "It is not all that strong of a smell, but it is foul and sort of fishy or musty."
+What_concerns_you_about_the_3 "That other people can smell it too. "
+Where_is_the_3 "It is coming from my private region."
+Describe_the_3 "It is musty maybe and funky, that's about the best I can do for that."

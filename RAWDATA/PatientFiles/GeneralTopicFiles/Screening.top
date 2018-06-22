@@ -1,0 +1,147 @@
+
+
+topic: ~screenings keep repeat (screen screening screened colonoscopy mammogram prostate pap "pap smear" Pap_smear results test tested testing strep "group B strep" "group B" antibody blood type "blood typing" "blood type" determine "blood glucose" sugar "blood sugar" glucose "hemoglobin A1c" A1c)
+
+	u: ($family) ^fail(TOPIC)
+
+
+# ***************************************************************************************************
+
+
+# This is the general section
+
+#! have you had a blood typing
+	u: have_you_had_a_blood_typing (have you had a blood typing) ^factanswer("I've never had one of those.")
+	u: ([screen screened screening test testing tested determined] * [blood type "blood typing" "blood type"]) ^reuse(have_you_had_a_blood_typing)
+	u: ([blood type "blood typing" "blood type"] * [screen screened screening test testing tested determined])
+
+#! Have you had blood drawn
+	u: Have_you_had_blood_drawn (have you had blood drawn) ^factanswer("I've not had my blood drawn.")
+	u: (blood * [work draw drawn test]) ^reuse(Have_you_had_blood_drawn)
+
+
+
+	
+
+# ***************************************************************************************************
+
+
+# This is the colon section
+
+#! have you had a colonoscopy
+
+	u: have_you_had_a_colonoscopy (have you had a colonoscopy) ^factanswer("I've never had one of those.")
+	u: (<< [screen screened screening] "colon cancer" >>) ^reuse(have_you_had_a_colonoscopy)
+	u: (!abnormal colonoscopy) ^reuse(have_you_had_a_colonoscopy)
+
+#! Have you had abnormal colonoscopy
+	u: Have_you_had_abnormal_colonoscopy (have you had abnormal colonoscopy) ^factanswer("They have been normal.")
+	u: ([abnormal unusual benign malignant] * colonoscopy) ^reuse(have_you_had_abnormal_colonoscopy)
+
+
+# ***************************************************************************************************
+
+
+# This is the breast section
+
+#! have you had your mammogram
+
+	u: have_you_had_your_mammogram (have you had your mammogram) ^factanswer("I've never had one of those.")
+	u: (<<[screen screened screening] "breast cancer" >>) ^reuse(have_you_had_your_mammogram)
+	u: ([mammogram mammography]) ^reuse(have_you_had_your_mammogram)
+
+# ***************************************************************************************************
+
+
+# This is the male GU section
+
+
+#! have you had a prostate exam
+	u: have_you_had_a_prostate_exam (have you had a prostate exam) ^factanswer("I have not.") 
+	u: (<<[screen exam check screened screening] "prostate cancer" >>) ^reuse(have_you_had_a_prostate_exam)
+	u: ([prostate psa]) ^reuse(have_you_had_a_prostate_exam)
+
+#! What were results of prostate exam
+	u: Results_of_prostate_exam  (what were results of prostate exam)  ^factanswer("Never had a prostate exam.")
+	u:([~itwords "prostate exam" psa] * [result normal])  ^reuse(Results_of_prostate_exam)
+	u:([~itwords "prostate exam" psa] * [result normal])  ^reuse(Results_of_prostate_exam)
+
+
+
+# ***************************************************************************************************
+
+
+# This is the female GU section
+
+#! Have you had a pap smear
+	u: Have_you_had_a_pap_smear (have you had a pap smear) ^factanswer("I've never had one of those.")
+	u: (<<[screen screened screening] [cervical "cervical cancer"]>>) ^reuse(Have_you_had_a_pap_smear)
+	u: (!abnormal [ever "have you had"] * ["pap smear" pap Pap_smear]) ^reuse(Have_you_had_a_pap_smear)
+
+#! What were results of pap smear
+	u: Results_of_pap_smear  (what were results of pap smear)  ^factanswer("Never had a pap smear.")
+	u:([~itwords pap smear] * [result normal])  ^reuse(Results_of_pap_smear)
+
+#! Have you ever had an abnormal pap
+	u: Have_you_ever_had_an_abnormal_pap  (have you had an abnormal pap)  ^factanswer("Never had one.")
+	u: (<< abnormal [pap Pap_smear "pap smear"] >>)   ^reuse(Have_you_ever_had_an_abnormal_pap)
+
+#! When was your last pap smear
+	u: When_was_your_last_pap_smear (when was your last pap smear) ^factanswer("Never had one.")
+	u: (when * [last recent] * [pap smear "pap smear" "pap test" pap]) ^reuse (When_was_your_last_pap_smear)
+
+
+# ***************************************************************************************************
+
+
+# This is the communicable disease section
+
+#! Have you had HIV test
+	u: Have_you_had_HIV_test (have you had HIV test) ^factanswer("I have not.")
+	u: ([screen screened screening test testing tested] * ~STI)   ^reuse (Have_you_had_HIV_test)
+	u: (~STI * [screen screened screening test testing tested])   ^reuse (Have_you_had_HIV_test)
+
+
+#! Have you had Hepatitis B test
+	u: Have_you_had_Hepatitis_B_test (have you had hepatitis B test) ^factanswer("I have not.")
+	u: ([screen screened screening test testing tested] * ["Hepatitis B" "Hep B"])   ^reuse (Have_you_had_Hepatitis_B_test)
+	u: (["Hepatitis B" "Hep B"] * [screen screened screening test testing tested])   ^reuse (Have_you_had_Hepatitis_B_test)
+
+
+
+# ***************************************************************************************************
+
+
+# This is the prenatal care section
+
+#! Have you had glucose tolerance test
+	u: Have_you_had_glucose_test (have you had glucose test) ^factanswer("I have not.")
+	u: ([screen screened screening test testing tested] * [glucose sugar])   ^reuse (Have_you_had_glucose_test)
+	u: ([glucose sugar] * [screen screened screening test testing tested])   ^reuse (Have_you_had_glucose_test)
+
+#! Have you had group B strep test
+	u: Have_you_had_strep_test (have you had strep test) ^factanswer("I have not.")
+	u: ([screen screened screening test testing tested] * [strep "group B strep" "group B"])   ^reuse (Have_you_had_strep_test)
+	u: ([strep "group B strep" "group B"] * [screen screened screening test testing tested])   ^reuse (Have_you_had_strep_test)
+
+#! Have you had antibody test
+	u: Have_you_had_antibody_test (have you had antibody test) ^factanswer("I have not.")
+	u: ([screen screened screening test testing tested] * antibody)   ^reuse (Have_you_had_antibody_test)
+	u: (antibody * [screen screened screening test testing tested])   ^reuse (Have_you_had_antibody_test)
+
+
+# ***************************************************************************************************
+
+
+# This is the diabetes section
+
+#! Have you had blood glucose checked
+	u: Have_you_had_blood_glucose_checked (have you had blood glucose checked) ^factanswer("My blood glucose has been checked.")
+	u: (["blood glucose" sugar "blood sugar" glucose "hemoglobin A1c" A1c "hgb A1c"] * [check measure run test screen level]) ^reuse (Have_you_had_blood_glucose_checked)
+	u: ([check measure run test screen level know] * ["blood glucose" sugar "blood sugar" glucose "hemoglobin A1c" A1c "hgb A1c"]) ^reuse (Have_you_had_blood_glucose_checked)
+
+
+
+
+
+

@@ -1,0 +1,60 @@
+										
+table: ^grade_sheet(Patient1)  	# the set of sections that are handled in a full diagnostic									
+"History of Present Illness"																		"Past Medical History"										
+"Family History"										
+"Social History"
+										
+table: ^section("History of Present Illness") 										
+Location	Where_is_the_1	Is_the_pain_only_in_your_lower_back Is_the_pain_in_your_upper_or_lower_back 	Is_the_pain_on_the_left_or_right_side 	Any_specific_part_of_your_back 	Any_pain_on_right_side 	Any_pain_on_left_side	Is_the_pain_on_one_side 
+Location	Is_the_pain_in_the_muscle 	Where_is_the_2								
+"Quality or description"	Describe_the_1	How_is_your_1_now	Do_you_have_any_1	Do_you_currently_have_1	Is_the_pain_sharp 	Is_the_pain_dull 	Is_the_area_tender 	Do_you_currently_have_2	Do_you_have_any_2
+"Quality or description"	Describe_the_2	How_is_your_2_now								
+"Timing or chronology"	When_did_the_1_start	When_do_you_have_the_1	How_frequent_is_the_1	How_long_have_you_had_1	How_long_does_the_1_last	How_long_ago_was_the_the_incident	Is_the_2_improving	Is_the_1_improving	How_long_does_the_2_last
+"Timing or chronology"	When_did_the_2_start	When_do_you_have_the_2	How_frequent_is_the_2	How_long_have_you_had_2						
+"Quantification or severity"	Is_the_1_constant	How_intense_is_the_1	Has_the_1_become_worse	When_is_the_1_most_severe	Has_the_intensity1_changed	How_painful_is_it 	CAN_YOU_RATE_THE_PAIN 	Can_you_rate_it	Is_the_pain_always_a_number 	Does_the_pain_hurt_a_lot 
+"Quantification or severity"	How_intense_is_the_2Has_the_2_become_worse	When_is_the_2_most_severe	Is_the_2_constant			
+"Setting or context"	How_did_the_1_start	Do_you_have_a_cause_for_1	Doing_anything_when_the_1_started	How_did_the_2_start	Do_you_have_a_cause_for_2	How_has_this_affected_you Did_you_injure_yourself				
+"Modifying factors"	1_worse_morning_or_night	How_has_the_1_changed	What_makes_the_1_worse	Does_anything_change_1_intensity	What_makes_the_1_better	Does_anything_else_help_the_1	Does_moving_increase_the_1	Does_any_position_relieve_the_1	Does_any_position_make_the_1_worse	Do_any_positions_make_1_worse_or_better
+"Modifying factors"	Can_you_move_around_with_the_1	Is_1_worse_when_you_lie_down	Do_you_have_1_when_you_lie_down	Is_1_better_when_you_lie_down	Does_1_increase_when_you_stand	Does_the_1_improve_with_exercise	Avoid_exacerbate_1	What_movements_make_it_hurt	How_has_the_2_changed	What_makes_the_2_worse
+"Modifying factors"	Did_the_medicine_help 	Does_rest_make_the_pain_go_away 	Do_you_have_pain_at_rest 	Does_it_hurt_when_not_moving 	Does_it_hurt_to_sneeze 	Does_it_hurt_to_cough 	Does_it_hurt_to_move 	Is_the_pain_associated_with_food 	Does_anything_change_2_intensity	What_makes_the_2_better
+"Modifying factors"	Does_anything_else_help_the_2	Does_moving_increase_the_2	Does_any_position_relieve_the_2	Does_any_position_make_the_2_worse	Do_any_positions_make_2_worse_or_better	Can_you_move_around_with_the_2	Is_2_worse_when_you_lie_down	Do_you_have_2_when_you_lie_down	Is_2_better_when_you_lie_down	Does_2_increase_when_you_stand
+"Modifying factors"	Does_the_2_improve_with_exercise	Avoid_exacerbate_2	2_worse_morning_or_night	Does_it_hurt_when_you_bend						
+										
+										
+# SUMMARY:										
+# HOPI – 3 of 6 essential questions asked										
+										
+										
+table: ^section("Past Medical History") 										
+"Past medical history" 	Have_you_ever_had_any_serious_illnesses	What_is_your_past_medical_history	Have_you_ever_had_any_chronic_illnesses	Are_you_healthy	Are_you_sick	Do_you_have_any_chronic_illnesses	Were_you_healthy	Have_you_ever_been_in_an_accident	How_is_your_blood_pressure	Do_you_have_any_medical_problems
+"Past medical history" 	Have_you_had_back_injury_before	Have_you_had_1_before	Have_you_had_2_before							
+"Past surgical history" 	Any_prior_surgeries	Any_other_surgeries	Any_surgery_problems	Have_you_had_back_surgery_before						
+Hospitalizations	Ever_been_in_the_hospital	Any_other_hospitalizations								
+Medications	Are_you_taking_any_medication	Taking_medication_for_the_1 	Take_any_other_medication1	Take_other_medication_for_1	What_pills_did_you_take	What_were_the_pills_called	Do_you_take_medication_for_allergies	Did_you_take_medicine_today	Take_allergy_medication_today	Take_any_other_medication
+Medications	Taking_medication_for_the_2	Take_any_other_medication2	Take_other_medication_for_2							
+Dose	What_was_the_dose	How_often_did_you_take_the_medicine	How_much_medicine_have_you_taken	What_is_the_strength_of_the_medicine	How_much_allergy_medication	How_often_allergy_medication	       How_much_medication	       How_often_medication	       How_much_medication1	       How_often_medication1
+OTC/Supplements	Are_you_taking_supplements									
+Indications	Why_do_you_take_the_medication	What_kind_of_medicine_is_that	Doctor_prescribe_the_medicine	Who_prescribed_the_medicine						
+"Allergies"	Do_you_have_any_allergies	Food_or_environmental_allergies								
+Reactions	What_are_allergy_reactions									
+										
+# SUMMARY:										
+# Past Medical History – 6 of 9 essential questions asked										
+										
+table: ^section("Family History") 										
+"Identifies Family members"	Are_your_parents_living	Tell_me_about_your_parents	Do_you_have_a_family	How_is_your_family Tell_me_about_your_children	Tell_me_about_your_grandparents	Do_you_have_siblings	Tell_me_about_your_siblings	How_did_grandparents_die	Are_your_grandparents_living	
+"Identifies Family members" How_many_children How_old_are_your_children Do_you_have_any_children What_are_your_children_named
+"Identifies medical conditions"	Parents_have_any_medical_problems	Are_your_parents_healthy	Are_your_grandparents_healthy 	Are_your_siblings_healthy Are_your_children_healthy						
+"Diseases of known inheritance"	Any_conditions_that_run_in_your_family	Any_family_history_of_illness 								
+										
+# SUMMARY:										
+# Family History – 3 of 3 essential questions asked										
+
+table: ^section("Social History") 										
+"Identifies Occupation"	Are_you_currently_working Where_do_you_work How_long_have_you_been_a_worker What_do_you_do_for_a_living Do_you_work How_is_work When_was_the_last_time_you_worked	
+"Identifies activities"	Do_you_have_any_hobbies What_do_you_do_for_fun How_often_do_you_exercise Do_you_have_any_trouble_exercising Do_you_exercise Are_you_active How_is_your_energy					
+"Drugs not prescribed" Do_you_use_illegal_drugs
+"Alcohol Use" How_much_do_you_drink Do_you_drink Do_you_feel_guilty_about_your_drinking Anyone_thought_alcohol_problem Do_you_ever_need_an_eye_opener Have_you_considered_reducing_alcohol Ever_felt_annoyed_about_alcohol What_kind_of_drinks How_many_drinks
+
+# SUMMARY:										
+# Social History – 3 of 3 essential questions asked	

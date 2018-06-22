@@ -1,0 +1,754 @@
+outputmacro: patient19()
+$patientfirstname = Brittany
+$patientlastname = Watson
+$chiefcomplaint = ~obstetric
+$complaint2 = 
+$complaint3 = 
+$Vpatient19 = Vpatient19
+$Vpatient = Vpatient19
+$patientTitle = Miss
+$currentjob = waitress
+$currentmedication1 = prenatal vitamins
+$currentmedication2 = 
+$currentmedication3 = 
+$currentrateofpain = 
+
+^stdpatient()
+
+table: ^patientdata(Vpatient19)
+
+
+### OpeningDialogue
+# primary
+
+What_brings_you_in_today "My water broke so I called and was told to come in."
+What_would_you_like_me_to_do "Can you tell me what will happen to the baby."
+What_is_your_goal "I'm hoping you could help me understand what problems the baby might have."
+
+# greetings
+
+
+# followupdialogue
+
+
+### PatientInformation
+# patientage
+
+How_old_are_you "I'm 23 years old."
+When_were_you_born "January 15th, 1993"
+
+# patientname
+
+Name_and_date_of_birth "Brittany Watson, January 15th, 1993"
+What_is_your_name "Brittany Watson"
+
+### Medications
+# currentmedications
+
+Taking_medication_for_the_1  "I take prenatal vitamins"
+Taking_medication_for_the_3 "I don't take any medications or supplements. Only prenatal vitamins."
+When_did_you_take_medicine "I take a prenatal vitamin every morning."
+Need_to_take_the_medicine_that_often "I take only prenatal vitamins."
+How_often_did_you_take_the_medicine "I take a prenatal vitamin every morning."
+How_long_taking_medicine "Only since I found out I was pregnant."
+How_much_medicine_have_you_taken "I take one prenatal vitamin every day"
+Would_you_like_a_stronger_prescription " I don't take any prescription medications."
+What_is_the_strength_of_the_medicine "I don't know."
+Did_the_medicine_help "I haven't taken any medicine. Only prenatal vitamins."
+Did_you_take_medicine_today "I did take a prenatal vitamin today."
+Are_you_still_taking_medicine "I am still taking prenatal vitamins."
+What_was_the_dose "I take one a day."
+What_pills_did_you_take "I take prenatal vitamins."
+What_kind_of_medicine_is_that "It's a prenatal vitamin."
+Would_you_like_some_pain_medication "I am not in pain and I don't think that would be good for the baby."
+What_is_medicine "It is a prenatal vitamin."
+Are_you_taking_any_medication "I take prenatal vitamins."
+ Is_medication_new "I started taking it when I got pregnant."
+What_were_the_pills_called "Prenatal vitamins"
+
+# supplements
+
+Are_you_taking_supplements "I don't take any supplements. Only prenatal vitamins."
+Which_multivitamin "I take prenatal vitamins."
+
+# othermedications
+
+Why_do_you_take_the_medication "For the baby, so he will be healthy."
+
+# pastmedications
+
+
+### Allergies
+# Allergies
+
+
+### SocialHistory
+# activity
+
+
+# alcoholuse
+
+Have_you_considered_reducing_alcohol "I don't drink."
+
+# caffeineuse
+
+
+# diet
+
+
+# tobaccouse
+
+
+# education
+
+
+# inrelationtohpi
+
+
+# job
+
+
+# recreationaldruguse
+
+
+# tattoos
+
+
+# travel
+
+
+# hobby
+
+
+# sexualactivity
+
+How_many_sexual_partners "Five in my life."
+Do_you_prefer_men_or_women "Men"
+Who_are_your_sexual_partners "My boyfriend."
+Any_other_sexual_partners "None. Just my boyfriend."
+Are_you_sexually_active "I am sexually active with my boyfriend."
+When_did_you_last_have_intercourse "Yesterday."
+
+# religion
+
+
+# advanceddirective
+
+
+# generalhealth
+
+
+### CurrentGeneralSymptoms
+# medicalproblems
+
+
+# sleepingproblems
+
+
+# discharge
+
+What_color_is_the_discharge "It is clear."
+Have_you_noticed_a_discharge "I noticed some fluid leakage a few hours ago."
+
+# itch
+
+
+# odor
+
+Is_the_odor_strong "It doesn't have an odor."
+
+### CurrentAbdominalGISymptoms
+# bowel
+
+
+# bothbowelandbladder
+
+
+# abdominalpain
+
+
+# heartburn
+
+
+### CurrentGUSymptoms
+# bladder
+
+
+# maleGU
+
+
+### CurrentCardiacSymptoms
+# bloodpressure
+
+
+# chestpain
+
+
+# heartproblems
+
+
+### CurrentGYNSymptoms
+# sexualhealth
+
+
+# contraception
+
+Do_you_use_protection_every_time  "Not all the time."
+Have_you_had_unprotected_sex "I have."
+Do_you_use_contraception "Not all the time."
+
+# bleeding
+
+
+# periods
+
+First_day_of_last_period "I don't remember exactly, but it was about 6 months ago."
+When_was_your_last_period "About 6 months ago."
+Are_you_having_your_period "Not now since I am pregnant. My last period was about 6 months ago."
+Are_your_periods_irregular "They are regular."
+Are_your_periods_regular "They are regular."
+Is_your_period_late "Ummm, I am pregnant so...My last period was 6 months ago."
+How_long_do_your_periods_last "3 to 5 days."
+Can_you_describe_your_periods "They happened regularly like every 28 days and lasted 3 to 5 days."
+What_is_flow_like "It is normal."
+How_often_are_your_periods "Before I got pregnant, they were monthly, like every 28 days."
+Are_your_periods_painful "I am not currently having periods, but never were too bad."
+
+# menstrualcycles
+
+
+# pain
+
+
+# vaginalsymptoms
+
+
+# pregnancy
+
+Could_you_be_pregnant "I am 23 weeks pregnant."
+Want_to_be_pregnant "I didn't expect to get pregnant, but I'm ok with it now."
+Are_you_pregnant "I am pregnant."
+Have_you_taken_pregnancy_test "I took a pregnancy test after I missed my period and it was positive."
+Describe_pregnancy "It was going well until my water broke today."
+
+# breast
+
+Any_breast_changes "They are more full and a little tender."
+Are_you_breastfeeding "I am planning on breastfeeding."
+
+# menopause
+
+
+### CurrentHEENTSymptoms
+# headaches
+
+
+# neckstiffness
+
+
+# nasal
+
+
+# eye
+
+
+### CurrentMuscleSymptoms
+# backpain
+
+
+# backinjury
+
+
+# musclepain
+
+
+# backstiffness
+
+
+# spinepain
+
+
+# legpain
+
+
+# jointpain
+
+
+### CurrentNeurologicSymptoms
+# walking
+
+
+# numbness
+
+
+# weakness
+
+
+# dizziness
+
+
+### CurrentPainSymptoms
+# onset
+
+
+# exacerbation
+
+
+# intensity
+
+
+# general
+
+
+# description
+
+
+### CurrentRespiratorySymptoms
+# breathing
+
+
+# cough
+
+
+### CurrentTreatments
+# treatmentstried
+
+
+### PastGeneralSymptoms
+# medicalproblems
+
+
+# hospitalizations
+
+
+# sleepingproblems
+
+
+# discharge
+
+
+# itch
+
+
+# odor
+
+
+### PastAbdominalGISymptoms
+# bowel
+
+
+# bowelandbladder
+
+
+# abdominalpain
+
+
+# heartburn
+
+
+### PastCardiacSymptoms
+# bloodpressure
+
+
+# chestpain
+
+
+# heartproblems
+
+
+### PastGYNSymptoms
+# sexualhealth
+
+Who_were_your_past_sexual_partners "I have had 4 others and my current boyfriend. Do you want me to name them?"
+Any_other_past_sexual_partners "I have been with my boyfriend for a year."
+Ever_been_sexually_active "Of course."
+
+# contraception
+
+Did_you_use_any_other_past_contraception "Only condoms."
+Did_you_use_protection_every_time_before "I did not, that's how I got pregnant, we didn't use a condom."
+Have_you_had_unprotected_sex_in_the_past "I have."
+Use_any_contraception_in_the_past "Just condoms."
+
+# bleeding
+
+
+# periods
+
+Were_your_periods_regular_before  "My periods were fine."
+was_your_period_ever_late "My periods were always regular before the pregnancy."
+How_long_did_your_periods_last_before "3 to 5 days."
+Describe_your_past_periods "They were regular."
+What_is_past_flow_like "Normal."
+How_often_were_your_past_periods "They were always monthly."
+
+# menstrualcycle
+
+
+# pain
+
+
+# vaginalsymptoms
+
+
+# pregnancy
+
+When_were_you_pregnant "This is my first pregnancy."
+Ever_want_to_be_pregnant "I wasn't planning on getting pregnant now."
+Ever_taken_pregnancy_test_before "I took a pregnancy test after I missed my period and it was positive. This was the first time I ever used a pregnancy test."
+Ever_been_pregnant_before "This is my first pregnancy."
+
+# breast
+
+Any_past_breast_changes "They are a little full and tender."
+
+### PastGUSymptoms
+# bladder
+
+
+### PastHEENTSymptoms
+# headache
+
+
+# neckstiffness
+
+
+# nasal
+
+
+# eye
+
+
+### PastMuscleSymptoms
+# backpain
+
+
+# backinjury
+
+
+# musclepain
+
+
+# backstiffness
+
+
+# spinepain
+
+
+# legpain
+
+
+# jointpain
+
+
+### PastNeurologicSymptoms
+# walking
+
+
+# numbness
+
+
+# weakness
+
+
+# dizziness
+
+
+### PastPainSymptoms
+# onset
+
+
+# exacerbation
+
+
+# intensity
+
+
+# general
+
+
+# description
+
+
+### PastRespiratorySymptoms
+# breathing
+
+
+# cough
+
+
+### FamilyGeneralSymptoms
+# medicalproblems
+
+
+### FamilyAbdominalGISymptoms
+# bowel
+
+
+# abdominalpain
+
+
+### FamilyCardiacSymptoms
+# bloodpressure
+
+
+# chestpain
+
+
+# heartproblems
+
+
+### FamilyGUSymptoms
+# bladder
+
+
+### FamilyHEENTSymptoms
+# headache
+
+
+# neckstiffness
+
+
+# nasal
+
+
+### FamilyMuscleSymptoms
+# backpain
+
+
+# backinjury
+
+
+# musclepain
+
+
+### FamilyGYNSymptoms
+# sexualhealth
+
+
+# pregnancy
+
+
+# breast
+
+
+### FamilyPainSymptoms
+# pain
+
+
+### FamilyRespiratorySymptoms
+# breathing
+
+
+# cough
+
+
+### Wellness
+# vaccines
+
+
+# seeingadoctor
+
+
+# mentalhealth
+
+
+### Movements
+# currentrangeofmotion
+
+
+# pastrangeofmotion
+
+
+### ChitChat
+# weatherquestions
+
+
+# seasonquestions
+
+
+# sportsquestions
+
+
+# readingquestions
+
+
+# watchingquestions
+
+
+# politicsquestions
+
+
+# restaurantquestions
+
+
+# howwasyourdayquestions
+
+
+# feelingquestions
+
+
+### Closure
+# closure
+
+Nice_talking_with_you "Thanks for talking with me"
+
+# summarize
+
+
+### Screening
+# general
+
+have_you_had_a_blood_typing "My blood type is O positive."
+
+# colonsection
+
+
+# breastsection
+
+
+# maleGUsection
+
+
+# femaleGUsection
+
+
+# communicablediseasesection
+
+Have_you_had_HIV_test "It was negative."
+Have_you_had_Hepatitis_B_test "The test was negative."
+
+# prenatalcare
+
+Have_you_had_glucose_test "My blood sugars were fine."
+Have_you_had_antibody_test "That test was negative."
+
+### Family
+# familylife
+
+Who_do_you_live_with "I live with my boyfriend."
+Do_you_live_alone "I live with my boyfriend."
+Where_do_you_live "I live with my boyfriend in an apartment in Bellingham."
+Where_is_home "I live in Bellingham."
+
+# parentsinformation
+
+
+# grandparentsinformation
+
+
+# siblingsinformation
+
+
+# relativesinformation
+
+
+# childreninformation
+
+Do_you_want_children "Of course. I'm just not sure I'm ready for one right now."
+
+# spouseinformation
+
+Are_you_in_a_relationship "I'm with my boyfriend."
+Are_you_dating_anyone "I am with my boyfriend."
+Is_your_partner_healthy  "Jake is healthy."
+Do_you_have_a_boyfriend "I do have a boyfriend."
+Do_you_have_a_significant_other "My boyfriend, I guess."
+Tell_me_about_your_partner "Jake is a sales manager. We have been together for a year."
+How_old_is_your_partner "He is 24."
+Do_you_have_a_partner "I am with my boyfriend."
+What_is_your_partners_name "His name is Jake."
+Is_your_partner_male "I have a boyfriend."
+Is_your_partner_female "I have no female partner."
+Are_you_married "We are not married."
+
+# supportinformation
+
+
+### HOPIChiefcomplaint
+# onset
+
+Was_the_onset_sudden1 "I just felt my water break."
+Did_the_1_start_immediately "it was immediate."
+When_did_the_1_start "A few hours ago."
+How_long_have_you_had_1 "A few hours."
+Is_the_1_constant "I feel a little trickle everytime I move."
+Do_you_have_a_cause_for_1 "I do not."
+
+# exacerbation
+
+What_makes_the_1_worse "Moving around makes it worse."
+Does_anything_change_1_intensity "Nothing."
+What_have_you_tried_for_the_1 "Nothing."
+Have_you_tried_anything_for_the_1 "I have not."
+What_makes_the_1_better "Resting I guess."
+Have_you_tried_any_other_methods1 "I have not tried any other methods."
+Does_moving_increase_the_1 "Moving around makes it worse."
+Does_any_position_relieve_the_1 "Lying down seems to make it better."
+Does_any_position_make_the_1_worse "Sitting or standing makes the leakage worse."
+Do_any_positions_make_1_worse_or_better "Sitting or standing makes the leakage worse."
+Can_you_move_around_with_the_1 "I can move around fine."
+Is_1_worse_when_you_lie_down "Lying down seems to make it better."
+Do_you_have_1_when_you_lie_down "I do not."
+Is_1_better_when_you_lie_down "It seems to be better."
+Does_1_increase_when_you_stand "It definitely increases when I stand."
+Does_the_1_improve_with_exercise "I haven't exercised."
+Does_the_1_keep_you_up_at_night "It does not."
+Is_the_1_improving "It improved when I was admitted for bedrest."
+
+# intensity
+
+How_intense_is_the_1 "Not very."
+Has_the_1_become_worse "It has not."
+When_is_the_1_most_severe "When I am moving around."
+
+# general
+
+Do_you_currently_have_1 "I have had some leakage."
+How_is_your_1_now "I am still having some leakage of fluid."
+Do_you_have_any_1 "I have some leakage."
+Are_you_having_any_other_1 "I am not having that."
+How_else_is_the_1_affecting_your_life "I am worried about the baby."
+Has_the_1_stopped_you "It has not."
+
+# description
+
+When_do_you_have_the_1 "When I am moving around."
+How_long_does_the_1_last "I am still having some leakage of fluid."
+How_frequent_is_the_1 "It is always there."
+What_concerns_you_about_the_1 "I am worried about the baby."
+Where_is_the_1 "At first I thought I had to go to the restroom, but then I realized it wasn't that."
+Describe_the_1 "At first I thought I had to go, but then I realized it wasn't that."
+When_else_do_you_have_the_1 "Mostly just when I move."
+
+### HOPIComplaint2
+# onset
+
+
+# exacerbation
+
+
+# intensity
+
+
+# general
+
+
+# description
+
+
+### HOPIComplaint3
+# onset
+
+
+# exacerbation
+
+
+# intensity
+
+
+# general
+
+
+# description
+

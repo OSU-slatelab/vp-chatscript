@@ -1,0 +1,307 @@
+
+# ***************************************************************************************************
+# Moved most DEIO questions to ~currentpain 10.10.2012. All that remains here are "back" sorts of questions
+
+
+topic: ~currentbackpain keep repeat (back ~back_pain pop snap sound couch furniture accident heavy injure friend move help hear hurt "hurt your back" stand lift work touch happen occur sharp sore one strain pull)
+
+	u: ($pasthistory) respond(~pastbackpain) ^fail(TOPIC)
+	u: ($family) respond(~familybackpain) ^fail(TOPIC)
+
+#! Did you feel a pop
+	u: Did_you_feel_a_pop (did you feel a pop)   ^factanswer("No, nothing like that.")
+	u: ([pop snap crack]) ^reuse (Did_you_feel_a_pop)
+
+#! Did you feel a sharp pain
+	u: Did_you_feel_a_sharp_pain (did you feel a sharp pain)   ^factanswer("I didn't feel anything like that.")
+	u: (feel *~2 [sharp shooting intense anything] * [time pain]) ^reuse (Did_you_feel_a_sharp_pain)
+
+#! Did you hear anything
+	u: Did_you_hear_anything (did you hear [anything something])   ^factanswer("Nope.")
+	u: (!can !able hear * [anything something sound pop]) ^reuse (Did_you_hear_anything)
+	u: (!can !able was there * sound) ^reuse (Did_you_hear_anything)
+
+#! How heavy was the couch
+	u: How_heavy_was_the_couch (how heavy was the couch)   ^factanswer("What couch?")
+	u: ([couch furniture] weigh) ^reuse (How_heavy_was_the_couch)
+	u: (heavy [couch furniture]) ^reuse (How_heavy_was_the_couch)
+
+#! Was the couch heavy
+	u: Was_the_couch_heavy (was the couch heavy)   ^factanswer("What couch?")
+	u: (<< was couch heavy >>) ^reuse (Was_the_couch_heavy)
+
+#! Did you finish moving the couch
+	u: Did_you_finish_moving_the_couch (did you finish moving the couch)   ^factanswer("What couch?")
+	u: ([continue stop finish] * moving * [couch furniture]) ^reuse (Did_you_finish_moving_the_couch)
+
+#! How were you lifting
+	u: How_were_you_lifting (how were you lifting)   ^factanswer("I wasn't lifting anything.")
+	u: (![ago long] how * lifting) ^reuse (How_were_you_lifting)
+	u: (![ago long] [lift lifting] * [leg back properly]) ^reuse (How_were_you_lifting)
+
+# NOTE How long ago were ... is handled in past muscle because "ago" is past word
+#! When did you lift the furniture
+	u: When_did_you_lift_the_furniture (when did you lift the furniture)  ^factanswer("I wasn't lifting anything.")
+	u: (![hurt back what] when * [lift move] * [furniture couch]) ^reuse (When_did_you_lift_the_furniture)
+	u: (![hurt back what] when * help * friend) ^reuse (When_did_you_lift_the_furniture)
+
+#! Describe the furniture you were lifting
+	u: Describe_the_furniture (describe the furniture you were lifting)    ^factanswer("I didn't lift any furniture.")
+	u: ([describe type kind] * furniture) ^reuse (Describe_the_furniture)
+
+#! Did you injure yourself while helping your friend
+	u: Injure_yourself_while_helping (did you injure yourself while helping your friend)   ^factanswer("I wasn't doing anything.")
+	u: (injure * help * [friend him neighbor]) ^reuse (Injure_yourself_while_helping)
+	u: (["come on" injure] * [lift help]) ^reuse (Injure_yourself_while_helping)
+
+#! What is the reason your back hurts
+	u: Reason_your_back_hurts (what is the reason your back hurts)      ^factanswer("My back doesn't hurt.")
+	u: (!you [reason why] * [back ~itwords] * hurt) ^reuse (Reason_your_back_hurts)
+
+# ***************************************************************************************************
+
+#! Why do you think your back hurts
+	u: Why_do_you_think_your_back_hurts (why do you think your back hurts)   ^factanswer("My back doesn't hurt.")
+	u: (why * [back ~itwords] * [hurts painful] !~bodyparts) ^reuse (Why_do_you_think_your_back_hurts)
+
+#! Does it hurt to touch your back
+	u: Does_it_hurt_to_touch_your_back (does it hurt to touch your back)   ^factanswer("My back doesn't hurt.")
+	u: (<< [back ~itwords area] [press touch] >> !~bodyparts) ^reuse (Does_it_hurt_to_touch_your_back)
+
+#!!S Does your back hurt when you work
+	u: Does_your_back_hurt_when_you_work (does your back hurt when you work)    ^factanswer("My back doesn't hurt.")
+	u: ( [back ~itwords] * [hurt painful] * [work job] !~bodyparts) ^reuse (Does_your_back_hurt_when_you_work)
+
+#! Does your back hurt when you are in bed
+	u: Does_your_back_hurt_when_in_bed (does your back hurt when you are in bed)   ^factanswer("My back doesn't hurt.")
+	u: ([back ~itwords] * [hurt painful] * [bed] !~bodyparts) ^reuse (Does_your_back_hurt_when_in_bed)
+
+#! Does walking hurt your back
+	u: Does_walking_hurt_your_back (does walking hurt your back)   ^factanswer("My back doesn't hurt.")
+	u: ( << [hurt painful]  walk >> !~bodyparts) ^reuse (Does_walking_hurt_your_back)
+
+#! Have you been avoiding moving your back
+	u: Avoiding_moving_your_back (have you been avoiding moving your back)  ^factanswer("I have not.")
+	u: (avoid * move * [back ~itwords] !~bodyparts) ^reuse (Avoiding_moving_your_back)
+
+#! Are the muscles in your back tight
+	u: Are_the_muscles_in_your_back_tight (are the muscles in your back tight)   ^factanswer("I have no problems with that.")
+	u: (muscle* back * [tight stiff cramp]) ^reuse (Are_the_muscles_in_your_back_tight)
+	u: (back * muscle * [tight stiff cramp spasm]) ^reuse (Are_the_muscles_in_your_back_tight)
+
+#! Are the muscles in your back weak
+	u: Are_the_muscles_in_your_back_weak (are the muscles in your back weak)   ^factanswer("I have no problems with that.")
+	u: (muscle * back * weak) ^reuse (Are_the_muscles_in_your_back_weak)
+
+#! Is the pain always in your lower back
+	u: Is_the_pain_always_in_your_lower_back (is the pain always in your lower back)    ^factanswer("I don't always have any back pain.")
+	u: (![~bodyparts ~number] ~the_pain * always * [back part portion ~pain_locations] ) ^reuse (Is_the_pain_always_in_your_lower_back)
+
+#! Is the pain in your upper or lower back
+	u: Is_the_pain_in_your_upper_or_lower_back (is the pain in your upper or lower back)    ^factanswer("I don't have any back pain.")
+	u: ([upper lower low] * [back part portion] !~bodyparts) ^reuse (Is_the_pain_in_your_upper_or_lower_back)
+
+#! Is the pain on the left or right side of your back
+	u: Is_the_pain_on_the_left_or_right_side (is the pain on the left or right side of your back) ^factanswer("I don't have any back pain.")
+	u: ([left right both either] * [back side part portion] * back) ^reuse (Is_the_pain_on_the_left_or_right_side)
+	u: ([left right both either] * [back side part portion]) ^reuse (Is_the_pain_on_the_left_or_right_side)
+
+#! Any specific part of your back
+	u: Any_specific_part_of_your_back (any specific part of your back)  ^factanswer("I don't have any back pain.")
+	u: ([specific particular] * [part portion location] !~bodyparts) ^reuse (Any_specific_part_of_your_back)
+
+#! How did you hurt your back?
+	u: How_did_you_hurt_your_back (how did you hurt your back)   ^factanswer("I didn't hurt my back.")
+	u: (![ago long] how * hurt * [back ~itwords !~bodyparts]) ^reuse(How_did_you_hurt_your_back)
+
+#! Did you hurt your back
+	u: Did_you_hurt_your_back (< did you [injure hurt] your back >) ^factanswer("I didn't hurt my back.")
+	u: (![where when how] did * [hurt injure injury] * [back ~itwords] !~bodyparts) ^reuse (Did_you_hurt_your_back)
+
+#! Did you strain a muscle in your back
+	u: Did_you_strain_a_muscle_in_your_back (did you strain a muscle in your back)   ^factanswer("No.")
+	u: (!~bodyparts [strain pull] * [something muscle back vertebra]) ^reuse (Did_you_strain_a_muscle_in_your_back)
+
+
+# ***************************************************************************************************
+
+# Back Injury - I have defined back_injury as a concept in MedicalConcepts.top
+
+topic: ~currentbackinjury keep repeat (~back_injury !pain hurt injure injury trauma back work area)
+
+
+	u: ($pasthistory) respond(~pastbackinjury) ^fail(TOPIC)
+	u: ($family) respond(~familybackinjury) ^fail(TOPIC)
+
+
+# Onset  ***************
+
+#! How did the back injury start
+	u: How_did_the_back_injury_start (how did the back injury start)   ^factanswer("I have no back injury.")
+	u: (!"how long" how * [~back_injury ~itwords] * [~start happen]) ^reuse (How_did_the_back_injury_start)
+	u: (how * [injure hurt] * back) ^reuse (How_did_the_back_injury_start)
+	u: (what * circumstance * ~back_injury) ^reuse (How_did_the_back_injury_start)
+
+#! Have you had any trauma to your back
+	u: Have_you_had_any_back_trauma (have you had any trauma to your back)    ^factanswer("No.")
+	u: ([hit trauma] * [~back_injury ~itwords area back]) ^reuse (Have_you_had_any_back_trauma)
+	u: ([~back_injury ~itwords area back] * trauma) ^reuse (Have_you_had_any_back_trauma)
+
+#! Is your back injury on one side
+	u: Is_your_back_injury_on_one_side (is your back injury on one side)    ^factanswer("I have no back injury.")
+	u: ([~back_injury ~itwords] * ~pain_locations) ^reuse (Is_your_back_injury_on_one_side)
+
+#! Did it happen at work
+	u: Did_it_happen_at_work (did it happen at work)    ^factanswer("I have no back injury.")
+	u: ([~back_injury ~itwords] * ~start * [work job]) ^reuse (Did_it_happen_at_work)
+
+#! Have you had any other back injuries
+	u: Have_you_had_any_other_back_injuries (have you had any other back injuries)   ^factanswer("I have no back injury.")
+	u: (other *~2 ~back_injury) ^reuse (Have_you_had_any_other_back_injuries)
+
+
+# ***************************************************************************************************
+# Muscle pain - I have defined muscle_pain as a concept in MedicalConcepts.top
+
+topic: ~currentmusclepain keep repeat (~muscle_pain !pain stretch stretching tenderness tender sore)
+
+	u: ($pasthistory) respond(~pastmusclepain) ^fail(TOPIC)
+	u: ($family) respond(~familymusclepain) ^fail(TOPIC)
+
+
+#! Have you tried to stretch
+	u: Have_you_tried_to_stretch (have you tried to stretch)   ^factanswer("Stretching is fine.")
+	u: ([stretch stretching]) ^reuse (Have_you_tried_to_stretch)
+
+#! Are your muscles sore
+	u: Are_your_muscles_sore (are your muscles sore)   ^factanswer("My muscles are fine.")
+	u: ([~muscle_pain ~itwords]) ^reuse (Are_your_muscles_sore)
+
+#! Do your muscles ache
+	u: Do_your_muscles_ache (do your muscles ache)   ^factanswer("My muscles are fine.")
+	u: ([~muscle_pain they] * [~pain_descriptors tenderness]) ^reuse (Do_your_muscles_ache)
+
+#! Is the pain muscular
+	u: Is_the_pain_muscular (is the pain muscular)   ^factanswer("I do not have muscle pain.")
+	u: ([is do] * [~muscle_pain ~itwords] * [~muscle_pain ~itwords]) ^reuse (Is_the_pain_muscular)
+
+# ***************************************************************************************************
+
+# Back Stiffness
+
+topic: ~currentbackstiffness keep repeat (back stiff "back stiffness")
+
+
+	u: ($pasthistory) respond(~pastbackstiffness) ^fail(TOPIC)
+	u: ($family) respond(~familybackstiffness) ^fail(TOPIC)
+
+
+#! Is your back stiffness on one side
+	u: Is_your_back_stiffness_on_one_side (is your back stiffness on one side)   ^factanswer("I don't have back stiffness.")
+	u: (["back stiffness" ~itwords] * side) ^reuse (Is_your_back_stiffness_on_one_side)
+
+
+
+# ***************************************************************************************************
+
+
+# Spine Pain  - I have defined ~spine_pain as a concept in MedicalConcepts.top
+
+topic: ~currentspinepain keep repeat (~spine_pain spine)
+
+
+	u: ($pasthistory) respond(~pastspinepain) ^fail(TOPIC)
+	u: ($family) respond(~familyspinepain) ^fail(TOPIC)
+
+
+#! Does it hurt to touch your spine
+	u: Does_it_hurt_to_touch_your_spine (does it hurt to touch your spine)   ^factanswer("My spine is fine.")
+	u: (<< [~spine_pain ~itwords] [touch] >>) ^reuse (Does_it_hurt_to_touch_your_spine)
+
+#! Have you been avoiding moving your spine
+	u: Avoiding_moving_your_spine (have you been avoiding moving your spine)   ^factanswer("My spine is fine.")
+	u: (avoid * move * [spine ~itwords]) ^reuse (Avoiding_moving_your_spine)
+
+#! Did you hurt your spine
+	u: Did_you_hurt_your_spine (did you hurt your spine)    ^factanswer("My spine is fine.")
+	u: (!where !when hurt * [spine ~itwords]) ^reuse (Did_you_hurt_your_spine)
+
+#! Can you move your spine
+	u: Can_you_move_your_spine (can you move your spine)    ^factanswer("My spine is fine.")
+	u: (move your [spine ~itwords]) ^reuse (Can_you_move_your_spine)
+
+
+# ***************************************************************************************************
+
+# Leg Pain - I have defined leg pain as a concept in MedicalConcepts.top
+
+
+topic: ~currentlegpain keep repeat (~leg_pain leg !pain ~leg_problems foot feet injure trauma)
+
+
+	u: ($pasthistory) respond(~pastlegpain) ^fail(TOPIC)
+#	u: ($family) respond(~familylegpain) ^fail(TOPIC)
+
+
+#! Does it hurt to touch your leg
+	u: Does_it_hurt_to_touch_your_leg (does it hurt to touch your leg)  ^factanswer("I have no pain in my legs.")
+	u: (<< leg touch >>) ^reuse (Does_it_hurt_to_touch_your_leg)
+
+#! Have you been avoiding moving your leg
+	u: Avoiding_moving_your_leg (have you been avoiding moving your leg) ^factanswer("I have no pain in my legs.")
+	u: (avoid * move * leg) ^reuse (Avoiding_moving_your_leg)
+
+#! Did you hurt your leg
+	u: Did_you_hurt_your_leg (did you hurt your leg)   ^factanswer("No.")
+	u: (!where !when [injure hurt trauma] * [foot leg]) ^reuse (Did_you_hurt_your_leg)
+
+#! Can you move your leg
+	u: Can_you_move_your_leg (can you move your leg)   ^factanswer("My leg is fine.")
+	u: (move your leg >) ^reuse (Can_you_move_your_leg)
+
+# ***************************************************************************************************
+
+# Joint Pain - I have defined joint pain as a concept in MedicalConcepts.top
+
+topic: ~currentjointpain keep repeat (~joint ~pain_descriptors grip twist screw unscrew ~joint_pain)
+
+	u: ($pasthistory) respond(~pastjointpain) ^fail(TOPIC)
+	u: ($family) respond(~familyjointpain) ^fail(TOPIC)
+
+
+#! Have you noticed any joint weakness
+	u: Have_you_noticed_joint_weakness (have you noticed joint weakness)  ^factanswer("My joints are not weak.")
+	u: ([notice experience have] * [~joint hand] [weak weakness]) ^reuse (Have_you_noticed_joint_weakness)
+	u: ([notice experience have] * [weakness strong strength] * [~joint hand]) ^reuse (Have_you_noticed_joint_weakness)
+
+#! Can you grip
+	u: Can_you_grip (can you grip)  ^factanswer("I have no trouble with grip.")
+	u: ([can able] * [grip twist screw unscrew use]) ^reuse (Can_you_grip)
+
+#! Are your joints swollen
+	u: Are_your_joints_swollen (are your joints swollen)   ^factanswer("My joints seem fine.")
+	u: ([~joint ~itwords] * [swollen swell pop crackle]) ^reuse (Are_your_joints_swollen)
+	u: ([swollen swell pop crackle] * [~joint ~itwords]) ^reuse (Are_your_joints_swollen)
+
+#! Did you hurt your joint
+	u: Did_you_hurt_your_joints (did you hurt your joints)    ^factanswer("I didn't hurt them.")
+	u: (!where !when [injure hurt] * [~joint ~itwords]) ^reuse (Did_you_hurt_your_joints)
+
+#! Can you move your joints
+	u: Can_you_move_your_joints (can you move your joints)    ^factanswer("I can move my joints.")
+	u: ([bend move wiggle] * [~joint ~itwords]) ^reuse (Can_you_move_your_joints)
+
+#! Have you noticed any joint pain
+	u: Have_you_noticed_joint_pain (have you noticed joint pain)  ^factanswer("My joints do not hurt.")
+	u: ([notice experience] * ~joint) ^reuse (Have_you_noticed_joint_pain)
+	u: ([notice experience] * ~joint_pain) ^reuse (Have_you_noticed_joint_pain)
+
+#! Which joints hurt
+	u: Which_joints_hurt (which joints hurt)  ^factanswer("None of my joints hurt.")
+	u: ([both which] * [one side ~joint] * [hurt painful ache swell]) ^reuse (Which_joints_hurt)
+	u: ([hurt painful ache swell pain] * [both one] * ~joint) ^reuse (Which_joints_hurt)
+	u: ([both which] * [one side ~joint]>) ^reuse (Which_joints_hurt)
+
+#! Do your joints ache
+	u: Do_your_joints_ache (do your joints ache)   ^factanswer("My joints feel fine.")
+	u: (!which [~joint they] * [~pain_descriptors tender hurt]) ^reuse (Do_your_joints_ache)

@@ -1,0 +1,308 @@
+:silent
+regress
+hello, can you tell me what brings you in today
+can you tell me what brings you in today
+tell me more
+when did this happen
+is there anything that makes the pain better
+how has the pain changed over the last 5 days
+does it hurt to move
+where is the pain
+where is the pain again
+does the pain go anywhere
+do you have any numbness or tingling
+do you have any other symptoms
+do you have any problems urinating
+do you have any weakness
+are you able to walk
+can you bend down
+have you tried physical therapy
+did you injure your back
+is the pain sharp
+is the pain dull
+is it on one side
+is the pain muscular
+is the pain in your spine
+does it hurt to touch
+does the pain go into your leg
+have you ever had this happen before
+have you ever injured your back
+have you tried a heating pad
+describe the furniture you were lifting
+can you lift anything
+are you able to lift anything
+are you able to walk up stairs
+are you able to work
+how has this affected your life
+how is your pain right now
+are you in pain
+does it hurt when you are not moving
+does it hurt if you sit still
+does it hurt when you bend
+how can i help you
+when did the pain start
+when did it start
+what bothers you the most
+have you been incontinent
+have you lost control of your bowels or bladder
+have you lost control of your bowels
+have you lost control of your bladder
+have your symptoms changed
+have your symptoms gotten worse
+has your back gotten worse
+has your back pain gotten worse
+do you have any abdominal pain
+do you have any pain in your knee
+do you have any pain in your hip
+does your hip hurt
+where does it hurt
+do your muscles ache
+have you tried to stretch
+have you tried bending
+have you tried medications
+Hi Mr Simonton, what brings you in today?
+Oh, I'm sorry to hear that, when did that begin?
+When did your back pain begin?
+What were the circumstances of your injury?
+What were you doing when you injured yourself?
+Can you describe the pain?
+Does anything make the pain worse?
+How bad is the pain?
+How else is it affecting your life?
+Have you tried anything for the pain?
+Did the ibuprofen help
+Can you describe the pain a little more?
+Does it radiate anywhere?
+On a scale of one to ten, how bad is the pain?
+Is it getting better or worse?
+Is your pain improving?
+Have you ever had pain like this before?
+what brings you into the office today?
+can you tell me more about your back pain?
+When did it start?
+When did the pain begin?
+Were you twisting or lifting something heavy?
+Has the pain been getting better, worse, or staying the same?
+Have you tried anything at home?
+Did the ibuprofen help?
+Do any positions make it worse or better?
+Is it worse lying down?
+Do you have any other symptoms?
+Do you have numbness or tingling anywhere
+Does the pain radiate?
+Have you had anything like this before
+are you able to walk
+So, what brings you in today Mr. Simonton?
+When did it start?
+Can you describe the pain?
+What makes the pain better?
+And what makes the pain worse?
+Have you ever had pain like this before?
+How bad is the pain on a scale of 1-10?
+How bad is the pain on a scale of 1-5?
+Have you had any other symptoms or problems?
+Have you had any numbness or tingling in your legs or feet?
+Have you been able to do the things you normally do each day?
+Have your activities been limited because of the pain?
+Have you had loss of bowel or bladder control?
+Have you had incontinence?
+Have you had fever?
+Do you use drugs?
+Have you ever used IV drugs?
+Have you ever used drugs?
+Do you have any medical problems?
+Are you on any medication?
+How much ibuprofen have you taken?
+What strength is the ibuprofen?
+what brings you in today
+please tell me about your pain
+does anything make it worse
+has anything made the pain better
+do you have any trouble with daily activities due to the pain
+can you move around with the pain
+does the pain interfere with work
+has the pain changed your daily routine
+how have you been handling all of this
+how has this influenced your life
+has the back pain caused you to miss work
+have you been avoiding moving your back
+how has this been interfering with your daily activities
+have you been resting
+what have you been doing to avoid the pain
+what have you been doing to avoid exacerbating the pain
+what do you think is the problem
+what do you think is going on
+what concerns you about this pain
+is there anything else you would like us to address today
+does it hurt to touch
+how intense is the pain on a scale from 1 to 10
+did you fall at all
+What brings you in today?
+When did the pain start
+What happened on the day of the move?
+where does it hurt?
+Does it go anywhere
+what kind of pain is it?
+Have you ever had pain like this before
+When did you have pain like this in the past
+Have you tried any medication to treat the pain
+did the ibuprofen help?
+Did the ibuprofen help the pain
+Did anything else help the pain
+does anything make the pain worse?
+How has the pain progressed in the past 5 days?
+Good morning Mr.Simonton
+How long has your back been bothering you?
+How long have you had back pain?
+What started it?
+Describe the pain
+What makes it better
+Have you had back pain before
+What makes it worse
+Have you ever been in a car accident
+Have you ever been treated for whiplash
+Does it hurt when you cough
+hello. why are you here today?
+I am sorry to hear that. Can you tell me more about this back pain?
+Is it in your upper or lower back?
+Is the pain sharp?
+Can you rate your pain?
+Does the pain wax and wane?
+Is the pain constantly present?
+How long has this pain been there?
+what happened about a week ago?
+have you tried putting ice on your back?
+Have you tried any other methods?
+Have you tried putting a heating pad on your back?
+Have you tried anything other than ibuprofen?
+Is the pain getting worse?
+have you been able to walk around?
+I understand that walking is painful, but can you walk?
+have you been bedridden?
+how severe is the pain?
+what do you do for work?
+what is your biggest concern
+did you try taking any over the counter medication for the back
+Do you have any chronic medical problems?
+Do you have any other medical conditions??
+do you have a family doctor?
+when was the last time you saw a doctor?
+Do you have a physician that you see regularly?
+how old are you?
+do you have any allergies to any medication
+have you ever had an allergic reaction to a medication
+are you married?
+do you have any children?
+are your parents living?
+do you know of any medical conditions that run in your family?
+How are you doing today Mr. Simonton?
+What have you tried for it?
+Have you tried anything for the pain?
+Have you seen a chiropractor?
+Have you tried heat?
+Have you tried cold?
+Have you ever had this problem before?
+How did the pain start?
+Are you able to work?
+What do you do for work?
+Do you do any heavy lifting at work?
+Have you ever had back problems before?
+Have you ever had anything like this before?
+Have you taken anything for the pain?
+Did you take any medication for the pain?
+Are you on any other medication?
+Do you have any other medical problems?
+Do you have any allergies?
+Have you had any surgeries before?
+Do you smoke?
+How much caffeine do you use?
+How long have you had this problem?
+Anything make it better?
+Does anything make the pain worse?
+How would you rate your pain?
+Does the pain radiate anywhere?
+Does the pain wax and wane?
+How long have you had the pain?
+Has the pain gotten any better or worse?
+How would you describe the pain?
+Are you able to walk?
+Where do you feel the pain?
+Are there any diseases that run in your family?
+Any numbness or tingling?
+Any numbness?
+Have you had any imaging done?
+Have you seen anyone else about this yet?
+How are you doing today, sir?
+When did your back start hurting?
+Were you doing anything at the time that may have brought on the pain?
+When did the pain start?
+How has the pain changed over time?
+What have you been trying for the pain?
+What else have you tried?
+Does lying down make it better?
+Does activity make it worse?
+How bad is the pain?
+How would you rate the pain?
+How would you rate the pain on the ibuprofen?
+How bad is the pain now?
+Is the pain always there, or does it come and go?
+Where would you localize the pain?
+Is your spine tender?
+Are your muscles tender?
+Are you tender?
+Are your muscles and spine tender?
+Have you tried heat packs?
+Do any positions in particular make it worse?
+How would you describe the pain?
+Do you have any burning pain?
+Is the pain throbbing?
+Is the pain always in your lower back?
+Is the pain crushing?
+Does the pain radiate?
+Does it hurt at night?
+What helps the pain?
+Does ibuprofen make the pain go away?
+Do you have any numbness?
+Do you have any tingling?
+Do you have any numbness or tingling?
+Do you have any weakness?
+Are you able to control your bladder?
+Are you able to control your bowel?
+Are you able to work?
+Does anything make the pain worse?
+What is the nature of your pain?
+What concerns you about the pain?
+Are you able to bend down?
+Can you touch your toes?
+Does the pain ever go away?
+Is the pain constant?
+Is the pain intermittent?
+Does the pain come and go?
+Do you have any other symptoms?
+Is there anything else I can help you with today?
+Are you stiff?
+Is your back stiff?
+Are your muscles stiff?
+Do you have any stiffness?
+Thank you for your time, Mr Simonton. Bye!
+I am sorry to hear that. For how long has it been hurting?
+what were you doing 5 days ago
+have you tried anything for the pain
+did the ibuprofen help
+can you rate your pain
+what is your pain right now
+did you take ibuprofen today
+can you describe the pain
+does the pain radiate
+has the pain changed with time
+how has the pain changed with time
+has it been getting better
+does it hurt when you bend down
+have you tried to bend down
+is the pain in the middle or on the sides
+do you have any leg pain
+have you noticed any numbness or tingling
+any trouble with your bowels or bladder
+any history of back problems
+:silent
+:diff c:\users\laura\desktop\vpatientchatscript\RAWDATA/patientfiles/regressoutput.txt LOGS/vp.txt :

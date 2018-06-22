@@ -1,0 +1,73 @@
+
+# ***************************************************************************************************
+
+topic: ~familymedicalproblems keep repeat (~role_family family condition inherit problem issue ~family_members hereditary genetic cancer ~parents illness ~family_children) 
+
+	u: ($pasthistory) respond(~pastmedicalproblems)  ^fail(TOPIC) 
+	u: ($present) respond(~currentmedicalproblems) ^fail(TOPIC) 
+
+
+#! Do your parents have any medical problems
+	u: Parents_have_any_medical_problems (do your parents have any medical problems)     ^factanswer("My parents are healthy.")
+	u: ([~parents them] * [chronic medical health] * [problem issue illness condition illnesses]) ^reuse (Parents_have_any_medical_problems)
+	u: ([chronic medical health] * [problem issue illness condition illnesses] * ~parents) ^reuse (Parents_have_any_medical_problems)
+
+#! Do your children have any medical problems
+	u: Child_have_any_medical_problems (do your children have any medical problems)     ^factanswer("My children are healthy.")
+	u: ([~family_children them] * [chronic medical health] * [problem issue illness condition]) ^reuse (Child_have_any_medical_problems)
+	u: ([chronic medical health] * [problem issue illness condition] * ~family_children) ^reuse (Child_have_any_medical_problems)
+
+
+#! Are there any medical conditions that run in your family
+	u: Any_conditions_that_run_in_your_family (any medical conditions that run in your family)     ^factanswer("Not that I am aware of.")
+	u: (!~depression << [condition disease illness illnesses problems anything] [exist run inherit] [~family_members family] >>) ^reuse (Any_conditions_that_run_in_your_family)
+	u: (!~depression [medical health inherit hereditary genetic history] * [issue condition disease illness problems] * [~family_members family]) ^reuse (Any_conditions_that_run_in_your_family)
+	u: (!~depression [~family_members family] * [medical health] * [issue condition disease illness problems illnesses]) ^reuse (Any_conditions_that_run_in_your_family)
+
+#! Any family history of illness
+	u: Any_family_history_of_illness (any family history of illness)    ^factanswer("I don't know of any.")
+	u: (!~depression [family ~family_members] * [illness disease conditions illnesses problems cancer]) ^reuse (Any_family_history_of_illness)
+	u: (!~depression [illness disease conditions illnesses problems cancer] * [family ~family_members]) ^reuse (Any_family_history_of_illness)
+	
+#! Tell me about your family history
+	u: Tell_me_about_your_family_history (tell me about your family history)     ^factanswer("What would you like to know?")
+	u: ([tell what] * family history) ^reuse (Tell_me_about_your_family_history)
+	u: (family history) ^reuse (Tell_me_about_your_family_history)
+	
+# #! Family history
+#	u: Family_history (family history) ^factanswer("Not that I know of.")
+
+# ***************************************************************************************************
+
+topic: ~familysleepingproblems keep repeat (~sleeping_problems) 
+
+	u: ($pasthistory) respond(~pastsleepingproblems)  ^fail(TOPIC) 
+	u: ($present) respond(~currentsleepingproblems) ^fail(TOPIC) 
+
+
+
+# ***************************************************************************************************
+
+topic: ~familydischarge keep repeat (discharge color ~discharge_descriptors)
+
+
+	u: ($present) respond(~currentdischarge) ^fail(TOPIC)  
+	u: ($pasthistory) respond(~pastdischarge) ^fail(TOPIC)
+
+
+
+
+# ***************************************************************************************************
+
+topic: ~familyitch keep repeat (itch ~itch_descriptors)
+
+	u: ($present) respond(~currentitch)   ^fail(TOPIC)
+	u: ($pasthistory) respond(~pastitch) ^fail(TOPIC)
+
+
+# ***************************************************************************************************
+
+topic: ~familyodor keep repeat (odor)
+
+	u: ($present) respond(~currentodor)   ^fail(TOPIC)
+	u: ($pasthistory) respond(~pastodor) ^fail(TOPIC)

@@ -1,0 +1,92 @@
+
+topic: ~closure keep repeat deprioritize (~emothanks else "anything else" other questions physician comments concern ~emogoodbye "help you with" "do for you" information "on your mind" exam examine talk speak pleasure everything need pleasant "take a look" attending wonderful detail ~yes OK ok okay Ok welcome helpful informative understand follow-up follow)
+
+#! do you have any questions
+	u: Do_you_have_any_questions (do you have any questions) ^factanswer("No, I don't have any questions.")
+	u: (any * [questions concerns comments]) ^reuse(do_you_have_any_questions)
+
+#! Make a follow up appointment
+	u: Make_a_follow_up_appointment (make a follow up appointment) ^factanswer("Of course.")
+	u: (<< [follow up follow-up] [visit appointment] >>) ^reuse (Make_a_follow_up_appointment)
+	u: ([follow up follow-up]) ^reuse (Make_a_follow_up_appointment)
+
+
+#! I have more questions
+	u: I_have_more_questions (I have more questions) ^factanswer("Ok, sure.")
+	u: ([need want more few ask] * [questions concerns items detail understand]) ^reuse(I_have_more_questions)
+
+#! Is there anything else I can help you with
+	u: Anything_else_I_can_help_with (anything else I can help you with) ^factanswer("No, I don't think so.")
+	u: ([anything else] * ["help you with" "do for you" discuss address need tell mind know add aware]) ^reuse (Anything_else_I_can_help_with)
+	u: (any other problems) ^reuse (Anything_else_I_can_help_with)
+
+#! Do you have all the information you need
+	u: Have_everything_you_need (do you have all the information you need) ^factanswer("Yes, thank you.")
+	u: ([information everything] * you need) ^reuse (Have_everything_you_need)
+
+#! I have all the information I need
+	u: Have_all_the_information (have all the information)  ^factanswer("OK Thanks")
+	u: ([information everything have] * I need) ^reuse(Have_all_the_information)
+
+#! May I do an exam now
+	u: Do_an_exam_now (I * do an exam now) ^factanswer("OK.")
+	u: ([we I] * [perform do] * [exam examination test]) ^reuse (Do_an_exam_now)
+	u: ([we I] * [examine exam examination "take a look" look]) ^reuse (Do_an_exam_now)
+
+#! I'll go report to the doctor
+	u: I'll_go_report_to_the_doctor (I'll go report to the doctor) ^factanswer("Ok I hope you guys can figure something out.")
+	u: ([go take give report talk pass let meet discuss get find] * [doctor attending physician team]) ^reuse (I'll_go_report_to_the_doctor)
+
+#! Nice talking with you
+	u: Nice_talking_with_you (nice talking with you)  ^factanswer ("Thanks for helping me")
+	u: ([nice pleasant pleasure glad happy good] * [talk speak meet see came]) ^reuse (Nice_talking_with_you)
+	u: ([~itwords you] * [helpful informative pleasure]) ^reuse (Nice_talking_with_you)
+
+#!!P Goodbye => ~emogoodbye
+	u: Goodbye (goodbye) ^factanswer("Goodbye and thanks.")
+	u: (~emogoodbye) ^reuse (Goodbye)
+	u: (< that is all >) ^reuse (Goodbye)
+
+#!!P Thanks => ~emothanks
+	u: Thanks ([thanks "thank you"]) ^factanswer("Thank you")
+	u: (~emothanks) ^reuse (Thanks)
+	u: ([~yes OK okay] * ~emothanks) ^reuse (Thanks)
+
+#! You are welcome
+	s: You_are_welcome (you are welcome)  ^factanswer("thanks again.")
+	s: (you * welcome) ^reuse (You_are_welcome)
+
+# ##############################################################################################
+
+# Summary section
+
+topic: ~summarize keep repeat priority (summary summarize miss forget recap "is that correct")
+
+# Need to figure out a way to tell if the summary statement is appropriately thorough. For now, no matter what they say it will be OK
+
+#! Can you summarize
+	u: Can_you_summarize (can you summarize) ^factanswer("What would you like to know?")
+	u: (you * [summarize recap]) ^reuse (Can_you_summarize)
+
+#! To summarize
+	u: To_summarize (to summarize) ^factanswer("That sounds correct.")
+	u: ([summary summarize recap "is that correct"]) ^reuse (To_summarize)
+
+#! Did I miss anything
+	u: Did_I_miss_anything (did I miss anything) ^factanswer("I think you've got everything.")
+	u: (I * [miss forget]) ^reuse (Did_I_miss_anything)
+
+
+# ##############################################################################################
+
+# This is used only for the speech to text version of the VP in the CSEAC. Without this the VP is constantly interrupting and saying "I'm sorry I don't understand." 
+# So I added this so now he just returns a period when he doesn't understand. The period is ignored by Unity and not spoken by the VP. 
+# If I want the VP to say "I don't understand" I just press the = key on the keyboard as I am watching the student interview the patient.
+# For normal (web) use this section should be commented out
+
+#  topic: ~blankanswers keep repeat NoStay ( )
+#  
+#  	u: blankanswers(=) ^factanswer(^"I'm afraid I don't understand that question.")
+#  
+#  	u: () .
+ 

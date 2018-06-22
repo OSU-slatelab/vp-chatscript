@@ -1,0 +1,309 @@
+What_brings_you_in_today : hello, can you tell me what brings you in today
+What_brings_you_in_today : can you tell me what brings you in today
+Tell_me_more : tell me more
+When_did_this_occur : when did this happen
+What_makes_the_pain_better : is there anything that makes the pain better
+How_has_the_pain_changed : how has the pain changed over the last 5 days
+Does_it_hurt_to_move : does it hurt to move
+Where_is_the_pain : where is the pain
+Where_is_the_pain : where is the pain again
+Does_the_pain_radiate : does the pain go anywhere
+Do_you_have_numbness_or_tingling : do you have any nboumbness or tingling
+Are_you_having_any_other_symptoms : do you have any other symptoms
+Any_problems_bodilyfunctioning : do you have any problems urinating
+Do_you_have_any_weakness : do you have any weakness
+Are_you_able_to_walk : are you able to walk
+Can_you_bend_down : can you bend down
+Have_you_tried_any_treatment : have you tried physical therapy
+Did_you_hurt_your_back : did you injure your back
+Is_the_pain_sharp : is the pain sharp
+Is_the_pain_dull : is the pain dull
+Is_the_pain_on_one_side : is it on one side
+Is_the_pain_muscular : is the pain muscular
+Any_pain_in_your_bodypart : is the pain in your spine
+Does_it_hurt_to_touch_your_back : does it hurt to touch
+Does_the_pain_radiate : does the pain go into your leg
+Have_you_had_this_pain_before : have you ever had this happen before
+Have_you_had_back_injury_before : have you ever injured your back
+Have_you_tried_a_heating_pad : have you tried a heating pad
+Describe_the_furniture : describe the furniture you were lifting
+Can_you_lift_anything : can you lift anything
+Can_you_lift_anything : are you able to lift anything
+Can_you_climb_stairs : are you able to walk up stairs
+Have_you_been_able_to_work : are you able to work
+How_has_this_affected_you : how has this affected your life
+How_is_your_pain_now : how is your pain right now
+Do_you_have_any_pain : are you in pain
+Does_it_hurt_when_not_moving : does it hurt when you are not moving
+Does_it_hurt_when_not_moving : does it hurt if you sit still
+Does_it_hurt_when_you_bend : does it hurt when you bend
+What_brings_you_in_today : how can i help you
+When_did_the_pain_start : when did the pain start
+When_did_the_pain_start : when did it start
+What_bothers_you_the_most : what bothers you the most
+Have_you_been_incontinent : have you been incontinent
+Loss_of_bowel_or_bladder_control : have you lost control of your bowels or bladder
+Loss_of_bowel_control : have you lost control of your bowels
+Loss_of_bladder_control : have you lost control of your bladder
+Have_your_symptoms_changed : have your symptoms changed
+Have_your_symptoms_gotten_worse : have your symptoms gotten worse
+Has_your_back_gotten_worse : has your back gotten worse
+Has_your_back_gotten_worse : has your back pain gotten worse
+Do_you_have_any_bodypart_pain : do you have any abdominal pain
+Any_pain_in_your_bodypart : do you have any pain in your knee
+Any_pain_in_your_bodypart : do you have any pain in your hip
+Does_your_bodypart_hurt : does your hip hurt
+Where_is_the_pain : where does it hurt
+Do_your_muscles_ache : do your muscles ache
+Have_you_tried_to_stretch : have you tried to stretch
+Have_you_tried_to_bend : have you tried bending
+Are_you_taking_any_medication : have you tried medications
+What_brings_you_in_today : Hi, what brings you in today?
+When_did_the_pain_start : Oh, I'm sorry to hear that, when did that begin?
+When_did_the_pain_start : When did your back pain begin?
+Circumstances_of_the_injury : What were the circumstances of your injury?
+What_were_you_doing_when_injured: What were you doing when you injured yourself?
+Describe_the_pain : Can you describe the pain?
+What_makes_the_pain_worse : Does anything make the pain worse?
+How_intense_is_the_pain : How bad is the pain?
+How_else_is_the_pain_affecting_your_life : How else is it affecting your life?
+Have_you_tried_anything_for_the_pain : Have you tried anything for the pain?
+Did_the_medicine_help : Did the ibuprofen help
+Describe_the_pain : Can you describe the pain a little more?
+Does_the_pain_radiate : Does it radiate anywhere?
+Can_you_rate_the_pain : On a scale of one to ten, how bad is the pain?
+Is_the_pain_improving : Is it getting better or worse?
+Is_the_pain_improving : Is your pain improving?
+Have_you_had_this_pain_before : Have you ever had pain like this before?
+What_brings_you_in_today : what brings you into the office today?
+Tell_me_more : can you tell me more about your back pain?
+When_did_the_pain_start : When did it start?
+When_did_the_pain_start : When did the pain begin?
+Were_you_lifting_anything : Were you twisting or lifting something heavy?
+Is_the_pain_improving : Has the pain been getting better, worse, or staying the same?
+Have_you_tried_anything_for_the_pain : Have you tried anything at home?
+Did_the_medicine_help : Did the ibuprofen help?
+Do_any_positions_make_it_worse_or_better : Do any positions make it worse or better?
+Does_it_hurt_when_you_lie_down : Is it worse lying down?
+Are_you_having_any_other_symptoms : Do you have any other symptoms?
+Do_you_have_numbness_or_tingling : Do you have numbness or tingling anywhere
+Does_the_pain_radiate : Does the pain radiate?
+Have_you_had_this_pain_before : Have you had anything like this before
+Are_you_able_to_walk : are you able to walk
+What_brings_you_in_today : So, what brings you in today?
+When_did_the_pain_start : When did it start?
+Describe_the_pain : Can you describe the pain?
+What_makes_the_pain_better : What makes the pain better?
+What_makes_the_pain_worse : And what makes the pain worse?
+Have_you_had_this_pain_before : Have you ever had pain like this before?
+Can_you_rate_the_pain : How bad is the pain on a scale of 1-10?
+Can_you_rate_it : How bad is the pain on a scale of 1-5?
+Are_you_having_any_other_symptoms : Have you had any other symptoms or problems?
+Do_you_have_numbness_or_tingling : Have you had any numbness or tingling in your legs or feet?
+Can_you_do_normal_activities : Have you been able to do the things you normally do each day?
+Has_the_pain_affected_your_activity : Have your activities been limited because of the pain?
+Loss_of_bowel_or_bladder_control : Have you had loss of bowel or bladder control?
+Have_you_been_incontinent : Have you had incontinence?
+This_matched_negativesymptoms : Have you had fever?
+Do_you_use_illegal_drugs : Do you use drugs?
+Do_you_use_illegal_drugs : Have you ever used IV drugs?
+Do_you_use_illegal_drugs : Have you ever used drugs?
+Do_you_have_any_medical_problems : Do you have any medical problems?
+Are_you_taking_any_medication : Are you on any medication?
+How_much_medicine_have_you_taken : How much ibuprofen have you taken?
+What_is_the_strength_of_the_medicine : What strength is the ibuprofen?
+What_brings_you_in_today : what brings you in today
+Describe_the_pain : please tell me about your pain
+What_makes_the_pain_worse : does anything make it worse
+What_makes_the_pain_better : has anything made the pain better
+Has_the_pain_affected_your_activity : do you have any trouble with daily activities due to the pain
+Can_you_move_around_with_the_pain : can you move around with the pain
+Does_the_pain_interfere_with_work : does the pain interfere with work
+Has_the_pain_affected_your_activity : has the pain changed your daily routine
+How_have_you_been_handling_this : how have you been handling all of this
+How_has_this_affected_you : how has this influenced your life
+Have_you_been_off_work : has the back pain caused you to miss work
+Avoiding_moving_your_back : have you been avoiding moving your back
+How_has_this_affected_you : how has this been interfering with your daily activities
+Have_you_been_resting : have you been resting
+Avoid_exacerbate_pain : what have you been doing to avoid the pain
+Avoid_exacerbate_pain : what have you been doing to avoid exacerbating the pain
+What_do_you_think_is_the_problem : what do you think is the problem
+What_do_you_think_is_the_problem : what do you think is going on
+What_concerns_you_about_the_pain : what concerns you about this pain
+Do_you_have_any_questions : do you have any questions for me
+Anything_else_I_can_help_with : is there anything else you would like us to address today
+Does_it_hurt_to_touch_your_back : does it hurt to touch
+Can_you_rate_the_pain : how intense is the pain on a scale from 1 to 10
+Did_you_fall : did you fall at all
+What_brings_you_in_today : What brings you in today?
+When_did_the_pain_start : When did the pain start
+What_were_you_doing : What happened on the day of the move?
+Where_is_the_pain : where does it hurt?
+Does_the_pain_radiate : Does it go anywhere
+Describe_the_pain : what kind of pain is it?
+Have_you_had_this_pain_before : Have you ever had pain like this before
+When_have_you_had_this_pain : When did you have pain like this in the past
+Have_you_tried_anything_for_the_pain : Have you tried any medication to treat the pain
+Did_the_medicine_help : did the ibuprofen help?
+Did_the_medicine_help : Did the ibuprofen help the pain
+Does_anything_else_help_the_pain  : Did anything else help the pain
+What_makes_the_pain_worse : does anything make the pain worse?
+How_has_the_pain_progressed : How has the pain progressed in the past 5 days?
+Hello : Good morning.
+How_long_has_your_back_hurt : How long has your back been bothering you?
+How_long_has_your_back_hurt : How long have you had back pain?
+How_did_the_pain_start : What started it?
+Describe_the_pain : Describe the pain
+What_makes_the_pain_better : What makes it better
+Have_you_had_back_pain_before : Have you had back pain before
+What_makes_the_pain_worse : What makes it worse
+Have_you_ever_been_in_an_accident : Have you ever been in a car accident
+Ever_been_treated_for_somecondition : Have you ever been treated for whiplash
+Does_it_hurt_when_you_activity : Does it hurt when you cough
+What_brings_you_in_today : hello. why are you here today?
+Tell_me_more : I am sorry to hear that. Can you tell me more about this back pain?
+Is_the_pain_on_one_side : Is it in your upper or lower back?
+Is_the_pain_sharp : Is the pain sharp?
+Can_you_rate_the_pain : Can you rate your pain?
+Is_the_pain_constant : Does the pain wax and wane?
+Is_the_pain_constant : Is the pain constantly present?
+How_long_have_you_had_pain : How long has this pain been there?
+What_were_you_doing : what happened about a week ago?
+Taking_anything_for_your_back : have you tried putting ice on your back?
+Have_you_tried_any_other_methods : Have you tried any other methods?
+Have_you_tried_a_heating_pad : Have you tried putting a heating pad on your back?
+Take_any_other_medication2 : Have you tried anything other than ibuprofen?
+Is_the_pain_improving : Is the pain getting worse?
+Are_you_able_to_walk : have you been able to walk around?
+Are_you_able_to_walk : I understand that walking is painful, but can you walk?
+Have_you_been_bedridden : have you been bedridden?
+How_intense_is_the_pain : how severe is the pain?
+What_do_you_do_for_a_living : what do you do for work?
+What_bothers_you_the_most : what is your biggest concern
+Are_you_taking_any_medication : did you try taking any over the counter medication for the back
+Do_you_have_any_chronic_illnesses : Do you have any chronic medical problems?
+Do_you_have_any_other_conditions : Do you have any other medical conditions??
+Do_you_have_a_doctor : do you have a family doctor?
+When_did_you_see_a_doctor_last : when was the last time you saw a doctor?
+Do_you_have_a_doctor : Do you have a physician that you see regularly?
+How_old_are_you : how old are you?
+Do_you_have_any_allergies : do you have any allergies to any medication
+Do_you_have_any_allergies : have you ever had an allergic reaction to a medication
+Are_you_married : are you married?
+Do_you_have_any_children : do you have any children?
+Are_your_parents_living : are your parents living?
+Any_conditions_that_run_in_your_family : do you know of any medical conditions that run in your family?
+How_are_you : How are you doing today?
+What_have_you_tried_for_the_pain : What have you tried for it?
+Have_you_tried_anything_for_the_pain : Have you tried anything for the pain?
+Have_you_seen_a_doctor : Have you seen a chiropractor?
+Have_you_tried_heat : Have you tried heat?
+Have_you_tried_ice : Have you tried cold?
+Have_you_had_this_pain_before : Have you ever had this problem before?
+How_did_the_pain_start : How did the pain start?
+Have_you_been_able_to_work : Are you able to work?
+What_do_you_do_for_a_living : What do you do for work?
+Do_you_do_any_heavy_lifting_at_work : Do you do any heavy lifting at work?
+Have_you_had_back_pain_before : Have you ever had back problems before?
+Have_you_had_back_pain_before : Have you ever had anything like this before?
+Have_you_tried_anything_for_the_pain : Have you taken anything for the pain?
+Have_you_tried_anything_for_the_pain : Did you take any medication for the pain?
+Take_any_other_medication  : Are you on any other medication?
+Any_other_health_problems : Do you have any other medical problems?
+Do_you_have_any_allergies : Do you have any allergies?
+Any_prior_surgeries : Have you had any surgeries before?
+Do_you_smoke : Do you smoke?
+Do_you_drink_coffee : How much caffeine do you use?
+How_long_have_you_had_pain : How long have you had this problem?
+What_makes_the_pain_better : Anything make it better?
+What_makes_the_pain_worse  : Does anything make the pain worse?
+Can_you_rate_the_pain : How would you rate your pain?
+Is_the_pain_always_a_~number : Is the pain always a 7?
+Does_the_pain_radiate : Does the pain radiate anywhere?
+Is_the_pain_constant : Does the pain wax and wane?
+How_long_have_you_had_pain : How long have you had the pain?
+Has_the_pain_become_worse : Has the pain gotten any better or worse?
+Describe_the_pain : How would you describe the pain?
+Are_you_able_to_walk : Are you able to walk?
+Where_is_the_pain : Where do you feel the pain?
+Any_conditions_that_run_in_your_family : Are there any diseases that run in your family?
+Do_you_have_numbness_or_tingling : Any numbness or tingling?
+Do_you_have_numbness_or_tingling : Any numbness?
+Have_you_had_any_imaging_done : Have you had any imaging done?
+Have_you_seen_anyone_else : Have you seen anyone else about this yet?
+Do_you_have_any_pain : Are you in pain?
+Nice_to_meet_you : Nice to meet you
+How_are_you : How are you doing today, sir?
+When_did_you_hurt_your_back : When did your back start hurting?
+Were_you_doing_anything : Were you doing anything at the time that may have brought on the pain?
+When_did_the_pain_start : When did the pain start?
+How_has_the_pain_changed : How has the pain changed over time?
+What_have_you_tried_for_the_pain : What have you been trying for the pain?
+What_else_have_you_tried : What else have you tried?
+Does_it_feel_better_when_you_lie_down : Does lying down make it better?
+Does_moving_increase_the_pain : Does activity make it worse?
+How_intense_is_the_pain : How bad is the pain?
+Can_you_rate_the_pain : How would you rate the pain?
+Rate_pain_on_medicine : How would you rate the pain on the ibuprofen?
+How_intense_is_the_pain : How bad is the pain now?
+Is_the_pain_constant : Is the pain always there, or does it come and go?
+Where_is_the_pain : Where would you localize the pain?
+How_is_your_spine : Is your spine tender?
+Are_your_muscles_sore : Are your muscles tender?
+Are_you_sore : Are you tender?
+Are_your_muscles_sore : Are your muscles and spine tender?
+Have_you_tried_heat : Have you tried heat packs?
+Does_any_position_make_the_pain_worse : Do any positions in particular make it worse?
+Describe_the_pain : How would you describe the pain?
+Is_the_pain_dull : Do you have any burning pain?
+Is_the_pain_dull : Is the pain throbbing?
+Is_the_pain_on_one_side : Is the pain always in your lower back?
+Is_the_pain_dull : Is the pain crushing?
+Does_the_pain_radiate : Does the pain radiate?
+Pain_worse_morning_or_night : Does it hurt at night?
+What_makes_the_pain_better : What helps the pain?
+Did_the_medicine_help : Does ibuprofen make the pain go away?
+Do_you_have_numbness_or_tingling : Do you have any numbness?
+Do_you_have_numbness_or_tingling : Do you have any tingling?
+Do_you_have_numbness_or_tingling : Do you have any numbness or tingling?
+Do_you_have_any_weakness : Do you have any weakness?
+Are_you_able_to_control_your_bladder : Are you able to control your bladder?
+Are_you_able_to_control_your_bowels : Are you able to control your bowel?
+Have_you_been_able_to_work : Are you able to work?
+What_makes_the_pain_worse : Does anything make the pain worse?
+Describe_the_pain : What is the nature of your pain?
+What_concerns_you_about_the_pain : What concerns you about the pain?
+Can_you_bend_down : Are you able to bend down?
+Can_you_touch_you_toes : Can you touch your toes?
+Is_the_pain_constant : Does the pain ever go away?
+Is_the_pain_constant : Is the pain constant?
+Is_the_pain_constant : Is the pain intermittent?
+Is_the_pain_constant : Does the pain come and go?
+Are_you_having_any_other_symptoms : Do you have any other symptoms?
+Anything_else_I_can_help_with : Is there anything else I can help you with today?
+Are_you_stiff : Are you stiff?
+Are_you_stiff : Is your back stiff?
+Are_you_stiff : Are your muscles stiff?
+Are_you_stiff : Do you have any stiffness?
+Goodbye : Thank you for your time. Bye!
+What_brings_you_in_today : hello, what brings you in today
+How_long_have_you_had_pain : I am sorry to hear that. For how long has it been hurting?
+What_were_you_doing : what were you doing 5 days ago
+Have_you_tried_anything_for_the_pain : have you tried anything for the pain
+Did_the_medicine_help : did the ibuprofen help
+Can_you_rate_the_pain : can you rate your pain
+How_is_your_pain_now : what is your pain right now
+Did_you_take_medicine_today : did you take ibuprofen today
+Describe_the_pain : can you describe the pain
+Does_the_pain_radiate : does the pain radiate
+Has_the_pain_become_worse : has the pain changed with time
+How_has_the_pain_changed : how has the pain changed with time
+Is_the_pain_improving : has it been getting better
+Does_it_hurt_when_you_bend : does it hurt when you bend down
+Have_you_tried_to_bend : have you tried to bend down
+Is_the_pain_on_one_side : is the pain in the middle or on the sides
+Do_you_have_any_leg_pain : do you have any leg pain
+Do_you_have_numbness_or_tingling : have you noticed any numbness or tingling
+Loss_of_bowel_or_bladder_control : any trouble with your bowels or bladder
+Have_you_had_back_pain_before : any history of back problems

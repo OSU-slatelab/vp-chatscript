@@ -1,0 +1,70 @@
+
+topic: ~treatmentstried keep repeat (ice heat "heating pad" ~medical_treatments ~medicines ~medical_tests ~medical_professionals treatment test lab hospital manage treat cream ointment topical "over the counter" imaging "emergency room" ER)
+
+
+#! Have you tried a heating pad
+	u: Have_you_tried_a_heating_pad (have you tried a heating pad)   ^factanswer("I have not.")
+	u: (["heating pad" "hot pack"]) ^reuse (Have_you_tried_a_heating_pad)
+
+#! Have you tried heat or ice
+	u: Have_you_tried_heat_or_ice (have you tried heat or ice)  ^factanswer("I haven't tried either of those.")
+	u: (<< heat ice >>) ^reuse (Have_you_tried_heat_or_ice)
+
+#! Have you tried heat
+	u: Have_you_tried_heat (have you tried heat)   ^factanswer("I haven't tried that.")
+	u: ([try use put] * [hot heat]) ^reuse (Have_you_tried_heat)
+	u: ([heat hot "hot bath"] * help) ^reuse (Have_you_tried_heat)
+
+#! Have you tried ice
+	u: Have_you_tried_ice (have you tried ice)   ^factanswer("I haven't tried that.")
+	u: ([try use put] * [cold ice]) ^reuse (Have_you_tried_ice)
+	u: ([ice cold packs] * [help relieve ease]) ^reuse (Have_you_tried_ice)
+	u: ([try use put] * [cold ice] * [~itwords]) ^reuse (Have_you_tried_ice)
+	u: (<< [cool cold] [washcloth cloth] >>) ^reuse (Have_you_tried_ice)
+
+#! Have you tried any topical treatments
+	u: Have_you_tried_any_topical_treatments (have you tried any topical treatments)  ^factanswer("Not yet.")
+	u: ([try attempt use] * [any some] * [cream topical]) ^reuse (Have_you_tried_any_topical_treatments)
+
+#! What treatment would you like to try
+	u: What_treatment_would_you_like_to_try (what treatment would you like to try) ^factanswer("I don't know")
+	u: (<< treatment 'try >>) ^reuse (What_treatment_would_you_like_to_try)
+
+#! Have you tried any treatment
+	u: Have_you_tried_any_treatment (have you tried any treatment)  ^factanswer("I have not tried anything.")
+		a: Did_that_help (did * [help 'do]) ^factanswer ("It didn't help.")
+	u: (!~medicines !we ["have you" "have you ever" did] * [try attempt use receive had] * [treatment anything]) ^reuse (Have_you_tried_any_treatment)
+	u: (!~medicines !we [managing treating try attempt use]) ^reuse (Have_you_tried_any_treatment)
+
+#!!B What treatment have you tried
+	u: What_treatment_have_you_tried (what treatment have you tried)   ^factanswer("I have not tried anything.")
+	u: (what * treatment * [had tried used received attempted]) ^reuse (What_treatment_have_you_tried)
+
+#! Have you had any imaging done
+	u: Have_you_had_any_imaging_done (have you had any imaging done)   ^factanswer("I have had no imaging.")
+	u: (![~cardiovascular we] [imaging x-ray "x ray" "x rays" xray MRI CT "Cat Scan" ultrasound]) ^reuse (Have_you_had_any_imaging_done)
+
+#! Have you had any lab work
+	u: Have_you_had_any_labs (have you had any lab work)   ^factanswer("No, not yet.")
+	u: ([labs "lab work" blood]) ^reuse (Have_you_had_any_labs)
+
+#!!K Do you think that would help
+	u: Do_you_think_that_would_help (do you think that would help)  ^factanswer("I have no idea.")
+	u: (<< [would could might ] [help benefit] >>) ^reuse (Do_you_think_that_would_help)
+
+#! I think we should run some tests
+	u: Run_some_tests (run some tests)  ^factanswer("Ok.")
+	u: ([run try 'do get] * [test lab imaging]) ^reuse (Run_some_tests)
+
+#! Did you go to the hospital
+	u: Did_you_go_to_the_hospital (did you go to the hospital)     ^factanswer("You're the first person I've seen about this.")
+	u: (!ever you [go been seen] * [hospital ER "emergency room"]) ^reuse (Did_you_go_to_the_hospital)
+
+#! Would you be willing to see a physical therapist
+	u: Will_you_see_a_physical_therapist (would you be willing to see a physical therapist)    ^factanswer("I would be willing.")
+	u: (!have !did [see visit go think feel] * ["physical therapist" physiotherapist "physical therapy"]) ^reuse (Will_you_see_a_physical_therapist)
+
+#! have you had any physical therapy
+	u: Have_you_had_physical_therapy (have you had any physical therapy)    ^factanswer("I haven't had physical therapy.")
+	u: ([have tried] * ["physical therapy" physiotherapy]) ^reuse (Have_you_had_physical_therapy )
+

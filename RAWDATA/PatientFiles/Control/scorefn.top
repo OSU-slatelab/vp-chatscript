@@ -1,0 +1,32 @@
+tablemacro: ^rubric VARIABLE(^topic ^label ^p1 ^p2 ^p3 ^p4 ^p5 ^p6 ^p7 ^p8 ^p9 ^p10)
+
+if (^p1 != *) { createfact (^label ^topic ^p1 )}
+if (^p2 != *) { createfact (^label ^topic ^p2 )}
+if (^p3 != *) { createfact (^label ^topic ^p3 )}
+if (^p4 != *) { createfact (^label ^topic ^p4 )}
+if (^p5 != *) { createfact (^label ^topic ^p5 )}
+if (^p6 != *) { createfact (^label ^topic ^p6 )}
+if (^p7 != *) { createfact (^label ^topic ^p7 )}
+if (^p8 != *) { createfact (^label ^topic ^p8 )}
+if (^p9 != *) { createfact (^label ^topic ^p9 )}
+if (^p10 != *) { createfact (^label ^topic ^p10 )}
+
+tablemacro: ^equivalent (^label1 ^label2) # credit for only one in the open/closed world
+createfact( ^label1 equivalent ^label2)
+
+tablemacro: ^grade_sheet (^patient ^section.KEEP_QUOTES)
+createfact(^section ^patient grade_items)
+
+tablemacro: ^section variable (^sectionname.KEEP_QUOTES ^entry.KEEP_QUOTES ^rule ^rule1 ^rule2 ^rule3 ^rule4 ^rule5 ^rule6 ^rule7 ^rule8 ^rule9 ^rule10)  
+createfact(^entry section ^sectionname)
+createfact(^rule question ^entry)
+if (^rule1 != * ) {createfact(^rule1 question ^entry)}
+if (^rule2 != * ) {createfact(^rule2 question ^entry)}
+if (^rule3 != * ) {createfact(^rule3 question ^entry)}
+if (^rule4 != * ) {createfact(^rule4 question ^entry)}
+if (^rule5 != * ) {createfact(^rule5 question ^entry)}
+if (^rule6 != * ) {createfact(^rule6 question ^entry)}
+if (^rule7 != * ) {createfact(^rule7 question ^entry)}
+if (^rule8 != * ) {createfact(^rule8 question ^entry)}
+if (^rule9 != * ) {createfact(^rule9 question ^entry)}
+if (^rule10 != * ) {createfact(^rule10 question ^entry)}

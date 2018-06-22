@@ -1,0 +1,44 @@
+
+# ***************************************************************************************************
+
+topic: ~familyheadache keep repeat (family headache) 
+
+	u: ($present) respond(~currentheadache) ^fail(TOPIC) 
+	u: ($pasthistory) respond(~pastheadache) ^fail(TOPIC) 
+
+#! Do you have a family history of headaches
+	u: Family_history_of_headaches (do you have a family history of headache)    ^factanswer("Not that I know of.")
+	u: (headache) ^reuse (Family_history_of_headaches)
+
+# ***************************************************************************************************
+
+topic: ~familyneckstiffness keep repeat (~neck_stiffness bend ~role_family family)
+
+	u: ($present) respond(~currentneckstiffness) ^fail(TOPIC)
+	u: ($pasthistory) respond(~pastneckstiffness) ^fail(TOPIC) 
+
+#! Do you have a family history of neck stiffness
+	u: Family_history_of_neck_stiffness (do you have a family history of neck stiffness)    ^factanswer("Not that I know of.")
+	u: (~neck_stiffness) ^reuse (Family_history_of_neck_stiffness)
+
+
+# ***************************************************************************************************
+
+topic: ~familynasal keep repeat (nose sinus nasal sinusitis "nasal passages" family)
+
+	u: ($present) respond(~currentnasal) ^fail(TOPIC)  
+	u: ($pasthistory) respond(~pastnasal) ^fail(TOPIC)
+
+
+#! Do you have a family history of sinus problems
+	u: Family_history_of_sinus_problems (do you have a family history of sinus problems)  ^factanswer("Not that I know of.")
+	u: (<< [sinus sinusitis "nasal passages"] [problem issue symptom] >>)  ^reuse (Family_history_of_sinus_problems)
+
+
+# ***************************************************************************************************
+
+topic: ~familyeye keep repeat (eye)
+
+	u: ($present) respond(~currenteye) ^fail(TOPIC)  
+	u: ($pasthistory) respond(~pasteye) ^fail(TOPIC)
+

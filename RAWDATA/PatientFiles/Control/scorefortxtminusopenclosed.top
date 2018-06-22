@@ -1,0 +1,165 @@
+
+topic: ~score ()
+u: () $totalQueries += 1
+
+	# get this label's properties for this bot's diagnosis 
+	@1 = query(direct_sv '$$label $cs_bot ?) # get this label's properties 
+	loop () # process each property
+	{
+		$$tmp = first(@1object) # DATA IS: ( What_is_your_goal Patient1a Open ) - so this gets property Open or whatever
+		if (query(direct_sv '$$label equivalent ?)) # this label is considered equivalent to some other one
+		{
+			$$label = ^first(@1object)  # get std label for this
+		}
+
+		if ($$tmp == summary )  # summary questions track from what topic user was when asking
+		{
+			Createfact($$label summary $currenttopic) # from what topic did they ask this question
+		}
+		
+		$$kind = join('$ $$tmp) # get property like "open" making it $open
+		^$$kind += 1 	# increment count
+	}
+
+	# now note this new question was asked
+	$$tmp = $$rawinput 
+	if ($$label == NOANSWER OR $$label == MAINCONTROL)
+	{
+		$$tmp = ^"$$tmp    - Question not understood."
+	}
+	else 
+	{
+		$$tmp = ^"$$tmp"
+	}
+	createfact($$tmp asked $totalQueries) # this was asked this turn  
+
+	createfact($$tmp form $$label) # this was asked this way this turn
+
+	# track how many open questions asked in early stages
+	if (%input == 5) {$first5open = $open}
+	else if (%input == 10) {$first10open = $open}
+	else if (%input == 15) {$first15open = $open}
+
+topic: ~finalscore system repeat()
+u: () 
+	 createfact(^"\nScorecard for:  $login\n" scorecard x FACTTRANSIENT)
+
+	@4 = query(direct_vo ? $cs_bot grade_items)  # get sections to grade for this patient, eg ("Family History" zone grade_items)
+
+	# handle each section of grading
+	loop()
+	{
+		$$section = ^last(@4subject)  # get a section
+		createfact(^"\n$$section: \n" scorecard x FACTTRANSIENT)
+
+		$$categoryCount = 0
+		$$didasksection = 0
+
+		@3 = query(direct_vo ? section $$section) # get the types of questions to ask, eg (Location section "History of Present Illness")
+		loop()
+		{
+			$$category = ^last(@3subject)
+			createfact(^"    $$category: \n" scorecard x FACTTRANSIENT)
+
+			$$categoryCount += 1		# questions he should ask
+			$$didask = 0
+
+			@2 = query(direct_vo ? question $$category) # these are questions we recognize he should ask - he gets credit in the section if he asks at least one of these though we show all he asked
+			loop()
+			{
+				$$question = ^last(@2subject)
+	
+				# did he ask this?
+				if (^query(direct_vo ? form $$question)) # he asked this 
+				{
+					createfact(^"        @0subject \n" scorecard x FACTTRANSIENT)
+					$$didask += 1
+				}
+			}
+			if ($$didask == 0) 
+			{
+				createfact(^"        No question asked.  \n" scorecard x FACTDUPLICATE)
+				$$didask += 1
+			}
+			else {$$didasksection += 1}
+		}
+		createfact(^"    Summary: $$didasksection of $$categoryCount essential questions asked. \n" scorecard x  FACTTRANSIENT)
+	}
+
+	createfact(^"\n\nTotal questions: $totalQueries \n" scorecard x  FACTTRANSIENT)
+
+
+	 # open information
+	# if (!$open) {$open = 0}
+	# createfact(^"Open questions: $open \n" scorecard x  FACTTRANSIENT)
+
+
+	# $$tmpfile1 = $open * 100 / $totalQueries
+	# createfact(^"Open question percent: $$tmpfile1 \n" scorecard x  FACTTRANSIENT)
+
+
+	# if (%input <= 5) { $first5open = $open}
+	# createfact("^Open in first 5: $first5open \n" scorecard x  FACTTRANSIENT)
+
+
+	# if (%input <= 10) { $first10open = $open}
+	# createfact(^"Open in first 10: $first10open \n" scorecard x  FACTTRANSIENT)
+
+
+	# if (%input <= 15) { $first15open = $open}
+	# createfact(^"Open in first 15: $first15open \n" scorecard x  FACTTRANSIENT)
+
+
+	 # closed information
+	# if (!$closed) {$closed = 0}
+	# createfact(^"Closed questions: $closed \n" scorecard x  FACTTRANSIENT)
+
+
+	# $$tmpfile1 = $closed * 100 / $totalQueries
+	# createfact(^"Closed question percent: $$tmpfile1 \n" scorecard x  FACTTRANSIENT)
+	 
+	# $$tmpfile1 = $open * 100 / $closed
+	# createfact(^"Open/Closed ratio: $$tmpfile1 \n\n" scorecard x  FACTTRANSIENT)
+
+	 # for summarizing questions, show the question and from what topic it was asked
+    # nofail(rule query(direct_v ? summary ?))
+	# createfact(^"Summarizing questions:" scorecard x  FACTTRANSIENT)
+
+	if (^length(@0) == 0) 
+	{ 
+	 	createfact(^" none \n" scorecard x  FACTTRANSIENT)
+	}
+	
+ 	 $$count = 0
+     loop()
+	 {  
+		$$count += 1
+         _0 = last(@0all)
+		createfact(^"     $$count. Asked: _0 \( from topic _2 \ at question" scorecard x  FACTTRANSIENT)
+
+		@1 = query(direct_sv _0 asked ? 1 ) 
+ 	 	createfact(^"@1object \) \n" scorecard x  FACTTRANSIENT)
+    }
+	 
+	 # here is the history of what they asked
+ 	createfact(^"\nThese questions were asked in this order: \n" scorecard x  FACTTRANSIENT)
+
+	 nofail(rule query(direct_v ? asked ?))
+     loop()
+	 {  
+        _0 = last(@0all)
+  		createfact(^"     _2. _0 \n" scorecard x  FACTTRANSIENT)
+
+   }
+
+   # output all answers to user and file
+	$$tmpfile = join(TMP/ $cs_login .txt)
+	^log(FILE $$tmpfile NEW)  # start file from scratch
+	@0 = query(direct_vo ? scorecard x)
+	loop()
+	{
+		$$tmp = last(@0subject)
+		$$tmp
+		^log(FILE $$tmpfile $$tmp)
+
+	}

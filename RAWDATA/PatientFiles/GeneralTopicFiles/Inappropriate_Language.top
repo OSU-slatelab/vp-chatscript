@@ -1,0 +1,9 @@
+
+topic: ~inappropriate_language keep repeat (~emocurse)
+
+
+
+#! Any curse word
+	u: Any_curse_word (any curse word)   
+	u: (!worse [~emocurse]) 
+	^factanswer (^"[I don't respond to vulgarities like '_0]")

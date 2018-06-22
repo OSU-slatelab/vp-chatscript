@@ -1,0 +1,114 @@
+# ***************************************************************************************************
+
+# bowel - I have defined bowel as a concept in MedicalConcepts.top
+
+topic: ~currentbowel keep repeat (~bowel_problems hold control difficulty)
+
+
+	u: ($pasthistory) respond(~pastbowel)  ^fail(TOPIC) 
+	u: ($family) respond(~familybowel) ^fail(TOPIC) 
+
+
+#! Do you have loss of bowel control
+	u: Loss_of_bowel_control (do you have loss of bowel control)    ^factanswer("My bowels are fine.")
+	u: (!bladder << [loss lost] bowel control >>) ^reuse (Loss_of_bowel_control)
+
+#! Are you able to control your bowels
+	u: Are_you_able_to_control_your_bowels (are you able to control your bowels)    ^factanswer("I have no problems with my bowels.")
+	u: (![problem trouble bladder loss lost] control * bowel) ^reuse (Are_you_able_to_control_your_bowels)
+
+#! When was your last bowel movement
+	u: When_was_last_bowel_movement (when was your last bowel movement)  ^factanswer("I don't remember.")
+	u: (!pain [when long often] * [last latest "most recent"] * [bowel movement poop]) ^reuse (When_was_last_bowel_movement)
+	u: (!pain [when long often] * [bowel movement poop]) ^reuse (When_was_last_bowel_movement)
+
+#! Do you have any bowel problems
+	u: Do_you_have_any_bowel_problems (do you have any bowel problems)  ^factanswer("I have no problems with my bowels.")
+	u: (![where when how bladder incontinence] ['do 'are any] * ~bowel_problems) ^reuse (Do_you_have_any_bowel_problems) # not sure why I need this
+	u: (![bladder when incontinence] ~bowel_problems) ^reuse (Do_you_have_any_bowel_problems)
+
+#! Any pain with bowel movements
+	u: Any_pain_with_bowel_movements (any pain with bowel movements)  ^factanswer("I have no problems with my bowel movements.")
+	u: (![where how bladder incontinence] ['do 'are any] * [pain discomfort] * [bowel movement poop]) ^reuse (Any_pain_with_bowel_movements) 
+	
+# Both bowel and bladder
+
+#! Do you have loss of bowel or bladder control
+	u: Loss_of_bowel_or_bladder_control (do you have loss of bowel or bladder control)    ^factanswer("My bowels and bladder are fine.")
+	u: (<< [loss lost] bowel bladder >>) ^reuse (Loss_of_bowel_or_bladder_control)
+	u: (<< bowel bladder [problem trouble issue] >>) ^reuse (Loss_of_bowel_or_bladder_control)
+
+#! Do you have bowel or bladder control
+	u: Do_you_have_bowel_or_bladder_control (do you have bowel or bladder control)    ^factanswer("My bowels and bladder are fine.")
+	u: (![loss lost] << bowel bladder >>) ^reuse (Do_you_have_bowel_or_bladder_control)
+
+
+
+# ***************************************************************************************************
+
+# abdominal_pain - I have defined abdominal_pain as a concept in MedicalConcepts.top
+
+
+topic: ~currentabdominalpain keep repeat (~abdominal_pain nausea nauseous vomit nauseated regurgitate regurgitation)
+
+	u: ($pasthistory) respond(~pastabdominalpain)  ^fail(TOPIC) 
+	u: ($family) respond(~familyabdominalpain) ^fail(TOPIC) 
+
+
+#! Have you been nauseous
+	u: Have_you_been_nauseous (have you been nauseous) ^factanswer("I am not nauseous.")
+	u: ([been had experienced do any are about] * [nausea nauseous stomachache bellyache "sick to your stomach" nauseated]) ^reuse (Have_you_been_nauseous)
+
+#! Describe the nausea
+	u: Describe_the_nausea (describe the nausea)  ^factanswer ("I have no nausea.")
+	u: (!pain [describe tell] * [nausea nauseous "sick to the stomach"]) ^reuse (Describe_the_nausea)
+
+#! Have you thrown up
+	u: Have_you_thrown_up (have you thrown up) ^factanswer("I have not.")
+	u: ([been have experience] * ["throwing up" vomit vomitting puke puking hurling vomited vomitted regurgitate regurgitation "throw up"])  ^reuse (Have_you_thrown_up)
+
+
+# ***************************************************************************************************
+
+# heartburn - I have defined heartburn as a concept in MedicalConcepts.top
+
+
+topic: ~currentheartburn keep repeat (~heartburn acid reflux metallic food sour bitter acidic belch burp eat)
+
+	u: ($pasthistory) respond(~pastheartburn)  ^fail(TOPIC) 
+	u: ($family) respond(~familyheartburn) ^fail(TOPIC) 
+
+#! Are you having an acid taste
+	u: Are_you_having_acid_taste (are you having an acid taste) ^factanswer ("I have no acid taste.")
+	u: ([have experience feel] * [acid metallic] taste acidy) ^reuse (Are_you_having_acid_taste) 
+	u: ([acid metallic bitter sour acidy] taste * [mouth tongue throat]) ^reuse (Are_you_having_acid_taste)
+
+#! What foods make heartburn worse
+	u: What_food_makes_heartburn_worse (what foods make heartburn worse) ^factanswer ("I have no heartburn.")
+	u: (what * [food eat drink] * [~heartburn ~itwords] * [worse increase])  ^reuse (What_food_makes_heartburn_worse)
+
+#! Does food make heartburn worse
+	u: Does_food_make_heartburn_worse (does food make heartburn worse) ^factanswer ("I have no heartburn.")
+	u: (![what which] [food drink eat] * [~heartburn ~itwords] * [worse increase])  ^reuse (Does_food_make_heartburn_worse)
+	u: (![what which] [~heartburn ~itwords] * [worse increase] * [food meal drink eat])  ^reuse (Does_food_make_heartburn_worse)
+	u: (![what which] [~heartburn ~itwords] * [worse increase] * [before after] * [food meal drink eat])  ^reuse (Does_food_make_heartburn_worse)
+
+#! What foods make heartburn better
+	u: What_food_makes_heartburn_better (what foods make heartburn better) ^factanswer ("I have no heartburn.")
+	u: (what * [food eat drink] * [~heartburn ~itwords] * [better decrease lessen subside "go away"])  ^reuse (What_food_makes_heartburn_better)
+
+#! Does food make heartburn better
+	u: Does_food_make_heartburn_better (does food make heartburn better) ^factanswer ("I have no heartburn.")
+	u: (![what which] [food drink eat] * [~heartburn ~itwords] * [better decrease lessen subside "go away"])  ^reuse (Does_food_make_heartburn_better)
+	u: (![what which] [~heartburn ~itwords] * [better decrease lessen subside "go away"] * [food meal drink eat])  ^reuse (Does_food_make_heartburn_better)
+	u: (![what which] [~heartburn ~itwords] * [better decrease lessen subside "go away"] * [before after] * [food meal drink eat])  ^reuse (Does_food_make_heartburn_better)
+	u: (![what which] [food drink eat] * [help relieve])  ^reuse (Does_food_make_heartburn_better)
+
+#! Do you get heartburn
+	u: Do_you_get_heartburn (do you get heartburn) ^factanswer ("I never have heartburn.")
+	u: ([experience get suffer] * ~heartburn) ^reuse (Do_you_get_heartburn)
+
+#! Do you belch
+	u: Do_you_belch  (do you belch)  ^factanswer ("I do not belch.")
+	u: ([notice experience 'do] * [belch burp])  ^reuse (Do_you_belch) 
+

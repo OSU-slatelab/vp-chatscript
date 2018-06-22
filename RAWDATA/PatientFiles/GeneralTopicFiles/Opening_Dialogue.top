@@ -1,0 +1,222 @@
+Table: ^equivalent() # these are all essential
+
+What_brings_you_in_today What_brings_you_in_today  # this is the base question - all similar questions map to this base
+How_do_you_feel What_brings_you_in_today
+
+
+
+# ***************************************************************************************************
+
+topic: ~openingdialogue keep repeat ()
+
+
+# 1.Primary
+
+#! What do you think is the problem
+	u: What_do_you_think_is_the_problem (what do you think is the problem) ^factanswer("Well, I'm hoping you can tell me that.")
+	u: (!when [what "can you"] * think * [problem wrong "led to" "going on" reason matter]) ^reuse (What_do_you_think_is_the_problem)
+	u: (!when what * [wrong "going on"] with * [back ~itwords]) ^reuse (What_do_you_think_is_the_problem)
+	u: (!when [ideas idea thought thoughts] * [might may could] * [be problem wrong "led to" "going on" reason matter]) ^reuse (What_do_you_think_is_the_problem)
+
+#! What brings you in today
+	u: What_brings_you_in_today (["what brings you" "why are you"] in today)  ^factanswer("I'm hoping you can help me out with a problem I've been having.")
+
+	u: (![when other else] [why what] * ["do for" bring help come] * [today tonight evening afternoon morning day]) ^reuse (What_brings_you_in_today)
+	u: (![when other else] "what brings you in") ^reuse (What_brings_you_in_today)
+	u: (![when other else] "brings you in today") ^reuse (What_brings_you_in_today)
+	u: (![when other else] "what brings you here") ^reuse (What_brings_you_in_today)
+	u: (![when other else] "what is bringing you in") ^reuse (What_brings_you_in_today)
+	u: (![when other else] ["to the office" "to my office" "the clinic"]) ^reuse (What_brings_you_in_today)
+	u: (![when other else] why * [in into come] * ["to the doctor" today]) ^reuse (What_brings_you_in_today) # What brings you in today tokenizes to Why are you in today
+	u: (![when other else worse better chronic] [problem trouble] * [having experiencing]) ^reuse (What_brings_you_in_today)
+	u: (![when other else] [what how] * [help assist] you) ^reuse (What_brings_you_in_today)
+	u: (![when other else pain] [is what about] * [problem trouble bother concern complaint issue]) ^reuse (What_brings_you_in_today)
+	u: (![when other else] come * see me) ^reuse (What_brings_you_in_today)
+	u: (![when other else] seems * [trouble problem issue]) ^reuse (What_brings_you_in_today) # this tokenizes to What is the trouble so not sure I need it
+	u: (![when other else] why * [here in to at] * today) ^reuse (What_brings_you_in_today)
+	u: (![when other else] why * [here in]) ^reuse (What_brings_you_in_today)
+	u: (![when other else back think] what * is * wrong) ^reuse (What_brings_you_in_today)
+	u: (![when other else] feel [OK "allright" "all right"]) ^reuse (What_brings_you_in_today)
+	u: (![when other else] what * you * ["talk about" discuss]) ^reuse (What_brings_you_in_today)
+
+
+#! What should we do
+	u: What_should_we_do (what should we do) ^factanswer("I was hoping you could tell me.")
+	u: (!when what * [should we help helpful]) ^reuse (What_should_we_do)
+
+#! What would you like me to do
+	u: What_would_you_like_me_to_do (what would you like me to do) ^factanswer("I'd like you to help me out.")
+	u: (!when what * [I me]* [do try]) ^reuse (What_would_you_like_me_to_do)
+	u: (!when what * [want like can] * [me I] * do)
+	u: (!when !other !else [what how] *~2 ["do you" "can I"] *~2 [help "do for"]) ^reuse (What_would_you_like_me_to_do)
+
+#! What is your goal for this visit
+	u: What_is_your_goal (what is your goal for this visit) ^factanswer("I'm hoping you could help me out with a problem I've been having.")
+	u: ([you your] *~2 [hope goal achieve want] *~2 [consultation visit today]) ^reuse (What_is_your_goal)
+	u: ([hope want] * accomplish) ^reuse (What_is_your_goal)
+
+#! Does anything make you feel better
+	u: Does_anything_make_you_feel_better (does anything make you feel better) ^factanswer("Nothing makes me feel better.")
+	u: (anything * feel * better) ^reuse (Does_anything_make_you_feel_better)
+	u: (!else !other anything * help) ^reuse (Does_anything_make_you_feel_better)
+
+#! Are you around sick people
+	u: Are_you_around_sick_people (are you around sick people) ^factanswer("Not that I know.")
+	u: (!other !else [around near close know] * [~family_members ~sibling ~people] * [sick ill "feeling poorly" "under the weather"]) ^reuse (Are_you_around_sick_people)
+	u: (!other !else [~family_members ~sibling ~people] * [around near close know] * [sick ill "feeling poorly" "under the weather"]) ^reuse (Are_you_around_sick_people)
+
+#! Are you sick
+	u: Are_you_sick (are you sick) ^factanswer("I am not sick.")
+	u: (!other !else !~family_members !sibling !people [sick ill "feeling poorly" "under the weather"]) ^reuse (Are_you_sick)
+
+#!!P Tell me more    => continue
+	u: Tell_me_more (tell me more) ^factanswer("What more do you want to know?")
+	u: ("tell me more" >) ^reuse (Tell_me_more)
+	u: (continue) ^reuse (Tell_me_more) # Tell me more gets tokenized to continue
+	u: (![we I] tell * [more happened doing "going on" about]) ^reuse (Tell_me_more) # Tell me what you were doing gets substituted with What do you were doing so added next responder
+	u: (![exacerbate avoid pain injure we I] what * [doing happened "going on" "do you mean" "do you mean by"]) ^reuse (Tell_me_more)
+
+#! Let me wash my hands
+
+	u: Let_me_wash_my_hands (let me wash my hands) ^factanswer("Ok take your time.")
+
+	u: ([wash clean] * hands) ^reuse (Let_me_wash_my_hands)
+
+#! Hopefully we can help you
+
+	u: Hopefully_we_can_help_you (hopefully we can help you) ^factanswer("Thank you.")
+
+	u: ([hopefully hope] * [help "feeling better" "feel better" plan solution communicate "figure out" "take care"]) ^reuse (Hopefully_we_can_help_you)
+
+	u: ([I we] * [help "feeling better" "feel better" plan "go from here" "go from there" solution communicate "take care" "figure out"]) ^reuse (Hopefully_we_can_help_you)
+
+#!!P I am sorry => ~emoapology
+	u: I_am_sorry (I am sorry) ^factanswer("Thank you for your concern.")
+	u: (~emoapology >) ^reuse (I_am_sorry)
+	u: ( *~3 [~emoapology]) ^reuse (I_am_sorry)
+
+#! That must be awful
+	u: That_must_be_awful (that must be awful) ^factanswer("Thank you for your concern.")
+	u: (that ["must be" "sounds like"] * [awful difficult sometimes bad]) ^reuse (That_must_be_awful)
+
+#! Why
+	u: Why (< why >) ^factanswer("Why what?")
+
+#! Good
+	u: That_is_good (that is good) ^factanswer("It is.")
+	u: (!better [good great awesome cool super excellent congratulations] >) ^reuse (That_is_good)
+	u: ( *~2 [good great super excellent glad] * [hear know you keep]) ^reuse (That_is_good)
+
+#!!P Got it => ~yes
+	u: Got_it (*~2 got it >) \[ Nod \] .
+
+#! Ok then
+	u: Ok_then (ok then)  ^factanswer("OK.")
+	u:([~yes OK okay] >) ^reuse (ok_then)
+	u:([~yes OK okay] to you) ^reuse (ok_then)
+
+#! Please repeat that
+#	u: Repeat_that (repeat that) repeat() Of course: $lastoutput
+	u: Repeat_that (repeat that) Of course: $lastoutput
+	u: (say that again) ^reuse (Repeat_that)
+	u: (come again) ^reuse (Repeat_that)
+
+# #####################################################################
+# Greetings
+
+
+#! I am Doctor Winslow
+	s: I_am_doctor ([name be "I am"] * Doctor _*~2)  # also matches "My name is doctor ..."
+	$drfirstname = '_0
+	$drlastname = '_1
+	Nice to meet you
+	# Nice to meet you doctor $drfirstname $drlastname
+
+#! I am medical student
+	u: I_am_medical_student (I am medical student) ^factanswer("Nice to meet you.")
+	u: ([I my] [name be] * student)  ^reuse (I_am_medical_student)
+
+#! I will be part of your health care team
+
+	u: I_will_be_part_of_your_health_care_team (I will be part of your health care team) ^factanswer("Sounds good.")
+
+	u: ([I student] * [part on with] * [care team]) ^reuse (I_will_be_part_of_your_health_care_team)
+
+	u: (I * ["taking care" interview question] * you) ^reuse (I_will_be_part_of_your_health_care_team)
+
+#! Today we have 15 minutes
+
+	u: Today_we_have_15_minutes (today we have 15 minutes) ^factanswer("Wow that is pretty short.")
+
+	u: ([we I] * minutes) ^reuse (Today_we_have_15_minutes)
+
+#!!P Nice to meet you => ~emohello
+	s: Nice_to_meet_you (nice to meet you)  ^factanswer("Nice to meet you")
+	s: ([nice pleased pleasure good] * meet) ^reuse (Nice_to_meet_you)
+
+#!!P Nice to see you => ~emohello
+	s: Nice_to_see_you ("nice to see you") ^factanswer("Nice to see you")
+	s: ([nice pleased pleasure good glad] * see) ^reuse (Nice_to_see_you)
+	s: ("nice to meet you") ^reuse (Nice_to_meet_you)
+
+#!!P Nice to see you too => ~emohello
+	s: Nice_to_see_you_too ("nice to see you") ^factanswer("Thanks.")
+	s: ([nice pleased pleasure good glad] * see) ^reuse (Nice_to_see_you_too)
+	s: ("nice to meet you") ^reuse (Nice_to_see_you_too)
+
+#!!P How are you => ~emohowzit
+	u: How_are_you (how are you [> ,]) ^factanswer("Ok, how are you?")
+	u: (!~family_members ~emohowzit >) ^reuse (How_are_you)
+	u: ("how are you doing") ^reuse (How_are_you)
+	u: ("how are you today") ^reuse (How_are_you)
+	u: ("how are you" >) ^reuse (How_are_you)
+	u: ("how are you doing today") ^reuse (How_are_you)
+	u: ("how have you been") ^reuse (How_are_you)
+	u: (how are you *~3 $patientlastname?) ^reuse (How_are_you)
+	u: ([ill sick "under the weather" ailments]) ^reuse (How_are_you)
+	u: (!better !worse !did !it !long how * [feel feeling going]) ^reuse (How_are_you)
+
+#! Tell me about yourself
+	u: Tell_me_about_yourself (tell me about yourself)  ^factanswer("Can you be more specific?")
+	u: (tell * yourself) ^reuse (Tell_me_about_yourself)
+	u: ([talk speak] * ["about you" more]) ^reuse (Tell_me_about_yourself)
+
+#!!P Hello => ~emohello
+	u: Hello (hello)  ^factanswer("Hello, doctor.")
+	u: ([hello hi hello ~emohello] *~3 >) ^reuse (Hello)
+	u: (good [morning afternoon day] *~3 >) ^reuse (Hello)
+	u: (good [morning afternoon day]) ^reuse (Hello)
+
+#!!S I am Mr Wilcox
+#	s: I_am_mister ([name be] * [miss "ms" "mrs" "Ms" "Ms." "Mrs" "Mrs." mister "mr" "Mr" "Mr." "mr."] _*2)
+	s: I_am_mister (I am _*~2)
+	Nice to meet you
+
+#! My name is Bob
+	s: My_name_is (my name is _*~3)
+	Nice to meet you '_0
+
+
+topic: ~followupdialogue erase norepeat (else other additional only any "before now" discuss)
+
+#! Any other problems
+	u: Any_other_problems1 (any other problems)  ^factanswer("I don't believe so.")
+	u: (!health !medical [other else only associated] * [symptom issue concern problem "bothering you" discuss discussion trouble]) ^reuse (Any_other_problems1)
+	u: (![try take] anything else) ^reuse (Any_other_problems1)
+
+#! Any other problems
+	u: Any_other_problems2 (any other problems)  ^factanswer("I don't think so.")
+	u: (!health !medical [other else associated] * [symptom issue concern problem "bothering you" discuss trouble]) ^reuse (Any_other_problems2)
+	u: (![try take] anything else) ^reuse (Any_other_problems2)
+
+#! Any other problems
+	u: Any_other_problems3 (any other problems)  ^factanswer("I can't think of anything.")
+	u: (!health !medical [other else associated] * [symptom issue concern problem "bothering you" discuss trouble]) ^reuse (Any_other_problems3)
+	u: (![try take] anything else) ^reuse (Any_other_problems3)
+
+
+#! Have you seen anyone else
+	u: Have_you_seen_anyone_else (have you seen anyone else)  ^factanswer("I have not.")
+		a: Why_did_you_wait (why * [wait take not] * [long soon sooner "before now"]) ^factanswer("I don't know.")
+	u: ([see discuss] * [~medical_professionals anybody anyone] * ["before now" else]) ^reuse (Have_you_seen_anyone_else)
+	u: ([see discuss] * [any other] * [~medical_professionals]) ^reuse (Have_you_seen_anyone_else)

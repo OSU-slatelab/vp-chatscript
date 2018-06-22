@@ -1,0 +1,94 @@
+# ***************************************************************************************************
+
+# walking- I have defined walking_problems as a concept in MedicalConcepts.top
+
+topic: ~currentwalking keep repeat (~walking_problems sit stair step home house)
+
+	u: ($pasthistory) respond(~pastwalking) ^fail(TOPIC)
+	u: ($family) respond(~familywalking) ^fail(TOPIC)
+
+
+#! Do you feel unsteady when you walk
+	u: Do_You_feel_unsteady_when_you_walk (do you feel unsteady when you walk)  ^factanswer("I can walk fine.")
+	u: (unsteady * ~walking_problems) ^reuse (Do_You_feel_unsteady_when_you_walk)
+
+#! Can you climb stairs
+	u: Can_you_climb_stairs (can you climb stairs)    ^factanswer("I can climb stairs.")
+	u: ([climb up down up_and_down] * [stairs steps]) ^reuse (Can_you_climb_stairs)
+
+#! Do you have stairs at home
+	u: Do_you_have_stairs_at_home (do you have stairs at home)  ^factanswer("I have no stairs.")
+	u: ([stairs steps] * [home house]) ^reuse (Do_you_have_stairs_at_home)
+
+#! How far can you walk
+	u: How_far_can_you_walk (how far can you walk)   ^factanswer("I can walk pretty far.")
+	u: (walk * [far distance ~distance_quantity long]) ^reuse (How_far_can_you_walk)
+	u: ([far distance ~distance_quantity long much] * walk) ^reuse (How_far_can_you_walk)
+
+#! Are you able to walk
+	u: Are_you_able_to_walk (are you able to walk)   ^factanswer("I can walk.")
+	u: ([can able] * walk) ^reuse (Are_you_able_to_walk)
+
+#! Are you able to sit
+	u: Are_you_able_to_sit (are you able to sit)   ^factanswer("I can sit.")
+	u: ([can able] * sit) ^reuse (Are_you_able_to_sit)
+	u: (sit * straight) ^reuse (Are_you_able_to_sit)
+
+#! Did you fall
+	u: Did_you_fall (did you fall)   ^factanswer("I did not.")
+	u: (!asleep [did have] * [fall fallen]) ^reuse (Did_you_fall)
+
+
+
+# ***************************************************************************************************
+
+topic: ~currentnumbness keep repeat (numb numbness tingle sensation)
+
+	u: ($pasthistory) respond(~pastnumbness)  ^fail(TOPIC)
+	u: ($family) respond(~familynumbness) ^fail(TOPIC)
+
+
+
+#! Do you have numbness or tingling
+	u: Do_you_have_numbness_or_tingling (do you have numbness or tingling)  ^factanswer("Not that I've noticed.")
+	u: (!healthcare [numb numbness tingle "loss of feeling" sensation]) ^reuse (Do_you_have_numbness_or_tingling)
+
+
+
+# ***************************************************************************************************
+
+topic: ~currentweakness keep repeat (weak weakness)
+
+
+	u: ($pasthistory) respond(~pastweakness) ^fail(TOPIC)
+	u: ($family) respond(~familyweakness) ^fail(TOPIC)
+
+#! Do you have any weakness
+	u: Do_you_have_any_weakness (do you have any weakness)  ^factanswer("Not that I've noticed.")
+	u: (![back muscle] [weak weakness strength]) ^reuse (Do_you_have_any_weakness)
+
+
+# ***************************************************************************************************
+
+topic: ~currentdizziness keep repeat (dizzy dizziness lightheaded lightheadedness spin "passed out" faint spin fainted "blacked out")
+
+
+	u: ($pasthistory) respond(~pastdizziness) ^fail(TOPIC)
+	u: ($family) respond(~familydizziness) ^fail(TOPIC)
+
+
+#! How long have you been dizzy
+	u: How_long_have_you_been_dizzy  (how long have you been dizzy)  ^factanswer("I have not been dizzy")
+	u: (how * [have experience notice] * [dizzy dizziness lightheaded lightheadedness])  ^reuse (How_long_have_you_been_dizzy)
+
+#! Have you noticed spinning
+	u: Have_you_noticed_spinning (have you noticed spinning)  ^factanswer("I have not felt spinning")
+	u: ([noticed felt experienced feel] * [spin spinning]) ^reuse (Have_you_noticed_spinning)
+
+#! Have you fainted
+	u: Have_you_fainted (have you fainted)  ^factanswer("I have not fainted")
+	u: (fainted "passed out" "blacked out") ^reuse (Have_you_fainted)
+
+#! Are you dizzy
+	u: Are_you_dizzy  (are you dizzy)  ^factanswer("I am not dizzy")
+	u: ([dizzy lightheaded "light headed" lightheadedness])  ^reuse (Are_you_dizzy)

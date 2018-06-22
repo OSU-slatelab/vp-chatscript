@@ -1,0 +1,878 @@
+outputmacro: Patient17()
+$patientfirstname = Joe
+$patientlastname = Smith
+$chiefcomplaint = ~leg_problems
+$complaint2 = ~diabetes
+$complaint3 = 
+$VPatient17 = VPatient17
+$Vpatient = VPatient17
+$patientTitle = Mr
+$currentjob = Bus driver
+$currentmedication1 = 
+$currentmedication2 = 
+$currentmedication3 = 
+$currentrateofpain = 
+
+^stdpatient()
+
+table: ^patientdata(VPatient17)
+
+
+### OpeningDialogue
+# primary
+
+What_brings_you_in_today "It's my left leg.  The past four days it has been red, swelling, and painful -- and it seems to be getting worse."
+What_is_your_goal "TO not have this swelling and pain in my leg."
+Does_anything_make_you_feel_better "Nothing is makes it feel better, not even rest."
+Tell_me_more "It began several days ago, and the swelling seems to be getting worse.  It hurts all the time; it doesn't even get better when I rest it. It seems to get a little worse when I move around. It hurts to walk as soon as I try to stand on it."
+
+# greetings
+
+How_are_you "Not doing so well. How about you?"
+
+# followupdialogue
+
+
+### PatientInformation
+# patientage
+
+How_old_are_you "I am 53 years old."
+When_were_you_born "I was born March 22, 1963."
+
+# patientname
+
+Name_and_date_of_birth "My name is Joe Smith and I was born March 22, 1963."
+What_is_your_name "Joe Smith"
+Do_you_mind_if_I_call_you "You can call me Joe."
+
+### Medications
+# currentmedications
+
+Taking_medication_for_the_1  "I haven't taken anything."
+Taking_medication_for_the_2 "No. I have not."
+Taking_medication_for_the_3 "No I have not."
+Need_to_take_the_medicine_that_often "I haven't taken anything for the problems I am having now."
+How_often_did_you_take_the_medicine "I didn't take medication for this yet. I am hoping you could tell me what to do instead."
+Are_you_taking_any_medication "I have not taken any medication for this issue. I am supposed to take medicine for blood pressure, diabetes and high cholesterol but I  have been out of my medications for about 2 weeks now and I really just don't have the money to get them refilled. So that is the last time I took any of those medications."
+ Is_medication_new "I have not started any new medication."
+
+# supplements
+
+Are_you_taking_supplements "No, I do not take any supplements."
+Which_multivitamin "I don't take any vitamins."
+
+# othermedications
+
+
+# pastmedications
+
+Ever_taken_other_medication "I am supposed to be taking medication for my high blood pressure and diabetes, but lately with all the added stress in my life, I haven't been very constant with that."
+
+### Allergies
+# Allergies
+
+
+### SocialHistory
+# activity
+
+How_often_do_you_exercise "Not very often. And right now it even hurts to walk."
+How_is_your_energy "I guess it is fine, about the same anyway."
+Have_you_been_resting "I have been resting, but my leg still hurts at rest."
+Have_you_been_bedridden "I am not bedridden."
+Do_you_have_any_trouble_exercising "I really don't exercise much, but right now I can barely even walk."
+
+# alcoholuse
+
+
+# caffeineuse
+
+Do_you_drink_coffee "I have a cup in the morning, but that's about it."
+
+# diet
+
+Do_you_eat_fast_food "Yes I do occasionally, but not that often."
+What_do_you_eat "Well, I try to eat regular meals and include fruits and vegetables, but I sometimes don't do very well. Unfortunately I have trouble saying no to desserts and with my kids and grandkid living with me there are always sweet treats around."
+
+# tobaccouse
+
+How_much_do_you_smoke "I smoke a pack and a half a day."
+How_long_have_you_smoked "I have been smoking for about 30 years now."
+Have_you_ever_smoked "I currently smoke and have been for 30 plus years."
+How_long_did_you_smoke "For the past 30 plus years."
+When_did_you_start_smoking "Around 30 years ago, somewhere in my early 20's."
+Have_you_quit_smoking "I have not quit. I have tried a couple of times, but always pick it back up."
+Are_you_exposed_to_secondhand_smoke "I some myself and so do 2 of my children, so I guess I am around secondhand smoke."
+Do_you_smoke "I currently smoke one and a half packs per day."
+
+# education
+
+How_far_in_school "I graduated from high school."
+
+# inrelationtohpi
+
+How_has_this_affected_you "It makes it very hard to move around, that's for sure."
+Can_you_do_normal_activities "Mostly, but the pain has been getting worse so I am not sure how long I will be able to do anything."
+Has_the_pain_affected_your_activity "It sure has."
+How_have_you_been_handling_this "Not too well. I am really worried."
+What_bothers_you_the_most "That it keeps getting worse."
+
+# job
+
+Do_you_do_any_heavy_lifting_at_work "I am a bus driver."
+Is_your_job_physically_demanding "Well, not really. I mean it can be in bad traffic."
+Is_your_job_stressful "Sometimes when my bus is stuck in traffic."
+Is_your_job_pleasurable "I like seeing all the people, so it is kind of nice."
+Are_you_on_your_feet_a_lot "Not at all, the opposite actually. I sit in the driver's seat of the bus for long periods of time"
+Where_do_you_work "I am a bus driver here in town."
+How_long_have_you_been_a_worker "For the past 15 years."
+What_do_you_do_for_a_living "I am a bus driver."
+Anyone_sick_at_at_work "Well, I drive a bus with lots of different people, so I can't really say whether anyone has been sick or not on my bus."
+
+# recreationaldruguse
+
+
+# tattoos
+
+
+# travel
+
+Have_you_traveled_anywhere "I wish could go somewhere on an airplane and get a good vacation, but I can't afford anything like that."
+
+# hobby
+
+
+# sexualactivity
+
+
+# religion
+
+
+# advanceddirective
+
+
+# generalhealth
+
+Are_you_healthy "I probably could do better."
+Do_you_feel_well "I don't feel too well."
+What_is_quality_of_life "Well, right now I guess not so great."
+
+### CurrentGeneralSymptoms
+# medicalproblems
+
+Do_you_have_any_medical_problems "I have high blood pressure and diabetes, and high cholesterol."
+Any_other_medical_problems "That is enough, I think."
+Do_you_have_a_health_problem "I have high blood pressure and diabetes and high cholesterol."
+Did_you_hurt_yourself "I do not remember any injury, but there has been this sore on the bottom of my foot for several months.  There's nothing draining out of the sore and it doesn't hurt, although my foot doesn't have much feeling in it."
+Do_you_have_any_chronic_illnesses "I have high blood pressure and diabetes and high cholesterol."
+What_symptoms_are_you_having "My leg is swollen and red and it hurts all the time."
+Have_you_had_weight_change "I am not sure. I think it has increased."
+
+# sleepingproblems
+
+Do_you_snore "My kids tell me that I snore."
+
+# discharge
+
+Have_you_noticed_a_discharge "I really haven't noticed anything."
+
+# itch
+
+
+# odor
+
+
+### CurrentAbdominalGISymptoms
+# bowel
+
+
+# bothbowelandbladder
+
+
+# abdominalpain
+
+
+# heartburn
+
+
+### CurrentGUSymptoms
+# bladder
+
+
+# maleGU
+
+
+### CurrentCardiovascularSymptoms
+# bloodpressure
+
+How_is_your_blood_pressure "I guess it has been elevated. I'm not sure. I have been out of my medication for several weeks now."
+
+# chestpain
+
+
+# heartproblems
+
+
+### CurrentGYNSymptoms
+# sexualhealth
+
+
+# contraception
+
+
+# bleeding
+
+
+# periods
+
+
+# menstrualcycles
+
+
+# pain
+
+
+# vaginalsymptoms
+
+
+# pregnancy
+
+
+# breast
+
+
+# menopause
+
+
+### CurrentHEENTSymptoms
+# headaches
+
+
+# neckstiffness
+
+
+# nasal
+
+
+# eye
+
+Have_you_had_blurry_vision "Yes, I believe so. I noticed this because I have been having some troubles reading my medicine bottles lately."
+Do_you_have_vision_changes "Yes, I think I have increased blurry vision."
+
+### CurrentMuscleSymptoms
+# backpain
+
+
+# backinjury
+
+
+# musclepain
+
+
+# backstiffness
+
+
+# spinepain
+
+
+# legpain
+
+Does_it_hurt_to_touch_your_leg "It does hurt to the touch."
+Avoiding_moving_your_leg "I may be trying to aviod moving because of the pain."
+Did_you_hurt_your_leg "I do not remember any injury, but there has been this sore on the bottom of my foot for several months.  There's nothing draining out of the sore and it doesn't hurt, although my foot doesn't have much feeling in it."
+Can_you_move_your_leg "It hurts to move and even stand on it."
+
+# jointpain
+
+
+### CurrentNeurologicSymptoms
+# walking
+
+Do_You_feel_unsteady_when_you_walk "Not really, it is just painful."
+Can_you_climb_stairs "Stairs are hard right now because eof the pain and swelling in my leg."
+Are_you_able_to_walk "Yes I can, but it is very painful now."
+How_far_can_you_walk "I really can't walk that far right now with this pain and swelling."
+
+# numbness
+
+Do_you_have_numbness_or_tingling "I think my feet are not numb but my left foot doesn't have much feeling it seems. I think this started about a few weeks ago."
+
+# weakness
+
+
+# dizziness
+
+
+### CurrentPainSymptoms
+# onset
+
+What_were_you_doing_when_injured "I do not remember any injury, but there has been this sore on the bottom of my foot for several months.  There's nothing draining out of the sore and it doesn't hurt, although my foot doesn't have much feeling in it."
+
+# exacerbation
+
+Does_rest_make_the_pain_go_away " It hurts all the time; it doesn't even get better when I rest it."
+Do_you_have_pain_at_rest "I do have pain even when I rest my leg."
+Does_it_hurt_when_not_moving "It hurts all the time."
+
+# intensity
+
+Can_you_rate_the_pain "I guess I would call it a 7 or 8."
+Can_you_rate_it "A 7 or 8."
+How_painful_is_it "It is very painful and seems to keep getting worse, not better."
+Is_the_pain_always_a_number  "Pretty much."
+Does_the_pain_hurt_a_lot  "It does hurt a bunch."
+
+# general
+
+Are_you_sore "Not sure I would call it a soreness."
+
+# description
+
+Does_the_pain_radiate  "It doesn't."
+Is_the_pain_on_one_side "it is only in my left leg."
+Is_the_area_tender "It is tender."
+When_does_the_pain_hurt "All the time now."
+How_did_it_feel "How did what feel?"
+
+### CurrentRespiratorySymptoms
+# breathing
+
+
+# cough
+
+
+### CurrentTreatments
+# treatmentstried
+
+
+### PastGeneralSymptoms
+# medicalproblems
+
+Have_you_ever_had_any_chronic_illnesses "Yes, I have hypertension and diabetes and high cholesterol."
+Have_you_ever_had_any_serious_illnesses  "I have high blood pressure and diabetes, but nothing too serious."
+
+# hospitalizations
+
+
+# sleepingproblems
+
+
+# discharge
+
+
+# itch
+
+
+# odor
+
+
+### PastAbdominalGISymptoms
+# bowel
+
+
+# bowelandbladder
+
+
+# abdominalpain
+
+
+# heartburn
+
+
+### PastCardiacSymptoms
+# bloodpressure
+
+Any_previous_blood_pressure_problems "I am supposed to take blood pressure medication, but I have been out for several weeks now."
+
+# chestpain
+
+
+# heartproblems
+
+
+### PastGYNSymptoms
+# sexualhealth
+
+
+# contraception
+
+
+# bleeding
+
+
+# periods
+
+
+# menstrualcycle
+
+
+# pain
+
+
+# vaginalsymptoms
+
+
+# pregnancy
+
+When_were_you_pregnant "I have a daughter, so just before she was born."
+Ever_been_pregnant_before "Yes, just when I had my daughter."
+
+# breast
+
+
+### PastGUSymptoms
+# bladder
+
+
+# pastmaleGU
+
+
+### PastHEENTSymptoms
+# headache
+
+
+# neckstiffness
+
+
+# nasal
+
+
+# eye
+
+
+### PastMuscleSymptoms
+# backpain
+
+
+# backinjury
+
+
+# musclepain
+
+
+# backstiffness
+
+
+# spinepain
+
+
+# legpain
+
+
+# jointpain
+
+
+### PastNeurologicSymptoms
+# walking
+
+
+# numbness
+
+
+# weakness
+
+
+# dizziness
+
+
+### PastPainSymptoms
+# onset
+
+
+# exacerbation
+
+
+# intensity
+
+
+# general
+
+
+# description
+
+
+### PastRespiratorySymptoms
+# breathing
+
+Ever_had_any_breathing_problems "Not before this."
+
+# cough
+
+
+### FamilyGeneralSymptoms
+# medicalproblems
+
+Any_conditions_that_run_in_your_family "Diabetes and high blood pressure, both of which I have already."
+Parents_have_any_medical_problems "My mom had diabetes and my dad had high blood pressure."
+
+### FamilyAbdominalGISymptoms
+# bowel
+
+
+# abdominalpain
+
+
+### FamilyCardiacSymptoms
+# bloodpressure
+
+Family_history_of_hypertension "My dad and most of his side of the family."
+
+# chestpain
+
+
+# heartproblems
+
+
+### FamilyGUSymptoms
+# bladder
+
+
+### FamilyHEENTSymptoms
+# headache
+
+
+# neckstiffness
+
+
+# nasal
+
+
+### FamilyMuscleSymptoms
+# backpain
+
+
+# backinjury
+
+
+# musclepain
+
+
+### FamilyGYNSymptoms
+# sexualhealth
+
+
+# periods
+
+
+# pregnancy
+
+
+# breast
+
+
+### FamilyPainSymptoms
+# pain
+
+
+### FamilyRespiratorySymptoms
+# breathing
+
+
+# cough
+
+
+### NeonatalCounseling
+# neonatalcounseling
+
+
+### Wellness
+# vaccines
+
+have_you_been_vaccinated_for_MMR "I think I actually had all of those and was not vaccinated for them."
+have_you_been_vaccinated_for_hepatitis_a  "I don't think I have actually."
+
+# seeingadoctor
+
+When_did_you_see_a_doctor_last "It has been a long time now because my daughter and new baby recently moved in with me and I have been trying to take care of the baby as well as keep my job as a bus driver,"
+Do_you_have_a_doctor "I do, it is you."
+Do_you_have_annual_exams "I should, but like I said I have been pretty busy lately."
+
+# mentalhealth
+
+Are_you_stressed "I would say that I have been stressed a lot lately. My daughter moved back in with her child, my grandchild, and it is hard to make ends meet."
+
+# relationshiphealth
+
+How_is_relationship_with_spouse "I am not married."
+
+### Movements
+# currentrangeofmotion
+
+What_movements_make_it_hurt "Just moving around."
+Does_it_hurt_when_you_bend "It hurts all the time."
+Do_you_have_decreased_motion "Maybe since it hurts to move."
+Are_you_able_to_stand "It hurts as soon as I stand on it."
+Is_standing_a_problem "It hurts as soon as I stand on it."
+
+# pastrangeofmotion
+
+
+### ChitChat
+# weatherquestions
+
+
+# seasonquestions
+
+
+# sportsquestions
+
+
+# readingquestions
+
+
+# watchingquestions
+
+
+# politicsquestions
+
+
+# restaurantquestions
+
+
+# howwasyourdayquestions
+
+
+# feelingquestions
+
+Are_you_nervous "Just about my health right now, I suppose."
+
+### Closure
+# closure
+
+
+# summarize
+
+
+### Screening
+# general
+
+
+# colonsection
+
+have_you_had_a_colonoscopy "I think I had one about 3 years ago or so."
+
+# breastsection
+
+
+# maleGUsection
+
+
+# femaleGUsection
+
+
+# communicablediseasesection
+
+
+# prenatalcare
+
+Have_you_had_glucose_test "I have, but it has been several months now."
+
+# diabetes
+
+Have_you_had_blood_glucose_checked "I am supposed to check my blood glucose myself, but I haven't been very good about that. My dodtor does regular checks of that and something else, called A1c. It has been about 6 months since I last had that checked though."
+
+### Family
+# familylife
+
+Do_you_have_a_family "I have 3 children and one grandchild."
+Who_do_you_live_with "I live with my kids and my grandchild."
+Do_you_live_alone "I don't."
+Where_do_you_live "I live in the housing development by the river."
+Where_is_home "Here in town."
+
+# parentsinformation
+
+Are_your_parents_living "My mother is, but my father died about 4 years ago."
+How_old_are_your_parents "My mother is 75."
+Are_your_parents_healthy "My mother has diabetes so she has some struggles with that."
+Tell_me_about_your_parents "My mother is 75 and has diabetes but still does everything she always has. My dad died 4 years ago."
+
+# grandparentsinformation
+
+Are_your_grandparents_living "Not anymore."
+How_did_grandparents_die "I am not sure."
+How_old_are_your_grandparents "They are deceased."
+Are_your_grandparents_healthy  "They were."
+Tell_me_about_your_grandparents "My grandparents were wonderful people."
+
+# siblingsinformation
+
+
+# relativesinformation
+
+
+# childreninformation
+
+How_many_children "I have 3 kids, 2 daughters and 1 son."
+How_old_are_your_children "My oldest daughter is 25 and youngest is 22. My son is 20."
+Are_your_children_healthy  "Yes, they are all healthy."
+How_are_your_children "They are fine."
+Do_you_want_children "Heavens no. I'm way to old for that and the ones I have heven't even left home yet."
+Do_you_have_any_children "I have 3 kids."
+Tell_me_about_your_children "They all live with me and my oldest daughter just had a baby and moved back in with me."
+Where_are_your_children "They all are living with me right now including my grandchild."
+
+# spouseinformation
+
+Are_you_divorced "No, I am widowed."
+How_long_have_you_been_married "we were married for 26 years."
+Are_you_single "No, I am  widowed."
+Are_you_widowed "My wife passed away 3 years ago."
+Is_your_partner_healthy  "Um?"
+How_old_is_your_partner "She was my age."
+Do_you_have_a_partner "."
+Are_you_married "Not anymore but I was until my wife passed away."
+
+# supportinformation
+
+Do_you_have_support "I have my kids."
+
+### HOPIChiefcomplaint
+# onset
+
+Did_anything_happen_to_cause_the_1 "I do not remember any injury, but there has been this sore on the bottom of my foot for several months.  There's nothing draining out of the sore and it doesn't hurt, although my foot doesn't have much feeling in it."
+How_did_the_1_start "I do not remember any injury, but there has been this sore on the bottom of my foot for several months."
+Doing_anything_when_the_1_started "Not anything unusual."
+Was_the_onset_sudden1 "No, not really."
+Did_the_1_start_immediately "I'm not sure. Like I said I have had this sore on my foot for several months now, but it doesn't hurt at all."
+Is_the_1_new "I have never had this sort of swelling or pain before."
+When_did_the_1_start "The past four days it has been red, swelling, and painful -- and it seems to be getting worse."
+How_has_the_1_changed "It began several days ago, and the swelling seems to be getting worse."
+How_long_have_you_had_1 "It began several days ago, and the swelling seems to be getting worse."
+Is_the_1_constant " It hurts all the time; it doesn't even get better when I rest it."
+Do_you_have_a_cause_for_1 "I do not remember any injury."
+
+# exacerbation
+
+What_makes_the_1_worse " It seems to get a little worse when I move around."
+Does_anything_change_1_intensity " It seems to get a little worse when I move around. It hurts to walk as soon as I try to stand on it."
+What_have_you_tried_for_the_1 "I haven't tried anything yet."
+Have_you_tried_anything_for_the_1 "Not yet."
+What_makes_the_1_better "SO far there is nothing that makes it better."
+Does_moving_increase_the_1 " It seems to get a little worse when I move around. It hurts to walk as soon as I try to stand on it."
+Does_any_position_relieve_the_1 "It hurts all the time; it doesn't even get better when I rest it."
+Does_any_position_make_the_1_worse " It seems to get a little worse when I move around. It hurts to walk as soon as I try to stand on it."
+Do_any_positions_make_1_worse_or_better "Not really."
+Can_you_move_around_with_the_1 "I can't really move too much - walking or even standing seem to make it worse."
+Is_1_worse_when_you_lie_down "It doesn't seem to change no matter what."
+Do_you_have_1_when_you_lie_down "It is there all the time."
+Is_1_better_when_you_lie_down "It doesn't get better when I rest in any position."
+Does_1_increase_when_you_stand "It does hurt when I try to stand on it and walk."
+Does_the_1_improve_with_exercise "No, it gets worse just by walking in fact."
+Does_the_1_keep_you_up_at_night "So far it hasn't affected my sleep."
+1_worse_morning_or_night "It is there all the time."
+Avoid_exacerbate_1 "I have been trying to rest it and even elevate it, but nothing seems to change it."
+Is_the_1_improving "No, it is getting worse."
+
+# intensity
+
+How_intense_is_the_1 "It is getting pretty painful actually."
+Has_the_intensity1_changed "Yes, it has gotten worse."
+Has_the_1_become_worse "Yes. It has over the past four days or so."
+When_is_the_1_most_severe "I guess I would say when I move around on it."
+
+# general
+
+Do_you_currently_have_1 "I do have swelling and pain in my left leg."
+How_is_your_1_now "It is pretty painful. Have a look and see."
+Do_you_have_any_1 "I am having swelling of my left leg with redness and pain."
+Are_you_having_any_other_1 "My right leg is absolutely fine."
+How_else_is_the_1_affecting_your_life "I am worried about how I am going to work. I am a bus driver."
+Has_the_1_stopped_you "I haven't been able to let it stop me from doing naything because I need to work to provide for my kids."
+
+# description
+
+Has_the_1_changed "Yes, it seems to be getting worse. I really hope you can take care of it."
+Any_physical_changes_in_your_1 "I guess I would call swelling and redness physical changes."
+When_do_you_have_the_1 " It hurts all the time; it doesn't even get better when I rest it. It seems to get a little worse when I move around. It hurts to walk as soon as I try to stand on it."
+How_long_does_the_1_last "It is constant."
+How_frequent_is_the_1 "It is constant."
+What_concerns_you_about_the_1 "I just hope that it is nothing too bad. I have been neglecting my meds and my health recently and am anxious about it now."
+Where_is_the_1 "In my left leg."
+Describe_the_1 "It's my left leg.  The past four days it has been red, swelling, and painful -- and it seems to be getting worse. There  has been this sore on the bottom of my foot for several months.  There's nothing draining out of the sore and it doesn't hurt, although my foot doesn't have much feeling in it."
+When_else_do_you_have_the_1 "Always."
+
+### HOPIComplaint2
+# onset
+
+Did_anything_happen_to_cause_the_2 "I don't think so."
+How_did_the_2_start "I'm not sure how it started."
+Was_the_onset_sudden2 "I have been diabetic for about 10 years now."
+Did_the_2_start_immediately "I don't remember."
+Is_the_2_new "I have been diabetic for 10 years now."
+When_did_the_2_start "I just noticed it over the past week. Last night was especially bad."
+How_has_the_2_changed "I don't know if it has changed, but it is harder to keep my glucose level where it should be."
+How_long_have_you_had_2 "About 10 years now."
+Is_the_2_constant "Well, I always have it."
+
+# exacerbation
+
+What_makes_the_2_worse "Eating poorly and not exercising."
+What_have_you_tried_for_the_2 "I have medication from the doctor, but I ran out about 2 weeks ago and didn't have the money to get more."
+Have_you_tried_anything_for_the_2 "Just the medication from the doctor."
+What_makes_the_2_better "Well, the medication helps."
+Is_the_2_improving "I don't think it is improving."
+
+# intensity
+
+Has_the_intensity2_changed "I think it is getting worse."
+Has_the_2_become_worse "Yes."
+
+# general
+
+Do_you_currently_have_2 "I do have diabetes."
+How_is_your_2_now "I don't think it is very good right now since I haven't had my medicine for 2 weeks."
+Do_you_have_any_2 "I do have diabetes."
+
+# description
+
+When_do_you_have_the_2 "All the time."
+How_frequent_is_the_2 "I am not sure really."
+What_concerns_you_about_the_2 "Well, without the medicine I can't keep it controlled and now this leg thing I am afraid is because of my diabetes."
+
+### HOPIComplaint3
+# onset
+
+Did_anything_happen_to_cause_the_3 "Not that I know of."
+How_did_the_3_start "I am not sure. I just noticed that my ankles and lower legs have been swollen."
+Doing_anything_when_the_3_started "Not that I know of."
+Was_the_onset_sudden3 "I guess so. It just started a couple of days ago. It was better when I woke up this morning, but not it is back. That's why I am wearing sandals today."
+Did_the_3_start_immediately "I guess it kind of did. It started just a couple of days ago."
+Is_the_3_new "Yes, I have never had this before."
+When_did_the_3_start "It started just a couple of days ago."
+3_worse_morning_or_night "It seemed to be better this morning, but now it is back."
+How_has_the_3_changed "I am not sure. It doesn't seem to have changed a whole lot. My feet and ankles are just bigger than usual and I can't fit into my shoes."
+How_long_have_you_had_3 "It just started a couple of days ago."
+Is_the_3_constant "Pretty much. It was better when I woke up this morning, but now it is back."
+
+# exacerbation
+
+What_makes_the_3_worse "I'm not sure."
+Does_anything_change_3_intensity "I'm not sure."
+What_have_you_tried_for_the_3 "Nothing. I just have to wear different slippers or sandals, because my feet won't fit into my usual shoes."
+Have_you_tried_anything_for_the_3 "I haven't tried anything."
+What_makes_the_3_better "I'm not sure."
+Does_anything_else_help_the_3 "I'm not sure."
+Have_you_tried_anything_else_for_3 "No. I have not."
+Have_you_tried_anything_else3 "No."
+Have_you_tried_any_other_methods3 "No."
+What_else_have_you_tried_for_3 "Nothing else."
+What_else_have_you_tried3 "I haven't tried anything else."
+Does_moving_increase_the_3 "I'm not sure."
+Does_any_position_relieve_the_3 "I'm not sure."
+Does_any_position_make_the_3_worse "I'm not sure."
+Do_any_positions_make_3_worse_or_better "Not really. But I'm not sure."
+
+# intensity
+
+
+# general
+
+Do_you_currently_have_3 "Yes. That's why I am wearing sandals today."
+How_is_your_3_now "As you can see, I am wearing sandals today cause I still couldn't fit into my normal shoes."
+
+# description
+
+When_do_you_have_the_3 "I'm not sure."
+How_long_does_the_3_last "I'm not sure."
+How_frequent_is_the_3 "I'm not sure."
+Where_is_the_3 "Just on my ankles and feet."

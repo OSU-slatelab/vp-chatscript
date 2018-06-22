@@ -1,0 +1,11 @@
+[Unit]
+Description=Virtual Patient Chatscript Server
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/abs/path/to/RunChatscriptServer.sh
+User=root
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,152 @@
+
+# ***************************************************************************************************
+
+# General
+
+topic: ~pastmedicalproblems keep repeat (medical problem condition illness injury trauma chronic disease accident serious healthy ill sick health child childhood injured)
+
+	u: ($present) respond(~currentmedicalproblems) ^fail(TOPIC)
+	u: ($family) respond(~familymedicalproblems) ^fail(TOPIC)
+
+
+#! Have you ever had any chronic illnesses
+	u: Have_you_ever_had_any_chronic_illnesses (have you ever had any chronic illnesses)    ^factanswer("I have been very healthy all of my life.")
+	u: (!they [major chronic] * [illness problem disease illnesses]) ^reuse (Have_you_ever_had_any_chronic_illnesses)
+
+#! Have you ever been in an accident
+	u: Have_you_ever_been_in_an_accident (have you ever been in an accident)    ^factanswer("Never.")
+	u: (!they [ever any] * [injury accident injured]) ^reuse (Have_you_ever_been_in_an_accident)
+
+#! Have you ever had any serious illnesses
+	u: Have_you_ever_had_any_serious_illnesses (have you * had any serious illnesses)   ^factanswer("I have not.")
+		a: ([other else]) No.
+	u: (![when this they] << [illness problem condition injury trauma illnesses cancer] [before prior past history ever] >>) ^reuse (Have_you_ever_had_any_serious_illnesses)
+
+#! What is your past medical history
+	u: What_is_your_past_medical_history (what is your past medical history)    ^factanswer("What would you like to know?")
+	u: (![when back they their] medical [history problems issues]) ^reuse (What_is_your_past_medical_history)
+	u: (![when back they their] history * disease) ^reuse (What_is_your_past_medical_history)
+
+
+# ***************************************************************************************************
+
+# Past surgical history and hospitalizations
+
+topic: ~hospitalizations keep repeat (hospital hospitalized hospitalization surgery surgeries operation surgical appendix appendectomy ventilator)
+
+#! Have you had gynecologic surgery
+	u: Have_you_had_gynecologic_surgery (have you had gynecologic surgery)      ^factanswer("No.")
+	u: (<< [gyn gynecologic] [operation surgery] >>) ^reuse (Have_you_had_gynecologic_surgery)
+
+#!!S Any other surgeries
+	u: Any_other_surgeries (any other surgeries)  ^factanswer("No.")
+	u: (other [surgery surgical operation]) ^reuse (Any_other_surgeries)
+
+#!!S Any problems with surgeries
+	u: Any_surgery_problems (any problems with surgeries)  ^factanswer("None.")
+	u: (!other << [surgery surgical operation] [problem issue complication] >>) ^reuse (Any_surgery_problems)
+
+#!!S Any prior surgeries
+	u: Any_prior_surgeries (any prior surgeries)  ^factanswer("No.")
+	u: (!other [surgery surgical operation]) ^reuse (Any_prior_surgeries)
+
+#! Any other hospitalizations
+	u: Any_other_hospitalizations (any other hospitalizations) ^factanswer("I don't think so.")
+	u: (other * [hospital hospitalized hospitalization]) ^reuse (Any_other_hospitalizations)
+
+#! Have you ever been in the hospital
+	u: Ever_been_in_the_hospital (have you ever been in the hospital) ^factanswer("I don't think so.")
+	u: (![did 'go other] [hospital hospitalized hospitalization]) ^reuse (Ever_been_in_the_hospital)
+
+#! Have you ever been on a ventilator
+	u: Ever_been_on_a_ventilator (have you ever been on a ventilator) ^factanswer("I have never been on a ventilator.")
+	u: (ventilator) ^reuse (Ever_been_on_a_ventilator)
+
+
+#! Appendix
+	u: Appendix (appendix) ^factanswer("I still have my appendix.")
+	u: (appendix appendectomy)  ^reuse (Appendix)
+
+# ***************************************************************************************************
+
+topic: ~pastsleepingproblems keep repeat (~sleeping_problems)
+
+
+	u: ($present) respond(~currentsleepingproblems) ^fail(TOPIC)
+	u: ($family) respond(~familysleepingproblems) ^fail(TOPIC)
+
+
+#! Any history of insomnia
+	u: Any_history_of_insomnia (any history of insomnia)    ^factanswer("I've always slept fine.")
+	u: ([history past previous prior] * ~sleeping_problems) ^reuse (Any_history_of_insomnia)
+	u: (~sleeping_problems * [history past previous prior]) ^reuse (Any_history_of_insomnia)
+
+#! Describe your past sleeping trouble
+	u: Describe_your_past_sleeping_trouble (describe your past sleeping trouble) ^factanswer("I have had no trouble sleeping.")
+	u: ([sort kind describe] * [trouble difficulty issue problem] * ~sleeping_problems * ["have you had" past before]) ^reuse (Describe_your_past_sleeping_trouble)
+
+#! Have you had any trouble sleeping
+	u: Have_you_had_any_trouble_sleeping (have you had any trouble sleeping)   ^factanswer("I have always slept ok.")
+	u: (![what describe] [trouble problems issues able] * ~sleeping_problems) ^reuse (Have_you_had_any_trouble_sleeping)
+	u: (![what describe] ~sleeping_problems * [trouble problems issues]) ^reuse (Have_you_had_any_trouble_sleeping)
+	u: (![what describe] how * ~sleeping_problems)  ^reuse (Have_you_had_any_trouble_sleeping)
+
+# ***************************************************************************************************
+
+topic: ~pastdischarge keep repeat (discharge color ~discharge_descriptors)
+
+
+	u: ($present) respond(~currentdischarge) ^fail(TOPIC)
+	u: ($family) respond(~familydischarge) ^fail(TOPIC)
+
+
+#! What color was the discharge
+	u: What_color_was_the_discharge (what color was the discharge) ^factanswer("I don't know.")
+	u: ([color shade hue] * [discharge ~itwords]) ^reuse (What_color_was_the_discharge)
+	u: ([discharge ~itwords] * [color shade hue]) ^reuse (What_color_was_the_discharge)
+
+#! Was the discharge thick
+	u: Was_the_discharge_thick (was the discharge thick)      ^factanswer("I don't have that.")
+	u: (!where !when !~bodyparts [~itwords discharge] * [~discharge_descriptors color]) ^reuse (Was_the_discharge_thick)
+
+#! Any past discharge
+	u: Any_past_discharge (any past discharge) ^factanswer("I had no discharge.")
+	u: (![when what why how ~describe ~medicines take use try] [past prior previous ever] * discharge) ^reuse (Any_past_discharge)
+
+# ***************************************************************************************************
+
+topic: ~pastitch keep repeat (itch ~itch_descriptors)
+
+	u: ($present) respond(~currentitch)   ^fail(TOPIC)
+	u: ($family) respond(~familyitch) ^fail(TOPIC)
+
+
+#! Was the itch crawling
+	u: Was_the_itch_crawling (was the itch crawling)      ^factanswer("I never had that.")
+	u: (!where !when !~bodyparts [~itwords itch] * ~itch_descriptors) ^reuse (Was_the_itch_crawling)
+	u: (!where !when [~itwords itch] * [feel experience] * ~itch_descriptors) ^reuse (Was_the_itch_crawling)
+
+#! WaS there a rash with the itch
+	u: Was_there_a_rash (was there a rash)      ^factanswer("I have never had a rash or itch.")
+	u: ([red redness bumps rash] * [~itwords itch]) ^reuse (Was_there_a_rash)
+
+#! Any past itch
+	u: Any_past_itch (any past itch) ^factanswer("I have never had an itch.")
+	u: (![when what why how ~describe ~medicines take use try] [ever past prior previous] * itch) ^reuse (Any_past_itch)
+
+# ***************************************************************************************************
+
+topic: ~pastodor keep repeat (odor)
+
+	u: ($present) respond(~currentodor)   ^fail(TOPIC)
+	u: ($family) respond(~familyodor) ^fail(TOPIC)
+
+#! Was the odor strong
+	u: Was_the_odor_strong (was the odor strong)      ^factanswer("I never had that.")
+	u: (!where !when !~bodyparts [~itwords odor] * ~odor_descriptors) ^reuse (Was_the_odor_strong)
+
+#! Did you ever notice an odor
+	u: Did_you_ever_notice_an_odor (did you ever notice an odor)   ^factanswer("Never noticed an odor before.")
+	u: ([notice smell] * [odor stink])   ^reuse (Did_you_ever_notice_an_odor)
+	u: (<< [~itwords discharge] [odor smell stink] >>)   ^reuse (Did_you_ever_notice_an_odor)
+	u: (notice * [odor smell stink] * [area region])   ^reuse (Did_you_ever_notice_an_odor)

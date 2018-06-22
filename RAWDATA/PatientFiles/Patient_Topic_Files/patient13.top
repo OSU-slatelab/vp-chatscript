@@ -1,0 +1,1423 @@
+outputmacro: patient13()
+$patientfirstname = Candy
+$patientlastname = Carruthers
+$chiefcomplaint = ~joint_pain
+$complaint2 = ~high_blood_pressure
+$complaint3 = 
+$Vpatient13 = Vpatient13
+$Vpatient = Vpatient13
+$patientTitle = Mrs
+$currentjob = Retired
+$currentmedication1 = ibuprofen
+$currentmedication2 = hydrochlorothiazide
+$currentmedication3 = 
+$currentrateofpain = 5
+
+^stdpatient()
+
+table: ^patientdata(Vpatient13)
+
+
+### OpeningDialogue
+# primary
+
+What_do_you_think_is_the_trouble "Well, I'm hoping you can tell me that."
+What_brings_you_in_today "I'm hoping you can help me out with my thumb pain. It hurts in both of them whenever I try to use them."
+What_should_we_do "I was hoping you could tell me."
+What_would_you_like_me_to_do "I'd like you to help me out with my thumb pain."
+What_is_your_goal "I'd like to be able to use my thumbs without them hurting."
+Does_anything_make_you_feel_better "The pain goes away if I rest my hands and don't use them."
+Are_you_around_sick_people "Not that I know."
+Are_you_sick "I am not sick."
+Tell_me_more "What more do you want to know?"
+Let_me_wash_my_hands "Okay."
+Hopefully_we_can_help_you "Thank you, I hope so too."
+I_am_sorry "Thank you for your concern."
+That_must_be_awful "Thank you for your concern."
+Why "Why what?"
+Repeat_that "Repeat what?"
+
+# greetings
+
+I_am_doctor ^"Nice to meet you Doctor $drfirstname $drlastname"
+I_am_medical_student ^"Nice to meet you $drfirstname $drlastname"
+I_will_be_part_of_your_health_care_team "Sounds good."
+Today_we_have_15_minutes "Okay."
+Nice_to_meet_you  "Nice to meet you too."
+Nice_to_see_you "Nice to see you too."
+Nice_to_see_you_too "Thanks."
+How_are_you "I'm ok, how are you?"
+Tell_me_about_yourself "Can you be more specific?"
+Hello "Hello Doctor."
+I_am_mister ^"Nice to meet you, Mister $drfirstname $drlastname"
+My_name_is ^"Nice to meet you $drfirstname $drlastname"
+
+# followupdialogue
+
+Any_other_problems1 "I don't believe so."
+Any_other_problems2 "I don't think so."
+Any_other_problems3 "I can't think of any."
+Have_you_seen_anyone_else "I have not."
+
+### PatientInformation
+# patientage
+
+How_old_are_you "I'm 65 years old."
+When_were_you_born "August 1, 1950"
+
+# patientname
+
+Name_and_date_of_birth ^" $patientfirstname $patientlastname, August 1, 1950"
+What_is_your_name ^" $patientfirstname $patientlastname"
+Did_I_pronounce_that_correctly "Yes, that is correct."
+Do_you_mind_if_I_call_you "Sure.   My friends all do."
+How_do_you_pronounce_that "Just like it is spelled."
+What_should_I_call_you ^" You can call me $patientfirstname."
+Are_you_mr_patientlastname ^" Yes, I am $patientfirstname $patientlastname. Good to meet you Doctor."
+Are_you_mr_someoneelse ^" No, I am $patientfirstname $patientlastname"
+Hello_mr_patientlastname "Hello Doctor.  I am so glad to see you."
+Hello_mr_someoneelse ^" Hello Doctor, however, my name is $patientlastname, not  '_0.  If you can help me though you can call me whatever you would like."
+Mr_patientlastname ^" Yes.  That is me.  Please call me $patientfirstname"
+Mr_someoneelse ^" No, I am $patientfirstname $patientlastname."
+
+### Medications
+# currentmedications
+
+Taking_medication_for_the_1  "I take Advil when my thumbs hurt."
+Taking_medication_for_the_2 "I take hydrochlorothiazide for my high blood pressure."
+Taking_medication_for_the_3 "I don't take any other medications, supplements, or vitamins."
+When_did_you_take_medicine "I take the hydrochlorothiazide in the morning, and the Advil up to three times a day."
+Need_to_take_the_medicine_that_often "I don't know, I'm just doing what the doctor told me to do."
+How_often_did_you_take_the_medicine "I take the hydrochlorothiazide once a day, and the Advil up to three times a day."
+How_long_taking_medicine "I've taken the hydrochlorothiazide for many years, but I only began the Advil about six months ago when my thumbs started hurting."
+How_much_medicine_have_you_taken "I take 50mg of hydrochlorothiazide each day, and 600mg of Advil."
+Would_you_like_a_stronger_prescription " I don't know. Do you think that would help me?"
+What_is_the_strength_of_the_medicine "50mg for the hydrochlorothiazide, and 600mg for the Advil."
+Did_the_medicine_help "A little bit, but I'm still feeling pain."
+Did_you_take_medicine_today "Yes."
+Are_you_still_taking_medicine "Yes."
+What_was_the_dose "50mg for the hydrochlorothiazide, and 600mg for the Advil."
+What_pills_did_you_take "I take hydrochlorothiazide for my hypertension, along with Advil for when my thumbs hurt."
+What_kind_of_medicine_is_that "I'm not too sure."
+Would_you_like_some_pain_medication " I don't know. Do you think that would help me?"
+Doctor_prescribe_the_medicine "I don't remember."
+Who_prescribed_the_medicine "I don't remember."
+What_is_medicine "I'm not too sure."
+Are_you_taking_any_medication "Yes. I take hydrochlorothiazide for my high blood pressure, along with Advil for when my thumbs hurt."
+ Is_medication_new "No."
+What_were_the_pills_called "I'm not too sure of any other names for them."
+
+# supplements
+
+Are_you_taking_supplements "I don't take any supplements or vitamins."
+Which_multivitamin "I don't take any supplements or vitamins."
+
+# othermedications
+
+Take_other_medication_for_1 "I haven't taken anything."
+ How_much_medication_1 "I haven't taken anything."
+ How_often_medication_1 "I haven't taken anything."
+Take_other_medication_for_2 "I didn't take anything else."
+ How_much_medication_2 "I didn't take anything else."
+ How_often_medication_2 "I didn't take anything else."
+Take_other_medication_for_3 "I took nothing else."
+ How_much_medication_3 "I took nothing else."
+ How_often_medication_3 "I took nothing else."
+Take_any_other_medication "Nothing."
+ How_much_medication "I didn't take anything."
+ How_often_medication "I didn't take anything."
+Take_any_other_medication1 "Nothing."
+ How_much_medication1 "I didn't take anything."
+ How_often_medication1 "I didn't take anything."
+Take_any_other_medication2 "Nothing."
+ How_much_medication2 "I didn't take anything."
+ How_often_medication2 "I didn't take anything."
+Why_do_you_take_the_medication "For my health."
+
+# pastmedications
+
+Ever_taken_medication_for_1 "Never."
+Ever_taken_medication_for_2 "Nothing."
+Ever_taken_medication_for_3 "Never."
+Ever_taken_other_medication "Nothing else."
+
+### Allergies
+# Allergies
+
+Food_or_environmental_allergies "No allergies of any kind that I know of."
+Do_you_take_medication_for_allergies "I am not allergic to anything."
+ How_much_allergy_medication "I do not take allergy medication."
+ How_often_allergy_medication "I do not take allergy medication."
+ Does_allergy_medication_help "I do not take allergy medication."
+ Take_allergy_medication_today "I do not take allergy medication."
+What_are_allergy_reactions "I am not allergic to anything that I know of."
+Do_you_have_any_allergies "Not that I know of."
+
+### SocialHistory
+# activity
+
+How_often_do_you_exercise "Not very often."
+Do_you_exercise "Not very often."
+Are_you_active "I am not that active."
+How_is_your_energy "It's fine."
+Have_you_been_resting "I rest enough."
+Have_you_been_bedridden "I have not been bedridden."
+Are_you_able_to_drive "I am able to drive."
+Are_you_able_to_drive_home "Yes, in fact, I drove here today."
+
+# alcoholuse
+
+How_much_do_you_drink "I don't drink."
+Do_you_drink "No."
+Do_you_feel_guilty_about_your_drinking "I don't drink."
+Anyone_thought_alcohol_problem "I don't drink."
+Do_you_ever_need_an_eye_opener "I don't."
+Have_you_considered_reducing_alcohol "I don't drink."
+Ever_felt_annoyed_about_alcohol "Never."
+What_kind_of_drinks "I don't drink."
+How_many_drinks "I don't drink."
+
+# caffeineuse
+
+Do_you_drink_coffee "I do not drink coffee."
+
+# diet
+
+Do_you_drink_enough_fluid "I think I do."
+Do_you_eat_dairy "I get enough dairy."
+Do_you_eat_fiber "I get enough fiber."
+Do_you_eat_fast_food "I don't go to fast food restaurants very often."
+Do_you_eat_fruit "I do eat them."
+Any_changes_in_your_diet "My diet is the same."
+Appetite "My appetite is fine."
+Any_dietary_restrictions "No."
+Can_you_eat "Eating is not a problem."
+Have_you_been_eating "I have been eating."
+What_snacks "I don't snack."
+What_were_you_eating_before "My diet hasn't changed."
+What_do_you_eat "I try to stick to the recommended portions of carbs, low fat meats, dairy, fruits, and vegetables."
+How_is_your_diet "My diet is fine."
+
+# tobaccouse
+
+How_much_do_you_smoke "I don't smoke."
+How_long_have_you_smoked "I have never smoked."
+Have_you_ever_smoked "I have never smoked."
+How_long_did_you_smoke "I have never smoked."
+When_did_you_start_smoking "I have never smoked."
+Have_you_quit_smoking "I have never smoked."
+Are_you_exposed_to_secondhand_smoke "No."
+Do_you_smoke "No."
+
+# education
+
+How_far_in_school "I graduated from college."
+What_is_your_major "I studied English literature."
+
+# inrelationtohpi
+
+How_has_this_affected_you "I feel very helpless at times. It's become very difficult for me to do activities that require use of my thumbs."
+Can_you_do_normal_activities "I can do most normal activities, but not ones that involve use of my thumbs."
+Has_the_pain_affected_your_activity "I can't do a lot of the things that require use of my thumbs, such as opening jars or pill bottles."
+How_have_you_been_handling_this "Ok for the most part, but I'm worried that I might lose use of my thumbs."
+What_bothers_you_the_most "I'm just worried that I'll lose use of my thumbs."
+Can_you_care_for_yourself "Yes, I can care for myself."
+
+# job
+
+Do_you_do_any_heavy_lifting_at_work "I don't work. I am retired."
+Is_your_job_physically_demanding "I don't work. I am retired."
+Is_your_job_stressful "I don't work. I am retired."
+Is_your_job_pleasurable "I don't work. I am retired."
+Are_you_on_your_feet_a_lot "Not really."
+Are_you_currently_working "No."
+Why_are_you_off_work "I don't work. I am retired."
+How_long_have_you_been_off_work "I don't work. I am retired."
+Have_you_been_off_work_because "I don't work. I am retired."
+Have_you_been_off_work "I don't work. I am retired."
+Have_you_been_able_to_work "I don't work. I am retired."
+What_can't_you_do_at_work "I don't work. I am retired."
+What_else_can't_you_do "Nothing."
+Do_you_have_problems_working "I don't work. I am retired."
+How_is_work "I don't work. I am retired."
+When_was_the_last_time_you_worked "I don't work. I am retired."
+Do_you_need_a_note_for_work "I don't work. I am retired."
+Does_the_pain_interfere_with_work "I don't work. I am retired."
+Is_the_pain_related_to_work "I don't work. I am retired."
+Does_it_hurt_to_work "I don't work. I am retired."
+Where_do_you_work "I don't work. I am retired."
+How_long_have_you_been_a_worker "I worked in a law office for 30 years."
+Do_you_have_insurance "I have Medicare."
+Do_you_have_exposure_to_chemicals "Not that I know of."
+Have_you_ever_been_in_the_military "No."
+What_do_you_do_for_a_living "I am retired, but I used to work at a law office."
+Do_you_work "No, I am retired."
+Anyone_sick_at_at_work "I don't work. I am retired."
+
+# recreationaldruguse
+
+Do_you_use_illegal_drugs "Never."
+Are_you_sure "I am sure."
+
+# tattoos
+
+Do_you_have_a_tattoo "I have no tattoos."
+Ever_had_a_tattoo "I have never had a tattoo."
+
+# travel
+
+Have_you_traveled_anywhere "Not very much, maybe just to a few major cities here and there in the past during vacations."
+
+# hobby
+
+Do_you_have_any_hobbies "I don't really have any specific hobbies."
+What_do_you_do_for_fun "Not much."
+
+# sexualactivity
+
+How_many_sexual_partners "Just my husband."
+Monogamous "I am monogamous."
+Do_you_prefer_men_or_women "I prefer men."
+Who_are_your_sexual_partners "Just my husband."
+Any_other_sexual_partners "No."
+Are_you_sexually_active "Yes."
+When_did_you_last_have_intercourse "Within the last week"
+Tell_me_about_your_sexual_history "I have only been sexually active with my husband."
+
+# religion
+
+
+# advanceddirective
+
+
+# generalhealth
+
+Were_you_healthy_child "I believe so."
+Are_you_healthy "I am pretty healthy."
+Do_you_feel_well "I feel fine for the most part."
+What_is_quality_of_life "It is good."
+Social_history "Ok."
+
+### CurrentGeneralSymptoms
+# medicalproblems
+
+Do_you_have_any_medical_problems "I have high blood pressure."
+Any_other_medical_problems "No."
+Do_you_have_a_health_problem "I have high blood pressure."
+Did_you_hurt_yourself "I did not."
+Do_you_have_any_chronic_illnesses "I have high blood pressure."
+Have_you_had_an_accident "I have not."
+What_symptoms_are_you_having "My thumb hurts when I try to use it."
+Have_you_had_weight_change "My weight has not changed."
+
+# sleepingproblems
+
+Why_are_you_having_trouble_sleeping "I'm not having any trouble sleeping."
+Have_you_had_any_trouble_sleeping "I'm sleeping ok."
+
+# discharge
+
+What_color_is_the_discharge "I don't have any discharge."
+Is_the_discharge_thick "I don't have any discharge."
+Have_you_noticed_a_discharge "I don't have any discharge."
+
+# itch
+
+Is_the_itch_crawling "I have no itching."
+Is_there_a_rash "No."
+Have_you_noticed_an_itch "I have no itching."
+
+# odor
+
+Is_the_odor_strong "There is no odor."
+Have_you_noticed_an_odor "There is no odor."
+
+### CurrentAbdominalGISymptoms
+# bowel
+
+Loss_of_bowel_control "My bowels are fine."
+Are_you_able_to_control_your_bowels "I have no problems with my bowels."
+When_was_last_bowel_movement "This morning."
+Do_you_have_any_bowel_problems "I have no problems with my bowels."
+
+# bothbowelandbladder
+
+Loss_of_bowel_or_bladder_control "My bowels and bladder are fine."
+Do_you_have_bowel_or_bladder_control "My bowels and bladder are fine."
+
+# abdominalpain
+
+Have_you_been_nauseous "I have not."
+Describe_the_nausea "I have no nausea."
+Have_you_been_throwing_up "I have not."
+
+# heartburn
+
+Are_you_having_acid_taste "No."
+What_food_makes_heartburn_worse "I don't have any heartburn."
+Does_food_make_heartburn_worse "I don't have any heartburn."
+Do_you_belch "No."
+
+### CurrentGUSymptoms
+# bladder
+
+Have_you_noticed_pain_while_urinating "I have not had pain while urinating."
+Blood_in_urine "I haven't noticed anything like that."
+Loss_of_bladder_control "My bladder is fine."
+Are_you_able_to_control_your_bladder "I have no problems with my bladder."
+Have_you_been_incontinent "I have not."
+Do_you_have_any_bladder_problems "I have no problems with my bladder."
+How_often_do_you_urinate "A few times a day."
+How_about_your_bladder "No problems with my bladder."
+
+# maleGU
+
+
+### CurrentCardiacSymptoms
+# bloodpressure
+
+How_is_your_blood_pressure "I have a history of high blood pressure, but I am taking medication for that."
+
+# chestpain
+
+Any_chest_pain "I have no chest pain."
+
+# heartproblems
+
+Any_heart_problems "I have no heart problems."
+
+### CurrentGYNSymptoms
+# sexualhealth
+
+Does_it_hurt_during_intercourse "It does not."
+Bleeding_after_intercourse "I do not."
+Do_you_have_an_STI "No."
+Have_you_been_raped  "No."
+
+# contraception
+
+Do_you_use_any_other_contraception "I do not."
+Do_you_use_protection_every_time  "I do not."
+Have_you_had_unprotected_sex "Yes."
+Do_you_use_contraception "I do not."
+
+# bleeding
+
+Tell_me_more_about_your_vaginal_bleeding "I do not have any vaginal bleeding."
+Are_there_clots "There are none."
+
+# periods
+
+First_day_of_last_period "I don't have those anymore."
+When_was_your_last_period "I don't have those anymore."
+Are_you_having_your_period "No."
+Are_your_periods_irregular "I don't have those anymore."
+Are_your_periods_regular "I don't have those anymore."
+Is_your_period_late "I don't have those anymore."
+How_long_do_your_periods_last "I don't have those anymore."
+Can_you_describe_your_periods "I don't have those anymore."
+What_is_flow_like "I have no flow."
+How_often_are_your_periods "I don't have those anymore."
+Are_your_periods_painful "I don't have those anymore."
+Does_pain_change_with_period "I don't have those anymore."
+Do_you_menstruate "I do not."
+Use_tampons "I do not."
+How_many_tampons "I don't use those."
+
+# menstrualcycles
+
+Have_you_had_any_menstrual_changes "I have not."
+Have_you_had_any_spotting "I have not."
+Tell_me_about_your_menstrual_cycles "I don't have those anymore."
+When_was_your_first_menstrual_cycle "I don't remember."
+
+# pain
+
+Are_you_having_cramps "No."
+Any_vaginal_pain "No."
+Any_vaginal_sores "No."
+Do_you_have_any_sores_on_your_groin "No."
+
+# vaginalsymptoms
+
+Any_vaginal_dryness "I have none of that."
+Do_you_douche "I do not."
+
+# pregnancy
+
+Could_you_be_pregnant "No."
+Want_to_be_pregnant "No."
+Are_you_pregnant "No."
+Have_you_taken_pregnancy_test "I have not."
+Have_you_miscarried "I have not had a miscarriage."
+Describe_pregnancy "I am not pregnant."
+
+# breast
+
+Any_breast_changes "I have not had any breast changes"
+Are_you_breastfeeding "No."
+
+# menopause
+
+Do_you_have_hot_flashes "I do not."
+Are_you_in_menopause "I am in menopause."
+
+### CurrentHEENTSymptoms
+# headaches
+
+Do_you_have_headaches "I don't have headaches."
+Do_you_have_auras "I have never had anything like that."
+Do_you_see_flashing_lights "I don't see anything like that."
+Do_you_see_spots "I don't see anything like that."
+
+# neckstiffness
+
+Do_you_have_any_neck_stiffness "I do not have any neck stiffness"
+How_is_your_neck "My neck is fine."
+Is_your_neck_painful "My neck is not painful."
+Did_you_hurt_your_neck "I did not hurt my neck."
+Can_you_move_your_neck "I can move my neck."
+
+# nasal
+
+Do_you_have_drainage_down_your_throat "No."
+Do_you_have_sinus_problems "No."
+
+# eye
+
+Are_you_having_double_vision "No."
+Have_you_had_blurry_vision "No."
+Do_you_have_vision_changes "I don't have any vision changes."
+
+### CurrentMuscleSymptoms
+# backpain
+
+Did_you_feel_a_pop "No, nothing like that."
+Did_you_feel_a_sharp_pain "I didn't feel anything like that."
+Did_you_hear_anything "Nope."
+How_heavy_was_the_couch "What couch?"
+Was_the_couch_heavy "What couch?"
+Did_you_finish_moving_the_couch "What couch?"
+How_were_you_lifting "I wasn't lifting anything."
+When_did_you_lift_the_furniture "I wasn't lifting anything."
+Describe_the_furniture "What furniture?"
+Injure_yourself_while_helping "I wasn't doing anything."
+Reason_your_back_hurts  "My back doesn't hurt."
+Why_do_you_think_your_back_hurts  "My back doesn't hurt."
+Does_it_hurt_to_touch_your_back "My back doesn't hurt."
+Does_your_back_hurt_when_you_work  "My back doesn't hurt."
+Does_your_back_hurt_when_in_bed  "My back doesn't hurt."
+Does_walking_hurt_your_back "My back doesn't hurt."
+Avoiding_moving_your_back  "I have not."
+Are_the_muscles_in_your_back_tight  "I have no problems with that."
+Are_the_muscles_in_your_back_weak  "I have no problems with that."
+Is_the_pain_always_in_your_lower_back  "I don't have any back pain."
+Is_the_pain_in_your_upper_or_lower_back  "I don't have any back pain."
+Is_the_pain_on_the_left_or_right_side  "I don't have any back pain."
+Any_specific_part_of_your_back  "I don't have any back pain."
+How_did_you_hurt_your_back  "I didn't hurt my back."
+Did_you_hurt_your_back  "I didn't hurt my back."
+Did_you_strain_a_muscle_in_your_back  "No."
+
+# backinjury
+
+How_did_the_back_injury_start "I didn't hurt my back."
+Have_you_had_any_back_trauma "No."
+Is_your_back_injury_on_one_side "I have no back injury."
+Did_it_happen_at_work "I have no back injury."
+Have_you_had_any_other_back_injuries "I have no back injury."
+
+# musclepain
+
+Have_you_tried_to_stretch "Stretching is fine."
+Are_your_muscles_sore "My muscles are not sore."
+Do_your_muscles_ache "My muscles do not ache."
+Is_the_pain_muscular "I do not have muscle pain."
+
+# backstiffness
+
+Is_your_back_stiffness_on_one_side "I don't have back stiffness."
+
+# spinepain
+
+Does_it_hurt_to_touch_your_spine "It does not hurt to touch my spine."
+Avoiding_moving_your_spine "I do not avoid moving my spine."
+Did_you_hurt_your_spine "I did not hurt my spine"
+Can_you_move_your_spine "I can move my spine without any problem."
+
+# legpain
+
+Does_it_hurt_to_touch_your_leg "I have no pain in my legs."
+Avoiding_moving_your_leg "I do not avoid moving my legs."
+Did_you_hurt_your_leg "No."
+Can_you_move_your_leg "Yes."
+
+# jointpain
+
+
+### CurrentNeurologicSymptoms
+# walking
+
+Do_You_feel_unsteady_when_you_walk "I can walk fine."
+Can_you_climb_stairs "I can climb stairs."
+Are_you_able_to_walk "I can walk."
+Are_you_able_to_sit "I can sit."
+Did_you_fall "I did not."
+
+# numbness
+
+Do_you_have_numbness_or_tingling "Not that I've noticed."
+
+# weakness
+
+Do_you_have_any_weakness "Not that I've noticed."
+
+# dizziness
+
+How_long_have_you_been_dizzy "I am not dizzy."
+Have_you_noticed_spinning "I have not."
+Have_you_fainted "No."
+Are_you_dizzy "No."
+
+### CurrentPainSymptoms
+# onset
+
+What_were_you_doing_when_injured "I didn't injure myself."
+Circumstances_of_the_injury "I haven't had an injury."
+How_did_you_injure_yourself "I didn't injure myself."
+Did_you_injure_yourself "I didn't injure myself."
+How_long_ago_was_the_incident "There was no incident."
+
+# exacerbation
+
+Does_rest_make_the_pain_go_away "Yes."
+Do_you_have_pain_at_rest "No pain at rest."
+Does_it_hurt_when_not_moving "No pain when not moving."
+Does_it_hurt_to_sneeze "It doesn't hurt to sneeze."
+Does_it_hurt_to_cough "It doesn't hurt to cough."
+Does_it_hurt_to_move "It only hurts to move my thumbs."
+Is_the_pain_associated_with_food "No."
+
+# intensity
+
+Rate_pain_on_medicine "The pain is about a 2 out of 10 on medicine."
+Can_you_rate_the_pain "The pain is about a 5 out of 10 normally."
+Can_you_rate_it "The pain is about a 5 out of 10 normally."
+How_painful_is_it "It is about a 5 out of 10."
+Is_the_pain_always_a_number  "I think so."
+Does_the_pain_hurt_a_lot  "Only when I am using my thumbs."
+
+# general
+
+Are_you_sore "I am not sore."
+Does_the_pain_start_somewhere_else "It does not."
+Do_you_have_pain_anywhere_else "Nowhere else."
+You_seem_uncomfortable "I'm just nervous that I might be losing use of my thumbs."
+Can_you_point_to_the_pain "It's at the base of both of my thumbs."
+
+# description
+
+Does_the_pain_radiate  "No."
+Do_you_have_any_radiating_pain  "No."
+Any_pain_on_right_side "Yes."
+Any_pain_on_left_side "Yes."
+Is_the_pain_on_one_side "No, it is on both sides."
+Is_the_pain_sharp  "Yes."
+Is_the_pain_dull  "Sometimes, but it is usually sharp."
+Is_the_area_tender "No, I don't think so."
+Is_the_pain_in_the_muscle "I'm not sure."
+When_does_the_pain_hurt "It hurts whenever I use my thumbs."
+How_did_it_feel "I feel a sharp pain at the base of my thumbs."
+
+### CurrentRespiratorySymptoms
+# breathing
+
+Are_you_having_any_breathing_problems "No."
+Do_you_use_an_inhaler "No."
+
+# cough
+
+Is_your_cough_productive "I don't have a cough."
+
+### CurrentTreatments
+# treatmentstried
+
+Have_you_tried_a_heating_pad "I have not."
+Have_you_tried_heat_or_ice "I haven't tried either of those."
+Have_you_tried_heat "I haven't tried that."
+Have_you_tried_ice "I haven't tried that."
+Have_you_tried_any_topical_treatments "Not yet."
+What_treatment_would_you_like_to_try "I'm not sure. What would you recommend?"
+Have_you_tried_any_treatment "I'm taking Advil whenever I feel the pain."
+ Did_that_help "A bit."
+What_treatment_have_you_tried "I'm taking Advil whenever I feel the pain."
+Have_you_had_any_imaging_done "I have had no imaging."
+Have_you_had_any_labs "No, not yet."
+Do_you_think_that_would_help "I have no idea."
+Run_some_tests "Ok."
+Did_you_go_to_the_hospital "You're the first person I've seen about this."
+Will_you_see_a_physical_therapist "I would be willing."
+Have_you_had_physical_therapy "I haven't had physical therapy."
+
+### PastGeneralSymptoms
+# medicalproblems
+
+Have_you_ever_had_any_chronic_illnesses "I have high blood pressure."
+Have_you_ever_been_in_an_accident "Never."
+Have_you_ever_had_any_serious_illnesses  "I have high blood pressure."
+What_is_your_past_medical_history "I have high blood pressure."
+
+# hospitalizations
+
+Have_you_had_gynecologic_surgery "No."
+Any_other_surgeries "No."
+Any_surgery_problems "No."
+Any_prior_surgeries "No."
+Any_other_hospitalizations "No."
+Ever_been_in_the_hospital "No."
+Appendix "I still have my appendix."
+
+# sleepingproblems
+
+Any_history_of_insomnia "I've always slept fine."
+
+# discharge
+
+What_color_was_the_discharge "I have no discharge."
+Was_the_discharge_thick "I have no discharge."
+Any_past_discharge "No."
+
+# itch
+
+Was_the_itch_crawling "I have no itching."
+Was_there_a_rash "I have no rash."
+Any_past_itch "No."
+
+# odor
+
+Was_the_odor_strong "I have no odor."
+Did_you_ever_notice_an_odor "No."
+
+### PastAbdominalGISymptoms
+# bowel
+
+Have_you_had_any_past_bowel_problems "I have no problems with my bowels."
+
+# bowelandbladder
+
+Any_previous_bowel_or_bladder_problems "My bowels and bladder have been fine."
+
+# abdominalpain
+
+Have_you_been_nauseous_before "Of course, but not lately."
+
+# heartburn
+
+Ever_had_acid_taste_before "No."
+What_food_made_past_heartburn_worse "I haven't  had any heartburn."
+
+### PastCardiacSymptoms
+# bloodpressure
+
+Any_previous_blood_pressure_problems "I have high blood pressure, but I am taking medication for that."
+
+# chestpain
+
+Any_history_of_chest_pain "No."
+
+# heartproblems
+
+Any_previous_heart_problems "I have not had any heart problems."
+
+### PastGYNSymptoms
+# sexualhealth
+
+Did_it_ever_hurt_during_intercourse "It never has."
+Ever_have_bleeding_after_intercourse "Never."
+Who_were_your_past_sexual_partners "Just my husband."
+Any_other_past_sexual_partners "Just my husband."
+Ever_been_sexually_active "Yes."
+Ever_had_an_STI "No."
+When_had_past_STI "I never had an STI."
+Take_anything_for_the_past_infection "I never had any past infections."
+Have_you_ever_been_raped "No, never."
+
+# contraception
+
+Did_you_use_any_other_past_contraception "No."
+Did_you_use_protection_every_time_before "No."
+Have_you_had_unprotected_sex_in_the_past "Yes."
+Use_any_contraception_in_the_past "No."
+
+# bleeding
+
+Have_you_had_vaginal_bleeding_before "No, never."
+
+# periods
+
+Were_your_periods_ever_irregular "No."
+Were_your_periods_regular_before  "Yes, but I currently no longer have periods."
+was_your_period_ever_late "No."
+How_long_did_your_periods_last_before "About 4 days."
+Describe_your_past_periods "They seemed regular."
+What_is_past_flow_like "It seemed normal."
+How_often_were_your_past_periods "Monthly."
+Were_your_past_periods_painful "No."
+Did_pain_change_with_past_period "No."
+Did_you_ever_menstruate "I used to."
+Ever_use_tampons "No."
+How_many_tampons_before "I never used those."
+
+# menstrualcycle
+
+Ever_had_any_menstrual_changes "No, not really."
+Ever_had_any_spotting "No, not really."
+Tell_me_about_your_past_menstrual_cycles "They were fine."
+
+# pain
+
+Ever_had_cramps "No."
+Any_vaginal_pain_before "Not really."
+Any_prior_vaginal_sores "None."
+Ever_had_sores_on_your_groin "No."
+
+# vaginalsymptoms
+
+Ever_had_vaginal_dryness "No."
+Ever_douche "No."
+
+# pregnancy
+
+When_were_you_pregnant "I was never pregnant."
+Ever_want_to_be_pregnant "No."
+Ever_taken_pregnancy_test_before "No, I have not."
+Ever_miscarried_before "I have never miscarried."
+Ever_been_pregnant_before "I have never been pregnant."
+
+# breast
+
+Any_past_breast_changes "No breast changes."
+
+### PastGUSymptoms
+# bladder
+
+Have_you_had_incontinence_before "I have not had that before."
+Have_you_had_any_past_bladder_problems "I have no problems with my bladder."
+
+### PastHEENTSymptoms
+# headache
+
+Ever_had_headaches_before "I have never had headaches."
+
+# neckstiffness
+
+Ever_had_neck_stiffness_before "Not that I recall."
+
+# nasal
+
+Ever_had_drainage_down_your_throat "Never."
+Ever_had_sinus_problems "No."
+
+# eye
+
+Ever_had_double_vision "No."
+Ever_had_blurry_vision "No."
+Ever_had_vision_changes "No."
+
+### PastMuscleSymptoms
+# backpain
+
+When_have_you_had_back_pain_before "Never."
+Have_you_had_back_pain_before "No, never."
+Have_you_lifted_heavy_furniture_before "No, never."
+When_were_you_lifting_the_furniture "I was never lifting furniture."
+
+# backinjury
+
+Have_you_had_back_injury_before "Never."
+Have_you_had_back_surgery_before "No, never."
+
+# musclepain
+
+Have_you_had_muscle_pain_before "No, never."
+
+# backstiffness
+
+Have_you_had_back_stiffness_before "No, never."
+
+# spinepain
+
+Have_you_had_spine_pain_before "No, never."
+
+# legpain
+
+Have_you_had_leg_pain_before "No, never."
+
+# jointpain
+
+
+### PastNeurologicSymptoms
+# walking
+
+Have_you_ever_had_trouble_walking "I have never had trouble walking."
+
+# numbness
+
+Have_you_ever_had_numbness "Not really."
+
+# weakness
+
+Have_you_ever_had_weakness "Not really."
+
+# dizziness
+
+Ever_been_dizzy "No."
+Have_you_ever_noticed_spinning "No."
+Have_you_ever_fainted "No."
+
+### PastPainSymptoms
+# onset
+
+What_were_you_doing_that_time  "I didn't really have that much pain."
+Circumstances_of_the_past_injury "I didn't have an injury."
+How_did_you_injure_yourself_previously "I didn't injure myself."
+Did_you_injure_yourself_before "I didn't."
+How_long_ago_was_the_past_incident "I didn't really have that much pain."
+
+# exacerbation
+
+Did_the_medicine_help_before "I did not take any medication."
+Did_rest_make_the_past_pain_go_away "I did not have pain in the past."
+Did_you_have_past_pain_at_rest "No."
+
+# intensity
+
+Rate_the_pain "I did not have pain in the past."
+Pain_been_worse "I did not have pain in the past."
+Can_you_rate_the_past_pain "I did not have pain in the past."
+Can_you_rate_your_past_pain "I did not have pain in the past."
+How_painful_was_past_pain "I did not have pain in the past."
+Did_the_past_pain_hurt_a_lot "I did not have pain in the past."
+
+# general
+
+Were_you_sore "I was not sore."
+Did_the_past_pain_start_somewhere_else "I did not have pain in the past."
+Did_you_have_past_pain_anywhere_else "I did not have pain in the past."
+
+# description
+
+Did_the_past_pain_radiate "I have not had pain in the past."
+Did_you_have_past_radiating_pain "I have not had pain in the past."
+Was_the_past_pain_in_your_lower_back "I have not had pain in the past."
+Was_the_past_pain_on_one_side  "I have not had pain in the past."
+Was_the_past_pain_sharp  "I have not had pain in the past."
+Was_the_past_pain_dull  "I have not had pain in the past."
+Was_the_area_tender_before  "I have not had pain in the past."
+Was_the_past_pain_in_the_muscle  "I have not had pain in the past."
+When_did_the_pain_hurt_before "I have not had pain in the past."
+How_did_it_feel_before "I have not had pain in the past."
+How_has_the_pain_progressed "I have not had pain in the past."
+Is_this_the_worst_pain_ever "I have not had pain in the past."
+
+### PastRespiratorySymptoms
+# breathing
+
+Ever_had_any_breathing_problems "No."
+Ever_use_an_inhaler "No."
+
+# cough
+
+Was_your_past_cough_productive "I did not have a cough."
+
+### FamilyGeneralSymptoms
+# medicalproblems
+
+Any_conditions_that_run_in_your_family "Both my parents had osteoarthritis."
+Any_family_history_of_illness  "Both my parents had osteoarthritis."
+Parents_have_any_medical_problems "Both my parents had osteoarthritis."
+Tell_me_about_your_family_history "What would you like to know?"
+Family_history "Both my parents had osteoarthritis."
+
+### FamilyAbdominalGISymptoms
+# bowel
+
+Family_history_of_bowel_problems "I don't know of any."
+Bowel_or_bladder_problems_in_your_family "I don't know of any."
+
+# abdominalpain
+
+Anyone_in_your_family_been_nauseous "Not that I know of."
+
+### FamilyCardiacSymptoms
+# bloodpressure
+
+Family_history_of_hypertension "Not that I know of."
+
+# chestpain
+
+Family_history_of_chest_pain "Not that I know of."
+
+# heartproblems
+
+Any_family_heart_problems "No heart issues in my family."
+
+### FamilyGUSymptoms
+# bladder
+
+Family_history_of_incontinence "Not that I know of."
+
+### FamilyHEENTSymptoms
+# headache
+
+Family_history_of_headaches  "Not that I know of."
+
+# neckstiffness
+
+Family_history_of_neck_stiffness  "No, not that I know of."
+
+# nasal
+
+Family_history_of_sinus_problems "Not that I know of."
+
+### FamilyMuscleSymptoms
+# backpain
+
+Anyone_in_your_family_have_back_pain "Not that I am aware of."
+
+# backinjury
+
+Anyone_in_your_family_have_a_back_injury "Not that I am aware of."
+
+# musclepain
+
+Anyone_in_your_family_have_muscle_pain "Not that I am aware of."
+
+### FamilyGYNSymptoms
+# sexualhealth
+
+Family_had_an_STI "Not that I know of."
+Family_been_raped "Not that I know of."
+
+# pregnancy
+
+Has_your_sister_been_pregnant "I don't have a sister."
+Anyone_in_your_family_miscarried "Not that I know of."
+How_many_children_did_your_mother_have "Just me."
+
+# breast
+
+Any_family_breast_changes "No breast changes."
+Family_had_cancer "Not that I know of."
+
+### FamilyPainSymptoms
+# pain
+
+Anyone_in_your_family_have_pain "Not that I am aware of."
+
+### FamilyRespiratorySymptoms
+# breathing
+
+Family_history_of_breathing_problems "Not that I am aware of."
+
+# cough
+
+Family_history_of_productive_cough "Not that I am aware of."
+
+### Wellness
+# vaccines
+
+have_you_been_vaccinated_for_MMR "I have."
+have_you_been_vaccinated_for_HIB "I believe so."
+have_you_been_vaccinated_for_hepatitis_a  "I received that vaccine."
+have_you_been_vaccinated_for_hepatitis_b "I received that vaccine."
+have_you_been_vaccinated_for_hepatitis "I think so."
+have_you_had_hpv_vaccine "I did not get that."
+have_you_had_flu_shot "I get one every year."
+have_you_had_the_pneumonia_vaccine "Yes."
+have_you_received_your_shingles_vaccine "I believe so."
+when_was_your_last_tetanus_shot "I had my last booster within the last 5 years"
+are_you_current_on_vaccinations "To the best of my recollection."
+
+# seeingadoctor
+
+When_did_you_see_a_doctor_last "Over a year ago."
+When_did_you_see_a_gynecologist_last "I haven't seen a gynecologist in many years."
+Do_you_have_a_doctor "No, I usually just come here."
+Do_you_have_annual_exams "No."
+Have_you_seen_a_doctor "Not for at least a year."
+Did_you_have_any_trouble_finding_us "I had no trouble."
+Did_you_find_a_parking_spot "I had no trouble finding a parking spot."
+How_did_you_get_here_today "I drove."
+How_did_you_come_to_find_us "I have been here before."
+How_did_you_learn_about_this_office  "I have been here before."
+Have_you_been_seen_at_this_office_before  "I have been here before."
+Are_you_a_new_patient "I am not a new patient."
+Where_are_you_usually_seen "Only here."
+Have_you_been_waiting_long "I have not been waiting very long."
+
+# mentalhealth
+
+Are_you_depressed "I am not."
+Having_mood_changes "I am not having moodiness."
+Are_you_stressed "I am not."
+Are_you_suicidal "I am not."
+What_is_self_image "I think I have a good self-image."
+
+### Movements
+# currentrangeofmotion
+
+What_movements_make_it_hurt "Any movements that require me to use my thumbs, such as unscrewing the tops of bottles or jars."
+Does_it_hurt_when_you_bend "It doesn't hurt when I bend."
+Did_you_bend_down "I didn't bend down."
+How_far_can_you_bend "I don't have any problems with that."
+Can_you_bend_down "I don't have any problems with that."
+Have_you_tried_to_bend "I don't have any problems with that."
+Can_you_straighten_up "I don't have any problems with that."
+Can_you_lean "I don't have any problems with that."
+Can_you_jump "I don't have any problems with that."
+Can_you_run  "I can do that just fine."
+Can_you_lie_down "I can do that just fine."
+Do_you_have_decreased_motion "Only in my thumbs."
+Can_you_touch_you_toes "I don't have any problems with that."
+Do_you_know_how_to_lift_properly "I know how to lift."
+Were_you_lifting_anything "I wasn't lifting."
+Can_you_lift_anything "I can lift fine."
+Were_you_twisting "I wasn't twisting."
+Can_you_move_your_back "I can do that just fine."
+Have_you_been_moving "I have been moving just fine."
+Are_you_able_to_stand "I don't have any problems with that."
+Is_standing_a_problem "It's not a problem."
+Are_you_stiff "Only in my thumbs."
+
+# pastrangeofmotion
+
+Have_you_lost_range_of_motion_before "Up until now, I've never had any problems with that."
+Have_you_had_stiffness_before "Up until now, I've never had any problems with that."
+
+### ChitChat
+# weatherquestions
+
+What_is_it_like_outside "Pretty nice, I'm enjoying the weather these days."
+Is_it_starting_to_get_cold_outside "I don't believe so."
+Is_it_still_raining "I don't think so."
+What_do_you_think_about_this_weather "I'm enjoying the weather."
+
+# seasonquestions
+
+Doesn't_seem_like_summer_any_more "Yes, the seasons seem to change quickly these days."
+
+# sportsquestions
+
+see_game "I don't get to watch sports very often but I do like the Buckeyes!"
+What_do_you_think_about_the_buckeyes  "Well, I like to watch them. They usually have a really good team."
+
+# readingquestions
+
+Read_any_good_books_lately "I don't have much time to read."
+
+# watchingquestions
+
+Seen_any_good_movies_lately "I don't really like to watch movies."
+Watch_NCIS_last_night "I don't have much time to watch TV."
+
+# politicsquestions
+
+Who_are_you_going_to_vote_for "I'm not sure yet."
+
+# restaurantquestions
+
+Been_to_any_good_restaurants_lately "I don't eat out much."
+
+# howwasyourdayquestions
+
+How_was_your_day "My '_0 was just fine, thanks for asking."
+How_has_your_day_been_going "My '_0 was just fine, thanks for asking."
+
+# feelingquestions
+
+Are_you_frustrated "Not really."
+Are_you_nervous "A bit. I'm worried that I might lose use of my thumbs."
+
+### Closure
+# closure
+
+Do_you_have_any_questions "No, I don't have any questions."
+I_have_more_questions "Okay."
+Anything_else_I_can_help_with "No, I don't think so."
+Have_everything_you_need "Yes, thank you."
+Have_all_the_information "OK Thanks."
+Do_an_exam_now "OK."
+I'll_go_report_to_the_doctor "Okay."
+Nice_talking_with_you "You too."
+Goodbye "Goodbye and thanks."
+Thanks "Thank you"
+
+# summarize
+
+Can_you_summarize "What would you like to know?"
+To_summarize "That sounds correct."
+Did_I_miss_anything "I think you've got everything."
+
+### Screening
+# colonsection
+
+have_you_had_a_colonoscopy "I've never had one of those."
+
+# breastsection
+
+have_you_had_your_mammogram "I've never had one of those."
+
+# maleGUsection
+
+have_you_had_a_prostate_exam "I have not."
+
+# femaleGUsection
+
+Have_you_had_a_pap_smear "I've never had one of those."
+Results_of_pap_smear "I've never had one of those."
+Have_you_ever_had_an_abnormal_pap "I've never had a pap smear."
+When_was_your_last_pap_smear "I've never had a pap smear."
+
+# communicablediseasesection
+
+Have_you_had_HIV_test "I've never had one of those."
+
+### Family
+# familylife
+
+Do_you_have_a_family "I do have a family."
+Do_you_have_any_pets "I have no pets."
+How_is_your_family "My family is fine."
+Who_do_you_live_with "I live with my husband."
+Do_you_live_alone "No. I live with my husband."
+Where_do_you_live "I live in the suburbs of this city."
+Anyone_sick_at_at_home "Not that I am aware of."
+
+# parentsinformation
+
+Are_your_parents_living "Both of my parents are alive and well."
+How_old_are_your_parents "I am not exactly sure."
+Are_your_parents_healthy "Both of my parents are in good health, although they both have osteoarthritis."
+Tell_me_about_your_parents "My parents are both doing well. They've always been really healthy other than both having osteoarthritis."
+
+# grandparentsinformation
+
+Are_your_grandparents_living "My grandparents are deceased."
+How_did_grandparents_die "I don't know."
+How_old_are_your_grandparents "My grandparents are deceased."
+Are_your_grandparents_healthy  "My grandparents are deceased."
+Tell_me_about_your_grandparents "My grandparents are deceased."
+
+# siblingsinformation
+
+How_old_are_your_siblings "I have no siblings."
+Are_your_siblings_healthy  "I have no siblings."
+Tell_me_about_your_siblings "I have no siblings."
+Do_you_have_siblings "I have no siblings."
+
+# relativesinformation
+
+Do_you_have_relatives "I have no relatives."
+How_old_are_your_relatives "I have no relatives."
+Are_your_relatives_healthy "I have no relatives."
+Tell_me_about_your_relatives "I have no relatives."
+
+# childreninformation
+
+How_many_children "I don't have any children."
+How_old_are_your_children "I don't have any children."
+Are_your_children_healthy  "I have no children."
+How_are_your_children "I don't have any children."
+Do_you_want_children "I do not want children."
+Do_you_have_any_children "I have no children."
+Tell_me_about_your_children "I don't have any children."
+
+# spouseinformation
+
+Are_you_divorced "No."
+How_long_have_you_been_married "40 years."
+Are_you_single "No."
+Are_you_in_a_relationship "I am married."
+Are_you_dating_anyone "I am married."
+Are_you_widowed "No."
+Is_your_partner_healthy  "Yes, he is healthy."
+Do_you_have_a_boyfriend "No, I am married to my husband."
+Do_you_have_a_girlfriend "No, I am married to my husband."
+Do_you_have_a_significant_other "Yes, I am married to my husband."
+Tell_me_about_your_partner "We've been married for 40 years and have a good relationship."
+How_old_is_your_partner "He is 67 years old."
+Do_you_have_a_partner "Yes."
+What_is_your_partners_name "His name is George."
+Is_your_partner_male "Yes."
+Is_your_partner_female "No."
+Are_you_married "Yes."
+
+# supportinformation
+
+Are_you_abused "I am not."
+Do_you_feel_safe "I feel safe."
+Do_you_have_support "I have support."
+Who_supports_you "My husband supports me."
+
+### HOPIChiefcomplaint
+# onset
+
+Did_anything_happen_to_cause_the_1 "Not that I know of."
+How_did_the_1_start "It started as stiffness in my thumbs, but has gradually gotten more painful and harder to move."
+Doing_anything_when_the_1_started "It just started happening and I notice it when I try to twist open a jar or something like that."
+Was_the_onset_sudden1 "No, it was very gradual."
+Did_the_1_start_immediately "No, it was very gradual."
+Is_the_1_new "Yes."
+Is_this_the_first_time_for_1 "Yes."
+When_did_the_1_start "6 months ago"
+How_has_the_1_changed "It has gotten worse over time."
+How_long_have_you_had_1 "About 6 months."
+Is_the_1_constant "No, only when I move the joint."
+Do_you_have_a_cause_for_1 "It hurts whenever I try to use the joint."
+
+# exacerbation
+
+What_makes_the_1_worse "Whenever I use my thumbs."
+Does_anything_change_1_intensity "It's better with rest or when I take Advil."
+What_have_you_tried_for_the_1 "Advil and rest."
+Have_you_tried_anything_for_the_1 "Advil and rest."
+What_makes_the_1_better "Advil and rest."
+Does_anything_else_help_the_1 "I have not tried anything else."
+Have_you_tried_anything_else_for_1 "I have not tried anything else yet."
+Have_you_tried_anything_else1 "I have not tried anything else yet."
+Have_you_tried_any_other_methods1 "I have not tried anything else yet."
+What_else_have_you_tried_for_1 "I have not tried anything else yet."
+What_else_have_you_tried1 "I have not tried anything else yet."
+Does_moving_increase_the_1 "Yes."
+Does_any_position_relieve_the_1 "It's better when I rest my hands in a neutral position"
+Does_any_position_make_the_1_worse "Gripping items makes the pain worse."
+Do_any_positions_make_1_worse_or_better "Gripping items makes the pain worse."
+Can_you_move_around_with_the_1 "I can move around fine."
+Is_1_worse_when_you_lie_down "No."
+Do_you_have_1_when_you_lie_down "No."
+Is_1_better_when_you_lie_down "No."
+Does_1_increase_when_you_stand "No."
+Does_the_1_improve_with_exercise "No."
+Does_the_1_keep_you_up_at_night "Not particularly."
+1_worse_morning_or_night "Neither."
+Avoid_exacerbate_1 "No."
+Is_the_1_improving "No, it is getting worse"
+Does_the_1_get_worse_with_period "No."
+
+# intensity
+
+Is_1_more_intense "Yes."
+How_intense_is_the_1 "Moderately intense."
+Has_the_intensity1_changed "It has gotten gradually worse"
+Has_the_1_become_worse "Yes."
+When_is_the_1_most_severe "After I have done a lot of gripping and twisting of jar or bottle tops."
+
+# general
+
+Do_you_currently_have_1 "Yes."
+How_is_your_1_now " It's bothering me enough for me to come in to see you about it Doc."
+Do_you_have_any_1 "Yes."
+Are_you_having_any_other_1 "I don't think so."
+How_else_is_the_1_affecting_your_life "I had to give up canning my vegetables."
+Has_the_1_stopped_you "I had to give up canning my vegetables."
+Have_you_had_1_before "No."
+
+# description
+
+Has_the_1_changed "It has gotten gradually worse."
+Any_physical_changes_in_your_1 "I don't think so."
+When_do_you_have_the_1 "After I have done a lot of gripping and twisting of jar or bottle tops."
+How_long_does_the_1_last "It lasts for as long as I am using my hands."
+How_frequent_is_the_1 "Every time I use my hands."
+What_concerns_you_about_the_1 "I'm concerned that I will lose use of my thumbs."
+Where_is_the_1 "At the base of my thumbs."
+Describe_the_1 "It starts as a sharp pain and sometimes becomes an ache."
+
+### HOPIComplaint2
+# onset
+
+Did_anything_happen_to_cause_the_2 "No."
+How_did_the_2_start "I don't recall."
+Doing_anything_when_the_2_started "I don't recall."
+Was_the_onset_sudden2 "I don't recall."
+Did_the_2_start_immediately "I don't recall."
+Is_the_2_new "No."
+Is_this_the_first_time_for_2 "No."
+When_did_the_2_start "I don't recall."
+2_worse_morning_or_night "Neither."
+How_has_the_2_changed "It has not changed."
+How_long_have_you_had_2 "For 30 years."
+Is_the_2_constant "Yes."
+Do_you_have_a_cause_for_2 "I don't recall."
+
+# exacerbation
+
+What_makes_the_2_worse "Nothing that I know of."
+Does_anything_change_2_intensity "Nothing that I know of."
+What_have_you_tried_for_the_2 "I take hydrochlorothiazide as prescribed by my doctor."
+Have_you_tried_anything_for_the_2 "I take hydrochlorothiazide as prescribed by my doctor."
+What_makes_the_2_better "I'm not sure."
+Does_anything_else_help_the_2 "I'm not sure."
+Have_you_tried_anything_else_for_2 "No."
+Have_you_tried_anything_else2 "No."
+Have_you_tried_any_other_methods2 "No."
+What_else_have_you_tried_for_2 "I haven't tried anything else."
+What_else_have_you_tried2 "I haven't tried anything else."
+Does_moving_increase_the_2 "No."
+Does_any_position_relieve_the_2 "No."
+Does_any_position_make_the_2_worse "No."
+Do_any_positions_make_2_worse_or_better "Not that I know of."
+Can_you_move_around_with_the_2 "Yes."
+Is_2_worse_when_you_lie_down "No."
+Do_you_have_2_when_you_lie_down "I'm not sure."
+Is_2_better_when_you_lie_down "I'm not sure."
+Does_2_increase_when_you_stand "I'm not sure."
+Does_the_2_improve_with_exercise "I'm not sure."
+Does_the_2_keep_you_up_at_night "No."
+Avoid_exacerbate_2 "No."
+Is_the_2_improving "I'm not sure."
+Does_the_2_get_worse_with_period "I don't have periods anymore."
+
+# intensity
+
+Is_2_more_intense "I'm not sure."
+How_intense_is_the_2 "I'm not sure."
+Has_the_intensity2_changed "I'm not sure."
+Has_the_2_become_worse "I don't think so."
+When_is_the_2_most_severe "I'm not sure."
+
+# general
+
+Do_you_currently_have_2 "I think so."
+How_is_your_2_now "It's okay, I think."
+Do_you_have_any_2 "Yes."
+Are_you_having_any_other_2 "No."
+How_else_is_the_2_affecting_your_life "It isn't really affecting my life."
+Has_the_2_stopped_you "No."
+Have_you_had_2_before "I've had it for many years."
+
+# description
+
+When_do_you_have_the_2 "I've had it for many years."
+How_long_does_the_2_last "I've had it for many years."
+How_frequent_is_the_2 "I've had it for many years."
+What_concerns_you_about_the_2 "I don't really have any concerns about it."
+Where_is_the_2 "I'm not sure."
+Describe_the_2 "I don't know how to describe it."
+
+### HOPIComplaint3
+# onset
+
+
+# exacerbation
+
+
+# intensity
+
+
+# general
+
+
+# description
+

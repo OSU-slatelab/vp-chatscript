@@ -1,0 +1,16 @@
+# Engine files
+ChatScript/
+
+# compressed transfer files
+*.zip
+
+# auxiliary data
+# (keep the folder, ignore the content)
+aux_data/*
+
+# local config file(s)
+chatscript.service
+
+# emacs junk
+*~
+

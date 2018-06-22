@@ -1,0 +1,127 @@
+
+# ***************************************************************************************************
+
+
+topic: ~weatherquestions keep repeat  (~weather weather outside outdoors)
+
+#! What is it like outdoors
+	u: What_is_it_like_outside (what is it like [outside outdoors]) ^factanswer("I don't know, I haven't been outside in a while.")
+	u: (like [outside outdoors]) ^reuse (What_is_it_like_outside)
+
+# #! Is it starting to get cold outside
+#	u: Is_it_starting_to_get_cold_outside (is it starting to get cold outside)  ^factanswer("I don't know, I haven't been outside in a while.")
+#	u: (is it * [cold hot warm chilly toasty nice nasty rainy snowy] outside) ^reuse (It_is_starting_to_get_cold_outside)
+
+#! It is starting to get cold outside
+	u: It_is_starting_to_get_cold_outside (it is starting to get cold outside) ^factanswer("\[ Surprise1 \] Really? I haven't been outside in a while.")
+	u: ([cold hot warm chilly toasty nice nasty rainy snowy] outside) ^reuse (It_is_starting_to_get_cold_outside)
+
+#! Is it still raining
+	u: Is_it_still_raining (is it still raining) ^factanswer("I don't know, I haven't been outside in quite a while.")
+	u: (is it * ~weather) ^reuse (Is_it_still_raining)
+
+#! What do you think about this weather
+	u: What_do_you_think_about_this_weather (what do you think about this weather) ^factanswer("I don't pay much attention to the weather.")
+	u: (~weather) ^reuse (What_do_you_think_about_this_weather)
+
+
+
+# ***************************************************************************************************
+
+topic: ~seasonquestions keep repeat (~seasons)
+
+#! Doesn't seem like summer any more
+	u: Doesn't_seem_like_summer_any_more (["doesn't" "does not"] seem like summer [anymore "any more"]) ^factanswer("The seasons seem to change quickly these days.")
+	u: (!"you fall" !asleep !falls ~seasons) ^reuse (Doesn't_seem_like_summer_any_more)
+
+
+# ***************************************************************************************************
+# ~sports is be defined in concepts Probably should create an OSU specific sports topic with Brutus Urban Meyer etc fix football teams
+
+topic: ~sportsquestions keep repeat (~sport buckeyes bucks game)
+
+#! Did you see the game yesterday
+	u: see_game (!team game)  ^factanswer("I don't get to watch sports very often but I do like the Buckeyes!")
+
+#! What do you think about the buckeyes
+	u: What_do_you_think_about_the_buckeyes (!team what do you think about the buckeyes) ^factanswer("BlahBlahBlah")
+	u: (![health care walk healthcare team] [~sport buckeyes]) ^reuse (What_do_you_think_about_the_buckeyes)
+
+
+# ***************************************************************************************************
+
+
+topic: ~readingquestions keep repeat (read books)
+
+#! Have you read any good books lately
+	u: Read_any_good_books_lately (read any good books lately) ^factanswer("I don't have much time to read.")
+
+	u: (~books) ^reuse (Read_any_good_books_lately)
+
+# ***************************************************************************************************
+
+
+topic: ~watchingquestions keep repeat (TV television movie watch)
+
+#! Have you seen any good movies lately
+	u: Seen_any_good_movies_lately (seen any good movies lately) ^factanswer("I don't remember any movies I've seen lately.")
+	u: (TV television  movie) ^reuse (Seen_any_good_movies_lately)
+
+#! Did you watch NCIS last night
+	u: Watch_NCIS_last_night (did you watch NCIS last night) ^factanswer("I don't have much time to watch TV.")
+	u: (watch * last night)  ^reuse (Watch_NCIS_last_night)
+
+
+
+
+
+# ***************************************************************************************************
+
+
+topic: ~politicsquestions keep repeat (politics vote voting)
+
+#! Who are you going to vote for
+	u: Who_are_you_going_to_vote_for (who are you going to vote for)  ^factanswer("I'm not sure yet.")
+	u: ([~politics]) ^reuse (Who_are_you_going_to_vote_for)
+
+# ***************************************************************************************************
+
+
+topic: ~restaurantquestions keep repeat (restaurant)
+
+#! Been to any good restaurants lately?
+	u: Been_to_any_good_restaurants_lately (been to any good restaurants lately) ^factanswer("I don't eat out much.")
+	u: (~restaurantwords) ^reuse (Been_to_any_good_restaurants_lately)
+
+
+# ***************************************************************************************************
+
+
+
+topic: ~howwasyourdayquestions keep repeat (~visittimes)
+
+#! How was your day
+	u: How_was_your_day (how was your _~visittimes)
+	My '_0 was just fine, thanks for asking
+
+
+#! How has your day been going
+	u: How_has_your_day_been_going (how has your _~visittimes been)
+	My '_0 has been just fine, thanks for asking.
+
+
+# ***************************************************************************************************
+
+
+topic: ~feelingquestions keep repeat (frustrate nervous )
+
+#! Are you frustrated
+	u: Are_you_frustrated (are you frustrated)  ^factanswer("Not really.")
+	u: (frustrate) ^reuse (Are_you_frustrated)
+
+#! Are you nervous
+	u: Are_you_nervous (are you nervous) ^factanswer("Not really.")
+	u: ([nervous worried scared worries]) ^reuse (Are_you_nervous)
+
+
+# ***************************************************************************************************

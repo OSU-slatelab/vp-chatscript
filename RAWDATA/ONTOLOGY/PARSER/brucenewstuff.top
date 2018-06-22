@@ -1,0 +1,8 @@
+concept: ~timeadjmodifier (old young) # post time modifier time expressions for parser
+concept: ~pretimeadjmodifier (next this last prior)
+
+concept: ~modifyabletimenoun (second minute hour day week month year century millenia weekend morning afternoon evening night semester term season session)
+concept: ~timeadvmodifier (before ago later earlier after hence  ) # post time modifier time expressions for parser
+
+concept: ~modifyabledistancenoun (furlong mile kilometer inch foot yard centimeter meter lightyear)
+concept: ~distancemodifier(behind away ahead under after) # post distance modifier distance expressions for parser

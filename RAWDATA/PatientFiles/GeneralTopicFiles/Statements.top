@@ -1,0 +1,45 @@
+
+
+topic: ~statements keep repeat deprioritize ("hear you" understand "healthcare team" nice noble pretty friend kind uncomfortable hard ask best doctor sounds "get to the bottom" address "take care of" "look into" "get you back" "work on that" talk irritate confidential discuss discussion "between you and me" "I would like to" tough review system)
+
+#! That was nice
+	s: That_was_nice  (that was nice)  ^factanswer("I try to be a nice person.")
+	s: ([that you] * [very quite incredibly good] * [nice friendly noble friend]) ^reuse(That_was_nice)
+	s: ([that you] * [nice friendly noble friend kind])  ^reuse (That_was_nice)
+
+#! I understand completely
+	s: I_understand (I understand completely)  ^factanswer("Thanks for understanding.")
+	s: ([I ~itwords] * [understand understandable "hear you"]) ^reuse (I_understand)
+
+#! Want to ask about
+	s: Want_to_ask_about (want to ask about)  ^factanswer("I'll try to give answers as best I can.")
+	s: (!confidential [want going like want] * [ask discuss run over talk review] * [about through system])  ^reuse (Want_to_ask_about)
+	s: (!confidential [discuss run over talk] * [about through more])  ^reuse (Want_to_ask_about)	
+
+#! I will do my best
+	s: I_will_do_my_best (I will do my best)  ^factanswer("I appreciate that.")
+	s: ([I we "healthcare team" ~itwords] * [best try help "get to the bottom" address "take care of" "look into" "get you back" "work on that"]) ^reuse(I_will_do_my_best)
+ 
+#! The doctor will be in
+	s: The_doctor_will_be_in (the doctor will be in)  ^factanswer("Sounds good.")
+	s: ([doctor he she they] * [come be]) ^reuse (The_doctor_will_be_in)
+
+#! Sounds like
+	s: Sounds_like (sounds like)  ^factanswer("That sounds right.")
+	s: ([sounds seems] * [irritating like pretty really]) ^reuse (Sounds_like)
+
+#! Discussion is confidential
+	s: Discussion_is_confidential (discussion is confidential)  ^factanswer("That makes me feel good.")
+	s: ([discuss discussion talk] * [confidential private "between you and me"]) ^reuse (Discussion_is_confidential)
+
+#! That must be hard
+	s: That_must_be_hard (that must be hard)  ^factanswer("It is challenging.")
+	s: (!confidential ~itwords * [hard frustrating uncomfortable terrible painful difficult bad tough rough])  ^reuse (That_must_be_hard)
+
+#! I would like to get to know more
+	s: I_would_like_to_get_to_know_more (I would like to get to know more)  ^factanswer("I will try my best to tell you.")
+	s: ("I would like to" * ["get to know" learn] * [medical social past family])  ^reuse (I_would_like_to_get_to_know_more)
+
+#! You look
+	s: You_look (you look)  ^factanswer("I guess so.")
+	s: (you look * [tired anxious uncomfortable]) ^reuse (You_look)	

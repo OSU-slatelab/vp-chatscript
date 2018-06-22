@@ -1,0 +1,257 @@
+# CURRENT MEDICATIONS This is only for medications taken for the chief complaint
+
+
+topic: ~currentmedications keep repeat bot=patient1,patient2,patient3,patient4,patient5,patient6,patient7,patient8,patient9,patient10,patient11,patient12,patient13,patient14,patient15,patient16,patient17,patient18,patient19 (~medicines "how much" drug dose strength dosage thing issue complaint ~number anything regular regularly daily ~drugs_legal)
+
+	u: ($pasthistory) respond(~pastmedications) ^fail(TOPIC)
+#	u: ($family) respond(~familymedications) ^fail(TOPIC)
+
+
+
+#! Are you taking any medication for the 1 $chiefcomplaint=1
+	u: Taking_medication_for_the_1 (are you taking any medication for the $chiefcomplaint?)   ^factanswer("I don't take any medications.")
+		a: ([dosage dose "how much"]) ^reuse (How_much_medicine_have_you_taken)
+	u: (![how long other] [use take on try] * [alleviate get_rid_of reduce diminish "help with" for] *~2 [~itwords $chiefcomplaint? symptom]) ^reuse (Taking_medication_for_the_1)
+	u: (![how long other] [use take on try "no"] * ~medicines * [~itwords $chiefcomplaint? symptom]) ^reuse (Taking_medication_for_the_1)
+	u: (![how long other] [use take on try "no"] * [~itwords $chiefcomplaint? symptom] * ~medicines) ^reuse (Taking_medication_for_the_1)
+#	u: (![how long other] [use take on try about] * ~medicines >) ^reuse (Taking_medication_for_the_1)
+
+#! Are you taking any medication for the 2 $complaint2=2
+	u: Taking_medication_for_the_2 (are you taking any medication for the $complaint2?)   ^factanswer("I don't take any medicine for that.")
+	u: (![how long other] [use take on try] * [alleviate get_rid_of reduce diminish "help with" for] *~2 [~itwords $complaint2? symptom]) ^reuse (Taking_medication_for_the_2)
+	u: (![how long other] [use take on try] * ~medicines * [~itwords $complaint2? symptom]) ^reuse (Taking_medication_for_the_2)
+#	u: (![how long other] [use take on try] * ~medicines >) ^reuse (Taking_medication_for_the_2)
+
+#! Are you taking any medication for the 3 $complaint3=3
+	u: Taking_medication_for_the_3 (are you taking any medication for the $complaint3?)   ^factanswer("I don't take any medications for that.")
+	u: (![how long other] [use take on try] * [alleviate get_rid_of reduce diminish "help with" for] *~2 [~itwords $complaint3? symptom]) ^reuse (Taking_medication_for_the_3)
+	u: (![how long other] [use take on try] * ~medicines * [~itwords $complaint3? symptom]) ^reuse (Taking_medication_for_the_3)
+#	u: (![how long other] [use take on try] * ~medicines >) ^reuse (Taking_medication_for_the_3)
+
+#! When did you take the medicine $currentmedication1=medicine
+	u: When_did_you_take_medicine (when did you take the $currentmedication1?)   ^factanswer("I didn't take medication.")
+	u: (when * [~medicines $currentmedication1?]) ^reuse (When_did_you_take_medicine)
+
+#! Do you need to take the medicine that often  $currentmedication1=medicine
+	u: Need_to_take_the_medicine_that_often (do you need to take the $currentmedication1? that often)   ^factanswer("I don't take any medications, supplements, or vitamins.")
+	u: ([need "have to"] * [take use] * [$currentmedication1? ~itwords] * [often hours]) ^reuse (Need_to_take_the_medicine_that_often)
+
+#! How often did you take the medicine $currentmedication1=medicine
+	u: How_often_did_you_take_the_medicine (how often did you take the $currentmedication1?)   ^factanswer("I didn't take medication.")
+		a: ([dosage dose "how much"]) ^reuse (How_much_medicine_have_you_taken)
+	u: (<< [often frequently many] [~medicines ~itwords $currentmedication1?]>> ) ^reuse (How_often_did_you_take_the_medicine)
+
+#! How long have you been taking the medicine $currentmedication1=medicine
+	u: How_long_taking_medicine (how long have you been taking the $currentmedication1?)  ^factanswer("I haven't taken any medicine.")
+		a: ([dosage dose "how much"]) ^reuse (How_much_medicine_have_you_taken)
+	u: (how long * [take on] * [~medicines $currentmedication1? ~itwords]) ^reuse (How_long_taking_medicine)
+	u: (how many * [doses days]) ^reuse (How_long_taking_medicine)
+
+#! How much medicine have you taken $currentmedication1=medicine
+	u: How_much_medicine_have_you_taken (how much $currentmedication1? have you taken)   ^factanswer("I haven't taken any medicine.")
+	u: (how [much many] * [~medicines $currentmedication1?] * [take use]) ^reuse (How_much_medicine_have_you_taken)
+	u: (how [much many] * [~medicines $currentmedication1?]) ^reuse (How_much_medicine_have_you_taken)
+
+#! Would you like a stronger prescription
+	u: Would_you_like_a_stronger_prescription (would you like a stronger prescription)   ^factanswer("I don't know.")
+	u: ([stronger powerful] * [medication prescription]) ^reuse (Would_you_like_a_stronger_prescription)
+
+#! What is the strength of the medicine $currentmedication1=medicine
+	u: What_is_the_strength_of_the_medicine (what is the strength of the $currentmedication1?)   ^factanswer("I haven't taken any medicine.")
+	u: ([strength strong] * [~medicines $currentmedication1?]) ^reuse (What_is_the_strength_of_the_medicine)
+	u: ([what know] * [strength strong]) ^reuse (What_is_the_strength_of_the_medicine)
+
+#! Did the medicine help $currentmedication1=medicine
+	u: Did_the_medicine_help (did the $currentmedication1? help)  ^factanswer("I haven't taken any medicine.")
+		a: ([dosage dose "how much"]) ^reuse (How_much_medicine_have_you_taken)
+	u: (!position !try !anything [~medicines $currentmedication1? ~itwords] * [help away work better]) ^reuse (Did_the_medicine_help)
+	u: ([how much did] * [help away work better relief] * [~medicines $currentmedication1? ~itwords]) ^reuse (Did_the_medicine_help)
+	u: ([how much did] * [~medicines $currentmedication1? ~itwords] * [help away work better relief anything]) ^reuse (Did_the_medicine_help)
+
+#! Did you take the medicine today $currentmedication1=medicine
+	u: Did_you_take_medicine_today (did you take the $currentmedication1? today)   ^factanswer("I haven't taken any medicine.")
+		a: ([dosage dose "how much"]) ^reuse (How_much_medicine_have_you_taken)
+	u: (take * ~medicines * [today morning afternoon now]) ^reuse (Did_you_take_medicine_today)
+ 	u: ([last recent most] * [~medicines $currentmedication1? anything]) ^reuse (Did_you_take_medicine_today)
+
+#! Are you still taking medicine $currentmedication1=medicine
+	u: Are_you_still_taking_medicine (are you still taking $currentmedication1?)   ^factanswer("I haven't taken any medicine.")
+		a: ([dosage dose "how much"]) ^reuse (How_much_medicine_have_you_taken)
+	u: ([still continue] * [take use] * $currentmedication1?) ^reuse (Are_you_still_taking_medicine)
+
+#! Try using rejoinders for dose questions
+#! What was the dose
+#	u: What_was_the_dose (![$currentmedication2? $currentmedication3?] what was the dose)    ^factanswer("I don't know.")
+#	u: (![$currentmedication2? $currentmedication3?] [dosage dose]) ^reuse (What_was_the_dose)
+
+#! What pills did you take
+	u: What_pills_did_you_take (what pills did you take)    ^factanswer("I didn't take medication.")
+	 a: ([dosage dose "how much"]) ^reuse (How_much_medicine_have_you_taken)
+	u: (!dose !strength [what about] * ~medicines * [use take]) ^reuse (What_pills_did_you_take)
+	u: (!dose !strength [what about] * [sort kind type] * ~medicines * [use take]) ^reuse (What_pills_did_you_take)
+
+#! What kind of medicine is that
+	u: What_kind_of_medicine_is_that (what kind of medicine is that)   ^factanswer("I didn't take medication.")
+		a: ([dosage dose "how much"]) ^reuse (How_much_medicine_have_you_taken)
+	u: ([kind type] * ~medicines) ^reuse (What_kind_of_medicine_is_that)
+	u: (what * ~medicines * that) ^reuse (What_kind_of_medicine_is_that)
+
+#! Would you like some pain medication
+	u: Would_you_like_some_pain_medication (would you like some pain medication)   ^factanswer("I don't know.")
+	u: (<< [like want need] [~medicines drug] >>) ^reuse (Would_you_like_some_pain_medication)
+
+#! Did your doctor prescribe the medicine
+	u: Doctor_prescribe_the_medicine (did your doctor prescribe the medicine) ^factanswer("No")
+	u: (<< Doctor prescribe ~medicines >>) ^reuse (Doctor_prescribe_the_medicine)
+
+#! Who prescribed the medicine
+	u: Who_prescribed_the_medicine (who prescribed the medicine) ^factanswer("It is not prescribed.")
+	u: (<< [who anyone] prescribe ~medicines >>) ^reuse (Who_prescribed_the_medicine)
+
+#! What is medicine $currentmedication1=medicine
+	u: What_is_medicine (what is $currentmedication1?)    ^factanswer("I didn't take medication.")
+		a: ([dosage dose "how much"]) ^reuse (How_much_medicine_have_you_taken)
+
+
+#! Any OTC medication
+	u: Any_OTC_medication (any otc medication)   ^factanswer("I don't take any OTC medications.")
+		a: Is_medication_new (<< [~itwords ~OTCmedicines] [new old first] >>) ^factanswer ("I don't take anything.")
+		a: ([dosage dose "how much"]) ^factanswer("Not sure.")
+	u: (![how long other herbal ~vitamin ~minerals allergies allergic ~prescribedmedicines] [take on about any] * ~OTCmedicines) ^reuse (Any_OTC_medication)
+
+#! Any prescription medication
+	u: Any_prescription_medication (any prescription medication)   ^factanswer("I don't take any prescription medications.")
+		a: Is_medication_new (<< [~itwords ~prescribedmedicines] [new old first] >>) ^factanswer ("I don't take anything.")
+		a: ([dosage dose "how much"]) ^reuse (How_much_medicine_have_you_taken)
+	u: (![how long other herbal ~vitamin ~minerals allergies allergic ~OTCmedicines] [take on about any no] * ~prescribedmedicines) ^reuse (Any_prescription_medication)
+	u: (![how long other herbal ~vitamin ~minerals allergies allergic ~OTCmedicines] [take on] * ~prescribedmedicines * [regular regularly daily]) ^reuse (Any_prescription_medication)
+	u: (![how long other herbal ~vitamin ~minerals allergies allergic ~OTCmedicines]  ~prescribedmedicines * [take on] * [regular regularly daily]) ^reuse (Any_prescription_medication)
+
+
+#! Are you taking any medication
+	u: Are_you_taking_any_medication (are you taking any medication)   ^factanswer("I don't take any medications, supplements, or vitamins.")
+		a: Is_medication_new (<< [~itwords ~medicines] [new old first] >>) ^factanswer ("I don't take anything.")
+		a: ([dosage dose "how much"]) ^reuse (How_much_medicine_have_you_taken)
+	u: (![how long other herbal ~vitamin ~minerals allergies allergic] [take on about any know list] * ~medicines) ^reuse (Are_you_taking_any_medication)
+	u: (![how long other allergies allergic] [do are] * [take prescribed know] ~medicines) ^reuse (Are_you_taking_any_medication)
+	u: (![how long other allergies allergic] what * ~medicines * [take prescribed on]) ^reuse (Are_you_taking_any_medication)
+	u: (![how long other herbal ~vitamin ~minerals allergies allergic] [take on know list] * ~medicines * [regular regularly daily]) ^reuse (Are_you_taking_any_medication)
+	u: (![how long other herbal ~vitamin ~minerals allergies allergic]  ~medicines * [take on] * [regular regularly daily]) ^reuse (Are_you_taking_any_medication)
+
+
+#! What were the pills called
+	u: What_were_the_pills_called (what were the pills called) ^factanswer("I don't know.")
+	u: (what * ~medicines * [called named]) ^reuse (What_were_the_pills_called)
+	u: (name * ~medicines) ^reuse (What_were_the_pills_called)
+	u: (what * ~medicines >) ^reuse (What_were_the_pills_called)
+
+
+# ###############################################################################
+
+
+# This is the vitamin and mineral supplement section
+
+
+topic: ~supplements keep repeat (~vitamin minerals supplement herbal)
+
+
+#! Are you taking supplements
+	u: Are_you_taking_supplements (are you taking supplements)   ^factanswer("I don't take any medications, supplements, or vitamins.")
+		a: How_much_supplements (how [many much dose]) ^factanswer("I don't know.")
+		a: Why_supplements ([what why] * take) ^factanswer("I don't know.")
+	u: (![vaccine vaccinated allergy] [mineral supplement ~vitamin herbal ~minerals]) ^reuse (Are_you_taking_supplements)
+
+#! Do you know which multivitamin you take
+	u: Which_multivitamin (which * multivitamin) ("I don't take any medications, supplements, or vitamins.")
+	u: Which_multivitamin ([which what] * ~vitamin * [take use]) ^reuse (Which_multivitamin)
+
+
+# ###############################################################################
+
+
+# OTHER MEDICATIONS
+
+topic: ~othermedications erase norepeat (~medicines) # changed repeat to norepeat and keep to erase to allow for multiple "other medication" questions
+
+
+#! Are you taking any other medication for 1 $chiefcomplaint=1
+ 	u: Take_other_medication_for_1 (are you taking any other medication for $chiefcomplaint?)   ^factanswer("I haven't taken anything.")
+		a: How_much_medication_1 (how [many much dose]) ^factanswer("I haven't taken anything.")
+		a: How_often_medication_1 (how [often frequently]) ^factanswer("I haven't taken anything.")
+
+	u: (!ever << other ~medicines $chiefcomplaint? >>) ^reuse (Take_other_medication_for_1)
+	u: (!ever other * $chiefcomplaint? * ~medicines) ^reuse (Take_other_medication_for_1)
+
+
+#! Are you taking any other medication for 2 $complaint2=2
+ 	u: Take_other_medication_for_2 (are you taking any other medication for $complaint2?)   ^factanswer("I didn't take anything else.")
+		a: How_much_medication_2 (how [many much dose]) ^factanswer("I didn't take anything else.")
+		a: How_often_medication_2 (how [often frequently]) ^factanswer("I didn't take anything else.")
+	u: (!ever other * ~medicines * $complaint2?) ^reuse (Take_other_medication_for_2)
+	u: (!ever other * $complaint2? * ~medicines) ^reuse (Take_other_medication_for_2)
+
+#! Are you taking any other medication for 3 $complaint3=3
+ 	u: Take_other_medication_for_3 (are you taking any other medication for $complaint3?)   ^factanswer("I took nothing else.")
+		a: How_much_medication_3 (how [many much dose]) ^factanswer("I took nothing else.")
+		a: How_often_medication_3 (how [often frequently]) ^factanswer("I took nothing else.")
+	u: (!ever other * ~medicines * $complaint3?) ^reuse (Take_other_medication_for_3)
+	u: (!ever other * $complaint3? * ~medicines) ^reuse (Take_other_medication_for_3)
+
+#! Are you taking any other medication
+ 	u: Take_any_other_medication (![pain $currentmedication1? $currentmedication3?] are you taking any other medication)  ^factanswer("Nothing.")
+		a: How_much_other_medication (![pain ever $currentmedication1? $currentmedication3?] how [many much dose dosage]) ^factanswer("I don'take anything else.")
+		a: How_often_other_medication ( ![pain ever $currentmedication1? $currentmedication3?] how [often frequently]) ^factanswer("I don'take anything else.")
+		a: How_long_other_medication (![pain $currentmedication1? $currentmedication3?] how [long days]) ^factanswer("I didn't take anything.")
+	u: (![pain ever try $currentmedication1? $currentmedication3?] other ~medicines) ^reuse (Take_any_other_medication)
+	u: (![pain ever does "help you with" bother bothering try $currentmedication1? $currentmedication3? know me] anything else >) ^reuse(Take_any_other_medication)
+
+#! Are you taking any other medication
+ 	u: Take_any_other_medication1 (![pain why $currentmedication1? $currentmedication2?] are you taking any other medication)   ^factanswer("Nothing.")
+		a: How_much_other_medication1 (![pain why $currentmedication1? $currentmedication2?] how [many much dose dosage]) ^factanswer("I didn't take anything.")
+		a: How_often_other_medication1 (![pain why $currentmedication1? $currentmedication2?] how [often frequently]) ^factanswer("I didn't take anything.")
+		a: How_long_other_medication1 (![pain why $currentmedication1? $currentmedication2?] how [long days]) ^factanswer("I didn't take anything.")
+	u: (![pain ever try why $currentmedication1? $currentmedication2?] other * ~medicines) ^reuse (Take_any_other_medication1)
+	u: (![pain ever try why does "help you with" bother bothering $currentmedication1? $currentmedication2?] anything else >) ^reuse (Take_any_other_medication1)
+
+
+#! Are you taking any other medication
+ 	u: Take_any_other_medication2 (!pain are you taking any other medication)   ^factanswer("Nothing.")
+		a: How_much_other_medication2 (how [many much dose]) ^factanswer("I didn't take anything.")
+		a: How_often_other_medication2 (how [often frequently]) ^factanswer("I didn't take anything.")
+		a: How_long_other_medication2 (how [long days]) ^factanswer("I didn't take anything.")
+	u: (![pain ever] other * ~medicines) ^reuse (Take_any_other_medication2)
+	u: (![pain ever does "help you with" bother bothering] anything else) ^reuse (Take_any_other_medication2)
+
+#! Why do you take the medication
+	u: Why_do_you_take_the_medication (why do you take the medication) ^factanswer("For my health.")
+	u: (why * [take use] * ~medicines) ^reuse (Why_do_you_take_the_medication)
+
+
+# ###############################################################################
+
+# PAST MEDICATIONS
+
+
+topic: ~pastmedications keep repeat ("anything else" ibuprofen ~medicines antibiotics)
+
+	u: ($present) respond (~currentmedications) ^fail(TOPIC)
+#	u: ($family) respond(~familymedications) ^fail(TOPIC)
+
+
+#! Have you ever taken any medication for 1  $chiefcomplaint=1
+	u: Ever_taken_medication_for_1 (have you ever taken any medication for $chiefcomplaint?)    ^factanswer("Never.")
+	u: (![how long] ever [use take try on] * ~medicines * $chiefcomplaint?) ^reuse (Ever_taken_medication_for_1)
+
+#! Have you ever taken any medication for 2  $complaint2=2
+	u: Ever_taken_medication_for_2 (have you ever taken any medication for $complaint2?)    ^factanswer("Nothing.")
+	u: (![how long] ever [use take try on] * ~medicines * $complaint2?) ^reuse (Ever_taken_medication_for_2)
+
+#! Have you ever taken any medication for 3  $complaint3=3
+	u: Ever_taken_medication_for_3 (have you ever taken any medication for $complaint3?)    ^factanswer("Never.")
+	u: (![how long] ever [use take try on] * ~medicines * $complaint3?) ^reuse (Ever_taken_medication_for_1)
+
+#! Have you ever taken any other medication
+	u: Ever_taken_other_medication (have you ever taken any other medication)    ^factanswer("Nothing else.")
+	u: (![how long] [recently ever] * [take try on treated] * ~medicines) ^reuse (Ever_taken_other_medication)
+	u: (![how long] [use take try on treated] * ~medicines * [recently ever]) ^reuse (Ever_taken_other_medication)
+	u: (![how long] [use take try on treated] * "anything else" >) ^reuse (Ever_taken_other_medication)

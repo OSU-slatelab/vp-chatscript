@@ -1,0 +1,676 @@
+
+# ***************************************************************************************************
+# Activity
+
+topic: ~normal_activity keep repeat bot=patient1,patient2,patient3,patient4,patient5,patient6,patient7,patient8,patient9,patient10,patient11,patient12,patient13,patient14,patient15,patient16,patient17,patient18,patient19 (exercise ~exerciselist activity rest drive "work out" active  energy bedridden shape tired walk)
+
+	u: ( $$family) ^fail(TOPIC)
+
+#! How often do you exercise
+	u: How_often_do_you_exercise (how often do you exercise)  ^factanswer("Not very often.")
+	u: (<< [often lot] [exercise "work out"] >>) ^reuse (How_often_do_you_exercise)
+
+#! Do you have any trouble exercising
+	u: Do_you_have_any_trouble_exercising (do you have any trouble exercising) ^factanswer("I have no problems exercising.")
+	u: ([trouble problems ~breathing_problems] * [exercise walk "workout"])  ^reuse (Do_you_have_any_trouble_exercising)
+
+#! Do you exercise
+	u: Do_you_exercise (do you exercise) ^factanswer("I don't exercise that much.")
+		a: When_did_you_exercise (when * [last most recent]) ^factanswer("I don't remember.")
+	u: (["work out" exercise ~exerciselist "physical activity" shape ]) ^reuse (Do_you_exercise)
+
+#! Are you active
+	u: Are_you_active (are you active)  ^factanswer("I am not that active.")
+	u: (![sexually sexual $chiefcomplaint] [are you] * [active sedentary]) ^reuse (Are_you_active)
+	u: (![sexually sexual $chiefcomplaint] [activity active] * [normally usually level ~timename]) ^reuse (Are_you_active)
+
+#! How is your energy
+	u: How_is_your_energy (how is your energy)  ^factanswer("It's fine.")
+	u: ([energy tired]) ^reuse (How_is_your_energy)
+
+#! Have you been resting
+	u: Have_you_been_resting (have you been resting) 	 ^factanswer("I rest enough.")
+		a: (how much) Since I can't work, about all I can do is rest.
+	u: (!pain !does !help rest) ^reuse (Have_you_been_resting)
+
+#! Have you been bedridden
+	u: Have_you_been_bedridden (have you been bedridden) 	^factanswer("I have not been bedridden.")
+	u: (!pain !does !help bedridden) ^reuse (Have_you_been_bedridden)
+
+#! Are you able to drive
+	u: Are_you_able_to_drive (are you able to drive) 	 ^factanswer("I am able to drive.")
+	u: (!home [able can do] * drive) ^reuse (Are_you_able_to_drive)
+
+#! Are you able to drive home
+	u: Are_you_able_to_drive_home (are you able to drive home)  ^factanswer("I can drive.")
+	u: ([able can] * drive * home) ^reuse (Are_you_able_to_drive_home)
+
+# ***************************************************************************************************
+# Alcohol use
+
+topic: ~alcoholuse keep repeat (~alcoholic_beverage "eye opener" "eye-opener" drink guilty intake social socially use)
+
+	u: ( $$family) ^fail(TOPIC)
+
+#! How much do you drink
+	u: How_much_do_you_drink (how much do you drink)  ^factanswer("I don't drink.")
+	u: (!water how * [drink ~alcoholic_beverage much often many]) ^reuse (How_much_do_you_drink)
+	u: (!water [drink ~alcoholic_beverage] * [day week month]) ^reuse (How_much_do_you_drink)
+	u: (!water [beer wine] * [day week month]) ^reuse (How_much_do_you_drink) # don't know why I need this to catch beers and wine
+
+#! Has anyone thought you have an alcohol problem
+	u: Anyone_thought_alcohol_problem (anyone thought you have an alcohol problem)  ^factanswer("Never.")
+	u: ([anyone anybody] * have * [drink ~alcoholic_beverage]) ^reuse (Anyone_thought_alcohol_problem)
+
+#! Do you drink
+	u: Do_you_drink (do you drink)  ^factanswer("I don't drink.")
+	u: ([drink use consume any] * [social socially ~alcoholic_beverage]) ^reuse (Do_you_drink)
+	u: ([social ~alcoholic_beverage] * [drink use consume consumption intake]) ^reuse (Do_you_drink)
+	u: (![what where when] [drink ~alcoholic_beverage]) ^reuse (Do_you_drink)
+
+#! Do you feel guilty about your drinking
+	u: Do_you_feel_guilty_about_your_drinking (do you feel guilty about your drinking)  ^factanswer("Never.")
+	u: ([guilt guilty] * [drink ~alcoholic_beverage]) ^reuse (Do_you_feel_guilty_about_your_drinking)
+	u: ([drink ~alcoholic_beverage] * ["too much" "too frequently"]) ^reuse (Do_you_feel_guilty_about_your_drinking)
+
+#! Do you ever need an eye opener
+	u: Do_you_ever_need_an_eye_opener (do you ever need an eye opener)  ^factanswer("I don't think so.")
+	u: (drink * morning) ^reuse (Do_you_ever_need_an_eye_opener)
+	u: ([eye-opener]["eye opener"]) ^reuse (Do_you_ever_need_an_eye_opener)
+	u: (<< alcohol [problem trouble] >>) ^reuse (Do_you_ever_need_an_eye_opener)
+
+#! Have you considered reducing your alcohol use
+	u: Have_you_considered_reducing_alcohol (have you considered reducing your alcohol use) ^factanswer("I don't really drink that much.")
+	u: ([think consider need] * [reduce cut decrease] * [drink ~alcoholic_beverage]) ^reuse (Have_you_considered_reducing_alcohol)
+
+#! Ever felt annoyed by people confronting you about your alcohol use
+	u: Ever_felt_annoyed_about_alcohol (ever felt annoyed by people confronting you about your alcohol use)  ^factanswer("Never.")
+	u: ([annoy frustrate] * [drink ~alcoholic_beverage]) ^reuse (Ever_felt_annoyed_about_alcohol)
+
+#! What kind of drinks
+	u: What_kind_of_drinks (what kind of drinks) ^factanswer("I don't drink.")
+	u: ([kind type brand] * [alcohol drinks]) ^reuse (What_kind_of_drinks)
+
+# ADD TO SPREADSHEET
+#! How many
+	u: How_many_drinks (how many) ^factanswer("I don't drink.")
+	u: (number * drinks) ^reuse (How_many_drinks)
+
+# ***************************************************************************************************
+# Caffeine use
+
+topic: ~caffeineuse keep repeat (~caffinated_drinks pop soda coke caffeine drink)
+
+	u: ( $$family) ^fail(TOPIC)
+
+#! Do you drink coffee
+	u: Do_you_drink_coffee (do you drink coffee) ^factanswer("I do not drink coffee.")
+	u: (!["feel a"] [~caffinated_drinks caffeine pop~n soda coke]) ^reuse (Do_you_drink_coffee)
+
+# ***************************************************************************************************
+# Diet
+
+topic: ~yourdiet keep repeat (~beverage diet drink consume eat fluid liquid  hydrate fiber dairy "fast food" "junk food" food snack breakfast lunch dinner appetite fruit vegetable dietary full fill salt sodium salty)
+
+	u: ( $$family) ^fail(TOPIC)
+
+#! Do you drink enough fluid
+	u: Do_you_drink_enough_fluid (do you drink enough fluid) ^factanswer("I think I do.")
+		a: How_much_fluid (how [many much dose]) ^factanswer("I drink the recommended amount of 8 glasses per day.")
+	u: ([drink consume take] * [fluid water liquid beverage]) ^reuse (Do_you_drink_enough_fluid)
+	u: (hydrate) ^reuse (Do_you_drink_enough_fluid)
+	u: ([fluid water liquid beverage] * [drink consume take]) ^reuse (Do_you_drink_enough_fluid)
+
+#! Do you eat enough dairy
+	u: Do_you_eat_dairy (do you eat enough dairy) ^factanswer("I get enough dairy.")
+	u: ([dairy milk "ice cream"]) ^reuse (Do_you_eat_dairy)
+
+#! Do you eat enough fiber
+	u: Do_you_eat_fiber (do you eat enough fiber) ^factanswer("I get enough fiber.")
+	u: (fiber) ^reuse (Do_you_eat_fiber)
+
+#! Do you eat fast food
+	u: Do_you_eat_fast_food (do you eat fast food) ^factanswer("I don't go to fast food restaurants very often.")
+	u: ([fast junk] food) ^reuse (Do_you_eat_fast_food)
+
+#! Do you eat healthy food
+	u: Do_you_eat_healthy_food (do you eat healthy food) ^factanswer("I eat pretty healthy.")
+	u: ([healthy good nutritious] * [food meals]) ^reuse (Do_you_eat_healthy_food)
+
+#! Do you eat fruits and vegetables
+	u: Do_you_eat_fruit (do you eat fruits and vegetables) ^factanswer("I do eat them.")
+	u: ([fruit vegetable]) ^reuse (Do_you_eat_fruit)
+
+#! Any changes in your diet
+	u: Any_changes_in_your_diet (any changes in your diet) ^factanswer("My diet is the same.")
+	u: (change * [diet eating]) ^reuse (Any_changes_in_your_diet)
+
+#! Tell me about your appetite
+	u: Appetite (tell me about your appetite) ^factanswer("My appetite is fine.")
+	u: (!weight appetite) ^reuse (Appetite)
+
+#! Do you have dietary restrictions
+	u: Any_dietary_restrictions (do you have any dietary restrictions) ^factanswer("I have no restrictions.")
+	u: (!how [diet dietary] * [restrictions rules])  ^reuse (Any_dietary_restrictions)
+
+#! Do you feel full quickly
+	u: Do_you_feel_full_quickly (do you feel full quickly) ^factanswer("I eat fine.")
+	u: ([full fill] * [fast quickly]) ^reuse (Do_you_feel_full_quickly)
+
+#! Can you eat
+	u: Can_you_eat (can you eat) ^factanswer("Eating is not a problem.")
+	u: ([can able] * eat) ^reuse (Can_you_eat)
+
+#! Have you been eating
+	u: Have_you_been_eating (have you been eating)  ^factanswer("I have been eating.")
+	u: (!what !how !why !do !pain eat) ^reuse (Have_you_been_eating)
+
+#! What snacks do you eat
+	u: What_snacks (what snacks do you eat) ^factanswer("I don't snack.")
+	u: (snack) ^reuse (What_snacks)
+
+#! What were you eating before
+	u: What_were_you_eating_before (what were you eating before)  ^factanswer("My diet hasn't changed.")
+	u: (eat * before) ^reuse (What_were_you_eating_before)
+
+#! What do you eat each day
+	u: What_do_you_eat (what do you eat)   ^factanswer("I try to stick to the recommended portions of carbs, low fat meats, dairy, fruits, and vegetables.")
+	u: (what * eat) ^reuse (What_do_you_eat)
+	u: ([breakfast lunch dinner]) ^reuse (What_do_you_eat)
+
+#! How much salt
+	u: How_much_salt (how much salt)  ^factanswer("Not too much.")
+	u: ([how what 'do] * [salt sodium salty]) ^reuse (How_much_salt)
+
+#! How is your diet
+	u: How_is_your_diet (how is your diet) ^factanswer("My diet is fine.")
+	u: (!change !on diet) ^reuse (How_is_your_diet)
+	u: (!change !on eat * [healthy well]) ^reuse (How_is_your_diet)
+
+# ***************************************************************************************************
+# Tobacco Use
+
+topic: ~tobaccouse keep repeat (!~drugs_illegal ~tobacco smoke cigarettes pipe chew smoker quit nicotine secondhand ~spouse ~family_members)
+
+	u: ( $$family) ^fail(TOPIC)
+
+#! How much do you smoke
+	u: How_much_do_you_smoke (how much do you smoke) ^factanswer("I don't smoke.")
+	u: (how [much many] * [smoke tobacco cigarettes pipe]) ^reuse (How_much_do_you_smoke)
+
+#! How long have you smoked
+	u: How_long_have_you_smoked (how long have you smoked) ^factanswer("I don't smoke.")
+	u: (![much did] how [long many] * [smoke smoker]) ^reuse (How_long_have_you_smoked)
+
+#! Have you ever smoked
+	u: Have_you_ever_smoked (have you ever smoked)  ^factanswer("I have never smoked.")
+	u: (<< [ever past previously history] [smoke tobacco cigarettes pipe smoker] >>) ^reuse (Have_you_ever_smoked)
+
+#! How long did you smoke
+	u: How_long_did_you_smoke (how long did you smoke)  ^factanswer("I never smoked in my life.")
+	u: (!much how [long many] * [smoke smoker])  ^reuse (How_long_did_you_smoke)
+
+#! When did you start smoking
+	u: When_did_you_start_smoking (when did you start smoking)  ^factanswer("I never started smoking.")
+	u: (when * [begin start first] * [smoke smoking cigarette]) ^reuse (When_did_you_start_smoking)
+	u: ([what how] [old age] * [begin start first] * [smoke smoking cigarette]) ^reuse (When_did_you_start_smoking)
+
+#! Have you quit smoking
+	u: Have_you_quit_smoking (have you quit smoking)  ^factanswer("I never smoked.")
+	u: ([tried attempted] * [quit stop stopped] * [smoking smoke chew chewing])  ^reuse (Have_you_quit_smoking)
+	u: ([tried attempted] * [quit stop]>)  ^reuse (Have_you_quit_smoking)
+
+#! Are you exposed to secondhand smoke
+	u: Are_you_exposed_to_secondhand_smoke (are you exposed to secondhand smoke)  ^factanswer("I am not around smoke.")
+	u: ([exposed around near] * [other secondhand] * [smoker smoke]) ^reuse (Are_you_exposed_to_secondhand_smoke)
+	u: ([~family_members ~spouse other people] * [smoker smoke]) ^reuse (Are_you_exposed_to_secondhand_smoke)
+
+#! Do you smoke
+	u: Do_you_smoke (do you smoke)  ^factanswer("I have never smoked.")
+	u: ([smoke smoker tobacco] >) ^reuse (Do_you_smoke)
+	u: ([smoke chew use try] * [tobacco cigarettes pipe nicotine]) ^reuse (Do_you_smoke)
+	u: ([tobacco cigarettes pipe nicotine] * [smoke chew use try]) ^reuse (Do_you_smoke)
+
+
+#! Any other tobacco
+	u: Any_other_tobacco (any other tobacco)  ^factanswer("I haven't touched tobacco.")
+	u: ([any other] * tobacco) ^reuse (Any_other_tobacco)
+
+# ***************************************************************************************************
+# Education
+
+topic: ~education keep repeat (education school college study major minor)
+
+	u: ( $$family) ^fail(TOPIC)
+
+
+#! How far did you get in school
+	u: How_far_in_school (how far did you get in school) ^factanswer("I graduated from college")
+	u: ([what how] * [education school college]) ^reuse (How_far_in_school)
+
+#! What is your major
+	u: What_is_your_major (what is your major) ^factanswer("I haven't decided yet.")
+	u: (what * [study studying major minor]) ^reuse (What_is_your_major)
+
+# ***************************************************************************************************
+
+Table: ^equivalent() # these are all essential
+Has_the_pain_affected_your_activity  Has_the_pain_affected_your_activity   # this is the base question - all similar questions map to this base
+Can_you_do_normal_activities Has_the_pain_affected_your_activity
+
+
+# In relation to HPI
+
+topic: ~inrelationtohpi keep repeat (~pain work activity afraid limit interfere concern care bother worry trouble life handle handling affect normal normally dress situation feel cook clean household particular laundry clothe housework chore challenge function)
+
+#! How has this affected you
+	u: How_has_this_affected_you (how has this affected you) ^factanswer("It hasn't affected me that much.")
+	u: (!~medicines how * [~pain ~itwords symptoms injury] * [affect influence influenced handle handling interfere impact]) ^reuse (How_has_this_affected_you)
+
+#! Can you do normal activities
+	u: Can_you_do_normal_activities (can you do normal activities)  ^factanswer("I can do normal activities.")
+	u: ([day daily limit normal difficult] * [activity routine things]) ^reuse (Can_you_do_normal_activities)
+	u: ([activity routine things] * [day daily]) ^reuse (Can_you_do_normal_activities)
+	u: ([activity routine things activities routines chores] * [impacted affected 'do challenge]) ^reuse (Can_you_do_normal_activities)
+	u: ([impacted affected restrict difficult able can] * [activity routine things activities routines function]) ^reuse (Can_you_do_normal_activities)
+	u: (daily [activity function]) ^reuse (Can_you_do_normal_activities)
+
+#! Has the pain affected your activity
+	u: Has_the_pain_affected_your_activity (has the pain affected your activity)  ^factanswer("Not really.")
+	u: (![~bodyparts how] [~pain ~itwords injury] * [affect inhibit impact influence alter interfere change hard] * [activity routine function functioning life]) ^reuse (Has_the_pain_affected_your_activity)
+	u: (![better worse ~bodyparts how] [activity routine function functioning] * [~pain ~itwords injury]) ^reuse (Has_the_pain_affected_your_activity)
+
+#! Has the pain affected you
+		u: Has_the_pain_affected_you (has the pain affected you)  ^factanswer("Not really.")
+		u: (![~bodyparts how] [~pain ~itwords injury] * [affect inhibit impact influence alter interfere change hard] * you) ^reuse (Has_the_pain_affected_you)
+		u: (![better worse ~bodyparts how] [affect inhibit impact influence alter interfere change] * [~pain ~itwords injury]) ^reuse (Has_the_pain_affected_you)
+
+#! How have you been handling this
+	u: How_have_you_been_handling_this (how have you been handling this) ^factanswer("Just fine.")
+	u: ([handle handling] * [~pain ~itwords situation]) ^reuse (How_have_you_been_handling_this)
+	u: ([~pain ~itwords situation] * [handle handling]) ^reuse (How_have_you_been_handling_this)
+
+#! What bothers you the most
+	u: What_bothers_you_the_most (what bothers you the most) ^factanswer("Nothing bothers me.")
+	u: ([bother worry trouble concern] * [particular most]) ^reuse (What_bothers_you_the_most)
+	u: ([big large main most] * [afraid worry concern worried]) ^reuse (What_bothers_you_the_most)
+
+#! Can you care for yourself
+	u: Can_you_care_for_yourself (can you care for yourself) ^factanswer("I can care for myself.")
+	u: ([care dress] * yourself) ^reuse (Can_you_care_for_yourself)
+	u: ([problems issues trouble difficult] * [care dress]) ^reuse (Can_you_care_for_yourself)
+	u: ([can able] * [cook clean household laundry clothe housework]) ^reuse (Can_you_care_for_yourself)
+
+#! Does this bother you mentally
+	u: Does_this_bother_you_mentally (does this bother you mentally) ^factanswer("I don't think so.")
+	u:([feel make cause] * [bother worry depress "mental health"]) ^reuse (Does_this_bother_you_mentally)
+
+# ***************************************************************************************************
+# Job
+
+topic: ~jobrelatedquestions keep repeat (!workout !"work out" work ~job employ employer "do for a living" insurance ~chemicals solvent military mechanic "you do" "on your feet" insured Medicare Medicaid hazardous material asbestos lead stressful stress retire disable disability "social security" mistake error "in the office" note)
+
+	u: ( $$family) ^fail(TOPIC)
+
+#! Do you do any heavy lifting at work
+	u: Do_you_do_any_heavy_lifting_at_work (do you do any heavy lifting at work)  ^factanswer("I don't lift.")
+	u: (<< heavy [lifting lift] [work job] >>) ^reuse (Do_you_do_any_heavy_lifting_at_work)
+	u: ([bend lift] * [lot work job ever]) ^reuse (Do_you_do_any_heavy_lifting_at_work)
+
+#! Is your job physically demanding
+	u: Is_your_job_physically_demanding (is your job physically demanding) ^factanswer("It is not.")
+	u: ([work job employer] * [demanding difficult strenuous "physical labor"]) ^reuse (Is_your_job_physically_demanding)
+
+#! Is your job stressful
+	u: Is_your_job_stressful (is your job stressful) ^factanswer("Not really.")
+	u: (<< [work job] [stress stressful change] >>) ^reuse (Is_your_job_stressful)
+
+#! Is your job pleasurable
+	u: Is_your_job_pleasurable (is your job pleasurable) ^factanswer("I enjoy my job")
+	u: (<< [work working job] [fun pleasurable pleasant like enjoy] >>) ^reuse (Is_your_job_pleasurable)
+
+#! Are you on your feet a lot
+	u: Are_you_on_your_feet_a_lot (are you on your feet a lot) ^factanswer("Not really.")
+	u: (!able are * on your feet) ^reuse (Are_you_on_your_feet_a_lot)
+
+#! Are you currently working
+	u: Are_you_currently_working (are you currently working)  ^factanswer("I currently work.")
+	u: ([currently presently "gone to"] * [employ work]) ^reuse (Are_you_currently_working)
+
+#! How many hours do you work
+	u: How_many_hours_do_you_work (how many hours do you work) ^factanswer("I usually work about 40 hours per week")
+	u: ([hours days] * work) ^reuse (How_many_hours_do_you_work)
+
+#! Why are you off work
+	u: Why_are_you_off_work (why are you off work)  ^factanswer("I am not off work.")
+	u: (why * [off unable] * [work job]) ^reuse (Why_are_you_off_work)
+
+#! How long have you been off work
+	u: How_long_have_you_been_off_work (how long have you been off work) ^factanswer("I have not been off work.")
+	u: (how long * [not off unable miss absent] * [work job]) ^reuse (How_long_have_you_been_off_work)
+
+# #! Have you been off work because of $chiefcomplaint
+	u: Have_you_been_off_work_because (have you been off work because)  ^factanswer("No.")
+	u: ([off unable] * [work job] * [because due] $chiefcomplaint) ^reuse (Have_you_been_off_work_because)
+	u: ($chiefcomplaint * [stop prevent keep] * [job work]) ^reuse (Have_you_been_off_work_because)
+
+#! Have you been off work
+	u: Have_you_been_off_work (have you been off work) ^factanswer("I have not been off work.")
+	u: (!what[off unable miss absent not] * [work job]) ^reuse (Have_you_been_off_work)
+
+#! Have you been able to work
+	u: Have_you_been_able_to_work (have you been able to work) ^factanswer("I have been able to work.")
+	u: (![what not] [can able] * work) ^reuse (Have_you_been_able_to_work)
+	u: (![what not] have you been * work) ^reuse (Have_you_been_able_to_work)
+
+#! What can't you do at work
+	u: What_can't_you_do_at_work (What ["can't" "can not"] you do at work) ^factanswer("I am not having any issues at work.")
+	u: (!else what can * not * do * work) ^reuse (What_can't_you_do_at_work)
+	u: (!else what ["can't" "can not"] * do * work) ^reuse (What_can't_you_do_at_work)
+
+#! What else can't you do
+	u: What_else_can't_you_do (What else ["can't" "can not"] you do) ^factanswer("Nothing")
+	u: (what else can * not do) ^reuse (What_else_can't_you_do)
+	u: (what else ["can't" "can not"] * do) ^reuse (What_else_can't_you_do)
+
+#! Do you have problems working
+	u: Do_you_have_problems_working (do you have problems working) ^factanswer("I have no problems working.")
+	u: (have * problem * work) ^reuse (Do_you_have_problems_working)
+
+#! Has your inability to work caused problems
+	u: Inability_to_work_caused_problems (inability to work caused problems) ^factanswer("Not really.")
+	u: ([inability ability able] * work * [problems issues concerns]) ^reuse (Inability_to_work_caused_problems)
+
+#! Have you made mistakes at work
+	u: Have_you_made_mistakes_at_work (have you made mistakes at work) ^factanswer("I haven't made errors at work")
+	u: (![kind type sort] [mistake error] * [work job]) ^reuse (Have_you_made_mistakes_at_work)
+
+#! Kind of mistakes at work
+	u: Kind_of_mistakes (kind of mistakes at work)  ^factanswer ("I didn't make any.")
+	u: (<< [kind type sort] [mistake error] >>) ^reuse (Kind_of_mistakes)
+
+#! Is your job secure
+	u: Is_your_job_secure (is your job secure) ^factanswer("I think it is fine.")
+	u: ([job work employment] * [secure worry jeopardy]) ^reuse (Is_your_job_secure)
+	u: ([worry concern] * [job security]) ^reuse (Is_your_job_secure)
+
+#! How is work
+	u: How_is_work (how is work) ^factanswer("Work is fine.")
+	u: ("how is" *~2 [work job]) ^reuse (How_is_work)
+
+#! When was the last time you worked
+	u: When_was_the_last_time_you_worked (when was the last time you worked)  ^factanswer("I worked the last weekday.")
+	u: ([when how] * [days last] * ["in the office" work "drove a bus"]) ^reuse (When_was_the_last_time_you_worked)
+
+#! Do you need a note for work
+	u: Do_you_need_a_note_for_work (do you need a note for work) ^factanswer("I do not.")
+	u: (need * [excuse note] * [work me today]) ^reuse (Do_you_need_a_note_for_work)
+
+#! Does the pain interfere with work
+	u: Does_the_pain_interfere_with_work (does the pain interfere with work)  ^factanswer("It does not.")
+	u: ([~pain ~itwords injury] * [interfere inhibit keep stop miss affect] * [work working job]) ^reuse (Does_the_pain_interfere_with_work)
+
+#! Is the pain related to work
+	u: Is_the_pain_related_to_work (is the pain related to work) ^factanswer("It is not.")
+	u: ([pain injury] * [related due because] * [work job]) ^reuse (Is_the_pain_related_to_work)
+
+#! Does it hurt to work
+	u: Does_it_hurt_to_work (does it hurt to work) ^factanswer("I have no problems working.")
+	u: (!~bodyparts hurt * work) ^reuse (Does_it_hurt_to_work)
+
+#! Where do you work
+	u: Where_do_you_work (where do you work) ^factanswer("I work in town.")
+		a: How_long_have_you_worked (how long) ^factanswer("Many years")
+	u: (where * [~job work]) ^reuse (Where_do_you_work)
+
+#! How long have you been a worker $currentjob=worker
+	u: How_long_have_you_been_a_worker (how long have you been a $currentjob?) ^factanswer("For the past several years.")
+	u: (how long * [$currentjob? work]) ^reuse (How_long_have_you_been_a_worker)
+
+#! Do you have health insurance
+	u: Do_you_have_insurance (do you have health insurance) ^factanswer("I do.")
+	u: ([insurance insured Medicare Medicaid]) ^reuse (Do_you_have_insurance)
+
+#! Do you have exposure to chemicals
+	u: Do_you_have_exposure_to_chemicals (do you have exposure to chemicals) ^factanswer("Not that I know of.")
+	u: ([expose exposure around] * [~chemicals solvent]) ^reuse (Do_you_have_exposure_to_chemicals)
+
+#! Do you have exposure to hazardous materials
+	u: Exposure_to_hazardous_materials (exposure to hazardous materials) ^factanswer("Not that I know of.")
+	u: ([expose exposure around] * [asbestos lead hazardous]) ^reuse (Exposure_to_hazardous_materials)
+
+#! Have you ever been in the military
+	u: Have_you_ever_been_in_the_military (have you ever been in the military)  ^factanswer("I have not.")
+	u: ([military]) ^reuse (Have_you_ever_been_in_the_military)
+
+#! What do you do for a living
+	u: What_do_you_do_for_a_living (what do you do for a living) ^factanswer("I work.")
+		a: How_long_have_you_worked (how long) ^factanswer("Many years")
+	u: (what * for * living) ^reuse (What_do_you_do_for_a_living)
+	u: (!out !outside [what do are] * [job mechanic work]) ^reuse (What_do_you_do_for_a_living)
+	u: ([you currently] [working employed]) ^reuse (What_do_you_do_for_a_living)
+	u: (what [kind type sort is] * ~job) ^reuse (What_do_you_do_for_a_living)
+	u: (what * work do you do) ^reuse (What_do_you_do_for_a_living)
+	u: (!out !outside what do you do) ^reuse (What_do_you_do_for_a_living)
+
+#! Tell me about your work
+	u: Tell_me_about_your_work (tell me about yor work) ^factanswer("What would you like to know?")
+	u: (tell me * [work job]) ^reuse (Tell_me_about_your_work)
+
+#! Do you work
+	u: Do_you_work (!out do you work) ^factanswer("I do work.")
+		a: How_long_have_you_worked (how long) ^factanswer("Many years")
+	u: (![pain "work out" outside out] [are do] you * [work job employed]>) ^reuse (Do_you_work)
+	u: (![pain "work out" outside out] [work job] * "outside the home") ^reuse (Do_you_work)
+
+#! Are you retired
+	u: Are_you_retired (are you retired) ^factanswer("I still work.")
+	u: ([retire retiree]) ^reuse (Are_you_retired)
+
+#! Are you disabled
+	u: Are_you_disabled (are you disabled) ^factanswer("I am not.")
+	u: ([disable disability]) ^reuse (Are_you_disabled)
+
+#! Are you on social security
+	u: Are_you_on_social_security (are you on social security) ^factanswer("I still work.")
+	u: ("social security") ^reuse (Are_you_on_social_security)
+
+#! Is anyone sick at work
+	u: Anyone_sick_at_at_work (anyone sick at work) ^factanswer("Not that I am aware of.")
+	u: ([anyone anybody] * [sick ill]) ^reuse (Anyone_sick_at_at_work)
+
+# ***************************************************************************************************
+# Recreational drug use
+
+topic: ~druguse keep repeat (~drugs_illegal "bath salts" pills sure recreational drug illicit illegal street experiment)
+
+	u: ( $$family) ^fail(TOPIC)
+
+#! Do you use illegal drugs
+	u: Do_you_use_illegal_drugs (do you use illegal drugs) ^factanswer("Never.")
+			a: Are_you_sure (are you sure)  ^factanswer("I am sure.")
+			a: (are you [sure certain]) ^reuse (Are_you_sure)
+	u: (!other [use take do indulge] * [drugs substances]>) ^reuse (Do_you_use_illegal_drugs)
+	u: (![taste reflux feel] [~drugs_illegal "pcp" MDMA Adam]) ^reuse (Do_you_use_illegal_drugs)
+	u: (["bath salts" bathsalts]) ^reuse (Do_you_use_illegal_drugs)
+	u: (["recreational drug" "street drug" "drug use" "IV drugs" "intraveous drugs"]) ^reuse (Do_you_use_illegal_drugs)
+	u: (<< drug [recreationally recreational illicit illegal] >>) ^reuse (Do_you_use_illegal_drugs)
+	u: ([used experiment] * drug) ^reuse (Do_you_use_illegal_drugs)
+	u: (illegal) ^reuse (Do_you_use_illegal_drugs)
+
+
+
+
+# ***************************************************************************************************
+# Tattoos
+
+topic: ~tattoo keep repeat (tattoo "body art")
+
+	u: ( $$family) ^fail(TOPIC)
+
+#! Do you have a tattoo
+	u: Do_you_have_a_tattoo (do you have a tattoo) ^factanswer("I have no tattoos.")
+	u: (do you * [tattoo "body art"]) ^reuse (Do_you_have_a_tattoo)
+
+#! Have you ever had a tattoo
+	u: Ever_had_a_tattoo (have you ever had a tattoo) ^factanswer("I have never had a tattoo.")
+	u: ([ever had] * [tattoo "body art"]) ^reuse (Ever_had_a_tattoo)
+
+# ***************************************************************************************************
+# Travel
+
+topic: ~travel keep repeat (travel visit country plane airplane trip)
+
+#! Have you traveled anywhere
+	u: Have_you_traveled_anywhere (have you traveled anywhere) ^factanswer("I have not traveled.")
+	u: ([have did recent recently] * [travel travels country trip]) ^reuse (Have_you_traveled_anywhere)
+
+#! Have you been on a plane
+	u: Have_you_been_on_a_plane (have you been on a plane) ^factanswer("I haven't been on a plane.")
+	u: ([have did recent recently] * [plane airplane])  ^reuse (Have_you_been_on_a_plane)
+	u: ([plane airplane] * [recently "not long ago" ~timename])  ^reuse (Have_you_been_on_a_plane)
+
+# ***************************************************************************************************
+
+# Hobby
+
+topic: ~hobbyquestions keep repeat (hobby fun outside work job enjoy "free time" "extracurricular activity" relax outside activities enjoy "spare time" "daily basis" "like to do" interests  "social life" "personal life")
+
+	u: ( $$family) ^fail(TOPIC)
+
+#! Do you have any hobbies
+	u: Do_you_have_any_hobbies (do you have any hobbies) ^factanswer("I don't have any specific hobbies.")
+	u: (hobby) ^reuse (Do_you_have_any_hobbies)
+	u: (![daily normal] [activity hobby] * [enjoy like participate]) ^reuse (Do_you_have_any_hobbies)
+	u: (![daily normal] [enjoy like participate 'do] * [activity hobby]) ^reuse (Do_you_have_any_hobbies)
+
+#! What do you do for fun
+	u: What_do_you_do_for_fun (what do you do for fun) ^factanswer("Normal stuff like reading and going to a movie.")
+	u: ([what how anything] * [enjoy enjoyment fun relax "free time" entertainment excitement "extracurricular activity" "spare time" "free time" "daily basis" "like to do" interests]) ^reuse (What_do_you_do_for_fun)
+	u: ([what anything] * [outside when] * [work job]) ^reuse (What_do_you_do_for_fun)
+
+	#! How is your social Life
+		u: How_is_your_social_life (how is your social life) ^factanswer("My social life is fine.")
+		u: ("social life") ^reuse (How_is_your_social_life)
+
+	#! How is your personal Life
+		u: How_is_your_personal_life (how is your personal life) ^factanswer("My personal life is fine.")
+		u: ("personal life") ^reuse (How_is_your_personal_life)
+
+# ***************************************************************************************************
+# Sexual Activity
+
+topic: ~sexualactivity keep repeat (men women sexual sexually partner sex monogamous besides)
+
+	u: ( $$family) ^fail(TOPIC)
+
+
+#! How many sexual partners
+	u: How_many_sexual_partners (how many sexual partners)    ^factanswer("None.")
+	u: ([many number several one] * partner) ^reuse (How_many_sexual_partners)
+	u: ([before previously past] * [many number several] * partner) ^reuse (How_many_sexual_partners)
+	u: ([many number several any] * partner * [past last] * [recent recently year month]) ^reuse (How_many_sexual_partners)
+	u: ([past last recent recently year month] * [many number several] * partner) ^reuse (How_many_sexual_partners)
+
+#! Are you monogamous
+	u: Monogamous (monogamous)	^factanswer("Yes.")
+
+#! Any other sexual partners
+	u: Any_other_sexual_partners (any other sexual partners)  ^factanswer("I'm not sexually active.")
+	u: ([new other additional extra any] * [sex sexual])  ^reuse (Any_other_sexual_partners)
+	u: (other * [sex sexual] * [~spouse])  ^reuse (Any_other_sexual_partners)
+	u: (other * partners) ^reuse (Any_other_sexual_partners)
+	u: ([sex sexual] * [other besides] * [~spouse])  ^reuse (Any_other_sexual_partners)
+
+#! Do you prefer men or women
+	u: Do_you_prefer_men_or_women (do you prefer men or women)	^factanswer("I'm not sexually active.")
+	u: ([sex prefer like interested sexual] * [male men women female]) ^reuse (Do_you_prefer_men_or_women)
+	u: (sexual * [orientation preference]) ^reuse (Do_you_prefer_men_or_women)
+	u: ([men women] or both) ^reuse (Do_you_prefer_men_or_women)
+
+#! Who are your sexual partners
+	u: Who_are_your_sexual_partners (who are your sexual partners)	^factanswer("I'm not sexually active.")
+	u: ([who whom] * [sex sexually intercourse]) ^reuse (Who_are_your_sexual_partners)
+	u: (partner * [man male woman female ~dating_friend]) ^reuse (Who_are_your_sexual_partners)
+	u: ([sex sexually intercourse] * [man men male woman women female ~dating_friend]) ^reuse (Who_are_your_sexual_partners)
+
+#! Are you sexually active
+	u: Are_you_sexually_active (are you sexually active) 	^factanswer("I'm not sexually active.")
+	u: (![when why how problem difficulty who ~STI unprotected symptoms force coerce pain] [are is have] * [sex sexual sexually intercourse "sexually active"]) ^reuse (Are_you_sexually_active)
+
+#! When was the last time you had intercourse
+	u: When_did_you_last_have_intercourse (when was the last time you had intercourse)	^factanswer("I'm not sexually active.")
+	u: ([when "long ago"] * [last previous] * [sex sexual sexually intercourse ~itwords]) ^reuse (When_did_you_last_have_intercourse)
+	u: ([when "long ago"] * [sex sexual sexually intercourse ~itwords] * [last previous before]) ^reuse (When_did_you_last_have_intercourse)
+
+#! Tell me about your sexual history
+	u: Tell_me_about_your_sexual_history (tell me about your sexual history) ^factanswer("What do you want to know?")
+	u: ([tell describe] * sexual history) ^reuse (Tell_me_about_your_sexual_history)
+
+
+# ***************************************************************************************************
+# Religion
+
+topic: ~religion keep repeat (religion denomination church spiritual religious)
+
+	u: ( $$family) ^fail(TOPIC)
+
+
+#! What is your religious preference
+	u: What_is_your_religious_preference  (what is your religious preference)  ^factanswer("I don't have a preference.")
+	u: ([religion religious spiritual denomination church]) ^reuse (What_is_your_religious_preference)
+
+
+# ***************************************************************************************************
+# Advanced Directive
+
+topic: ~advanced_directive keep repeat ("living will" "end of life" "advanced directive" "power of attorney" DNR CPR "do not resuscitate" ventilator)
+
+	u: ( $$family) ^fail(TOPIC)
+
+#! What is in your living will
+	u: What_is_in_your_living_will  (what is in your living will)  ^factanswer("I don't have one.")
+	u: ([how what] * [contain cover] * ["living will"]) ^reuse (What_is_in_your_living_will)
+	u: ([consider want thought] * [DNR "do not resuscitate" CPR ventilator die dying]) ^reuse (What_is_in_your_living_will)
+
+#! Do you have a living will
+	u: Do_you_have_a_living_will  (do you have a living will)  ^factanswer("I do not have one of those.")
+	u: ("living will") ^reuse (Do_you_have_a_living_will)
+
+#! Do you have an advanced directive
+	u: Do_you_have_an_advanced_directive  (do you have an advanced directive) ^factanswer("I do not.")
+	u: (["advanced directive" "end of life"])  ^reuse (Do_you_have_an_advanced_directive)
+
+#! Do you have a medical power of attorney
+	u: Do_you_have_a_medical_power_of_attorney  (do you have a medical power of attorney)  ^factanswer("I have none.")
+	u: (<< [proxy agent "power of attorney"] [medical health care] >>)  ^reuse (Do_you_have_a_medical_power_of_attorney)
+
+
+# ***************************************************************************************************
+# General Health
+
+topic: ~generalhealth keep repeat (health healthy quality everyday "social history" sick ill "feeling poorly" "under the weather" feel)
+
+	u: ( $$family) ^fail(TOPIC)
+
+
+#! Were you healthy
+	u: Were_you_healthy_child (were you healthy)   ^factanswer("I have always been healthy.")
+	u: (!are !diet [healthy sick ill health] * [past childhood child])  ^reuse(Were_you_healthy_child)
+
+#! Are you healthy
+	?: Are_you_healthy (are you healthy) ^factanswer("I am pretty healthy.")
+	?: (![other else ~family_members were diet mental eat food ~parents] [health healthy]) ^reuse (Are_you_healthy)
+
+# ADD TO SPREDSHEET
+#! Do you feel well
+	u: Do_you_feel_well (do you feel well) 	^factanswer("I feel fine.")
+	u: (feel * [well OK allright]) ^reuse (Do_you_feel_well)
+	u: (["are you" "you are"] * [well OK allright okay ok alright]) ^reuse (Do_you_feel_well)
+
+#! What is your quality of life
+	u: What_is_quality_of_life (what is your quality of life) ^factanswer("It is good.")
+	u: (what * [current everyday daily quality] * life) ^reuse (What_is_quality_of_life)
+
+#! Social history
+	u: Social_history (social history) ^factanswer("OK")

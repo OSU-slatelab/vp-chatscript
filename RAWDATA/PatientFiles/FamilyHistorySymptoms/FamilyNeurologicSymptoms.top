@@ -1,0 +1,35 @@
+# ***************************************************************************************************
+
+# walking- I have defined walking_problems as a concept in MedicalConcepts.top
+
+topic: ~familywalking keep repeat (~walking_problems family ~role_family)
+
+	u: ($present) respond(~currentwalking) ^fail(TOPIC) 
+	u: ($pasthistory) respond(~pastwalking) ^fail(TOPIC) 
+
+
+# ***************************************************************************************************
+
+topic: ~familynumbness keep repeat (numb numbness tingle sensation family ~role_family) 
+
+	u: ($present) respond(~currentnumbness) ^fail(TOPIC) 
+	u: ($pasthistory) respond(~pastnumbness) ^fail(TOPIC) 
+
+
+
+# ***************************************************************************************************
+
+topic: ~familyweakness keep repeat (weak weakness family ~role_family)
+
+	u: ($present) respond(~currentweakness) ^fail(TOPIC) 
+	u: ($pasthistory) respond(~pastweakness) ^fail(TOPIC) 
+
+
+
+# ***************************************************************************************************
+
+topic: ~familydizziness keep repeat (dizzy dizziness lightheaded lightheadedness spin "passed out" faint spin)
+
+
+	u: ($present) respond(~currentdizziness) ^fail(TOPIC)  
+	u: ($pasthistory) respond(~pastdizziness) ^fail(TOPIC) 

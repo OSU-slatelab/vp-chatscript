@@ -1,0 +1,68 @@
+# ***************************************************************************************************
+
+# Blood Pressure - I have defined blood_pressure as a concept in MedicalConcepts.top
+
+topic: ~pastbloodpressure keep repeat (blood pressure)
+
+
+	u: ($present) respond(~currentbloodpressure) ^fail(TOPIC) 
+	u: ($family) respond(~familybloodpressure) ^fail(TOPIC) 
+
+
+
+#! Any previous blood pressure problems
+	u: Any_previous_blood_pressure_problems (any previous blood pressure problems)    ^factanswer("My blood pressure has always been normal.") 
+	u: ("blood pressure") ^reuse (Any_previous_blood_pressure_problems)
+
+
+# ***************************************************************************************************
+
+topic: ~pastchestpain keep repeat (~chest_pain)
+
+
+	u: ($present) respond(~currentchestpain) ^fail(TOPIC) 
+	u: ($family) respond(~familychestpain) ^fail(TOPIC) 
+
+
+
+#! Any history of chest pain
+	u: Any_history_of_chest_pain (any history of chest pain)  ^factanswer("No.") 
+	u: (~chest_pain) ^reuse (Any_history_of_chest_pain)
+
+# ***************************************************************************************************
+
+topic: ~pastheartproblem keep repeat (~chest_pain heart coronary artery cardiac)
+
+	u: ($present) respond(~currentheartproblem)  ^fail(TOPIC) 
+	u: ($family) respond(~familyheartproblem) ^fail(TOPIC) 
+
+#! Any previous heart problems
+	u: Any_previous_heart_problems (any previous heart problems)   ^factanswer("I have not had any heart problems.")
+	u: (<< [coronary artery heart cardiac] [wrong condition issue problem trouble disease] >>) ^reuse (Any_previous_heart_problems)
+
+
+# ***************************************************************************************************
+
+topic: ~pastvascular keep repeat (~cardiovascular image probe catheter ultrasound)
+
+	
+	u: ($present) respond(~currentvascular) ^fail(TOPIC) 
+	u: ($family) respond(~familyvascular)  ^fail(TOPIC)
+
+#! Any past vascular problems
+	u: Any_past_vascular_problems (any past vascular problems)   ^factanswer("I have never had vascular problems.")
+	u: (~cardiovascular * [wrong condition issue problem trouble disease]) ^reuse (Any_past_vascular_problems)
+	u: ([wrong condition issue problem trouble disease] * ~cardiovascular) ^reuse (Any_past_vascular_problems)
+
+
+#! Any past vascular testing
+	u: Any_past_vascular_testing (any past vascular testing)  ^factanswer("I have never had any vascular testing.")
+	u: (~cardiovascular * [test image probe catheter ultrasound check]) ^reuse (Any_past_vascular_testing)
+	u: ([test image probe catheter ultrasound check] * ~cardiovascular) ^reuse (Any_past_vascular_testing)
+
+#! Any past clotting problems
+	u: Any_past_clotting_problems  (any past clotting problems)  ^factanswer("I have never had clotting problems.")
+	u: ([have any experience] * ["blood clot" clot]) ^reuse (Any_past_clotting_problems)
+	u: ([blood vascular] * [clot problems thick thickness plaques embolism]) ^reuse (Any_past_clotting_problems)
+  
+ 

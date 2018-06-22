@@ -1,0 +1,62 @@
+# ***************************************************************************************************
+
+# Blood Pressure - I have defined blood_pressure as a concept in MedicalConcepts.top
+
+topic: ~familybloodpressure keep repeat (~high_blood_pressure blood pressure ~role_family family hypertension coronary artery heart cardiac)
+
+	u: ($pasthistory) respond(~pastbloodpressure) ^fail(TOPIC)  
+	u: ($present) respond(~currentbloodpressure) ^fail(TOPIC) 
+
+
+#! Any family history of hypertension
+	u: Family_history_of_hypertension (any family history of hypertension)    ^factanswer("Not that I know of.")
+	u: (~high_blood_pressure) ^reuse (Family_history_of_hypertension)
+
+
+# ***************************************************************************************************
+
+topic: ~familychestpain keep repeat (~chest_pain ~role_family family)
+
+	u: ($pasthistory) respond(~pastchestpain) ^fail(TOPIC)  
+	u: ($present) respond(~currentchestpain) ^fail(TOPIC) 
+
+
+#! Any family history of chest pain
+	u: Family_history_of_chest_pain (any family history of chest pain)    ^factanswer("Not that I know of.")
+	u: (~chest_pain) ^reuse (Family_history_of_chest_pain)
+
+# ***************************************************************************************************
+
+topic: ~familyheartproblem keep repeat (~chest_pain heart)
+
+	u: ($pasthistory) respond(~pastheartproblem)  ^fail(TOPIC) 
+	u: ($present) respond(~currentheartproblem) ^fail(TOPIC) 
+
+#! Any heart problems in your family
+	u: Any_family_heart_problems (any heart problems)   ^factanswer("No heart issues in my family.")
+	u: (<< [coronary artery heart cardiac] [wrong condition issue problem trouble disease] >>) ^reuse (Any_family_heart_problems)
+
+
+# ***************************************************************************************************
+
+topic: ~familyvascular keep repeat (~cardiovascular image probe catheter ultrasound ~family_members)
+
+	u: ($pasthistory) respond(~pastvascular)  ^fail(TOPIC) 
+	u: ($present) respond(~currentvascular) ^fail(TOPIC) 
+
+#! Family history of vascular problems
+	u: Family_history_of_vascular_problems (family history of vascular problems)   ^factanswer("No one in my family has vascular problems.")
+	u: (~cardiovascular * [wrong condition issue problem trouble disease]) ^reuse (Family_history_of_vascular_problems)
+	u: ([wrong condition issue problem trouble disease] * ~cardiovascular) ^reuse (Family_history_of_vascular_problems)
+
+
+#! Family history of vascular testing
+	u: Family_history_of_vascular_testing (family history of vascular testing)  ^factanswer("No one in my family had vascular testing.")
+	u: (~cardiovascular * [test image probe catheter ultrasound check]) ^reuse (Family_history_of_vascular_testing)
+	u: ([test image probe catheter ultrasound check] * ~cardiovascular) ^reuse (Family_history_of_vascular_testing)
+
+#! Family history of clotting problems
+	u: Family_history_of_clotting_problems  (family history of clotting problems)  ^factanswer("No one in my family has clotting problems.")
+	u: (~family_members * ["blood clot" clot]) ^reuse (Family_history_of_clotting_problems)
+	u: ([blood vascular] * [clot problems thick thickness plaques embolism] * ~family_members) ^reuse (Family_history_of_clotting_problems)
+  

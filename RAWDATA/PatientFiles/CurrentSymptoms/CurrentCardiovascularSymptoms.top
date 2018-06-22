@@ -1,0 +1,65 @@
+# ***************************************************************************************************
+
+# Blood Pressure - I have defined blood_pressure as a concept in MedicalConcepts.top
+
+topic: ~currentbloodpressure keep repeat ("blood pressure" high low normal hypertension ~high_blood_pressure)
+
+	u: ($pasthistory) respond(~pastbloodpressure)  ^fail(TOPIC)
+	u: ($family) respond(~familybloodpressure) ^fail(TOPIC)
+
+
+#! How is your blood pressure
+	u: How_is_your_blood_pressure (how is your blood pressure)   ^factanswer("My blood pressure has been normal.")
+	u: (!urine !pee ["blood pressure" ~high_blood_pressure]) ^reuse (How_is_your_blood_pressure)
+
+
+
+# ***************************************************************************************************
+
+topic: ~currentchestpain keep repeat (~chest_pain chest)
+
+	u: ($pasthistory) respond(~pastchestpain)  ^fail(TOPIC)
+	u: ($family) respond(~familychestpain) ^fail(TOPIC)
+
+#! Any chest pain
+	u: Any_chest_pain (any chest pain)   ^factanswer("I have no chest pain.")
+	u: (~chest_pain) ^reuse (Any_chest_pain)
+
+# ***************************************************************************************************
+
+topic: ~currentheartproblem keep repeat (~chest_pain heart race cardiovascular)
+
+	u: ($pasthistory) respond(~pastheartproblem)  ^fail(TOPIC)
+	u: ($family) respond(~familyheartproblem) ^fail(TOPIC)
+
+#! Any heart problems
+	u: Any_heart_problems (any heart problems)   ^factanswer("I have no heart problems.")
+	u: (heart * [wrong condition issue problem trouble disease race]) ^reuse (Any_heart_problems)
+
+# ***************************************************************************************************
+
+topic: ~currentvascular keep repeat (~cardiovascular image probe catheter ultrasound test check cholesterol)
+
+	u: ($pasthistory) respond(~pastvascular)  ^fail(TOPIC)
+	u: ($family) respond(~familyvascular) ^fail(TOPIC)
+
+
+#! Any vascular problems
+	u: Any_vascular_problems (any vascular problems)   ^factanswer("I have no vascular problems.")
+	u: (~cardiovascular * [wrong condition issue problem trouble disease]) ^reuse (Any_vascular_problems)
+	u: ([wrong condition issue problem trouble disease] * ~cardiovascular) ^reuse (Any_vascular_problems)
+
+
+#! Any vascular testing
+	u: Any_vascular_testing (any vascular testing)  ^factanswer("I have not had any vascular testing.")
+	u: (~cardiovascular * [test image probe catheter ultrasound check]) ^reuse (Any_vascular_testing)
+	u: ([test image probe catheter ultrasound check] * ~cardiovascular) ^reuse (Any_vascular_testing)
+
+#! Any clotting problems
+	u: Any_clotting_problems  (any clotting problems)  ^factanswer("I have no clotting problems.")
+	u: ([have any experience] * ["blood clot" clot]) ^reuse (Any_clotting_problems)
+	u: ([blood vascular] * [clot problems thick thickness plaques embolism]) ^reuse (Any_clotting_problems)
+
+#! How is your cholesterol
+	u: How_is_your_cholesterol (how is your cholesterol) ^factanswer ("My cholesterol is fine")
+	u: (cholesterol) ^reuse (How_is_your_cholesterol)

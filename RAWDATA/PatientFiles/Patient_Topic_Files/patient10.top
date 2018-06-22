@@ -1,0 +1,739 @@
+outputmacro: patient10()  # you get patient1 by default
+$patientfirstname = Alexander
+$patientlastname = Spiros
+$chiefcomplaint = ~nasal_discharge
+$complaint2 = ~face_pain
+$Vpatient10 = Vpatient10
+$vpatient = Vpatient10
+$patientTitle = Mr
+$currentjob = college student
+$currentmedication1 = afrin
+$currentmedication2 = none
+$currentmedication3 = none
+$currentrateofpain= 4
+
+^stdpatient()
+
+table: ^patientdata(Vpatient10) 
+
+
+# OPENING DIALOGUE
+# primary
+What_do_you_think_is_the_problem "\[ Pain3 \]I think I may have a sinus infection and was asked to be seen through a message in My Chart.  Thanks for seeing me so quickly."
+What_brings_you_in_today "I think I may have a sinus infection and was asked to be seen through a message in My Chart.  Thanks for seeing me so quickly."
+What_should_we_do "\[ Pain3 \]Well, the last time I had this I took a Z-pak."
+What_would_you_like_me_to_do "\[ Pain3 \] I'd like you to help me out."
+What_is_your_goal "I would like to feel better right away."
+Does_anything_make_you_feel_better "I feel better when blowing my nose or using nasal decongestant spray over-the-counter."
+Are_you_around_sick_people "Yeah, college kids are always sick."
+Are_you_sick "I don't really feel well."
+Tell_me_more "I have had sinus congestion, postnasal drip, and a pain in my face for 3 days."
+I_am_sorry "Thank you for your concern."
+Why "Why what?"
+Good "\[ Nod \]"
+Got_it "\[ Nod \]"
+Ok "\[ Nod \]"
+
+# greetings
+I_am_doctor "Nice to meet you Doctor $drfirstname $drlastname"
+Nice_to_meet_you  "\[ Happiness1 \] Nice to meet you."
+Nice_to_see_you "\[ Happiness1 \]  Thank you for seeing me today. "
+Nice_to_see_you_too "\[ Happiness1 \]  Thanks."
+How_are_you "\[ Pain2 \] Well, I could be better."
+Tell_me_about_yourself "\[ Fear2 \] Can you be more specific?"
+Hello "Hello Doctor. "
+
+# followupidalogue
+Any_other_problems1 "I don't believe so."
+Any_other_problems2 "I don't think so."
+Any_other_problems3 "I can't think of any. "
+Have_you_seen_anyone_else "I have not."
+
+# PATIENT INFORMATION
+# age, date of birth
+How_old_are_you "I am 24 years old."
+When_were_you_born "July 1, 1990"
+
+# name, greetings
+What_is_your_name ^"$patientfirstname $patientlastname"
+Did_I_pronounce_that_correctly "Yes, that is correct."
+Do_you_mind_if_I_call_you "Alex-sure, my friends all do."
+How_do_you_pronounce_that "Al-ex Spi-ros."
+What_should_I_call_you "Alexander or Alex"
+Are_you_mr_patientlastname ^"Yes, I am $patientfirstname $patientlastname. Good to meet you Doctor."
+Are_you_mr_someoneelse ^"No, I am $patientfirstname $patientlastname" 
+Hello_mr_patientlastname "Hello Doctor.  I am so glad to see you."
+Hello_mr_someoneelse ^"Hello Doctor, however, my name is $patientlastname, not  '_0.  If you can help me though you can call me whatever you would like."
+Mr_patientlastname ^"Yes.  That is me.  Please call me $patientfirstname"
+Mr_someoneelse ^"No, I am $patientfirstname $patientlastname." 
+
+# MEDICATIONS
+# current medications
+Taking_medication_for_the_1  "Afrin sinus decongestant over the counter, 2 puffs twice/day in each nostril, for 2 days."
+Taking_medication_for_the_2 "Afrin sinus decongestant over the counter, 2 puffs twice/day in each nostril, for 2 days."
+When_did_you_take_medicine "Yesterday"
+Need_to_take_the_medicine_that_often "Twice a day like the label says"
+How_often_did_you_take_the_medicine "Twice a day like the label says"
+How_long_taking_medicine "2 days"
+How_much_medicine_have_you_taken "I am not really sure."
+Would_you_like_a_stronger_prescription "Not really, I just want to feel better."
+What_is_the_strength_of_the_medicine "I do not know"
+Did_the_medicine_help "Maybe a little bit."
+Did_you_take_medicine_today "No, not yet."
+Are_you_still_taking_medicine "Yes, the label says I can use for up to 3 days."
+What_was_the_dose "2 puffs"
+What_pills_did_you_take "I haven't taken any pills."
+What_kind_of_medicine_is_that "I didn't take medication."
+Would_you_like_some_pain_medication "I don't think I will need pain medication, but thanks."
+Doctor_prescribe_the_medicine "It is not prescribed, I bought it at the the grocery store."
+Who_prescribed_the_medicine "I just bought it at the grocery store."
+What_is_medicine "I didn't take medication."
+What_were_the_pills_called "I don't take any pills."
+Are_you_taking_any_medication "No, I don't take any medications, supplements, or vitamins regularly."
+
+# supplements
+Are_you_taking_supplements "No, the only thing I take is a protein shake with milk after I work out. "
+Which_multivitamin "I don't really take any vitamins, but I probably should. "
+
+# other medications
+
+
+# past medications
+
+
+
+
+# ALLERGIES
+Food_or_environmental_allergies "I am not allergic to any food, but I think I might have seasonal allergies."
+Do_you_have_any_allergies "I am not allergic to anything that I know of."
+
+# SOCIAL HISTORY
+# activity
+How_often_do_you_exercise "I work out every day. "
+Do_you_exercise "Yes, every day at the gym"
+Are_you_active "Yes, I am very active. I run about three times a week. "
+How_is_your_energy "It's fine."
+Have_you_been_resting "Yes, I sleep well."
+Have_you_been_bedridden "I have not been bedridden."
+Are_you_able_to_drive "I am able to drive."
+Are_you_able_to_drive_home "Yes, I can drive."
+
+# alcohol use
+How_much_do_you_drink "No, I don't drink alcohol"
+Do_you_drink "I don't drink."
+Do_you_feel_guilty_about_your_drinking   "\[ Surprise2 \]Never."
+Anyone_thought_alcohol_problem "\[ Disgust2 \]Never."
+Do_you_ever_need_an_eye_opener "\[ Surprise2 \]I don't."
+Have_you_considered_reducing_alcohol  "\[ Contempt2 \] I don't really drink that much."
+Ever_felt_annoyed_about_alcohol "\[ Disgust2 \]Never."
+What_kind_of_drinks "I don't drink."
+How_many_drinks "I don't drink."
+
+# caffeine use
+Do_you_drink_coffee "No, I do not drink coffee."
+
+# diet
+Do_you_drink_enough_fluid "I think I do."
+Do_you_eat_dairy "\[ Happy2 \]Yes, I drink a lot of milk."
+Do_you_eat_fiber "I get enough fiber."
+Do_you_eat_fast_food "I don't go to fast food restaurants very often."
+Do_you_eat_fruit "I do eat them."
+Any_changes_in_your_diet "My diet is the same."
+How_is_your_diet "My diet is fine."
+Appetite "My appetite is really good."
+Can_you_eat "Eating is not a problem!"
+Have_you_been_eating "I have been eating."
+What_snacks "I don't snack."
+What_were_you_eating_before "My diet hasn't changed."
+What_do_you_eat "I try to stick to the recommended portions of carbs, low fat meats, dairy, fruits, and vegetables."
+
+# tobacco use
+How_long_have_you_smoked "I have been smoking for about 2 years."
+How_much_do_you_smoke "I smoke about a half pack per day of cigarettes."
+Have_you_ever_smoked "I have been smoking for about two years."
+Have_you_quit_smoking "I have not tried to quit. Maybe I should though."
+Do_you_smoke "I smoke cigarettes. "
+
+# education
+How_far_in_school "I am a college junior."
+What_is_your_major "I am majoring in international studie with a minor in history."
+
+#  in relation to hpi
+How_has_this_affected_you "\[ Fear1 \]It makes it hard to focus when I have a headache."
+Has_the_pain_affected_your_activity "Not really."
+Can_you_do_normal_activities "\[ Fear1 \] I can do normal activities."
+How_have_you_been_handling_this "\[ Sad2 \]I think I am good."
+What_bothers_you_the_most "\[ Sad2 \]I would say the headache and stuffy nose."
+Can_you_care_for_yourself "\[ Sad2 \]I can care for myself."
+
+#  job
+Do_you_do_any_heavy_lifting_at_work "I lift weights when I work out at the gym."
+Is_your_job_physically_demanding "Not really. I sit a lot when I study."
+Is_your_job_stressful "Not really."
+Is_your_job_pleasurable "Not really."
+Are_you_on_your_feet_a_lot "Not really."
+Are_you_currently_working "No, I am pretty busy with school."
+Why_are_you_off_work "I am a student."
+Have_you_been_off_work "I have not been off work."
+Have_you_been_able_to_work "I have been able to work."
+What_can't_you_do_at_work "I am not having any issues at work."
+What_else_can't_you_do "I can do pretty much anything."
+Do_you_have_problems_working "I feel congested and tired."
+How_is_work "Work is fine."
+When_was_the_last_time_you_worked "I go to school every weekday, and study on weekends sometimes."
+Do_you_need_a_note_for_work "No, thank you. "
+Does_the_pain_interfere_with_work "It does not."
+Is_the_pain_related_to_work "It is not."
+Does_it_hurt_to_work "I have no problems working."
+Where_do_you_work "I go to college."
+How_long_have_you_been_a_worker "I am a fulltime student."
+Do_you_have_insurance "I do."
+Do_you_have_exposure_to_chemicals "Not that I know of."
+Have_you_ever_been_in_the_military "I have not."
+What_do_you_do_for_a_living "I am a fulltime student."
+Do_you_work "I do work."
+Anyone_sick_at_at_work "Not that I am aware of."
+
+
+
+
+
+# recreational drug use
+Do_you_use_illegal_drugs "\[ Contempt4 \]No, I have not ever tried any drugs. "
+Are_you_sure "I am sure."
+
+# general health
+Are_you_healthy "I am pretty healthy."
+What_is_quality_of_life "It's good."
+Do_you_feel_well "I am not feeling well because of this sinus problem."
+
+#  CURRENTGENERALSYMPTOMS
+# medical problems
+Do_you_have_any_medical_problems "Just this current issue with my sinuses. Nothing chronic."
+Do_you_have_a_health_problem "I don't"
+Did_you_hurt_yourself "I did not."
+Do_you_have_any_chronic_illnesses "I have been very healthy all of my life."
+Have_you_had_an_accident  "I have not."
+What_symptoms_are_you_having "I have sinus congestion, postnasal drip, and a really annoying headache for the past 3 days. "
+Have_you_had_weight_change "My weight has not changed."
+
+# sleeping problems
+Why_are_you_having_trouble_sleeping "I'm not having any trouble sleeping."
+Have_you_had_any_trouble_sleeping "I'm sleeping ok."
+
+# CURRENTABDOMINALSYMPTOMS
+# bowel
+Loss_of_bowel_control "My bowels are fine."
+Are_you_able_to_control_your_bowels "I have no problems with my bowels."
+Do_you_have_any_bowel_problems "I have no problems with my bowels."
+When_was_last_bowel_movement "I don't remember."
+
+# both bowel and bladder
+Loss_of_bowel_or_bladder_control "My bowels and bladder are fine."
+Do_you_have_bowel_or_bladder_control "My bowels and bladder are fine."
+
+# CURRENTGUSYMPTOMS
+# bladder
+Any_pain_while_urinating "I haven't had that."
+Blood_in_urine "I haven't noticed anything like that."
+Loss_of_bladder_control "I have no problems with my bladder."
+Are_you_able_to_control_your_bladder "I have no problems with my bladder."
+Have_you_been_incontinent "I have not."
+Do_you_have_any_bladder_problems "I have no problems with my bladder."
+How_about_your_bladder "No problems with my bladder."
+
+
+# CURRENTCARDIACSYMPTOMS
+# blood pressure
+How_is_your_blood_pressure "My blood pressure has been normal as far as I know."
+
+# heartproblems
+
+# CURRENT GYN SYMPTOMS
+#  sexual activity
+How_many_sexual_partners "In my life? Three. Right now just one, my girlfriend, Brie."
+Monogamous "Yes."
+Do_you_prefer_men_or_women "\[ Surprise4 \]Women"
+Who_are_your_sexual_partners "I have a girlfriend named Brie."
+Are_you_sexually_active "I am."
+When_did_you_last_have_intercourse "2 days ago."
+
+#  contraception
+Do_you_use_any_other_contraception "We use condoms and my girlfriend is on the pill. I'm not sure which one, I'd have to ask her."
+Do_you_use_protection_every_time "Yes, we are pretty careful."
+Have_you_had_unprotected_sex "I have not."
+Do_you_use_contraception "I use condoms and my girlfriend is on the pill. I'm not sure which one, I'd have to ask her."
+
+# pain
+
+
+# CURRENTHEENTSYMPTOMS
+# headaches
+Do_you_have_headaches "Mostly it feels like my head is full, but so yes, I do have a headache."
+
+# neck stiffness/soreness
+Do_you_have_any_neck_stiffness "No, my neck is fine."
+
+# nasal
+Do_you_have_drainage_down_your_throat "I do feel like there is stuff draining down my throat."
+Do_you_have_sinus_problems "I feel like my whole head is stuffed up and I have all of this nasty stuff in my nose."
+Is_your_nose_stuffed_up "My nose and sinuses are really congested."
+
+# CURRENTMUSCLESYMPTOMS
+# back pain
+
+# back injury
+
+# muscle pain
+
+# back stiffness
+
+# spine pain
+
+
+# CURRENTNEUROLOGICSYMPTOMS
+# walking
+
+# numbness
+
+# weakness
+
+# CURRENTPAINSYMPTOMS
+# Onset
+
+# Exacerbation
+Did_the_medicine_help  "A little bit."
+Does_rest_make_the_pain_go_away  "\[ Sad2 \] Not really."
+Do_you_have_pain_at_rest  "\[ Sad2 \] The pain in my face is mostly there when I push on it."
+Does_it_hurt_when_not_moving  "\[ Sad2 \] Not really."
+Does_it_hurt_to_sneeze  "Actually, it feels like some pressure is relieved when I sneeze."
+Does_it_hurt_to_cough  "I haven't really been coughing."
+Does_it_hurt_to_move  "It doesn't really hurt to move."
+
+# Intensity
+Rate_pain_on_medicine  "It may decrease to about a 2 when I use the Afrin, but that doesn't last more than a couple of hours."
+Can_you_rate_the_pain  "\[ Pain2 \]Well, I would say about a 4."
+Can_you_rate_it "\[ Pain2 \]Right now, I would call my pain a 4. "
+How_painful_is_it  "\[ Fear2 \] It is not super painful, mostly just a feeling of pressure."
+Is_the_pain_always_a_number  "Pretty much.  "
+Does_the_pain_hurt_a_lot  "Like I said, it is more of a feeling of pressure than pain."
+
+# General
+Are_you_sore "Well, my nose is sore."
+Does_the_pain_start_somewhere_else  "I don't think so."
+Do_you_have_pain_anywhere_else  "Just my nose and my face."
+You_seem_uncomfortable  "The pressure is really uncomfortable."
+Can_you_point_to_the_pain "I'm not able to do that but the pressure is in my face, just above my cheekbones."
+
+# Description
+Does_the_pain_radiate  "Not really, it is pretty localised to my face."
+Do_you_have_any_radiating_pain  "Not really."
+Any_pain_on_right_side  "The pain is on both sides of my face."
+Any_pain_on_left_side "The pain is on both sides of my face."
+Is_the_pain_on_one_side  "The pain is on both sides of my face."
+Is_the_pain_sharp  "It is more of a pressure feeling."
+Is_the_pain_dull  "I gues it could be called a dull pressure."
+Is_the_area_tender  "\[ Pain2 \]A little bit.  When I press on it especially."
+Is_the_pain_in_the_muscle  "I don't really think so, I kinda thing it is in my sinuses."
+
+# CURRENTTREATMENTS
+Have_you_tried_a_heating_pad "No.  I don't have anything like that at home.  "
+Have_you_tried_heat_or_ice "I really never thought to do that."
+Have_you_tried_heat "I really never thought to do that."
+Have_you_tried_ice "I thought about trying that, but wasn't sure it would help at all."
+Have_you_tried_any_topical_treatments "Just the Afrin. That's topical, right?"
+What_treatment_would_you_like_to_try "I have no idea. I was hoping you would suggest something."
+Have_you_tried_any_treatment "I have not tried anything yet except for the Afrin."
+What_treatment_have_you_tried "I have not tried anything yet except for trying the Afrin."
+Have_you_had_any_imaging_done "No, I don't really think I need any."
+
+# PAST GENERAL SYMPTOMS
+# general
+Have_you_ever_had_any_serious_illnesses  "I have not."
+Have_you_ever_had_any_chronic_illnesses "I have been very healthy all of my life."
+Have_you_ever_been_in_an_accident "Never."
+What_is_your_past_medical_history "What would you like to know?"
+
+# past surgical history and hospitalizations
+Any_other_surgeries "Not that I recall."
+Any_surgery_problems "None that I am aware of."
+Any_prior_surgeries "I have never had any surgeries.  "
+Any_other_hospitalizations "Not that I can remember."
+Ever_been_in_the_hospital "I have not, other than to go see someone."
+
+# sleeping problems
+Any_history_of_insomnia "I've always slept fine.  "
+
+# PAST ABDOMINAL SYMPTOMS
+# bowel
+Have_you_had_any_past_bowel_problems "I have no problems with my bowels.  "
+
+# bowel and bladder
+Any_previous_bowel_or_bladder_problems "My bowels and bladder have been fine."
+
+# PAST CARDIAC SYMPTOMS
+# blood pressure
+Any_previous_blood_pressure_problems "My blood pressure has always been normal."
+
+# PAST GYN SYMPTOMS
+How_many_sexual_partners_in_the_past "Not very many, 3 total."
+Who_were_your_past_sexual_partners "Really, you want names or just that they were all women?"
+Any_other_past_sexual_partners "None."
+Ever_been_sexually_active "I have and currently am."
+
+# PAST GU SYMPTOMS
+# bladder
+Have_you_had_incontinence_before "I have not had that before."
+Have_you_had_any_past_bladder_problems "I have no problems with my bladder."
+
+# PAST HEENT SYMPTOMS
+# headache
+Have_you_ever_had_headaches "I usually never get headachs, so this is really annoying me."
+
+# neck stiffness/soreness
+Have_you_ever_had_neck_stiffness "Not that I recall."
+
+# PASTMUSCLESYMPTOMS
+# back pain
+
+# back injury
+
+# muscle pain
+
+# back stiffness
+
+# spine pain
+
+# leg pain
+
+# PASTNEUROLOGISYMPTOMS
+# walking
+
+# numbness or tingling
+
+# weakness
+
+# PASTPAIN
+# Onset
+
+# Intensity
+
+# Description
+
+# FAMILY GENERAL SYMPTOMS
+
+Any_conditions_that_run_in_your_family "Not that I am aware of"
+Any_family_history_of_illness  "I don't know of any."
+Parents_have_any_medical_problems "My parents are healthy."
+
+
+# FAMILY ABDOMINAL/GI SYMPTOMS
+# familybowel
+Family_history_of_bowel_problems "I don't know of any."
+Bowel_or_bladder_problems_in_your_family "I don't know of any."
+
+# FAMILY CARDIAC SYMPTOMS
+# family blood pressure
+Family_history_of_hypertension "Not that I know of."
+
+# FAMILY GU SYMPTOMS
+# family bladder
+Family_history_of_incontinence "Not that I know of."
+
+# FAMILY HEENT SYMPTOMS
+# family headaches
+Family_history_of_headaches  "Not that I know of."
+
+# family neck stiffness
+Family_history_of_neck_stiffness  "Not that I know of."
+
+# FAMILY MUSCLE SYMPTOMS
+# family back pain
+Anyone_in_your_family_have_back_pain "Not that I am aware of."
+
+# family back injury
+Anyone_in_your_family_have_a_back_injury "Not that I am aware of."
+
+# family muscle pain
+Anyone_in_your_family_have_muscle_pain "Not that I am aware of."
+
+# WELLNESS
+# vaccines
+have_you_been_vaccinated_for_MMR "I have."
+have_you_been_vaccinated_for_HIB "I believe so."
+have_you_been_vaccinated_for_hepatitis_a  "I received that vaccine."
+have_you_been_vaccinated_for_hepatitis_b "I received that vaccine."
+have_you_been_vaccinated_for_hepatitis "I think so."
+have_you_had_hpv_vaccine "I did not get that."
+have_you_had_flu_shot "I get one every year. "
+have_you_had_the_pneumonia_vaccine "I haven't had that. "
+have_you_received_your_shingles_vaccine  "Not yet."
+when_was_your_last_tetanus_shot "I had my last booster within the last 5 years "
+are_you_current_on_vaccinations "To the best of my recollection."
+
+
+# seeing a doctor
+When_did_you_see_a_doctor_last "I don't remember the last time I was here."
+Do_you_have_a_doctor "I don't have someone in particular. I just come here and see whoever is available."
+Did_you_have_any_trouble_finding_us "No, it was pretty easy to get here. "
+Did_you_find_a_parking_spot "I had no problems parking.  "
+How_did_you_get_here_today "I drove here."
+How_did_you_come_to_find_us "I have been here before."
+How_did_you_learn_about_this_office  "I have been here before."
+Have_you_been_seen_at_this_office_before  "I have been seen here before, I just can't remember exactly when."
+Are_you_a_new_patient "No, I have been to this office before."
+Where_are_you_usually_seen "I usually come here."
+Have_you_been_waiting_long "I have not been waiting very long.  I am pretty impressed by how quickly things have moved.  I always hear about long waits at doctor's offices, but I have not had any trouble with that. "
+
+# MOVEMENTS
+# range of motion
+What_movements_make_it_hurt "Leaning my head over really makes it hurt more."
+Does_it_hurt_when_you_bend "\[ Pain3 \]it hurts when I Lean my head over, like upside down."
+How_far_can_you_bend "I can bend my head all the way over, but the pressure really gets to me."
+Can_you_bend_down "I can bend my head all the way over, but the pressure really gets to me."
+Have_you_tried_to_bend "\[ Pain2 \]I am trying to avoid doing that."
+Do_you_have_decreased_motion "Not really."
+Can_you_touch_you_toes "\[ Fear1 \] I can touch my toes, but the pressure in my head really increases then and gets painful."
+
+# past range of motion
+
+# CHITCHAT
+# weatherquestions
+
+# seasonquestions
+
+# sportsquestions
+see_game "Man it was crazy.  I couldn’t believe that call at the end.  I don't get to watch sports very often but I do like the Buckeyes!"
+What_do_you_think_about_the_buckeyes  "I like their chances this season, especially with that new freshman.  "
+
+# readingquestions
+Read_any_good_books_lately "I read textbooks mostly. I really don't have much time for pleasure reading."
+
+# watchingquestions
+Seen_any_good_movies_lately "I just saw that new one last weekend.I t was pretty good."
+Watch_NCIS_last_night "No, I haven't watched much TV lately. "
+
+# hobbyquestions
+Do_you_have_any_hobbies "I like camping and doing things outdoors like hiking and fishing."
+What_do_you_do_for_fun "I like to do outdoors things with my friends and just hang out sometimes."
+
+# politicsquestions
+
+# restaurantquestions
+Been_to_any_good_restaurants_lately "I really like that Five Guys Burgers and Fries place that just opened on campus."
+
+# howwasyourdayquestions
+How_was_your_day "My '_0 was just fine, thanks for asking. If it weren't for my back I would be feeling good."
+How_has_your_day_been_going "My '_0 was just fine, thanks for asking. If it weren't for my back I would be feeling good."
+
+# feelingquestions
+Are_you_frustrated "I just want to be feeling well for the weekend camping trip I have planned."
+Are_you_nervous "Not really, I pretty much think I just have a sinus infection."
+
+# CLOSURE
+# closure
+Do_you_have_any_questions ^"^print(  [No] [No, I think that's all. Thank you for your time])"
+Anything_else_I_can_help_with "No, thank you for seeing me.  "
+Have_everything_you_need "Yes, thank you.  "
+Have_all_the_information "\[ Happy1 \]OK Thanks."
+Do_an_exam_now "Sounds good."
+Goodbye ^"^print(\[ Happy2 \][Goodbye then] [Goodbye and thanks])"
+Thanks "\[ Happy2 \]Thank you"
+
+# summarize
+Can_you_summarize "I just have this congestion and face pain, that pretty much sums it up."
+To_summarize ^"^print([That sounds about right] [I think that is correct])" 
+Did_I_miss_anything "I think you've got everything."
+
+
+# SCREENING
+# colon section
+
+# male GU section
+
+
+# family life
+Do_you_have_a_family "I do have a family."
+Do_you_have_any_pets "I have no pets."
+How_is_your_family "My family is fine."
+Who_do_you_live_with "I live alone."
+Do_you_live_alone "I live alone."
+Where_do_you_live "I live by myself at home."
+Where_is_home "I live in Columbus"
+
+# parents_information
+Are_your_parents_living "Both of my parents are alive and well"
+Are_your_parents_healthy "Both of my parents are in good health. "
+How_old_are_your_parents "My mom is 56 and my dad is 55."
+Tell_me_about_your_parents "My parents are both doing well. They've always been really healthy"
+
+
+# grandparents_information
+Are_your_grandparents_living "All of them except for my dad's dad."
+How_did_grandparents_die "I am not really sure, I'd have to ask my dad."
+How_old_are_your_grandparents "Yikes, I don't really know that."
+Are_your_grandparents_healthy  "Well, I think they are. I am not sure of what ails them."
+Tell_me_about_your_grandparents "My mom's parents live in New York and my dad's mom has relocated to Florida since retiring."
+
+# siblings_information
+Do_you_have_siblings "I have no brothers or sisters."
+How_old_are_your_siblings "I have no brothers or sisters."
+Are_your_siblings_healthy  "I have no brothers or sisters."
+Tell_me_about_your_siblings "I have no brothers or sisters."
+
+# relatives_information
+
+# children_information
+
+# spouse_information
+Are_you_divorced "I've never been married."
+Are_you_married "I'm single."
+Are_you_single "I am single"
+Are_you_in_a_relationship "I have a girlfriend that I have been seeing for about a year or so now. Her name is Brie."
+Are_you_dating_anyone "I have a girlfriend that I have been seeing for about a year or so now. Her name is Brie."
+Do_you_have_a_boyfriend "I only date women."
+Do_you_have_a_girlfriend "I have a girlfriend that I have been seeing for about a year or so now. Her name is Brie."
+Do_you_have_a_significant_other "I have a girlfriend that I have been seeing for about a year or so now. Her name is Brie."
+Do_you_have_a_partner "My girlfriend, Brie."
+Is_your_partner_healthy "She had a cold, but she got over hers within a week and is feeling fine now."
+
+# support_information
+
+Are_you_abused "\[ Contempt2 \]I have no concerns about my home life."
+Do_you_feel_safe "Yes. I feel safe.  My place is in an ok area, nothing that makes me worried."
+Do_you_have_support_at_home "\[ Sadness3 \]Well, I live alone but I am OK.  I am pretty close with my parents."
+
+
+
+# CHIEFCOMPLAINT
+# onset
+Did_anything_happen_to_cause_the_1 "I have been outside a lot, but I don't really know. "
+How_did_the_1_start "\[ Pain2 \] It started with a clear runny nose, and then just got worse from there."
+Doing_anything_when_the_1_started "Not really. I just woke up with it."
+Was_the_onset_sudden1 "No, it was more gradual I would say"
+Did_the_1_start_immediately "No, more gradual. "
+Is_the_1_new "I have had lots of runny noses, but this feels worse than before."
+Is_this_the_first_time_for_1 "No, I have had allergies all of my life."
+When_did_the_1_start "I felt really bad yesterday, but I have had a runny nose for a little more than a week."
+1_worse_morning_or_night "\[ Sad2 \] It is about the same."
+How_has_the_1_changed "\[ Fear1 \] My nose is more stuffy now and the drainage is thicker. "
+How_long_have_you_had_1 "I have not felt well for about a week."
+Is_the_1_constant "\[ Fear2 \] Yes, it is constant."
+Do_you_have_a_cause_for_1 "\[ Pain3 \]It might be my allergies, I am not sure. I hope it is not my smoking. "
+
+# exacerbation
+What_makes_the_1_worse "\[ Pain3 \] It is worse when I go outside. "
+Does_anything_change_1_intensity "\[ Pain4 \] I feel better after a hot shower."
+What_have_you_tried_for_the_1 "I have tried over the counter cold medicine and some Afrin nasal spray."
+Have_you_tried_anything_for_the_1 "Yes, I tried using Afrin nasal spray."
+What_makes_the_1_better "\[ Sad2 \] I feel better after taking a hot shower."
+Does_anything_else_help_the_1 "I feel better after I take some Advil also. "
+Have_you_tried_anything_else_for_1 "I feel better after taking a hot shower."
+Have_you_tried_anything_else1 "I feel better after taking a hot shower."
+Have_you_tried_any_other_methods1 "I feel better after I take some Advil also. "
+What_else_have_you_tried_for_1 "I feel better after I take some Advil also. "
+What_else_have_you_tried1 "I feel better after I take some Advil also. "
+Does_moving_increase_the_1 "\[ Fear2 \] Not really, other than my head hurts more when I bend over."
+Does_any_position_relieve_the_1 "Not really, other than my head hurts more when I bend over."
+Does_any_position_make_the_1_worse "\[ Pain5 \] Not really, other than my head hurts more when I bend over."
+Do_any_positions_make_1_worse_or_better "Not really, other than my head hurts more when I bend over."
+Can_you_move_around_with_the_1 "I can move around fine."
+Is_1_worse_when_you_lie_down "Not really, other than my head hurts more when I bend over."
+Do_you_have_1_when_you_lie_down "No, I feel better when I lie down."
+Is_1_better_when_you_lie_down "No, I feel better when I lie down."
+Does_1_increase_when_you_stand "Not really."
+Does_the_1_improve_with_exercise "No, exercise makes it worse."
+Does_the_1_keep_you_up_at_night "No."
+Avoid_exacerbate_1 "No."
+Is_the_1_improving "\[ Fear2 \] No, it seems worse since yesterday."
+
+# intensity
+How_intense_is_the_1 "\[ Fear2 \] My nose drains all the time."
+Has_the_intensity1_changed "The drainage is worsening."
+Has_the_1_become_worse "Yes, I think so."
+When_is_the_1_most_severe "It is worse when I first wake up in the morning. "
+
+# general
+Do_you_currently_have_1 "Yes"
+How_is_your_1_now "\[ Pain1 \] It is really bad today. I am blowing my nose constantly."
+Do_you_have_any_1 "\[ Pain3 \] Yes, I do stuff coming out of my nose all the time right now it seems."
+Are_you_having_any_other_1 "I guess I am just more tired lately."
+How_else_is_the_1_affecting_your_life "\[ Fear2 \] I don't feel well, so I have been just lying around most of the day."
+Has_the_1_stopped_you "\[ Fear2 \] Yes, I just don't feel like going out. "
+
+# description
+Has_the_1_changed "It started out kind of clear and runny and now it has become thicker and sort of greenish-yellow."
+What_color_is_the_1 "It is a yucky greenish-yellow."
+Is_the_1_thick "It is now thick,but it started out runny."
+When_do_you_have_the_1 "I have it all the time."
+How_long_does_the_1_last "I have it all the time."
+How_frequent_is_the_1 "Very frequent."
+What_concerns_you_about_the_1 "I just feel lousy, that is what concerns me. "
+Where_is_the_1 "I think I might have a sinus infection."
+Describe_the_1 "It looks like thick yellow snot, I guess. Sorry to use those terms, but you know what I mean."
+
+# COMPLAINT2
+# onset
+Did_anything_happen_to_cause_the_2 "When my nose is stuffy, my head hurts."
+How_did_the_2_start "It started about a week after I got a runny nose. "
+Doing_anything_when_the_2_started "Not really. I just had a runny nose and then I started having headaches."
+Was_the_onset_sudden2 "No, more gradual."
+Did_the_2_start_immediately "No, more gradual."
+Is_the_2_new "Yes, kind of new. I have had headaches before, but this has lasted a little longer."
+Is_this_the_first_time_for_2 "I had a sinus infection before when I was in high school. "
+When_did_the_2_start "It started about a week ago."
+2_worse_morning_or_night "It doesn't really seem to make a difference."
+How_has_the_2_changed "My headache is worse today."
+How_long_have_you_had_2 "I have had a headache for about 1-2 days. "
+Is_the_2_constant "Today it has been constant."
+Do_you_have_a_cause_for_2 "I think I might have a sinus infection."
+
+# exacerbation
+What_makes_the_2_worse "My head feels worse when I bend over or sneeze."
+Does_anything_change_2_intensity "It seems a little worse today."
+What_have_you_tried_for_the_2 "I tried taking some Advil."
+Have_you_tried_anything_for_the_2 "Yes, I tried taking two Advil. "
+What_makes_the_2_better "My head feels better when I take a hot shower."
+Does_anything_else_help_the_2 "Tylenol has seemed to help a little bit also."
+Have_you_tried_anything_else_for_2 "I tried taking some Advil."
+Have_you_tried_anything_else2 "Yes, some Tylenol helped a little."
+Have_you_tried_any_other_methods2 "Not really."
+What_else_have_you_tried_for_2 "Not really."
+What_else_have_you_tried2 "I have not tried anything else yet."
+Does_moving_increase_the_2 "Yes, my head hurts more when I move or bend over."
+Does_any_position_relieve_the_2 "Not really."
+Does_any_position_make_the_2_worse "Yes, my head hurts more when I move or bend over."
+Do_any_positions_make_2_worse_or_better "Not really."
+Can_you_move_around_with_the_2 "I can move around fine."
+Is_2_worse_when_you_lie_down "Not really."
+Do_you_have_2_when_you_lie_down "Not really."
+Is_2_better_when_you_lie_down "Yes, it seems to feel better when I lie down."
+Does_2_increase_when_you_stand "Not really."
+Does_the_2_improve_with_exercise "No."
+Does_the_2_keep_you_up_at_night "It does not."
+Avoid_exacerbate_2 "Nothing."
+Is_the_2_improving "Not really."
+Does_the_2_get_worse_with_period "No, I don't have periods because I am a guy."
+
+# intensity
+How_intense_is_the_2 "Today it feels like a 8 out of 10"
+Has_the_intensity2_changed "It feels worse today."
+Has_the_2_become_worse "It feels worse today."
+When_is_the_2_most_severe "It seems about the same all the time today."
+
+# general
+Do_you_currently_have_2 "It hurts.  I feel like my eyes are going to pop out."
+How_is_your_2_now "It hurts.  I feel like my eyes are going to pop out."
+Do_you_have_any_2 "Yes"
+Are_you_having_any_other_2 "Not really."
+How_else_is_the_2_affecting_your_life "Today I just feel sick. I haven't really done much at all."
+Has_the_2_stopped_you "Pretty much. All I have done is lie around and watch TV."
+
+# description
+When_do_you_have_the_2 "All day today."
+How_long_does_the_2_last "Off and on today."
+How_frequent_is_the_2 "Just today, really."
+What_concerns_you_about_the_2 "I think I have a sinus infection, and I just feel sick. "
+Where_is_the_2 "My head hurts behind my eyes and in my cheeks."
+Describe_the_2 "It feels like a dull ache."
+

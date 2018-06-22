@@ -1,0 +1,943 @@
+outputmacro: Patient18()
+$patientfirstname = Jacob
+$patientlastname = Farber
+$chiefcomplaint = ~back_pain
+$complaint2 = ~leg_pain
+$complaint3 = 
+$VPatient18 = VPatient18
+$Vpatient = VPatient18
+$patientTitle = Mr
+$currentjob = English teacher
+$currentmedication1 = triamterene-hydrochlorothiazide
+$currentmedication2 = 
+$currentmedication3 = 
+$currentrateofpain = 
+
+^stdpatient()
+
+table: ^patientdata(VPatient18)
+
+
+### OpeningDialogue
+# primary
+
+What_brings_you_in_today "I am having pain in my back."
+What_is_your_goal "To get this back pain to stop."
+Does_anything_make_you_feel_better "Nothing has really helped."
+Tell_me_more "It started about a week ago when I was gardening, putting down mulch actually. It is this constant, dull pain in my lower back."
+
+# greetings
+
+How_are_you "Not so good. My back is really bothering me."
+
+# followupdialogue
+
+Any_other_problems1 "Not really - isn't the back pain enough? But actually I am having this pain going into my left leg."
+
+### PatientInformation
+# patientage
+
+How_old_are_you "I am 55."
+When_were_you_born "April 23, 1961"
+
+# patientname
+
+Name_and_date_of_birth "My name is Jacob Farber and I was born April 23, 1961."
+What_is_your_name "Jacob Farber"
+Do_you_mind_if_I_call_you "Jake will be fine."
+What_should_I_call_you "You can call me Jake."
+
+### Medications
+# currentmedications
+
+Taking_medication_for_the_1  "I tried some Tylenol, but it really didn't help, so I stopped taking it."
+When_did_you_take_medicine "I took the Tylenol when the pain first started about a week ago and only took it for a  couple of days."
+Need_to_take_the_medicine_that_often "I didn't take it very often because it didn't help."
+How_often_did_you_take_the_medicine "Not very often, because it didn't help."
+How_long_taking_medicine "I stopped taking it because it wasn't helping at all."
+How_much_medicine_have_you_taken "Just a couple of tablets."
+Would_you_like_a_stronger_prescription "Maybe, if there is something else that will help this pain, I suppose I wouldn't mind trying it. But first I would realy like to find out what is causing this back pain."
+What_is_the_strength_of_the_medicine "I don't know, whatever the strength of Tylenol is. It was regular strength so I think it was 325mg."
+Did_the_medicine_help "I really hasn't worked at all."
+Did_you_take_medicine_today "I haven't taken since it really wasn't helping anyway."
+Are_you_still_taking_medicine "Not really. I wasn't helping but I didn't know what else to take."
+What_was_the_dose "I am not certain. I took 2 tablets that I thinkg were extra strength tylenol."
+What_pills_did_you_take "Just the tylenol."
+What_kind_of_medicine_is_that "Well, I think that tylenol is supposed to help with pain."
+Would_you_like_some_pain_medication "Maybe. Unless there is some other problem."
+Doctor_prescribe_the_medicine "Tylenol is over the counter."
+Who_prescribed_the_medicine "No one."
+What_is_medicine "I believe tylenol is a painkiller and fever reducer."
+Are_you_taking_any_medication "I take blood pressure medicine, it is called triamterene-hydrochlorothiazide."
+ Is_medication_new "No, I have taken that for several years now."
+What_were_the_pills_called "It says on the bottle right here triamterene-hydrochlorothiazide."
+Any_prescription_medication "I take blood pressure medication."
+
+# supplements
+
+
+# othermedications
+
+Take_any_other_medication1 "I blood pressure medicine, it is called triamterene-hydrochlorothiazide."
+
+# pastmedications
+
+
+### Allergies
+# Allergies
+
+
+### SocialHistory
+# activity
+
+How_often_do_you_exercise "I have always been very active and still try to be. So I try to get some form of exercise at least 3 times a week. Even if I just get in a walk."
+Do_you_exercise "Yes, exercise has always been a part of my life."
+Are_you_active "Yes, I am active."
+How_is_your_energy "I seem to be a bit more tired lately."
+Have_you_been_resting "As much as I can."
+Are_you_able_to_drive_home "Sure, I can drive myself home."
+
+# alcoholuse
+
+How_much_do_you_drink "I haven't drank in over 8 years. Before then, I would drink way too much like 6 beers a day. I did that for about 10 years or so before I stopped."
+Do_you_drink "I don't drink anymore and haven't had a drop in 8 years."
+Do_you_feel_guilty_about_your_drinking "I don't drink anymore."
+Anyone_thought_alcohol_problem "I had a problem and haven't had anything to drink in 8 years."
+Have_you_considered_reducing_alcohol "I don't drink at all anymore."
+How_many_drinks "I would drink a six pack of beer plus every day before I quit drinking 8 years ago."
+
+# caffeineuse
+
+Do_you_drink_coffee "Yes, I usually have a cup or 2 in the morning. Maybe another in the afternoon."
+
+# diet
+
+Do_you_eat_fruit "Yes, I eat fruit."
+What_snacks "Usually an apple or some crackers with peanut butter."
+
+# tobaccouse
+
+Are_you_exposed_to_secondhand_smoke "My parents never smoked and neither does my wife."
+
+# education
+
+How_far_in_school "I graduated with my teaching certificate."
+What_is_your_major "I majored in Education with specialty in English."
+
+# inrelationtohpi
+
+How_has_this_affected_you "It is making it hard for me to stand for a long time or walk very far, so my acitivity has decreased and teaching is kind of hard too."
+Can_you_do_normal_activities "Well, mostly. It is hard to stand for a long time and then sitting bothers my leg."
+Has_the_pain_affected_your_activity "Yes, I have had to decrease my activity because of the pain."
+How_have_you_been_handling_this "Alright I guess, but I am worried."
+What_bothers_you_the_most "That the pain goes down my left leg. I've never had that happen before."
+
+# job
+
+Do_you_do_any_heavy_lifting_at_work "No not really. Some books    is about it."
+Is_your_job_physically_demanding "In the sense that I do a lot of standing or walking around the classroom."
+Is_your_job_stressful "Sometimes. I am teaching kids."
+Is_your_job_pleasurable "Yes, most of the time it is."
+Are_you_on_your_feet_a_lot "Oh yes. I spend most of my day on my feet."
+Have_you_been_able_to_work "I have been working."
+What_can't_you_do_at_work "I am having trouble standing and then sitting bothers my leg."
+What_else_can't_you_do "That's enough isn't it?"
+Does_the_pain_interfere_with_work "I'd like to say no, but It is distracting to be in pain while trying to teach."
+Where_do_you_work "I teach at the local high school."
+How_long_have_you_been_a_worker "Wow, for about 20 years or more now."
+What_do_you_do_for_a_living "I am a high school English teacher. I currently teach 9th and 10th graders."
+
+# recreationaldruguse
+
+
+# tattoos
+
+
+# travel
+
+
+# hobby
+
+What_do_you-do_for_fun "I like to go to high school sports."
+
+# sexualactivity
+
+How_many_sexual_partners "Just my wife."
+Do_you_prefer_men_or_women "Women."
+Who_are_your_sexual_partners "Just my wife."
+Any_other_sexual_partners "None."
+Are_you_sexually_active "With my wife."
+When_did_you_last_have_intercourse "I don't really know."
+
+# religion
+
+
+# advanceddirective
+
+
+# generalhealth
+
+Do_you_feel_well "I don't feel sick, just having this back pain."
+
+### CurrentGeneralSymptoms
+# medicalproblems
+
+Do_you_have_any_medical_problems "Well, I have hypertension, urinary retention and some osteoarthritis in my knee and finger."
+Any_other_medical_problems "That seems to be enough."
+Do_you_have_a_health_problem "Hypertension, osteoarthritis and some urinary retention."
+Do_you_have_any_chronic_illnesses "Well I think osteoarthritis and hypertension qualify."
+What_symptoms_are_you_having "Pain in my back with pain going down my leg as well."
+
+# sleepingproblems
+
+Why_are_you_having_trouble_sleeping "It really isn't keeping me from sleeping."
+
+# discharge
+
+
+# itch
+
+
+# odor
+
+
+### CurrentAbdominalGISymptoms
+# bowel
+
+When_was_last_bowel_movement "This morning I think."
+
+# bothbowelandbladder
+
+
+# abdominalpain
+
+
+# heartburn
+
+
+### CurrentGUSymptoms
+# bladder
+
+Loss_of_bladder_control "I do have urinary retention for which I have to sometimes use a catheter. I think it may be from having my prostate removed a few years back. I had cancer and chemo for it and it is fine now."
+Are_you_able_to_control_your_bladder "Well, I don't really have any trouble with leaking or whatnot, but I sometimes can't go."
+Do_you_have_any_bladder_problems "Just that sometimes I can't go and have to use a catheter. I had my prostate removed a few years ago due to cancer and I think that is why I have this problem. I had chemo and things are fine now."
+How_about_your_bladder "I think my bladder is fine."
+
+# maleGU
+
+Do_you_have_prostate_problems "I had prostate cancer that I received chemo and surgery for and now I am fine. Cancer free."
+
+### CurrentCardiovascularSymptoms
+# bloodpressure
+
+How_is_your_blood_pressure "My blood pressure seems to be doing ok on my medication. I try to check it every day, but sometimes it is more like every other day."
+
+# chestpain
+
+
+# heartproblems
+
+
+# vascular
+
+Any_vascular_problems "I don't seem to have any current problems, but I did have an abdominal aortic aneurysm repaired 4 years ago."
+Any_vascular_testing "I have yearly checks for my aneurysm repair."
+
+### CurrentGYNSymptoms
+# sexualhealth
+
+
+# contraception
+
+
+# bleeding
+
+
+# periods
+
+
+# menstrualcycles
+
+
+# pain
+
+
+# vaginalsymptoms
+
+
+# pregnancy
+
+
+# breast
+
+
+# menopause
+
+
+### CurrentHEENTSymptoms
+# headaches
+
+
+# neckstiffness
+
+
+# nasal
+
+
+# eye
+
+
+### CurrentMuscleSymptoms
+# backpain
+
+How_were_you_lifting "Well like usual. I hauled the bags of mulch ove my shoulder and put them on the ground."
+When_did_you_lift_the_furniture "I dodn't lift furniture."
+Reason_your_back_hurts  "I am not sure, but I think it had to do with the gardening I was doing."
+Why_do_you_think_your_back_hurts  "Shoot, I'm not sure. I guess it has something to do with the gardening, but I have gardened for years with no problems."
+Does_it_hurt_to_touch_your_back "I don't know for sure."
+Does_your_back_hurt_when_you_work  "It does hurt at work because I am on my feet a lot."
+Does_your_back_hurt_when_in_bed  "It seems to be a bit better lying down or still."
+Does_walking_hurt_your_back "It does hurt after walking for a long way."
+Are_the_muscles_in_your_back_tight  "Maybe, I may be clenching them or something."
+Are_the_muscles_in_your_back_weak  "I don't think they are weak."
+Is_the_pain_always_in_your_lower_back  "It is always in my lower back."
+Is_the_pain_in_your_upper_or_lower_back  "Lower."
+Is_the_pain_on_the_left_or_right_side  "The middle, I guess or maybe just off to the left a bit."
+Any_specific_part_of_your_back  "Lower back."
+How_did_you_hurt_your_back  "I am not sure I hurt it in any way."
+Did_you_hurt_your_back  "I don't know that I hurt my back."
+Did_you_strain_a_muscle_in_your_back  "Maybe that is what is going on, I don't know for sure."
+
+# backinjury
+
+How_did_the_back_injury_start "I wouldn't call it an injury."
+Did_it_happen_at_work "I was at home."
+Have_you_had_any_other_back_injuries "I have not had any back injuries."
+
+# musclepain
+
+Are_your_muscles_sore "Well, maybe."
+Do_your_muscles_ache "Maybe."
+Is_the_pain_muscular "I am not sure."
+
+# backstiffness
+
+
+# spinepain
+
+
+# legpain
+
+Does_it_hurt_to_touch_your_leg "I don't think it hurts to touch my leg."
+Avoiding_moving_your_leg "I have to move my leg."
+Can_you_move_your_leg "I can move my leg. But it is painful."
+
+# jointpain
+
+Have_you_noticed_joint_pain "Nothing out of the ordinary."
+
+### CurrentNeurologicSymptoms
+# walking
+
+Do_You_feel_unsteady_when_you_walk "Not really. I am not feeling unsteady."
+Can_you_climb_stairs "I can clim =b stairs, but it is painful."
+Are_you_able_to_walk "I can walk, but walking far seems to make it worse."
+Are_you_able_to_sit "I can sit, but that seems to really bother my leg."
+
+# numbness
+
+Do_you_have_numbness_or_tingling "I don't think so. Just pain."
+
+# weakness
+
+
+# dizziness
+
+
+### CurrentPainSymptoms
+# onset
+
+What_were_you_doing_when_injured "I wasn't really injured, but I was gardening."
+Circumstances_of_the_injury "I was putting out mulch and carrying mulch around the yard."
+
+# exacerbation
+
+Does_rest_make_the_pain_go_away "Resting does  help. Mostly lying down."
+Do_you_have_pain_at_rest "I do have pain when I sit or stand for long periods of time."
+Does_it_hurt_when_not_moving "It is definitely better when not moving."
+
+# intensity
+
+Rate_pain_on_medicine "You mean the Tylenol? Well I would say it was still around a 6 or 7."
+Can_you_rate_the_pain "Around a 6 or 7."
+Can_you_rate_it "Around a 6 or 7."
+How_painful_is_it "It gets pretty painful."
+Is_the_pain_always_a_number  "Usually it is. It can get a bit better, say a 4 or 5 when I am not moving."
+Does_the_pain_hurt_a_lot  "It does hurt."
+
+# general
+
+Does_the_pain_start_somewhere_else "It starts in my back and it goes into my left leg."
+Can_you_point_to_the_pain "It is there in my lower back."
+
+# description
+
+Does_the_pain_radiate  "It does go into my left leg."
+Do_you_have_any_radiating_pain  "In my left leg."
+Any_pain_on_right_side "Not in my right leg at all."
+Any_pain_on_left_side "in my left leg and sort of a bit on the left side of my back."
+Is_the_pain_on_one_side "Not really. Seems to be the middle of my abck and maybe a bit to the left."
+Is_the_pain_sharp  "It is a dull pain."
+Is_the_pain_dull  "It is a dull pain."
+Is_the_area_tender "I'm not sure that it is tender."
+Is_the_pain_in_the_muscle "I don't know for sure."
+When_does_the_pain_hurt "It hurts all the time."
+
+### CurrentRespiratorySymptoms
+# breathing
+
+
+# cough
+
+
+### CurrentTreatments
+# treatmentstried
+
+Have_you_tried_a_heating_pad "I have tried a heating pad, but it really didn't help all that much."
+Have_you_tried_heat_or_ice "Just heat and it wasn't that helpful."
+Have_you_tried_heat "I have tried heat and it really didn't help that much."
+Have_you_tried_any_treatment "Just the Tylenol and the heating pad."
+What_treatment_have_you_tried "heating pad and Tylenol."
+
+### PastGeneralSymptoms
+# medicalproblems
+
+Have_you_ever_had_any_chronic_illnesses "I currently have high blood pressure and arthritis."
+Have_you_ever_had_any_serious_illnesses  "Well, I did have prostate cancer. But my doctor said that has been resolved."
+What_is_your_past_medical_history "Well, I had prostate cancer, gall bladder removal and an abdominal aortic repair along with the urinary retention, arthritis and high blood pressure."
+
+# hospitalizations
+
+Any_other_surgeries "That's enough."
+Any_prior_surgeries "Let's see, I had my prostate removed 2 years ago, an abdominal aortic aneurysm repaired about 4 years ago and my gall bladder removed long ago, like 20 years or so."
+Ever_been_in_the_hospital "Only for the surgeries I have had."
+
+# sleepingproblems
+
+
+# discharge
+
+
+# itch
+
+
+# odor
+
+
+### PastAbdominalGISymptoms
+# bowel
+
+
+# bowelandbladder
+
+Any_previous_bowel_or_bladder_problems "Just the prostate problem that affected my ability to urinate."
+
+# abdominalpain
+
+
+# heartburn
+
+
+### PastCardiacSymptoms
+# bloodpressure
+
+Any_previous_blood_pressure_problems "I do have high blood pressure and have for several years now."
+
+# chestpain
+
+
+# heartproblems
+
+
+### PastCardiovascularSymptoms
+# vascular
+
+Any_past_vascular_problems "Well, I had an abdominal aortic aneurysm repaired about 4 years ago."
+Any_past_vascular_testing "I get checked out yearly by my vascular doc."
+Any_past_clotting_problems "Not that I am aware of."
+
+### PastGYNSymptoms
+# sexualhealth
+
+
+# contraception
+
+
+# bleeding
+
+
+# periods
+
+
+# menstrualcycle
+
+
+# pain
+
+
+# vaginalsymptoms
+
+
+# pregnancy
+
+
+# breast
+
+
+### PastGUSymptoms
+# bladder
+
+Have_you_had_incontinence_before "I have had at least 2 bouts of cystitis which required self catheterization."
+Have_you_had_any_past_bladder_problems "The problem with my prostate that made it hard for me to go to the bathroom. I had trouble with urinary retention that I had to use self catheterization for. I have also had a couple of incidents of cystitis and had antibiotics for that."
+
+# pastmaleGU
+
+Have_you_had_erectile_dysfunction_before "I have had some trouble with that since my prostate surgery."
+
+### PastHEENTSymptoms
+# headache
+
+
+# neckstiffness
+
+
+# nasal
+
+
+# eye
+
+
+### PastMuscleSymptoms
+# backpain
+
+
+# backinjury
+
+
+# musclepain
+
+
+# backstiffness
+
+
+# spinepain
+
+
+# legpain
+
+
+# jointpain
+
+Have_you_had_joint_pain_before "Well I have arthritis, so I have had joint pain before."
+
+### PastNeurologicSymptoms
+# walking
+
+
+# numbness
+
+
+# weakness
+
+
+# dizziness
+
+
+### PastPainSymptoms
+# onset
+
+
+# exacerbation
+
+
+# intensity
+
+
+# general
+
+
+# description
+
+
+### PastRespiratorySymptoms
+# breathing
+
+
+# cough
+
+
+### FamilyGeneralSymptoms
+# medicalproblems
+
+Any_conditions_that_run_in_your_family "Well, it seems that abdominal aortic aneurysms do since my dad had one, I had one repaired and so did my brother."
+Parents_have_any_medical_problems "My dad is dead and my mom is healthy. My dad died from an abdominal aortic aneurysm."
+
+### FamilyAbdominalGISymptoms
+# bowel
+
+
+# abdominalpain
+
+
+### FamilyCardiacSymptoms
+# bloodpressure
+
+Family_history_of_hypertension "Yes, there is. My dad and brother."
+
+# chestpain
+
+
+# heartproblems
+
+
+### FamilyCardiovascularSymptoms
+# vascular
+
+Family_history_of_vascular_problems "My dad and my brother both had abdominal aortic aneurysms."
+
+### FamilyGUSymptoms
+# bladder
+
+
+### FamilyHEENTSymptoms
+# headache
+
+
+# neckstiffness
+
+
+# nasal
+
+
+### FamilyMuscleSymptoms
+# backpain
+
+
+# backinjury
+
+
+# musclepain
+
+
+### FamilyGYNSymptoms
+# sexualhealth
+
+
+# periods
+
+
+# pregnancy
+
+
+# breast
+
+
+### FamilyPainSymptoms
+# pain
+
+
+### FamilyRespiratorySymptoms
+# breathing
+
+
+# cough
+
+
+### NeonatalCounseling
+# neonatalcounseling
+
+
+### Wellness
+# vaccines
+
+
+# seeingadoctor
+
+When_did_you_see_a_doctor_last "Just a month or so ago I saw my prosate doc. He did a bunch of blood work."
+Do_you_have_a_doctor "I have several doctors. I see a rheumatologist, and the prostate doc along with my regular doctor."
+Do_you_have_annual_exams "Sure."
+Have_you_seen_a_doctor "I haven't seen anyone about this back pain yet."
+Where_are_you_usually_seen "Here. My regular doctor is here."
+
+# mentalhealth
+
+Are_you_stressed "Well, I am sorried about this back pain since it is going into my leg and that has never happened before."
+
+# relationshiphealth
+
+
+### Movements
+# currentrangeofmotion
+
+What_movements_make_it_hurt "Well, walking far makes it worse. Standing for a long time and sitting."
+Does_it_hurt_when_you_bend "A little bit."
+How_far_can_you_bend "Not really sure because I am trying not to."
+Can_you_bend_down "I can, just not with out pain."
+Have_you_tried_to_bend "I have tried and it hurts."
+Do_you_have_decreased_motion "Probably."
+Can_you_touch_you_toes "Well, it hurts. It even hurts to put my shoes on."
+Were_you_lifting_anything "I was lifting bags of mulch around the yard."
+Were_you_twisting "Not sure, maybe a little bit."
+Are_you_able_to_stand "I can stand, but it makes the pain worse to stand for long periods of time."
+Is_standing_a_problem "Only for long periods of time."
+Are_you_stiff "Not sure it is stiffness but it is definitely tight, but maybe that is because I am trying not to move it too much."
+
+# pastrangeofmotion
+
+
+### ChitChat
+# weatherquestions
+
+
+# seasonquestions
+
+
+# sportsquestions
+
+
+# readingquestions
+
+
+# watchingquestions
+
+
+# politicsquestions
+
+
+# restaurantquestions
+
+
+# howwasyourdayquestions
+
+
+# feelingquestions
+
+
+### Closure
+# closure
+
+
+# summarize
+
+
+### Screening
+# general
+
+
+# colonsection
+
+have_you_had_a_colonoscopy "OH yes, I had that about 4 years or so ago."
+
+# breastsection
+
+
+# maleGUsection
+
+have_you_had_a_prostate_exam "I had prostate cancer. I had chemo for it which seemed to work. My doctor monitors it every year and so far it has been fine."
+Results_of_prostate_exam "I had prostate cancer and had my prostate removed"
+
+# femaleGUsection
+
+
+# communicablediseasesection
+
+
+# prenatalcare
+
+
+# diabetes
+
+
+### Family
+# familylife
+
+Do_you_have_a_family "Yes, I have a wife and 2 grown kids."
+Do_you_have_any_pets "Of course. We have cats."
+Who_do_you_live_with "I live with my wife and our cats."
+Do_you_live_alone "No, I live with my wife."
+Where_do_you_live "In the suburbs."
+How_is_home "It is ok, with my wife being disabled, I have to do most of the work around the house, so that gets to be a lot sometimes, but I manage."
+
+# parentsinformation
+
+Are_your_parents_living "My mom is. My dad is not."
+How_old_are_your_parents "My mom is 79 and my dad is not living."
+Are_your_parents_healthy "Well my mom is doing ok, but my dad is dead. He died several years ago from an abdominal aortic aneurysm."
+Tell_me_about_your_parents "My mother is living and lives here in town, but my father died several years ago."
+How_did_parents_die "My father died when he was 59."
+
+# grandparentsinformation
+
+
+# siblingsinformation
+
+
+# relativesinformation
+
+
+# childreninformation
+
+
+# spouseinformation
+
+Are_you_divorced "I am married still."
+How_long_have_you_been_married "We have been married for quite a long time, 30 years I think."
+Are_you_single "I am married."
+Are_you_in_a_relationship "Well, I am married so I guess that is a relationship."
+Are_you_widowed "My wife is still alive."
+Is_your_partner_healthy  "My wife has some issues that require me to do a lot of the work around the home."
+Do_you_have_a_significant_other "My wife."
+Tell_me_about_your_partner "My wife and I have been married for about 30 years and have 2 children that are older and moved away."
+How_old_is_your_partner "My wife is 54."
+Do_you_have_a_partner "My wife."
+What_is_your_partners_name "Her name is Helen."
+Is_your_partner_male "What?"
+Is_your_partner_female "Um, yes, she is my wife."
+Are_you_married "I am married."
+
+# supportinformation
+
+
+### HOPIChiefcomplaint
+# onset
+
+Did_anything_happen_to_cause_the_1 "Not anything specific. I was doing some gardening and then it started hurting."
+How_did_the_1_start "I'm not really sure. It started after gardening."
+Doing_anything_when_the_1_started "I was putting mulch around the yard."
+Was_the_onset_sudden1 "I wouldn't really call it sudden. More gradual."
+Did_the_1_start_immediately "it was sort of a gradual start."
+Is_this_the_first_time_for_1 "I have never really had more than a few hours of back pain before, and I have never had pain going down my leg to my foot like this before. That worries me!"
+When_did_the_1_start "It started about a week ago after I did some gardening."
+How_long_have_you_had_1 "For about a week now."
+Is_the_1_constant "It is pretty constant."
+Do_you_have_a_cause_for_1 "All I can think of is that I had been doing gardening and hauling a bunch of mulch around the yard in a wheelbarrow."
+
+# exacerbation
+
+What_makes_the_1_worse "Standing for a long time or walking far."
+Does_anything_change_1_intensity "Not really."
+What_have_you_tried_for_the_1 "I tried some Tylenol and a heating pad."
+Have_you_tried_anything_for_the_1 "I have tried Tylenol and a heating pad."
+What_makes_the_1_better " I feel better just standing or lying still."
+Does_moving_increase_the_1 "Walking very far seems to aggravate it."
+Does_any_position_relieve_the_1 "Just standing or lying still seem to be the best positions."
+Does_any_position_make_the_1_worse "Standing for a long time or walking far."
+Do_any_positions_make_1_worse_or_better "it is hard for me to stand for a long time or to walk very far, because then the pain really goes down my leg.  I feel better just standing or lying still."
+Is_1_worse_when_you_lie_down "It is better when lying down."
+Is_1_better_when_you_lie_down "It is better when lying down."
+Does_1_increase_when_you_stand "It does get a bit worse when standing for a long time."
+Does_the_1_improve_with_exercise "I don't really know."
+Does_the_1_keep_you_up_at_night "No, it doesn't keep me up or wake me up."
+Is_the_1_improving "I don't think it is getting better, that's why I am here."
+
+# intensity
+
+How_intense_is_the_1 "It is a pretty constant dull pain."
+Has_the_1_become_worse "I don't necessarily think it is worse, just not better."
+When_is_the_1_most_severe "After standing for a long time."
+
+# general
+
+Do_you_currently_have_1 "It is there all the time."
+How_is_your_1_now "Well, it is there."
+Do_you_have_any_1 "I do."
+Are_you_having_any_other_1 "Just the pain in my lower back."
+How_else_is_the_1_affecting_your_life "It is just limiting my activitiy a bit."
+Have_you_had_1_before "Well, no.  I have never really had more than a few hours of back pain before, and I have never had pain going down my leg to my foot like this before. That worries me!"
+
+# description
+
+When_do_you_have_the_1 "It is constant."
+How_long_does_the_1_last "It is constant."
+How_frequent_is_the_1 "It is constant."
+What_concerns_you_about_the_1 "That fact that it hasn't gone away."
+Where_is_the_1 "In my lower back."
+Describe_the_1 "It started about a week ago for no good reason. Well, actually I was gardening - you know, putting mulch down for my wife. It is like this constant, dull pain in my lower back, . I thought it would go away in a few days, but it didn't. I took some Tylenol and tried a heating pad, but that really has not worked."
+When_else_do_you_have_the_1 "It is there all the time. I usually don't have back pain."
+
+### HOPIComplaint2
+# onset
+
+Did_anything_happen_to_cause_the_2 "Well, actually I was gardening - you know, putting mulch down for my wife. It is like this constant, dull pain in my lower back, . I thought it would go away in a few days, but it didn't. I took some Tylenol and tried a heating pad, but that really has not worked. And unlike the times I've done too much raking or mowing, this pain goes down my left leg.  That's why I made this appointment."
+How_did_the_2_start "Well, actually I was gardening - you know, putting mulch down for my wife."
+Doing_anything_when_the_2_started "Well, actually I was gardening - you know, putting mulch down for my wife."
+Is_the_2_new "Well, no.  I have never really had more than a few hours of back pain before, and I have never had pain going down my leg to my foot like this before. That worries me!"
+Is_this_the_first_time_for_2 " I have never had pain going down my leg to my foot like this before. That worries me!"
+When_did_the_2_start "It started about a week ago"
+2_worse_morning_or_night "I guess I would say night, after being on it all day."
+How_has_the_2_changed "It hasn't changed."
+How_long_have_you_had_2 "About a week now."
+Is_the_2_constant "It is pretty constant."
+Do_you_have_a_cause_for_2 "I was doing some gardening for my wife. Mostly hauling mulch and putting it down."
+
+# exacerbation
+
+What_makes_the_2_worse "Sitting really makes the leg pain worse."
+Does_anything_change_2_intensity "Not really."
+What_have_you_tried_for_the_2 "I have tried some Tylenol and a heating pad neither of which have seemd to do much."
+Have_you_tried_anything_for_the_2 "Heating pad and Tylenol."
+What_makes_the_2_better "Just standing or lying still are the only thing that seems to help a bit."
+Does_anything_else_help_the_2 "I haven't tried anything else."
+Have_you_tried_anything_else_for_2 "I haven't tried anything else."
+Have_you_tried_anything_else2 "Nothing."
+Have_you_tried_any_other_methods2 "Nothing else."
+What_else_have_you_tried_for_2 "Nothing else."
+Does_moving_increase_the_2 "Moving actuall makes it slightly better, like walking a bit."
+Does_any_position_relieve_the_2 "Lying down helps a bit."
+Does_any_position_make_the_2_worse "Sitting definitely makes it worse."
+Do_any_positions_make_2_worse_or_better "Sitting makes it worse and lying down makes it better."
+Is_2_worse_when_you_lie_down "It is better when lying down."
+Do_you_have_2_when_you_lie_down "It is still there when lying down, but it is a bit better."
+Is_2_better_when_you_lie_down "Somewhat."
+Does_2_increase_when_you_stand "Standing for a long time does make it worse."
+Is_the_2_improving "Not really, that's why I am here."
+
+# intensity
+
+How_intense_is_the_2 "It is pretty intense."
+When_is_the_2_most_severe "After sitting for a long time."
+
+# general
+
+Do_you_currently_have_2 "I do."
+How_is_your_2_now "It is hurting."
+Do_you_have_any_2 "I do have pain going down my left leg."
+Are_you_having_any_other_2 "Just in my left leg."
+How_else_is_the_2_affecting_your_life "Well, I am a teacher so I stand and walk a lot and that really makes it painful."
+Has_the_2_stopped_you "Not really."
+Have_you_had_2_before "I have had back pain, but never this sort of pain going down my leg."
+
+# description
+
+When_do_you_have_the_2 "It is constant."
+How_long_does_the_2_last "It is constant."
+How_frequent_is_the_2 "It is constant"
+What_concerns_you_about_the_2 "That it hasn't gotten any better yet."
+Where_is_the_2 "In my left leg."
+Describe_the_2 "It is like this constant, dull pain in my lower back with pain that goes down my left leg."
+
+### HOPIComplaint3
+# onset
+
+
+# exacerbation
+
+
+# intensity
+
+
+# general
+
+
+# description
+

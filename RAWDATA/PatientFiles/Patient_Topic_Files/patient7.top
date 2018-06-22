@@ -1,0 +1,869 @@
+outputmacro: patient7()  # you get patient1 by default
+$patientfirstname = Jasmine
+$patientlastname = Zhang
+$chiefcomplaint = ~abdominal_pain
+$complaint2 = ~heartburn
+$Vpatient7 = Vpatient7
+$vpatient = Vpatient7
+$patientTitle1 = Ms
+$patientTitle2 = Mrs
+$currentjob = accountant
+$currentmedication1 = TUMS
+$currentmedication2 = Multivitamin
+$currentrateofpain = 6
+
+^stdpatient()
+
+table: ^patientdata(Vpatient7)
+
+
+# OPENING DIALOGUE
+# primary
+What_brings_you_in_today "I am having some upper abdominal discomfort that I think is heartburn"
+What_do_you_think_is_the_problem "\[ Pain3 \]I am not really sure."
+What_should_we_do "\[ Pain3 \]I was hoping you could help me feel better."
+What_would_you_like_me_to_do "\[ Pain3 \] I really just want to know what is causing this and figure out how to fix it."
+What_is_your_goal "I hope you can help me feel better. I haven't been able to eat much because of the pain."
+Does_anything_make_you_feel_better "I feel a little better when I take TUMS, but then the pain comes back."
+Tell_me_more "Ok, I have really bad heartburn, especially in the morning."
+
+
+I_am_sorry "Thanks.  "
+Why "Why what?"
+Good "\[ Nod \]"
+Got_it "\[ Nod \]"
+Ok "\[ Nod \]"
+
+# greetings
+I_am_doctor "Nice to meet you Doctor $drfirstname $drlastname"
+Nice_to_meet_you  "\[ Happiness1 \] Nice to meet you too. I am really glad to see you today. "
+Nice_to_see_you "\[ Happiness1 \]  Nice to see you too. I am really glad to see you today. "
+Nice_to_see_you_too "\[ Happiness1 \]  Thanks."
+How_are_you "\[ Pain2 \] Well,  not so good.  I have heartburn and sometimes nausea."
+Tell_me_about_yourself "\[ Fear2 \] I have a very active life. I just had my first baby 3 months ago, so I am adjusting to being a new mom. "
+Hello "Hello Doctor.  I am so glad to see you."
+
+# followupidalogue
+Any_other_problems1 "Yes, I have also been nauseated intermittently throughout the day. "
+Have_you_seen_anyone_else "You're the first person I've seen about this. "
+
+# PATIENT INFORMATION
+# age, date of birth
+How_old_are_you "I am 28 years old."
+When_were_you_born "December 30, 1986."
+
+# name, greetings
+# What_is_your_name ^"$patientfirstname $patientlastname"
+Did_I_pronounce_that_correctly "Yes, that is correct."
+Do_you_mind_if_I_call_you "You can call me Jasmine. "
+How_do_you_pronounce_that "Zh-ang"
+What_should_I_call_you ^" $patientfirstname"
+Are_you_mr_patientlastname ^"Yes, I am $patientfirstname $patientlastname. Good to meet you Doctor."
+Are_you_mr_someoneelse ^"No, I am $patientfirstname $patientlastname"
+Hello_mr_patientlastname "Hello Doctor.  I am so glad to see you."
+Hello_mr_someoneelse ^"Hello Doctor, however my name is $patientlastname, not  '_0. "
+Mr_patientlastname ^"Yes.  That is me, but  please just call me $patientfirstname"
+Mr_someoneelse ^"No, I am $patientfirstname $patientlastname. "
+
+# MEDICATIONS
+# current medications
+Taking_medication_for_the_1  "I have been taking TUMS sometimes, and I tried Maalox but it did not help much."
+When_did_you_take_medicine "I usually take it once or twice a day."
+Need_to_take_the_medicine_that_often "I usually take it when the heartburn gets really bad."
+How_often_did_you_take_the_medicine "I was taking it once or twice a day."
+How_long_taking_medicine "I started taking it when I was pregnant, and have continued for the past several months."
+How_much_medicine_have_you_taken "Well, I have been taking two or three tablets at a time."
+Would_you_like_a_stronger_prescription "Yes, I would really like to feel better."
+What_is_the_strength_of_the_medicine "They are just the over the counter TUMS, so I am not really sure."
+Did_the_medicine_help "Yes, it helps a little bit, but then the heartburn comes back after a few hours."
+Did_you_take_medicine_today "I have taken it today in the hopes that it would help."
+Are_you_still_taking_medicine "Yes, I have continued to take it."
+What_was_the_dose "Yes, I have been taking 2 or 3 tablets once or twice a day."
+What_pills_did_you_take "I took some TUMS and some Maalox."
+What_kind_of_medicine_is_that "It is a stomach medicine."
+Would_you_like_some_pain_medication "Thank you, but I don't need any pain medicine. "
+Doctor_prescribe_the_medicine "No, I  just bought it at the grocery store."
+Who_prescribed_the_medicine "I don't need a prescription. It was over the counter."
+What_is_medicine "A stomach medicine as far as I know.  "
+What_were_the_pills_called "It is TUMS. The label says calcium carbonate something."
+Are_you_taking_any_medication "I am taking TUMS for heartburn. Other than that, just a multivitamin."
+
+# supplements
+Are_you_taking_supplements "I take a multivitamin every day."
+Which_multivitamin "I take a prenatal vitamin."
+
+# other medications
+Take_other_medication_for_1 "No."
+       How_much_medication_1 "I don't take anything else"
+       How_often_medication_1 "I don't take anything else"
+Take_other_medication_for_2 "No."
+       How_much_medication_2 "I don't take anything else"
+       How_often_medication_2 "I don't take anything else"
+Take_any_other_medication "I take a prenatal vitamin every day if you want to count that."
+       How_much_medication "Geez, I don't know what all is in it. I just take one. I took it while I was pregnant."
+       How_often_medication "Just once a day"
+Take_any_other_medication1 "No"
+       How_much_medication1 "I don't take anything else"
+       How_often_medication1 "I don't take anything else"
+Take_any_other_medication2 "No"
+       How_much_medication2 "I don't take anything else"
+       How_often_medication2 "I don't take anything else"
+
+# past medications
+Ever_taken_medication_for_1 "Other than the TUMS, I haven't taken anything else for the heartburn."
+Ever_taken_medication_for_2 "I haven't taken anyhting for that."
+Ever_taken_other_medication "I haven't needed to take any other medication yet."
+
+# ALLERGIES
+
+Do_you_have_any_allergies "I am not allergic to anything that I know of.   "
+
+# SOCIAL HISTORY
+# activity
+How_often_do_you_exercise "At least a couple of times a week, hopefully more than that but sometimes I run out of time."
+Do_you_exercise "Yes, I try to get in at least three official times per week, but usually it is only two. "
+Are_you_active "I am usually very active. My husband and I like to walk and I do yoga when the baby is asleep."
+How_is_your_energy "Usually I have a ton of energy, but I have been up at night with the baby, so sometimes I am tired during the day."
+Have_you_been_resting "I have been trying to rest but sometimes it is hard to find time for a nap with a baby."
+Have_you_been_bedridden "No, not at all."
+Are_you_able_to_drive "I can drive, I drove here."
+Are_you_able_to_drive_home "I can drive myself home. That shouldn't be a problem.   "
+
+# alcohol use
+How_much_do_you_drink "My husband and I usually had wine with dinner a few nights per week. "
+Do_you_drink "I used to drink red wine occasionally with dinner, but haven't been able to lately because it makes the heartburn worse."
+What_kind_of_drinks "Just a glass of wine now and then. Not much lately."
+
+# caffeine use
+Do_you_drink_coffee "I have a cup of coffee in the morning, but that's about it."
+
+# diet
+Do_you_drink_enough_fluid "Yes, I drink 6-8 glasses of water every day."
+Do_you_eat_dairy "\[ Happy2 \]Yes, I love milk and cheese."
+Do_you_eat_fiber "Yes, I am trying to be very conscientious about my health. I love bran cereal, and I eat a lot of fruits and vegetables."
+Do_you_eat_fast_food "We don't eat much fast food. We are trying to watch our budget."
+Do_you_eat_fruit "Oh yes, I love fruit."
+Any_changes_in_your_diet "Nope, not recently anyway."
+How_is_your_diet "I eat a very healthy diet. I love seafood and eat a lot of vegetables."
+Appetite "Usually, I have a fine appetite, but for the past several months I have not felt so good and have not really felt like eating all that much."
+Can_you_eat "I don't eat much when the heartburn is bad because it makes me nauseous."
+Have_you_been_eating "I have been eating , but it has been challenging with the nausea lately."
+What_snacks "I do snack, but usually have something healthy like apples and peanut butter."
+What_were_you_eating_before "My diet has changed. Since I have had the heartburn, I do not drink any soda or eat fatty foods. "
+What_do_you_eat "I try to eat my three meals and a couple of snacks every day."
+
+# tobacco use
+How_much_do_you_smoke "\[ Contempt1 \] I don't smoke.  I hate the smell of that.   I have never and will never smoke."
+Have_you_ever_smoked "\[ Contempt2 \] No, never.  It is just too disgusting for me. I don't think I could ever do that."
+Do_you_smoke "\[ Contempt1 \] No.  I have never been able to stand the smell."
+
+# education
+How_much_schooling "I graduated from college with an accounting degree."
+
+
+#  in relation to hpi
+How_has_this_affected_you "\[ Fear1 \]Well, I love to run for exercise, but this seems to make my heartburn worse. I have this acid taste in my mouth after I run."
+Has_the_pain_affected_your_activity "So far I have been able to, but the heartburn has increased recently. "
+Can_you_do_normal_activities "\[ Fear1 \] Lately, I feel nauseated a lot and the heartburn has been pretty constant. "
+How_have_you_been_handling_this "\[ Sad2 \]I'm doing OK, but I am having problems eating and I can't bend over because it make the heartburn worse."
+What_bothers_you_the_most "\[ Sad2 \]The heartburn affects me almost every day. "
+Can_you_care_for_yourself "\[ Sad2 \]Yes, but I am having trouble taking care of my baby due to the constant heartburn."
+
+#  job
+Do_you_do_any_heavy_lifting_at_work "No, some books and occaional moving of desks, but nothing that strenous."
+Is_your_job_physically_demanding "No, at work I am at a desk. But at home, taking care of the baby can be physically demanding."
+Is_your_job_stressful "Yes, it can be. Some days are just challenging with a baby."
+Are_you_on_your_feet_a_lot "\[ Sad2 \]Not really, I can sit down often."
+Are_you_currently_working "\[ Sad2 \]Right now, I am just working part time. When the baby is 6 months old, I will go back to work full time."
+Why_are_you_off_work "I am still on a partial maternity leave."
+Have_you_been_off_work "Yes, I am off today."
+Have_you_been_able_to_work "I have been working part time."
+What_else_can't_you_do "Yes, I am working part time."
+How_is_work "Work is fine, I love accounting."
+When_was_the_last_time_you_worked "I worked yesterday, but felt sick at lunchtime."
+Do_you_need_a_note_for_work "No, it is not required."
+Does_the_pain_interfere_with_work "Yes, sometimes I feel heartburn and nausea when I am in a stressful situation such as an important meeting."
+Where_do_you_work "\[ Happy2 \]I work at a large accounting firm."
+How_long_have_you_been_a_worker "I have been an accountant since I graduated from college."
+Do_you_have_insurance "Yes, I have pretty good insurance."
+What_do_you_do_for_a_living "I am a mom and an accountant."
+Do_you_work "Yes, I am an accountant."
+
+
+
+
+
+# recreational drug use
+Do_you_use_illegal_drugs "\[ Contempt4 \]No, absolutely not. "
+Are_you_sure "Yes, of course I'm sure."
+
+# general health
+Are_you_healthy "I am generally pretty healthy. No real issues."
+
+#  CURRENTGENERALSYMPTOMS
+# medical problems
+Do_you_have_any_medical_problems "No, not really. I consider myself really healthy."
+Do_you_have_a_health_problem "I feel like I have been pretty healthy.  I have always been able to do what I want to do.  "
+Did_you_hurt_yourself "No."
+Do_you_have_any_chronic_illnesses "No, I have been very healthy all of my life. "
+Have_you_had_an_accident  "No, nothing recently "
+What_symptoms_are_you_having "I have heartburn and that is making me feel nauseated."
+
+# sleeping problems
+Why_are_you_having_trouble_sleeping "\[ Pain1 \]I don't sleep well, but that is because I am up with my baby. "
+Have_you_had_any_trouble_sleeping "\[ Pain1 \]I usually sleep well, but sometimes I have heartburn when I wake up."
+
+# CURRENTABDOMINALSYMPTOMS
+# bowel
+Are_you_able_to_control_your_bowels "I have no problems with my bowels"
+Do_you_have_any_bowel_problems "I have no problems with my bowels.  Maybe once a month I get a little constipated for a day, but then I eat some more fiber and things seem fine.  Everything is going ok now though."
+When_was_last_bowel_movement "I just had one this morning, why?"
+
+# both bowel and bladder
+Loss_of_bowel_or_bladder_control "No, nothing along that line."
+Do_you_have_bowel_or_bladder_control "Sure, I haven't had any problems with that."
+
+# abdominal pain
+Have_you_been_nauseous "Yes, I feel nauseous when I have heartburn or when I haven't eaten in a while."
+Describe_the_nausea "It's just sort of a little bit of nausea, just enough to notice, but not enough to really feel sick."
+Have_you_been_throwing_up "I haven't actually thrown up, but I sure felt like I was going to a few times."
+
+# heartburn
+Are_you_having_acid_taste "Yes, especially when I bend down. I can really taste an acid taste then or after a large meal."
+What_food_makes_heartburn_worse "It seems there are certain foods, such as barbecued pork, that make it worse."
+
+# CURRENTGUSYMPTOMS
+# bladder
+Any_pain_while_urinating "No, I haven't had any pain like that."
+Blood_in_urine "I haven't noticed anything like that."
+Are_you_able_to_control_your_bladder "I have no problems with my bladder."
+Have_you_been_incontinent "No."
+How_about_your_bladder "No problems with my bladder."
+
+
+# CURRENTCARDIACSYMPTOMS
+# blood pressure
+
+# heartproblems
+
+# CURRENT GYN SYMPTOMS
+#  sexual activity
+Does_it_hurt_during_intercourse "No, I don't have any pain with sex."
+Bleeding_after_intercourse "I have never noticed that."
+How_many_sexual_partners " I have been married for 6 years, and my husband is the only partner I have ever had."
+Do_you_prefer_men_or_women "\[ Surprise4 \]Men."
+Who_are_your_sexual_partners "My husband only."
+Are_you_sexually_active "Yes, with my husband."
+When_did_you_last_have_intercourse "We had sex two nights ago."
+Do_you_have_an_STI "Not that I am aware of."
+
+#  contraception
+Do_you_use_protection_every_time "Yes, we are using condoms."
+Have_you_had_unprotected_sex "Before I got pregnant with the baby, but now we are more careful."
+Do_you_use_contraception "Yes, we are using condoms."
+
+# bleeding
+Tell_me_more_about_your_vaginal_bleeding "My periods are normal. I haven't noticed any other bleeding."
+Are_there_clots "No, I haven�t noticed any clots."
+
+# periods
+First_day_of_last_period "I just had a period two weeks ago. "
+When_was_your_last_period "My period started about two weeks ago."
+Are_you_having_your_period "My periods are regular and seem normal. "
+Are_your_periods_regular "They are usually pretty regular."
+Are_your_periods_irregular "They are usually pretty regular."
+Is_your_period_late "No, I haven't missed one."
+How_long_do_your_periods_last "Well, usually about 7 days."
+Can_you_describe_your_periods "I usually have moderate flow. My periods are lighter since I had the baby."
+What_is_flow_like "It is usually moderate to light."
+How_often_are_your_periods "My cycles are usually about 31 days apart."
+Are_your_periods_painful "Not usually."
+Does_pain_change_with_period "No, my heartburn doesn't seem to be related to my period."
+Do_you_menstruate "Yes, I have regular cycles. "
+Use_tampons "I usually use 5 or 6 regular or super tampons a day."
+How_many_tampons "I usually use 5 or 6 regular or super tampons a day."
+
+# menstrual cycles
+Have_you_had_any_menstrual_changes "No, my cycles are pretty regular."
+Have_you_had_any_spotting "No, I have not had any spotting."
+Tell_me_about_your_menstrual_cycles "They are usually regular and last for about 7 days."
+When_was_your_first_menstrual_cycle "Wow, I think I was around 12 years old."
+
+# pain
+Are_you_having_cramps "Not really."
+Any_vaginal_pain "Not really."
+Any_vaginal_sores "None."
+Do_you_have_any_sores_on_your_groin "No."
+
+# discharge
+
+# itch
+
+# odor
+
+# pregnancy
+Could_you_be_pregnant "No. We have been very careful. We just had a baby 6 months ago and are not ready for another one yet."
+Want_to_be_pregnant "Someday, but not right now. "
+Are_you_pregnant "No. "
+Have_you_taken_pregnancy_test "No."
+Have_you_miscarried "I have not had a miscarriage."
+Describe_pregnancy "I had no real problems. I usually felt good and the delivery was fine."
+
+# breast
+
+# menopause
+
+# CURRENTHEENTSYMPTOMS
+# headaches
+Do_you_have_headaches "I get headaches sometimes, not that often though. I sometimes get them before my period."
+
+# neck stiffness/soreness
+
+# CURRENTMUSCLESYMPTOMS
+# back pain
+How_is_your_back  "\[ Pain3 \] I have not  had any pain in my back. "
+Are_the_muscles_in_your_back_tight  "I don't really think the pain is originating in my back."
+Is_the_pain_on_the_left_or_right_side  "The pain is in the upper part of my stomach in the middle."
+
+
+
+# back injury
+
+# muscle pain
+Have_you_tried_to_stretch  "\[ Pain2 \] Yes, I do some stretching every morning. Lately, I have not done any bending over though because it feels like I can taste acid. "
+Is_the_pain_muscular  "I am not sure, but I don't really think it is."
+
+# back stiffness
+
+# spine pain
+
+# CURRENTNEUROLOGICSYMPTOMS
+# walking
+Can_you_climb_stairs "\[ Pain2 \]Usually I have no problems and often I take the stairs for exercise, but sometimes when I run the stairs, it makes me have heartburn afterward."
+
+# numbness
+
+# weakness
+Do_you_have_any_weakness "No weakness."
+
+# CURRENTPAINSYMPTOMS
+# Onset
+What_were_you_doing  "I really wasn't doing anything."
+
+# Exacerbation
+Did_the_medicine_help  "It seemed to help some in the beginning, but not at all now."
+Does_rest_make_the_pain_go_away  "\[ Sad2 \] It is very hard to rest, so I guess I'd say no."
+Do_you_have_pain_at_rest  "\[ Sad2 \] I have pain pretty much all the time"
+Does_it_hurt_when_not_moving  "\[ Sad2 \] Yes, but it definitely hurts more when I move."
+Does_it_hurt_to_move  "It does hurt to move."
+Is_the_pain_associated_with_food  "No, I mean I don't think so. I really haven't been feeling like eating all that much anyway with my stomach being upset for the past week."
+
+# Intensity
+Rate_pain_on_medicine  "Well the past couple of days the TUMS helped bring the pain down to about a 3 or 4. But not today, it is staying at an 6 even with crackers and TUMS."
+Can_you_rate_the_pain  "\[ Pain2 \]The pain is an 6 right now. I felt better earlier, but I haven't eaten anything for the past few hours. "
+Can_you_rate_it "\[ Pain2 \]The pain is a 6 today. "
+How_painful_is_it  "\[ Fear2 \] It's not unbearable, but it has been persistent lately. "
+Is_the_pain_always_a_number  "It has been today. The previous couple of days it was a bit less."
+Does_the_pain_hurt_a_lot  "Not really, but the constant nausea and heartburn are really bothering me."
+
+# General
+Does_the_pain_start_somewhere_else  "No, it seems to just be in my stomach."
+Do_you_have_pain_anywhere_else  "No, only in the upper part of my stomach. "
+You_seem_uncomfortable  "Thank you. I just feel nauseous and have heartburn. "
+Can_you_point_to_the_pain "I'm not able to do that, but it is in the upper part of my stomach in the middle right under where your breast bone is, I guess. "
+
+# Description
+Does_the_pain_radiate  "No, it doesn't radiate."
+Do_you_have_any_radiating_pain  "Not really, but when I have the acid taste, I can feel it all the way up to the back of my throat. "
+Any_pain_on_right_side  "No, it is in the middle."
+Any_pain_on_left_side "The pain is just in the middle."
+Is_the_pain_on_one_side  "No, it is in the middle."
+Is_the_pain_sharp  "No, it is more like burning."
+Is_the_pain_dull  "The pain is more like a burning feeling."
+Is_the_area_tender  "\[ Pain2 \]No."
+Is_the_pain_in_the_muscle  "No, I don't think it feels like muscle pain, but I don't know what it is."
+How_did_it_feel  "\[ Pain2 \]It happened randomly while I was pregnant, but the heartburn is more constant now."
+
+# CURRENTTREATMENTS
+Have_you_tried_a_heating_pad "I haven't tried that yet, but I was thinking about it."
+Have_you_tried_heat_or_ice "No, nothing like that."
+Have_you_tried_heat "No, nothing like that."
+Have_you_tried_ice "No, nothing like that."
+Have_you_tried_any_topical_treatments "No, nothing like that."
+What_treatment_would_you_like_to_try "Something that will take this pain away."
+Have_you_tried_any_treatment "I haven't  tried anything yet except for the TUMS."
+What_treatment_have_you_tried "I haven't  tried anything yet except for the TUMS."
+Have_you_had_any_imaging_done "No, maybe I should get an MRI or something.  I really want to see what is wrong.  There has got to be some problem causing all of this heartburn."
+Do_you_think_that_would_help "I don't know. That's why I am here. So, you can help figure out what is causing this. I worry that I might have stomach cancer or something. "
+Run_some_tests "Ok, that sounds great, I really want to know what is causing this so it doesn't happen agaIn."
+Did_you_go_to_the_hospital "No, you're the first person I've seen about this.  I thought about going to the hospital but I really just thought this would go away.  I didn't really want to wait in an emergency room or anything like.  It hasn't gone away  though."
+Will_you_see_a_physical_therapist "If you think that would help, I will see anybody."
+Have_you_had_physical_therapy "No,  I have never had any trouble before.  "
+
+# PAST GENERAL SYMPTOMS
+# general
+Have_you_ever_had_any_serious_illnesses  "This pain is my first real issue."
+Have_you_ever_had_any_chronic_illnesses "No, I have been very healthy all of my life."
+Have_you_ever_been_in_an_accident "No, never"
+What_is_your_past_medical_history "Well, I did have my tonsils removed when I was 4, but have had no really serious problems.  "
+
+# past surgical history and hospitalizations
+Any_other_surgeries "Not that I recall."
+Any_surgery_problems "None that I am aware of."
+Any_prior_surgeries "I had my tonsils removed when I was 4. Other than that, no."
+Any_other_hospitalizations "Not that I can remember."
+Ever_been_in_the_hospital "I just had a baby 6 months ago, but that went fine. I was in labor for 6 hours and delivered the baby with only two pushes!"
+
+# sleeping problems
+Any_history_of_insomnia "I've always slept fine. "
+
+# PAST ABDOMINAL SYMPTOMS
+# bowel
+Have_you_had_any_past_bowel_problems "I have no problems with my bowels."
+
+# bowel and bladder
+Any_previous_bowel_or_bladder_problems "No, no problems there."
+
+# abdominal pain
+Have_you_been_nauseous_before "Yes, early on in my pregnancy, but this is not like that. "
+
+# PAST CARDIAC SYMPTOMS
+# blood pressure
+Any_previous_blood_pressure_problems "My blood pressure has always been normal."
+
+#  sexual activity
+How_many_sexual_partners_in_the_past "My husband is the only partner I have ever had."
+Who_were_your_past_sexual_partners "I have only had sex with my husband. "
+Any_other_past_sexual_partners "None."
+Ever_been_sexually_active "Yes, I have and currently am."
+Ever_had_an_STI "No."
+Take_anything_for_the_past_infection "No."
+
+#  contraception
+Did_you_use_protection_every_time_before "I was always careful."
+Did_you_use_any_contraception_in_the_past "Yes, condoms and birth control pills."
+
+# bleeding
+Have_you_had_vaginal_bleeding_before "Not that I remember, at least nothing besides my regular period."
+
+#  periods
+Were_your_periods_ever_irregular "Never."
+Were_your_periods_regular_before  "They have always been pretty regular."
+was_your_period_ever_late "Only when I was pregnant."
+How_long_did_your_periods_last_before "About 7 days."
+Describe_your_past_periods "Usually moderate to light. "
+What_is_past_flow_like "Moderate to light flow."
+How_often_were_your_past_periods "Areound 29-31 days."
+Were_your_past_periods_painful "Not really."
+Did_you_ever_menstruate "Um, yes."
+Ever_use_tampons "Yes."
+How_many_tampons_before "Around 5 or 6 regular ones each day."
+
+#  menstrual cycle
+Ever_had_any_menstrual_changes "Yes, that's how I found out I was pregnant. "
+Ever_had_any_spotting "No."
+Tell_me_about_your_past_menstrual_cycles "They were fine."
+
+#  pain
+Ever_had_cramps "No, none."
+Any_vaginal_pain_before "Not really."
+Any_prior_vaginal_sores "None."
+Ever_had_sores_on_your_groin "No,."
+
+# discharge
+Ever_had_vaginal_discharge "Nothing besides my period."
+
+#  itch
+
+# odor
+
+# pregnancy
+Ever_want_to_be_pregnant "Yes, we just had a baby 6 months ago."
+Ever_taken_pregnancy_test_before "Yes, when I found out I was pregnant with my son. "
+Ever_miscarried_before "I have never miscarried."
+Ever_been_pregnant_before "I have been pregnant once. "
+When_were_you_pregnant "I just had my first baby six months ago."
+
+
+# breast
+
+
+# PAST GU SYMPTOMS
+# bladder
+Have_you_had_incontinence_before "No, I haven't had that problem yet, thank goodness."
+Have_you_had_any_past_bladder_problems "No I haven't."
+
+# PAST HEENT SYMPTOMS
+# headache
+Have_you_ever_had_headaches "Well, I get an occasional headache."
+
+# neck stiffness/soreness
+
+# PASTMUSCLESYMPTOMS
+# back pain
+
+# back injury
+
+# muscle pain
+
+# back stiffness
+
+# spine pain
+
+# leg pain
+
+# PASTNEUROLOGISYMPTOMS
+# walking
+
+# numbness or tingling
+
+# weakness
+
+# PASTPAIN
+# Onset
+
+# Exacerbation
+Did_the_medicine_help_before "The TUMS seemed to help."
+Did_rest_make_the_past_pain_go_away "Rest did not help."
+Did_you_have_past_pain_at_rest "The heartburn seems worse if I lie flat when I rest."
+
+
+# Intensity
+Can_you_rate_the_past_pain  "It was a 4 or 5. "
+Can_you_rate_your_past_pain "It was probably a 4 or 5."
+How_painful_was_past_pain "It was not very painful, but very annoying. "
+Did_the_past_pain_hurt_a_lot  "Not really."
+
+# General
+
+# Description
+Did_the_past_pain_radiate "Not that I  noticed."
+Did_you_have_past_radiating_pain "Not really."
+Was_the_past_pain_on_one_side  "That time it seemd to be in my entire abdomen."
+Was_the_past_pain_sharp  "It was like a burning sensation."
+Was_the_past_pain_dull  "It was more like a burning sensation. "
+Was_the_area_tender_before  "\[ Pain2 \]Not really."
+Was_the_past_pain_in_the_muscle  "I don't recall."
+When_did_the_pain_hurt_before "It was like this when I was pregnant. "
+How_did_it_feel_before "\[ Pain2 \]It felt the same, but the nausea was a little worse. "
+How_has_the_pain_progressed "It has been getting progressively worse."
+Is_this_the_worst_pain_ever "No, not really. "
+
+# FAMILY GENERAL SYMPTOMS
+
+Any_conditions_that_run_in_your_family "Stomach cancer runs in my family, and so does acid reflux."
+Any_family_history_of_illness  "Nothing that I can think of. My parents are healthy."
+Parents_have_any_medical_problems "No, my parents are healthy.  "
+Tell_me_about_your_family_history "My parents are healthy. I did have an aunt that died from stomach cancer."
+Family_history "Well, my mom's sister died of stomach cancer when she was only 33 years old. "
+
+
+# FAMILY ABDOMINAL/GI SYMPTOMS
+# familybowel
+Family_history_of_bowel_problems "No as far as I know my parents are pretty healthy"
+
+# bowel and bladder
+Bowel_or_bladder_problems_in_your_family "No as far as I know my parents are pretty healthy"
+
+# FAMILY CARDIAC SYMPTOMS
+# family blood pressure
+Family_history_of_hypertension "Not that I know of."
+
+# FAMILY GU SYMPTOMS
+# family bladder
+Family_history_of_incontinence "No.  I didn't even know that sort of things ran in families. "
+
+# FAMILY HEENT SYMPTOMS
+# family headaches
+Family_history_of_headaches  "Not that I know of."
+
+# family neck stiffness
+Family_history_of_neck_stiffness  "No, not that I know of."
+
+# FAMILY MUSCLE SYMPTOMS
+# family back pain
+Anyone_in_your_family_have_back_pain "Not that I am aware of."
+
+# family back injury
+Anyone_in_your_family_have_a_back_injury "Not that I am aware of."
+
+# family muscle pain
+Anyone_in_your_family_have_muscle_pain "Not that I am aware of."
+
+# WELLNESS
+# vaccines
+have_you_been_vaccinated_for_MMR "Yes."
+have_you_been_vaccinated_for_HIB "Yes, I believe so "
+have_you_been_vaccinated_for_hepatitis_a  "Yes, I believe I did before I did some traveling.  "
+have_you_been_vaccinated_for_hepatitis_b "Yes, I think so "
+have_you_been_vaccinated_for_hepatitis "Which type? "
+have_you_had_hpv_vaccine "Yes, I got that one."
+have_you_had_flu_shot "Yes, I get one every year. "
+have_you_had_the_pneumonia_vaccine "No, I haven't had that. "
+have_you_received_your_shingles_vaccine  "No, I haven't had that. "
+when_was_your_last_tetanus_shot "I had my last booster within the last 5 years "
+are_you_current_on_vaccinations "Yes, to the best of my recollection"
+
+
+# seeing a doctor
+When_did_you_see_a_doctor_last "I had my annual gyn exam about 1 month ago and my yearly checkup was here about 7 or 8 months ago, I think."
+Do_you_have_a_doctor "Yes, I usually come here."
+Did_you_have_any_trouble_finding_us "No, it was pretty easy to get here.  "
+Did_you_find_a_parking_spot "I had no problems parking.  Things around here are actually pretty easy.  There are a lot of clear signs."
+How_did_you_get_here_today "I drove myself."
+How_did_you_come_to_find_us "I usually come here. One of my friends recommended this office."
+How_did_you_learn_about_this_office  "One of my friends recommended this office."
+Have_you_been_seen_at_this_office_before  "Yes, I was here for my annual checkup about 7 or 8 months ago."
+Are_you_a_new_patient "No, I have been here several times. "
+Where_are_you_usually_seen "Well, this office is the only one that I have ever been.  Do you have other offices in the area?"
+Have_you_been_waiting_long "I have not been waiting very long.  I am pretty impressed by how quickly things have moved.  "
+
+# MOVEMENTS
+# range of motion
+What_movements_make_it_hurt "I can taste the acid and the heartburn is worse when I bend over. "
+Does_it_hurt_when_you_bend "\[ Pain3 \]Just when I bend down to pick up something. "
+Do_you_have_decreased_motion "Not that I have noticed."
+Have_you_been_moving "Yes, I have, but the heartburn makes it hard to run or exercise."
+
+# past range of motion
+
+# CHITCHAT
+# weatherquestions
+What_is_it_like_outside "The usual for this time of year. Kind of gray and overcast."
+Is_it_starting_to_get_cold_outside "It is supposed to start getting colder in the next couple of days."
+It_is_starting_to_get_cold_outside "\[ Surprise1 \]I heard it was supposed to get cold again."
+Is_it_still_raining "It wasn't when I came in, but I think we are supposed to get some more rain today."
+What_do_you_think_about_this_weather "Eh, I like the cold, but not the dreariness."
+
+# seasonquestions
+Doesn't_seem_like_summer_any_more   "The seasons seem to change quickly these days. "
+
+# sportsquestions
+see_game "I didn't get to see it."
+What_do_you_think_about_the_buckeyes  "Well, I like to watch them. They usually have a really good team."
+
+# readingquestions
+Read_any_good_books_lately "I try to read everything that Dr. Danforth writes, but other than that I don't read very often."
+
+# watchingquestions
+Seen_any_good_movies_lately "I don't watch that many movies. I like to do more active things with my free time."
+Watch_NCIS_last_night "No, I haven't watched much TV lately. "
+
+# hobbyquestions
+Do_you_have_any_hobbies "I like to run and do yoga."
+Do_you_travel "I like to travel. My family is still in China, so I try to go there often."
+
+# politicsquestions
+Who_are_you_going_to_vote_for "\[ Contempt \]I don't like discussing politics.  There is too much hate out there."
+
+# restaurantquestions
+Been_to_any_good_restaurants_lately "I had a great lunch at a little sandwich place recently, but I forget the name."
+
+# howwasyourdayquestions
+How_was_your_day "My '_0 was just fine, thanks for asking. If it weren't for my heartburn, I would be feeling good."
+How_has_your_day_been_going "My '_0 was just fine, thanks for asking. If it weren't for my heartburn, I would be feeling good."
+
+# feelingquestions
+Are_you_frustrated "I really just want to know what is going on and get some relief. "
+Are_you_nervous "Well I am a little anxious that you won't be able to help me and this will get worse.  "
+
+# CLOSURE
+# closure
+Do_you_have_any_questions ^"^print(  [No] [No, I think that's all. Thank you for your time])"
+Anything_else_I_can_help_with "No, thank you for seeing me.  Hopefully we can get this heartburn taken care of and I can get back to my usual routine."
+Have_everything_you_need "Yes, thank you.  Just tell me what to try and I will do my best.  I really want to get this fixed."
+Have_all_the_information "\[ Happy1 \]OK Thanks."
+Do_an_exam_now "Sounds good,  I hope you can tell me what is wrong."
+Goodbye ^"^print(\[ Happy2 \][Goodbye then] [Goodbye and thanks])"
+Thanks "\[ Happy2 \]Thank you"
+
+# summarize
+Can_you_summarize "Well, I really didn't do anything. I had heartburn when I was pregnant, but it is still bothering me even since I had the baby. "
+To_summarize ^"^print([That sounds about right] [I think that is correct])"
+Did_I_miss_anything "I don't think so."
+
+
+# SCREENING
+# colon section
+have_you_had_a_colonoscopy "I've never had one."
+
+# breast section
+have_you_had_your_mammogram "I've never had one of those."
+
+
+# male GU section
+
+# female GU section
+Have_you_had_a_pap_smear "I just had one at my checkup last month."
+Results_of_pap_smear "It was normal."
+Have_you_ever_had_an_abnormal_pap "I've never  had an abnormal pap smear."
+When_was_your_last_pap_smear "Just last month."
+
+
+# family life
+Do_you_have_a_family "Yes, my parents and my two sisters. They live in China."
+Do_you_have_any_pets "No, we just had a baby, so we are pretty busy right now."
+How_is_your_family "Pretty good. My parents are both well."
+Who_do_you_live_with "I live with my husband and our son."
+Do_you_live_alone "I live with my husband and our son."
+Where_do_you_live "We live in southern Delaware County near Polaris."
+Where_is_home "Well, home is actually what I call where I grew up, which is in China."
+
+# parents_information
+Are_your_parents_living "Both of my parents are alive and well"
+Are_your_parents_healthy "Both of my parents are in good health. "
+How_old_are_your_parents "My mom is 58 and my dad is 59."
+Tell_me_about_your_parents "My parents are both doing well. They've always been really healthy"
+
+
+# grandparents_information
+Are_your_grandparents_living "Both of my grandparents are healthy and living."
+How_old_are_your_grandparents "Both of my grandparents are in their late 80's I think."
+Are_your_grandparents_healthy  "Both of my grandparents are alive and healthy. My mom's sister died when she was 33 of stomach cancer."
+Tell_me_about_your_grandparents "Both of my grandparents are very healthy."
+
+# siblings_information
+Do_you_have_siblings "No, I am an only child."
+How_old_are_your_siblings "I don't have any siblings."
+Are_your_siblings_healthy  "I don't have any siblings."
+Tell_me_about_your_siblings "I don't have any siblings."
+
+# relatives_information
+
+# children_information
+How_many_children "I have just the one. It is a little boy."
+How_old_are_your_children "He is just six months old."
+Are_your_children_healthy  "Oh, he is very healthy and happy."
+How_are_your_children "My son is doing very well."
+Do_you_want_children "We had been trying to have children, and we just had one!"
+Do_you_have_any_children "Yes, I just had my first child six months ago"
+Tell_me_about_your_children "Well, I just have the one, a little boy who is six months old."
+
+# spouse_information
+Are_you_divorced "My husband and I have been married for several years."
+Are_you_married "I have been married for over three years now."
+Are_you_single "I have been married for over 6 years now."
+Are_you_in_a_relationship "I am married to my husband."
+Are_you_dating_anyone "I am happily married."
+Are_you_widowed "My husband is alive."
+Do_you_have_a_boyfriend "I am married to my husband."
+Do_you_have_a_girlfriend "I am married to my husband."
+Do_you_have_a_significant_other "I am married to my husband."
+Do_you_have_a_partner "I am married and my husband is my partner."
+Tell_me_about_your_partner "My husband and I have been married for several years."
+How_old_is_your_partner "He is 29."
+Is_your_partner_healthy  "He is very healthy."
+Do_you_have_a_partner "My husband."
+What_is_your_partners_name "His name is Bingwen. It means accomplished in our language."
+Is_your_partner_male "Yes, he is."
+Is_your_partner_female "What?  My partner is my husband. His name is Bingwen. It means accomplished in our language."
+
+# support_information
+
+Are_you_abused "\[ Contempt2 \]I have no concerns about my home life."
+Do_you_feel_safe "I feel safe.  Our home is in a nice area."
+Do_you_have_support_at_home "\[ Sadness3 \]Sure, I have my husband."
+
+
+
+# CHIEFCOMPLAINT
+# onset
+Did_anything_happen_to_cause_the_1 "It started when I was pregnant."
+How_did_the_1_start "\[ Pain2 \] Nothing happened that I can remember, I just started having the heartburn."
+Doing_anything_when_the_1_started "Not anything out of the ordinary."
+Was_the_onset_sudden1 "It seemed to start gradually."
+Did_the_1_start_immediately "It started when I was pregnant."
+Is_the_1_new "I started having heartburn when I was pregnant, and it has continued since the baby was born."
+Is_this_the_first_time_for_1 "It started when I was pregnant. I never had it before then."
+When_did_the_1_start "It started when I was pregnant. "
+1_worse_morning_or_night "\[ Sad2 \] It is much worse in the morning."
+How_has_the_1_changed "\[ Fear1 \] It is gradually getting worse. It is usually bad in the morning, then gets better once I eat something.  Now, even if I eat something, the heartburn comes back after a few hours."
+How_long_have_you_had_1 "For about 8 months or so. "
+Is_the_1_constant "\[ Fear2 \] No, it comes and goes."
+Do_you_have_a_cause_for_1 "\[ Pain3 \]Not yet, but I am hoping you can help me figure it out."
+
+# exacerbation
+What_makes_the_1_worse "\[ Pain3 \] Certain foods can make it worse, like when I drink red wine, or if I eat pineapple. "
+Does_anything_change_1_intensity "\[ Pain4 \] I notice it is worse if I haven't eaten for a while."
+What_have_you_tried_for_the_1 "I tried some TUMS, which seem to help temporarily."
+Have_you_tried_anything_for_the_1 "I tried some TUMS, which seem to help temporarily."
+What_makes_the_1_better "\[ Sad2 \] Nothing is making it any better today."
+Does_anything_else_help_the_1 "I haven't tried anything else."
+Does_moving_increase_the_1 "\[ Fear2 \] Moving makes it worse only if I bend over. "
+Does_any_position_relieve_the_1 "No, nothing really relieves the heartburn except drinking some milk or maybe eating some bread. "
+Does_any_position_make_the_1_worse "\[ Pain5 \] Yes, it seems worse if I lie flat on my back or if I bend over."
+Do_any_positions_make_1_worse_or_better "I feel better sitting up or standing. "
+Can_you_move_around_with_the_1 "Yes, I can move around. But sometimes it gets worse after I run. "
+Is_1_worse_when_you_lie_down "Yes, if I lie flat on my back."
+Do_you_have_1_when_you_lie_down "The heartburn seems worse, and I can taste an acid taste when I lie flat on my back. "
+Is_1_better_when_you_lie_down "Not really."
+Does_1_increase_when_you_stand "No, I feel better when I stand. "
+Does_the_1_improve_with_exercise "Sometimes exercise make it worse."
+Does_the_1_keep_you_up_at_night "No, I usually sleep well. "
+Avoid_exacerbate_1 "Certain foods can make it worse."
+Is_the_1_improving "\[ Fear2 \] It has gradually gotten worse."
+Does_the_pain_get_worse_with_period "Not really."
+
+# intensity
+How_intense_is_the_1 "\[ Fear2 \] It's about the same as before, just becoming more frequent."
+Has_the_intensity1_changed "Not really. "
+Has_the_1_become_worse "Not really, it is just becoming more frequent. "
+When_is_the_1_most_severe "It comes and goes. "
+
+# general
+Do_you_currently_have_1 "Yes, I can feel the heartburn now. I haven't eaten for a while."
+How_is_your_1_now "\[ Pain1 \] It is not horrible, but when it gets bad it make me nauseous."
+Do_you_have_any_1 "\[ Pain3 \] Yes, I have heartburn."
+Are_you_having_any_other_1 "Yes, I feel queasy when the heartburn is bad."
+How_else_is_the_1_affecting_your_life "\[ Fear2 \] Well, it is hard to exercise and take care of my baby when I am feeling sick."
+Has_the_1_stopped_you "\[ Fear2 \] Sometimes, I am too nauseated to eat much. "
+
+# description
+When_do_you_have_the_1 "When I am hungry, or first thing in the morning, usually. Sometimes when I am stressed."
+How_long_does_the_1_last "It is there pretty much all of the time, just at different intensities."
+How_frequent_is_the_1 "I've noticed it more frequently, almost every day now. "
+What_concerns_you_about_the_1 "It is there all the time now so it has gotten worse and I'm worried it is serious."
+Where_is_the_1 "In the upper part of my stomach, I guess."
+Describe_the_1 "It feels like a burning, sometimes painful burning, in my stomach. "
+
+# COMPLAINT2
+# onset
+Did_anything_happen_to_cause_the_2 "Not that I know of."
+How_did_the_2_start "I don't really know."
+Doing_anything_when_the_2_started "I wasn't doing anything that would have started this."
+Was_the_onset_sudden2 "No, more of a gradual thing."
+Did_the_2_start_immediately "No, more gradual."
+Is_the_2_new "It started toward the end of my pregnancy."
+Is_this_the_first_time_for_2 "I have never had trouble with this before."
+When_did_the_2_start "I believe it started about 8 months ago at the end of my 7th month of pregnancy."
+2_worse_morning_or_night "Worse in the morning."
+How_has_the_2_changed "It seems worse now."
+How_long_have_you_had_2 "For about 8 months now I think."
+Is_the_2_constant "It seems to be more intermittent than constant, but I really don't know."
+Do_you_have_a_cause_for_2 "Well, I thought it was kind of normal for pregnancy to have heartburn, but it has not gotten any better."
+
+# exacerbation
+What_makes_the_2_worse "Certain foods seem to make it worse. I ate buffalo wings at a party and had really bad heartburn after that. "
+Does_anything_change_2_intensity "Drinking milk or eating bread sometimes makes it better."
+What_have_you_tried_for_the_2 "Just TUMS."
+Have_you_tried_anything_for_the_2 "Just TUMS."
+What_makes_the_2_better "I notice that I feel better if I eat smaller portions more frequently rather than large meals."
+Does_2_increase_when_you_stand "No."
+
+# intensity
+How_intense_is_the_2 "It is just very annoying."
+When_is_the_2_most_severe "It's really not that bad. The pain is the problem."
+
+# general
+Do_you_currently_have_2 "Yes."
+How_is_your_2_now "It still bothers me."
+Do_you_have_any_2 "Yes."
+How_else_is_the_2_affecting_your_life "I have changed my diet to try to help the symptoms, and I don't run much any more. "
+Has_the_2_stopped_you "I have stopped running so much."
+
+# description
+When_do_you_have_the_2 "It is sort of on and off, but eating spicy foods will bring it on."
+How_long_does_the_2_last "Comes and goes."
+How_frequent_is_the_2 "Most days."
+What_concerns_you_about_the_2 "It is just not usual for me."
+Describe_the_2 "I worry it might be something serious."

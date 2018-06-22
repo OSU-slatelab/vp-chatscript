@@ -1,0 +1,148 @@
+topic: ~currentgeneralmatches keep repeat deprioritize nostay ()
+
+
+	u: ($pasthistory) respond(~pastgeneralmatches)  ^fail(TOPIC)
+	u: ($family) respond(~familygeneralmatches) ^fail(TOPIC)
+
+
+#!!S Can you move your hip
+	u: Can_you_move_your_bodypart ( can * move your _~bodyparts)
+	^factanswer(^"[I have no problems with my '_0][I can move my '_0 just fine]")
+
+
+#!!S Do you have any pain in your hip
+	u: Any_pain_in_your_bodypart (!back [ache pain] * _~bodyparts)
+	^factanswer(^"[I have no pain in my '_0]	[Nope, no pain in my '_0]")
+
+
+#!!S Do you have any hip pain
+	u: Do_you_have_any_bodypart_pain (![~medicines long where why how ] [have experience feel felt any] * _~bodyparts pain)
+	^factanswer(^"[I have no '_0 pain]	[No, no '_0 pain]")
+
+#!!S Have you had any surgeries
+	u: Have_you_had_any_medicaltreatments (had any _~medical_treatments)
+	^factanswer(^"No, no '_0")
+
+#!!S Does your hip hurt
+	u: Does_your_bodypart_hurt (does your _~bodyparts hurt)
+	^factanswer(^"[No, my '_0 is fine]	[My '_0 feels fine]")
+
+#!!S Do your toes hurt
+	u: Do_your_bodyparts_hurt (do your _~bodyparts hurt)
+	^factanswer(^"[No, my '_0 are fine]	[My '_0 feel fine]")
+
+#!!S How is your hip
+	u: How_is_your_bodypart ( how is your _[~bodyparts ~all_systems])
+	^factanswer(^"My '_0 is fine")
+
+#!!S How does your hip feel
+	u: How_does_your_bodypart_feel ( how [has does] your _~bodyparts [been feel])
+	^factanswer(^"My '_0 feels fine")
+
+#!!S Do you have any problems with your hip
+	u: Any_problems_with_your_bodypart ( any [problems issues difficulty] with your _*~2)
+	^factanswer(^"No problems with my '_0")
+
+#!!S Do you have any problems with urination
+	u: Any_problems_with_bodilyfunction ( any [problems issues difficulty] with _*~2)
+	^factanswer(^"No problems with _0")
+
+
+#!!S Do you have any problems urinating
+	u: Any_problems_bodilyfunctioning ( any [problems issues difficulty] _*1)
+	^factanswer(^"No problems '_0")
+
+
+#!!S Can you control your urination
+	u: Can_you_control_your_bodilyfunction ([are can able] * control your _*1)
+	^factanswer(^"No problems with my '_0")
+
+#!!S Is your urination normal
+	u: Is_your_bodilyfunction_normal ([are is] [your you] _*1 [normal normally usual usually])
+	^factanswer(^"No problems with my '_0")
+
+#!!S Have you tried heat
+	u: Have_you_tried_sometreatment (!~medicines [have did] * [try] *~2 _~medical_treatments)
+	^factanswer(^"No, I have not tried '_0")
+
+
+#!!S Have you used heat
+	u: have_you_used_sometreatment (!~medicines [use] _~medical_treatments)
+	^factanswer(^"No, I have not used '_0")
+
+# Have you taken medicine
+#	u: (!~medicines [take taken] _*)
+#	^factanswer(^"[No, I have not taken '_0]")
+
+# #! Are you sore
+#	u:(!why !~medicines !pain !~bodyparts are 'you _*~2)
+#	^factanswer(^"[No, I am not '_0]")
+
+#!!S How about your Hip
+	u: How_about_your_bodypart ( how about 'your _~bodyparts)
+	^factanswer(^"No problems with my '_0")
+
+#!!S How about your breathing
+	u: How_about_your_bodilyfunction ( how about 'your _~activity)
+	^factanswer(^"No problems with my '_0")
+
+#!!S Does it hurt when you breathe
+	u: Does_it_hurt_when_you_activity ([does is] it [hurt painful] *~2 [when for] you *~1 _~activity)
+	^factanswer(^"No, I can '_0  OK")
+
+#!!S Does lying down help
+	u: Does_someposition_help (does _~position *~3 [help better]) ^factanswer(^"'_0  doesn't seem to help much")
+	u: (_~position * does [help better]) ^reuse (does_someposition_help)
+
+# ***************************************************************************************************
+
+
+topic: ~pastgeneralmatches keep repeat deprioritize (~medical_treatments ~medical_tests ~all_systems ~pain_descriptors)
+
+
+	u: ($present) respond(~currentgeneralmatches) ^fail(TOPIC)
+	u: ($family) respond(~familygeneralmatches) ^fail(TOPIC)
+
+
+#!!S Have you had any pain in your hip
+	u: Have_you_had_any_pain_in_your_bodypart (pain [in on] [your the] _~bodyparts)
+	^factanswer(^"[I have not had any pain in my '_0]	[Nope, never had pain in my '_0]")
+
+#!!S Have you had any hip pain
+	u: Have_you_had_any_bodypart_pain (![back the ~joint] had * _~bodyparts pain)
+	^factanswer(^"[I have no '_0 pain]	[No, no '_0 pain]")
+
+#!!S Have you had any problems with urination
+	u: Had_problems_with_bodilyfunction (![~joint back] any [problems issues] with _*1)
+	^factanswer(^"Not had any problems with '_0")
+
+#!!S Have you had any problems urinating
+	u: Had_problems_bodilyfunctioning (![~joint back] any [problems issues] _*1)
+	^factanswer(^"No problems '_0")
+
+#!!S Have you ever been treated for whiplash
+	u: Ever_been_treated_for_somecondition ([treat treated treatment] for _*1)
+	^factanswer(^"No '_0 treatments or anything like that")
+
+#!!S Have you ever had an MRI
+	u: Ever_had_an_medicaltest (ever had 'an _~medical_tests)
+	^factanswer(^"No, I have never had an '_0")
+
+#!!S Have you ever had a spinal tap
+	u: Ever_had_a_medicaltest (ever had 'a _~medical_tests)
+	^factanswer(^"No, I have never had a '_0")
+
+
+# ***************************************************************************************************
+
+topic: ~familygeneralmatches keep repeat deprioritize (~medical_treatments ~all_systems ~pain_descriptors)
+
+
+	u: ($present) respond(~currentgeneralmatches) ^fail(TOPIC)
+	u: ($pasthistory) respond(~pastgeneralmatches) ^fail(TOPIC)
+
+
+
+#!!S Anyone in your family have hip problems
+	u: Any_family_bodypart_problems (have {any} _*~2 problems)
+	^factanswer(^"[No family history of '_0 problems]	[Nope, nobody in my family has '_0 problems]")

@@ -1,0 +1,26 @@
+topic: ~allergies keep repeat   (allergy allergic)
+	
+	u: ( $$family) ^fail(TOPIC)
+
+#! Food or environmental allergies
+	u: Food_or_environmental_allergies (food or environmental allergies) ^factanswer("No allergies of any kind that I know of.")
+	u: (<< [food environment environmental pollen bee sting peanut hay] [allergy allergies allergic] >>) ^reuse(Food_or_environmental_allergies)
+
+#! Do you take medication for allergies
+	u: Do_you_take_medication_for_allergies (do you take medication for allergies)  ^factanswer("I am not allergic to anything.")
+		a: How_much_allergy_medication ([many much dose dosage]) ^factanswer("I don't take anything for allergies")
+		a: How_often_allergy_medication (["as needed" often frequently]) ^factanswer("I don't take anything for allergies.")
+		a: Does_allergy_medication_help ([help work alleviate]) ^factanswer("I don't take anything for allergies.")
+		a: Take_allergy_medication_today ([take use] * ~timename) ^factanswer("I don't take anything for allergies.")
+	u: (![how long other we] [use take on prescribed] * [~itwords allergy]) ^reuse (Do_you_take_medication_for_allergies)
+	u: (![how long other we] ~medicines * [take prescribed] * allergy) ^reuse (Do_you_take_medication_for_allergies)
+	u: (![how long other we] allergy * ~medicines * [take prescribed use on]) ^reuse (Do_you_take_medication_for_allergies)
+
+#! What are your allergy reactions
+	u: What_are_allergy_reactions  (what are your allergy reactions)  ^factanswer("I don't have allergic reactions.")
+	u: ([what how] * [happens reaction react symptoms]) ^reuse(What_are_allergy_reactions)
+
+#! Do you have any allergies
+	u: Do_you_have_any_allergies (do you have any allergies)   ^factanswer("I am not allergic to anything.")
+	u: ([allergy allergies allergic]) ^reuse(Do_you_have_any_allergies)
+

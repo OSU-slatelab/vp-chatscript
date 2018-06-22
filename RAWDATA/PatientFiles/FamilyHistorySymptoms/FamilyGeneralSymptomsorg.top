@@ -1,0 +1,47 @@
+
+# ***************************************************************************************************
+
+topic: ~familymedicalproblems keep repeat (~role_family family condition problem issue ~family_members)
+
+	u: ($pasthistory) respond(~pastmedicalproblems)  ^fail(TOPIC)
+	u: ($present) respond(~currentmedicalproblems) ^fail(TOPIC)
+
+
+#! Are there any medical conditions that run in your family
+	u: Any_conditions_that_run_in_your_family (any medical conditions that run in your family)     ^factanswer("Not that I am aware of.")
+	u: (<< [condition disease illness illnesses] [exist run] family >>) ^reuse (Any_conditions_that_run_in_your_family)
+
+#! Any family history of illness
+	u: Any_family_history_of_illness (any family history of illness)    ^factanswer("My parents are healthy and they didn't have any unusual illnesses. I don't really know much about my grandparents.")
+	u: (<< [family ~family_members] [illness disease conditions illnesses problems] >>) ^reuse (Any_family_history_of_illness)
+
+#! Family history
+	u: Family_history (family history) ^factanswer("OK")
+	u: (family) ^reuse (Family_history)
+
+#! Do your parents have any medical problems
+	u: Parents_have_any_medical_problems (do your parents have any medical problems)     ^factanswer("No, my parents are healthy.")
+	u: (<< [they parent] medical [problem issue] >>) ^reuse (Parents_have_any_medical_problems)
+
+# moved to family.top
+
+# #! Are your parents healthy
+# 	u: Are_your_parents_healthy (are your parents healthy)     ^factanswer("Both of my parents are in good health.")
+# 	u: ([parent mother father] * [healthy health]) ^reuse (Are_your_parents_healthy)
+
+# #! Are your grandparents healthy
+# 	u: Are_your_grandparents_healthy (are your grandparents healthy)     ^factanswer("My grandparents are deceased. I don't really know what they died of. I was very little.")
+# 	u: ([grandparent grandmother grandfather] * [healthy health]) ^reuse (Are_your_grandparents_healthy)
+
+# #! Are your relatives healthy
+#	u: Are_your_relatives_healthy (are your relatives healthy)     ^factanswer("As far as I know.")
+#	u: ([aunt uncle cousin relative] * [healthy health]) ^reuse (Are_your_relatives_healthy)
+
+
+
+# ***************************************************************************************************
+
+topic: ~familysleepingproblems keep repeat (~sleeping_problems)
+
+	u: ($pasthistory) respond(~pastsleepingproblems)  ^fail(TOPIC)
+	u: ($present) respond(~currentsleepingproblems) ^fail(TOPIC)
