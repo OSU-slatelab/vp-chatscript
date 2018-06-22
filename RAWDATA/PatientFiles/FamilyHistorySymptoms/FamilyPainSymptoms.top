@@ -2,13 +2,10 @@
 
 # pain - I have defined pain as a concept in MedicalConcepts.top
 
-topic: ~familypain keep repeat (~pain)
+topic: ~familypain keep repeat (~role_family ~pain)
 
-	u: ($present) respond(~currentpain) ^fail(TOPIC) 
-	u: ($pasthistory) respond(~pastpain) ^fail(TOPIC) 
-
+	u: ($present) respond(~currentpain) ^fail(TOPIC)
+	u: ($pasthistory) respond(~pastpain) ^fail(TOPIC)
 
 #! Does anyone in your family have pain
-	u: Anyone_in_your_family_have_pain (does anyone in your family have pain)    ^factanswer("Not that I am aware of.")
-	u: ([family ~role_family] * ~back_pain) ^reuse (Anyone_in_your_family_have_pain)
-
+	u: ANYONE_IN_YOUR_FAMILY_HAVE_PAIN (~back_pain)    ^factanswer("Not that I am aware of.")

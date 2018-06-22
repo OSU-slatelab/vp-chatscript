@@ -1,9 +1,9 @@
-# tablemacro below creates a table of question labels and patient specific answers. 
-# all entries must be in upper case per Bruce 9.2017 
+# tablemacro below creates a table of question labels and patient specific answers.
+# all entries must be in upper case per Bruce 9.2017
 # all entries in grading tables must also be UPPER CASE to match
- 
+
 tablemacro: ^patientdata (^id $_question ^answer.KEEP_QUOTES)
-$_question = ^pos(allupper $_question ) # convert questions to UPPER CASE
+$_question = ^pos(allupper $_question ) # convert questions to UPPER CASE probably no longer need this since questions have been converted already
 createfact($_question ^id ^answer)
 
 # this function is executed once for every new user chatting with patient1
@@ -12,10 +12,16 @@ outputmacro: ^stdpatient()
 ^addtopic(~introductions)
 $cs_control_main = ~control
 $cs_control_post = ~control_post
-$cs_prepass = ~xquestion
+# $cs_prepass = ~xquestion
+$cs_prepass = ~xpreprocess 	# remap inputs for idioms and augmenting question recognition
 $userprompt = ^"Doctor:"
-$cs_token =  #DO_ESSENTIALS 
-$tokenfull =  #DO_SUBSTITUTE_SYSTEM | #DO_NUMBER_MERGE   | #DO_SPELLCHECK
+$cs_token = #DO_ESSENTIALS |
+						#DO_SUBSTITUTES |
+						#DO_PRIVATE |
+						#DO_SPELLCHECK |
+						#DO_CONTRACTIONS # DO_PRIVATE added 5.2018 to handle spelling fixes in replace
+
+$tokenfull =  #DO_SUBSTITUTE_SYSTEM | #DO_NUMBER_MERGE
 $botprompt = ^"$patientTitle. $patientlastname:"
 
 # *****************************************************
@@ -27,11 +33,11 @@ patient1
 
 # *****************************************************
 
-topic: ~introductions keep repeat() 
+topic: ~introductions keep repeat()
 
 # matches every time on startup of a new conversation
-t: (%input<%userfirstline) keep()   
-		if (%input > 0)            
+t: (%input<%userfirstline) keep()
+		if (%input > 0)
         {
 		^reset(USER)
         }
@@ -43,14 +49,14 @@ t: (%input<%userfirstline) keep()
 topic: ~control system ()
 
 # get a master copy of input then do our normal copies
-u: ($cs_token=#DO_ESSENTIALS _*) $$rawinput = '_0
-	if (_0) 
+ u: ($cs_token=#DO_ESSENTIALS | #DO_PRIVATE | #DO_SPELLCHECK | #DO_CONTRACTIONS _*) $$rawinput = '_0
+	if (_0)
 	{
-		if (?) {$$rawinput = join($$rawinput ?)} 
+		if (?) {$$rawinput = join($$rawinput ?)}
 		$cs_token = $tokenfull
 		retry(SENTENCE)
 	}
-u: ($cs_token!=#DO_ESSENTIALS _*) $cs_token = #DO_ESSENTIALS 
+ u: ($cs_token!=#DO_ESSENTIALS _*) $cs_token = #DO_ESSENTIALS | #DO_SUBSTITUTES | #DO_PRIVATE | #DO_SPELLCHECK | #DO_CONTRACTIONS # convert $CS_token back to original parameters
 
 # on startup, do introduction
 u: (< \[ * q: _*1 * \] ) $q_num_external = '_0 # record query num from web service
@@ -63,13 +69,13 @@ u: (%more) ^fail(SENTENCE)   # added 9.6.2012 to ignore multiple questions in on
 
 # The following refine section ensures that only one variable is true at a time.
 u: () refine ()  # classify input into 3 zones: present, family, past
-	a: ([~role_family family]) $family = true $pasthistory = null $present = null			
+	a: ([~role_family family]) $family = true $pasthistory = null $present = null
 	a: (!does [ever past history prior before previous ago "when were" "have you had" always]) $pasthistory = true $family = null $present = null
 	a: ([%tense=present do does is are can would will might have has]) $present = true $family = null $pasthistory = null
-	
+
 u: (_[$patientfirstname? $patientlastname?]) mark(~Patient_name _0)  # note the topic should be triggerable by his name
 
-u: (%input<%userfirstline) 
+u: (%input<%userfirstline)
 	$$starttime = %fulltime			# time of current input
 	$lastInputTime = $$starttime	# consider prior input to be at current time
 	$lastUnknownAnswer = -1			# no unknown answers so far
@@ -111,10 +117,11 @@ u: MAINCONTROL(_*) # main per-sentence processing
 			}
 		}
 	}
-	 
+
 	if (%response == $$startInput)  {nofail(TOPIC ^respond(~openingdialogue))} # if no matches yet, look in openingdialogue
 	if (%response == $$startInput)  {nofail(TOPIC ^respond(~chiefcomplaint))}  # if still no matches look in chiefcomplaint
-	
+	if (%response == $$startInput)  {nofail(TOPIC ^respond(~keywordless))} # if still no matches look in keywordless
+
 	if (%response == $$startInput  AND $$currentTopicIninput) { nofail(TOPIC ^gambit($currenttopic)) } # gambit current topic since keywords match current topic
 
 	if (%response == $$startInput)  # gambit from ANY matching topic
@@ -131,9 +138,9 @@ u: MAINCONTROL(_*) # main per-sentence processing
 		}
 	}
 	if (%response == $$startInput) { nofail(TOPIC ^gambit($currenttopic)) } # gambit from current topic even though no keywords matched
-	
-	if (%response == $$startInput)  
-	{ 
+
+	if (%response == $$startInput)
+	{
 		@8 = ^GambitTopics()		# all topics with gambits (excluding system topics)
 		loop()
 		{
@@ -147,16 +154,16 @@ u: MAINCONTROL(_*) # main per-sentence processing
 	}
 
 	if (%response == $$startInput)  {nofail(TOPIC ^respond(~negativesymptoms))} # last ditch attempt to match in negativesymptoms
-	if (%response == $$startInput)  
+	if (%response == $$startInput)
 	{
-		 ^repeat() 
+		 ^repeat()
 		 factanswer(^"[I'm afraid I don't understand that question.]  [I'm sorry, I don't understand that question. Would you restate it?]")
 	}
 
 
 topic: ~control_post system()
 
-t: (^query(direct_v ? chatoutput ? -1 ? @9 )) # get the sentences 
+t: (^query(direct_v ? chatoutput ? -1 ? @9 )) # get the sentences
 
 	$lastoutput = null
 
@@ -164,6 +171,6 @@ t: (^query(direct_v ? chatoutput ? -1 ? @9 )) # get the sentences
 
 	{
 
-		$$tmp = ^last(@9subject) 
-		$lastoutput = join($lastoutput _ $$tmp) 
+		$$tmp = ^last(@9subject)
+		$lastoutput = join($lastoutput _ $$tmp)
 	}

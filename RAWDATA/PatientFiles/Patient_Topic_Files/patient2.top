@@ -21,266 +21,291 @@ table: ^patientdata(Vpatient2)
 ### OpeningDialogue
 # primary
 
-What_do_you_think_is_the_problem "\[ Pain3 \]I am not sure, that's what I was hoping you could help me figure out."
-What_brings_you_in_today "I was hoping you could help me with my back pain, it really hurts!"
-What_should_we_do "\[ Pain3 \]I am willing to do almost anything to make this back pain go away."
-What_would_you_like_me_to_do "\[ Pain3 \]I'd really appreciate it if you could make my back feel better! Last night I couldn't even relax and watch the game because all I could think about was my back."
-What_is_your_goal "I hope you can help me with this back pain."
-Does_anything_make_you_feel_better "Ibuprofen helps some, but not very much. My buddy said to try to lay in bed, so I tried that when it first happened, but I really couldn't just lay around all day.  I don't think it made a difference anyway."
-Are_you_sick "Other than this back pain I feel OK."
-Tell_me_more "I was helping a friend lift a couch and my back just started hurting."
-I_am_sorry "Thanks."
-Good "\[ NodYes \]"
-Got_it "\[ NodYes \]"
-Ok "\[ NodYes \]"
+WHAT_DO_YOU_THINK_IS_THE_PROBLEM "\[ Pain3 \]I am not sure, that's what I was hoping you could help me figure out."
+WHAT_BRINGS_YOU_IN_TODAY "I hurt my back a few days ago and I am hoping you can help me with that, it really hurts!"
+WHAT_SHOULD_WE_DO "\[ Pain3 \]I am willing to do almost anything to make this back pain go away."
+WHAT_WOULD_YOU_LIKE_ME_TO_DO "\[ Pain3 \]I'd really appreciate it if you could make my back feel better! Last night I couldn't even relax and watch the game because all I could think about was my back."
+WHAT_IS_YOUR_GOAL "I hope you can help me with this back pain."
+DOES_ANYTHING_MAKE_YOU_FEEL_BETTER "Ibuprofen helps some, but not very much. My buddy said to try to lay in bed, so I tried that when it first happened, but I really couldn't just lay around all day.  I don't think it made a difference anyway."
+ARE_YOU_SICK "Other than this back pain I feel OK."
+I_AM_SORRY "Thanks."
+GOOD "\[ NodYes \]"
+GOT_IT "\[ NodYes \]"
+OK "\[ NodYes \]"
 
 # greetings
 
-I_am_doctor "Nice to meet you."
-Today_we_have_15_minutes "OK"
-Nice_to_meet_you  "\[ Happiness1 \]Nice to meet you too. I am really glad to see you today."
-Nice_to_see_you "\[ Happiness1 \]Nice to see you too."
-Nice_to_see_you_too "\[ Happiness1 \]Thanks."
-How_are_you "\[ Pain2 \]Well I would be doing pretty well if my back weren't hurting so badly."
-Tell_me_about_yourself "\[ Fear2 \]Most of my friends think I am pretty tough, but these past few days I haven't been so tough.  I guess my pain tolerance is lower than I thought."
-Hello "Hello Doctor.  I am so glad to see you."
+I_AM_DOCTOR "Nice to meet you."
+TODAY_WE_HAVE_15_MINUTES "OK"
+NICE_TO_MEET_YOU  "\[ Happiness1 \]Nice to meet you too. I am really glad to see you today."
+NICE_TO_SEE_YOU "\[ Happiness1 \]Nice to see you too."
+NICE_TO_SEE_YOU_TOO "\[ Happiness1 \]Thanks."
+HOW_ARE_YOU "\[ Pain2 \]Generally pretty good, except for this back pain."
+TELL_ME_ABOUT_YOURSELF "\[ Fear2 \]Most of my friends think I am pretty tough, but these past few days I haven't been so tough.  I guess my pain tolerance is lower than I thought."
+HELLO "Hello Doctor.  I am so glad to see you."
 
 # followupdialogue
 
-Have_you_seen_anyone_else "You're the first person I've seen about this."
+HAVE_YOU_SEEN_ANYONE_ELSE "You're the first person I've seen about this."
 
 ### PatientInformation
 # patientage
 
-How_old_are_you "I am 53."
-When_were_you_born "August 10, 1964"
+HOW_OLD_ARE_YOU "I am 53."
+WHEN_WERE_YOU_BORN "August 10, 1964"
 
 # patientname
 
-Name_and_date_of_birth "My name  is Jack Wilson and I was born August 10, 1964."
-What_is_your_name "Jack Wilson"
-Did_I_pronounce_that_correctly "Yes, that is correct."
-Do_you_mind_if_I_call_you "Sure.   My friends all do."
-How_do_you_pronounce_that "Wil-son"
-What_should_I_call_you " You can call me Jack."
-Are_you_mr_patientlastname "Yes, I am Jack Wilson. Good to meet you Doctor."
-Are_you_mr_someoneelse " No, I am Jack Wilson"
-Hello_mr_patientlastname "Hello Doctor.  I am so glad to see you."
-Hello_mr_someoneelse "Hello Doctor, however, my name is Wilson.  If you can help me though you can call me whatever you would like."
-Mr_patientlastname "Yes"
-Mr_someoneelse " No, I am Jack Wilson"
+NAME_AND_DATE_OF_BIRTH "My name  is Jack Wilson and I was born August 10, 1964."
+WHAT_IS_YOUR_NAME "My Name is Jack Wilson."
+DID_I_PRONOUNCE_THAT_CORRECTLY "Yes, that is correct."
+DO_YOU_MIND_IF_I_CALL_YOU "Sure.   My friends all do."
+HOW_DO_YOU_PRONOUNCE_THAT "Wil-son"
+WHAT_SHOULD_I_CALL_YOU "Please call me Jack."
+ARE_YOU_MR_PATIENTLASTNAME "Yes."
+ARE_YOU_MR_SOMEONEELSE "No, I am Jack Wilson"
+HELLO_MR_PATIENTLASTNAME "Hello Doctor.  I am so glad to see you."
+HELLO_MR_SOMEONEELSE "Hello Doctor, however my name is Jack Wilson."
+MR_PATIENTLASTNAME "That is correct."
+MR_SOMEONEELSE "I am Jack Wilson."
+
+# patientweight
+
 
 ### Medications
 # currentmedications
 
-Taking_medication_for_the_1  "I have been taking ibuprofen for a few days, but that is not helping much."
-Taking_medication_for_the_2 "I am only taking ibuprofen."
-Taking_medication_for_the_3 "I am only taking the ibuprofen."
-When_did_you_take_medicine "I started taking it shortly after I hurt my back."
-Need_to_take_the_medicine_that_often "It seems to help some, but doesn't really make the pain go away.  When it wears off the pain comes back."
-How_often_did_you_take_the_medicine "I just did what it said on the bottle, two every 8 hours or so."
-How_long_taking_medicine "I have been taking the ibuprofen ever since I hurt my back."
-How_much_medicine_have_you_taken "I just did what it said on the bottle, two every 8 hours or so."
-What_is_the_strength_of_the_medicine "I don't know.  I bought it at CVS and it is a little red capsule.  Whatever strength that is."
-Did_the_medicine_help "It helped some, but it doesn't make the pain go away.  I don't want to have to keep taking pain meds though.  I am hoping you can help me figure out what is wrong and make the pain go away."
-Did_you_take_medicine_today "No, I didn't want to take it before I came today.  I figured you would tell me what is the best thing to do."
-Are_you_still_taking_medicine "I haven't taken anything today.  I don't really like taking a lot of pills.  I know too many people that have to take a lot of medications every day."
-What_was_the_dose "I'm not sure, I just took what it said on the bottle.  It was a red capsule if that helps."
-What_pills_did_you_take "Ibuprofen"
-What_kind_of_medicine_is_that "Just a painkiller as far as I know.  My aunt told me it is the best one to use for aches and pains."
-Would_you_like_some_pain_medication "I am already taking ibuprofen."
-Who_prescribed_the_medicine "My family doctor"
-What_is_medicine "A painkiller as far as I know.  My aunt told me that it helps her for aches and pain so I tried it."
-Are_you_taking_any_medication "I have been taking ibuprofen for a few days, but that is not helping much."
- Is_medication_new "I have been taking this same painkiller since I hurt my back."
-What_were_the_pills_called "Just generic ibuprofen from CVS."
-What_was_the_dosage "I am not sure, just regular strength."
-Any_OTC_medication "Just the ibuprofen."
+TAKING_MEDICATION_FOR_THE_1  "I have been taking ibuprofen for a few days, but that is not helping much."
+TAKING_MEDICATION_FOR_THE_2 "I am only taking ibuprofen."
+TAKING_MEDICATION_FOR_THE_3 "I am only taking the ibuprofen."
+WHEN_DID_YOU_TAKE_MEDICINE "I started taking it shortly after I hurt my back."
+NEED_TO_TAKE_THE_MEDICINE_THAT_OFTEN "It seems to help some, but doesn't really make the pain go away.  When it wears off the pain comes back."
+HOW_OFTEN_DID_YOU_TAKE_THE_MEDICINE "I generally take two every 8 hours or so."
+HOW_LONG_TAKING_MEDICINE "I have been taking the ibuprofen ever since I hurt my back."
+HOW_MUCH_MEDICINE_HAVE_YOU_TAKEN "I just did what it said on the bottle, two every 8 hours or so."
+WOULD_YOU_LIKE_A_STRONGER_PRESCRIPTION "Only if you think that would help."
+WHAT_IS_THE_STRENGTH_OF_THE_MEDICINE "I think it is just regular strength ibuprofen."
+DID_THE_MEDICINE_HELP "It helped some, but it doesn't make the pain go away.  I don't want to have to keep taking pain meds though.  I am hoping you can help me figure out what is wrong and make the pain go away."
+DID_YOU_TAKE_MEDICINE_TODAY "I haven't taken any today.  I figured you would tell me what is the best thing to do."
+ARE_YOU_STILL_TAKING_MEDICINE "I haven't taken anything today.  I don't really like taking a lot of pills.  I know too many people that have to take a lot of medications every day."
+WHAT_WAS_THE_DOSE "I'm not sure. Regular strength I think. It was a red capsule if that helps."
+WHAT_PILLS_DID_YOU_TAKE "Ibuprofen"
+WHAT_KIND_OF_MEDICINE_IS_THAT "Just a painkiller as far as I know.  My aunt told me it is the best one to use for aches and pains."
+WOULD_YOU_LIKE_SOME_PAIN_MEDICATION "I am already taking ibuprofen."
+DOCTOR_PRESCRIBE_THE_MEDICINE "I just got it at the grocery store. It is not prescription strength or anything."
+WHO_PRESCRIBED_THE_MEDICINE "I just got it at the grocery store."
+WHAT_IS_MEDICINE "A painkiller as far as I know.  My aunt told me that it helps her for aches and pain so I tried it."
+ARE_YOU_TAKING_ANY_MEDICATION "I have been taking ibuprofen for a few days, but that is not helping much."
+ IS_MEDICATION_NEW "I have been taking this same painkiller since I hurt my back."
+WHAT_WERE_THE_PILLS_CALLED "Just generic ibuprofen from CVS."
+WHAT_WAS_THE_DOSAGE "I am not sure, just regular strength."
+ANY_OTC_MEDICATION "Just the ibuprofen."
+ANY_REACTIONS_TO_MEDICATIONS "I am allergic to iodine, but other than than that I don't have any other allergies."
+DOSE_1 "Just regular strength."
 
 # supplements
 
-Are_you_taking_supplements "Nope."
+ARE_YOU_TAKING_SUPPLEMENTS "I don't take any supplements or vitamins."
 
 # othermedications
 
-Take_other_medication_for_1 "No."
- How_much_medication_1 "I don't take anything besides the ibuprofen."
- How_often_medication_1 "I don't take anything else"
-Take_other_medication_for_2 "No."
- How_much_medication_2 "I don't take anything else"
- How_often_medication_2 "I don't take anything else"
-Take_any_other_medication "No."
-Take_any_other_medication2 "No."
- How_much_medication2 "I don't take anything else"
- How_often_medication2 "I don't take anything else"
-Why_do_you_take_the_medication "I don't take anything else."
+TAKE_OTHER_MEDICATION_FOR_1 "I don't take anything besides the ibuprofen."
+ HOW_MUCH_MEDICATION_1 "I don't take anything besides the ibuprofen."
+ HOW_OFTEN_MEDICATION_1 "I don't take anything else."
+ HOW_MUCH_MEDICATION_2 "I don't take anything else"
+ HOW_OFTEN_MEDICATION_2 "I don't take anything else"
+TAKE_ANY_OTHER_MEDICATION "I am only taking ibuprofen."
+TAKE_ANY_OTHER_MEDICATION2 "I am only taking ibuprofen."
+ HOW_MUCH_MEDICATION2 "I don't take anything else"
+ HOW_OFTEN_MEDICATION2 "I don't take anything else"
+WHY_DO_YOU_TAKE_THE_MEDICATION "I don't take anything else."
+WHAT_DOES_MEDICATION_DO "It is just a regular painkiller as far as I know."
 
 # pastmedications
 
-Ever_taken_medication_for_1 "I took some regular strength Tylenol when I had my back pain before. That took care of it in about a day."
-Ever_taken_medication_for_2 "No."
-Ever_taken_other_medication "Other than the occasional Tylenol for my back I haven't taken anything."
+EVER_TAKEN_MEDICATION_FOR_1 "I took some regular strength Tylenol when I had my back pain before. That took care of it in about a day."
+EVER_TAKEN_MEDICATION_FOR_2 "No."
+EVER_TAKEN_OTHER_MEDICATION "Other than the occasional Tylenol for my back I haven't taken anything."
 
 ### Allergies
 # Allergies
 
-Do_you_have_any_allergies "I am not allergic to anything that I know of."
+FOOD_OR_ENVIRONMENTAL_ALLERGIES "The only thing I am allergic to is iodine. Other than that I have never had any problems with allergies."
+DO_YOU_TAKE_MEDICATION_FOR_ALLERGIES "I don't take any medicine for it."
+WHAT_ARE_ALLERGY_REACTIONS "My skin got really red when they used iodine when I donated blood a long time ago so now I just tell them to use something else."
+DO_YOU_HAVE_ANY_ALLERGIES "I am allergic to iodine."
 
 ### SocialHistory
 # activity
 
-How_often_do_you_exercise "Not very often I'm afraid, maybe once or twice a month.  My job keeps me very active though.  I always have to climb under cars or on cars.  I am always on the move."
-Do_you_exercise "I don't exercise that much. Occasionally I go jogging or for a long walk.  I am always on my feet for work though."
-Are_you_active "I suppose I don't exercise as much as I should, but I do go jogging once in a while or go for a long walk."
-How_is_your_energy "I suppose I'm not as energetic as I once was, but I do get a little exercise."
-Have_you_been_resting "I rest as much as possible since the pain is pretty bad.  The first day after this happened I tried resting but I needed to work and it didn't seem to help much."
-Have_you_been_bedridden "I can get around enough that I am not stuck in bed all day."
-Are_you_able_to_drive "I can drive, but getting in and out of the car is pretty painful right now."
-Are_you_able_to_drive_home "I can drive myself home. That shouldn't be a problem."
-Do_you_have_any_trouble_exercising "Exercising is difficult with this back pain."
+HOW_OFTEN_DO_YOU_EXERCISE "Not vas often as I should I'm afraid, maybe once or twice a month.  My job keeps me pretty active though."
+DO_YOU_EXERCISE "I don't exercise that much. Occasionally I go jogging or for a long walk.  I am always on my feet for work though."
+ARE_YOU_ACTIVE "I suppose I don't exercise as much as I should, but I do go jogging once in a while or go for a long walk."
+HOW_IS_YOUR_ENERGY "I suppose I'm not as energetic as I once was, but I do get a little exercise."
+HAVE_YOU_BEEN_RESTING "I rest as much as possible since the pain is pretty bad.  The first day after this happened I tried resting but I needed to work and it didn't seem to help much."
+HAVE_YOU_BEEN_BEDRIDDEN "I can get around enough that I am not stuck in bed all day."
+ARE_YOU_ABLE_TO_DRIVE "I can drive, but getting in and out of the car is pretty painful right now."
+ARE_YOU_ABLE_TO_DRIVE_HOME "I can drive myself home. That shouldn't be a problem."
+DO_YOU_HAVE_ANY_TROUBLE_EXERCISING "Exercising is difficult with this back pain."
 
 # alcoholuse
 
-How_much_do_you_drink "I really don't drink that much. Maybe one or two beers at football games. A glass of wine now and then. Stuff like that."
-Do_you_drink "A beer or 2 at football games, or a glass of wine now and then. Nothing much more than that."
-Do_you_feel_guilty_about_your_drinking "\[ Surprise2 \] No. I don't drink very much."
-Anyone_thought_alcohol_problem "\[ Disgust2 \] No, never.  I have seen enough alcoholics to know that I don't want to be like that!"
-Do_you_ever_need_an_eye_opener "\[ Surprise2 \] No! Except for a cup of coffee of course."
-Have_you_considered_reducing_alcohol "\[ Contempt2 \] No, I don't drink very much."
-Ever_felt_annoyed_about_alcohol "\[ Disgust2 \]No."
-What_kind_of_drinks "Just beer and wine."
-How_many_drinks "One or two."
+DO_YOU_DRINK "I don't drink alcohol. I tried it in school like most kids, but I just never developed a taste for it."
+DO_YOU_FEEL_GUILTY_ABOUT_YOUR_DRINKING "\[ Surprise2 \] I don't drink."
+ANYONE_THOUGHT_ALCOHOL_PROBLEM "\[ Disgust2 \]No, never.  I have seen enough alcoholics to know that I don't want to be like that!"
+DO_YOU_EVER_NEED_AN_EYE_OPENER "\[ Surprise4 \] No! Except for a cup of coffee of course."
+HAVE_YOU_CONSIDERED_REDUCING_ALCOHOL "\[ Contempt2 \] I don't drink."
+EVER_FELT_ANNOYED_ABOUT_ALCOHOL "\[ Disgust2 \]I don't drink."
 
 # caffeineuse
 
-Do_you_drink_coffee "I have a cup of coffee in the morning, but that's about it."
+DO_YOU_DRINK_COFFEE "I have a cup of coffee in the morning, but that's about it."
 
 # diet
 
-Do_you_drink_enough_fluid "Yes, I drink 4-5 glasses of water per day."
-Do_you_eat_dairy "\[ Happiness2 \] I love milk. I drink a couple glasses a day."
-Do_you_eat_fiber "I'm not a big fiber person.  Salads just aren't quite enough for me and I like a lot of meat."
-Do_you_eat_fast_food "I don't go to fast food restaurants very often, but now and then I will stop and get a hamburger or something like that."
-Do_you_eat_fruit "Not as much as I should."
-Appetite "My appetite is fine.  I eat pretty well."
-Can_you_eat "Sure, eating is not a problem."
-Have_you_been_eating "My appetite has been fine.  I haven't had any trouble with that."
-What_snacks "I'm not really much of a snacker."
-What_were_you_eating_before "My diet hasn't changed."
-How_is_your_diet "I think my diet is OK. I don't eat salads all the time but I generally try to eat healthy foods."
+DO_YOU_DRINK_ENOUGH_FLUID "I drink 4-5 glasses of water per day."
+DO_YOU_EAT_DAIRY "\[ Happiness2 \] I love milk. I drink a couple glasses a day. I also like cheese."
+DO_YOU_EAT_FIBER "I'm not a big fiber person.  Salads just aren't quite enough for me and I like a lot of meat."
+DO_YOU_EAT_FAST_FOOD "I don't go to fast food restaurants very often, but now and then I will stop and get a hamburger or something like that."
+DO_YOU_EAT_FRUIT "I love fruit, especially apples and bananas."
+APPETITE "My appetite is fine.  I eat pretty well."
+CAN_YOU_EAT "Eating is not a problem."
+HAVE_YOU_BEEN_EATING "My appetite has been fine.  I haven't had any trouble with that."
+WHAT_SNACKS "I'm not really much of a snacker."
+WHAT_WERE_YOU_EATING_BEFORE "My diet hasn't changed."
+WHAT_DO_YOU_EAT "I have a pretty normal diet I think. I don't particulary try to avoid one thing or another."
+HOW_IS_YOUR_DIET "I think my diet is OK. I don't eat salads all the time but I generally try to eat healthy foods."
+HOW_MUCH_SALT "I don't use a lot of salt."
 
 # tobaccouse
 
-How_much_do_you_smoke "\[ Contempt1 \] I don't smoke - never have."
-Have_you_ever_smoked "\[ Contempt2 \] No, never.  There are too many people that smoke out there, I can't stand the smell."
-How_long_did_you_smoke "I never smoked."
-Are_you_exposed_to_secondhand_smoke "I try to avoid that at all costs."
-Do_you_smoke "No.  Like all kids I tried a cigarette in high school but I hated it."
+HOW_MUCH_DO_YOU_SMOKE "\[ Contempt1 \] I don't smoke, never have."
+HAVE_YOU_EVER_SMOKED "\[ Contempt2 \]I have never smoked. There are too many people that smoke out there, I can't stand the smell."
+HOW_LONG_DID_YOU_SMOKE "I never smoked."
+ARE_YOU_EXPOSED_TO_SECONDHAND_SMOKE "I try to avoid that at all costs."
+DO_YOU_SMOKE "Like most kids I tried a cigarette in high school but I hated it so I have never smoked."
 
 # education
 
-How_far_in_school "I finished high school.  I thought about college but it wasn't for me.  I have always focused on cars."
+HOW_FAR_IN_SCHOOL "I finished high school.  I thought about college but it wasn't for me.  I have always focused on cars."
 
 # inrelationtohpi
 
-How_has_this_affected_you "\[ Fear1 \]I haven't been able to work, I am a little worried about the bills."
-Can_you_do_normal_activities "\[ Fear1 \]Even grocery shopping is hard.  The other day I had to ask a little old lady to get something off of a shelf for me!  I have had to basically stop working on the cars in my shop."
-Has_the_pain_affected_your_activity "Well, I can't move around very well so that is pretty limiting."
-How_have_you_been_handling_this "\[ Sadness2 \]I'm doing OK, but I have not been able to work so that is a concern."
-What_bothers_you_the_most "\[ Sadness2 \]It's been going on for almost a week and I can't work."
-Can_you_care_for_yourself "\[ Sadness2 \]At this point I am OK but it is pretty difficult just doing normal things."
-Has_the_pain_affected_you "I can't move around very well."
+HOW_HAS_THIS_AFFECTED_YOU "\[ Fear1 \]My biggest concern is that I haven't been able to work."
+CAN_YOU_DO_NORMAL_ACTIVITIES "\[ Fear1 \]Even grocery shopping is hard.  The other day I had to ask a little old lady to get something off of a shelf for me!  I have had to basically stop working on the cars in my shop."
+HAS_THE_PAIN_AFFECTED_YOUR_ACTIVITY "Well, I can't move around very well so that is pretty limiting."
+HOW_HAVE_YOU_BEEN_HANDLING_THIS "\[ Sadness2 \]I'm doing OK, but I have not been able to work so that is a concern."
+WHAT_BOTHERS_YOU_THE_MOST "\[ Sadness2 \]It's been going on for almost a week and I can't work."
+CAN_YOU_CARE_FOR_YOURSELF "\[ Sadness2 \]At this point I am OK but it is pretty difficult just doing normal things. Tying my shoes is difficult."
+HAS_THE_PAIN_AFFECTED_YOU "I can't move around very well so that isn't great."
 
 # job
 
-Do_you_do_any_heavy_lifting_at_work "Sometimes, but I am usually careful.  I often have to take engines in and out and they can be heavy.  I haven't had any trouble with it before."
-Is_your_job_physically_demanding "I ocassionally have to lift heavy things, but I try to be careful."
-Is_your_job_stressful "Not really."
-Is_your_job_pleasurable "I really like what I do. I have always enjoyed working with cars and so that sure makes it fun, to do something you love as your career is very rewarding."
-Are_you_on_your_feet_a_lot "\[ Sadness2 \]Generally I am always on my feet and really active."
-Are_you_currently_working "\[ Sadness2 \]I try to work every day but I really haven't been able to get much done.  Everything I try to do seems to involve bending or lifting something.  It is just me in the shop so it has been really difficult."
-Why_are_you_off_work "I have been trying to work but I can't get much done with this back pain.  I can't lift anything or bend down."
-How_long_have_you_been_off_work "For the past 4 or 5 days. Ever since I hurt my back, I have not been able to work."
-Have_you_been_off_work_because "My back hurts so much I can't do any work.  Every day I try and I can do some little things but I really can't lift anything or get under the cars so I haven't been very productive."
-Have_you_been_off_work "Yes, my back hurts so much I can't do any work.  Every day I try and I can do some little things but I really can't lift anything or get under the cars so I haven't been very productive."
-Have_you_been_able_to_work "Every day I try and I can do some little things but I really can't lift anything or get under the cars so I haven't been very productive."
-What_can't_you_do_at_work "I can't do much of anything at work.  I can't carry any of the car parts, I can't get under the car.  I have even having trouble going to the store to get things.  I can't really lift anything or bend down."
-What_else_can't_you_do "I can't do much of anything because my back hurts so much."
-Do_you_have_problems_working "I haven't really been able to work although I keep trying.  I have customers waiting for their cars to be fixed."
-How_is_work "Work has generally been good before this back pain.  I have been developing a strong customer base.  I have been working on a vw beetle restoration and some repairs.  I haven't been able to keep up with any of that since this started though."
-When_was_the_last_time_you_worked "I keep going in to work, but haven't really been able to work since before I hurt my back 4 or 5 days ago."
-Do_you_need_a_note_for_work "No, I am self-employed."
-Does_the_pain_interfere_with_work "Yes. I can't really work and have been off for the past three or four days."
-Is_the_pain_related_to_work "I think it is because I was helping my friend lift his couch."
-Does_it_hurt_to_work "Every day I try and I can do some little things but I really can't lift anything or get under the cars so I haven't been very productive."
-Where_do_you_work "\[ Happiness2 \] I have my own garage right next to my apartment.  It is close and works out pretty well for me."
-How_long_have_you_been_a_worker "About 17 years. I used to work for Jiffy-Lube, but now I own my own garage."
-Do_you_have_insurance "I have Blue Cross/Blue Shield."
-Do_you_have_exposure_to_chemicals "Not that I know of.  I am around a lot of gasoline but I don't think that would cause my back to hurt!"
-Have_you_ever_been_in_the_military "No.  That isn't for me."
-What_do_you_do_for_a_living "I am an auto mechanic.  I have a garage a couple of blocks from here.  I do repairs and custom restorations."
-Do_you_work "I am an auto mechanic.  I have a garage a couple of blocks from here.  I do repairs and custom restorations."
-Anyone_sick_at_at_work "Not that I know of."
+DO_YOU_DO_ANY_HEAVY_LIFTING_AT_WORK "Sometimes, but I am usually careful.  I often have to take engines in and out and they can be heavy.  I haven't had any trouble with it before."
+IS_YOUR_JOB_PHYSICALLY_DEMANDING "I ocassionally have to lift heavy things, but I try to be careful."
+IS_YOUR_JOB_STRESSFUL "My job is not stressful, I really like my work."
+IS_YOUR_JOB_PLEASURABLE "I really like what I do. I have always enjoyed working with cars and so that sure makes it fun, to do something you love as your career is very rewarding."
+ARE_YOU_ON_YOUR_FEET_A_LOT "\[ Sadness2 \]Generally I am always on my feet, especially at work."
+ARE_YOU_CURRENTLY_WORKING "\[ Sadness2 \]I really haven't been able to work much lately.  Everything I try to do seems to involve bending or lifting something."
+WHY_ARE_YOU_OFF_WORK "I have been trying to work but I can't get much done with this back pain.  I can't lift anything or bend down."
+HOW_LONG_HAVE_YOU_BEEN_OFF_WORK "For the past 4 or 5 days. Ever since I hurt my back, I have not been able to work much."
+HAVE_YOU_BEEN_OFF_WORK_BECAUSE "My back hurts so much I can't do much work.  Every day I try and I can do some little things but I really can't lift anything or get under the cars so I haven't been very productive."
+HAVE_YOU_BEEN_OFF_WORK "My back is so sore I can't do much of any work.  Every day I try and I can do some little things but I really can't lift anything or get under the cars so I haven't been very productive."
+HAVE_YOU_BEEN_ABLE_TO_WORK "Every day I try and I can do some little things but I really can't lift anything or get under the cars so I haven't been very productive."
+WHAT_CAN'T_YOU_DO_AT_WORK "I can't do much of anything at work.  I can't carry any of the car parts, I can't get under the car.  I have even having trouble going to the store to get things.  I can't really lift anything or bend down."
+WHAT_ELSE_CAN'T_YOU_DO "I can't do much of anything because my back hurts so much."
+DO_YOU_HAVE_PROBLEMS_WORKING "I haven't really been able to work although I keep trying.  I have customers waiting for their cars to be fixed."
+HOW_IS_WORK "Work has generally been good before this back pain.  I have been developing a strong customer base.  I have been working on restoring an old Ford Mustang. I haven't been able to keep up with any of that since this started though."
+WHEN_WAS_THE_LAST_TIME_YOU_WORKED "I keep going in to work, but haven't really been able to work since before I hurt my back 4 or 5 days ago."
+DO_YOU_NEED_A_NOTE_FOR_WORK "I am self-employed."
+DOES_THE_PAIN_INTERFERE_WITH_WORK "I can't really work and have been off for the past three or four days."
+IS_THE_PAIN_RELATED_TO_WORK "I don't think my back pain is related to my work."
+DOES_IT_HURT_TO_WORK "Every day I try and I can do some little things but I really can't lift anything or get under the cars so I haven't been very productive."
+WHERE_DO_YOU_WORK "\[ Happiness2 \] I have my own garage right next to my apartment.  It is close and works out pretty well for me."
+HOW_LONG_HAVE_YOU_BEEN_A_WORKER "About 17 years. I used to work for Jiffy-Lube, but now I own my own garage."
+DO_YOU_HAVE_INSURANCE "I have Blue Cross/Blue Shield."
+DO_YOU_HAVE_EXPOSURE_TO_CHEMICALS "I am around a lot of gasoline but I don't think that would cause my back to hurt!"
+HAVE_YOU_EVER_BEEN_IN_THE_MILITARY "I have never been in the military."
+WHAT_DO_YOU_DO_FOR_A_LIVING "I am an auto mechanic.  I have a garage a couple of blocks from my place.  I do repairs and custom restorations."
+DO_YOU_WORK "I am an auto mechanic.  I have a garage a couple of blocks from here.  I do repairs and custom restorations."
+ANYONE_SICK_AT_AT_WORK "I generally work by myself."
+EXPOSURE_TO_HAZARDOUS_MATERIALS "I don't keep any hazardous stuff at work."
+IS_YOUR_JOB_SECURE "I am self-employed but I need to get back to work soon."
+HOW_LONG_HAVE_YOU_WORKED "I have worked at my garage for about 17 years. Before that I worked at Jiffy lube for several years."
+INABILITY_TO_WORK_CAUSED_PROBLEMS "Not being able to work is stressful. I really enjoy my job."
+DO_YOU_BEND_AT_WORK "Bending is difficult."
+HOW_HAS_THIS_AFFECTED_YOUR_JOB "Well I haven't been able to work very much."
+DO_YOU_WORK_ALONE "I generally work by myslef at my auto shop. Sometimes I have some help but most of the time it is just me."
 
 # recreationaldruguse
 
-Do_you_use_illegal_drugs "\[ Contempt4 \] No, never.  I have seen too many people go down that path.  I never touch the stuff."
-Are_you_sure "Of course I'm sure."
+DO_YOU_USE_ILLEGAL_DRUGS "\[ Contempt4 \]I have never used drugs. I have seen too many people go down that path.  I never touch the stuff."
+ARE_YOU_SURE "Of course I'm sure."
 
 # tattoos
 
-Do_you_have_a_tattoo "I do not have any tattoos. Just not my thing."
+DO_YOU_HAVE_A_TATTOO "I do not have any tattoos. Just not my thing."
 
 # travel
 
-Have_you_traveled_anywhere "I haven't gone anywhere in a couple of years and then it was just to florida."
+HAVE_YOU_TRAVELED_ANYWHERE "I haven't gone anywhere in a couple of years and then it was just to Florida to visit an old friend."
 
 # hobby
 
-Do_you_have_any_hobbies "My main focus is cars.  I am a mechanic and I spend my time working on them."
-What_do_you-do_for_fun "Well, I like to play basketball a little with my buddies. Other than that, I just like messing around with cars."
+DO_YOU_HAVE_ANY_HOBBIES "My main focus is my work.  I really enjoy working on cars."
+WHAT_DO_YOU-DO_FOR_FUN "Well, I like to play basketball a little with my buddies. Other than that, I just like messing around with cars."
 
 # sexualactivity
 
-How_many_sexual_partners "It has been a slow year.  I haven't had any."
-Monogamous "I am not sexually active at present.  When I am with someone I am only with that person though."
-Do_you_prefer_men_or_women "\[ Surprise4 \]I prefer women."
-Who_are_your_sexual_partners "Nobody at the present time."
-Any_other_sexual_partners "I am not currently sexually active."
-Are_you_sexually_active "I am not currently  sexually active ."
-When_did_you_last_have_intercourse "It has been such a long time, I don't really remember."
-Tell_me_about_your_sexual_history "What do you want to know? I certainly don't engage in any risky sort of things, if that is what you are getting at."
+HOW_MANY_SEXUAL_PARTNERS "It has been a slow year.  I haven't had any."
+MONOGAMOUS "I am not sexually active at present.  When I am with someone I am only with that person though."
+DO_YOU_PREFER_MEN_OR_WOMEN "\[ Surprise4 \]I prefer women."
+WHO_ARE_YOUR_SEXUAL_PARTNERS "I am not seeing anyone at the present time."
+ANY_OTHER_SEXUAL_PARTNERS "I am not currently sexually active."
+ARE_YOU_SEXUALLY_ACTIVE "I am not currently  sexually active ."
+WHEN_DID_YOU_LAST_HAVE_INTERCOURSE "It has been over a year. I don't really remember."
+TELL_ME_ABOUT_YOUR_SEXUAL_HISTORY "What do you want to know? I certainly don't engage in any risky sort of things, if that is what you are getting at."
+HAVE_YOU_EVER_BEEN_SEXUALLY_ACTIVE "I have dated in the past. Not a lot of women but I have had a few girlfriends."
 
 # religion
 
+WHAT_IS_YOUR_RELIGIOUS_PREFERENCE "I am not a religious person."
 
 # advanceddirective
 
+DO_YOU_HAVE_A_LIVING_WILL "I don't have ny sort of will or anything like that."
+DO_YOU_HAVE_AN_ADVANCED_DIRECTIVE "I don't have ny sort of will or anything like that."
+DO_YOU_HAVE_A_MEDICAL_POWER_OF_ATTORNEY "I don't have ny sort of will or anything like that."
 
 # generalhealth
 
-Were_you_healthy_child "I have been pretty healthy all of my life. Even as a kid I was pretty healthy."
-Are_you_healthy "I am pretty healthy. When I came here last year that doctor with the dark hair checked me out and said everything looked good.  She checked my blood pressure and ran some blood tests.  I think everything was ok.  I have always felt strong"
-Do_you_feel_well "I don't feel sick, just my back is hurting."
-What_is_quality_of_life "Well, life is pretty good. I am a generally happy kind of guy. I love my job and my family, but right now the pain is making it hard for me to enjoy some of the things I love, like my job."
+WERE_YOU_HEALTHY_CHILD "I have been pretty healthy all of my life. Even as a kid I was pretty healthy."
+ARE_YOU_HEALTHY "I am pretty healthy. When I came here last year that doctor with the dark hair checked me out and said everything looked good.  She checked my blood pressure and ran some blood tests.  I think everything was ok.  I have always felt strong"
+DO_YOU_FEEL_WELL "I don't feel sick, just my back is hurting."
+WHAT_IS_QUALITY_OF_LIFE "Well, life is pretty good. I am a generally happy kind of guy. I love my job and my family, but right now the pain is making it hard for me to enjoy some of the things I love, like my job."
 
 ### CurrentGeneralSymptoms
 # medicalproblems
 
-Do_you_have_any_medical_problems "No, not really.  I have always been pretty healthy.  When I came here last year that doctor with the dark hair checked me out and said everything looked good.  She checked my blood pressure and ran some blood tests.  I think everything was ok."
-Do_you_have_a_health_problem "I feel like I have been pretty healthy.  I have always been able to do what I want to do.  These last couple of days though I can barely do anything because of all of this pain."
-Did_you_hurt_yourself "I hurt my back the other day when I was helping my friend lift his couch"
-Do_you_have_any_chronic_illnesses "No, I have been very healthy all of my life.  I think I had my cholesterol and sugar checked here last year and everything looked good."
-Have_you_had_an_accident "I have had a couple of minor car accidents but nothing that injured me."
-What_symptoms_are_you_having "Well, my back is extremely sore, but other than that I am OK."
+DO_YOU_HAVE_ANY_MEDICAL_PROBLEMS "No, not really.  I have always been pretty healthy.  When I came here last year that doctor with the dark hair checked me out and said everything looked good.  She checked my blood pressure and ran some blood tests.  I think everything was ok."
+ANY_OTHER_MEDICAL_PROBLEMS "No problems other than my back."
+DO_YOU_HAVE_A_HEALTH_PROBLEM "I feel like I have been pretty healthy.  I have always been able to do what I want to do.  These last couple of days though I can barely do anything because of all of this pain."
+DID_YOU_HURT_YOURSELF "I hurt my back the other day when I bent over to tie my shoes."
+DO_YOU_HAVE_ANY_CHRONIC_ILLNESSES "No, I have been very healthy all of my life.  I think I had my cholesterol and sugar checked here last year and everything looked good."
+HAVE_YOU_HAD_AN_ACCIDENT "I had a couple of minor car accidents a long time ago but nothing that injured me."
+WHAT_SYMPTOMS_ARE_YOU_HAVING "Well, my back is pretty sore, but other than that I am OK."
+HAVE_YOU_HAD_WEIGHT_CHANGE "My weight hasn't changed much as far as I know."
 
 # sleepingproblems
 
-Why_are_you_having_trouble_sleeping "\[ Pain1 \]Because of the pain in my back."
-Have_you_had_any_trouble_sleeping "\[ Pain1 \]It has been difficult to get much sleep since this back pain started.  I just can't get comfortable.  Before the pain though I didn't have any problems."
-Describe_your_sleeping_trouble "I just have trouble falling asleep."
-Do_you_feel_rested_upon_waking "I did before the back injury."
-Do_you_have_any_trouble_sleeping "Ever since I hurt my back I haven't been able to sleep very well."
+WHY_ARE_YOU_HAVING_TROUBLE_SLEEPING "\[ Pain1 \]My back pain is making sleeping difficult."
+HAVE_YOU_HAD_ANY_TROUBLE_SLEEPING "\[ Pain1 \]It has been difficult to get much sleep since this back pain started.  I just can't get comfortable.  Before the pain though I didn't have any problems."
+DESCRIBE_YOUR_SLEEPING_TROUBLE "I just have trouble falling asleep because my back is sore."
+DO_YOU_SNORE "As far as I know I don't snore."
+DO_YOU_FEEL_RESTED_UPON_WAKING "I did before the back injury."
+DO_YOU_HAVE_ANY_TROUBLE_SLEEPING "Ever since I hurt my back I haven't been able to sleep very well."
+WHERE_DO_YOU_SLEEP "I sleep in my bed. Occasionally I will fall asleep on the couch."
+HOW_MUCH_SLEEP "I generally try to get at least 8 hours of sleep."
 
 # discharge
 
@@ -294,18 +319,19 @@ Do_you_have_any_trouble_sleeping "Ever since I hurt my back I haven't been able 
 ### CurrentAbdominalGISymptoms
 # bowel
 
-Loss_of_bowel_control "I have no problems with my bowels"
-Are_you_able_to_control_your_bowels "I have no problems with my bowels"
-When_was_last_bowel_movement "Gosh, this morning I think."
-Do_you_have_any_bowel_problems "I have no problems with my bowels.  Sometimes I get a little constipated but then I eat some more fiber and things seem fine.  Everything is going ok now though."
+LOSS_OF_BOWEL_CONTROL "I have no problems with my bowels"
+ARE_YOU_ABLE_TO_CONTROL_YOUR_BOWELS "I have no problems with my bowels"
+WHEN_WAS_LAST_BOWEL_MOVEMENT "Gosh, this morning I think."
+DO_YOU_HAVE_ANY_BOWEL_PROBLEMS "I have no problems with my bowels.  Sometimes I get a little constipated but then I eat some more fiber and things seem fine.  Everything is going ok now though."
 
 # bothbowelandbladder
 
-Loss_of_bowel_or_bladder_control "No!  That would be awful.  I haven't had anything like that."
-Do_you_have_bowel_or_bladder_control "I haven't had any problems with that."
+LOSS_OF_BOWEL_OR_BLADDER_CONTROL "I haven't really had any problems going to the bathroom."
+DO_YOU_HAVE_BOWEL_OR_BLADDER_CONTROL "I haven't had any problems with that."
 
 # abdominalpain
 
+HAVE_YOU_BEEN_NAUSEOUS "I have not been nauseous or sick to my stomach."
 
 # heartburn
 
@@ -313,14 +339,14 @@ Do_you_have_bowel_or_bladder_control "I haven't had any problems with that."
 ### CurrentGUSymptoms
 # bladder
 
-Have_you_noticed_pain_while_urinating "No, I haven't had any pain like that."
-Blood_in_urine "I haven't noticed anything like that."
-Loss_of_bladder_control "I have no problems with my bladder."
-Are_you_able_to_control_your_bladder "I have no problems with my bladder."
-Have_you_been_incontinent "No."
-Do_you_have_any_bladder_problems "I haven't had anhy issues with my bladder or needing to go to the bathroom."
-How_often_do_you_urinate "A few times a day, nothing unusual."
-How_about_your_bladder "No problems with my bladder."
+HAVE_YOU_NOTICED_PAIN_WHILE_URINATING "I haven't had any pain like that."
+BLOOD_IN_URINE "I haven't noticed anything like that."
+LOSS_OF_BLADDER_CONTROL "I have no problems going to the bathroom."
+ARE_YOU_ABLE_TO_CONTROL_YOUR_BLADDER "I have no problems going to the bathroom."
+HAVE_YOU_BEEN_INCONTINENT "I don't have any problems going to the bathroom."
+DO_YOU_HAVE_ANY_BLADDER_PROBLEMS "I haven't had any issues with needing to go to the bathroom."
+HOW_OFTEN_DO_YOU_URINATE "A few times a day, nothing unusual."
+HOW_ABOUT_YOUR_BLADDER "No problems going to the bathroom."
 
 # maleGU
 
@@ -328,7 +354,7 @@ How_about_your_bladder "No problems with my bladder."
 ### CurrentCardiovascularSymptoms
 # bloodpressure
 
-How_is_your_blood_pressure "My blood pressure has been normal I think.  I know the doctor last year told me it was ok.  Hopefully it is ok now too."
+HOW_IS_YOUR_BLOOD_PRESSURE "My blood pressure has always been normal.  I know the doctor last year told me it was ok.  Hopefully it is ok now too."
 
 # chestpain
 
@@ -342,13 +368,15 @@ How_is_your_blood_pressure "My blood pressure has been normal I think.  I know t
 ### CurrentGYNSymptoms
 # sexualhealth
 
+DOES_IT_HURT_DURING_INTERCOURSE "I have no issues with that."
+DO_YOU_HAVE_AN_STI "I have never had anything like that."
 
 # contraception
 
-Do_you_use_any_other_contraception "I always use condoms.  You can never be too careful."
-Do_you_use_protection_every_time  "Every time."
-Have_you_had_unprotected_sex "No, never.  I am pretty careful.  I don't want to catch anything from anyone."
-Do_you_use_contraception "I always use condoms."
+DO_YOU_USE_ANY_OTHER_CONTRACEPTION "I have always used condoms.  You can never be too careful."
+DO_YOU_USE_PROTECTION_EVERY_TIME  "Every time."
+HAVE_YOU_HAD_UNPROTECTED_SEX "I am pretty careful.  I don't want to catch anything from anyone."
+DO_YOU_USE_CONTRACEPTION "I have always used condoms."
 
 # bleeding
 
@@ -361,7 +389,7 @@ Do_you_use_contraception "I always use condoms."
 
 # pain
 
-Do_you_have_any_sores_on_your_groin "It's all been pretty normal down there."
+DO_YOU_HAVE_ANY_SORES_ON_YOUR_GROIN "It's all been pretty normal down there."
 
 # vaginalsymptoms
 
@@ -378,11 +406,10 @@ Do_you_have_any_sores_on_your_groin "It's all been pretty normal down there."
 ### CurrentHEENTSymptoms
 # headaches
 
-Do_you_have_headaches "Well, I get the occasional headache if I tired or had a really long day.  I can usually just relax and watch a game.  Rarely I will take a tylenol or something.  I haven't really had any of thoses lately."
+DO_YOU_HAVE_HEADACHES "Well, I get the occasional headache if I get tired or had a really long day.  I can usually just relax and watch a game.  Rarely I will take a tylenol or something.  I haven't really had any of thoses lately."
 
 # neckstiffness
 
-Do_you_have_any_neck_stiffness "No, my neck is fine."
 
 # nasal
 
@@ -393,61 +420,55 @@ Do_you_have_any_neck_stiffness "No, my neck is fine."
 ### CurrentMuscleSymptoms
 # backpain
 
-Did_you_feel_a_pop "I don't know,  I don't think so.  There wasn't anything that really stood out."
-Did_you_feel_a_sharp_pain "Yes, it was an intense sharp pain. I almost dropped the couch down the stairs but luckily I caught it just in time.  My buddy Chris would have had my hide if I had broken it not to mention his landlord who really has it in for us anyways."
-Did_you_hear_anything "Well I felt the pain and then I heard my buddy who was holding the other side of the couch yell something and I saw the couch was falling, so I put it down and my back has been hurting ever since."
-How_heavy_was_the_couch "I'm not sure exactly, but it was pretty darn heavy. Maybe I'm too old to be lifting couches. Next time I will tell him to carry his own furniture."
-Was_the_couch_heavy "It was a big heavy couch and we were trying to carry it down a flight of stairs quickly."
-Did_you_finish_moving_the_couch "I almost dropped it down the stairs but luckily I caught it just in time to set it down, but I couldn't help with the moving after that."
-How_were_you_lifting "I tried to lift with my legs."
-When_did_you_lift_the_furniture "Let me see, about four or five days ago I think.  My buddy Chris had to leave before the end of the month so I was helping him."
-Describe_the_furniture "Chris has a lot of stuff.  We had already brought down most of the little things.  Chuck and I are the strongest so we tried to get the couch down the stairs.  It was a pretty heavy couch. It probably weighed a couple hundred pounds."
-Injure_yourself_while_helping "Yeah, serves me right for agreeing to help him move anyways.  I don't know how he roped me into this.  He definitely owes me."
-Reason_your_back_hurts  "I'm not sure. I was lifting a really heavy couch a few days ago and I felt a sharp pain in my back when I bent down to pick it up. My back has been hurting ever since."
-Why_do_you_think_your_back_hurts  "I think I must have done something to it when I was helping my friend move last week."
-Does_it_hurt_to_touch_your_back "My back isn't sore to touch."
-Does_your_back_hurt_when_you_work  "I keep trying to start working again.  I have this big restoration job on an old wv beetle but everytime I try I have to stop.  The pain is just too bad.  That is why I really need your help."
-Does_your_back_hurt_when_in_bed  "It is better when I keep still but I really can't just lay in bed all day."
-Does_walking_hurt_your_back "Walking is OK, as long as I am not on my feet for too long."
-Avoiding_moving_your_back  "Definitely.  I can't really even tie my shoes.  I kept tripping over laces yesterday so eventually I just took them out of the shoes."
-Are_the_muscles_in_your_back_tight  "My whole lower back feels tight."
-Are_the_muscles_in_your_back_weak  "My back is so sore that it is difficult to tell."
-Is_the_pain_always_in_your_lower_back  "It pretty much just stays in my lower back."
-Is_the_pain_in_your_upper_or_lower_back  "It is mostly at the bottom, just below my jeans.  Maybe above it some too."
-Is_the_pain_on_the_left_or_right_side  "Mostly right in the middle.  Sometimes times if I twist to a side or something it seems worse on the side but most of the time it is just in the middle."
-Any_specific_part_of_your_back  "I don't know what you call it.  It is just above my jeans in the center of my back."
-How_did_you_hurt_your_back  "I was lifting a really heavy couch for my friend.  He was getting kicked out of his place and asked me to help move his stuff.   Unfortunately I said yes and here I am."
-Did_you_hurt_your_back  "Yes, I was lifting a really heavy couch for my friend.  He was getting kicked out of his place and asked me to help move his stuff.   Unfortunately I said yes and here I am."
-Did_you_strain_a_muscle_in_your_back  "I guess maybe I did.  I am not exactly sure what happened."
+DID_YOU_FEEL_A_POP "There wasn't anything that really stood out."
+DID_YOU_FEEL_A_SHARP_PAIN "It was an pretty sharp pain."
+DID_YOU_HEAR_ANYTHING "I didn't hear anything unusual. I just bent over to tie my shoes and felt a stabbing pain in my back."
+REASON_YOUR_BACK_HURTS  "I'm not really sure. I was just getting dressed and bent over to tie my shoes and felt a sudden pain in my lower back."
+WHY_DO_YOU_THINK_YOUR_BACK_HURTS  "I think I must have done something to it when I bent over to ties my shoes."
+DOES_IT_HURT_TO_TOUCH_YOUR_BACK "My back isn't sore to touch."
+DOES_YOUR_BACK_HURT_WHEN_YOU_WORK  "I keep trying to start working again.  I have this big restoration job but everytime I try I have to stop.  The pain is just too bad.  That is why I really need your help."
+DOES_YOUR_BACK_HURT_WHEN_IN_BED  "It is better when I keep still but I really can't just lay in bed all day."
+DOES_WALKING_HURT_YOUR_BACK "Walking is OK, as long as I am not on my feet for too long."
+AVOIDING_MOVING_YOUR_BACK  "I try to avoid making any sudden moves because that hurts a lot."
+ARE_THE_MUSCLES_IN_YOUR_BACK_TIGHT  "My whole lower back feels tight."
+ARE_THE_MUSCLES_IN_YOUR_BACK_WEAK  "My back is so sore that it is difficult to tell."
+IS_THE_PAIN_ALWAYS_IN_YOUR_LOWER_BACK  "It pretty much just stays in my lower back."
+IS_THE_PAIN_IN_YOUR_UPPER_OR_LOWER_BACK  "It is mostly at the bottom, just above my jeans.  Maybe above it some too."
+IS_THE_PAIN_ON_THE_LEFT_OR_RIGHT_SIDE  "Mostly right in the middle.  Sometimes times if I twist to a side or something it seems worse on the side but most of the time it is just in the middle."
+ANY_SPECIFIC_PART_OF_YOUR_BACK  "I don't know what you call it.  It is just above my jeans in the center of my back."
+HOW_DID_YOU_HURT_YOUR_BACK  "I just bent over to ties my shoes and all of a sudden I felt a sharp pain."
+DID_YOU_HURT_YOUR_BACK  "I hurt it when I was tying my shoes."
+DID_YOU_STRAIN_A_MUSCLE_IN_YOUR_BACK  "I guess maybe I did.  I am not exactly sure what happened."
 
 # backinjury
 
-How_did_the_back_injury_start "I was lifting furniture with my neighbor a few days ago and I felt a sharp pain when I tried to lift his couch."
-Have_you_had_any_back_trauma "I have not had any trauma that I know of."
-Is_your_back_injury_on_one_side "It seems more like it is in the middle."
-Did_it_happen_at_work "Work is pretty hard on my back.  This started when I was lifting a couch with my friend though."
-Have_you_had_any_other_back_injuries "This is the first time I have had any problems with my back.  Hopefully it is the last.  Man, this is pretty awful."
+HOW_DID_THE_BACK_INJURY_START "I was just getting dressed and bent over to tie my shoes and felt a sharp stabbing pain in my lower back."
+HAVE_YOU_HAD_ANY_BACK_TRAUMA "I have not had any trauma that I know of."
+IS_YOUR_BACK_INJURY_ON_ONE_SIDE "It seems more like it is in the middle."
+DID_IT_HAPPEN_AT_WORK "Work is pretty hard on my back.  This started when I was tying my shoes though."
+HAVE_YOU_HAD_ANY_OTHER_BACK_INJURIES "This is the first time I have had any problems with my back.  Hopefully it is the last.  Man, this is pretty awful."
 
 # musclepain
 
-Have_you_tried_to_stretch "\[ Pain2 \]Well,  I tried to tie my shoe but I wasn't even able to do that.  I have tried not to move it ever since. It hurts too much."
-Are_your_muscles_sore "My muscles are fairly sore.  I have been thinking about a massage but those are pretty expensive."
-Do_your_muscles_ache "The muscles in my back are really achy.  I have a hard time bending."
-Is_the_pain_muscular "I am not sure, it seems like it must be."
+HAVE_YOU_TRIED_TO_STRETCH "\[ Pain2 \]I have tried not to move too much since it hurts too much."
+ARE_YOUR_MUSCLES_SORE "My back muscles are fairly sore.  I have been thinking about a massage but those are pretty expensive."
+DO_YOUR_MUSCLES_ACHE "The muscles in my back are really achy.  I have a hard time bending."
+IS_THE_PAIN_MUSCULAR "I am not sure, it seems like it must be."
 
 # backstiffness
 
-Is_your_back_stiffness_on_one_side "Mostly right in the middle.  Sometimes times if I twist to a side or something it seems worse on the side but most of the time it is just in the middle."
+IS_YOUR_BACK_STIFFNESS_ON_ONE_SIDE "Mostly right in the middle.  Sometimes times if I twist to a side or something it seems worse on the side but most of the time it is just in the middle."
 
 # spinepain
 
-Does_it_hurt_to_touch_your_spine "My spine seems OK. I think the problem is mostly in the muscle."
-Avoiding_moving_your_spine "Definitely.  My buddy told me to stay in bed, but I couldn't do that.  I have a real hard time moving though because of the pain so I have been trying to keep everything really still."
-Did_you_hurt_your_spine "\[ Pain2 \]I don't know.  I certainly hurt my back if that is what you mean."
-Can_you_move_your_spine "I guess I can, but it really really hurts when I try.  My buddy told me to stay in bed, but I couldn't do that.  I have a real hard time moving though because of the pain so I have been trying to keep everything really still."
+DOES_IT_HURT_TO_TOUCH_YOUR_SPINE "My spine seems OK. I think the problem is mostly in the muscle."
+AVOIDING_MOVING_YOUR_SPINE "My buddy told me to stay in bed, but I couldn't do that.  I have a real hard time moving though because of the pain so I have been trying to keep everything really still."
+DID_YOU_HURT_YOUR_SPINE "\[ Pain2 \]I don't know.  I certainly hurt my back if that is what you mean."
+CAN_YOU_MOVE_YOUR_SPINE "I guess I can, but it really really hurts when I try.  My buddy told me to stay in bed, but I couldn't do that.  I have a real hard time moving though because of the pain so I have been trying to keep everything really still."
 
 # legpain
 
+DID_YOU_HURT_YOUR_LEG "I didn't hurt my leg."
 
 # jointpain
 
@@ -455,17 +476,18 @@ Can_you_move_your_spine "I guess I can, but it really really hurts when I try.  
 ### CurrentNeurologicSymptoms
 # walking
 
-Are_you_able_to_walk "\[ Pain3 \]I can walk around my house and garage ok, as long as I am careful.  It is tough to walk much further than that though.  It was actually hard to walk in here from the parking lot and I got a pretty close spot."
-Are_you_able_to_sit "I am ok to sit but it feels like things stiffen up when I sit for awhile.  Even since we have been talking I think things in my back are a little tighter."
-Did_you_fall "I didn't fall, but I almost dropped the couch when we started down the stairs.  Luckily I was able to put it down quickly."
+ARE_YOU_ABLE_TO_WALK "\[ Pain3 \]I can walk around my house and garage ok, as long as I am careful.  It is tough to walk much further than that though.  It was actually hard to walk in here from the parking lot and I got a pretty close spot."
+ARE_YOU_ABLE_TO_SIT "I am ok to sit but it feels like things stiffen up when I sit for awhile.  Even since we have been talking I think things in my back are a little tighter."
+DID_YOU_FALL "I didn't fall."
+HOW_FAR_CAN_YOU_WALK "I can walk a ways but then my back gets pretty sore and I have to stop."
 
 # numbness
 
-Do_you_have_numbness_or_tingling "I don't have any numbness or tingling in my back, if that is what you mean."
+DO_YOU_HAVE_NUMBNESS_OR_TINGLING "I don't have any numbness or tingling in my back, if that is what you mean."
 
 # weakness
 
-Do_you_have_any_weakness "I am pretty strong, which is why Chris wanted me to carry the couch.  I am not sure if my back is weak not,  I haven't really tried to do anything with it."
+DO_YOU_HAVE_ANY_WEAKNESS "I am pretty strong.  I am not sure if my back is weak not,  I haven't really tried to do anything with it."
 
 # dizziness
 
@@ -473,52 +495,56 @@ Do_you_have_any_weakness "I am pretty strong, which is why Chris wanted me to ca
 ### CurrentPainSymptoms
 # onset
 
-What_were_you_doing_when_injured "A few days ago I was helping one of my friends lift a heavy couch and I felt a sharp pain in my lower back.  I guess I shouldn't have been lifting the couch but we needed to move it, and I am not want to say no when a friend asks for help."
-Circumstances_of_the_injury "I was helping my friend move his couch and I felt a sharp pain in my lower back."
-How_did_you_injure_yourself "I hurt my back when I was helping one of my friends move some furniture a few days ago.  I must have injured something because it really hurts.  I didn't bump into anything or get hit by something, or anything like that though."
-Did_you_injure_yourself "I must have injured something because it really hurts.  I didn�t get hit by something or fall down or anything like that though."
-How_long_ago_was_the_incident "About a week ago I think."
+WHAT_WERE_YOU_DOING_WHEN_INJURED "A few days ago I was just getting derssed and bent over to tie my shoes and felt a sharp pain in my back. It has been hurting ever since."
+CIRCUMSTANCES_OF_THE_INJURY "I was just tying my shoes."
+HOW_DID_YOU_INJURE_YOURSELF "I hurt my back when I was getting dressed a few days ago. I bent over to tie my shoes and all of a sudden felt a sharp pain in my lower back."
+DID_YOU_INJURE_YOURSELF "I must have injured something because it really hurts.  I didn�t get hit by something or fall down or anything like that though."
+HOW_LONG_AGO_WAS_THE_INCIDENT "About 4 or 5 days ago."
+DID_THE_PAIN_BEGIN_IMMEDIATELY "The pain began immediatley after bending over."
+IS_THE_PAIN_CONSTANT "The pain is there most of the time."
+HOW_HAS_THE_PAIN_CHANGED "I don't think the pain has changed much over the past few days."
 
 # exacerbation
 
-Does_rest_make_the_pain_go_away "\[ Sadness2 \]Rest helps a little, but my back is still pretty painful.  Some of my friends have been telling me I should lay in bed but I really can't do that and get any work done.  I am not sure if it would work anyways."
-Do_you_have_pain_at_rest "\[ Sadness2 \]I have pain pretty much all the time"
-Does_it_hurt_when_not_moving "\[ Sadness2 \]It hurts all the time.  It does seem worse when I am moving though.  I have tried to keep my back real still."
-Does_it_hurt_to_sneeze "When I sneeze it is really painful.  I try to hold it in which is awful too.  Luckily I don't really have a cold or anything now."
-Does_it_hurt_to_cough "Coughing hurts a little, but not as bad as when I sneeze."
-Does_it_hurt_to_move "Every time I move it hurts more.  I have been trying to keep myself real still, but then everything gets kind of stuff and it is impossible to really do anything."
-Is_the_pain_associated_with_food "I have had a hard time going to the grocery store because I can't really carry stuff or bend over and get things off the shelf.  I haven' t noticed any problem with eating though.  My appetite is pretty good."
+DOES_REST_MAKE_THE_PAIN_GO_AWAY "\[ Sadness2 \]Rest helps a little, but my back is still pretty painful.  Some of my friends have been telling me I should lay in bed but I really can't do that and get any work done.  I am not sure if it would work anyways."
+DO_YOU_HAVE_PAIN_AT_REST "\[ Sadness2 \]I have pain pretty much all the time"
+DOES_IT_HURT_WHEN_NOT_MOVING "\[ Sadness2 \]It hurts all the time.  It does seem worse when I am moving though.  I have tried to keep my back real still."
+DOES_IT_HURT_TO_SNEEZE "When I sneeze it is really painful.  I try to hold it in which is awful too.  Luckily I don't really have a cold or anything now."
+DOES_IT_HURT_TO_COUGH "Coughing hurts a little, but not as bad as when I sneeze."
+DOES_IT_HURT_TO_MOVE "Every time I move it hurts more.  I have been trying to keep myself real still, but then everything gets kind of stuff and it is impossible to really do anything."
+IS_THE_PAIN_ASSOCIATED_WITH_FOOD "I have had a hard time going to the grocery store because I can't really carry stuff or bend over and get things off the shelf.  I haven' t noticed any problem with eating though.  My appetite is pretty good."
+DOES_THE_PAIN_GET_WORSE_AT_WORK "I haven't been able to work much so it is difficult to say."
 
 # intensity
 
-Rate_pain_on_medicine "The ibuprofen helps reduce it a little, but not all that much."
-Can_you_rate_the_pain "\[ Pain2 \]Right now, I would call my pain a 7. When I take the ibuprofen, it goes down to about a 5 or 6"
-Can_you_rate_it "\[ Pain2 \]Right now, I would call my pain a 4. When I take the ibuprofen, it goes down to about a 3"
-How_painful_is_it "\[ Fear2 \]It is pretty bad. My back hurts all the time and I can't work much at all."
-Is_the_pain_always_a_number  "Pretty much.  A couple of times I have forgotten about my injury and tried to turn quickly which made it really bad, more like a 10.  It is usually around a 7 though."
-Does_the_pain_hurt_a_lot  "It is pretty painful."
+RATE_PAIN_ON_MEDICINE "The ibuprofen helps reduce it a little, but not all that much. Maybe it takes it down to a 5 or so."
+CAN_YOU_RATE_THE_PAIN "\[ Pain2 \]Right now, I would call my pain a 8. When I take the ibuprofen, it goes down to about a 5 or 6"
+CAN_YOU_RATE_IT "\[ Pain2 \]Right now, I would call my pain a 8. When I take the ibuprofen, it goes down to about a 5."
+HOW_PAINFUL_IS_IT "\[ Fear2 \]It is pretty bad. My back hurts all the time and I can't work much at all."
+IS_THE_PAIN_ALWAYS_A_NUMBER  "Pretty much.  A couple of times I have forgotten about my injury and tried to turn quickly which made it really bad, more like a 10.  It is usually around a 7 or 8 though."
+DOES_THE_PAIN_HURT_A_LOT  "It is pretty painful."
 
 # general
 
-Are_you_sore "My back feels pretty sore."
-Does_the_pain_start_somewhere_else "My pain right now is pretty localized to my lower back."
-Do_you_have_pain_anywhere_else "Just my back."
-You_seem_uncomfortable "My back hurts quite a bit so almost any position is uncomfortable."
-Can_you_point_to_the_pain "I'm not able to do that but the pain is in the middle of my lower back.  It is right at the bottom and a little further up."
+ARE_YOU_SORE "My back feels pretty sore."
+DOES_THE_PAIN_START_SOMEWHERE_ELSE "My pain right now is pretty localized to my lower back."
+DO_YOU_HAVE_PAIN_ANYWHERE_ELSE "The pain is just in my back."
+YOU_SEEM_UNCOMFORTABLE "My back hurts quite a bit so almost any position is uncomfortable."
+CAN_YOU_POINT_TO_THE_PAIN "I'm not able to do that but the pain is in the middle of my lower back.  It is right at the bottom and a little further up."
 
 # description
 
-Does_the_pain_radiate  "Not that I have noticed.  It pretty much just stays in my back."
-Do_you_have_any_radiating_pain  "Not really, the pain pretty much just stays in my back."
-Any_pain_on_right_side "It is in the middle of my lower back.  Sometimes I accidentally twist to one side or the other, then it hurts more on the side but most of the time it is in the center."
-Any_pain_on_left_side "It is in the middle of my lower back.  Sometimes I accidentally twist to one side or the other, then it hurts more on the side but most of the time it is in the center."
-Is_the_pain_on_one_side "It is in the middle of my lower back.  Sometimes I accidentally twist to one side or the other, then it hurts more on the side but most of the time it is in the center."
-Is_the_pain_sharp  "It seems more dull and achy, not like a knife or something.  It feels more like someone is stepping on me or squeezing really hard."
-Is_the_pain_dull  "It seems more dull and achy, not like a knife or something.  It feels more like someone is stepping on me or squeezing really hard."
-Is_the_area_tender "\[ Pain2 \]I haven't really pressed on it or anything.  I can't quite get my arms behind me."
-Is_the_pain_in_the_muscle "It is hard to say. I think it is pretty much just in the muscle."
-When_does_the_pain_hurt "Pretty much all of the time."
-How_did_it_feel "It hurts all the time.  I am really having a tough time getting anything done, work, buying groceries and all sorts of things.  I am hoping you can help me figure out what is wrong and how to make it better"
+DOES_THE_PAIN_RADIATE  "Not that I have noticed.  It pretty much just stays in my back."
+DO_YOU_HAVE_ANY_RADIATING_PAIN  "Not really, the pain pretty much just stays in my back."
+ANY_PAIN_ON_RIGHT_SIDE "It is in the middle of my lower back.  Sometimes I accidentally twist to one side or the other, then it hurts more on the side but most of the time it is in the center."
+ANY_PAIN_ON_LEFT_SIDE "It is in the middle of my lower back.  Sometimes I accidentally twist to one side or the other, then it hurts more on the side but most of the time it is in the center."
+IS_THE_PAIN_ON_ONE_SIDE "It is in the middle of my lower back.  Sometimes I accidentally twist to one side or the other, then it hurts more on the side but most of the time it is in the center."
+IS_THE_PAIN_SHARP  "It was a sharp pain when I hurt it, but now it seems more dull and achy.  It feels like someone is stepping on me or squeezing really hard."
+IS_THE_PAIN_DULL  "It was a sharp pain when I hurt it, but now it seems more dull and achy.  It feels like someone is stepping on me or squeezing really hard."
+IS_THE_AREA_TENDER "\[ Pain2 \]I haven't really pressed on it or anything.  I can't quite get my arms behind me."
+IS_THE_PAIN_IN_THE_MUSCLE "It is hard to say. I think it is pretty much just in the muscle."
+WHEN_DOES_THE_PAIN_HURT "Pretty much all of the time."
+HOW_DID_IT_FEEL "It was a sharp stabbing pain initially. Now it is more dull and achy."
 
 ### CurrentRespiratorySymptoms
 # breathing
@@ -530,42 +556,40 @@ How_did_it_feel "It hurts all the time.  I am really having a tough time getting
 ### CurrentTreatments
 # treatmentstried
 
-Have_you_tried_a_heating_pad "I haven't tried any sort of heat or cold. I don't have anything like that at home.  I can buy one if you think it will help."
-Have_you_tried_heat_or_ice "I haven't tried anything like that. I have mostly tried not to move my back.  I was hoping that it would just go away.  It hasn't though,  so I have come to see you."
-Have_you_tried_heat "I haven't tried anything except the ibuprofen. I have mostly tried not to move my back.  I was hoping that it would just go away.  It hasn't though,  so I have come to see you."
-Have_you_tried_ice "I haven't tried anything like that. I have mostly tried not to move my back.  I was hoping that it would just go away.  It hasn't though,  so I have come to see you."
-Have_you_tried_any_topical_treatments "I haven't tried anything but the ibuprofen. Maybe you could give me a salve or something to help the pain.  I am pretty miserable."
-What_treatment_would_you_like_to_try "I have no idea. I was hoping you would suggest something."
-Have_you_tried_any_treatment "I have not tried anything yet except for the ibuprofen."
- Did_that_help "It helped a little bit, but not for very long."
-What_treatment_have_you_tried "I have not tried anything yet except for trying the ibuprofen."
-Have_you_had_any_imaging_done "I haven't had any imaging or x-rays or anything like that. Maybe I should get an MRI or something.  I really want to see what is wrong.  There has got to be some problem causing all of this pain."
-Have_you_had_any_labs "I have not."
-Do_you_think_that_would_help "I have no idea.  Maybe.   A friend of mine swears by acupuncture.  I am a little worried about the needles though."
-Run_some_tests "You're the doctor.  I will do anything you think I need to do to help this pain."
-Did_you_go_to_the_hospital "No, you're the first person I've seen about this.  I thought about going to the hospital but I really just thought this would go away.  I didn't really want to wait in an emergency room or anything like.  It hasn't gone away yet though."
-Will_you_see_a_physical_therapist "If you think that would help, I will see anybody."
-Have_you_had_physical_therapy "I have never had any trouble before.  My cousin's wife is a physical therapist and she is pretty smart.  I know they know a lot about muscles and things."
+HAVE_YOU_TRIED_A_HEATING_PAD "I haven't tried any sort of heat or cold. I don't have anything like that at home."
+HAVE_YOU_TRIED_HEAT_OR_ICE "I haven't tried anything like that. I have mostly tried not to move my back.  I was hoping that it would just go away.  It hasn't though,  so I have come to see you."
+HAVE_YOU_TRIED_HEAT "I haven't tried anything except the ibuprofen. I have mostly tried not to move my back.  I was hoping that it would just go away.  It hasn't though,  so I have come to see you."
+HAVE_YOU_TRIED_ICE "I haven't tried anything like that. I have mostly tried not to move my back.  I was hoping that it would just go away.  It hasn't though,  so I have come to see you."
+HAVE_YOU_TRIED_ANY_TOPICAL_TREATMENTS "I haven't tried anything but the ibuprofen. Maybe you could give me a salve or something to help the pain.  I am pretty miserable."
+WHAT_TREATMENT_WOULD_YOU_LIKE_TO_TRY "I have no idea. I was hoping you would suggest something."
+HAVE_YOU_TRIED_ANY_TREATMENT "I have not tried anything yet except for the ibuprofen."
+ DID_THAT_HELP "It helped a little bit, but not for very long."
+WHAT_TREATMENT_HAVE_YOU_TRIED "I have not tried anything yet except for trying the ibuprofen."
+HAVE_YOU_HAD_ANY_IMAGING_DONE "I haven't had any imaging or x-rays or anything like that. Maybe I should get an MRI or something.  I really want to see what is wrong.  There has got to be some problem causing all of this pain."
+HAVE_YOU_HAD_ANY_LABS "I have not."
+DO_YOU_THINK_THAT_WOULD_HELP "I have no idea.  Maybe.   A friend of mine swears by acupuncture.  I am a little worried about the needles though."
+RUN_SOME_TESTS "You're the doctor.  I will do anything you think I need to do to help this pain."
+DID_YOU_GO_TO_THE_HOSPITAL "No, you're the first person I've seen about this.  I thought about going to the hospital but I really just thought this would go away.  I didn't really want to wait in an emergency room or anything like.  It hasn't gone away yet though."
+WILL_YOU_SEE_A_PHYSICAL_THERAPIST "If you think that would help, I will see anybody."
+HAVE_YOU_HAD_PHYSICAL_THERAPY "I have never had any trouble before.  My cousin's wife is a physical therapist and she is pretty smart.  I know they know a lot about muscles and things."
 
 ### PastGeneralSymptoms
 # medicalproblems
 
-Have_you_ever_had_any_chronic_illnesses "I have been very healthy all of my life."
-Have_you_ever_been_in_an_accident "I have never been in an accident."
-Have_you_ever_had_any_serious_illnesses  "This back pain is my first real issue."
-What_is_your_past_medical_history "This back pain is really my first issue."
+HAVE_YOU_EVER_HAD_ANY_CHRONIC_ILLNESSES "I have been very healthy all of my life."
+HAVE_YOU_EVER_BEEN_IN_AN_ACCIDENT "I have never been in an accident other than a minor fender bender when I was a teenager."
+HAVE_YOU_EVER_HAD_ANY_SERIOUS_ILLNESSES  "This back pain is my first real issue."
 
 # hospitalizations
 
-Any_other_surgeries "Not that I recall."
-Any_surgery_problems "None that I am aware of."
-Any_prior_surgeries "I have never had any surgeries.  I have gotten stitches a few times when I have done stupid things like slice my finger but I haven't had any in years."
-Any_other_hospitalizations "Not that I can remember."
-Ever_been_in_the_hospital "I am pretty lucky and I have never been in the hospital. Last year my mother was hospitalized because of bronchitis and it was awful there.  I hope to avoid them all of my life."
+ANY_SURGERY_PROBLEMS "None that I am aware of."
+ANY_PRIOR_SURGERIES "I have never had any surgeries.  I have gotten stitches a few times a long time ago but I haven't had any in years."
+ANY_OTHER_HOSPITALIZATIONS "Not that I can remember."
+EVER_BEEN_IN_THE_HOSPITAL "I am pretty lucky and I have never been in the hospital. Last year my mother was hospitalized because of bronchitis and it was awful there.  I hope to avoid them all of my life."
 
 # sleepingproblems
 
-Any_history_of_insomnia "I've always slept fine.  I usually watch some sort or sports until ten or eleven and then go to bed.  I am kind of a morning person so I usually don't have any trouble falling alseep."
+ANY_HISTORY_OF_INSOMNIA "I've always slept fine.  I usually watch some sort or sports until ten or eleven and then go to bed.  I am kind of a morning person so I usually don't have any trouble falling alseep."
 
 # discharge
 
@@ -579,15 +603,15 @@ Any_history_of_insomnia "I've always slept fine.  I usually watch some sort or s
 ### PastAbdominalGISymptoms
 # bowel
 
-Have_you_had_any_past_bowel_problems "I have no problems with my bowels.  Sometimes I get a little constipated but it seems like everything has been just fine these last few months."
+HAVE_YOU_HAD_ANY_PAST_BOWEL_PROBLEMS "I have never had any problems going to the bathroom."
 
 # bowelandbladder
 
-Any_previous_bowel_or_bladder_problems "My bowels are fine."
+ANY_PREVIOUS_BOWEL_OR_BLADDER_PROBLEMS "Fortunately, I have never had any problems going to the bathroom. Of course I have had a little diarrhea and been constipated a few times over the years but nothing serious."
 
 # abdominalpain
 
-Have_you_been_nauseous_before "Once in a while I have felt sick to my stomach, but not any more than anyone else I think."
+HAVE_YOU_BEEN_NAUSEOUS_BEFORE "Once in a while I have felt sick to my stomach, but not any more than anyone else I think."
 
 # heartburn
 
@@ -595,7 +619,7 @@ Have_you_been_nauseous_before "Once in a while I have felt sick to my stomach, b
 ### PastCardiacSymptoms
 # bloodpressure
 
-Any_previous_blood_pressure_problems "My blood pressure has always been normal."
+ANY_PREVIOUS_BLOOD_PRESSURE_PROBLEMS "My blood pressure has always been normal."
 
 # chestpain
 
@@ -610,15 +634,15 @@ Any_previous_blood_pressure_problems "My blood pressure has always been normal."
 ### PastGYNSymptoms
 # sexualhealth
 
-Who_were_your_past_sexual_partners "I haven't had many partners."
-Any_other_past_sexual_partners "None."
-Ever_been_sexually_active "I have been sexually active in the past, but I am not right now."
+WHO_WERE_YOUR_PAST_SEXUAL_PARTNERS "I haven't had many partners."
+ANY_OTHER_PAST_SEXUAL_PARTNERS "None."
+EVER_BEEN_SEXUALLY_ACTIVE "I have been sexually active in the past, but I am not right now."
 
 # contraception
 
-Did_you_use_any_other_past_contraception "Always condoms."
-Did_you_use_protection_every_time_before "Always."
-Use_any_contraception_in_the_past "Just condoms."
+DID_YOU_USE_ANY_OTHER_PAST_CONTRACEPTION "I have always used condoms."
+DID_YOU_USE_PROTECTION_EVERY_TIME_BEFORE "Always."
+USE_ANY_CONTRACEPTION_IN_THE_PAST "Just condoms."
 
 # bleeding
 
@@ -644,8 +668,8 @@ Use_any_contraception_in_the_past "Just condoms."
 ### PastGUSymptoms
 # bladder
 
-Have_you_had_incontinence_before "Thankfully no, I have never had nay problems with that."
-Have_you_had_any_past_bladder_problems "I am fortunate to never have had any problems with that."
+HAVE_YOU_HAD_INCONTINENCE_BEFORE "I have never had any problems going to the bathroom."
+HAVE_YOU_HAD_ANY_PAST_BLADDER_PROBLEMS "I am fortunate to never have had any problems with that."
 
 # pastmaleGU
 
@@ -653,16 +677,16 @@ Have_you_had_any_past_bladder_problems "I am fortunate to never have had any pro
 ### PastHEENTSymptoms
 # headache
 
-Ever_had_headaches_before "Well, I get the occasional headache if I tired or had a really long day.  I can usually just relax and watch a game.  Rarely I will take a tylenol or something.  I haven't really had any of thoses lately."
+EVER_HAD_HEADACHES_BEFORE "Well, I get the occasional headache if I tired or had a really long day.  I can usually just relax and watch a game.  Rarely I will take a tylenol or something.  I haven't really had any of thoses lately."
 
 # neckstiffness
 
-Ever_had_neck_stiffness_before "My whole body seems stiff but my neck isn't really bothering me."
+EVER_HAD_NECK_STIFFNESS_BEFORE "My whole body seems stiff but my neck isn't really bothering me."
 
 # nasal
 
-Ever_had_drainage_down_your_throat "I have had colds before but nothing unusual."
-Ever_had_sinus_problems "Never really had what I would call problems, just the occasoinal cold."
+EVER_HAD_DRAINAGE_DOWN_YOUR_THROAT "I have had colds before but nothing unusual."
+EVER_HAD_SINUS_PROBLEMS "Never really had what I would call problems, just the occasoinal cold."
 
 # eye
 
@@ -670,48 +694,46 @@ Ever_had_sinus_problems "Never really had what I would call problems, just the o
 ### PastMuscleSymptoms
 # backpain
 
-When_have_you_had_back_pain_before "I had a little back pain about four or five years ago. It was similar to my pain now but some Tylenol took care of it and it was gone in a day or so."
-Have_you_had_back_pain_before "I have had some back pain previously. Maybe four or five years ago. It was similar to my pain now but back then just a couple of regular strength Tylenol took care of it and it was gone in one day."
-Have_you_lifted_heavy_furniture_before "I have helped friends move in the past.  Usually Chuck and I do the heavy lifting as we have always been the strongest."
-When_were_you_lifting_the_furniture "About 4 or 5 days ago now I guess."
+WHEN_HAVE_YOU_HAD_BACK_PAIN_BEFORE "I had a little back pain about four or five years ago. It was similar to my pain now but some Tylenol took care of it and it was gone in a day or so."
+HAVE_YOU_HAD_BACK_PAIN_BEFORE "I have had some back pain previously. Maybe four or five years ago. It was similar to my pain now but back then just a couple of regular strength Tylenol took care of it and it was gone in one day."
 
 # backinjury
 
-Have_you_had_back_injury_before "I had a little back pain a few years ago but it was mostly nothing. Some Tylenol took care of it and it was gone in a day or so."
-Have_you_had_back_surgery_before "Never had any surgery before."
+HAVE_YOU_HAD_BACK_INJURY_BEFORE "I had a little back pain a few years ago but it was mostly nothing. Some Tylenol took care of it and it was gone in a day or so."
+HAVE_YOU_HAD_BACK_SURGERY_BEFORE "Never had any surgery before."
 
 # musclepain
 
-Have_you_had_muscle_pain_before "Just a little back pain a few years ago. Similar to my pain now but a couple of regular strength Tylenol took care of it and it was gone in one day."
+HAVE_YOU_HAD_MUSCLE_PAIN_BEFORE "Just a little back pain a few years ago. Similar to my pain now but a couple of regular strength Tylenol took care of it and it was gone in one day."
 
 # backstiffness
 
-Have_you_had_back_stiffness_before "I am usually pretty active and things don't really stiffen up on me."
+HAVE_YOU_HAD_BACK_STIFFNESS_BEFORE "I am usually pretty active and things don't really stiffen up on me."
 
 # spinepain
 
-Have_you_had_spine_pain_before "A couple of years ago I slipped on some ice and landed on my tailbone but that hasn't bothered me in many years so I don't think I really hurt anything.."
+HAVE_YOU_HAD_SPINE_PAIN_BEFORE "A couple of years ago I slipped on some ice and landed on my tailbone but that hasn't bothered me in many years so I don't think I really hurt anything.."
 
 # legpain
 
-Have_you_had_leg_pain_before "Not that I have ever really noticed."
+HAVE_YOU_HAD_LEG_PAIN_BEFORE "Not that I have ever really noticed."
 
 # jointpain
 
-Have_you_had_joint_pain_before "My joints have never really given me any problems."
+HAVE_YOU_HAD_JOINT_PAIN_BEFORE "My joints have never really given me any problems."
 
 ### PastNeurologicSymptoms
 # walking
 
-Have_you_ever_had_trouble_walking "I have never had trouble walking.  Usually I am always moving around.  Working on cars keeps you pretty active."
+HAVE_YOU_EVER_HAD_TROUBLE_WALKING "I have never had trouble walking.  Usually I am always moving around.  Working on cars keeps you pretty active."
 
 # numbness
 
-Have_you_ever_had_numbness "Not in my back or legs or anything.  I seem to feel things fine."
+HAVE_YOU_EVER_HAD_NUMBNESS "Not in my back or legs or anything.  I seem to feel things fine."
 
 # weakness
 
-Have_you_ever_had_weakness "My friends always think of me as the strong one of the group."
+HAVE_YOU_EVER_HAD_WEAKNESS "My friends always think of me as the strong one of the group."
 
 # dizziness
 
@@ -719,37 +741,38 @@ Have_you_ever_had_weakness "My friends always think of me as the strong one of t
 ### PastPainSymptoms
 # onset
 
-What_were_you_doing_that_time  "I don't think I was really doing anything."
+WHAT_WERE_YOU_DOING_THAT_TIME  "I don't think I was really doing anything."
 
 # exacerbation
 
+DID_REST_MAKE_THE_PAST_PAIN_GO_AWAY "Rest helped a little."
 
 # intensity
 
-Rate_the_pain "Right now, I would call my pain a 7. When I take the ibuprofen, it goes down to about a 5 or 6"
-Can_you_rate_the_past_pain "It was maybe a 5."
-Can_you_rate_your_past_pain "It was probably a 2 or 3."
-How_painful_was_past_pain "It hurt a little but the Tylenol pretty much took care of it."
-Did_the_past_pain_hurt_a_lot "It was a little painful, but the Tylenol took care of it."
+RATE_THE_PAIN "Right now, I would call my pain a 8. When I take the ibuprofen, it goes down to about a 5 or 6"
+CAN_YOU_RATE_THE_PAST_PAIN "It was maybe a 2 or 3."
+CAN_YOU_RATE_YOUR_PAST_PAIN "It was probably a 2 or 3."
+HOW_PAINFUL_WAS_PAST_PAIN "It hurt a little but the Tylenol pretty much took care of it."
+DID_THE_PAST_PAIN_HURT_A_LOT "It was a little painful, but the Tylenol took care of it."
 
 # general
 
-Were_you_sore "Well, I guess I would call it a soreness."
+WERE_YOU_SORE "Well, I guess I would call it a soreness."
 
 # description
 
-Did_the_past_pain_radiate "Not that I have noticed.  It pretty much just stayed in my back."
-Did_you_have_past_radiating_pain "Not really, the pain pretty much just stayed in my back."
-Was_the_past_pain_in_your_lower_back "It was in the middle of my lower back."
-Was_the_past_pain_on_one_side  "It was in the middle of my lower back."
-Was_the_past_pain_sharp  "It seemed more dull and achy, not like a knife or anything."
-Was_the_past_pain_dull  "It seemed more dull and achy, not like a knife or something.  It felt more like someone was stepping on me."
-Was_the_area_tender_before  "\[ Pain2 \]A little bit maybe, but not too bad. I don't really remember."
-Was_the_past_pain_in_the_muscle  "I don't recall."
-When_did_the_pain_hurt_before "I had it for about a day, then it was gone. The Tylenol took care of it."
-How_did_it_feel_before "\[ Pain2 \]It hurt a bit for about a day. That's it."
-How_has_the_pain_progressed "It has been getting progressively worse."
-Is_this_the_worst_pain_ever "It certainly is pretty bad."
+DID_THE_PAST_PAIN_RADIATE "Not that I have noticed.  It pretty much just stayed in my back."
+DID_YOU_HAVE_PAST_RADIATING_PAIN "Not really, the pain pretty much just stayed in my back."
+WAS_THE_PAST_PAIN_IN_YOUR_LOWER_BACK "It was in the middle of my lower back."
+WAS_THE_PAST_PAIN_ON_ONE_SIDE  "It was in the middle of my lower back."
+WAS_THE_PAST_PAIN_SHARP  "It seemed more dull and achy, not like a knife or anything."
+WAS_THE_PAST_PAIN_DULL  "It seemed more dull and achy, not like a knife or something.  It felt more like someone was stepping on me."
+WAS_THE_AREA_TENDER_BEFORE  "\[ Pain2 \]A little bit maybe, but not too bad. I don't really remember."
+WAS_THE_PAST_PAIN_IN_THE_MUSCLE  "I don't recall."
+WHEN_DID_THE_PAIN_HURT_BEFORE "I had it for about a day, then it was gone. The Tylenol took care of it."
+HOW_DID_IT_FEEL_BEFORE "\[ Pain2 \]It hurt a bit for about a day. That's it."
+HOW_HAS_THE_PAIN_PROGRESSED "Difficult to say. I am not sure if it is getting worse or not."
+IS_THIS_THE_WORST_PAIN_EVER "It certainly is pretty bad."
 
 ### PastRespiratorySymptoms
 # breathing
@@ -761,15 +784,15 @@ Is_this_the_worst_pain_ever "It certainly is pretty bad."
 ### FamilyGeneralSymptoms
 # medicalproblems
 
-Any_conditions_that_run_in_your_family "I don't think so."
-Any_family_history_of_illness  "Nothing that I can think of. My parents are healthy and they didn't have any unusual illnesses. I don't really know much about my grandparents."
-Parents_have_any_medical_problems "My parents are healthy.  My mom gets short of breath sometimes but that is because of her smoking.  I keep trying to get her to quit but she keeps doing it."
+ANY_CONDITIONS_THAT_RUN_IN_YOUR_FAMILY "My family has generally been pretty healthy.."
+ANY_FAMILY_HISTORY_OF_ILLNESS  "My parents are healthy and they didn't have any unusual illnesses. I don't really know much about my grandparents."
+PARENTS_HAVE_ANY_MEDICAL_PROBLEMS "My parents are healthy.  They aren't as active as they used to be but they still get around OK."
 
 ### FamilyAbdominalGISymptoms
 # bowel
 
-Family_history_of_bowel_problems "As I know my parents are pretty healthy"
-Bowel_or_bladder_problems_in_your_family "As far as I know my parents are pretty healthy"
+FAMILY_HISTORY_OF_BOWEL_PROBLEMS "As far as I know my parents are pretty healthy"
+BOWEL_OR_BLADDER_PROBLEMS_IN_YOUR_FAMILY "As far as I know my parents are pretty healthy"
 
 # abdominalpain
 
@@ -777,7 +800,7 @@ Bowel_or_bladder_problems_in_your_family "As far as I know my parents are pretty
 ### FamilyCardiacSymptoms
 # bloodpressure
 
-Family_history_of_hypertension "Not that I know of, I don�t' know if they would have told me but in general my parents seem healthy"
+FAMILY_HISTORY_OF_HYPERTENSION "Not that I know of, I don�t' know if they would have told me but in general my parents seem healthy"
 
 # chestpain
 
@@ -792,16 +815,19 @@ Family_history_of_hypertension "Not that I know of, I don�t' know if they woul
 ### FamilyGUSymptoms
 # bladder
 
-Family_history_of_incontinence "No.  I didn't even know that sort of things ran in families.  As far as I know everyone pees just fine."
+FAMILY_HISTORY_OF_INCONTINENCE "No.  I didn't even know that sort of things ran in families.  As far as I know everyone goes to the bathroom just fine."
+
+# familymaleGU
+
 
 ### FamilyHEENTSymptoms
 # headache
 
-Family_history_of_headaches  "My Mom had Migraines.  She hasn't had one in awhile though.  I have never had trouble with that."
+FAMILY_HISTORY_OF_HEADACHES  "My Mom had migraines when she was younger.  She hasn't had one in awhile though.  I have never had trouble with that."
 
 # neckstiffness
 
-Family_history_of_neck_stiffness  "I guess my mom has some aches and pains in her neck but nothing very significant."
+FAMILY_HISTORY_OF_NECK_STIFFNESS  "I guess my mom has some aches and pains in her neck but nothing very significant."
 
 # nasal
 
@@ -809,15 +835,15 @@ Family_history_of_neck_stiffness  "I guess my mom has some aches and pains in he
 ### FamilyMuscleSymptoms
 # backpain
 
-Anyone_in_your_family_have_back_pain "Not that I am aware of."
+ANYONE_IN_YOUR_FAMILY_HAVE_BACK_PAIN "Not that I am aware of."
 
 # backinjury
 
-Anyone_in_your_family_have_a_back_injury "Not that I am aware of."
+ANYONE_IN_YOUR_FAMILY_HAVE_A_BACK_INJURY "Not that I am aware of."
 
 # musclepain
 
-Anyone_in_your_family_have_muscle_pain "Not that I am aware of."
+ANYONE_IN_YOUR_FAMILY_HAVE_MUSCLE_PAIN "Not that I am aware of."
 
 ### FamilyGYNSymptoms
 # sexualhealth
@@ -830,6 +856,9 @@ Anyone_in_your_family_have_muscle_pain "Not that I am aware of."
 
 
 # breast
+
+
+# family_breast
 
 
 ### FamilyPainSymptoms
@@ -850,130 +879,139 @@ Anyone_in_your_family_have_muscle_pain "Not that I am aware of."
 ### Wellness
 # vaccines
 
-have_you_been_vaccinated_for_MMR "I think that short doctor gave it to me last year"
-have_you_been_vaccinated_for_HIB "I believe so"
-have_you_been_vaccinated_for_hepatitis_a  "I think I did before I did some traveling.  A couple of years ago I went to Mexico with some friends to check out a car show.  I think I needed that vaccine then."
-have_you_been_vaccinated_for_hepatitis_b "I think so"
-have_you_been_vaccinated_for_hepatitis "I believe so."
-have_you_had_the_pneumonia_vaccine "I don't remember"
-have_you_received_your_shingles_vaccine "Not yet.  Don't you need to be older for that?"
-when_was_your_last_tetanus_shot "I had my last booster within the last 5 years"
-are_you_current_on_vaccinations "I think I am up to date on all of my vaccinations."
+HAVE_YOU_BEEN_VACCINATED_FOR_MMR "I think the doctor gave it to me last year."
+HAVE_YOU_BEEN_VACCINATED_FOR_HIB "I believe so."
+HAVE_YOU_BEEN_VACCINATED_FOR_HEPATITIS_A  "I think I did before I did some traveling.  A couple of years ago I went to Mexico with some friends to check out a car show.  I think I needed that vaccine then."
+HAVE_YOU_BEEN_VACCINATED_FOR_HEPATITIS_B "I think so."
+HAVE_YOU_BEEN_VACCINATED_FOR_HEPATITIS "I believe so."
+HAVE_YOU_HAD_THE_PNEUMONIA_VACCINE "I don't remember."
+HAVE_YOU_RECEIVED_YOUR_SHINGLES_VACCINE "Not yet.  Don't you need to be older for that?"
+WHEN_WAS_YOUR_LAST_TETANUS_SHOT "I had my last booster within the last 5 years"
+ARE_YOU_CURRENT_ON_VACCINATIONS "I think I am up to date on all of my vaccinations."
 
 # seeingadoctor
 
-When_did_you_see_a_doctor_last "I was here about a year or so ago for my annual physical but I can't remember who I saw. I am really not good with names.  It was a short woman with dark hair."
-Do_you_have_a_doctor "I was here about a year or so ago for my annual physical but I can't remember who I saw.  She was really nice and talked with me about cars.  Maybe her name was Dr. Shaw?  I am not sure."
-Do_you_have_annual_exams "Yes, I try to get in once a year for my physical."
-Have_you_seen_a_doctor "Not since last year for my physical."
-Did_you_have_any_trouble_finding_us "It was pretty easy to get here.  In general I know the area really well.  I have a lot of customers who come to my shop from here."
-Did_you_find_a_parking_spot "I had no problems parking.  Things around here are actually pretty easy.  There are a lot of clear signs."
-How_did_you_get_here_today "I rode a horse.  Just kidding.  I fix cars and usually have no trouble with transportation.  I have a lot of cars in various states of repair around my shop."
-How_did_you_come_to_find_us "I have been here before for my annual physical. This office is pretty close for me and I have a couple of friends that have recommended you."
-How_did_you_learn_about_this_office  "I have been here before for my annual physical exam. This office is pretty close for me and I have a couple of friends that have recommended you."
-Have_you_been_seen_at_this_office_before  "I was here about a year ago for a routine physical."
-Are_you_a_new_patient "I have been to this office about a year ago for a routine physical."
-Where_are_you_usually_seen "Well, this office is the only one that I have ever been."
-Have_you_been_waiting_long "I have not been waiting very long.  I am pretty impressed by how quickly things have moved.  I always hear about long waits at doctor's offices, but I have not had any trouble with that."
+WHEN_DID_YOU_SEE_A_DOCTOR_LAST "I was here about a year or so ago for my annual physical but I can't remember who I saw. I am really not good with names.  It was a short woman with dark hair."
+DO_YOU_HAVE_A_DOCTOR "I was here about a year or so ago for my annual physical but I can't remember who I saw.  She was really nice and talked with me about cars.  Maybe her name was Dr. Shaw?  I am not sure."
+DO_YOU_HAVE_ANNUAL_EXAMS "Yes, I try to get in once a year for my physical."
+HAVE_YOU_SEEN_A_DOCTOR "Not since last year for my physical."
+DID_YOU_HAVE_ANY_TROUBLE_FINDING_US "It was pretty easy to get here.  In general I know the area really well.  I have a lot of customers who come to my shop from here."
+DID_YOU_FIND_A_PARKING_SPOT "I had no problems parking.  Things around here are actually pretty easy.  There are a lot of clear signs."
+HOW_DID_YOU_GET_HERE_TODAY "\[ Happiness4 \]I rode a horse.  Just kidding.  I fix cars and usually have no trouble with transportation.  I have a lot of cars in various states of repair around my shop."
+HOW_DID_YOU_COME_TO_FIND_US "I have been here before for my annual physical. This office is pretty close for me and I have a couple of friends that have recommended you."
+HOW_DID_YOU_LEARN_ABOUT_THIS_OFFICE  "I have been here before for my annual physical exam. This office is pretty close for me and I have a couple of friends that have recommended you."
+HAVE_YOU_BEEN_SEEN_AT_THIS_OFFICE_BEFORE  "I was here about a year ago for a routine physical."
+ARE_YOU_A_NEW_PATIENT "I have been to this office about a year ago for a routine physical."
+WHERE_ARE_YOU_USUALLY_SEEN "Well, this office is the only one that I have ever been."
+HAVE_YOU_BEEN_WAITING_LONG "I have not been waiting very long.  I am pretty impressed by how quickly things have moved.  I always hear about long waits at doctor's offices, but I have not had any trouble with that."
 
 # mentalhealth
 
-Do_you_feel_anxious "I don't feel anxious or nervous."
+ARE_YOU_DEPRESSED "I have always been a pretty happy person."
+ARE_YOU_STRESSED "I am not overly stressed, other than being concerned about this back pain."
+DO_YOU_FEEL_ANXIOUS "I don't feel anxious or nervous."
+DO_YOU_HAVE_A_WEAPON "I had a few guns when I was younger but I don't have any anymore."
+ARE_YOU_HAPPY "I am generally a pretty happy person."
 
 # relationshiphealth
 
+HOW_IS_RELATIONSHIP_WITH_CHILDREN "I have no children."
+HOW_IS_RELATIONSHIP_WITH_SPOUSE "I am not married."
+IS_YOUR_FAMILY_WORRIED_ABOUT_YOU "My parents don't worry about me. They do want me to get this back pain sorted out though."
+HOW_IS_YOUR_SEXUAL_RELATIONSHIP "I am not seeing anyone."
 
 ### Movements
 # currentrangeofmotion
 
-What_movements_make_it_hurt "I think it hurts the most when I bend down.  I even removed the laces from my shoes because I couldn't reach down."
-Does_it_hurt_when_you_bend "\[ Pain3 \]It is really painful when I bend down.  I have had to ask a lot of different people help me reach things off of shelves and stuff."
-Did_you_bend_down "I might have bent a little bit when I lifted up the couch, but I haven't really bent down since."
-How_far_can_you_bend "I can't really bend down very far, if at all.  I almost cried from pain when I was trying to tie my shoes the other day.  Finally I just took out the laces."
-Can_you_bend_down "It is really painful when I bend down.  I have had to ask a lot of different people help me reach things off of shelves and stuff."
-Have_you_tried_to_bend "\[ Pain2 \]It is really painful when I try to bend down."
-Can_you_straighten_up "Standing straight up is OK but I can't stand for long periods.  Eventually everything seems to stiffen some and I get real uncomfortable"
-Can_you_lean "I don�t know,  I haven't really tried it.  I expect it would hurt just like any other type of bending that I have tried."
-Can_you_jump "I don�t know.  I haven't tried to jump at all.  Mostly I am trying to be careful and not move very much at all"
-Can_you_run  "I don't know.  I haven't tried to run at all.  Mostly I am trying to be careful and not move very much at all."
-Can_you_lie_down "Yes, it actually feels a little bit better when I lie down."
-Do_you_have_decreased_motion "I can hardly move around very well at all."
-Can_you_touch_you_toes "\[ Fear1 \]It is very difficult. I can barely put my shoes on.  I even took out the laces because I couldn't tie them up."
-Do_you_know_how_to_lift_properly "I always try to lift with my legs, not my back if that's what you mean.  I guess it didn't work or maybe I just wasn�t paining attention.  Chris and Chuck can be pretty loud and distracting.  I must have screwed something up."
-Were_you_lifting_anything "I was helping a friend move his couch."
-Can_you_lift_anything "I can't really lift much of anything the pain is so bad.  The last time I was at the car parts store the clerk had to carry a battery out to my truck.  I couldn't even carry that!"
-Were_you_twisting "Chuck and I were trying to get the couch downstairs and had to go around a bend to make it fit.  I was lifting it higher when I felt the awful pain.  Luckily I didn't drop the couch down the stairs."
-Can_you_move_your_back "It hurts real bad every time I try.  I have been keeping it really still."
-Have_you_been_moving "Moving around is generally pretty painful.  I can walk but it hurts to go very far.  Even coming in here from the parking lot was a challenge and the parking lot is pretty close to your office."
-Are_you_able_to_stand "I can stand, but everything stiffens after awhile.  Even just sitting here it is pretty uncomfortable."
-Is_standing_a_problem "I can't stand for long periods.  Everything starts to get real tense and hurt bad.  It really just hurts all of the time."
-Are_you_stiff "My lower back is stiff and it feels really tense.  Probably the rest of my is stiff too,  I am worried about my back and keep trying to keep real still so I don't hurt it more."
+WHAT_MOVEMENTS_MAKE_IT_HURT "I think it hurts the most when I bend down.  I even removed the laces from my shoes because I couldn't reach down."
+DOES_IT_HURT_WHEN_YOU_BEND "\[ Pain3 \]It is really painful when I bend down.  I have had to ask a lot of different people help me reach things off of shelves and stuff."
+DID_YOU_BEND_DOWN "When I bent down to tie my shoes I hurt my back."
+HOW_FAR_CAN_YOU_BEND "I can't really bend down very far, if at all.  I almost cried from pain when I was trying to tie my shoes the other day.  Finally I just took out the laces."
+CAN_YOU_BEND_DOWN "It is really painful when I bend down.  I have had to ask a lot of different people help me reach things off of shelves and stuff."
+HAVE_YOU_TRIED_TO_BEND "\[ Pain2 \]It is really painful when I try to bend down."
+CAN_YOU_STRAIGHTEN_UP "Standing straight up is OK but I can't stand for long periods.  Eventually everything seems to stiffen some and I get real uncomfortable"
+CAN_YOU_LEAN "I don�t know,  I haven't really tried it.  I expect it would hurt just like any other type of bending that I have tried."
+CAN_YOU_JUMP "I don�t know.  I haven't tried to jump at all.  Mostly I am trying to be careful and not move very much at all"
+CAN_YOU_RUN  "I don't know.  I haven't tried to run at all.  Mostly I am trying to be careful and not move very much at all."
+CAN_YOU_LIE_DOWN "Yes, it actually feels a little bit better when I lie down."
+DO_YOU_HAVE_DECREASED_MOTION "I can hardly move around very well at all."
+CAN_YOU_TOUCH_YOU_TOES "\[ Fear1 \]It is very difficult. I can barely put my shoes on.  I even took out the laces because I couldn't tie them up."
+DO_YOU_KNOW_HOW_TO_LIFT_PROPERLY "I always try to lift with my legs, not my back if that's what you mean."
+WERE_YOU_LIFTING_ANYTHING "I was just tying my shoes."
+CAN_YOU_LIFT_ANYTHING "I can't really lift much of anything the pain is so bad.  The last time I was at the car parts store the clerk had to carry a battery out to my truck.  I couldn't even carry that!"
+WERE_YOU_TWISTING "I wasn't twisting or anything like that. Just trying to tie my shoes."
+CAN_YOU_MOVE_YOUR_BACK "It hurts real bad every time I try.  I have been keeping it really still."
+HAVE_YOU_BEEN_MOVING "Moving around is generally pretty painful.  I can walk but it hurts to go very far.  Even coming in here from the parking lot was a challenge and the parking lot is pretty close to your office."
+ARE_YOU_ABLE_TO_STAND "I can stand, but everything stiffens after awhile.  Even just sitting here it is pretty uncomfortable."
+IS_STANDING_A_PROBLEM "I can't stand for long periods.  Everything starts to get real tense and hurt bad.  It really just hurts all of the time."
+ARE_YOU_STIFF "My lower back is stiff and it feels really tense.  Probably the rest of my is stiff too,  I am worried about my back and keep trying to keep real still so I don't hurt it more."
+CAN_YOU_OPEN "I am not having any issues like that."
+HAVE_YOU_BEEN_DROPPING_THINGS "I am not having any issues like that."
 
 # pastrangeofmotion
 
-Have_you_lost_range_of_motion_before "This is the first time I have had any sort of problem like this.  I am usually pretty fit and have no trouble getting under cars or climbing a fence."
-Have_you_had_stiffness_before "I haven't had much stiffness in the past. Certainly nothing like this.  A year or two ago I think I pulled a muscle playing basketball with the guys but that got better."
+HAVE_YOU_LOST_RANGE_OF_MOTION_BEFORE "This is the first time I have had any sort of problem like this.  I am usually pretty fit and have no trouble getting under cars or climbing a fence."
+HAVE_YOU_HAD_STIFFNESS_BEFORE "I haven't had much stiffness in the past. Certainly nothing like this.  A year or two ago I think I pulled a muscle playing basketball with the guys but that got better."
 
 ### ChitChat
 # weatherquestions
 
-What_is_it_like_outside "It seems ok although I am worried it will rain.  It is really hard to work as a mechanic when the weather is bad.   During that ice storm last winter I couldn't work for days."
-Is_it_starting_to_get_cold_outside "I don't know, I haven't been outside in a while.  I hope not.  I work outside on cars and that is really hard when it is cold out."
-Is_it_still_raining "I don't know, I haven't been outside in quite a while."
-What_do_you_think_about_this_weather "It seems ok although I am worried it will rain.  It is really hard to work as a mechanic when the weather is bad.   During that ice storm last winter I couldn't work for days."
+WHAT_IS_IT_LIKE_OUTSIDE "It seems ok although I am worried it will rain.  It is really hard to work as a mechanic when the weather is bad.   During that ice storm last winter I couldn't work for days."
+IS_IT_STARTING_TO_GET_COLD_OUTSIDE "I don't know, I haven't been outside in a while.  I hope not.  I work outside on cars and that is really hard when it is cold out."
+IS_IT_STILL_RAINING "I don't know, I haven't been outside in quite a while."
+WHAT_DO_YOU_THINK_ABOUT_THIS_WEATHER "It seems ok although I am worried it will rain.  It is really hard to work as a mechanic when the weather is bad.   During that ice storm last winter I couldn't work for days."
 
 # seasonquestions
 
-Doesn't_seem_like_summer_any_more "The seasons seem to change quickly these days.  I really hate the cold.  I can't fix cars as well in the cold."
+DOESN'T_SEEM_LIKE_SUMMER_ANY_MORE "The seasons seem to change quickly these days.  I really hate the cold.  I can't fix cars as well in the cold."
 
 # sportsquestions
 
-see_game "I don't get to watch sports very often but I do like the Buckeyes!"
-What_do_you_think_about_the_buckeyes  "I'm not into sports that much but I do like the Buckeyes!"
+SEE_GAME "I don't get to watch sports very often but I do like the Buckeyes!"
+WHAT_DO_YOU_THINK_ABOUT_THE_BUCKEYES  "I'm not into sports that much but I do like the Buckeyes!"
 
 # readingquestions
 
-Read_any_good_books_lately "I try to read everything that Dr. Danforth writes, but other than that I don't read very often."
+READ_ANY_GOOD_BOOKS_LATELY "I try to read everything that Dr. Danforth writes, but other than that I don't read very often."
 
 # watchingquestions
 
-Seen_any_good_movies_lately "They just don't make them like they used to.  I don't really have much time to see movies.  Business has been a little slow this year,  I have to spend a lot time working."
-Watch_NCIS_last_night "I haven't watched much TV lately."
+SEEN_ANY_GOOD_MOVIES_LATELY "They just don't make them like they used to.  I don't really have much time to see movies.  Business has been a little slow this year,  I have to spend a lot time working."
+WATCH_NCIS_LAST_NIGHT "I haven't watched much TV lately."
 
 # politicsquestions
 
-Who_are_you_going_to_vote_for "I don't like discussing politics.  There is too much hate out there."
+WHO_ARE_YOU_GOING_TO_VOTE_FOR "I don't like discussing politics.  There is too much hate out there."
 
 # restaurantquestions
 
-Been_to_any_good_restaurants_lately "I don't eat out very often. Usually I just heat up some soup and make a salad or something."
+BEEN_TO_ANY_GOOD_RESTAURANTS_LATELY "I don't eat out very often. Usually I just heat up some soup and make a salad or something."
 
 # howwasyourdayquestions
 
-How_was_your_day "My '_0 was just fine, thanks for asking. If it weren't for my back I would be feeling good."
-How_has_your_day_been_going "My '_0 was just fine, thanks for asking. If it weren't for my back I would be feeling good."
+HOW_WAS_YOUR_DAY "Just fine, thanks for asking. If it weren't for my back I would be feeling good."
+HOW_HAS_YOUR_DAY_BEEN_GOING "Just fine, thanks for asking. If it weren't for my back I would be feeling good."
 
 # feelingquestions
 
-Are_you_frustrated "I really just want to know what is going on and get some relief for the pain. It is frustrating not to be able to work, but that isn't your fault."
-Are_you_nervous "Well I am a little anxious that you won't be able to help me and my pain will get worse."
+ARE_YOU_FRUSTRATED "I really just want to know what is going on and get some relief for the pain. It is frustrating not to be able to work, but that isn't your fault."
+ARE_YOU_NERVOUS "Well I am a little anxious that you won't be able to help me and my pain will get worse."
 
 ### Closure
 # closure
 
-Do_you_have_any_questions " print(  [No] [No, I think that's all. Thank you for your time])"
-Anything_else_I_can_help_with "No, thank you for seeing me.  Hopefully we can get this pain taken care of and I can get back to work."
-Have_everything_you_need "Yes, thank you.  Just tell me what to try and I will do my best.  I really want to get this fixed."
-Have_all_the_information "OK Thanks."
-Do_an_exam_now "Sounds good,  I hope you can tell me what is wrong."
-Goodbye " print(\[ Happy2 \][Goodbye then] [Goodbye and thanks])"
-Thanks "\[ Happiness2 \]Thank you"
+DO_YOU_HAVE_ANY_QUESTIONS "I think that's all. Thank you for your time."
+ANYTHING_ELSE_I_CAN_HELP_WITH "No, thank you for seeing me.  Hopefully we can get this pain taken care of and I can get back to work."
+HAVE_EVERYTHING_YOU_NEED "Yes, thank you.  Just tell me what to try and I will do my best.  I really want to get this fixed."
+HAVE_ALL_THE_INFORMATION "OK Thanks."
+DO_AN_EXAM_NOW "Sounds good,  I hope you can tell me what is wrong."
+GOODBYE "Goodbye and thanks."
+THANKS "\[ Happiness2 \]Thank you"
 
 # summarize
 
-Can_you_summarize "Well, I pretty much just hurt my back lifting a couch. I have been off work for a few days and nothing I have tried seems to help much."
-To_summarize " print([That sounds about right] [I think that is correct])"
-Did_I_miss_anything "I don't think so."
+TO_SUMMARIZE "That sounds about right."
+DID_I_MISS_ANYTHING "I don't think so."
 
 ### Screening
 # general
@@ -981,15 +1019,15 @@ Did_I_miss_anything "I don't think so."
 
 # colonsection
 
-have_you_had_a_colonoscopy "I had my first one this year and everything was normal"
+HAVE_YOU_HAD_A_COLONOSCOPY "I had my first one this year and everything was normal"
 
 # breastsection
 
 
 # maleGUsection
 
-have_you_had_a_prostate_exam "I remember that from last year.  The doc said it was normal.  I don't really want to have one of those again."
-Results_of_prostate_exam "It was normal."
+HAVE_YOU_HAD_A_PROSTATE_EXAM "I remember that from last year.  The doc said it was normal.  I don't really want to have one of those again."
+RESULTS_OF_PROSTATE_EXAM "It was normal."
 
 # femaleGUsection
 
@@ -1002,146 +1040,153 @@ Results_of_prostate_exam "It was normal."
 
 # diabetes
 
-Have_you_had_blood_glucose_checked "I am pretty sure my bloodwork is fine. At least I don't recall ever being told there was a problem."
+HAVE_YOU_HAD_BLOOD_GLUCOSE_CHECKED "I am pretty sure my bloodwork is fine. At least I don't recall ever being told there was a problem."
 
 ### Family
 # familylife
 
-Do_you_have_a_family "Just my parents but I am pretty close to them.  My mom brought over dinner the other night because she knew I was having a tough time with my back and everything."
-Do_you_have_any_pets "No pets. They are too much trouble."
-How_is_your_family "My parents are fine but I have no brothers and sisters."
-Who_do_you_live_with "I live alone.  I have tried living with roommates but really it is much nicer to have my own space.  I am set in my ways and like to be able to relax without worrying about a roommate."
-Do_you_live_alone "I live alone.  I have tried living with roommates but really it is much nicer to have my own space.  I am set in my ways and like to be able to relax without worrying about a roommate."
-Where_do_you_live "My apartment is a block or so from here, it is pretty close."
-Where_is_home "I live in Prior Hall at the OSU College of Medicine."
+DO_YOU_HAVE_A_FAMILY "Just my parents but I am pretty close to them.  My mom brought over dinner the other night because she knew I was having a tough time with my back and everything."
+DO_YOU_HAVE_ANY_PETS "No pets. They are too much trouble."
+HOW_IS_YOUR_FAMILY "My parents are fine but I have no brothers and sisters."
+WHO_DO_YOU_LIVE_WITH "I live alone.  I have tried living with roommates but really it is much nicer to have my own space.  I am set in my ways and like to be able to relax without worrying about a roommate."
+DO_YOU_LIVE_ALONE "I live alone.  I have tried living with roommates but really it is much nicer to have my own space.  I am set in my ways and like to be able to relax without worrying about a roommate."
+WHERE_DO_YOU_LIVE "My apartment is a block or so from here, it is pretty close."
+WHERE_IS_HOME "I live in an apartment off of High Street."
+HOW_IS_HOME "Home is fine."
 
 # parentsinformation
 
-Are_your_parents_living "Both of my parents are alive and well"
-How_old_are_your_parents "My mom is 72 and my dad is 78."
-Are_your_parents_healthy "Both of my parents are in good health."
-Tell_me_about_your_parents "My parents are both doing well. They've always been really healthy"
+ARE_YOUR_PARENTS_LIVING "Both of my parents are alive and well"
+HOW_OLD_ARE_YOUR_PARENTS "My mom is 72 and my dad is 78."
+ARE_YOUR_PARENTS_HEALTHY "Both of my parents are in good health."
+TELL_ME_ABOUT_YOUR_PARENTS "My parents are both doing well. They've always been really healthy"
 
 # grandparentsinformation
 
-Are_your_grandparents_living "All of my grandparents are deceased."
-How_did_grandparents_die "I really don't know, I would have to ask my parents. I was really little when they died so I don't remember."
-How_old_are_your_grandparents "They are deceased and I don't know how old they would be if they were alive. Pretty old I think."
-Are_your_grandparents_healthy  "They are all deceased."
-Tell_me_about_your_grandparents "They are all deceased."
+ARE_YOUR_GRANDPARENTS_LIVING "All of my grandparents are deceased."
+HOW_DID_GRANDPARENTS_DIE "I really don't know, I would have to ask my parents. I was really little when they died so I don't remember."
+HOW_OLD_ARE_YOUR_GRANDPARENTS "They are deceased and I don't know how old they would be if they were alive. Pretty old I think."
+ARE_YOUR_GRANDPARENTS_HEALTHY  "They are all deceased."
+TELL_ME_ABOUT_YOUR_GRANDPARENTS "They are all deceased. I don't really know what they died from."
 
 # siblingsinformation
 
-How_old_are_your_siblings "I have no brothers or sisters."
-Are_your_siblings_healthy  "I have no brothers or sisters."
-Tell_me_about_your_siblings "I have no brothers or sisters."
-Do_you_have_siblings "I have no brothers or sisters."
+HOW_OLD_ARE_YOUR_SIBLINGS "I have no brothers or sisters."
+ARE_YOUR_SIBLINGS_HEALTHY  "I have no brothers or sisters."
+TELL_ME_ABOUT_YOUR_SIBLINGS "I have no brothers or sisters."
+DO_YOU_HAVE_SIBLINGS "I have no brothers or sisters."
 
 # relativesinformation
 
-Do_you_have_relatives "I have some aunts, uncles and cousins."
-How_old_are_your_relatives "I don't really know. I am not very close with them."
-Are_your_relatives_healthy "As far as I know my relatives are healthy."
-Tell_me_about_your_relatives "I don't know them very well. I have some aunts and uncles but I don't know much about them since I haven't seen them in a long time."
+DO_YOU_HAVE_RELATIVES "I have some aunts, uncles and cousins but I am not close to them. They don't live around here."
+HOW_OLD_ARE_YOUR_RELATIVES "I don't really know. I am not very close with them."
+ARE_YOUR_RELATIVES_HEALTHY "As far as I know my relatives are healthy."
+TELL_ME_ABOUT_YOUR_RELATIVES "I don't know them very well. I have some aunts and uncles but I don't know much about them since I haven't seen them in a long time."
 
 # childreninformation
 
-How_many_children "I do not have any children."
+HOW_MANY_CHILDREN "I do not have any children."
 
 # spouseinformation
 
-Are_you_divorced "I've never been married."
-How_long_have_you_been_married "I've never been married."
-Are_you_single "I am single."
-Are_you_in_a_relationship "I'm not seeing anyone right now.  I have been thinking about one of those online dating services but I am a little worried about all the wierdos out there."
-Are_you_dating_anyone "I'm not seeing anyone right now.  I have been thinking about one of those online dating services but I am a little worried about all the wierdos out there."
-Are_you_widowed "I've never been married."
-Is_your_partner_healthy  "I don't have a partner right now, I am not seeing anyone."
-Do_you_have_a_boyfriend "I only date women."
-Do_you_have_a_girlfriend "I'm not seeing anyone right now.  I have been thinking about one of those online dating services but I am a little worried about all the wierdos out there."
-Do_you_have_a_significant_other "I'm not seeing anyone right now.  I have been thinking about one of those online dating services but I am a little worried about all the wierdos out there."
-Tell_me_about_your_partner "I don't have one, I'm not seeing anyone right now."
-Do_you_have_a_partner "I am not seeing anyone currently."
-Are_you_married "I'm single."
+ARE_YOU_DIVORCED "I've never been married."
+HOW_LONG_HAVE_YOU_BEEN_MARRIED "I've never been married."
+ARE_YOU_SINGLE "I am single."
+ARE_YOU_IN_A_RELATIONSHIP "I'm not seeing anyone right now.  I have been thinking about one of those online dating services but I am a little worried about all the wierdos out there."
+ARE_YOU_DATING_ANYONE "I'm not seeing anyone right now.  I have been thinking about one of those online dating services but I am a little worried about all the wierdos out there."
+ARE_YOU_WIDOWED "I've never been married."
+IS_YOUR_PARTNER_HEALTHY  "I don't have a partner right now, I am not seeing anyone."
+DO_YOU_HAVE_A_BOYFRIEND "I only date women."
+DO_YOU_HAVE_A_GIRLFRIEND "I'm not seeing anyone right now.  I have been thinking about one of those online dating services but I am a little worried about all the wierdos out there."
+DO_YOU_HAVE_A_SIGNIFICANT_OTHER "I'm not seeing anyone right now.  I have been thinking about one of those online dating services but I am a little worried about all the wierdos out there."
+TELL_ME_ABOUT_YOUR_PARTNER "I don't have one, I'm not seeing anyone right now."
+DO_YOU_HAVE_A_PARTNER "I am not seeing anyone currently."
+ARE_YOU_MARRIED "I'm single."
 
 # supportinformation
 
-Are_you_abused "I have no concerns about my home life."
-Do_you_feel_safe "I feel safe.  My place is in an ok area, nothing that makes me worried."
-Do_you_have_support "Well, I live alone but I am OK.  I am pretty close with my parents."
-Who_supports_you "My parents and my friends. I have some really good friends."
+ARE_YOU_ABUSED "I have no concerns about my home life."
+DO_YOU_FEEL_SAFE "I feel safe.  My place is in an ok area, nothing that makes me worried."
+DO_YOU_HAVE_SUPPORT "Well, I live alone but I am OK.  I am pretty close with my parents."
+WHO_SUPPORTS_YOU "My parents and my friends. I have some really good friends."
+
+# family_medical_problems
+
+
+# supportinformation
+
 
 ### HOPIChiefcomplaint
 # onset
 
-Did_anything_happen_to_cause_the_1 "A few days ago I was helping one of my friends lift a big heavy couch. When I bent down, I felt a sharp pain in my back.  I guess I shouldn't have been lifting the couch but we needed to move it, and I am not want to say no when a friend asks for help."
-How_did_the_1_start "\[ Pain2 \]It started hurting after I was lifting some furniture with a friend. Ever since then I can barely move."
-Doing_anything_when_the_1_started "A few days ago I was helping one of my friends lift some furniture and all of a sudden I felt a sharp pain in my back.  I guess I shouldn't have been lifting the couch but we needed to move it, and I am not want to say no when a friend asks for help."
-Was_the_onset_sudden1 "Yes it started hurting almost immediately.  I almost dropped the couch down the stairs on Chris!  I don't think Chris or his landlord would have been happy about that.  Luckily I hung on but my back has been hurting ever since."
-Did_the_1_start_immediately "Yes, I felt a sharp pain right away.   I almost dropped the couch down the stairs on Chris!  I don't think Chris or his landlord would have been happy about that.  Luckily I hung on but my back has been hurting ever since."
-Is_the_1_new "It started about 5 days ago so yeah, it is pretty recent.  I don't remember any trouble before then."
-Is_this_the_first_time_for_1 "I have never had back pain like this before. Maybe a small ache now and then but nothing like this.  My friend's dad used to have pretty bad back problems.  I think he used a cane and everything.  I have been pretty lucky so far"
-When_did_the_1_start "The pain started about four or five days ago."
-How_has_the_1_changed "\[ Fear1 \]I don't know. It hurts quite a bit but it's hard to tell if it is getting any worse."
-How_long_have_you_had_1 "Almost a week I think."
-Is_the_1_constant "\[ Fear2 \]It is pretty constant although sometimes it is a little better or worse.  I hope that you can help make it better.  I really need to get back to my life."
-Do_you_have_a_cause_for_1 "\[ Pain3 \]I'm not really sure, all I know is that my back really hurts.  My neighbor had some back problems a couple of years back and he said that you guys could probably help."
+DID_ANYTHING_HAPPEN_TO_CAUSE_THE_1 "A few days ago I was just getting dressed and when I bent over to tie my shoes I felt a sharp pain in my lower back."
+HOW_DID_THE_1_START "\[ Pain2 \]My back started hurting when I bent over the other day to ties my shoes. All of a sudden I felt a sharp pain in my lower back. It really hurt!"
+DOING_ANYTHING_WHEN_THE_1_STARTED "A few days ago I was just putting on my shoes and when I bent over I felt a shapr pain in my back."
+WAS_THE_ONSET_SUDDEN1 "Yes it started immediately.  I had to straighten up and just sit there for a while."
+DID_THE_1_START_IMMEDIATELY "I felt a sharp pain right away."
+IS_THE_1_NEW "It started about 4-5 days ago so yeah, it is pretty recent.  I don't remember any trouble before then."
+IS_THIS_THE_FIRST_TIME_FOR_1 "I have never had back pain like this before. Maybe a small ache now and then but nothing like this.  My friend's dad used to have pretty bad back problems.  I think he used a cane and everything.  I have been pretty lucky so far"
+WHEN_DID_THE_1_START "The pain started about four or five days ago."
+HOW_HAS_THE_1_CHANGED "\[ Fear1 \]I don't know. It hurts quite a bit but it's hard to tell if it is getting any worse."
+HOW_LONG_HAVE_YOU_HAD_1 "Almost a week I think."
+IS_THE_1_CONSTANT "\[ Fear2 \]It is pretty constant although sometimes it is a little better or worse.  I hope that you can help make it better.  I really need to get back to my life."
+DO_YOU_HAVE_A_CAUSE_FOR_1 "\[ Pain3 \]I'm not really sure, all I know is that my back really hurts.  My neighbor had some back problems a couple of years back and he said that you guys could probably help."
 
 # exacerbation
 
-What_makes_the_1_worse "\[ Pain3 \]Bending down and moving makes it feel a lot worse.  The other day I couldn't even pick up a car part off of the bottom shelf."
-Does_anything_change_1_intensity "\[ Pain4 \]Bending over and moving generally makes it worse.   The other day I couldn't even pick up a car part off of the bottom shelf."
-What_have_you_tried_for_the_1 "I tried some ibuprofen, but that hasn't helped very much.  A buddy of mine swears by accupuncture and has been trying to get me to do that but I don't really like needles.  At first I tried just laying in bed, but that didn't really seem to help and I can't just lay there all day."
-Have_you_tried_anything_for_the_1 "I tried some ibuprofen, but I don't think that is helping very much.  A buddy of mine swears by accupuncture and has been trying to get me to do that but I don't really like needles.  At first I tried just laying in bed, but that didn't really seem to help and I can't just lay there all"
-What_makes_the_1_better "\[ Sadness2 \]The only thing that seems to help some is ibuprofen, and that doesn't help all that much.  That is why I am coming to you."
-Does_anything_else_help_the_1 "I haven't tried anything else yet.  On the first day after it happened I just laid in bed, but I don't know if that helped much and was real antsy.  I have been thinking about getting a massage but they are pretty expensive.  I really just don't know what to do."
-Have_you_tried_anything_else_for_1 "I have not tried anything else yet.  On the first day after it happened I just laid in bed, but I don't know if that helped much and was real antsy.  I have been thinking about getting a massage but they are pretty expensive.  I really just don't know what to do."
-Have_you_tried_anything_else1 "I have not tried anything else yet.  On the first day after it happened I just laid in bed, but I don't know if that helped much and was real antsy.  I have been thinking about getting a massage but they are pretty expensive.  I really just don't know what to do."
-Have_you_tried_any_other_methods1 "I have not tried anything else yet.  On the first day after it happened I just laid in bed, but I don't know if that helped much and was real antsy.  I have been thinking about getting a massage but they are pretty expensive.  I really just don't know what to do."
-What_else_have_you_tried_for_1 "I have only tried the ibuprofen.  A buddy of mine told me I should spend a couple of days in bed but I really couldn't afford to do that.  I have to at least try to work."
-What_else_have_you_tried1 "I have only tried the ibuprofen.  A buddy of mine told me I should spend a couple of days in bed but I really couldn't afford to do that.  I have to at least try to work."
-Does_moving_increase_the_1 "\[ Fear2 \]It seems like every time I move it hurts.  Two days ago I bought a muffler from a car parts store and I had to have the store clerk carry it to my car."
-Does_any_position_relieve_the_1 "Not that I have found.  I have tried to move around and check things out a little but but it hurts a lot and hasn't seemed to help."
-Does_any_position_make_the_1_worse "\[ Pain4 \]It probably hurts the most whenever I try to bend over.  I can't even take stuff off of shelves."
-Do_any_positions_make_1_worse_or_better "It probably hurts the most when I try to bend over.  When I am sitting still it feels real stiff which is uncomfortable, but maybe not as bad."
-Can_you_move_around_with_the_1 "Every time I move it hurts more.   I have been trying to keep myself real still, but then everything gets kind of stiff and it is impossible to really do anything."
-Is_1_worse_when_you_lie_down "It actually feels a little better when I lie down, but not that much.  I tried that at first.  A friend of mine said I was supposed to just stay in bed but I really can't do that."
-Do_you_have_1_when_you_lie_down "It actually feels a little better when I lie down, but not that much.  I tried that at first.  A friend of mine said I was supposed to just stay in bed but I really can't do that."
-Is_1_better_when_you_lie_down "It actually feels a little better when I lie down, but not that much.  I tried that at first.  A friend of mine said I was supposed to just stay in bed but I really can't do that."
-Does_1_increase_when_you_stand "My back pretty much hurts no matter what I do. Standing for long periods is really tiring."
-Does_the_1_improve_with_exercise "I haven't really exercised but since moving hurts so bad I don't think it would help."
-Does_the_1_keep_you_up_at_night "It is sometimes difficult to get much sleep."
-1_worse_morning_or_night "\[ Sadness2 \]It hurts all the time.  I haven't really noticed if morning or night is better.  In the morning it feels really stiff so it is pretty bad.  In the night though it is really achy nad anytime I try to do stuff during the day it hurts really bad."
-Avoid_exacerbate_1 "I rest as much as possible."
-Is_the_1_improving "\[ Fear2 \]I don't know if it is getting worse or not. It pretty much just hurts all the time."
+WHAT_MAKES_THE_1_WORSE "\[ Pain3 \]Bending down and moving makes it feel a lot worse.  The other day I couldn't even pick up a car part off of the bottom shelf."
+DOES_ANYTHING_CHANGE_1_INTENSITY "\[ Pain4 \]Bending over and moving generally makes it worse.   The other day I couldn't even pick up a car part off of the bottom shelf."
+WHAT_HAVE_YOU_TRIED_FOR_THE_1 "I tried some ibuprofen, but that hasn't helped very much.  A buddy of mine swears by accupuncture and has been trying to get me to do that but I don't really like needles.  At first I tried just laying in bed, but that didn't really seem to help and I can't just lay there all day."
+HAVE_YOU_TRIED_ANYTHING_FOR_THE_1 "I tried some ibuprofen, but I don't think that is helping very much.  A buddy of mine swears by accupuncture and has been trying to get me to do that but I don't really like needles.  At first I tried just laying in bed, but that didn't really seem to help and I can't just lay there all"
+WHAT_MAKES_THE_1_BETTER "\[ Sadness2 \]The only thing that seems to help some is ibuprofen, and that doesn't help all that much.  That is why I am coming to you."
+DOES_ANYTHING_ELSE_HELP_THE_1 "I haven't tried anything else yet.  On the first day after it happened I just laid in bed, but I don't know if that helped much and was real antsy.  I have been thinking about getting a massage but they are pretty expensive.  I really just don't know what to do."
+HAVE_YOU_TRIED_ANYTHING_ELSE_FOR_1 "I have not tried anything else yet.  On the first day after it happened I just laid in bed, but I don't know if that helped much and was real antsy.  I have been thinking about getting a massage but they are pretty expensive.  I really just don't know what to do."
+HAVE_YOU_TRIED_ANYTHING_ELSE1 "I have not tried anything else yet.  On the first day after it happened I just laid in bed, but I don't know if that helped much and was real antsy.  I have been thinking about getting a massage but they are pretty expensive.  I really just don't know what to do."
+HAVE_YOU_TRIED_ANY_OTHER_METHODS1 "I have not tried anything else yet.  On the first day after it happened I just laid in bed, but I don't know if that helped much and was real antsy.  I have been thinking about getting a massage but they are pretty expensive.  I really just don't know what to do."
+WHAT_ELSE_HAVE_YOU_TRIED_FOR_1 "I have only tried the ibuprofen.  A buddy of mine told me I should spend a couple of days in bed but I really couldn't afford to do that.  I have to at least try to work."
+WHAT_ELSE_HAVE_YOU_TRIED1 "I have only tried the ibuprofen.  A buddy of mine told me I should spend a couple of days in bed but I really couldn't afford to do that.  I have to at least try to work."
+DOES_MOVING_INCREASE_THE_1 "\[ Fear2 \]It seems like every time I move it hurts.  Two days ago I bought a muffler from a car parts store and I had to have the store clerk carry it to my car."
+DOES_ANY_POSITION_RELIEVE_THE_1 "Not that I have found.  I have tried to move around and check things out a little but but it hurts a lot and hasn't seemed to help."
+DOES_ANY_POSITION_MAKE_THE_1_WORSE "\[ Pain4 \]It probably hurts the most whenever I try to bend over.  I can't even take stuff off of shelves."
+DO_ANY_POSITIONS_MAKE_1_WORSE_OR_BETTER "It probably hurts the most when I try to bend over.  When I am sitting still it feels real stiff which is uncomfortable, but maybe not as bad."
+CAN_YOU_MOVE_AROUND_WITH_THE_1 "Every time I move it hurts more.   I have been trying to keep myself real still, but then everything gets kind of stiff and it is impossible to really do anything."
+IS_1_WORSE_WHEN_YOU_LIE_DOWN "It actually feels a little better when I lie down, but not that much.  I tried that at first.  A friend of mine said I was supposed to just stay in bed but I really can't do that."
+DO_YOU_HAVE_1_WHEN_YOU_LIE_DOWN "It actually feels a little better when I lie down, but not that much.  I tried that at first.  A friend of mine said I was supposed to just stay in bed but I really can't do that."
+IS_1_BETTER_WHEN_YOU_LIE_DOWN "It actually feels a little better when I lie down, but not that much.  I tried that at first.  A friend of mine said I was supposed to just stay in bed but I really can't do that."
+DOES_1_INCREASE_WHEN_YOU_STAND "My back pretty much hurts no matter what I do. Standing for long periods is really tiring."
+DOES_THE_1_IMPROVE_WITH_EXERCISE "I haven't really exercised but since moving hurts so bad I don't think it would help."
+DOES_THE_1_KEEP_YOU_UP_AT_NIGHT "It has been difficult to get much sleep."
+1_WORSE_MORNING_OR_NIGHT "\[ Sadness2 \]It hurts all the time.  I haven't really noticed if morning or night is better.  In the morning it feels really stiff so it is pretty bad.  In the night though it is really achy and anytime I try to do stuff during the day it hurts really bad."
+AVOID_EXACERBATE_1 "I rest as much as possible."
+IS_THE_1_IMPROVING "\[ Fear2 \]It doesn't seem to be getting any better. It pretty much hurts all the time."
 
 # intensity
 
-How_intense_is_the_1 "\[ Fear2 \]It is pretty bad. My back hurts all the time and I can't even work."
-Has_the_intensity1_changed "Hard to say. I think it has pretty much stayed the same since I hurt it."
-Has_the_1_become_worse "It is hard to say. I think it has pretty much stayed the same since I hurt it."
-When_is_the_1_most_severe "It pretty much hurts all the time.   Yesterday a heard a pretty loud bang behind me and I turned around quickly which was a mistake as my back pain was excruciating.  All it was was the neighbors cat knocking down a trashcan.  Man, did I want to hurt that cat!"
+HOW_INTENSE_IS_THE_1 "\[ Fear2 \]It is pretty bad. My back hurts all the time and I can't even work."
+HAS_THE_INTENSITY1_CHANGED "Hard to say. I don't think it is getting any better."
+HAS_THE_1_BECOME_WORSE "Hard to say. I don't think it is getting any better."
+WHEN_IS_THE_1_MOST_SEVERE "It pretty much hurts all the time.   Yesterday a heard a pretty loud bang behind me and I turned around quickly which was a mistake as my back pain was excruciating.  All it was was the neighbors cat knocking down a trashcan.  Man, did I want to hurt that cat!"
 
 # general
 
-Do_you_currently_have_1 "Yes, it's there all the time.  I have been sitting real still but then everything sort of stiffens up."
-How_is_your_1_now "\[ Pain1 \]It hurts quite a bit now, although not as bad as when I twist or something.  Right now it is mostly stiff."
-Do_you_have_any_1 "\[ Pain3 \]My back is really hurting.  If it weren't for my back, I would be doing ok."
-Are_you_having_any_other_1 "Just the back pain."
-How_else_is_the_1_affecting_your_life "\[ Fear2 \]I can't do much of anything it hurts so much.  Even grocery shopping is hard.  The other day I had to ask a little old lady to get something off of a shelf for me!  I have had to virtually stop working on the cars in my shop."
-Has_the_1_stopped_you "\[ Fear2 \]Well, I can't work and I can't get around very well it hurts so much.  Even grocery shopping is hard.  The other day I had to ask a little old lady to get something off of a shelf for me!  I have had to virtually stop working on the cars in my shop."
-Have_you_had_1_before "I had some similar back pain about 4 or 5 years ago, but it went away with tylenol."
+DO_YOU_CURRENTLY_HAVE_1 "It's there all the time.  I have been sitting real still but then everything sort of stiffens up."
+HOW_IS_YOUR_1_NOW "\[ Pain1 \]It hurts quite a bit now, although not as bad as when I twist or something.  Right now it is mostly stiff."
+DO_YOU_HAVE_ANY_1 "\[ Pain3 \]My back is really hurting.  If it weren't for my back, I would be doing ok."
+ARE_YOU_HAVING_ANY_OTHER_1 "Just the back pain."
+HOW_ELSE_IS_THE_1_AFFECTING_YOUR_LIFE "\[ Fear2 \]I can't do much of anything it hurts so much.  Even grocery shopping is hard.  The other day I had to ask a little old lady to get something off of a shelf for me!  I have had to virtually stop working on the cars in my shop."
+HAS_THE_1_STOPPED_YOU "\[ Fear2 \]Well, I can't work and I can't get around very well it hurts so much.  Even grocery shopping is hard.  The other day I had to ask a little old lady to get something off of a shelf for me!  I have had to virtually stop working on the cars in my shop."
+HAVE_YOU_HAD_1_BEFORE "I had some similar back pain about 4 or 5 years ago, but it went away with tylenol."
 
 # description
 
-Has_the_1_changed "It seems like it might be getting worse."
-When_do_you_have_the_1 "I have it all of the time.  Sometimes if I lay real still it gets a little better but it keeps coming back."
-How_long_does_the_1_last "It hurts pretty much all of the time."
-How_frequent_is_the_1 "It is there all the time, it hasn't really gone away since it first started"
-What_concerns_you_about_the_1 "It is there all the time, it hasn't really gone away since it first started"
-Where_is_the_1 "It is mostly in my lower back."
-Describe_the_1 "It's a dull ache right in the middle of my lower back."
-When_else_do_you_have_the_1 "My back hurts all the time."
+HAS_THE_1_CHANGED "I don't know if it has changed. It is not getting any better, I know that."
+WHEN_DO_YOU_HAVE_THE_1 "I have it all of the time.  Sometimes if I lay real still it gets a little better but it keeps coming back."
+HOW_LONG_DOES_THE_1_LAST "It hurts pretty much all of the time."
+HOW_FREQUENT_IS_THE_1 "It is there all the time, it hasn't really gone away since it first started"
+WHAT_CONCERNS_YOU_ABOUT_THE_1 "It is there all the time, it hasn't really gone away since it first started"
+WHERE_IS_THE_1 "It is mostly in my lower back."
+DESCRIBE_THE_1 "It started as a sharp pain but is now a dull ache right in the middle of my lower back."
+WHEN_ELSE_DO_YOU_HAVE_THE_1 "My back hurts all the time."
 
 ### HOPIComplaint2
 # onset

@@ -4,122 +4,108 @@
 
 # Range of Motion
 
-topic: ~currentrangeofmotion keep repeat bot=patient1,patient2,patient3,patient4,patient5,patient6,patient7,patient8,patient9,patient10,patient11,patient12,patient13,patient14,patient15,patient16,patient17,patient18,patient19 (range "range of motion" motion move movement bend bending toe lift stand twist jump stiff stiffness lean straighten run "lie down" action open grip drop "lose grip" difficult tightness)
+topic: ~currentrangeofmotion keep repeat (range "range of motion" motion move movement bend bending toe lift stand twist jump stiff stiffness lean straighten run "lie down" action open grip drop "lose grip" difficult tightness)
 
-	u: ($pasthistory) respond(~pastrangeofmotion) ^fail(TOPIC)   
+	u: ($pasthistory) respond(~pastrangeofmotion) ^fail(TOPIC)
 
 #! What movements make it hurt
-	u: What_movements_make_it_hurt (what movements make it hurt) ^factanswer("No movements cause it to hurt.")
-	u: ([action movement 'do what] * [make cause] * [hurt pain painful worse]) ^reuse (What_movements_make_it_hurt)
-	u: ([action movement 'do what] * [hurt pain painful worse])  ^reuse (What_movements_make_it_hurt)
+	?: WHAT_MOVEMENTS_MAKE_IT_HURT
+		([
+			([action movement 'do what] * [make cause] * [hurt pain painful worse])
+			([action movement 'do what] * [hurt pain painful worse])
+		])
+	^factanswer("No movements cause it to hurt.")
 
 #! Does it hurt when you bend
-	u: Does_it_hurt_when_you_bend (does it hurt when you bend)  ^factanswer("It doesn't hurt when I bend.")
-	u: (<< [hurt painful worse] bend >>) ^reuse (Does_it_hurt_when_you_bend)
+	?: DOES_IT_HURT_WHEN_YOU_BEND (<< [hurt painful worse] bend >>)  ^factanswer("It doesn't hurt when I bend.")
+
+#! Does it hurt when you move
+	?: DOES_IT_HURT_WHEN_YOU_MOVE
+		([
+			(<< [hurt painful worse] [move movement] >>)
+			([~itwords $chiefcomplaint?] *~3 change *~3 [move movement])
+		])
+		^factanswer("It doesn't hurt when I move.")
 
 #! Did you bend down
-	u: Did_you_bend_down (did you bend down)  ^factanswer("I didn't bend down.")
-	u: (!can did * bend [down over]) ^reuse (Did_you_bend_down)
+	?: DID_YOU_BEND_DOWN (!can did * bend [down over])  ^factanswer("I didn't bend down.")
 
 #! How far can you bend
-	u: How_far_can_you_bend (how far can you bend) ^factanswer("I don't have any problems with that.")
-	u: (how far * bend) ^reuse (How_far_can_you_bend)
+	?: HOW_FAR_CAN_YOU_BEND (how far *~3 bend) ^factanswer("I don't have any problems with that.")
 
 #! Can you bend down
-	u: Can_you_bend_down (can you bend down) ^factanswer("I don't have any problems with that.")
-	u: (!worse [can are difficult] * bend) ^reuse (Can_you_bend_down)
+	?: CAN_YOU_BEND_DOWN (!worse [can are difficult] *~3 bend) ^factanswer("I don't have any problems with that.")
 
 #! Have you tried to bend down
-	u: Have_you_tried_to_bend (have you tried to bend) ^factanswer("I don't have any problems with that.")
-	u: (try * [bend bending]) ^reuse (Have_you_tried_to_bend)
+	?: HAVE_YOU_TRIED_TO_BEND (try *~3 [bend bending]) ^factanswer("I don't have any problems with that.")
 
 #! Can you straighten up
-	u: Can_you_straighten_up (can you straighten up) ^factanswer("I don't have any problems with that.")
-	u: ([can are] * ["get up" straighten]) ^reuse (Can_you_straighten_up)
+	?: CAN_YOU_STRAIGHTEN_UP ([can are] *~3 ["get up" straighten]) ^factanswer("I don't have any problems with that.")
 
 #! Can you lean backwards
-	u: Can_you_lean (can you lean) ^factanswer("I don't have any problems with that.")
-	u: ([can are] * lean) ^reuse (Can_you_lean)
+	?: CAN_YOU_LEAN ([can are] *~3 lean) ^factanswer("I don't have any problems with that.")
 
 #! Can you jump
-	u: Can_you_jump (can you jump)  ^factanswer("I don't have any problems with that.")
-	u: (jump) ^reuse (Can_you_jump)
+	?: CAN_YOU_JUMP ([can are] *~3 jump)  ^factanswer("I don't have any problems with that.")
 
 #! Can you run
-	u: Can_you_run (can you run)  ^factanswer("I can do that just fine.")
-	u: (!family run) ^reuse (Can_you_run)
+	?: CAN_YOU_RUN (!family [can are] *~3 run)  ^factanswer("I can do that just fine.")
 
 #! Can you lie down
-	u: Can_you_lie_down (can you lie down)  ^factanswer("I can do that just fine.")
-	u: ([can are] * "lie down") ^reuse (Can_you_lie_down)
+	?: CAN_YOU_LIE_DOWN ([can are] *~3 "lie down")  ^factanswer("I can do that just fine.")
 
 #! Can you open
-	u: Can_you_open (can you open)  ^factanswer("I can open.")
-	u: ([open twist screw unscrew] * [jar bottle thing]) ^reuse (Can_you_open)
+	?: CAN_YOU_OPEN ([open twist screw unscrew] *~3 [jar bottle thing])  ^factanswer("I can open.")
 
 #! Have you been dropping things
-	u: Have_you_been_dropping_things  (have you been dropping things)  ^factanswer("I haven't dropped things.")
-	u: ([drop "lose grip"])  ^reuse (Have_you_been_dropping_things)
+	?: HAVE_YOU_BEEN_DROPPING_THINGS  ([drop "lose grip"])  ^factanswer("I haven't dropped things.")
 
 #! Do you have any decreased range of motion
-	u: Do_you_have_decreased_motion (do you have any decreased range of motion) ^factanswer("I don't think so.")
-	u: (~decrease_count * [motion move movement ~itwords]) ^reuse (Do_you_have_decreased_motion)
+	?: DO_YOU_HAVE_DECREASED_MOTION (~decrease_count * [motion move movement ~itwords]) ^factanswer("I don't think so.")
 
 #! Can you touch your toes
-	u: Can_you_touch_you_toes (can you touch your toes)  ^factanswer("I don't have any problems with that.")
-	u: ([put reach touch] * [toe shoe]) ^reuse (Can_you_touch_you_toes)
+	?: CAN_YOU_TOUCH_YOU_TOES ([put reach touch] * [toe shoe])  ^factanswer("I don't have any problems with that.")
 
 #! Do you know how to lift properly
-	u: Do_you_know_how_to_lift_properly (do you know how to lift properly) ^factanswer("I know how to lift.")
-	u: (lift * [properly correctly "with your legs" "with your back"]) ^reuse (Do_you_know_how_to_lift_properly)
+	?: DO_YOU_KNOW_HOW_TO_LIFT_PROPERLY (lift * [properly correctly "with your legs" "with your back"]) ^factanswer("I know how to lift.")
 
 #! Were you lifting anything
-	u: Were_you_lifting_anything (were you lifting anything) ^factanswer("I wasn't lifting.")
-	u: (!when !are !can !able !work !job [be have do] * [lift pick]) ^reuse (Were_you_lifting_anything) 
-	u: (!when !are !can !able !work !job << heavy [lift lifting] >>) ^reuse (Were_you_lifting_anything) 
+	?: WERE_YOU_LIFTING_ANYTHING
+		([
+			(![when are can able work job] [be have do] *~3 [lift pick])
+			(![when are can able work job] << heavy [lift lifting] >>)
+		])
+	^factanswer("I wasn't lifting.")
 
 #! Can you lift anything
-	u: Can_you_lift_anything (can you lift anything)  ^factanswer("I can lift fine.")
-	u: ([able can] * lift) ^reuse (Can_you_lift_anything)
-
-
+	?: CAN_YOU_LIFT_ANYTHING ([able can] *~4 lift)  ^factanswer("I can lift fine.")
 
 #! Were you twisting
-	u: Were_you_twisting (were you twisting) ^factanswer("I wasn't twisting.")
-	u: (twist) ^reuse (Were_you_twisting)
+	?: WERE_YOU_TWISTING (twist) ^factanswer("I wasn't twisting.")
 
 #! Can you move your back
-	u: Can_you_move_your_back (can you move your back) ^factanswer("I can do that just fine.")
-	u: (![I we] move * [back ~itwords]) ^reuse (Can_you_move_your_back)
+	?: CAN_YOU_MOVE_YOUR_BACK (![I we] move *~3 [back~n ~itwords]) ^factanswer("I can do that just fine.")
 
 #! Have you been moving OK
-	u: Have_you_been_moving (have you been moving) ^factanswer("I have been moving just fine.")
-	u: (![were ~bodyparts][can been able] * move) ^reuse (Have_you_been_moving)
-	
+	?: HAVE_YOU_BEEN_MOVING (![were ~bodyparts][can been able] *~3 move) ^factanswer("I have been moving just fine.")
+
 #! Are you able to stand
-	u: Are_you_able_to_stand (are you able to stand)  ^factanswer("I don't have any problems with that.")
-	u: (!does [able can] * [stand "stand up" "get up"]) ^reuse (Are_you_able_to_stand)
+	?: ARE_YOU_ABLE_TO_STAND (!does [able can] *~3 [stand "stand up" "get up"])  ^factanswer("I don't have any problems with that.")
 
 #! Is standing a problem
-	u: Is_standing_a_problem (is standing a problem)  ^factanswer("It's not a problem.")
-	u: (!long-standing standing *~2 [problem issue concern difficult painful hurt]) ^reuse (Is_standing_a_problem)
+	?: IS_STANDING_A_PROBLEM (!long-standing standing *~2 [problem issue concern difficult painful hurt])  ^factanswer("It's not a problem.")
 
 #! Are you stiff
-	u: Are_you_stiff (are you stiff) ^factanswer("I am not stiff.")
-	u: (!neck [stiff stiffness tight tightness]) ^reuse (Are_you_stiff)
+	?: ARE_YOU_STIFF (!neck [stiff stiffness tight tightness]) ^factanswer("I am not stiff.")
 
 
 # ***************************************************************************************************
 topic: ~pastrangeofmotion keep repeat (motion move movement bend bending stiffness stiff)
 
-
-	u: ($present) respond (~currentrangeofmotion) ^fail(TOPIC) 
-
+	u: ($present) respond (~currentrangeofmotion) ^fail(TOPIC)
 
 #! Have you lost range of motion before
-	u: Have_you_lost_range_of_motion_before (have you lost range of motion before) ^factanswer("I've never had any problems with that.")
-	u: (<< "range of motion" [before prior past history ever] >>) ^reuse (Have_you_lost_range_of_motion_before)	
+	?: HAVE_YOU_LOST_RANGE_OF_MOTION_BEFORE (<< "range of motion" [before prior past history ever] >>) ^factanswer("I've never had any problems with that.")
 
 #! Have you had stiffness before
-	u: Have_you_had_stiffness_before (have you had stiffness before) ^factanswer("I've never had any problems with that.")
-	u: (<< stiffness [before prior past history ever] >>) ^reuse (Have_you_had_stiffness_before)
+	?: HAVE_YOU_HAD_STIFFNESS_BEFORE (<< stiffness [before prior past history ever] >>) ^factanswer("I've never had any problems with that.")

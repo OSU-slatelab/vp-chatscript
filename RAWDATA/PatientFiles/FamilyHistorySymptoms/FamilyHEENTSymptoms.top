@@ -1,44 +1,37 @@
 
 # ***************************************************************************************************
 
-topic: ~familyheadache keep repeat (family headache) 
+topic: ~familyheadache keep repeat (~role_family headache)
 
-	u: ($present) respond(~currentheadache) ^fail(TOPIC) 
-	u: ($pasthistory) respond(~pastheadache) ^fail(TOPIC) 
+	u: ($present) respond(~currentheadache) ^fail(TOPIC)
+	u: ($pasthistory) respond(~pastheadache) ^fail(TOPIC)
 
 #! Do you have a family history of headaches
-	u: Family_history_of_headaches (do you have a family history of headache)    ^factanswer("Not that I know of.")
-	u: (headache) ^reuse (Family_history_of_headaches)
+	u: FAMILY_HISTORY_OF_HEADACHES (headache)    ^factanswer("Not that I know of.")
 
 # ***************************************************************************************************
 
-topic: ~familyneckstiffness keep repeat (~neck_stiffness bend ~role_family family)
+topic: ~familyneckstiffness keep repeat (~neck_stiffness bend ~role_family)
 
 	u: ($present) respond(~currentneckstiffness) ^fail(TOPIC)
-	u: ($pasthistory) respond(~pastneckstiffness) ^fail(TOPIC) 
+	u: ($pasthistory) respond(~pastneckstiffness) ^fail(TOPIC)
 
 #! Do you have a family history of neck stiffness
-	u: Family_history_of_neck_stiffness (do you have a family history of neck stiffness)    ^factanswer("Not that I know of.")
-	u: (~neck_stiffness) ^reuse (Family_history_of_neck_stiffness)
-
+	u: FAMILY_HISTORY_OF_NECK_STIFFNESS (~neck_stiffness)    ^factanswer("Not that I know of.")
 
 # ***************************************************************************************************
 
-topic: ~familynasal keep repeat (nose sinus nasal sinusitis "nasal passages" family)
+topic: ~familynasal keep repeat (nose sinus nasal sinusitis "nasal passages" ~role_family)
 
-	u: ($present) respond(~currentnasal) ^fail(TOPIC)  
+	u: ($present) respond(~currentnasal) ^fail(TOPIC)
 	u: ($pasthistory) respond(~pastnasal) ^fail(TOPIC)
 
-
 #! Do you have a family history of sinus problems
-	u: Family_history_of_sinus_problems (do you have a family history of sinus problems)  ^factanswer("Not that I know of.")
-	u: (<< [sinus sinusitis "nasal passages"] [problem issue symptom] >>)  ^reuse (Family_history_of_sinus_problems)
-
+	u: FAMILY_HISTORY_OF_SINUS_PROBLEMS ([sinus sinusitis "nasal passages"])  ^factanswer("Not that I know of.")
 
 # ***************************************************************************************************
 
-topic: ~familyeye keep repeat (eye)
+topic: ~familyeye keep repeat (eye ~role_family)
 
-	u: ($present) respond(~currenteye) ^fail(TOPIC)  
+	u: ($present) respond(~currenteye) ^fail(TOPIC)
 	u: ($pasthistory) respond(~pasteye) ^fail(TOPIC)
-

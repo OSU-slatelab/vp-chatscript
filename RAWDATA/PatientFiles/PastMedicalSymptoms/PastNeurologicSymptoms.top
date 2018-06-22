@@ -5,55 +5,44 @@
 
 topic: ~pastwalking keep repeat (~walking_problems)
 
-	u: ($present) respond(~currentwalking) ^fail(TOPIC) 
-	u: ($family) respond(~familywalking) ^fail(TOPIC) 
+	u: ($present) respond(~currentwalking) ^fail(TOPIC)
+	u: ($family) respond(~familywalking) ^fail(TOPIC)
 
 #! Have you ever had trouble walking
-	u: Have_you_ever_had_trouble_walking (have you ever had trouble walking)    ^factanswer("I have never had trouble walking.") 
-	u: (~walking_problems) ^reuse (Have_you_ever_had_trouble_walking)
+	u: HAVE_YOU_EVER_HAD_TROUBLE_WALKING (~walking_problems)    ^factanswer("I have never had trouble walking.")
 
 # ***************************************************************************************************
 
-topic: ~pastnumbness keep repeat (numb numbness tingle sensation) 
+topic: ~pastnumbness keep repeat (numb numbness tingle sensation)
 
-	u: ($present) respond(~currentnumbness) ^fail(TOPIC) 
-	u: ($family) respond(~familynumbness) ^fail(TOPIC) 
+	u: ($present) respond(~currentnumbness) ^fail(TOPIC)
+	u: ($family) respond(~familynumbness) ^fail(TOPIC)
 
 #! Have you ever had numbness
-	u: Have_you_ever_had_numbness (have you ever had numbness)     ^factanswer("Not really.") 
-	u: (["have you had" ever] * [numb numbness tingling]) ^reuse (Have_you_ever_had_numbness)
+	u: HAVE_YOU_EVER_HAD_NUMBNESS (["have you had" ever] * [numb numbness tingling])     ^factanswer("Not really.")
 
 # ***************************************************************************************************
 
-topic: ~pastweakness keep repeat (weak weakness) 
+topic: ~pastweakness keep repeat (weak weakness)
 
-	u: ($present) respond(~currentweakness) ^fail(TOPIC) 
-	u: ($family) respond(~familyweakness) ^fail(TOPIC) 
+	u: ($present) respond(~currentweakness) ^fail(TOPIC)
+	u: ($family) respond(~familyweakness) ^fail(TOPIC)
 
 #! Have you ever had weakness
-	u: Have_you_ever_had_weakness (have you ever had weakness)     ^factanswer("Not really.")
-	u: (weakness weak) ^reuse (Have_you_ever_had_weakness)
-
-
-
+	u: HAVE_YOU_EVER_HAD_WEAKNESS (weakness weak)     ^factanswer("Not really.")
 
 # ***************************************************************************************************
 
 topic: ~pastdizziness keep repeat (dizzy dizziness lightheaded lightheadedness spin "passed out" faint spin)
 
-
-	u: ($present) respond(~currentdizziness) ^fail(TOPIC)  
-	u: ($family) respond(~familydizziness) ^fail(TOPIC) 
-
+	u: ($present) respond(~currentdizziness) ^fail(TOPIC)
+	u: ($family) respond(~familydizziness) ^fail(TOPIC)
 
 #! Have you ever been dizzy
-	u: Ever_been_dizzy  (have you ever been dizzy)  ^factanswer("I have never been dizzy")
-	u: ([been ever] * [dizzy dizziness lightheaded "light headed"])  ^reuse (Ever_been_dizzy)
+	u: EVER_BEEN_DIZZY  ([been ever] * [dizzy dizziness lightheaded "light headed"])  ^factanswer("I have never been dizzy")
 
 #! Have you noticed spinning
-	u: Have_you_ever_noticed_spinning (have you ever noticed spinning)  ^factanswer("I have never felt spinning")
-	u: (ever * [noticed felt experienced] * [spin spinning]) ^reuse (Have_you_ever_noticed_spinning)
+	u: HAVE_YOU_EVER_NOTICED_SPINNING (ever * [noticed felt experienced] * [spin spinning])  ^factanswer("I have never felt spinning")
 
 #! Have you ever fainted
-	u: Have_you_ever_fainted (have you ever fainted)  ^factanswer("I have never fainted")
-	u: (fainted "passed out" "blacked out") ^reuse (Have_you_ever_fainted)
+	u: HAVE_YOU_EVER_FAINTED (fainted "passed out" "blacked out")  ^factanswer("I have never fainted")

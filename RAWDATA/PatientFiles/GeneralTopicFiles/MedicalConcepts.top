@@ -27,9 +27,9 @@ concept: ~gyndoctor [ob obstetrician ob/gyn gyn gynecologist]
 
 # Musculoskeletal
 
-concept: ~back_pain [!leg !shoot back  pain "back problem" "back problems" "back pain" backache "back ache" "back soreness" "back tenderness" "back tightness" "back discomfort" "back hurt" "hurt your back" "back trouble" "back stiffness"]
+concept: ~back_pain [back~6 back~7 back~n pain "back problem" "back problems" "back pain" backache "back ache" "back soreness" "back tenderness" "back tightness" "back discomfort" "back hurt" "hurt your back" "back trouble" "back stiffness"]
 
-concept: ~muscle_pain [muscle "muscle pain" "muscle ache" "muscle soreness" "muscle tenderness" "muscle tightness" "muscle discomfort" "muscle achiness" "muscle achy" "muscle hurt" muscular "muscle cramp"]
+concept: ~muscle_pain [muscle pain "muscle pain" "muscle ache" "muscle soreness" "muscle tenderness" "muscle tightness" "muscle discomfort" "muscle achiness" "muscle achy" "muscle hurt" muscular "muscle cramp"]
 
 concept: ~back_injury ["back injury" "back trauma" "injured back" "injured your back"]
 
@@ -82,7 +82,7 @@ concept: ~skin_changes [rash lesions dryness scaliness scales dry flaky skin]
 
 concept: ~medical_jargon NOUN
 
-[hyperlipidemia nephrolithiasis "benign prostatic hypertrophy" dysuria priapism hematuria dysparuenia "nuchal rigidity" "intracerebral hemorrhage" "brain hematoma" "epidural hematoma" "subdural hematoma" "cerebral vascular accident" "psuedotumor cerebri" syncope parasthesias hypercoagulable lymphadenopathy "systemic lupus erythematous" osteomyelitis pericarditis endocarditis myocarditis orthopnea dyspnea "biliary dyskinesia" cholecystitis cholelithiasis esophagealgastroduodenoscopy hematochezia melena hematemesis bilious emesis dysphagia toxemia mastalgia dysmenorrhea diaphoresis colicky rhinorrea epistaxis periorbital retroorbital periauricular tinnitus dyspnea hemoptysis pleuritic "suicidal ideation" "homicidal ideation" anhedonia "sensory symptoms" IV]
+[hyperlipidemia nephrolithiasis "benign prostatic hypertrophy" dysuria priapism hematuria dysparuenia "nuchal rigidity" "intracerebral hemorrhage" "brain hematoma" "epidural hematoma" "subdural hematoma" "cerebral vascular accident" "psuedotumor cerebri" syncope parasthesias hypercoagulable lymphadenopathy "systemic lupus erythematous" osteomyelitis pericarditis endocarditis myocarditis orthopnea dyspnea "biliary dyskinesia" cholecystitis cholelithiasis esophagealgastroduodenoscopy hematochezia melena hematemesis bilious emesis dysphagia toxemia mastalgia dysmenorrhea diaphoresis colicky rhinorrea epistaxis periorbital retroorbital periauricular tinnitus dyspnea hemoptysis pleuritic "suicidal ideation" "homicidal ideation" anhedonia "sensory symptoms" IV PPI]
 
 # ***************************************************************************************************
 
@@ -91,7 +91,7 @@ concept: ~medical_jargon NOUN
 
 concept: ~bowel_problems [bowel stool incontinence defecation poop bathroom defecate diarrhea constipation]
 
-concept: ~abdominal_pain [pain abdomen abdominal stomach stomachache belly "abdominal pain" ~itwords]
+concept: ~abdominal_pain [pain abdomen abdominal stomach stomachache belly "abdominal pain"]
 
 concept: ~heartburn [heartburn acid reflux GERD "acid reflux"]
 
@@ -145,7 +145,7 @@ concept: ~pain [pain pains hurt sore throb crush ache burn squeeze gnaw]
 
 concept: ~pain_descriptors [throbbing throb crushing crush achy aching ache tender sensitive sharp dull burning burn hot squeezing squeeze gnawing gnaw stabbing tearing stab knifing knife searing sear electric electrical shock sore intense painful]
 
-concept: ~pain_locations [side left right upper lower middle midline top bottom deep superficial location localized point part spot "both sides" outside portion center "one side"]
+concept: ~pain_locations [side left right upper lower middle midline top bottom deep superficial location localized point part area spot "both sides" outside portion center "one side"]
 
 concept: ~xxx_xxx [placeholder]
 
@@ -175,6 +175,8 @@ concept: ~diabetes [diabetes diabetic "high blood sugar" "blood sugar" sugar "bl
 # ***************************************************************************************************
 
 concept: ~itwords [it this that that's them those these they such]
+
+concept: ~pastwords [ever past history prior before previous ago "when were" "have you had" always]
 
 
 # ***************************************************************************************************

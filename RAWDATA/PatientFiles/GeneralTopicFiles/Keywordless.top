@@ -1,0 +1,11 @@
+# this is the topic for anything that has no obvious topic.
+# it is called directly from the control script when everything else fails.
+
+topic: ~keywordless nostay()
+
+# u: (< say _*) keep() repeat() '_0 # this was in Bruce's original keywordless topic. Bascially just parrots a response when you input "say"
+
+u: (hosp*) respond (~hospitalizations) # probably don't need this since now using CS spelling correction and hospital mispellings are handled well there 5.2018
+
+#! Is that all
+	?: IS_THAT_ALL (is that all) I believe so.

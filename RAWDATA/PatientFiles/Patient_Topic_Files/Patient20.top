@@ -1,17 +1,17 @@
 outputmacro: Patient20()
 $patientfirstname = Vanessa
 $patientlastname = Watson
-$chiefcomplaint = 
-$complaint2 = 
-$complaint3 = 
+$chiefcomplaint =
+$complaint2 =
+$complaint3 =
 $VPatient20 = VPatient20
 $Vpatient = VPatient20
 $patientTitle = Miss
-$currentjob = 
-$currentmedication1 = 
-$currentmedication2 = 
-$currentmedication3 = 
-$currentrateofpain = 
+$currentjob =
+$currentmedication1 =
+$currentmedication2 =
+$currentmedication3 =
+$currentrateofpain =
 
 ^stdpatient()
 
@@ -34,7 +34,6 @@ table: ^patientdata(VPatient20)
 
 # patientname
 
-What_is_your_name "Vanessa Watson"
 
 ### Medications
 # currentmedications
@@ -138,7 +137,7 @@ What_is_your_name "Vanessa Watson"
 # maleGU
 
 
-### CurrentCardiacSymptoms
+### CurrentCardiovascularSymptoms
 # bloodpressure
 
 
@@ -146,6 +145,9 @@ What_is_your_name "Vanessa Watson"
 
 
 # heartproblems
+
+
+# vascular
 
 
 ### CurrentGYNSymptoms
@@ -296,6 +298,10 @@ What_is_your_name "Vanessa Watson"
 # heartproblems
 
 
+### PastCardiovascularSymptoms
+# vascular
+
+
 ### PastGYNSymptoms
 # sexualhealth
 
@@ -326,6 +332,9 @@ What_is_your_name "Vanessa Watson"
 
 ### PastGUSymptoms
 # bladder
+
+
+# pastmaleGU
 
 
 ### PastHEENTSymptoms
@@ -420,6 +429,10 @@ What_is_your_name "Vanessa Watson"
 # heartproblems
 
 
+### FamilyCardiovascularSymptoms
+# vascular
+
+
 ### FamilyGUSymptoms
 # bladder
 
@@ -448,6 +461,9 @@ What_is_your_name "Vanessa Watson"
 # sexualhealth
 
 
+# periods
+
+
 # pregnancy
 
 
@@ -468,16 +484,16 @@ What_is_your_name "Vanessa Watson"
 ### NeonatalCounseling
 # neonatalcounseling
 
-I_am_the_neonatologist "Hi, thank you for coming"
-Is_this_a_good_time_to_talk "\[ NodYes \]Yes, I can talk now"
-What_do_you_understand_might_happen "\[ Fear4 \]It sounds like the baby is coming. I’m only 6 months along, so that’s really scary."
-Have_you_picked_a_name "\[ Happiness4 \]I’m going to call him Jack, after my dad"
-That_is_a_great_name "\[ NodYes \]\[ Happiness4 \]"
-Like_detailed_statistics_or_big_picture "\[ Fear4 \]I think I want to know more about the numbers. What are his chances of making it?"
-Most_babies_do_not_survive "\[ Confusion4 \]Can you be more specific?"
-Babies_born_at_22_weeks "\[ Sadness4 \]Oh, I don’t want to lose my baby"
-I_know_this_is_hard "\[ Fear3 \]OK, What are the options?"
-Everything_will_be_ok "\[ Sadness4 \]I don’t want to talk anymore. I can’t take any more of this."
+I_AM_THE_NEONATOLOGIST "\[ Happiness4 \]Hi, thank you for coming"
+IS_THIS_A_GOOD_TIME_TO_TALK "\[ Sadness4 \]Yes, I can talk now"
+WHAT_DO_YOU_UNDERSTAND_MIGHT_HAPPEN "\[ Fear4 \]It sounds like the baby is coming. Iï¿½m only 6 months along, so thatï¿½s really scary."
+HAVE_YOU_PICKED_A_NAME "\[ Happiness4 \]Iï¿½m going to call him Y, after my dad"
+THAT_IS_A_GREAT_NAME "\[ Happiness4 \]Thanks."
+LIKE_DETAILED_STATISTICS_OR_BIG_PICTURE "\[ Fear4 \]I think I want to know more about the big picture. Is he going to be ok?"
+MOST_BABIES_DO_NOT_SURVIVE "\[ Anger4 \]Can you be more specific?"
+BABIES_BORN_AT_22_WEEKS "\[ Sadness4 \]Oh, I donï¿½t want to lose my baby"
+I_KNOW_THIS_IS_HARD "\[ Fear4 \]OK, What are the options?"
+EVERYTHING_WILL_BE_OK "\[ Anger4 \]I donï¿½t want to talk anymore. I canï¿½t take any more of this."
 
 ### Wellness
 # vaccines
@@ -556,6 +572,9 @@ Everything_will_be_ok "\[ Sadness4 \]I don’t want to talk anymore. I can’t take 
 # prenatalcare
 
 
+# diabetes
+
+
 ### Family
 # familylife
 
@@ -627,4 +646,3 @@ Everything_will_be_ok "\[ Sadness4 \]I don’t want to talk anymore. I can’t take 
 
 
 # description
-

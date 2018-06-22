@@ -1,5 +1,4 @@
 
-
 # ***************************************************************************************************
 
 # This is the Vaccine Section
@@ -8,288 +7,282 @@ topic: ~vaccines keep repeat (vaccine vaccinate vaccinated vaccination vaccinati
 
 	u: ($family) ^fail(TOPIC)
 
-
 #! Have you been vaccinated for MMR
-
-	u: have_you_been_vaccinated_for_MMR (have you been vaccinated for MMR) ^factanswer("I have.")
-	u: (<<[vaccine vaccines vaccinated vaccination vaccinations][MMR mumps measles rubella]>>) ^reuse(have_you_been_vaccinated_for_MMR)
-	u: ([MMR mumps measles rubella]) ^reuse(have_you_been_vaccinated_for_MMR)
+	u: HAVE_YOU_BEEN_VACCINATED_FOR_MMR ([MMR mumps measles rubella])	^factanswer("I have.")
 
 #! Have you been vaccinated for hib
-
-	u: have_you_been_vaccinated_for_HIB  (have you been vaccinated for hib)  ^factanswer("I believe so.")
-	u: (<<[vaccine vaccines vaccinated vaccination vaccinations]["Haemophilus Influenza b" hib]>>) ^reuse(have_you_been_vaccinated_for_HIB)
-	u: (["Haemophilus Influenza b" hib]) ^reuse(have_you_been_vaccinated_for_HIB)
+	u: HAVE_YOU_BEEN_VACCINATED_FOR_HIB  (["Haemophilus Influenza b" hib])  ^factanswer("I believe so.")
 
 #! Have you been vaccinated for Hepatitis A
-
-	u: have_you_been_vaccinated_for_hepatitis_a (have you been vaccinated for "Hepatitis a")  ^factanswer("I received that vaccine.")
-	u: (<<[vaccine vaccines vaccinated vaccination vaccinations]["Hepatitis A" "hep A"]>>) ^reuse(have_you_been_vaccinated_for_hepatitis_a)
-	u: (["Hepatitis A" "hep A"]) ^reuse(have_you_been_vaccinated_for_hepatitis_a)
+	u: HAVE_YOU_BEEN_VACCINATED_FOR_HEPATITIS_A (["Hepatitis A" "hep A"])  ^factanswer("I received that vaccine.")
 
 #! Have you been vaccinated for Hepatitis B
-
-	u: have_you_been_vaccinated_for_hepatitis_b (have you been vaccinated for "Hepatitis b")  ^factanswer("I received that vaccine.")
-	u: (<<[vaccine vaccines vaccinated vaccination vaccinations]["Hepatitis B" "hep B"]>>) ^reuse(have_you_been_vaccinated_for_hepatitis_B)
-	u: (["Hepatitis B" "hep B"]) ^reuse(have_you_been_vaccinated_for_hepatitis_B)
+	u: HAVE_YOU_BEEN_VACCINATED_FOR_HEPATITIS_B (["Hepatitis B" "hep B"])  ^factanswer("I received that vaccine.")
 
 #! Have you been vaccinated for Hepatitis
-
-	u: have_you_been_vaccinated_for_hepatitis (have you been vaccinated for hepatitis) ^factanswer("I think so")
-	u: (<<[vaccine vaccines vaccinated vaccination vaccinations] hepatitis >>) ^reuse (have_you_been_vaccinated_for_hepatitis_b)
-	u: (hepatitis) ^reuse (have_you_been_vaccinated_for_hepatitis)
+	u: HAVE_YOU_BEEN_VACCINATED_FOR_HEPATITIS (hepatitis) ^factanswer("I think so")
 
 #! Have you had the hpv vaccine
-
-	u: have_you_had_the_hpv_vaccine (have you had the hpv vaccine) ^factanswer("I did  not get that.")
-	u: (<<[vaccine vaccines vaccinated vaccination vaccinations][hpv "human papilloma virus"]>>) ^reuse(have_you_had_the_hpv_vaccine)
-	u: ([hpv "human papilloma virus"]) ^reuse(have_you_had_the_hpv_vaccine)
+	u: HAVE_YOU_HAD_THE_HPV_VACCINE ([hpv "human papilloma virus"]) ^factanswer("I did  not get that.")
 
 #! Have you had your flu shot
-
-	u: have_you_had_flu_shot (have you had your flu shot)  ^factanswer("I get one every year.")
-	u: (<<[flu influenza][vaccine shot vaccines vaccination vaccinated]>>) ^reuse(have_you_had_flu_shot)
+	u: HAVE_YOU_HAD_FLU_SHOT (<<[flu influenza][vaccine shot vaccines vaccination vaccinated]>>)  ^factanswer("I get one every year.")
 
 #! Have you had the pneumonia vaccine
-
-	u: have_you_had_the_pneumonia_vaccine (have you had the pneumonia vaccine)  ^factanswer("I haven't had that")
-	u: (<<[pneumonia pneumococcal][vaccine shot vaccines vaccination vaccinated]>>) ^reuse(have_you_had_the_pneumonia_vaccine)
+	u: HAVE_YOU_HAD_THE_PNEUMONIA_VACCINE (<<[pneumonia pneumococcal][vaccine shot vaccines vaccination vaccinated]>>)  ^factanswer("I haven't had that")
 
 #! Have you received your shingles vaccine
-
-	u: Have_you_received_your_shingles_vaccine (have you received your shingles vaccine)   ^factanswer("Not yet.")
-	u: (<< shingles [vaccine shot vaccines vaccination vaccinated]>>) ^reuse(have_you_received_your_shingles_vaccine)
+	u: HAVE_YOU_RECEIVED_YOUR_SHINGLES_VACCINE (<< shingles [vaccine shot vaccines vaccination vaccinated]>>)   ^factanswer("Not yet.")
 
 #! When was your last tetanus shot
-
-	u: When_was_your_last_tetanus_shot (when was your last tetanus shot)    ^factanswer("I had my last booster within the last 5 years.")
-	u: (<<tetanus [vaccine shot vaccines vaccination vaccinated booster]>>) ^reuse(when_was_your_last_tetanus_shot)
+	u: WHEN_WAS_YOUR_LAST_TETANUS_SHOT (<<tetanus [vaccine shot vaccines vaccination vaccinated booster]>>)    ^factanswer("I had my last booster within the last 5 years.")
 
 #! Are you current on vaccinations
-	u: Are_you_current_on_vaccinations (are you current on vaccinations)  ^factanswer("I am up to date.")
-	u: ([current recent recently had up-to-date "up to date" all been] * [vaccine vaccination immunized immunization immunizations shots]) ^reuse(are_you_current_on_vaccinations)
-	u: ([vaccine vaccination immunization immunizations shots] * [current recent recently had up-to-date "up to date" all]) ^reuse(are_you_current_on_vaccinations)
-	u: ([vaccine vaccination immunization immunizations shots]>) ^reuse(are_you_current_on_vaccinations)
+	?: ARE_YOU_CURRENT_ON_VACCINATIONS
+		([
+	 		([current recent recently had up-to-date "up to date" all been] * [vaccine vaccination immunized immunization immunizations shots])
+ 			([vaccine vaccination immunization immunizations shots] * [current recent recently had up-to-date "up to date" all])
+			([vaccine vaccination immunization immunizations shots]>)
+		])
+	^factanswer("I am up to date.")
 
 # ***************************************************************************************************
-
 
 # This is the physician/Doctor's office section
 
-topic: ~seeingadoctor keep repeat (doctor physician find locate practice last hard recent location office us park patient parking here wait ~medical_professionals physical exam gynecologist counseling sought help seen discuss)
-
+topic: ~seeingadoctor keep repeat
+	(doctor physician find locate practice last hard recent location office
+	us work park patient parking here wait ~medical_professionals physical exam
+	gynecologist counseling sought help seen discuss)
 
 #! When was the last time you saw a doctor
-	u: When_did_you_see_a_doctor_last (when was the last time you saw a doctor)  ^factanswer("I don't remember.")
-	u: (!pap [when do] * [recent most last regular] * [doctor physician physical exam checkup]) ^reuse (When_did_you_see_a_doctor_last)
-	u: (!pap [when do] * [recent most last regular]) ^reuse (When_did_you_see_a_doctor_last)
+	?: WHEN_DID_YOU_SEE_A_DOCTOR_LAST (!pap [when do] *~3 [recent most last regular] *~3 [doctor physician physical exam checkup]) ^factanswer("I don't remember.")
 
 #! When was the last time you saw a gynecologist
-	u: When_did_you_see_a_gynecologist_last (when was the last time you saw a gynecologist)  ^factanswer("I haven't seen a gynecologist.")
-	u: (["have you" when] * [recently recent most last] * [gynecologist]) ^reuse (When_did_you_see_a_gynecologist_last)
+	?: WHEN_DID_YOU_SEE_A_GYNECOLOGIST_LAST (["have you" when] * [recently recent most last] * [gynecologist])  ^factanswer("I haven't seen a gynecologist.")
 
 #! Do you have annual exams
-	u: Do_you_have_annual_exams (do you have annual exams)  ^factanswer("I do.")
-	u: ([annual yearly regular] [exam appointment physical]) ^reuse (Do_you_have_annual_exams)
-	u: ([doctor physical exam appointment] * [year yearly regularly annually regular])  ^reuse (Do_you_have_annual_exams)
+	?: DO_YOU_HAVE_ANNUAL_EXAMS
+		([
+			([annual yearly regular] [exam appointment physical])
+			([doctor physical exam appointment] *~3 [year yearly regularly annually regular])
+		])
+	^factanswer("I try to see the doctor every year.")
 
 #! Have you seen a doctor
-	u: Have_you_seen_a_doctor (have you seen a doctor)  ^factanswer("I have not.")
-	u: (![any other else] [been see sought discuss] * [~medical_professionals anyone counseling help]) ^reuse (Have_you_seen_a_doctor)
+	?: HAVE_YOU_SEEN_A_DOCTOR (![any other else] [been see sought discuss] *~3 [~medical_professionals anyone counseling help])  ^factanswer("I have not.")
 
 #! Did you have any trouble finding us
-	u: Did_you_have_any_trouble_finding_us (did you have any trouble finding us)  ^factanswer("I had no trouble.")
-	u: ([trouble problem hard] * [get locate find] * [us office here in]) ^reuse (Did_you_have_any_trouble_finding_us)
+	?: DID_YOU_HAVE_ANY_TROUBLE_FINDING_US ([trouble problem hard] *~3 [get locate find] *~3 [us office here in])  ^factanswer("I had no trouble.")
 
 #! Did you find a parking spot
-	u: Did_you_find_a_parking_spot (did you find a parking spot)   ^factanswer("I had no problems parking")
-	u: ([able trouble problem] * [locate find park parking]) ^reuse(Did_you_find_a_parking_spot)
+	?: DID_YOU_FIND_A_PARKING_SPOT ([able trouble problem] *~3 [locate find park parking])   ^factanswer("I had no problems parking")
 
 #! How did you get here today
-	u: How_did_you_get_here_today (how did you get here today)  ^factanswer("I drove")
-	u: (how * ["get here" arrive travel] * here) ^reuse (How_did_you_get_here_today)
+	?: HOW_DID_YOU_GET_HERE_TODAY (how *~3 ["get here" arrive travel] *~3 here)  ^factanswer("I drove")
 
 #! How did you come to find us
-	u: How_did_you_come_to_find_us (how did you come to find us)  ^factanswer("I have been here before.")
-	u: (!trouble find us) ^reuse (How_did_you_come_to_find_us)
+	?: HOW_DID_YOU_COME_TO_FIND_US (!trouble find us)  ^factanswer("I have been here before.")
 
 #! How did you learn about this office
-	u: How_did_you_learn_about_this_office (how did you learn about this office) ^factanswer("I have been here before.")
-	u: ([learn discover] * [this our] * [office practice location]) ^reuse (How_did_you_learn_about_this_office)
+	?: HOW_DID_YOU_LEARN_ABOUT_THIS_OFFICE ([learn discover] * [this our] * [office practice location]) ^factanswer("I have been here before.")
 
 #! Have you been seen at this office before
-	u: Have_you_been_seen_at_this_office_before (have you been seen at this office before)  ^factanswer("I have been here before.")
-	u: (office [before prior]) ^reuse (Have_you_been_seen_at_this_office_before)
-	u: (first * visit) ^reuse (Have_you_been_seen_at_this_office_before)
-	u: (first * time * office) ^reuse (Have_you_been_seen_at_this_office_before)
+	?: HAVE_YOU_BEEN_SEEN_AT_THIS_OFFICE_BEFORE
+		([
+			(office [before prior])
+	 		(first *~3 visit)
+			(first *~3 time *~3 office)
+		])
+	^factanswer("I have been here before.")
 
 #! Are you a new patient
-	u: Are_you_a_new_patient (are you a new patient)  ^factanswer("I am not a new patient.")
-	u: (new patient) ^reuse (Are_you_a_new_patient)
+	?: ARE_YOU_A_NEW_PATIENT (new patient)  ^factanswer("I am not a new patient.")
 
 #! Where are you usually seen
-	u: Where_are_you_usually_seen (where are you usually seen)  ^factanswer("Only here")
-	u: (where * [usually normally regularly typically] * seen) ^reuse (Where_are_you_usually_seen)
+	?: WHERE_ARE_YOU_USUALLY_SEEN (where *~3 [usually normally regularly typically] *~3 seen)  ^factanswer("Only here")
 
 #! Have you been waiting long
-	u: Have_you_been_waiting_long (have you been waiting long)  ^factanswer("I have not been waiting very long")
-	u: (wait * long) ^reuse (Have_you_been_waiting_long)
+	?: HAVE_YOU_BEEN_WAITING_LONG (wait *~3 long)  ^factanswer("I have not been waiting very long")
 
 #! Do you have a doctor
-	u: Do_you_have_a_doctor (do you have a doctor) ^factanswer("I do not have a doctor.")
-	u: (![any other else] [visit have see] * [doctor physician]) ^reuse (Do_you_have_a_doctor)
+	?: DO_YOU_HAVE_A_DOCTOR (![any other else] [visit have see] *~3 [doctor physician]) ^factanswer("I do not have a doctor.")
+
+#! Are you missing work to see me
+	? ARE_YOU_MISSING_WORK_TO_SEE_ME ([missing time] * ~job * [see visit]) ^factanswer("I am not working today.")
 
 # ***************************************************************************************************
-
 
 # This is the mental health section note - we have included past and family mental health questions here instead of having separate topics for those.
 
-topic: ~mentalhealth keep repeat (depressed depression blue mood moody stress sad lonely suicide suicidal harm intend mental cry anxiety image self "self image" down hopeless worry hurt distracted concentrate think "panic attack" tearful teary "tear up" "not worth living" "better off dead" empty helpless worthless guilt guilty blame happy happier satisfied pleasure ~weapons bed morning death dying die "mind racing" "stopping your mind" thoughts relax anxious swing grumpy overwhelmed)
+topic: ~mentalhealth keep repeat
+(depressed depression blue mood moody stress sad lonely suicide suicidal harm intend mental cry anxiety
+ image self "self image" down hopeless worry hurt distracted concentrate think "panic attack"
+ tearful teary "tear up" "not worth living" "better off dead" empty helpless worthless guilt guilty blame
+ happy happier satisfied pleasure ~weapons bed morning death dying die "mind racing" "stopping your mind" thoughts
+ relax anxious swing grumpy overwhelmed emotion emotional)
 
 
 #! Ever have postpartum depression
-	u: Ever_have_postpartum_depression  (ever have postpartum depression)  ^factanswer("I was never depressed")
-	u: ([history diagnosed diagnosis suffer treat have] * postpartum depression) ^reuse (Ever_have_postpartum_depression)
-	u: ([history diagnosed diagnosis suffer treat have feel] * ~depression * [postpartum birth]) ^reuse (Ever_have_postpartum_depression)
+	u: EVER_HAVE_POSTPARTUM_DEPRESSION
+		([
+			([history diagnosed diagnosis suffer treat have] *~3 postpartum depression)
+			([history diagnosed diagnosis suffer treat have feel] *~3 ~depression *~3 [postpartum birth])
+		])
+	^factanswer("I was never depressed")
 
 #! Family history of depression
-	u: Family_history_of_depression  (family history of depression)  ^factanswer("No one in my family has depression.")
-	u: ([~family_members family] * [history diagnosed diagnosis suffer treat] * ~depression) ^reuse (Family_history_of_depression)
-	u: ([history diagnosed diagnosis suffer treat] * ~depression * [~family_members family]) ^reuse (Family_history_of_depression)
+	u: FAMILY_HISTORY_OF_DEPRESSION
+		([
+			([~family_members family] *~3 [history diagnosed diagnosis suffer treat] *~3 ~depression)
+			([history diagnosed diagnosis suffer treat] *~3 ~depression *~3 [~family_members family])
+		])
+	^factanswer("No one in my family has any mental health issues that I know of.")
 
 #! Do you have a history of depression
-	u: Do_you_have_history_of_depression  (do you have a history of depression)  ^factanswer("I have never been depressed")
-	u: ([history diagnosed diagnosis suffer treat ever] * ~depression) ^reuse (Do_you_have_history_of_depression)
+	u: DO_YOU_HAVE_HISTORY_OF_DEPRESSION  ([history diagnosed diagnosis suffer treat ever] *~3 ~depression)  ^factanswer("I have never been depressed")
 
 #! Do you have a history of anxiety
-	u: Do_you_have_history_of_anxiety  (do you have a history of anxiety)  ^factanswer("I have never been anxious.")
-	u: ([history diagnosed diagnosis suffer treat] * [anxiety anxiousness anxious]) ^reuse (Do_you_have_history_of_anxiety)
+	u: DO_YOU_HAVE_HISTORY_OF_ANXIETY  ([history diagnosed diagnosis suffer treat] *~3 [anxiety anxiousness anxious])  ^factanswer("I have never been anxious.")
 
 #! Family history of anxiety
-	u: Family_history_of_anxiety  (family history of anxiety)  ^factanswer("No one in my family has anxiety.")
-	u: ([~family_members family] * [history diagnosed diagnosis suffer treat] * [anxiety anxiousness anxious]) ^reuse (Family_history_of_anxiety)
-	u: ([history diagnosed diagnosis suffer treat] * [anxiety anxiousness anxious] * [~family_members family]) ^reuse (Family_history_of_anxiety)
+	u: FAMILY_HISTORY_OF_ANXIETY
+		([
+	 		([~family_members family] *~3 [history diagnosed diagnosis suffer treat] *~3 [anxiety anxiousness anxious])
+	 		([history diagnosed diagnosis suffer treat] *~3 [anxiety anxiousness anxious] *~3 [~family_members family])
+		])
+	^factanswer("No one in my family has anxiety.")
 
 #! Do you feel anxious
-	u: Do_you_feel_anxious (do you feel anxious)  ^factanswer("Not really.")
-	u: (![~family_members ~spouse anyone anybody pain] [anxious anxiety anxiousness worry "panic attack"])  ^reuse (Do_you_feel_anxious)
+	?: DO_YOU_FEEL_ANXIOUS (![~family_members ~spouse anyone anybody pain] [anxious anxiety anxiousness worry "panic attack"])  ^factanswer("Not really.")
 
 #! Are you depressed
-	u: Are_you_depressed (are you depressed)  ^factanswer("I am fine.")
-	u: ([depressed depression sad blue lonely "mental health" down hopeless]) ^reuse (Are_you_depressed)
+	?: ARE_YOU_DEPRESSED (!bend [depressed depression sad blue lonely "mental health" down hopeless])  ^factanswer("I am fine.")
 
 #! Having mood changes
-	u: Having_mood_changes (having mood changes)  ^factanswer("My mood is fine.")
-	u: ([have experience notice] * [moody mood grumpy emotion emotional] * [swing change fluctuation behavior times swing])  ^reuse (Having_mood_changes)
-	u: ([have experience notice] * [change fluctuation behavior times] * [grumpy moody mood])  ^reuse (Having_mood_changes)
-	u: ([moody mood grumpy] * [~timename])  ^reuse (Having_mood_changes)
+	?: HAVING_MOOD_CHANGES
+		([
+	 		([have experience notice] * [moody mood grumpy emotion emotional] * [swing change fluctuation behavior times swing])
+			([have experience notice] * [change fluctuation behavior times] * [grumpy moody mood])
+	 		([moody mood grumpy] * [~timename])
+		])
+	^factanswer("My mood is fine.")
 
 #! When did you cry last
-	u: When_did_you_cry_last (when did you cry last) ^factanswer("I don't cry.")
-	u: (when * [recently last] * [cry sob]) ^reuse (When_did_you_cry_last)
-	u: (when * [cry sob] * [recently last]) ^reuse (When_did_you_cry_last)
+	?: WHEN_DID_YOU_CRY_LAST
+		([
+	 		(when *~3 [recently last] *~3 [cry sob])
+	 		(when *~3 [cry sob] *~3 [recently last])
+		])
+	^factanswer("I hardly ever cry.")
 
 #! How often do you cry
-	u: How_often_do_you_cry  (how often do you cry)  ^factanswer("I do not cry very much.")
-	u: ([when what how] * [often frequently much longest] * [cry sob]) ^reuse (How_often_do_you_cry)
-	u: ([cry sob] more [often frequently longer] [now before]) ^reuse (How_often_do_you_cry)
+	?: HOW_OFTEN_DO_YOU_CRY
+		([
+			([when what how] *~3 [often frequently much longest] *~3 [cry sob])
+			([cry sob] more [often frequently longer] [now before])
+		])
+	^factanswer("I do not cry very much.")
 
 #! Do you cry often
-	u: Do_you_cry_often  (do you cry often)  ^factanswer("I do not cry.")
-	u: ([cry sob] * [often frequently "all the time"]) ^reuse (Do_you_cry_often)
-	u: ([often frequently "all the time"] * [cry sob]) ^reuse (Do_you_cry_often)
-	u: ([tearful teary "tear up"]) ^reuse (Do_you_cry_often)
+	?: DO_YOU_CRY_OFTEN
+		([
+			([cry sob] * [often frequently "all the time"])
+			([often frequently "all the time"] * [cry sob])
+			([tearful teary "tear up"])
+		])
+	^factanswer("I don't cry very often.")
 
 #! Do you feel like your mind is racing
-	u: Do_you_feel_like_your_mind_is_racing (do you feel like your mind is racing)  ^factanswer("I do not.")
-	u: ([feel trouble problems] * ["mind racing" "stopping your mind" thoughts relax]) ^reuse (Do_you_feel_like_your_mind_is_racing)
+	?: DO_YOU_FEEL_LIKE_YOUR_MIND_IS_RACING ([feel trouble problems] *~3 ["mind racing" "stopping your mind" thoughts relax])  ^factanswer("I do not.")
 
 #! Do you feel hopeless
-	u: Do_you_feel_hopeless (do you feel hopeless)  ^factanswer("I am not.")
-	u: ([hopeless "not worth living" "better off dead" empty helpless worthless overwhelmed]) ^reuse (Do_you_feel_hopeless)
+	?: DO_YOU_FEEL_HOPELESS ([hopeless "not worth living" "better off dead" empty helpless worthless overwhelmed])  ^factanswer("I am hardly ever sad.")
 
 #! Do you feel loss of control
-	u: Do_you_feel_loss_of_control (do you feel loss of control)  ^factanswer("I do not.")
-	u: ([loss lack out] * [control]) ^reuse (Do_you_feel_loss_of_control)
+	?: DO_YOU_FEEL_LOSS_OF_CONTROL ([loss lack out] *~2 [control])  ^factanswer("I do not.")
 
 #! Have you lost interest in activities
-	u: Have_you_lost_interest_in_activities (have you lost interest in activities)  ^factanswer("I have not lost interest.")
-	u: ([lost lack] * [interest enjoyment enthusiasm pleasure] * [activity things]) ^reuse (Have_you_lost_interest_in_activities)
-	u: ([interest enthusiastic pleasure] * [activities things work sex]) ^reuse (Have_you_lost_interest_in_activities)
+	?: HAVE_YOU_LOST_INTEREST_IN_ACTIVITIES
+		([
+			([lost lack] * [interest enjoyment enthusiasm pleasure] * [activity things])
+			([interest enthusiastic pleasure] * [activities things work sex])
+		])
+	^factanswer("I have not lost interest.")
 
 #! Do you feel guilt
-	u: Do_you_feel_guilt (do you feel guilt)  ^factanswer("I do not.")
-	u: ([guilt guilty blame]) ^reuse (Do_you_feel_guilt)
+	?: DO_YOU_FEEL_GUILT ([guilt guilty blame])  ^factanswer("I do not.")
 
 #! Are you stressed
-	u: Are_you_stressed (are you stressed)  ^factanswer("I am not.")
-	u: (![who work job] [stress overworked stressful]) ^reuse (Are_you_stressed)
+	?: ARE_YOU_STRESSED (![who work job] [stress overworked stressful])  ^factanswer("I am not.")
 
 #! Family history of suicide
-	u: Family_history_of_suicide  (family history of suicide)  ^factanswer("No one in my family has committed suicide.")
-	u: ([~family_members family] * [commit attempt intend consider thought intention] * [suicide kill harm suicidal]) ^reuse (Family_history_of_suicide)
-	u: ([~family_members family] * suicidal) ^reuse (Family_history_of_suicide)
+	u: FAMILY_HISTORY_OF_SUICIDE
+		([
+			([~family_members family] * [commit attempt intend consider thought intention] * [suicide kill harm suicidal])
+			([~family_members family] * suicidal)
+		])
+	^factanswer("No one in my family has committed suicide.")
 
 #! Are you suicidal
-	u: Are_you_suicidal (are you suicidal) ^factanswer("I would never.")
-	u: ([consider thought intend intention feel felt] * [suicide harm suicidal hurt]) ^reuse (Are_you_suicidal)
-	u: ([harm hurt] yourself) ^reuse (Are_you_suicidal)
+	?: ARE_YOU_SUICIDAL
+		([
+	 		([consider thought intend intention feel felt] * [suicide harm suicidal hurt])
+			([harm hurt] yourself)
+		])
+	^factanswer("I would never.")
 
 #! Do you think about death
-	u: Do_you_think_about_death  (do you think about death) ^factanswer("I try not to.")
-	u: ([think thought] * [death dying]) ^reuse (Do_you_think_about_death)
+	?: DO_YOU_THINK_ABOUT_DEATH  ([think thought] * [death dying]) ^factanswer("I try not to.")
 
 #! Do you have a weapon
-	u: Do_you_have_a_weapon (do you a weapon) ^factanswer("No.")
-	u: ([~weapons]) ^reuse (Do_you_have_a_weapon)
-
+	?: DO_YOU_HAVE_A_WEAPON ([~weapons]) ^factanswer("I don't own any weapons.")
 
 #! What is your self image
-	u: What_is_self_image (what is self image) ^factanswer("I have no issues there.")
-	u: ([what how] * [self image "self image"])  ^reuse (What_is_self_image)
+	?: WHAT_IS_SELF_IMAGE ([what how] * [self image "self image"]) ^factanswer("I have no issues there.")
 
 #! Are you happy
-	u: Are_you_happy (are you happy)  ^factanswer("I am happy.")
-	u: ([happy happier satisfied pleasure "mental health"]) ^reuse (Are_you_happy)
+	?: ARE_YOU_HAPPY ([happy happier satisfied pleasure "mental health"])  ^factanswer("I am happy.")
 
 #! What is your emotional state
-  u: What_is_your_emotional_state (what is your emotional state) ^factanswer("My emotional state is fine.")
-  u: ("emotional state") ^reuse (What_is_your_emotional_state)
+  ?: WHAT_IS_YOUR_EMOTIONAL_STATE ("emotional state") ^factanswer("My emotional state is fine.")
 
-# #! Do you feel distracted
-#	u: Do_you_feel_distracted (do you feel distracted) ^factanswer("Not really.")
-#	u: ([feel able difficulty] * [distracted concentrate focus think]) ^reuse (Do_you_feel_distracted)
-
-
-
+#! How is your mood
+	?: HOW_IS_YOUR_MOOD (how *~3 mood) ^factanswer("My mood is fine.")
 
 # ***************************************************************************************************
 
-
 # This is the relationship health section note - we have included past and family relationship health questions here instead of having separate topics for those.
 
-topic: ~relationshiphealth  keep repeat (relationship relation "get along" "getting along" ~spouse ~family_children ~family_members sexual sex anyone anybody)
+topic: ~relationshiphealth keep repeat (relationship relation "get along" "getting along" ~spouse ~family_children ~family_members sexual sex anyone anybody)
 
 #! How is your relationship with children
-	u: How_is_relationship_with_children (how is your relationship with your children)  ^factanswer("We have a good relationship.")
-	u: (![spouse partner husband wife] [relationship relation "getting along"] * [~family_children children kid]) ^reuse (How_is_relationship_with_children)
+	?: HOW_IS_RELATIONSHIP_WITH_CHILDREN (![spouse partner husband wife] [relationship relation "getting along"] * [~family_children children kid])  ^factanswer("We have a good relationship.")
 
 #! How is your relationship with spouse
-	u: How_is_relationship_with_spouse (how is your relationship with your spouse)  ^factanswer("We have a good relationship.")
-	u: (![~family_children children kid sex sexual] [relationship relation "getting along" "get along"] * [~spouse]) ^reuse (How_is_relationship_with_spouse)
-	u: (![~family_children children kid sex sexual] ~spouse * [relationship relation "getting along" "get along"])  ^reuse (How_is_relationship_with_spouse)
+	?: HOW_IS_RELATIONSHIP_WITH_SPOUSE
+		([
+			(![~family_children children kid sex sexual] [relationship relation "getting along" "get along"] *~3 [~spouse])
+			(![~family_children children kid sex sexual] ~spouse *~3 [relationship relation "getting along" "get along"])
+		])
+	^factanswer("We have a good relationship.")
 
 #! Is your family worried about you
-	u: Is_your_family_worried_about_you (is your family worried about you)  ^factanswer("I don't think anyone worries about me.")
-		a: Why_worried ([what why] * [concern worry]) ^factanswer("I don't know.")
-	u: (!health [~family_members ~spouse anyone anybody] * [concern worry]) ^reuse (Is_your_family_worried_about_you)
+	?: IS_YOUR_FAMILY_WORRIED_ABOUT_YOU (!health [~family_members ~spouse anyone anybody] *~3 [concern worry])  ^factanswer("I don't think anyone worries about me.")
+			a: WHY_WORRIED ([what why] *~3 [concern worry]) ^factanswer("I don't know.")
 
 #! Do you wish you were not married
-	u: Do_you_wish_you_were_not_married  (do you wish you were not married)  ^factanswer("Well, no.")
-	u: ([wish think] * [not "no longer"] * [married together relationship]) ^reuse (Do_you_wish_you_were_not_married)
-	u: ([wish think] * [divorce divorced]) ^reuse (Do_you_wish_you_were_not_married)
+	?: DO_YOU_WISH_YOU_WERE_NOT_MARRIED
+		([
+	 		([wish think] * [not "no longer"] * [married together relationship])
+			([wish think] * [divorce divorced])
+		])
+	^factanswer("Well, no.")
 
 #! How is your sexual relationship
-	u: How_is_your_sexual_relationship (how is your sexual relationship) ^factanswer("fine.")
-	u: (how * [sex sexual] * [relationship life relations]) ^reuse (How_is_your_sexual_relationship)
-	u: ([change decrease increase] * [sex sexual] * [relationship life relations]) ^reuse (How_is_your_sexual_relationship)
+	?: HOW_IS_YOUR_SEXUAL_RELATIONSHIP
+		([
+			(how *~4 [sex sexual] *~3 [relationship life relations])
+			([change decrease increase] *~3 [sex sexual] *~3 [relationship life relations])
+		])
+	^factanswer("Fine.")

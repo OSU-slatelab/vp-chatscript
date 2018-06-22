@@ -1,274 +1,280 @@
-topic: ~pastsex keep repeat (~groin_male ~sex_problems_male ~groin_female ~sex_problems_female ~contraceptives sex sexual sexually intercourse ~STI infection rape force)
+topic: ~pastsex keep repeat (problem sexual sex sexually intercourse ~groin_male ~sex_problems_male ~groin_female ~sex_problems_female ~contraceptives ~STI infection rape force)
 
-
-#	u: ($present) respond(~currentsex) ^fail(TOPIC)    
+#	u: ($present) respond(~currentsex) ^fail(TOPIC)
 	u: ($family) respond(~familysex) ^fail(TOPIC)
-
-
 
 # SEXUAL HEALTH
 
-
 #! Did it ever hurt during intercourse
-	u: Did_it_ever_hurt_during_intercourse (did it ever hurt during intercourse )    ^factanswer("It never has.")
-	u: (<< [hurt painful bother ~pain] [sex intercourse "sexual activity"] >>) ^reuse (Did_it_ever_hurt_during_intercourse)
-	u: ([sex intercourse "sexual activity"] * [increase exacerbate] * [~the_pain $relevantpain?]) ^reuse (Did_it_ever_hurt_during_intercourse)
+	u: DID_IT_EVER_HURT_DURING_INTERCOURSE
+		([
+			(<< [hurt painful bother ~pain] [sex intercourse "sexual activity"] >>)
+			([sex intercourse "sexual activity"] * [increase exacerbate] * [~the_pain $relevantpain?])
+		])
+	^factanswer("It never has.")
 
 #! Did you ever have bleeding after intercourse
-	u: Ever_have_bleeding_after_intercourse (did you ever have bleeding after intercourse)    ^factanswer("Never.")
-	u: ([blood bleeding bleed] * [sex intercourse "sexual activity"]) ^reuse (Ever_have_bleeding_after_intercourse)
+	u: EVER_HAVE_BLEEDING_AFTER_INTERCOURSE ([blood bleeding bleed] * [sex intercourse "sexual activity"])    ^factanswer("Never.")
 
 #! Who were your past sexual partners
-	u: Who_were_your_past_sexual_partners (who were your past sexual partners)	^factanswer("I have never been sexually active.")
-	u: ([who whom] * [sex sexually intercourse sexual]) ^reuse (Who_were_your_past_sexual_partners)
-	u: (partner * [man male woman female]) ^reuse (Who_were_your_past_sexual_partners)
+	u: WHO_WERE_YOUR_PAST_SEXUAL_PARTNERS
+		([
+			([who whom] * [sex sexually intercourse sexual])
+			(partner * [man male woman female])
+		])
+	^factanswer("I have never been sexually active.")
 
 #! Any other past sexual partners
-	u: Any_other_past_sexual_partners (any other past sexual partners)  ^factanswer("I have never been sexually active.")
-	u: ([new other additional extra any] * [sex sexual])  ^reuse (Any_other_past_sexual_partners)
-	u: (other * [sex sexual] * [~spouse])  ^reuse (Any_other_past_sexual_partners)
-	u: (other * partners) ^reuse (Any_other_past_sexual_partners)
+	u: ANY_OTHER_PAST_SEXUAL_PARTNERS
+		([
+			([new other additional extra any] * [sex sexual] * partner)
+			(other * [sex sexual] * [~spouse])
+			(other * partners)
+		])
+	^factanswer("I have never been sexually active.")
+
+#! Have you been sexually active recently
+#! Have you been sexually active in the past 6 months
+	?: BEEN_SEXUALLY_ACTIVE_RECENTLY
+		([
+			(<< [sex sexual sexually intercourse "sexually active"] [recent recently month year] >>)
+		])
+		^factanswer("I have not been sexually active recently.")
 
 #! Ever been sexually active
-	u: Ever_been_sexually_active (ever been sexually active) 	^factanswer("I have never been sexually active.")
-	u: (![when why how problem difficulty who ~STI unprotected symptoms force coerce] [ever previously previous prior] * [sex sexual sexually intercourse "sexually active"]) ^reuse (Ever_been_sexually_active)
+	?: EVER_BEEN_SEXUALLY_ACTIVE
+		([
+			(![when why how problem difficulty who ~STI unprotected symptoms force coerce] << [ever previously previous prior past before] [sex sexual sexually intercourse "sexually active"] >>)
+		])
+		 ^factanswer("I have never been sexually active.")
+
+#! Ever had problems with sexual activity in the past
+	?: EVER_HAD_PREVIOUS_SEXUAL_PROBLEMS (<< [ever past prior previous] [issues problems trouble] [sex sexual intercourse] >>) ^factanswer("I have never had any previous sexual problems.")
 
 #! Have you ever had a sexually transmitted infection
-	u: Ever_had_an_STI (have you ever had a sexually transmitted infection)	  ^factanswer("Never.")
-	u: ([ever had history] * [prior previous past] * [~STI]) ^reuse (Ever_had_an_STI)
-	u: ([ever had history] * [~STI]) ^reuse (Ever_had_an_STI)
-	u: ([ever had history] * [~STI] * [prior previously before past]) ^reuse (Ever_had_an_STI)
+	?: EVER_HAD_AN_STI
+		([
+			([ever had history] * [prior previous past] * [~STI])
+			([ever had history] * [~STI])
+			([ever had history] * [~STI] * [prior previously before past])
+		])
+	^factanswer("Never.")
 
 #! When did you have past sexually transmitted infection
-	u: When_had_past_STI (when did you have past sexually transmitted infection) ^factanswer("I have never had any.")
-	u: ([when "how long ago"] * [~STI infection]) ^reuse (When_had_past_STI)
-		 
+	?: WHEN_HAD_PAST_STI ([when "how long ago"] * [~STI infection]) ^factanswer("I have never had any.")
+
 #! Did you take anything for the past infection
-	u: Take_anything_for_the_past_infection (take anything for the past infection) ^factanswer("I never had one of those.")
-	u:([take prescribed given treatment ~medicines used] * [~STI infection])  ^reuse (Take_anything_for_the_past_infection)
+	?: TAKE_ANYTHING_FOR_THE_PAST_INFECTION ([take prescribed given treatment ~medicines used] * [~STI infection]) ^factanswer("I never had one of those.")
 
 #! Have you ever been raped
-	u: Have_you_ever_been_raped (have you ever been raped) ^factanswer("No, never.")
-	u: ([rape forced]) ^reuse (Have_you_ever_been_raped)
+	?: HAVE_YOU_EVER_BEEN_RAPED ([rape forced]) ^factanswer("No, never.")
 
 #! Tell me about your past sexual history
-	u: Tell_me_about_your_past_sexual_history (tell me about your past sexual history) ^factanswer("What do you want to know?")
-	u: ([tell describe] * sexual history) ^reuse (Tell_me_about_your_past_sexual_history)
-
+	u: TELL_ME_ABOUT_YOUR_PAST_SEXUAL_HISTORY ([tell describe] * sexual history) ^factanswer("What do you want to know?")
 
 # CONTRACEPTION
 
 #! Did you use any other past contraception
-	u: Did_you_use_any_other_past_contraception (did you use any other past contraception) 	^factanswer("No.")
-	u: (use * other * ~contraceptives * [before past previously]) ^reuse (Did_you_use_any_other_past_contraception)
+	?: DID_YOU_USE_ANY_OTHER_PAST_CONTRACEPTION ([use try] * [other different] * ~contraceptives * [before past previously]) 	^factanswer("No.")
 
 #! Did you use any protection every time before
-	u: Did_you_use_protection_every_time_before (did you use {any} protection every time before)     ^factanswer("No.")
-	u: ([always "every time"] * ~contraceptives [before past previously]) ^reuse (Did_you_use_protection_every_time_before)
-	
+	u: DID_YOU_USE_PROTECTION_EVERY_TIME_BEFORE ([always "every time"] * ~contraceptives [before past previously])     ^factanswer("I have always used protection.")
+
 #! Have you had unprotected sex in the past
-	u: Have_you_had_unprotected_sex_in_the_past (have you had unprotected sex in the past)	^factanswer("No.")
-	u: (unprotected [sex intercourse] * [before past previously]) ^reuse (Have_you_had_unprotected_sex_in_the_past)
-	u: ([sex intercourse] * without * ~contraceptives * [before past previously]) ^reuse (Have_you_had_unprotected_sex_in_the_past)
+	?: HAVE_YOU_HAD_UNPROTECTED_SEX_IN_THE_PAST
+		([
+			(unprotected [sex intercourse] * [before past previously])
+			([sex intercourse] * without * ~contraceptives * [before past previously])
+		])
+	^factanswer("I have always used protection.")
 
 #! Did you use any contraception in the past
-	u: Use_any_contraception_in_the_past (did you use any contraception in the past)    ^factanswer("No.")
-	u: (!other !additional ~contraceptives) ^reuse (Use_any_contraception_in_the_past)
-
+	?: USE_ANY_CONTRACEPTION_IN_THE_PAST (!other !additional ~contraceptives)    ^factanswer("I have always used protection.")
 
 # ###################################################################################
 
-
-
 topic: ~pastvaginal_bleeding keep repeat (~gyn_bleeding tampon cramp cramping clot cervix cervical flow heavy light abnormal normal spotting flow irregular always bloat bloating)
 
-	u: ($present) respond(~currentvaginal_bleeding) ^fail(TOPIC)    
-	u: ($family) respond(~familyvaginal_bleeding) ^fail(TOPIC) 
-
+	u: ($present) respond(~currentvaginal_bleeding) ^fail(TOPIC)
+	u: ($family) respond(~familyvaginal_bleeding) ^fail(TOPIC)
 
 # BLEEDING
 
-#! Have you ever had vaginal bleeding like this before 
-	u: Have_you_had_vaginal_bleeding_before (have you had vaginal bleeding before)      ^factanswer("No, never.")
-	u: (![discharge itching] [vaginal bleeding spotting "vaginal bleeding"] * [before prior past history ever previously]) ^reuse (Have_you_had_vaginal_bleeding_before)
-	u: ([ever past] * [vaginal bleeding spotting "vaginal bleeding"]) ^reuse (Have_you_had_vaginal_bleeding_before)
+#! Have you ever had vaginal bleeding like this before
+	u: HAVE_YOU_HAD_VAGINAL_BLEEDING_BEFORE
+		([
+			(![discharge itching] [vaginal bleeding spotting "vaginal bleeding"] * [before prior past history ever previously])
+ 			([ever past] * [vaginal bleeding spotting "vaginal bleeding"])
+		])
+	^factanswer("No, never.")
 
 #! Were there any clots
-	u: Were_there_clots (were there clots)  ^factanswer("There were none.")
-	u: ([clot clots clotting])   ^reuse (Were_there_clots)
-
-
+	u: WERE_THERE_CLOTS ([clot clots clotting])  ^factanswer("There were none.")
 
 # PERIODS
 
 #! Were your periods ever irregular
-	u: Were_your_periods_ever_irregular  (were your periods ever irregular)   ^factanswer("Never.")
-	u: (<<[~gyn_bleeding ~itwords] [irregular abnormal] >>)   ^reuse (Were_your_periods_ever_irregular)
+	u: WERE_YOUR_PERIODS_EVER_IRREGULAR  (<<[~gyn_bleeding ~itwords] [irregular abnormal] >>)   ^factanswer("Never.")
 
 #! Were your periods regular before
-	u: Were_your_periods_regular_before  (were your periods regular before)   ^factanswer("I don't have those.")
-	u: (<<[~gyn_bleeding ~itwords] [regular normal] >>)   ^reuse (Were_your_periods_regular_before)
+	u: WERE_YOUR_PERIODS_REGULAR_BEFORE  (<<[~gyn_bleeding ~itwords] [regular normal] >>)   ^factanswer("I don't have those.")
 
 #! Was your period ever late
-	u: was_your_period_ever_late  (was your period ever late)   ^factanswer("I don't have those.")
-	u: ([~gyn_bleeding ~itwords] late)   ^reuse (was_your_period_ever_late)
+	u: WAS_YOUR_PERIOD_EVER_LATE  ([~gyn_bleeding ~itwords] late)   ^factanswer("I don't have those.")
 
 #! How long did your periods last before
-	u: How_long_did_your_periods_last_before (how long did your periods last before)      ^factanswer("I don't know.")
-	u: ([!ago often pad tampon] [duration "how long"] * [~gyn_bleeding flow]) ^reuse (How_long_did_your_periods_last_before)
-	u: ([!ago often pad tampon] [~gyn_bleeding flow] * [duration last]) ^reuse (How_long_did_your_periods_last_before)
+	u: HOW_LONG_DID_YOUR_PERIODS_LAST_BEFORE
+		([
+			([!ago often pad tampon] [duration "how long"] * [~gyn_bleeding flow])
+			([!ago often pad tampon] [~gyn_bleeding flow] * [duration last])
+		])
+	^factanswer("I don't know.")
 
 #! Describe your past periods
-	u: Describe_your_past_periods  (describe your past periods)   ^factanswer("I don't have those.")
-	u: ([tell ~describe description] * [~gyn_bleeding])   ^reuse (Describe_your_past_periods)
+	u: DESCRIBE_YOUR_PAST_PERIODS  ([tell ~describe description] * [~gyn_bleeding])   ^factanswer("I don't have those.")
 
 #! What was the flow of your past periods like
-	u: What_was_past_flow_like  (what was the flow of your past periods like)  ^factanswer("I had no flow.")
-	u: ([what how were] * [flow ~gyn_bleeding ~itwords])  ^reuse (What_was_past_flow_like)
-	u: (amount * menstrual blood) ^reuse (What_was_past_flow_like)
-	u: ([period flow] * [always before past] * [heavy light]) ^reuse (What_was_past_flow_like)
-
+	u: WHAT_WAS_PAST_FLOW_LIKE
+		([
+			([what how were] * [flow ~gyn_bleeding ~itwords])
+			(amount *~3 menstrual blood)
+			([period flow] * [always before past] * [heavy light])
+		])
+	^factanswer("I had no flow.")
 
 #! How often were your past periods
-	u: How_often_were_your_past_periods (how often were your past periods)      ^factanswer("I don't know.")
-	u: (<< [frequent often] [~gyn_bleeding] >>) ^reuse (How_often_were_your_past_periods)
+	u: HOW_OFTEN_WERE_YOUR_PAST_PERIODS (<< [frequent often] [~gyn_bleeding] >>)      ^factanswer("I don't know.")
 
 #! Were your past periods painful
-	u: Were_your_past_periods_painful (were your past periods painful)  ^factanswer("My periods are fine.")
-	u: ([~gyn_bleeding ~itwords] * [hurt painful cramp]) ^reuse (Were_your_past_periods_painful)
-	u: ([~pain hurt painful cramp cramping] * [~gyn_bleeding ~itwords]) ^reuse (Were_your_past_periods_painful)
+	u: WERE_YOUR_PAST_PERIODS_PAINFUL
+		([
+			([~gyn_bleeding ~itwords] * [hurt painful cramp])
+			([~pain hurt painful cramp cramping] * [~gyn_bleeding ~itwords])
+		])
+	^factanswer("My periods are fine.")
 
 #! Did pain change with past period
-	u: Did_pain_change_with_past_period (did pain change with past period) ^factanswer("My periods are fine.")
-	u: (pain * [change better worse increase decrease lessen worsen] * ~gyn_bleeding) ^reuse (Did_pain_change_with_past_period)
+	u: DID_PAIN_CHANGE_WITH_PAST_PERIOD (pain * [change better worse increase decrease lessen worsen] * ~gyn_bleeding) ^factanswer("My periods are fine.")
 
 #! Did you ever menstruate
-	u: Did_you_ever_menstruate (did you ever menstruate)  ^factanswer("I used to.")
-	u: (![sex intercourse] [have do had] * [menstruate menstrual]) ^reuse (Did_you_ever_menstruate)
+	u: DID_YOU_EVER_MENSTRUATE (![sex intercourse] [have do had] * [menstruate menstrual])  ^factanswer("I used to.")
 
 #! Did you ever use tampons
-	u: Ever_use_tampons (did you ever use tampons)	^factanswer("No.")
-	u: (![many number amount] [tampons pads]) ^reuse (Ever_use_tampons)
+	u: EVER_USE_TAMPONS (![many number amount] [tampons pads])	^factanswer("No.")
 
 #! How many tampons before
-	u: How_many_tampons_before (how many tampons before)   ^factanswer("I never used those")
-	u: ([many number amount] * [tampons pads] * period)  ^reuse(How_many_tampons_before)
-	u: ([many number amount] * [tampons pads] * day)   ^reuse(How_many_tampons_before)
+	u: HOW_MANY_TAMPONS_BEFORE
+		([
+			([many number amount] * [tampons pads] * period)
+			([many number amount] * [tampons pads] * day)
+		])
+	^factanswer("I never used those")
 
 #! Ever have bloating with period
-	u: Ever_have_bloating_with_period (ever have bloating with period) ^factanswer("I have never.")
-	u: ([bloat bloating "water retention"] * [~gyn_bleeding]) ^reuse (Ever_have_bloating_with_period)
-	u: ([ever notice feel experience] * [bloat bloating "water retention"]) ^reuse (Ever_have_bloating_with_period)
+	u: EVER_HAVE_BLOATING_WITH_PERIOD
+		([
+			([bloat bloating "water retention"] * [~gyn_bleeding])
+			([ever notice feel experience] * [bloat bloating "water retention"])
+		])
+	^factanswer("I have never.")
 
 # MENSTRUAL CYCLE
 
-
 #! Ever had any menstrual changes
-	u: Ever_had_any_menstrual_changes (ever had any menstrual changes)    ^factanswer("No, not really.")
-	u: (!mood ~gyn_bleeding [change different]) ^reuse (Ever_had_any_menstrual_changes)
-	u: (!mood [change different] * ~gyn_bleeding) ^reuse (Ever_had_any_menstrual_changes)
+	u: EVER_HAD_ANY_MENSTRUAL_CHANGES
+		([
+			(!mood ~gyn_bleeding [change different])
+			(!mood [change different] * ~gyn_bleeding)
+		])
+	^factanswer("No, not really.")
 
 #! Ever had any spotting
-	u: Ever_had_any_spotting (ever had any spotting)    ^factanswer("No, not really.")
-	u: (["have you had"] * [bleeding spotting]) ^reuse (Ever_had_any_spotting)
+	u: EVER_HAD_ANY_SPOTTING (["have you had"] * [bleeding spotting]) ^factanswer("No, not really.")
 
 #! Tell me about your past menstrual cycles
-	u: Tell_me_about_your_past_menstrual_cycles (tell me about your past menstrual cycles)   ^factanswer("They were fine.")
-	u: (tell me * [~gyn_bleeding]) ^reuse (Tell_me_about_your_past_menstrual_cycles)
+	u: TELL_ME_ABOUT_YOUR_PAST_MENSTRUAL_CYCLES (tell me * [~gyn_bleeding])   ^factanswer("They were fine.")
 
 #! When was your first menstrual cycle
-	u: When_was_your_first_menstrual_cycle (when was your first menstrual cycle)   ^factanswer("I don't remember.")
-	u: ([when how] *  [began first start] * [~gyn_bleeding menstruation menstrual cycle]) ^reuse (When_was_your_first_menstrual_cycle)
-	u: ([when how] *  [~gyn_bleeding menstruation menstrual cycle] * [began first start]) ^reuse (When_was_your_first_menstrual_cycle)
-
+	u: WHEN_WAS_YOUR_FIRST_MENSTRUAL_CYCLE
+		([
+			([when how] *  [began first start] * [~gyn_bleeding menstruation menstrual cycle])
+			([when how] *  [~gyn_bleeding menstruation menstrual cycle] * [began first start])
+		])
+	^factanswer("I don't remember.")
 
 # PAIN
 
-
 #! Ever had cramps
-	u: Ever_had_cramps (ever had cramps)  ^factanswer("No, None.")
-	u: (!better [cramps cramping])   ^reuse (Ever_had_cramps)
+	u: EVER_HAD_CRAMPS (!better [cramps cramping])  ^factanswer("No, None.")
 
 #! Any vaginal pain before
-	u: Any_vaginal_pain_before (any vaginal pain before) ^factanswer("Not really.")
-	u: (<< [vaginal vagina] [pain discomfort] >>) ^reuse (Any_vaginal_pain_before)	
+	u: ANY_VAGINAL_PAIN_BEFORE (<< [vaginal vagina] [pain discomfort] >>) ^factanswer("Not really.")
 
 #! Any prior vaginal sores
-	u: Any_prior_vaginal_sores (any prior vaginal sores) ^factanswer("None.")
-	u: (<< [vaginal vagina] [sores spots rash] >>) ^reuse (Any_prior_vaginal_sores)
+	u: ANY_PRIOR_VAGINAL_SORES (<< [vaginal vagina] [sores spots rash] >>) ^factanswer("None.")
 
 #! Ever had sores on your groin
-	u: Ever_had_sores_on_your_groin (ever had sores on your groin)    ^factanswer("No.")
-	u: (["sores * ~groin" "bleeding * ~groin_male" ~groin_male "bleeding * groin_female" ~groin_female]) ^reuse (Ever_had_sores_on_your_groin)
-
-
+	u: EVER_HAD_SORES_ON_YOUR_GROIN (["sores * ~groin" "bleeding * ~groin_male" ~groin_male "bleeding * groin_female" ~groin_female])   ^factanswer("No.")
 
 # ###################################################################################
 
 topic: ~pastvaginalsymptoms keep repeat (~gyn_bleeding discharge odor itch douche vulva)
 
-	u: ($present) respond(~currentvaginalsymptoms) ^fail(TOPIC)    
-	u: ($family) respond(~familyvaginalsymptoms) ^fail(TOPIC) 
-
-
+	u: ($present) respond(~currentvaginalsymptoms) ^fail(TOPIC)
+	u: ($family) respond(~familyvaginalsymptoms) ^fail(TOPIC)
 
 #! Ever had vaginal dryness
-	u: Ever_had_vaginal_dryness (ever had vaginal dryness) ^factanswer("Not really.")
-	u: (<< [vaginal vagina area] [dryness redness] >>) ^reuse (Ever_had_vaginal_dryness)
-
+	u: EVER_HAD_VAGINAL_DRYNESS (<< [vaginal vagina area] [dryness redness] >>) ^factanswer("Not really.")
 
 #! Ever douche
-	u: Ever_douche (ever douche) ^factanswer("No.")
-	u: (douche) ^reuse (Ever_douche)
-
-
+	u: EVER_DOUCHE (douche) ^factanswer("No.")
 
 # ###################################################################################
 
 topic: ~past_pregnancy keep repeat (~gyn_bleeding pregnant miscarry miscarriage pregnancy times vaginally c-section cesarean deliver birth born "last time" recent)
 
-	u: ($present) respond(~current_pregnancy) ^fail(TOPIC)    
-	u: ($family) respond(~family_pregnancy) ^fail(TOPIC) 
-
+	u: ($present) respond(~current_pregnancy) ^fail(TOPIC)
+	u: ($family) respond(~family_pregnancy) ^fail(TOPIC)
 
 #! When were you pregnant
-	u: When_were_you_pregnant (when were you pregnant) ^factanswer("I have never been pregnant.")
-	u: (![many times] [when how] * [pregnant pregnancies deliver birth]) ^reuse (When_were_you_pregnant)
-	u: (![many times] [when how] * [pregnant pregnancies] * [ever prior past before previous]) ^reuse (When_were_you_pregnant)
+	u: WHEN_WERE_YOU_PREGNANT
+		([
+			(![many times] [when how] * [pregnant pregnancies deliver 'birth])
+			(![many times] [when how] * [pregnant pregnancies] * [ever prior past before previous])
+		])
+	^factanswer("I have never been pregnant.")
 
-
-	
 #! Did you ever want to be pregnant
-	u: Ever_want_to_be_pregnant (ever want to be pregnant) ^factanswer("No.")
-	u: ([want desire try trying] * pregnant >) ^reuse (Ever_want_to_be_pregnant)
+	u: EVER_WANT_TO_BE_PREGNANT ([want desire try trying] * pregnant >) ^factanswer("No.")
 
 #! Have you ever taken a pregnancy test before
-	u: Ever_taken_pregnancy_test_before (ever taken a pregnancy test before)  ^factanswer("No I have not.")
-	u: ([take taken checked done "have you had" "have you"] * [pregnant pregnancy] * [test kit strip]) ^reuse (Ever_taken_pregnancy_test_before)
+	u: EVER_TAKEN_PREGNANCY_TEST_BEFORE ([take taken checked done "have you had" "have you"] * [pregnant pregnancy] * [test kit strip])  ^factanswer("No I have not.")
 
 #! Have you ever miscarried before
-	u: Ever_miscarried_before  (have you ever miscarried before)  ^factanswer("I have never miscarried.")
-	u: (ever * [miscarry miscarried miscarriage])  ^reuse (Ever_miscarried_before)
+	u: EVER_MISCARRIED_BEFORE  (ever * [miscarry miscarried miscarriage])  ^factanswer("I have never miscarried.")
 
 #! Have you ever been pregnant before
-	u: Ever_been_pregnant_before (have you ever been pregnant before) ^factanswer("I have never been pregnant.")
-	u: (<< [ever prior past before previous many times] [pregnant pregnancies] >>) ^reuse (Ever_been_pregnant_before)	
+	u: EVER_BEEN_PREGNANT_BEFORE (<< [ever prior past before previous many times] [pregnant pregnancies] >>) ^factanswer("I have never been pregnant.")
 
 #! Describe past pregnancy
-	u: Describe_past_pregnancy (describe past pregnancy) ^factanswer("I have never been pregnant.")
-	u: ([describe "how was"] * [past previous] * [pregnant pregnancy] >) ^reuse (Describe_past_pregnancy)
-	u: ([pregnant pregnancy delivery deliver born] * [problem issues free easy normal complications go "all right" vaginally c-section cesarean]) ^reuse (Describe_past_pregnancy)
-
+	u: DESCRIBE_PAST_PREGNANCY
+		([
+			([describe "how was"] * [past previous] * [pregnant pregnancy] >)
+			([pregnant pregnancy delivery deliver born] * [problem issues free easy normal complications go "all right" vaginally c-section cesarean])
+		])
+	^factanswer("I have never been pregnant.")
 
 # ###################################################################################
 
 topic: ~past_breast keep repeat (breast ~breast_problems)
 
-	u: ($present) respond(~current_breast) ^fail(TOPIC)    
-	u: ($family) respond(~family_breast) ^fail(TOPIC) 
-
+	u: ($present) respond(~current_breast) ^fail(TOPIC)
+	u: ($family) respond(~family_breast) ^fail(TOPIC)
 
 #! Any past breast changes
-	u: Any_past_breast_changes  (any past breast changes)   ^factanswer("No breast changes.")
-	u: (~Breast_Problems * [change size tenderness])   ^reuse (Any_past_breast_changes)
-	u: (~Breast_Problems)   ^reuse (Any_past_breast_changes)
+	u: ANY_PAST_BREAST_CHANGES
+		([
+			(~Breast_Problems * [change size tenderness])
+			(~Breast_Problems)
+		])
+	^factanswer("No breast changes.")

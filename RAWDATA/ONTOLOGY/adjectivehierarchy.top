@@ -37,7 +37,7 @@ concept: ~character_trait_adjectives (able~a accepting~a adventurous~a aggressiv
 concept: ~chemical_properties_adjectives (combustible~a )
 concept: ~cleanliness_adjectives (clean~a dirty~a washed~a )
 concept: ~cognition_adjectives (~ABILITY_ADJECTIVES ~OPINION_ADJECTIVES ~PERMISSION_ADJECTIVES )
-concept: ~color_adjectives (~COLORS transparent~a )
+concept: ~color_adjectives (transparent~a )
 concept: ~communication_adjectives (chatty~a taciturn~a )
 concept: ~comparison_adjectives (similar~a )
 concept: ~constitution_adjectives ( short~a strong~a tall~a weak~a )

@@ -1,45 +1,59 @@
 
 
-topic: ~statements keep repeat deprioritize ("hear you" understand "healthcare team" nice noble pretty friend kind uncomfortable hard ask best doctor sounds "get to the bottom" address "take care of" "look into" "get you back" "work on that" talk irritate confidential discuss discussion "between you and me" "I would like to" tough review system)
+topic: ~statements keep repeat deprioritize
+	("hear you" understand "healthcare team" nice noble pretty friend kind uncomfortable hard ask best doctor sounds "get to the bottom"
+	address "take care of" "look into" "get you back" "work on that" talk irritate confidential discuss address discussion "between you and me"
+	"I would like to" tough review system "I see" "I can see" "move on" patients first stressful)
 
 #! That was nice
-	s: That_was_nice  (that was nice)  ^factanswer("I try to be a nice person.")
-	s: ([that you] * [very quite incredibly good] * [nice friendly noble friend]) ^reuse(That_was_nice)
-	s: ([that you] * [nice friendly noble friend kind])  ^reuse (That_was_nice)
+	s: THAT_WAS_NICE
+		([
+			([that you] *~3 [very quite incredibly good] * [nice friendly noble friend])
+			([that you] *~3 [nice friendly noble friend kind])
+		])
+	^factanswer("I try to be a nice person.")
 
 #! I understand completely
-	s: I_understand (I understand completely)  ^factanswer("Thanks for understanding.")
-	s: ([I ~itwords] * [understand understandable "hear you"]) ^reuse (I_understand)
+	s: I_UNDERSTAND ([I ~itwords] *~3 [understand understandable "hear you"])  ^factanswer("Thanks for understanding.")
 
 #! Want to ask about
-	s: Want_to_ask_about (want to ask about)  ^factanswer("I'll try to give answers as best I can.")
-	s: (!confidential [want going like want] * [ask discuss run over talk review] * [about through system])  ^reuse (Want_to_ask_about)
-	s: (!confidential [discuss run over talk] * [about through more])  ^reuse (Want_to_ask_about)	
+	s: WANT_TO_ASK_ABOUT
+		([
+			(!confidential [want going like want] *~3 [ask discuss run over talk review] *~3 [about through system])
+			(!confidential [discuss run over talk "move on"] *~3 [about through more])
+		])
+^factanswer("I'll try to give answers as best I can.")
 
 #! I will do my best
-	s: I_will_do_my_best (I will do my best)  ^factanswer("I appreciate that.")
-	s: ([I we "healthcare team" ~itwords] * [best try help "get to the bottom" address "take care of" "look into" "get you back" "work on that"]) ^reuse(I_will_do_my_best)
- 
+	s: I_WILL_DO_MY_BEST ([I we "healthcare team" ~itwords] *~3 [best try help "get to the bottom" address "take care of" "look into" "get you back" "work on that"])  ^factanswer("I appreciate that.")
+
 #! The doctor will be in
-	s: The_doctor_will_be_in (the doctor will be in)  ^factanswer("Sounds good.")
-	s: ([doctor he she they] * [come be]) ^reuse (The_doctor_will_be_in)
+	s: THE_DOCTOR_WILL_BE_IN ([doctor he she they] *~3 [come be])  ^factanswer("Sounds good.")
 
 #! Sounds like
-	s: Sounds_like (sounds like)  ^factanswer("That sounds right.")
-	s: ([sounds seems] * [irritating like pretty really]) ^reuse (Sounds_like)
+	s: SOUNDS_LIKE ([sounds seems] *~4 [irritating like pretty really])  ^factanswer("That sounds right.")
 
 #! Discussion is confidential
-	s: Discussion_is_confidential (discussion is confidential)  ^factanswer("That makes me feel good.")
-	s: ([discuss discussion talk] * [confidential private "between you and me"]) ^reuse (Discussion_is_confidential)
+	s: DISCUSSION_IS_CONFIDENTIAL ([discuss discussion talk] *~3 [confidential private "between you and me"])  ^factanswer("That makes me feel good.")
 
 #! That must be hard
-	s: That_must_be_hard (that must be hard)  ^factanswer("It is challenging.")
-	s: (!confidential ~itwords * [hard frustrating uncomfortable terrible painful difficult bad tough rough])  ^reuse (That_must_be_hard)
+	s: THAT_MUST_BE_HARD (!confidential ~itwords *~3 [hard frustrating uncomfortable terrible painful difficult bad tough rough stressful])  ^factanswer("It is challenging.")
 
 #! I would like to get to know more
-	s: I_would_like_to_get_to_know_more (I would like to get to know more)  ^factanswer("I will try my best to tell you.")
-	s: ("I would like to" * ["get to know" learn] * [medical social past family])  ^reuse (I_would_like_to_get_to_know_more)
+	s: I_WOULD_LIKE_TO_GET_TO_KNOW_MORE ("I would like to" *~3 ["get to know" learn] * [medical social past family])  ^factanswer("I will try my best to tell you.")
 
 #! You look
-	s: You_look (you look)  ^factanswer("I guess so.")
-	s: (you look * [tired anxious uncomfortable]) ^reuse (You_look)	
+	s: YOU_LOOK (you look *~4 [tired anxious uncomfortable])  ^factanswer("I guess so.")
+
+#! I ask them of all my patients
+	s: ASK_THEM_OF_ALL_MY_PATIENTS (ask {them} *~3 my *~2 patients) ^factanswer("OK.")
+
+#! Let's discuss this first
+	s: DISSCUSS_THIS_FIRST (discuss * first) ^factanswer("OK.")
+
+#! We will adress that
+	u: WE_WILL_ADDRESS_THAT ([address discuss "go over"] *~3 [that those]) ^factanswer("OK.") # s: does not work for "If that is all, we will adress that.
+
+#! I see
+#! I can see
+	s: I_SEE (I *~1 see) ^factanswer("Thanks.")

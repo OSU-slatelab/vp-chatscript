@@ -2,16 +2,16 @@ outputmacro: Patient16()
 $patientfirstname = Cesar
 $patientlastname = Rodriguez
 $chiefcomplaint = ~abdominal_pain
-$complaint2 = 
-$complaint3 = 
+$complaint2 =
+$complaint3 =
 $VPatient16 = VPatient16
 $Vpatient = VPatient16
 $patientTitle = Mr
-$currentjob = 
-$currentmedication1 = 
-$currentmedication2 = 
-$currentmedication3 = 
-$currentrateofpain = 
+$currentjob =
+$currentmedication1 =
+$currentmedication2 =
+$currentmedication3 =
+$currentrateofpain =
 
 ^stdpatient()
 
@@ -21,16 +21,16 @@ table: ^patientdata(VPatient16)
 ### OpeningDialogue
 # primary
 
-What_do_you_think_is_the_trouble "Well, I'm hoping you can tell me that. I just want to make sure nothing is wrong."
-What_brings_you_in_today "Well, I've been having this abdominal pain, and it just seems like it won't go away."
-What_would_you_like_me_to_do "I'd like you to help me out. I am just really worried about the pain now."
-Does_anything_make_you_feel_better "It's hard to say. Sometimes eating or drinking makes it better, or sometimes worse. Sometimes eating spicy foods makes it worse."
-Are_you_sick "Well, I guess I would say that I am sick, but I really haven't had any recent sickness."
-Tell_me_more "Well, let's see. It started probably a year go. It used to happen a few times a week, not it hurts every day. It usually burns in the upper stomach area."
+WHAT_DO_YOU_THINK_IS_THE_TROUBLE "Well, I'm hoping you can tell me that. I just want to make sure nothing is wrong."
+WHAT_BRINGS_YOU_IN_TODAY "Well, I've been having this abdominal pain, and it just seems like it won't go away."
+WHAT_WOULD_YOU_LIKE_ME_TO_DO "I'd like you to help me out. I am just really worried about the pain now."
+DOES_ANYTHING_MAKE_YOU_FEEL_BETTER "It's hard to say. Sometimes eating or drinking makes it better, or sometimes worse. Sometimes eating spicy foods makes it worse."
+ARE_YOU_SICK "Well, I guess I would say that I am sick, but I really haven't had any recent sickness."
+TELL_ME_MORE "Well, let's see. It started probably a year go. It used to happen a few times a week, not it hurts every day. It usually burns in the upper stomach area."
 
 # greetings
 
-Tell_me_about_yourself "Well, I just recently moved to the US from the Dominican Republic. And I miss my home, but I am excited to be in this country."
+TELL_ME_ABOUT_YOURSELF "Well, I just recently moved to the US from the Dominican Republic. And I miss my home, but I am excited to be in this country."
 
 # followupdialogue
 
@@ -38,25 +38,25 @@ Tell_me_about_yourself "Well, I just recently moved to the US from the Dominican
 ### PatientInformation
 # patientage
 
-How_old_are_you "I am 39 years old."
-When_were_you_born "I am 39 years old."
+HOW_OLD_ARE_YOU "I am 39 years old."
+WHEN_WERE_YOU_BORN "I am 39 years old."
 
 # patientname
 
-Name_and_date_of_birth "My name is Cesar Rodriguez and I am 39 years old."
-What_is_your_name "Cesar Rodriguez"
+NAME_AND_DATE_OF_BIRTH "My name is Cesar Rodriguez and I am 39 years old."
+WHAT_IS_YOUR_NAME "Cesar Rodriguez"
 
 ### Medications
 # currentmedications
 
-Taking_medication_for_the_1  "No I have not taken anything for my stomach pain. I drink some tea that's good for the stomach, 'Yerba Buena', but it doesn't really help."
-What_is_the_strength_of_the_medicine "I am not sure."
-Would_you_like_some_pain_medication "Well, I already usually take just ibuprofen if I'm tired and sore after work, probably most days of the week."
-Are_you_taking_any_medication "I sometimes take ibuprofen if I am tired and sore after work."
+TAKING_MEDICATION_FOR_THE_1  "No I have not taken anything for my stomach pain. I drink some tea that's good for the stomach, 'Yerba Buena', but it doesn't really help."
+WHAT_IS_THE_STRENGTH_OF_THE_MEDICINE "I am not sure."
+WOULD_YOU_LIKE_SOME_PAIN_MEDICATION "Well, I already usually take just ibuprofen if I'm tired and sore after work, probably most days of the week."
+ARE_YOU_TAKING_ANY_MEDICATION "I sometimes take ibuprofen if I am tired and sore after work."
 
 # supplements
 
-Are_you_taking_supplements "No. I usually just drink some tea called Yerba Buena that's good for the stomach, but it doesn't really help."
+ARE_YOU_TAKING_SUPPLEMENTS "No. I usually just drink some tea called Yerba Buena that's good for the stomach, but it doesn't really help."
 
 # othermedications
 
@@ -71,47 +71,47 @@ Are_you_taking_supplements "No. I usually just drink some tea called Yerba Buena
 ### SocialHistory
 # activity
 
-Do_you_exercise "Not really. I work on a farm though, so that's probably enough exercise, I believe."
+DO_YOU_EXERCISE "Not really. I work on a farm though, so that's probably enough exercise, I believe."
 
 # alcoholuse
 
-How_much_do_you_drink "Oh, I drink maybe three to four beers per week or so."
-Do_you_drink "Yes, but only three to four beers a week."
-What_kind_of_drinks "Usually just beer."
-How_many_drinks "Around 3-4 beers per week."
+HOW_MUCH_DO_YOU_DRINK "Oh, I drink maybe three to four beers per week or so."
+DO_YOU_DRINK "Yes, but only three to four beers a week."
+WHAT_KIND_OF_DRINKS "Usually just beer."
+HOW_MANY_DRINKS "Around 3-4 beers per week."
 
 # caffeineuse
 
 
 # diet
 
-Can_you_eat "Eating is not a problem really. But sometimes eating spicy foods makes the pain worse."
+CAN_YOU_EAT "Eating is not a problem really. But sometimes eating spicy foods makes the pain worse."
 
 # tobaccouse
 
-How_much_do_you_smoke "I used to smoke a few cigarettes per day, but its been six months now that I've stopped altogether."
-How_long_have_you_smoked "I haven't smoked in 6 months."
-Have_you_ever_smoked "Yes, 6 months ago. I used to smoke a few per day."
-How_long_did_you_smoke "I smoked for maybe 20 years, but I've quit now for about six months so far."
-When_did_you_start_smoking "I'm not sure how old I was."
-Have_you_quit_smoking "Yes, it has been six months now."
-Do_you_smoke "I have smoked before. I've quit now for 6 months."
+HOW_MUCH_DO_YOU_SMOKE "I used to smoke a few cigarettes per day, but its been six months now that I've stopped altogether."
+HOW_LONG_HAVE_YOU_SMOKED "I haven't smoked in 6 months."
+HAVE_YOU_EVER_SMOKED "Yes, 6 months ago. I used to smoke a few per day."
+HOW_LONG_DID_YOU_SMOKE "I smoked for maybe 20 years, but I've quit now for about six months so far."
+WHEN_DID_YOU_START_SMOKING "I'm not sure how old I was."
+HAVE_YOU_QUIT_SMOKING "Yes, it has been six months now."
+DO_YOU_SMOKE "I have smoked before. I've quit now for 6 months."
 
 # education
 
 
 # inrelationtohpi
 
-How_has_this_affected_you "I am just really worried about it. I really hope it's not something serious."
-How_have_you_been_handling_this "It has really been bothering me a lot now."
-What_bothers_you_the_most "Well, I am just really worried and am hoping that it is nothing serious."
+HOW_HAS_THIS_AFFECTED_YOU "I am just really worried about it. I really hope it's not something serious."
+HOW_HAVE_YOU_BEEN_HANDLING_THIS "It has really been bothering me a lot now."
+WHAT_BOTHERS_YOU_THE_MOST "Well, I am just really worried and am hoping that it is nothing serious."
 
 # job
 
-Where_do_you_work "I work on a farm that grows vegetables. They used to have animals but have switched to only vegetables."
-How_long_have_you_been_a_worker "Ever since I moved to the US, I've been working on a farm."
-Do_you_have_insurance "I don't have any health insurance and haven't had the money to come to the doctor before. That's why I am so worried. I want to get better, but I hope it is nothing serious."
-What_do_you_do_for_a_living "I work on a vegetable farm."
+WHERE_DO_YOU_WORK "I work on a farm that grows vegetables. They used to have animals but have switched to only vegetables."
+HOW_LONG_HAVE_YOU_BEEN_A_WORKER "Ever since I moved to the US, I've been working on a farm."
+DO_YOU_HAVE_INSURANCE "I don't have any health insurance and haven't had the money to come to the doctor before. That's why I am so worried. I want to get better, but I hope it is nothing serious."
+WHAT_DO_YOU_DO_FOR_A_LIVING "I work on a vegetable farm."
 
 # recreationaldruguse
 
@@ -121,7 +121,7 @@ What_do_you_do_for_a_living "I work on a vegetable farm."
 
 # travel
 
-Have_you_traveled_anywhere "Other than coming here from the Dominican Republic 3 years ago, I have not travelled anywhere."
+HAVE_YOU_TRAVELED_ANYWHERE "Other than coming here from the Dominican Republic 3 years ago, I have not travelled anywhere."
 
 # hobby
 
@@ -141,8 +141,8 @@ Have_you_traveled_anywhere "Other than coming here from the Dominican Republic 3
 ### CurrentGeneralSymptoms
 # medicalproblems
 
-Do_you_have_any_medical_problems "I don't really have medical problems, just the stomach pain."
-What_symptoms_are_you_having "I am having stomach pain, but nothing else."
+DO_YOU_HAVE_ANY_MEDICAL_PROBLEMS "I don't really have medical problems, just the stomach pain."
+WHAT_SYMPTOMS_ARE_YOU_HAVING "I am having stomach pain, but nothing else."
 
 # sleepingproblems
 
@@ -176,7 +176,7 @@ What_symptoms_are_you_having "I am having stomach pain, but nothing else."
 # maleGU
 
 
-### CurrentCardiacSymptoms
+### CurrentCardiovascularSymptoms
 # bloodpressure
 
 
@@ -184,6 +184,9 @@ What_symptoms_are_you_having "I am having stomach pain, but nothing else."
 
 
 # heartproblems
+
+
+# vascular
 
 
 ### CurrentGYNSymptoms
@@ -268,37 +271,37 @@ What_symptoms_are_you_having "I am having stomach pain, but nothing else."
 ### CurrentPainSymptoms
 # onset
 
-How_long_ago_was_the_incident "There was no incident. But my pain started probably a year ago."
+HOW_LONG_AGO_WAS_THE_INCIDENT "There was no incident. But my pain started probably a year ago."
 
 # exacerbation
 
-Does_rest_make_the_pain_go_away "Not really."
-Do_you_have_pain_at_rest "Sometimes yes. The pain used to happen a few times a week, now my stomach hurts every day."
-Does_it_hurt_when_not_moving "Yes, movement doesn't make it better or worse."
-Is_the_pain_associated_with_food "Its hard to say. Sometimes eating or drinking makes it better, or sometimes worse. Sometimes eating something spicy makes it worse."
+DOES_REST_MAKE_THE_PAIN_GO_AWAY "Not really."
+DO_YOU_HAVE_PAIN_AT_REST "Sometimes yes. The pain used to happen a few times a week, now my stomach hurts every day."
+DOES_IT_HURT_WHEN_NOT_MOVING "Yes, movement doesn't make it better or worse."
+IS_THE_PAIN_ASSOCIATED_WITH_FOOD "Its hard to say. Sometimes eating or drinking makes it better, or sometimes worse. Sometimes eating something spicy makes it worse."
 
 # intensity
 
-Can_you_rate_the_pain "I'm not really sure how I would."
-Can_you_rate_it "I'm not sure how I would rate the pain."
-How_painful_is_it "It is pretty painful at times."
-Is_the_pain_always_a_number  "No it is not."
-Does_the_pain_hurt_a_lot  "Yes."
+CAN_YOU_RATE_THE_PAIN "I'm not really sure how I would."
+CAN_YOU_RATE_IT "I'm not sure how I would rate the pain."
+HOW_PAINFUL_IS_IT "It is pretty painful at times."
+IS_THE_PAIN_ALWAYS_A_NUMBER  "No it is not."
+DOES_THE_PAIN_HURT_A_LOT  "Yes."
 
 # general
 
-You_seem_uncomfortable "I am just really worried about this becoming something serious."
-Can_you_point_to_the_pain "It is generally in the upper stomach area."
+YOU_SEEM_UNCOMFORTABLE "I am just really worried about this becoming something serious."
+CAN_YOU_POINT_TO_THE_PAIN "It is generally in the upper stomach area."
 
 # description
 
-Does_the_pain_radiate  "No it does not seem to."
-Any_pain_on_right_side "It seems to be in the upper stomach area."
-Any_pain_on_left_side "It seems to be in the upper stomach area."
-Is_the_pain_on_one_side "It seems to be in the upper stomach area."
-Is_the_pain_sharp  "Not really. It usually feels like a burning sensation."
-When_does_the_pain_hurt "Its hard to say. Sometimes it hurts with food, while other times it seems to get better with food."
-How_did_it_feel "It just feels like a burning, painful sensation."
+DOES_THE_PAIN_RADIATE  "No it does not seem to."
+ANY_PAIN_ON_RIGHT_SIDE "It seems to be in the upper stomach area."
+ANY_PAIN_ON_LEFT_SIDE "It seems to be in the upper stomach area."
+IS_THE_PAIN_ON_ONE_SIDE "It seems to be in the upper stomach area."
+IS_THE_PAIN_SHARP  "Not really. It usually feels like a burning sensation."
+WHEN_DOES_THE_PAIN_HURT "Its hard to say. Sometimes it hurts with food, while other times it seems to get better with food."
+HOW_DID_IT_FEEL "It just feels like a burning, painful sensation."
 
 ### CurrentRespiratorySymptoms
 # breathing
@@ -310,13 +313,13 @@ How_did_it_feel "It just feels like a burning, painful sensation."
 ### CurrentTreatments
 # treatmentstried
 
-Have_you_tried_any_treatment "Nothing. I usually drink tea that is good for the stomach, but its not helping anything."
-What_treatment_have_you_tried "I haven't really tried anything. I drink herbal tea that is supposed to be good for the stomach, but it hasn't helped any."
+HAVE_YOU_TRIED_ANY_TREATMENT "Nothing. I usually drink tea that is good for the stomach, but its not helping anything."
+WHAT_TREATMENT_HAVE_YOU_TRIED "I haven't really tried anything. I drink herbal tea that is supposed to be good for the stomach, but it hasn't helped any."
 
 ### PastGeneralSymptoms
 # medicalproblems
 
-Have_you_ever_had_any_serious_illnesses  "Well, I did have prostate cancer. But my doctor said that has been resolved."
+HAVE_YOU_EVER_HAD_ANY_SERIOUS_ILLNESSES  "Well, I did have prostate cancer. But my doctor said that has been resolved."
 
 # hospitalizations
 
@@ -354,6 +357,10 @@ Have_you_ever_had_any_serious_illnesses  "Well, I did have prostate cancer. But 
 
 
 # heartproblems
+
+
+### PastCardiovascularSymptoms
+# vascular
 
 
 ### PastGYNSymptoms
@@ -442,39 +449,39 @@ Have_you_ever_had_any_serious_illnesses  "Well, I did have prostate cancer. But 
 ### PastPainSymptoms
 # onset
 
-How_long_ago_was_the_past_incident "There was no incident, but my pain started about a year ago. At that time, it really wasn't that bad."
+HOW_LONG_AGO_WAS_THE_PAST_INCIDENT "There was no incident, but my pain started about a year ago. At that time, it really wasn't that bad."
 
 # exacerbation
 
-Did_rest_make_the_past_pain_go_away "I don't think it affected anything."
-Did_you_have_past_pain_at_rest "I believe so, but less frequently and it wasn’t as bad."
+DID_REST_MAKE_THE_PAST_PAIN_GO_AWAY "I don't think it affected anything."
+DID_YOU_HAVE_PAST_PAIN_AT_REST "I believe so, but less frequently and it wasnï¿½t as bad."
 
 # intensity
 
-Rate_the_pain "I'm really not sure. I can't put a number on it. Sometimes it hurts a lot and sometimes not so much."
-Pain_been_worse "The pain is worse now than it was a year ago."
-Can_you_rate_the_past_pain "I don't remember."
-Can_you_rate_your_past_pain "I cannot, but it wasn't as bad as it is right now."
-How_painful_was_past_pain "It wasn't as bad as it is right now."
-Did_the_past_pain_hurt_a_lot "Not compared to the pain I am feeling now."
+RATE_THE_PAIN "I'm really not sure. I can't put a number on it. Sometimes it hurts a lot and sometimes not so much."
+PAIN_BEEN_WORSE "The pain is worse now than it was a year ago."
+CAN_YOU_RATE_THE_PAST_PAIN "I don't remember."
+CAN_YOU_RATE_YOUR_PAST_PAIN "I cannot, but it wasn't as bad as it is right now."
+HOW_PAINFUL_WAS_PAST_PAIN "It wasn't as bad as it is right now."
+DID_THE_PAST_PAIN_HURT_A_LOT "Not compared to the pain I am feeling now."
 
 # general
 
 
 # description
 
-Did_the_past_pain_radiate "No it did not."
-Did_you_have_past_radiating_pain "No I have not."
-Was_the_past_pain_in_your_lower_back "No it was not."
-Was_the_past_pain_on_one_side  "No, it was in the upper abdomen."
-Was_the_past_pain_sharp  "No it felt like a burning sensation."
-Was_the_past_pain_dull  "No."
-Was_the_area_tender_before  "No it was not."
-Was_the_past_pain_in_the_muscle  "No, I don't believe so."
-When_did_the_pain_hurt_before "It used to happen only a few times a week, but now it hurts every day."
-How_did_it_feel_before "It felt the same as it does now - a burning sensation in the upper stomach area."
-How_has_the_pain_progressed "The pain has become worse and more frequent. It used to happen only a few times a week, now it hurts every day. It just doesn't seem to go away."
-Is_this_the_worst_pain_ever "I'm not sure if this is the worst."
+DID_THE_PAST_PAIN_RADIATE "No it did not."
+DID_YOU_HAVE_PAST_RADIATING_PAIN "No I have not."
+WAS_THE_PAST_PAIN_IN_YOUR_LOWER_BACK "No it was not."
+WAS_THE_PAST_PAIN_ON_ONE_SIDE  "No, it was in the upper abdomen."
+WAS_THE_PAST_PAIN_SHARP  "No it felt like a burning sensation."
+WAS_THE_PAST_PAIN_DULL  "No."
+WAS_THE_AREA_TENDER_BEFORE  "No it was not."
+WAS_THE_PAST_PAIN_IN_THE_MUSCLE  "No, I don't believe so."
+WHEN_DID_THE_PAIN_HURT_BEFORE "It used to happen only a few times a week, but now it hurts every day."
+HOW_DID_IT_FEEL_BEFORE "It felt the same as it does now - a burning sensation in the upper stomach area."
+HOW_HAS_THE_PAIN_PROGRESSED "The pain has become worse and more frequent. It used to happen only a few times a week, now it hurts every day. It just doesn't seem to go away."
+IS_THIS_THE_WORST_PAIN_EVER "I'm not sure if this is the worst."
 
 ### PastRespiratorySymptoms
 # breathing
@@ -486,9 +493,9 @@ Is_this_the_worst_pain_ever "I'm not sure if this is the worst."
 ### FamilyGeneralSymptoms
 # medicalproblems
 
-Any_conditions_that_run_in_your_family "My father had high blood pressure and my mother had diabetes."
-Any_family_history_of_illness  "My father had high blood pressure and my mother had diabetes."
-Parents_have_any_medical_problems "My father had high blood pressure and my mother had diabetes."
+ANY_CONDITIONS_THAT_RUN_IN_YOUR_FAMILY "My father had high blood pressure and my mother had diabetes."
+ANY_FAMILY_HISTORY_OF_ILLNESS  "My father had high blood pressure and my mother had diabetes."
+PARENTS_HAVE_ANY_MEDICAL_PROBLEMS "My father had high blood pressure and my mother had diabetes."
 
 ### FamilyAbdominalGISymptoms
 # bowel
@@ -500,12 +507,16 @@ Parents_have_any_medical_problems "My father had high blood pressure and my moth
 ### FamilyCardiacSymptoms
 # bloodpressure
 
-Family_history_of_hypertension "Yes, my father had high blood pressure."
+FAMILY_HISTORY_OF_HYPERTENSION "Yes, my father had high blood pressure."
 
 # chestpain
 
 
 # heartproblems
+
+
+### FamilyCardiovascularSymptoms
+# vascular
 
 
 ### FamilyGUSymptoms
@@ -548,7 +559,7 @@ Family_history_of_hypertension "Yes, my father had high blood pressure."
 ### FamilyPainSymptoms
 # pain
 
-Anyone_in_your_family_have_pain "I don't believe anyone has the stomach pain I am feeling now."
+ANYONE_IN_YOUR_FAMILY_HAVE_PAIN "I don't believe anyone has the stomach pain I am feeling now."
 
 ### FamilyRespiratorySymptoms
 # breathing
@@ -567,15 +578,15 @@ Anyone_in_your_family_have_pain "I don't believe anyone has the stomach pain I a
 
 # seeingadoctor
 
-How_did_you_come_to_find_us "I learned about you through one of my friends."
-How_did_you_learn_about_this_office  "I learned about you through one of my friends."
-Have_you_been_seen_at_this_office_before  "No, I have not."
-Are_you_a_new_patient "Yes I am."
-Where_are_you_usually_seen "I have not been to a doctor in the US yet."
+HOW_DID_YOU_COME_TO_FIND_US "I learned about you through one of my friends."
+HOW_DID_YOU_LEARN_ABOUT_THIS_OFFICE  "I learned about you through one of my friends."
+HAVE_YOU_BEEN_SEEN_AT_THIS_OFFICE_BEFORE  "No, I have not."
+ARE_YOU_A_NEW_PATIENT "Yes I am."
+WHERE_ARE_YOU_USUALLY_SEEN "I have not been to a doctor in the US yet."
 
 # mentalhealth
 
-Do_you_feel_anxious "Yes I am feeling pretty nervous about this pain."
+DO_YOU_FEEL_ANXIOUS "Yes I am feeling pretty nervous about this pain."
 
 # relationshiphealth
 
@@ -614,7 +625,7 @@ Do_you_feel_anxious "Yes I am feeling pretty nervous about this pain."
 
 # feelingquestions
 
-Are_you_nervous "I am a bit nervous about this pain. It just doesn't seem to go away."
+ARE_YOU_NERVOUS "I am a bit nervous about this pain. It just doesn't seem to go away."
 
 ### Closure
 # closure
@@ -645,13 +656,16 @@ Are_you_nervous "I am a bit nervous about this pain. It just doesn't seem to go 
 # prenatalcare
 
 
+# diabetes
+
+
 ### Family
 # familylife
 
 
 # parentsinformation
 
-Are_your_parents_healthy "Yes they are generally healthy. My father has high blood pressure and my mother has diabetes though."
+ARE_YOUR_PARENTS_HEALTHY "Yes they are generally healthy. My father has high blood pressure and my mother has diabetes though."
 
 # grandparentsinformation
 
@@ -674,56 +688,56 @@ Are_your_parents_healthy "Yes they are generally healthy. My father has high blo
 ### HOPIChiefcomplaint
 # onset
 
-Did_anything_happen_to_cause_the_1 "Nothing that I know of."
-Doing_anything_when_the_1_started "I really can't think of anything that might have caused this or anything that I did."
-Was_the_onset_sudden1 "I don't really remember. It was a year ago."
-Did_the_1_start_immediately "I don't remember really."
-Is_the_1_new "No, it has been going for a year now."
-When_did_the_1_start "It started probably a year ago."
-How_has_the_1_changed "It used to happen just a few times a week, but now it happens everyday. It just doesn't seem to go away."
-How_long_have_you_had_1 "It started about a year ago probably."
-Is_the_1_constant "It used to only happen a few times a week, but now it happens almost everyday."
+DID_ANYTHING_HAPPEN_TO_CAUSE_THE_1 "Nothing that I know of."
+DOING_ANYTHING_WHEN_THE_1_STARTED "I really can't think of anything that might have caused this or anything that I did."
+WAS_THE_ONSET_SUDDEN1 "I don't really remember. It was a year ago."
+DID_THE_1_START_IMMEDIATELY "I don't remember really."
+IS_THE_1_NEW "No, it has been going for a year now."
+WHEN_DID_THE_1_START "It started probably a year ago."
+HOW_HAS_THE_1_CHANGED "It used to happen just a few times a week, but now it happens everyday. It just doesn't seem to go away."
+HOW_LONG_HAVE_YOU_HAD_1 "It started about a year ago probably."
+IS_THE_1_CONSTANT "It used to only happen a few times a week, but now it happens almost everyday."
 
 # exacerbation
 
-What_makes_the_1_worse "Its hard to say. Sometimes eating or drinking makes it better, or sometimes worse. Sometimes eating spicy foods makes it worse."
-Does_anything_change_1_intensity "Its hard to say. Sometimes eating or drinking makes it better, or sometimes worse. Sometimes eating spicy foods makes it worse."
-What_have_you_tried_for_the_1 "Nothing really. I just take ibuprofen if I'm tired and sore after work, probably most days of the week. And I drink some tea that's good for the stomach, 'Yerba Buena,' but it doesn't really help."
-Have_you_tried_anything_for_the_1 "Nothing really. I just take ibuprofen if I'm tired and sore after work, probably most days of the week. And I drink some tea that's good for the stomach, 'Yerba Buena,' but it doesn't really help."
-What_makes_the_1_better "Its hard to say. Sometimes food can make it worse or it can make it better."
-Does_moving_increase_the_1 "No it does not."
-Does_any_position_relieve_the_1 "Not particularly."
-Does_any_position_make_the_1_worse "Not particularly."
-Do_any_positions_make_1_worse_or_better "No."
-Is_1_better_when_you_lie_down "No."
-Does_1_increase_when_you_stand "Not really."
-Does_the_1_improve_with_exercise "Nope."
-Does_the_1_keep_you_up_at_night "No it does not."
-Is_the_1_improving "No it seems to be getting worse."
+WHAT_MAKES_THE_1_WORSE "Its hard to say. Sometimes eating or drinking makes it better, or sometimes worse. Sometimes eating spicy foods makes it worse."
+DOES_ANYTHING_CHANGE_1_INTENSITY "Its hard to say. Sometimes eating or drinking makes it better, or sometimes worse. Sometimes eating spicy foods makes it worse."
+WHAT_HAVE_YOU_TRIED_FOR_THE_1 "Nothing really. I just take ibuprofen if I'm tired and sore after work, probably most days of the week. And I drink some tea that's good for the stomach, 'Yerba Buena,' but it doesn't really help."
+HAVE_YOU_TRIED_ANYTHING_FOR_THE_1 "Nothing really. I just take ibuprofen if I'm tired and sore after work, probably most days of the week. And I drink some tea that's good for the stomach, 'Yerba Buena,' but it doesn't really help."
+WHAT_MAKES_THE_1_BETTER "Its hard to say. Sometimes food can make it worse or it can make it better."
+DOES_MOVING_INCREASE_THE_1 "No it does not."
+DOES_ANY_POSITION_RELIEVE_THE_1 "Not particularly."
+DOES_ANY_POSITION_MAKE_THE_1_WORSE "Not particularly."
+DO_ANY_POSITIONS_MAKE_1_WORSE_OR_BETTER "No."
+IS_1_BETTER_WHEN_YOU_LIE_DOWN "No."
+DOES_1_INCREASE_WHEN_YOU_STAND "Not really."
+DOES_THE_1_IMPROVE_WITH_EXERCISE "Nope."
+DOES_THE_1_KEEP_YOU_UP_AT_NIGHT "No it does not."
+IS_THE_1_IMPROVING "No it seems to be getting worse."
 
 # intensity
 
-How_intense_is_the_1 "It is pretty painful at times."
-Has_the_intensity1_changed "The pain seems to have gotten worse and more frequent over the course of the year."
-Has_the_1_become_worse "Yes. I now have pain everyday."
-When_is_the_1_most_severe "Its hard to say really."
+HOW_INTENSE_IS_THE_1 "It is pretty painful at times."
+HAS_THE_INTENSITY1_CHANGED "The pain seems to have gotten worse and more frequent over the course of the year."
+HAS_THE_1_BECOME_WORSE "Yes. I now have pain everyday."
+WHEN_IS_THE_1_MOST_SEVERE "Its hard to say really."
 
 # general
 
-Do_you_currently_have_1 "Not right this moment."
-How_is_your_1_now "It is pretty bad."
-How_else_is_the_1_affecting_your_life "I am just pretty anxious about the pain as it doesn't seem to be going away."
+DO_YOU_CURRENTLY_HAVE_1 "Not right this moment."
+HOW_IS_YOUR_1_NOW "It is pretty bad."
+HOW_ELSE_IS_THE_1_AFFECTING_YOUR_LIFE "I am just pretty anxious about the pain as it doesn't seem to be going away."
 
 # description
 
-Has_the_1_changed "Yes, it has gotten worse."
-When_do_you_have_the_1 "I have it every day almost."
-How_long_does_the_1_last "I'm not really sure."
-How_frequent_is_the_1 "It comes everyday."
-What_concerns_you_about_the_1 "I don't have any medical insurance right now and so I hope it isn't anything serious."
-Where_is_the_1 "It seems to be in the upper stomach area."
-Describe_the_1 "It feels like a burning sensation in my upper stomach area."
-When_else_do_you_have_the_1 "Its hard to say exactly when. Food can make it better or worse, but I have the pain now almost everyday."
+HAS_THE_1_CHANGED "Yes, it has gotten worse."
+WHEN_DO_YOU_HAVE_THE_1 "I have it every day almost."
+HOW_LONG_DOES_THE_1_LAST "I'm not really sure."
+HOW_FREQUENT_IS_THE_1 "It comes everyday."
+WHAT_CONCERNS_YOU_ABOUT_THE_1 "I don't have any medical insurance right now and so I hope it isn't anything serious."
+WHERE_IS_THE_1 "It seems to be in the upper stomach area."
+DESCRIBE_THE_1 "It feels like a burning sensation in my upper stomach area."
+WHEN_ELSE_DO_YOU_HAVE_THE_1 "Its hard to say exactly when. Food can make it better or worse, but I have the pain now almost everyday."
 
 ### HOPIComplaint2
 # onset
@@ -740,7 +754,7 @@ When_else_do_you_have_the_1 "Its hard to say exactly when. Food can make it bett
 
 # description
 
-What_concerns_you_about_the_2 "I am worried because I have really never had this kind of pain before and I have certainly never had this pain in my leg."
+WHAT_CONCERNS_YOU_ABOUT_THE_2 "I am worried because I have really never had this kind of pain before and I have certainly never had this pain in my leg."
 
 ### HOPIComplaint3
 # onset
@@ -756,4 +770,3 @@ What_concerns_you_about_the_2 "I am worried because I have really never had this
 
 
 # description
-

@@ -2,290 +2,399 @@
 
 # Family Life
 
-topic: ~familylife keep repeat (family "live with" pet dog cat live area home ~spouse life near supportive share similar yours)
+topic: ~familylife keep repeat (family "live with" pet dog cat live area home ~spouse life near supportive share similar)
 
 #! Do you have a family
-	u: DO_YOU_HAVE_A_FAMILY (do you have a family >) ^factanswer("I do have a family.")
-	u: (!~all_systems [have any many] *~3 family >) ^reuse (DO_YOU_HAVE_A_FAMILY)
-	u: (!~all_systems [family parents] * [near nearby close area]) ^reuse (DO_YOU_HAVE_A_FAMILY)
-	u: (!~all_systems [near nearby close area] * [family parents]) ^reuse (DO_YOU_HAVE_A_FAMILY)
+#! Any living family members
+	u: DO_YOU_HAVE_A_FAMILY
+	 ([
+		  (!~all_systems [have any many] *~3 family {members} >)
+			(!~all_systems [family parents] *~3 [near nearby close area])
+			(!~all_systems [near nearby close area] *~3 [family parents])
+			(living family)
+		])
+	^factanswer("I do have a family.")
 
 #! Do you have any pets
-	u: Do_you_have_any_pets (do you have any pets) ^factanswer("I have no pets.")
-	u: ([have any] * [pet dog cat]) ^reuse (Do_you_have_any_pets)
+	u: DO_YOU_HAVE_ANY_PETS ([have any] *~3 [pet dog cat]) ^factanswer("I have no pets.")
 
 #! How is your family
-	u: How_is_your_family (how is your family)  ^factanswer("My family is fine.")
-	u: (!old !many !'do !relationship [how tell] * [~family_members family]) ^reuse (How_is_your_family)
+	u: HOW_IS_YOUR_FAMILY (![old many 'do relationship] [how tell] *~3 [~family_members family])  ^factanswer("My family is fine.")
 
 #! Who do you live with
-	u: Who_do_you_live_with (who do you live with)  ^factanswer("I live alone.")
-	u: ([live lives] with) ^reuse (Who_do_you_live_with)
-	u: ([live lives] * home) ^reuse (Who_do_you_live_with)
+	u: WHO_DO_YOU_LIVE_WITH
+	 ([
+		 ([live lives] with)
+		 ([live lives] *~3 home)
+		])
+	^factanswer("I live alone.")
 
 #! Do you live alone
-	u: Do_you_live_alone (do you live alone) ^factanswer("I live alone.")
-	u: (live * [alone yourself]) ^reuse (Do_you_live_alone)
+	u: DO_YOU_LIVE_ALONE (live *~3 [alone yourself]) ^factanswer("I live alone.")
 
 #! Where do you live
-	u: Where_do_you_live (where do you live) ^factanswer("I live by myself at home in Columbus.")
-	u: (what * address) ^reuse (Where_do_you_live)
-	u: (where * [live from home]) ^reuse (Where_do_you_live)
+	u: WHERE_DO_YOU_LIVE
+	 ([
+		 (what *~3 address)
+		 (where *~3 [live from home])
+		])
+	^factanswer("I live by myself at home in Columbus.")
 
 #! How is home
-	u: How_is_home (how is home) ^factanswer("It's fine.")
-	u: (!where [tell how] * [things everything life] * home) ^reuse (How_is_home)
-	u: (!where [tell how] * home * life) ^reuse (How_is_home)
-	u: (!where [supportive comfortable tell] * home) ^reuse (How_is_home)
+	u: HOW_IS_HOME
+	 ([
+		 (!where [tell how] *~3 [things everything life] *~3 home)
+		 (!where [tell how] *~3 home *~3 life)
+		 (!where [supportive comfortable tell] *~3 home)
+		])
+	^factanswer("It's fine.")
+
+	topic: ~familymedicalproblems keep repeat deprioritize (~role_family condition inherit problem issue hereditary genetic cancer sick ill illness)
+
+	# u: ($pasthistory) respond(~pastmedicalproblems)  ^fail(TOPIC)
+	#	u: ($present) respond(~currentmedicalproblems) ^fail(TOPIC)
 
 #! Is anyone sick at home
-	u: Anyone_sick_at_at_home (anyone sick at home) ^factanswer("Not that I am aware of.")
-	u: ([anyone anybody ~spouse ~family_children] * [sick ill] * [house home]) ^reuse (Anyone_sick_at_at_home)
-	u: ([anyone anybody ~spouse ~family_children] * [house home] * [sick ill]) ^reuse (Anyone_sick_at_at_home)
-	u: ([anyone anybody ~spouse ~family_children] * [similar like share know] * [symptoms problems yours])  ^reuse (Anyone_sick_at_at_home)
-	u: ([anyone anybody ~spouse ~family_children] * [symptoms problems 'pain] * [similar like share])  ^reuse (Anyone_sick_at_at_home)
+	u: ANYONE_SICK_AT_AT_HOME
+	 ([
+		 ([anyone anybody ~spouse ~family_children] *~3 [sick ill] *~3 [house home])
+		 ([anyone anybody ~spouse ~family_children] *~3 [house home] *~3 [sick ill])
+		 ([anyone anybody ~spouse ~family_children] *~3 [similar like share know] *~3 [symptoms problems yours])
+		 ([anyone anybody ~spouse ~family_children] *~3 [symptoms problems 'pain] *~3 [similar like share])
+		])
+	^factanswer("Not that I am aware of.")
+
+#! Any family history of illness
+	 	u: ANY_FAMILY_HISTORY_OF_CANCER (!~depression  << family cancer >>) ^factanswer("I don't know of any.")
+
+	#! Any family history of illness
+	#! Are there any medical conditions that run in your family
+	#! Does anyone in your family have anything
+		u: ANY_FAMILY_HISTORY_OF_ILLNESS
+		 ([
+			 (!~depression [medical health inherit hereditary genetic history] * [issue condition disease illness problems] * family)
+			 (!~depression family * [medical health] * [issue condition disease illness problems illnesses])
+			 (!~depression anyone in *~2 family have [issue condition disease illness problems illnesses anything])
+			 (!~depression family *~4b [illness disease conditions illnesses problems cancer] )
+			])
+		^factanswer("Not that I am aware of.")
+
+	#! Tell me about your family history
+	#! Can I ask about your family
+	#! I need to ask about your past and family history
+		u: TELL_ME_ABOUT_YOUR_FAMILY_HISTORY
+			([
+				(family *~3 history >)
+				(I *~3 ask * your *~3 family)
+			])
+			 ^factanswer("What would you like to know?")
+
+#! Any family history of drug use
+	u: ANY_FAMILY_HISTORY_OF_DRUG_USE (<< ~role_family drug >>) ^factanswer("Not that I know of.")
 
 # ***************************************************************************************************
 
-topic: ~parents_information keep repeat (~parents ~father ~mother)
+topic: ~parents_information keep repeat (~parents)
 
 #! Are your parents living
-	u: Are_your_parents_living (are your parents living)     ^factanswer("Both of my parents are alive and well.")
-		a: Grandparents_living (grandparents)  ^factanswer("My grandparents are deceased")
-	u: ([~parents ~mother ~father] * [alive living "with us"]) ^reuse (Are_your_parents_living)
+	u: ARE_YOUR_PARENTS_LIVING
+	([
+		(~parents *~3 [alive living "with us"])
+	])
+	^factanswer("Both of my parents are alive and well.")
+			a: (~grandparents)  ^reuse(~grandparents_information.ARE_YOUR_GRANDPARENTS_LIVING)
+			a: ([age old]) ^reuse(~parents_information.HOW_OLD_ARE_YOUR_PARENTS)
 
 #! How did your parents die
-	u: How_did_parents_die (how did parents die)  ^factanswer("They have not died.")
-	u: (!old [how what] * ~parents * [die pass "pass away"])  ^reuse (How_did_parents_die)
+#! Did your parents pass away due to disease
+	u: HOW_DID_PARENTS_DIE
+		([
+			(!old [how what] *~3 ~parents *~3 [die pass])
+			(did *~3 ~parents [die pass] *~3 [due because to result])
+		])
+		^factanswer("They have not died.")
+		a: (~grandparents)  ^reuse(~grandparents_information.HOW_DID_GRANDPARENTS_DIE)
 
 #! How old are your parents
-	u: How_old_are_your_parents (how old are your parents) ^factanswer("I am not exactly sure.")
-	u: (~age_words * [they ~parents ~mother ~father]) ^reuse (How_old_are_your_parents)
-	u: ([his her their] age) ^reuse (How_old_are_your_parents)
+	u: HOW_OLD_ARE_YOUR_PARENTS
+	([
+ 		(~age_words *~3 [they ~parents])
+		(~ [his her their] age) # ~ means only if already in this topic
+	])
+	^factanswer("I am not exactly sure.")
+		a: (~grandparents) ^reuse(~grandparents_information.HOW_OLD_ARE_YOUR_GRANDPARENTS)
 
 #! Are your parents healthy
-	u: Are_your_parents_healthy (are your parents healthy)     ^factanswer("Both of my parents are in good health.")
-		a: Grandparents_healthy (grandparents)  ^factanswer("My grandparents are deceased")
-	u: ([he she ~parents ~mother ~father them they] * [healthy health conditions issues concerns disease]) ^reuse (Are_your_parents_healthy)
+#! Do you parents have any illnesses
+	u: ARE_YOUR_PARENTS_HEALTHY ([he she ~parents them they] *~3 [healthy health conditions issues concerns disease illness illnesses]) ^factanswer("Both of my parents are in good health.")
+		a: (~grandparents)  ^reuse(~grandparents_information.ARE_YOUR_GRANDPARENTS_HEALTHY)
 
 #! Tell me about your parents
-	u: Tell_me_about_your_parents (tell me about your parents)     ^factanswer("My parents are both doing well. They've always been really healthy.")
-	u: ([tell health what how] * [~parents ~father ~mother folks ~itwords]) ^reuse (Tell_me_about_your_parents)
+	u: TELL_ME_ABOUT_YOUR_PARENTS ([tell health what how] *~3 [~parents folks ~itwords]) ^factanswer("My parents are both doing well. They've always been really healthy.")
+		a: (~grandparents) ^reuse(~grandparents_information.TELL_ME_ABOUT_YOUR_GRANDPARENTS)
 
+	#! Do your parents have any medical problems
+		u: PARENTS_HAVE_ANY_MEDICAL_PROBLEMS
+		([
+			([~parents them] *~3 [chronic medical health] *~3 [problem issue illness condition illnesses])
+			([chronic medical health] *~3 [problem issue illness condition illnesses] *~3 ~parents)
+		])
+		^factanswer("My parents are healthy.")
+			a: (~grandparents) ^reuse(~grandparents_information.GRANDPARENTS_HAVE_ANY_MEDICAL_PROBLEMS)
+
+#! Do you see your parents often
+#! How often do you see your parents
+		?: DO_YOU_SEE_YOUR_PARENTS_OFTEN (<< [see visit "spend time with"] ~parents >>) ^factanswer("I see my parents about once or twice a month.")
 
 # ***************************************************************************************************
 
 topic: ~grandparents_information keep repeat (~grandparents)
 
-#! Are your grandparents living
-	u: Are_your_grandparents_living (are your grandparents living)     ^factanswer("My grandparents are deceased.")
-	u: (~grandparents * [dead passed died alive living "with us"]) ^reuse (Are_your_grandparents_living)
+#! WHen did your grandparents die
+	u: WHEN_DID_GRANDPARENTS_DIE (<< [when age "how old"] [~grandparents they] [die pass] >>) ^factanswer("I don't remember.")
 
 #! How did your grandparents die
-	u: How_did_grandparents_die (how did grandparents die)  ^factanswer("I don't know.")
-	u: (!old [how what] * ~grandparents * [die pass "pass away"])  ^reuse (How_did_grandparents_die)
+#! Did your grandparents pass away due to disease
+	u: HOW_DID_GRANDPARENTS_DIE
+		([
+			(!old [how what] * ~grandparents * [die pass "pass away"])
+			(did *~3 ~grandparents [die pass] *~3 [due to because result])
+		])
+		^factanswer("I don't know.")
+			a: (~parents) ^reuse(~parents_information.HOW_DID_PARENTS_DIE)
 
 #! How old are your grandparents
-	u: How_old_are_your_grandparents (how old are your grandparents) ^factanswer("I am not sure.")
-	u: (~age_words * [they ~grandparents]) ^reuse (How_old_are_your_grandparents)
-	u: (their ages) ^reuse (How_old_are_your_grandparents)
+	u: HOW_OLD_ARE_YOUR_GRANDPARENTS
+	([
+	 	(~age_words *~3 [they ~grandparents])
+		(~ their ages)
+	])
+	^factanswer("I am not sure.")
+		a: (~parents) ^reuse(~parents_information.HOW_OLD_ARE_YOUR_PARENTS)
+
+#! Are your grandparents living
+	u: ARE_YOUR_GRANDPARENTS_LIVING (~grandparents * [dead passed died alive living "with us" "still around"]) ^factanswer("My grandparents are deceased.")
+		a: (~parents) ^reuse(~parents_information.ARE_YOUR_PARENTS_LIVING)
 
 #! Are your grandparents healthy
-	u: Are_your_grandparents_healthy (are your grandparents healthy)     ^factanswer("They are healthy.")
-	u: (!~parents ~grandparents * [healthy health]) ^reuse (Are_your_grandparents_healthy)
+	u: ARE_YOUR_GRANDPARENTS_HEALTHY (<< ~grandparents [healthy health chronic illness] >>) ^factanswer("They are healthy.")
+		a: (~parents) ^reuse(~parents_information.ARE_YOUR_PARENTS_HEALTHY)
 
 #! Tell me about your grandparents
-	u: Tell_me_about_your_grandparents (tell me about your grandparents)     ^factanswer("My grandparents are wonderful.")
-	u: ([tell health how 'do] * ~grandparents) ^reuse (Tell_me_about_your_grandparents)
+#! What about your grandparents
+	u: TELL_ME_ABOUT_YOUR_GRANDPARENTS
+		([
+			([tell health how 'do about] *~3 ~grandparents)
+		])
+		 ^factanswer("My grandparents are wonderful.")
+		 	a: (~parents) ^reuse(~parents_information.TELL_ME_ABOUT_YOUR_PARENTS)
+
+#! Do your grandparents have any medical problems
+	u: GRANDPARENTS_HAVE_ANY_MEDICAL_PROBLEMS
+		([
+			([~grandparents them] *~3 [chronic medical health] *~3 [problem issue illness condition illnesses])
+			([chronic medical health] *~3 [problem issue illness condition illnesses] *~3 ~grandparents)
+		])
+			^factanswer("My grandparents are healthy.")
+				a: (~parents) ^reuse(~parents_information.PARENTS_HAVE_ANY_MEDICAL_PROBLEMS)
 
 # ***************************************************************************************************
 
 topic: ~siblings_information keep repeat (~sibling siblings)
 
-
 #! How old are your siblings
-	u: How_old_are_your_siblings (how old are your siblings) ^factanswer("I have no siblings.")
-	u: (~age_words * [he she they ~sibling siblings]) ^reuse (How_old_are_your_siblings)
-	u: ([his her their] age) ^reuse (How_old_are_your_siblings)
+	u: HOW_OLD_ARE_YOUR_SIBLINGS
+	([
+		(~age_words *~3 [he she they ~sibling siblings])
+		([his her their] age)
+	])
+	^factanswer("I have no siblings.")
 
 #! Are your siblings healthy
-	u: Are_your_siblings_healthy (are your siblings healthy)     ^factanswer("I have no siblings.")
-	u: ([they he she ~sibling siblings] * [healthy health well problems]) ^reuse (Are_your_siblings_healthy)
+	u: ARE_YOUR_SIBLINGS_HEALTHY ([they he she ~sibling siblings] *~3 [healthy health well problems]) ^factanswer("I have no siblings.")
 
 #! Tell me about your siblings
-	u: Tell_me_about_your_siblings (tell me about your siblings)     ^factanswer("I have no siblings")
-	u: ([tell health what] * [them him her ~sibling siblings]) ^reuse (Tell_me_about_your_siblings)
+	u: TELL_ME_ABOUT_YOUR_SIBLINGS ([tell health what] *~3 [them him her ~sibling siblings]) ^factanswer("I have no siblings")
 
 #! Do you have siblings
-	u: Do_you_have_siblings (do you have siblings) ^factanswer("I have no siblings.")
-	u: ([~sibling siblings]) ^reuse (Do_you_have_siblings)
-
+	u: DO_YOU_HAVE_SIBLINGS ([~sibling siblings]) ^factanswer("I have no siblings.")
 
 # ***************************************************************************************************
 
 topic: ~relatives_information keep repeat (relative aunt uncle cousin family)
 
 #! Do you have relatives
-	u: Do_you_have_relatives (do you have relatives) ^factanswer("I have no relatives.")
-	u: ([have any] * [relative aunt uncle cousin]) ^reuse (Do_you_have_relatives)
+	u: DO_YOU_HAVE_RELATIVES ([have any] *~3 [relative aunt uncle cousin]) ^factanswer("I have no relatives.")
 
 #! How old are your relatives
-	u: How_old_are_your_relatives (how old are your relatives) ^factanswer("I have no living relatives.")
-	u: (~age_words * [they relative aunt uncle cousin]) ^reuse (How_old_are_your_relatives)
-	u: (their ages) ^reuse (How_old_are_your_relatives)
+	u: HOW_OLD_ARE_YOUR_RELATIVES
+	([
+		(~age_words *~3 [they relative aunt uncle cousin])
+		(their ages)
+	])
+	^factanswer("I have no living relatives.")
 
 #! Are your relatives healthy
-	u: Are_your_relatives_healthy (are your relatives healthy)     ^factanswer("My relatives are healthy.")
-	u: ([they relative family aunt uncle cousin] * [healthy health]) ^reuse (Are_your_relatives_healthy)
+	u: ARE_YOUR_RELATIVES_HEALTHY ([they relative family aunt uncle cousin] *~3 [healthy health]) ^factanswer("My relatives are healthy.")
 
 #! Tell me about your relatives
-	u: Tell_me_about_your_relatives (tell me about your relatives)     ^factanswer("I have no relatives.")
-	u: ([tell health what] * [them him her relative aunt uncle cousin]) ^reuse (Tell_me_about_your_relatives)
+	u: TELL_ME_ABOUT_YOUR_RELATIVES ([tell health what] *~3 [them him her relative aunt uncle cousin]) ^factanswer("I have no relatives.")
 
 # ***************************************************************************************************
 
 topic: ~children_information keep repeat (!~sibling !sibling !neonatalogist ~family_children  children kids family)
 
-
 #! How many children do you have
-	u: How_many_children (how many children do you have) ^factanswer("I don't have any children.")
-	u: (![~sibling sibling] how [much many] [~family_children children kids]) ^reuse (How_many_children)
+	u: HOW_MANY_CHILDREN (![~sibling sibling] how [much many] [~family_children children kids]) ^factanswer("I don't have any children.")
 
 #! How old are your children
-	u: How_old_are_your_children (how old are your children) ^factanswer("I don't have any children.")
-	u: (~age_words * [they he she ~family_children children kids baby]) ^reuse (How_old_are_your_children)
-	u: (their ages) ^reuse (How_old_are_your_children)
-	u: ([when what] * [they he she ~family_children children kids baby] * [born delivered adopted]) ^reuse (How_old_are_your_children)
+	u: HOW_OLD_ARE_YOUR_CHILDREN
+	([
+		(~age_words *~3 [they he she ~family_children children kids baby])
+		(their ages)
+		([when what] *~3 [they he she ~family_children children kids baby] * [born delivered adopted])
+	])
+	^factanswer("I don't have any children.")
 
 #! Are your children healthy
-	u: Are_your_children_healthy (are your children healthy)     ^factanswer("I have no children.")
-	u: (![~sibling sibling] your * [~family_children children kids] * [healthy health well]) ^reuse (Are_your_children_healthy)
-	u: (![~sibling sibling] [healthy health well] * your * [~family_children children kids]) ^reuse (Are_your_children_healthy)
+	u: ARE_YOUR_CHILDREN_HEALTHY
+		([
+			(![~sibling sibling] your * [~family_children children kids] * [healthy health well])
+			(![~sibling sibling] [healthy health well] * your * [~family_children children kids])
+		])
+	^factanswer("I have no children.")
 
 #! How are your children
-	u: How_are_your_children (how are your children)  ^factanswer("I don't have any children.")
-	u: (![~sibling sibling old many 'do] how * [~family_children children kids]) ^reuse (How_are_your_children)
+	u: HOW_ARE_YOUR_CHILDREN (![~sibling sibling old many 'do] how * [~family_children children kids]) ^factanswer("I don't have any children.")
 
 #! Where are your children
-	u: Where_are_your_children (where are your children)  ^factanswer("I don't have any children.")
-	u: (![~sibling sibling old many 'do] [where] * [~family_children children kids]) ^reuse (Where_are_your_children)
-	u: (![~sibling sibling] [~family_children children kids] * [live reside] * [near close closeby]) ^reuse (Where_are_your_children)
-
+	u: WHERE_ARE_YOUR_CHILDREN
+		([
+			(![~sibling sibling old many 'do] [where] *~3 [~family_children children kids])
+			(![~sibling sibling] [~family_children children kids] *~3 [live reside] *~3 [near close closeby])
+		])
+	^factanswer("I don't have any children.")
 
 #! Do you want children
-	u: Do_you_want_children (do you want children)  ^factanswer("I do not want children.")
-	u: (![~sibling sibling] [want like desire hope] * [~family_children children kids family] >) ^reuse (Do_you_want_children)
+	u: DO_YOU_WANT_CHILDREN (![~sibling sibling] [want like desire hope] *~3 [~family_children children kids family] >)  ^factanswer("I do not want children.")
 
 #! Do you have any children
-	u: Do_you_have_any_children (do you have any children)  ^factanswer("I have no children.")
-	u: (![~sibling sibling health] [have any] * [~family_children children kids]) ^reuse (Do_you_have_any_children)
-#	u: (![~sibling sibling health] [~family_children children kids] >) ^reuse (Do_you_have_any_children)
+	u: DO_YOU_HAVE_ANY_CHILDREN
+		([
+			(![~sibling sibling health] [have any] *~3 [~family_children children kids])
+			(no children)
+		])
+			 ^factanswer("I have no children.")
 
 #! What are your children named
-	u: What_are_your_children_named (what are your children named) ^factanswer("I have no children.")
-	u: (<< name [~family_children children kids] >>) ^reuse (What_are_your_children_named)
+	u: WHAT_ARE_YOUR_CHILDREN_NAMED (<< name [~family_children children kids] >>) ^factanswer("I have no children.")
 
 #! Tell me about your children
-	u: Tell_me_about_your_children (tell me about your children)     ^factanswer("I have no children")
-	u: (![~sibling sibling neonatal neonatalogist how] [tell what] * [~family_children children kids]) ^reuse (Tell_me_about_your_children)
+	u: TELL_ME_ABOUT_YOUR_CHILDREN (![~sibling sibling neonatal neonatalogist how] [tell what] * [~family_children children kids]) ^factanswer("I have no children")
 
+	#! Do your children have any medical problems
+		u: CHILD_HAVE_ANY_MEDICAL_PROBLEMS
+			([
+				([~family_children them] *~3 [chronic medical health] *~3 [problem issue illness condition])
+				([chronic medical health] *~3 [problem issue illness condition] *~3 ~family_children)
+			])
+		^factanswer("My children are healthy.")
 
 # ***************************************************************************************************
 
-topic: ~spouse_information keep repeat (spouse husband wife involved romantic divorced married marital single widowed boyfriend girlfriend "live with" "significant other" single partner dating relationship)
+topic: ~spouse_information keep repeat
+	(spouse husband wife involved romantic divorced married marital single widowed boyfriend girlfriend
+	 "live with" "significant other" single partner dating relationship "someone special")
 
 #! Are you divorced
-	u: Are_you_divorced (are you divorced) ^factanswer("I've never been married.")
-	u: (divorce) ^reuse (Are_you_divorced)
+	u: ARE_YOU_DIVORCED (!ever divorce) ^factanswer("I've never been married.")
 
 #! How long have you been married
-	u: How_long_have_you_been_married (how long have you been married) ^factanswer("I am not married.")
-	u: (how long * [married partner relationship significant dating]) ^reuse (How_long_have_you_been_married)
+	u: HOW_LONG_HAVE_YOU_BEEN_MARRIED (how long *~3 [married partner relationship significant dating]) ^factanswer("I am not married.")
 
 #! Are you single
-	u: Are_you_single (are you single) ^factanswer("I am not seeing anyone.")
-	u: ([single "seeing anyone" "seeing anybody"]) ^reuse (Are_you_single)
+	u: ARE_YOU_SINGLE (you *~2 single) ^factanswer("I am not seeing anyone.")
 
 #! Are you in a relationship
-	u: Are_you_in_a_relationship (are you in a relationship) ^factanswer("I'm not seeing anyone.")
-	u: ([have in] * [involved relationship romantic]) ^reuse (Are_you_in_a_relationship)
+	u: ARE_YOU_IN_A_RELATIONSHIP (![ever past before] [have in] *~3 [involved relationship romantic]) ^factanswer("I'm not seeing anyone.")
 
 #! Are you dating anyone
-	u: Are_you_dating_anyone (are you dating anyone) ^factanswer("I'm not seeing anyone.")
-	u: (dating) ^reuse (Are_you_dating_anyone)
+	u: ARE_YOU_DATING_ANYONE ([dating "seeing anyone" "seeing anybody" romantically "going out with" "someone special"]) ^factanswer("I'm not seeing anyone.")
 
 #! Are you widowed
-	u: Are_you_widowed (are you widowed)  ^factanswer("I've never been married.")
-	u: (widow) ^reuse (Are_you_widowed)
+	u: ARE_YOU_WIDOWED (widow)  ^factanswer("I've never been married.")
 
 #! Is your partner healthy
-	u: Is_your_partner_healthy (is your partner healthy)     ^factanswer("I have no partner.")
-	u: ([wife husband partner spouse "significant other" boyfriend girlfriend] * [healthy health symptoms ~sicknesses]) ^reuse (Is_your_partner_healthy)
+	u: IS_YOUR_PARTNER_HEALTHY ([wife husband partner spouse "significant other" boyfriend girlfriend] *~3 [healthy health symptoms ~sicknesses]) ^factanswer("I have no partner.")
 
 #! Do you have a boyfriend
-	u: Do_you_have_a_boyfriend (do you have a boyfriend)  ^factanswer("I do not.")
-	u: (![healthy symptoms] boyfriend) ^reuse (Do_you_have_a_boyfriend)
+	u: DO_YOU_HAVE_A_BOYFRIEND (![healthy symptoms] boyfriend)  ^factanswer("I do not.")
 
 #! Do you have a girlfriend
-	u: Do_you_have_a_girlfriend (do you have a girlfriend)  ^factanswer("I do not.")
-	u: (![healthy symptoms] girlfriend) ^reuse (Do_you_have_a_girlfriend)
+	u: DO_YOU_HAVE_A_GIRLFRIEND (![healthy symptoms] girlfriend)  ^factanswer("I do not.")
 
 #! Do you have a significant other
-	u: Do_you_have_a_significant_other (do you have a significant other)  ^factanswer("I do not.")
-	u: (![healthy symptoms] significant other) ^reuse (Do_you_have_a_significant_other)
+	u: DO_YOU_HAVE_A_SIGNIFICANT_OTHER (![healthy symptoms] significant other)  ^factanswer("I do not.")
 
 #! Tell me about your partner
-	u: Tell_me_about_your_partner (tell me about your partner)     ^factanswer("I have no partner.")
-	u: ([tell describe] * [wife husband partner spouse "significant other" boyfriend girlfriend]) ^reuse (Tell_me_about_your_partner)
-	u: (who * [partner spouse "married to"]) ^reuse (Tell_me_about_your_partner)
+	u: TELL_ME_ABOUT_YOUR_PARTNER
+		([
+			([tell describe] * [wife husband partner spouse "significant other" boyfriend girlfriend])
+			(who * [partner spouse "married to"])
+		])
+	^factanswer("I have no partner.")
 
 #! How old is your partner
-	u: How_old_is_your_partner (how old is your partner) ^factanswer("I have no partner.")
-	u: (~age_words * [he she wife husband partner spouse "significant other" boyfriend girlfriend]) ^reuse (How_old_is_your_partner)
-	u: ([his her their] [age ages]) ^reuse (How_old_is_your_partner)
+	u: HOW_OLD_IS_YOUR_PARTNER
+		([
+			(~age_words * [he she wife husband partner spouse "significant other" boyfriend girlfriend])
+			([his her their] [age ages])
+		])
+	^factanswer("I have no partner.")
 
 #! Do you have a partner
-	u: Do_you_have_a_partner (do you have a partner)  ^factanswer("I do not.")
-	u: (![sex sexual other] do you have * partner) ^reuse (Do_you_have_a_partner)
+	u: DO_YOU_HAVE_A_PARTNER (![sex sexual other] do you have * partner)  ^factanswer("I do not.")
 
 #! What is your partner's name
-	u: What_is_your_partners_name (what is your partners name) ^factanswer("I have no partner.")
-	u: (<< name [partner spouse significant husband wife] >>) ^reuse (What_is_your_partners_name)
+	u: WHAT_IS_YOUR_PARTNERS_NAME (<< name [partner spouse significant husband wife] >>) ^factanswer("I have no partner.")
 
 #! Is your partner male
-	u: Is_your_partner_male (is your partner male) ^factanswer("I have no partner.")
-	u: (<< [man male] [partner spouse significant married] >>) ^reuse (Is_your_partner_male)
+	u: IS_YOUR_PARTNER_MALE (<< [man male] [partner spouse significant married] >>) ^factanswer("I have no partner.")
 
 #! Is your partner female
-	u: Is_your_partner_female (is your partner female) ^factanswer("I have no partner.")
-	u: (<< [female woman] [partner spouse significant married] >>) ^reuse (Is_your_partner_female)
+	u: IS_YOUR_PARTNER_FEMALE (<< [female woman] [partner spouse significant married] >>) ^factanswer("I have no partner.")
 
 #! Are you married
-	u: Are_you_married (are you married)  ^factanswer("I've never been married.")
-		a: What_is_spouse_name ([who what] * [name call spouse married]) ^factanswer ("I don't have a spouse.")
-	u: (![sex sexual relationship "get along" not] [married "marital status" spouse wife husband]) ^reuse (Are_you_married)
+	u: ARE_YOU_MARRIED (![sex sexual relationship "get along" not] [married "marital status" spouse wife husband])  ^factanswer("I've never been married.")
+		a: WHAT_IS_SPOUSE_NAME ([who what] * [name call spouse married]) ^factanswer ("I don't have a spouse.")
 
 # ***************************************************************************************************
 
-topic: ~support_information keep repeat (abuse safe ~shelter live home relationship support system help friends people turn stress talk)
-
+topic: ~support_information keep repeat (abuse safe ~shelter live home relationship support system help friends people turn stress talk home)
 
 #! Are you abused
-	u: Are_you_abused (are you abused) ^factanswer("I am not.")
-	u: (!~druglist abuse) ^reuse (Are_you_abused) # !~druglist should exlude questions about abusing drugs
-	u: ([spouse husband wife boyfriend girlfriend] * [hit abuse]) ^reuse (Are_you_abused)
+	u: ARE_YOU_ABUSED
+		([
+			(!~druglist abuse) # !~druglist should exlude questions about abusing drugs
+	 		([spouse husband wife boyfriend girlfriend] *~3 [hit abuse hurt])
+		])
+	^factanswer("I am not.")
 
 #! Do you feel safe at home
-	u: Do_you_feel_safe (do you feel safe at home) ^factanswer("I feel safe.")
-	u: ([secure safe]) ^reuse (Do_you_feel_safe)
+	u: DO_YOU_FEEL_SAFE (![work job] [secure safe]) ^factanswer("I feel safe.")
 
 #! Do you have support
-	u: Do_you_have_support (do you have support) ^factanswer("I have support.")
-	u: (!who [support help] * [~shelter system]) ^reuse (Do_you_have_support)
-	u: (!who people * [support help] * [~shelter system]) ^reuse (Do_you_have_support)
-	u: (!who people * [support help]) ^reuse (Do_you_have_support)
-	u: (!who [support friends]) ^reuse (Do_you_have_support)
+	u: DO_YOU_HAVE_SUPPORT
+		([
+			(!who [support help] *~3 [~shelter system])
+			(!who people *~3 [support help] *~3 [~shelter system])
+			(!who people *~3 [support help])
+			(!who [support friends])
+		])
+	^factanswer("I have support.")
 
 #! Who supports you
-	u: Who_supports_you (who supports you)  ^factanswer("My family.")
-	u: (who * [support help turn talk]) ^reuse (Who_supports_you)
+	u: WHO_SUPPORTS_YOU (who * [support help turn talk])  ^factanswer("My family.")
+
+#! Any problems at home
+	u: ANY_PROBLEMS_AT_HOME (any [problem difficulty issue concern] *~3 home) ^factanswer("I have no concerns.")

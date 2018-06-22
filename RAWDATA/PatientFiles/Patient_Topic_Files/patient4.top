@@ -1,856 +1,1169 @@
-outputmacro: patient4()  # you get patient1 by default
+outputmacro: patient4()
 $patientfirstname = Melissa
 $patientlastname = Phillips
 $chiefcomplaint = ~abdominal_pain
 $complaint2 = ~gyn_bleeding
+$complaint3 =
 $Vpatient4 = Vpatient4
-$vpatient = Vpatient4
-$patientTitle1 = Ms
-$patientTitle2 = Mrs
+$Vpatient = Vpatient4
+$patientTitle = Mrs
 $currentjob = Teacher
 $currentmedication1 = Ibuprofen
-$currentmedication2 = Multivitamin
+$currentmedication2 = multivitamin
+$currentmedication3 =
 $currentrateofpain = 8
 
 ^stdpatient()
 
-table: ^patientdata(Vpatient4) 
+table: ^patientdata(Vpatient4)
 
 
-# OPENING DIALOGUE
+### OpeningDialogue
 # primary
-What_brings_you_in_today "I'm having  pain in my left side that has been getting worse the past 3 days and some spotting."
-What_do_you_think_is_the_problem "\[ Pain3 \]I am not sure, that's what I was hoping you could help me figure out."
-What_should_we_do "\[ Pain3 \]Find out what is causing this pain."
-What_would_you_like_me_to_do "\[ Pain3 \] I really just want to know what is causing this and figure out how to fix it."
-What_is_your_goal "I hope you can figure out what is wrong with my side so I can get back to my schedule. I have not been able to teach the last couple of days."
-Does_anything_make_you_feel_better "I thought the ibuprofen was helping, but I am not so sure anymore. Other than that, nothing seems to help."
-Tell_me_more "Well for the past week or so, I have felt a bit queasy,  and then a few days ago this pain started in my left side. "
 
-
-I_am_sorry "Thanks.  "
-Why "Why what?"
-Good "\[ Nod \]"
-Got_it "\[ Nod \]"
-Ok "\[ Nod \]"
+WHAT_DO_YOU_THINK_IS_THE_PROBLEM "\[ Pain3 \]I am not sure, that's what I was hoping you could help me figure out."
+WHAT_BRINGS_YOU_IN_TODAY "I'm having  pain in my left side that has been getting worse the past 3 days and some spotting."
+WHAT_SHOULD_WE_DO "\[ Pain3 \]Find out what is causing this pain."
+WHAT_WOULD_YOU_LIKE_ME_TO_DO "\[ Pain3 \]I really just want to know what is causing this and figure out how to fix it."
+WHAT_IS_YOUR_GOAL "I hope you can figure out what is wrong with my side so I can get back to my schedule. I have not been able to teach the last couple of days."
+DOES_ANYTHING_MAKE_YOU_FEEL_BETTER "I thought the ibuprofen was helping, but I am not so sure anymore. Other than that, nothing seems to help."
+TELL_ME_MORE "Well for the past week or so, I have felt a bit queasy,  and then a few days ago this pain started in my left side."
+I_AM_SORRY "Thanks."
+WHY "Why what?"
+GOOD "\[ NodYes \]"
+GOT_IT "\[ NodYes \]"
+OK "\[ NodYes \]"
 
 # greetings
-I_am_doctor "Nice to meet you Doctor $drfirstname $drlastname"
-Nice_to_meet_you  "\[ Happiness1 \] Nice to meet you too. I am really glad to see you today. "
-Nice_to_see_you "\[ Happiness1 \]  Nice to see you too. I am really glad to see you today. "
-Nice_to_see_you_too "\[ Happiness1 \]  Thanks."
-How_are_you "\[ Pain2 \] Well,  not so good.  My left side is really hurting."
-Tell_me_about_yourself "\[ Fear2 \] I have a very active life. I enjoy lots of outdoor activities with my husband. I am a teacher and really love the children. I can't wait to have some of my own."
-Hello "Hello Doctor.  I am so glad to see you."
 
-# followupidalogue
-Any_other_problems1 "Yes, I have also been nauseated for the past week or so, but I think it is because of my pain."
-Have_you_seen_anyone_else "You're the first person I've seen about this. "
+I_AM_DOCTOR ^"Nice to meet you Doctor $drfirstname $drlastname"
+NICE_TO_MEET_YOU  "\[ Happiness1 \]Nice to meet you too. I am really glad to see you today."
+NICE_TO_SEE_YOU "\[ Happiness1 \]Nice to see you too. I am really glad to see you today."
+NICE_TO_SEE_YOU_TOO "\[ Happiness1 \]Thanks."
+HOW_ARE_YOU "\[ Pain2 \]Well,  not so good.  My left side is really hurting."
+TELL_ME_ABOUT_YOURSELF "\[ Fear2 \]I have a very active life. I enjoy lots of outdoor activities with my husband. I am a teacher and really love the children. I can't wait to have some of my own."
+HELLO "Hello Doctor.  I am so glad to see you."
 
-# PATIENT INFORMATION
-# age, date of birth
-How_old_are_you "I am 29 years old"
-When_were_you_born "October 5, 1984"
+# followupdialogue
 
-# name, greetings
-What_is_your_name ^"$patientfirstname $patientlastname"
-Did_I_pronounce_that_correctly "Yes, that is correct."
-Do_you_mind_if_I_call_you "I usually go by Missy, not Melissa "
-How_do_you_pronounce_that "Phill-ipps"
-What_should_I_call_you ^"You can call me $patientfirstname but I prefer Missy."
-Are_you_mr_patientlastname ^"Yes, I am $patientfirstname $patientlastname. Good to meet you Doctor."
-Are_you_mr_someoneelse ^"No, I am $patientfirstname $patientlastname" 
-Hello_mr_patientlastname "Hello Doctor.  I am so glad to see you."
-Hello_mr_someoneelse ^"Hello Doctor, however my name is $patientlastname, not  '_0. "
-Mr_patientlastname ^"Yes.  That is me, but  please just call me $patientfirstname"
-Mr_someoneelse ^"No, I am $patientfirstname $patientlastname. " 
+ANY_OTHER_PROBLEMS1 "Yes, I have also been nauseated for the past week or so, but I think it is because of my pain."
+HAVE_YOU_SEEN_ANYONE_ELSE "You're the first person I've seen about this."
 
-# MEDICATIONS
-# current medications
-Taking_medication_for_the_1  "I have been taking ibuprofen for a few days, but that is not helping much."
-When_did_you_take_medicine "Every 4-6 hours since the pain started about 3 days ago."
-Need_to_take_the_medicine_that_often "Today I do, but the past couple of days I have not taken as much."
-How_often_did_you_take_the_medicine "I was taking it every 4-6 hours."
-How_long_taking_medicine "For about three days, ever since the pain started."
-How_much_medicine_have_you_taken "Well, I have just been taking 400 mg of ibuprofen every 4- 6 hours or so for the past couple of days."
-Would_you_like_a_stronger_prescription "Well,I'm not really sure. Maybe that would help, but I don't know if it is something worse."
-What_is_the_strength_of_the_medicine "I think it is 200 mg per pill."
-Did_the_medicine_help "Like I said, it was helping, but then today it really hasn't made the pain go away at all."
-Did_you_take_medicine_today "I have taken it today in the hopes that it would help."
-Are_you_still_taking_medicine "Yes, I have continued to take it."
-What_was_the_dose "Well, I was taking 400 mg every 4-6 hours. "
-What_pills_did_you_take "I took some ibuprofen since the pain started."
-What_kind_of_medicine_is_that "Just a painkiller as far as I know.  "
-Would_you_like_some_pain_medication "Well, maybe, but I would really like to know what is causing the pain too. "
-Doctor_prescribe_the_medicine "No, I  usually use this for pain or whatever. "
-Who_prescribed_the_medicine "I don't need a prescription. It was over the counter."
-What_is_medicine "A painkiller as far as I know.  "
-What_were_the_pills_called "Just generic ibuprofen from CVS. "
-Are_you_taking_any_medication "I am taking ibuprofen for the pain. Other than that, just a multivitamin."
+### PatientInformation
+# patientage
+
+HOW_OLD_ARE_YOU "I am 29 years old"
+WHEN_WERE_YOU_BORN "October 5, 1989"
+
+# patientname
+
+NAME_AND_DATE_OF_BIRTH "Melissa Phillips, October 5, 1989."
+WHAT_IS_YOUR_NAME "Melissa Phillips."
+DID_I_PRONOUNCE_THAT_CORRECTLY "Yes, that is correct."
+DO_YOU_MIND_IF_I_CALL_YOU "I usually go by Missy, not Melissa"
+HOW_DO_YOU_PRONOUNCE_THAT "Phill-ipps"
+WHAT_SHOULD_I_CALL_YOU " You can call me Melissa or Missy."
+ARE_YOU_MR_PATIENTLASTNAME " Yes, I am Melissa Phillips.  Good to meet you Doctor."
+ARE_YOU_MR_SOMEONEELSE " No, I am Melissa Phillips."
+HELLO_MR_PATIENTLASTNAME "Hello Doctor.  I am so glad to see you."
+HELLO_MR_SOMEONEELSE " Hello Doctor, however my name is Melissa Phillips."
+MR_PATIENTLASTNAME " Yes.  That is me, but  please just call me Melissa or Missy."
+MR_SOMEONEELSE " No, I am Melissa Phillips."
+
+### Medications
+# currentmedications
+
+TAKING_MEDICATION_FOR_THE_1  "I have been taking ibuprofen for a few days, but that is not helping much."
+WHEN_DID_YOU_TAKE_MEDICINE "Every 4-6 hours since the pain started about 3 days ago."
+NEED_TO_TAKE_THE_MEDICINE_THAT_OFTEN "Today I do, but the past couple of days I have not taken as much."
+HOW_OFTEN_DID_YOU_TAKE_THE_MEDICINE "I was taking it every 4-6 hours."
+HOW_LONG_TAKING_MEDICINE "For about three days, ever since the pain started."
+HOW_MUCH_MEDICINE_HAVE_YOU_TAKEN "Well, I have just been taking 400 mg of ibuprofen every 4- 6 hours or so for the past couple of days."
+WOULD_YOU_LIKE_A_STRONGER_PRESCRIPTION "Well, I'm not really sure. Maybe that would help, but I don't know if it is something worse."
+WHAT_IS_THE_STRENGTH_OF_THE_MEDICINE "I think it is 200 mg per pill."
+DID_THE_MEDICINE_HELP "Like I said, it was helping, but then today it really hasn't made the pain go away at all."
+DID_YOU_TAKE_MEDICINE_TODAY "I have taken it today in the hopes that it would help."
+ARE_YOU_STILL_TAKING_MEDICINE "Yes, I have continued to take it."
+WHAT_WAS_THE_DOSE "Well, I was taking 400 mg every 4-6 hours."
+WHAT_PILLS_DID_YOU_TAKE "I took some ibuprofen since the pain started."
+WHAT_KIND_OF_MEDICINE_IS_THAT "Just a painkiller as far as I know."
+WOULD_YOU_LIKE_SOME_PAIN_MEDICATION "Well, maybe, but I would really like to know what is causing the pain too."
+DOCTOR_PRESCRIBE_THE_MEDICINE "No, I  usually use this for pain or whatever."
+WHO_PRESCRIBED_THE_MEDICINE "I don't need a prescription. It was over the counter."
+WHAT_IS_MEDICINE "A painkiller as far as I know."
+ARE_YOU_TAKING_ANY_MEDICATION "I am taking ibuprofen for the pain. Other than that, just a multivitamin."
+ IS_MEDICATION_NEW "No, I've used it before in the past."
+WHAT_WERE_THE_PILLS_CALLED "Just generic ibuprofen from CVS."
 
 # supplements
-Are_you_taking_supplements "I take a multivitamin every day."
-Which_multivitamin "I don't remember exactly."
 
-# other medications
-Take_other_medication_for_1 "No."
-       How_much_medication_1 "I don't take anything else"
-       How_often_medication_1 "I don't take anything else"
-Take_other_medication_for_2 "No."
-       How_much_medication_2 "I don't take anything else"
-       How_often_medication_2 "I don't take anything else"
-Take_any_other_medication "I take a multivitamin every day if you want to count that."
-       How_much_medication "Geez, I don't know what all is in it. I just take one."
-       How_often_medication "Just once a day"
-Take_any_other_medication1 "No"
-       How_much_medication1 "I don't take anything else"
-       How_often_medication1 "I don't take anything else"
-Take_any_other_medication2 "No"
-       How_much_medication2 "I don't take anything else"
-       How_often_medication2 "I don't take anything else"
+ARE_YOU_TAKING_SUPPLEMENTS "I take a multivitamin every day."
+WHICH_MULTIVITAMIN "I don't remember exactly."
 
-# past medications
-Ever_taken_medication_for_1 "Other than the ibuprofen, I haven't taken anything else for the pain. "
-Ever_taken_medication_for_2 "I haven't taken anyhting for that."
-Ever_taken_other_medication "I haven't needed to take any other medication yet."
+# othermedications
 
-# ALLERGIES
+TAKE_OTHER_MEDICATION_FOR_1 "No."
+ HOW_MUCH_MEDICATION_1 "I don't take anything else."
+ HOW_OFTEN_MEDICATION_1 "I don't take anything else."
+TAKE_OTHER_MEDICATION_FOR_2 "No."
+ HOW_MUCH_MEDICATION_2 "I don't take anything else."
+ HOW_OFTEN_MEDICATION_2 "I don't take anything else."
+TAKE_ANY_OTHER_MEDICATION "I take a multivitamin every day if you want to count that."
+ HOW_MUCH_MEDICATION "Geez, I don't know what all is in it. I just take one."
+ HOW_OFTEN_MEDICATION "Just once a day."
+TAKE_ANY_OTHER_MEDICATION1 "No."
+ HOW_MUCH_MEDICATION1 "I don't take anything else."
+ HOW_OFTEN_MEDICATION1 "I don't take anything else."
+TAKE_ANY_OTHER_MEDICATION2 "No."
+ HOW_MUCH_MEDICATION2 "I don't take anything else."
+ HOW_OFTEN_MEDICATION2 "I don't take anything else."
 
-Do_you_have_any_allergies "I am not allergic to anything that I know of.   "
+# pastmedications
 
-# SOCIAL HISTORY
+EVER_TAKEN_MEDICATION_FOR_1 "Other than the ibuprofen, I haven't taken anything else for the pain."
+EVER_TAKEN_MEDICATION_FOR_2 "I haven't taken anything for that."
+EVER_TAKEN_OTHER_MEDICATION "I haven't needed to take any other medication yet."
+
+### Allergies
+# Allergies
+
+DO_YOU_HAVE_ANY_ALLERGIES "I am not allergic to anything that I know of."
+
+### SocialHistory
 # activity
-How_often_do_you_exercise "At least a couple of times a week, hopefully more than that but sometimes I run out of time."
-Do_you_exercise "Yes, I try to get in at least three official times per week, but usually it is only two. "
-Are_you_active "I am usually very active. My husband and I like to bike and play softball."
-How_is_your_energy "Ususally I have a ton of energy, but for the last week or two I have been a bit more tired."
-Have_you_been_resting "I have been trying to rest but when you are responsible for teaching 20 little minds, it is kinda hard."
-Have_you_been_bedridden "No, not at all."
-Are_you_able_to_drive "I can drive, I drove here."
-Are_you_able_to_drive_home "I can drive myself home. That shouldn't be a problem.   "
 
-# alcohol use
-How_much_do_you_drink "I usually have 2 drinks after softball and we play once  a week. Other than that I may have an additional glass of wine one other day of the week."
-Do_you_drink "Yes, I do drink on occasion. "
-What_kind_of_drinks "Just a glass of wine now and then. Maybe one or two drinks a week at most."
+HOW_OFTEN_DO_YOU_EXERCISE "At least a couple of times a week, hopefully more than that but sometimes I run out of time."
+DO_YOU_EXERCISE "Yes, I try to get in at least three official times per week, but usually it is only two."
+ARE_YOU_ACTIVE "I am usually very active. My husband and I like to bike and play softball."
+HOW_IS_YOUR_ENERGY "Ususally I have a ton of energy, but for the last week or two I have been a bit more tired."
+HAVE_YOU_BEEN_RESTING "I have been trying to rest but when you are responsible for teaching 20 little minds, it is kinda hard."
+HAVE_YOU_BEEN_BEDRIDDEN "No, not at all."
+ARE_YOU_ABLE_TO_DRIVE "I can drive, I drove here."
+ARE_YOU_ABLE_TO_DRIVE_HOME "I can drive myself home. That shouldn't be a problem."
 
-# caffeine use
-Do_you_drink_coffee "I have a cup of coffee in the morning, but that's about it."
+# alcoholuse
+
+HOW_MUCH_DO_YOU_DRINK "I usually have 2 drinks after softball and we play once  a week. Other than that I may have an additional glass of wine one other day of the week."
+DO_YOU_DRINK "Yes, I do drink on occasion."
+WHAT_KIND_OF_DRINKS "Just a glass of wine now and then. Maybe one or two drinks a week at most."
+HOW_MANY_DRINKS "Just a glass of wine now and then. Maybe one or two drinks a week at most."
+
+# caffeineuse
+
+DO_YOU_DRINK_COFFEE "I have a cup of coffee in the morning, but that's about it."
 
 # diet
-Do_you_drink_enough_fluid "Yes, I drink 6-8 glasses of water every day."
-Do_you_eat_dairy "\[ Happy2 \]I have milk on cereal, but I eat yogurt about every day. I try to limit cheese though. "
-Do_you_eat_fiber "Yes, I am trying to be very conscientious about my health. If I don't feel like I am eating enough, I will supplement with a drink like metamucil."
-Do_you_eat_fast_food "We don't eat much fast food. Usually only when we are travelling."
-Do_you_eat_fruit "Oh yes, I love fruit."
-Any_changes_in_your_diet "Nope, not recently anyway."
-How_is_your_diet "I stay on track most of the time, but as everybody else I like to have some of the fun things too. I eat dessert just about every day."
-Appetite "Usually, I have a fine appetite, but for the past week or two I have not felt so good and have not really felt like eating all that much."
-Can_you_eat "I can, but not much with my stomach feeling upset like this."
-Have_you_been_eating "I have been eating , but it has been challenging with the nausea lately."
-What_snacks "Well, I try to limit my snacking, but I found this white cheddar cheese popcorn that is hard to top eating. I stay away from candy for the most part."
-What_were_you_eating_before "My diet hasn't changed."
-What_do_you_eat "I try to eat my three meals and a couple of snacks every day."
 
-# tobacco use
-How_much_do_you_smoke "\[ Contempt1 \] I don't smoke.  I hate the smell of that.   I have never and will never smoke."
-Have_you_ever_smoked "\[ Contempt2 \] No, never.  It is just too disgusting for me. I don't think I could ever do that."
-Do_you_smoke "\[ Contempt1 \] No.  I have never been able to stand the smell."
+DO_YOU_DRINK_ENOUGH_FLUID "Yes, I drink 6-8 glasses of water every day."
+DO_YOU_EAT_DAIRY "\[ Happiness2 \]I have milk on cereal, but I eat yogurt about every day. I try to limit cheese though."
+DO_YOU_EAT_FIBER "Yes, I am trying to be very conscientious about my health. If I don't feel like I am eating enough, I will supplement with a drink like metamucil."
+DO_YOU_EAT_FAST_FOOD "We don't eat much fast food. Usually only when we are travelling."
+DO_YOU_EAT_FRUIT "Oh yes, I love fruit."
+ANY_CHANGES_IN_YOUR_DIET "Nope, not recently anyway."
+APPETITE "Usually, I have a fine appetite, but for the past week or two I have not felt so good and have not really felt like eating all that much."
+CAN_YOU_EAT "I can, but not much with my stomach feeling upset like this."
+HAVE_YOU_BEEN_EATING "I have been eating , but it has been challenging with the nausea lately."
+WHAT_SNACKS "Well, I try to limit my snacking, but I found this white cheddar cheese popcorn that is hard to top eating. I stay away from candy for the most part."
+WHAT_WERE_YOU_EATING_BEFORE "My diet hasn't changed."
+WHAT_DO_YOU_EAT "I try to eat my three meals and a couple of snacks every day."
+HOW_IS_YOUR_DIET "I stay on track most of the time, but as everybody else I like to have some of the fun things too. I eat dessert just about every day."
+
+# tobaccouse
+
+HOW_MUCH_DO_YOU_SMOKE "\[ Contempt1 \] I don't smoke.  I hate the smell of that.   I have never and will never smoke."
+HAVE_YOU_EVER_SMOKED "\[ Contempt2 \] No, never.  It is just too disgusting for me. I don't think I could ever do that."
+DO_YOU_SMOKE "\[ Contempt1 \] No.  I have never been able to stand the smell."
 
 # education
-How_much_schooling "I graduated from college with my teaching degree. I have been taking some classes towards my Master in Education degree."
+
+HOW_FAR_IN_SCHOOL "I graduated from college with my teaching degree. I have been taking some classes towards my Master in Education degree."
+WHAT_IS_YOUR_MAJOR "I studied teaching."
+
+# inrelationtohpi
+
+HOW_HAS_THIS_AFFECTED_YOU "\[ Fear1 \]It's affected me quite a bit. I am just not able to do much with the pain and nausea."
+CAN_YOU_DO_NORMAL_ACTIVITIES "\[ Fear1 \]Usually, but I am starting to get pretty concerned."
+HAS_THE_PAIN_AFFECTED_YOUR_ACTIVITY "So far I have been able to do most of my normal activities, but today I am really struggling."
+HOW_HAVE_YOU_BEEN_HANDLING_THIS "\[ Sadness2 \]I'm doing OK, but I have not been able to work so that is a concern."
+WHAT_BOTHERS_YOU_THE_MOST "\[ Sadness2 \]That the pain is constant now and may be something serious."
+CAN_YOU_CARE_FOR_YOURSELF "\[ Sadness2 \]Yes, I can, but if it gets worse I am not so sure."
+
+# job
+
+DO_YOU_DO_ANY_HEAVY_LIFTING_AT_WORK "No, some books and occaional moving of desks, but nothing that strenous."
+IS_YOUR_JOB_PHYSICALLY_DEMANDING "Not really, a lot of on your feet time every day but that's ok."
+IS_YOUR_JOB_STRESSFUL "Yes, it can be. Some days are just crazy days at school."
+ARE_YOU_ON_YOUR_FEET_A_LOT "Oh yes, I am on my feet pretty much all day."
+ARE_YOU_CURRENTLY_WORKING "Yes, I have only taken today off of work so far."
+WHY_ARE_YOU_OFF_WORK "So I could come here to find out about this pain in my side."
+HOW_LONG_HAVE_YOU_BEEN_OFF_WORK "Just today."
+HAVE_YOU_BEEN_OFF_WORK_BECAUSE "Today, yes."
+HAVE_YOU_BEEN_OFF_WORK "Yes, I am off today."
+HAVE_YOU_BEEN_ABLE_TO_WORK "I have been working. I t wasn't so bad with just the stomach upset, but the pain is too much."
+WHAT_CAN'T_YOU_DO_AT_WORK "Right now, I really don't feel like I can or want to do anything."
+WHAT_ELSE_CAN'T_YOU_DO "Right now, I really don't feel like I can or want to do anything."
+DO_YOU_HAVE_PROBLEMS_WORKING "It used to be okay, but it's starting to become more and more difficult to work."
+HOW_IS_WORK "Work is fine, I love teaching."
+WHEN_WAS_THE_LAST_TIME_YOU_WORKED "I worked yesterday but It was tough."
+DO_YOU_NEED_A_NOTE_FOR_WORK "No, it is not required."
+DOES_THE_PAIN_INTERFERE_WITH_WORK "Well, it is because I really can't focus enough to teach."
+DOES_IT_HURT_TO_WORK "It was manageable up until yesterday, at which point it got pretty painful."
+WHERE_DO_YOU_WORK "I work at a local elementary school."
+HOW_LONG_HAVE_YOU_BEEN_A_WORKER "I have been teaching since graduating from college, so this year makes it 7 years now."
+DO_YOU_HAVE_INSURANCE "Yes, I have pretty good insurance."
+WHAT_DO_YOU_DO_FOR_A_LIVING "I am a second grade teacher."
+DO_YOU_WORK "Yes, I teach second graders."
+
+# recreationaldruguse
+
+DO_YOU_USE_ILLEGAL_DRUGS "\[ Contempt2 \]No, absolutely not. What sort of example would that set for my second graders."
+ARE_YOU_SURE "Yes, of course I'm sure."
+
+# tattoos
 
 
-#  in relation to hpi
-How_has_this_affected_you "\[ Fear1 \]Yes, it has. I am just not able to do much with the pain and nausea."
-Has_the_pain_affected_your_activity "So far I have been able to, but today I am really struggling."
-Can_you_do_normal_activities "\[ Fear1 \] Ok, but I am starting to get pretty concerned. "
-How_have_you_been_handling_this "\[ Sad2 \]I'm doing OK, but I have not been able to work so that is a concern."
-What_bothers_you_the_most "\[ Sad2 \]That the pain is constant now and may be something serious."
-Can_you_care_for_yourself "\[ Sad2 \]Yes, I can, but if it gets worse I am not so sure."
-
-#  job
-Do_you_do_any_heavy_lifting_at_work "No, some books and occaional moving of desks, but nothing that strenous."
-Is_your_job_physically_demanding "Not really, a lot of on your feet time every day but that's ok."
-Is_your_job_stressful "Yes, it can be. Some days are just crazy days at school. "
-Are_you_on_your_feet_a_lot "\[ Sad2 \]Oh yes, I am on my feet pretty much all day."
-Are_you_currently_working "\[ Sad2 \]Yes, I have only taken today off of work so far."
-Why_are_you_off_work "So I could come here to find out about this pain in my side."
-Have_you_been_off_work "Yes, I am off today."
-Have_you_been_able_to_work "I have been working. I t wasn't so bad with just the stomach upset, but the pain is too much."
-What_else_can't_you_do "Rigth now I really don't feel like I can or want t o do anything."
-How_is_work "Work is fine, I love teaching."
-When_was_the_last_time_you_worked "I worked yesterday but It was tough."
-Do_you_need_a_note_for_work "No, it is not required."
-Does_the_pain_interfere_with_work "Well, it is because I really can't focus enough to teach."
-Where_do_you_work "\[ Happy2 \]I work at a local elementary school."
-How_long_have_you_been_a_worker "I have been teaching since graduating from college, so this year makes it 7 years now. "
-Do_you_have_insurance "Yes, I have pretty good insurance."
-What_do_you_do_for_a_living "I am a second grade teacher."
-Do_you_work "Yes, I teach second graders."
+# travel
 
 
+# hobby
+
+DO_YOU_HAVE_ANY_HOBBIES "I enjoy playing softball and biking with my husband."
+WHAT_DO_YOU-DO_FOR_FUN "I enjoy playing softball and biking with my husband."
+
+# sexualactivity
+
+HOW_MANY_SEXUAL_PARTNERS "Just my husband."
+DO_YOU_PREFER_MEN_OR_WOMEN "\[ Surprise4 \]Men."
+WHO_ARE_YOUR_SEXUAL_PARTNERS "My husband only."
+ANY_OTHER_SEXUAL_PARTNERS "No."
+ARE_YOU_SEXUALLY_ACTIVE "Yes, with my husband."
+WHEN_DID_YOU_LAST_HAVE_INTERCOURSE "Well, I think it was last week sometime, before I started feeling bad."
+
+# religion
 
 
-
-# recreational drug use
-Do_you_use_illegal_drugs "\[ Contempt4 \]No, absolutely not. What sort of example would that set for my second graders."
-Are_you_sure "Yes, of course I'm sure."
-
-# general health
-Are_you_healthy "I am generally pretty healthy. No real issues."
-
-#  CURRENTGENERALSYMPTOMS
-# medical problems
-Do_you_have_any_medical_problems "No, not really. I consider myself really healthy."
-Do_you_have_a_health_problem "I feel like I have been pretty healthy.  I have always been able to do what I want to do.  These last couple of days though I can barely do anything because of all of this pain.  "
-Did_you_hurt_yourself "No, I certainly don't remember doing anything to my side that would have caused this much pain."
-Do_you_have_any_chronic_illnesses "No, I have been very healthy all of my life.  I think I had my cholesterol and sugar checked here last year and everything looked good."
-Have_you_had_an_accident  "No, nothing recently "
-What_symptoms_are_you_having "My left side is very painful."
-
-# sleeping problems
-Why_are_you_having_trouble_sleeping "\[ Pain1 \]Because of the pain in my left side, it was hard to find a comfortable position."
-Have_you_had_any_trouble_sleeping "\[ Pain1 \]I wasn't having any problems, but last night I really never was able to get comfortable."
-
-# CURRENTABDOMINALSYMPTOMS
-# bowel
-Are_you_able_to_control_your_bowels "I have no problems with my bowels"
-Do_you_have_any_bowel_problems "I have no problems with my bowels.  Sometimes I get a little constipated but then I eat some more fiber and things seem fine.  Everything is going ok now though."
-When_was_last_bowel_movement "I just had one this morning, why?"
-
-# both bowel and bladder
-Loss_of_bowel_or_bladder_control "No, nothing along that line."
-Do_you_have_bowel_or_bladder_control "Sure, I haven't had any problems with that."
-
-# abdominal pain
-Have_you_been_nauseous "I have felt a little sick to my stomach this week."
-Describe_the_nausea "It's just sort of a little bit of nausea, just enough to notice but not enough to really feel sick. "
-Have_you_been_throwing_up "I haven't actually thrown up, but I sure felt like I was going to a few times."
-
-# CURRENTGUSYMPTOMS
-# bladder
-Any_pain_while_urinating "No, I haven't had any pain like that."
-Blood_in_urine "I haven't noticed anything like that."
-Are_you_able_to_control_your_bladder "I have no problems with my bladder."
-Have_you_been_incontinent "No."
-How_about_your_bladder "No problems with my bladder."
+# advanceddirective
 
 
-# CURRENTCARDIACSYMPTOMS
-# blood pressure
+# generalhealth
 
-# heartproblems
+ARE_YOU_HEALTHY "I am generally pretty healthy. No real issues."
+DO_YOU_FEEL_WELL "Not with this pain and nausea."
 
-# CURRENT GYN SYMPTOMS
-#  sexual activity
-Does_it_hurt_during_intercourse "I haven't had sex since I have had this pain, so I don't really know."
-Bleeding_after_intercourse "I have never noticed that."
-How_many_sexual_partners "Do you mean ever or now? Let's just say that I have been married for 6 years."
-Do_you_prefer_men_or_women "\[ Surprise4 \]Men."
-Who_are_your_sexual_partners "My husband only."
-Are_you_sexually_active "Yes, with my husband."
-When_did_you_last_have_intercourse "Well, I think it was last week sometime, before I started feeling bad."
-Do_you_have_an_STI "Not that I am aware of."
+### CurrentGeneralSymptoms
+# medicalproblems
 
-#  contraception
-Do_you_use_protection_every_time "No, not recently. We have been thinking about starting our family."
-Have_you_had_unprotected_sex "Just with my husband."
-Do_you_use_contraception "No, not recently. We have been thinking about starting our family."
+DO_YOU_HAVE_ANY_MEDICAL_PROBLEMS "No, not really. I consider myself really healthy."
+DO_YOU_HAVE_A_HEALTH_PROBLEM "I feel like I have been pretty healthy.  I have always been able to do what I want to do.  These last couple of days though I can barely do anything because of all of this pain."
+DID_YOU_HURT_YOURSELF "No, I certainly don't remember doing anything to my side that would have caused this much pain."
+DO_YOU_HAVE_ANY_CHRONIC_ILLNESSES "No, I have been very healthy all of my life.  I think I had my cholesterol and sugar checked here last year and everything looked good."
+HAVE_YOU_HAD_AN_ACCIDENT "No, nothing recently"
+WHAT_SYMPTOMS_ARE_YOU_HAVING "My left side is very painful."
 
-# bleeding
-Tell_me_more_about_your_vaginal_bleeding "Well, I missed my last period, which I just chalked up to being stessed. About a week ago, it seemed like I was starting but it has just been spotting since then."
-Are_there_clots "No, I haven’t noticed any clots."
+# sleepingproblems
 
-# periods
-First_day_of_last_period "My period started on the 3rd day on the month about 3 months ago. "
-When_was_your_last_period "My period started on the 3rd day on the month about 3 months ago. "
-Are_you_having_your_period "No, it doesn’t seem like a normal period for me."
-Are_your_periods_regular "They are usually pretty regular."
-Are_your_periods_irregular "They are usually pretty regular."
-Is_your_period_late "I am pretty sure I am late for my period. "
-How_long_do_your_periods_last "Well, usually about 7 days."
-Can_you_describe_your_periods "I usually have moderate to heavy flow. Sometimes I have clots."
-What_is_flow_like "It is usually moderate to heavy."
-How_often_are_your_periods "My cycles are usually about 31 days apart."
-Are_your_periods_painful "Not usually."
-Does_pain_change_with_period "I haven't had my period for a few weeks."
-Do_you_menstruate "My menstrual cycles are usually pretty regular but I haven't had a period in several weeks."
-Use_tampons "I usually use 5 or 6 regular or super tampons a day."
-How_many_tampons "I usually use 5 or 6 regular or super tampons a day."
-
-# menstrual cycles
-Have_you_had_any_menstrual_changes "I think I am late for my period. "
-Have_you_had_any_spotting "I had spotting, kind of like a light period a few weeks ago."
-Tell_me_about_your_menstrual_cycles "They are usually regular and last for about 7 days."
-When_was_your_first_menstrual_cycle "Wow, I think I was around 12 years old."
-
-# pain
-Are_you_having_cramps "Not really."
-Any_vaginal_pain "Not really."
-Any_vaginal_sores "None."
-Do_you_have_any_sores_on_your_groin "No."
+WHY_ARE_YOU_HAVING_TROUBLE_SLEEPING "Because of the pain in my left side, it was hard to find a comfortable position."
+HAVE_YOU_HAD_ANY_TROUBLE_SLEEPING "I wasn't having any problems, but last night I really never was able to get comfortable."
 
 # discharge
+
 
 # itch
 
+
 # odor
 
+
+### CurrentAbdominalGISymptoms
+# bowel
+
+ARE_YOU_ABLE_TO_CONTROL_YOUR_BOWELS "I have no problems with my bowels"
+WHEN_WAS_LAST_BOWEL_MOVEMENT "I just had one this morning, why?"
+DO_YOU_HAVE_ANY_BOWEL_PROBLEMS "I have no problems with my bowels.  Sometimes I get a little constipated but then I eat some more fiber and things seem fine.  Everything is going ok now though."
+
+# bothbowelandbladder
+
+LOSS_OF_BOWEL_OR_BLADDER_CONTROL "No, nothing along that line."
+DO_YOU_HAVE_BOWEL_OR_BLADDER_CONTROL "Sure, I haven't had any problems with that."
+
+# abdominalpain
+
+HAVE_YOU_BEEN_NAUSEOUS "I have felt a little sick to my stomach this week."
+DESCRIBE_THE_NAUSEA "It's just sort of a little bit of nausea, just enough to notice but not enough to really feel sick."
+HAVE_YOU_BEEN_THROWING_UP "I haven't actually thrown up, but I sure felt like I was going to a few times."
+
+# heartburn
+
+
+### CurrentGUSymptoms
+# bladder
+
+HAVE_YOU_NOTICED_PAIN_WHILE_URINATING "No, I haven't had any pain like that."
+BLOOD_IN_URINE "I haven't noticed anything like that."
+ARE_YOU_ABLE_TO_CONTROL_YOUR_BLADDER "I have no problems with my bladder."
+HAVE_YOU_BEEN_INCONTINENT "No."
+HOW_ABOUT_YOUR_BLADDER "No problems with my bladder."
+
+# maleGU
+
+
+### CurrentCardiovascularSymptoms
+# bloodpressure
+
+
+# chestpain
+
+
+# heartproblems
+
+
+# vascular
+
+
+### CurrentGYNSymptoms
+# sexualhealth
+
+DOES_IT_HURT_DURING_INTERCOURSE "I haven't had sex since I have had this pain, so I don't really know."
+BLEEDING_AFTER_INTERCOURSE "I have never noticed that."
+DO_YOU_HAVE_AN_STI "Not that I am aware of."
+
+# contraception
+
+DO_YOU_USE_PROTECTION_EVERY_TIME  "No, not recently. We have been thinking about starting our family."
+HAVE_YOU_HAD_UNPROTECTED_SEX "Just with my husband."
+DO_YOU_USE_CONTRACEPTION "No, not recently. We have been thinking about starting our family."
+
+# bleeding
+
+TELL_ME_MORE_ABOUT_YOUR_VAGINAL_BLEEDING "Well, I missed my last period, which I just chalked up to being stessed. About a week ago, it seemed like I was starting but it has just been spotting since then."
+ARE_THERE_CLOTS "No, I havenï¿½t noticed any clots."
+
+# periods
+
+FIRST_DAY_OF_LAST_PERIOD "My period started on the 3rd day on the month about 3 months ago."
+WHEN_WAS_YOUR_LAST_PERIOD "My period started on the 3rd day on the month about 3 months ago."
+ARE_YOU_HAVING_YOUR_PERIOD "No, it doesnï¿½t seem like a normal period for me."
+ARE_YOUR_PERIODS_IRREGULAR "They are usually pretty regular."
+ARE_YOUR_PERIODS_REGULAR "They are usually pretty regular."
+IS_YOUR_PERIOD_LATE "I am pretty sure I am late for my period."
+HOW_LONG_DO_YOUR_PERIODS_LAST "Well, usually about 7 days."
+CAN_YOU_DESCRIBE_YOUR_PERIODS "I usually have moderate to heavy flow. Sometimes I have clots."
+WHAT_IS_FLOW_LIKE "It is usually moderate to heavy."
+HOW_OFTEN_ARE_YOUR_PERIODS "My cycles are usually about 31 days apart."
+ARE_YOUR_PERIODS_PAINFUL "Not usually."
+DOES_PAIN_CHANGE_WITH_PERIOD "I haven't had my period for a few weeks."
+DO_YOU_MENSTRUATE "My menstrual cycles are usually pretty regular but I haven't had a period in several weeks."
+USE_TAMPONS "I usually use 5 or 6 regular or super tampons a day."
+HOW_MANY_TAMPONS "I usually use 5 or 6 regular or super tampons a day."
+
+# menstrualcycles
+
+HAVE_YOU_HAD_ANY_MENSTRUAL_CHANGES "I think I am late for my period."
+HAVE_YOU_HAD_ANY_SPOTTING "I had spotting, kind of like a light period a few weeks ago."
+TELL_ME_ABOUT_YOUR_MENSTRUAL_CYCLES "They are usually regular and last for about 7 days."
+WHEN_WAS_YOUR_FIRST_MENSTRUAL_CYCLE "Wow, I think I was around 12 years old."
+
+# pain
+
+ARE_YOU_HAVING_CRAMPS "Not really."
+ANY_VAGINAL_PAIN "Not really."
+ANY_VAGINAL_SORES "None."
+DO_YOU_HAVE_ANY_SORES_ON_YOUR_GROIN "No."
+
+# vaginalsymptoms
+
+
 # pregnancy
-Could_you_be_pregnant "I could be. We have been trying so it is possible."
-Want_to_be_pregnant "We have been trying lately to start our family."
-Are_you_pregnant "I might be. I have been trying, but I don't really know. I haven't checked or anything."
-Have_you_taken_pregnancy_test "No, not yet. Maybe I should have."
-Have_you_miscarried "I have not had a miscarriage."
+
+COULD_YOU_BE_PREGNANT "I could be. We have been trying so it is possible."
+WANT_TO_BE_PREGNANT "We have been trying lately to start our family."
+ARE_YOU_PREGNANT "I might be. I have been trying, but I don't really know. I haven't checked or anything."
+HAVE_YOU_TAKEN_PREGNANCY_TEST "No, not yet. Maybe I should have."
+HAVE_YOU_MISCARRIED "I have not had a miscarriage."
 
 # breast
+
 
 # menopause
 
-# CURRENTHEENTSYMPTOMS
+
+### CurrentHEENTSymptoms
 # headaches
-Do_you_have_headaches "I get headaches sometimes, not that often though. I sometimes get them before my period."
 
-# neck stiffness/soreness
+DO_YOU_HAVE_HEADACHES "I get headaches sometimes, not that often though. I sometimes get them before my period."
 
-# CURRENTMUSCLESYMPTOMS
-# back pain
-How_is_your_back  "\[ Pain3 \] My left side is painful, but the pain does not seem to be starting in my back."
-Are_the_muscles_in_your_back_tight  "I don't really think the pain is originating in my back."
-Is_the_pain_on_the_left_or_right_side  "The pain is in my left side."
+# neckstiffness
 
 
+# nasal
 
-# back injury
 
-# muscle pain
-Have_you_tried_to_stretch  "\[ Pain2 \] Yes, I do some stretching every morning and this morning I couldn't do any of them without doubling over."
-Is_the_pain_muscular  "I am not sure, but I don't really think it is."
+# eye
 
-# back stiffness
 
-# spine pain
+### CurrentMuscleSymptoms
+# backpain
 
-# CURRENTNEUROLOGICSYMPTOMS
+ARE_THE_MUSCLES_IN_YOUR_BACK_TIGHT  "I don't really think the pain is originating in my back."
+IS_THE_PAIN_ON_THE_LEFT_OR_RIGHT_SIDE  "The pain is in my left side."
+
+# backinjury
+
+
+# musclepain
+
+HAVE_YOU_TRIED_TO_STRETCH "\[ Pain2 \]Yes, I do some stretching every morning and this morning I couldn't do any of them without doubling over."
+IS_THE_PAIN_MUSCULAR "I am not sure, but I don't really think it is."
+
+# backstiffness
+
+
+# spinepain
+
+
+# legpain
+
+
+# jointpain
+
+
+### CurrentNeurologicSymptoms
 # walking
-Can_you_climb_stairs "\[ Pain2 \]Usually I have no problems and often I take the stairs for exercise, but I don't think I could do it today."
+
+CAN_YOU_CLIMB_STAIRS "\[ Pain2 \]Usually I have no problems and often I take the stairs for exercise, but I don't think I could do it today."
 
 # numbness
 
+
 # weakness
-Do_you_have_any_weakness "I have actually been feeling a bit weak the past week or so. "
 
-# CURRENTPAINSYMPTOMS
-# Onset
-What_were_you_doing  "I really wasn't doing anything."
+DO_YOU_HAVE_ANY_WEAKNESS "I have actually been feeling a bit weak the past week or so."
 
-# Exacerbation
-Did_the_medicine_help  "It seemed to help some in the beginning, but not at all now."
-Does_rest_make_the_pain_go_away  "\[ Sad2 \] It is very hard to rest, so I guess I'd say no."
-Do_you_have_pain_at_rest  "\[ Sad2 \] I have pain pretty much all the time"
-Does_it_hurt_when_not_moving  "\[ Sad2 \] Yes, but it definitely hurts more when I move."
-Does_it_hurt_to_move  "It does hurt to move."
-Is_the_pain_associated_with_food  "No, I mean I don't think so. I really haven't been feeling like eating all that much anyway with my stomach being upset for the past week."
+# dizziness
 
-# Intensity
-Rate_pain_on_medicine  "Well the past couple of days the ibuprofen helped bring the pain down to about a 3 or 4. But not today, it is staying at an 8 even with medication."
-Can_you_rate_the_pain  "\[ Pain2 \]The pain is an 8 right now and nothing seems to change that today."
-Can_you_rate_it "\[ Pain2 \]The pain is an 8 right now and nothing seems to change that today."
-How_painful_is_it  "\[ Fear2 \] It's really really bad and much worse than yesterday."
-Is_the_pain_always_a_number  "It has been today. The previous couple of days it was a bit less."
-Does_the_pain_hurt_a_lot  "It is pretty painful."
 
-# General
-Does_the_pain_start_somewhere_else  "No, it seems to just be in my side."
-Do_you_have_pain_anywhere_else  "No, just my side."
-You_seem_uncomfortable  "I am pretty uncomfortable right now."
-Can_you_point_to_the_pain "I'm not able to do that but the pain is in my left side."
+### CurrentPainSymptoms
+# onset
 
-# Description
-Does_the_pain_radiate  "No, it doesn't radiate, but it hurts so much."
-Do_you_have_any_radiating_pain  "Not really, the pain is pretty much just in my side."
-Any_pain_on_right_side  "The pain is just on my left side."
-Any_pain_on_left_side "The pain is only on my left side."
-Is_the_pain_on_one_side  "It is on my left side."
-Is_the_pain_sharp  "No, it is more achy and throbbing."
-Is_the_pain_dull  "The pain is aching and throbbing."
-Is_the_area_tender  "\[ Pain2 \]I guess you could say that since it does hurt to press on it."
-Is_the_pain_in_the_muscle  "No, I don't think it feels like muscle pain, but I don't know what it is."
-How_did_it_feel  "\[ Pain2 \]It was sharp from the beginning, but at least it would go away for a bit. Nowit is there all the time."
+WHAT_WERE_YOU_DOING_WHEN_INJURED "I really wasn't doing anything."
 
-# CURRENTTREATMENTS
-Have_you_tried_a_heating_pad "I haven't tried that yet, but I was thinking about it."
-Have_you_tried_heat_or_ice "No, nothing like that."
-Have_you_tried_heat "No, nothing like that."
-Have_you_tried_ice "No, nothing like that."
-Have_you_tried_any_topical_treatments "No, nothing like that."
-What_treatment_would_you_like_to_try "Something that will take this pain away."
-Have_you_tried_any_treatment "I haven't  tried anything yet except for the ibuprofen."
-What_treatment_have_you_tried "I haven't  tried anything yet except for the ibuprofen."
-Have_you_had_any_imaging_done "No, maybe I should get an MRI or something.  I really want to see what is wrong.  There has got to be some problem causing all of this pain."
-Do_you_think_that_would_help "I don't know. That's why I am here. So, you can help figure out what is causing this pain."
-Run_some_tests "Ok, that sounds great, I really want to know what is causing this so it doesn't happen agaIn."
-Did_you_go_to_the_hospital "No, you're the first person I've seen about this.  I thought about going to the hospital but I really just thought this would go away.  I didn't really want to wait in an emergency room or anything like.  It hasn't gone away yet though."
-Will_you_see_a_physical_therapist "If you think that would help, I will see anybody."
-Have_you_had_physical_therapy "No,  I have never had any trouble before.  "
+# exacerbation
 
-# PAST GENERAL SYMPTOMS
+DOES_REST_MAKE_THE_PAIN_GO_AWAY "\[ Sadness2 \]It is very hard to rest, so I guess I'd say no."
+DO_YOU_HAVE_PAIN_AT_REST "\[ Sadness2 \]I have pain pretty much all the time"
+DOES_IT_HURT_WHEN_NOT_MOVING "\[ Sadness2 \]Yes, but it definitely hurts more when I move."
+DOES_IT_HURT_TO_MOVE "It does hurt to move."
+IS_THE_PAIN_ASSOCIATED_WITH_FOOD "No, I mean I don't think so. I really haven't been feeling like eating all that much anyway with my stomach being upset for the past week."
+
+# intensity
+
+RATE_PAIN_ON_MEDICINE "Well the past couple of days the ibuprofen helped bring the pain down to about a 3 or 4. But not today, it is staying at an 8 even with medication."
+CAN_YOU_RATE_THE_PAIN "\[ Pain2 \]The pain is an 8 right now and nothing seems to change that today."
+CAN_YOU_RATE_IT "\[ Pain2 \]The pain is an 8 right now and nothing seems to change that today."
+HOW_PAINFUL_IS_IT "\[ Fear2 \]It's really really bad and much worse than yesterday."
+IS_THE_PAIN_ALWAYS_A_NUMBER  "It has been today. The previous couple of days it was a bit less."
+DOES_THE_PAIN_HURT_A_LOT  "It is pretty painful."
+
 # general
-Have_you_ever_had_any_serious_illnesses  "This pain is my first real issue."
-Have_you_ever_had_any_chronic_illnesses "No, I have been very healthy all of my life."
-Have_you_ever_been_in_an_accident "No, never"
-What_is_your_past_medical_history "Well, I did have my wisdom teeth removed when I was 21, but have had no really serious issues."
 
-# past surgical history and hospitalizations
-Any_other_surgeries "Not that I recall."
-Any_surgery_problems "None that I am aware of."
-Any_prior_surgeries "I had my wisdom teeth removed when I was 21. Other than that, no."
-Any_other_hospitalizations "Not that I can remember."
-Ever_been_in_the_hospital "When I was 22, I had a pelvic infection and had to stay in the hospital overnight for antibiotics."
+DOES_THE_PAIN_START_SOMEWHERE_ELSE "No, it seems to just be in my side."
+DO_YOU_HAVE_PAIN_ANYWHERE_ELSE "No, just my side."
+YOU_SEEM_UNCOMFORTABLE "I am pretty uncomfortable right now."
+CAN_YOU_POINT_TO_THE_PAIN "I'm not able to do that but the pain is in my left side."
 
-# sleeping problems
-Any_history_of_insomnia "I've always slept fine. "
+# description
 
-# PAST ABDOMINAL SYMPTOMS
-# bowel
-Have_you_had_any_past_bowel_problems "I have no problems with my bowels."
+DOES_THE_PAIN_RADIATE  "No, it doesn't radiate, but it hurts so much."
+DO_YOU_HAVE_ANY_RADIATING_PAIN  "Not really, the pain is pretty much just in my side."
+ANY_PAIN_ON_RIGHT_SIDE "The pain is just on my left side."
+ANY_PAIN_ON_LEFT_SIDE "The pain is only on my left side."
+IS_THE_PAIN_ON_ONE_SIDE "It is on my left side."
+IS_THE_PAIN_SHARP  "No, it is more achy and throbbing."
+IS_THE_PAIN_DULL  "No, it is more achy and throbbing."
+IS_THE_AREA_TENDER "\[ Pain2 \]I guess you could say that since it does hurt to press on it."
+IS_THE_PAIN_IN_THE_MUSCLE "No, I don't think it feels like muscle pain, but I don't know what it is."
+WHEN_DOES_THE_PAIN_HURT "All the time now."
+HOW_DID_IT_FEEL "\[ Pain2 \]It was sharp from the beginning, but at least it would go away for a bit. Nowit is there all the time."
 
-# bowel and bladder
-Any_previous_bowel_or_bladder_problems "No, no problems there."
+### CurrentRespiratorySymptoms
+# breathing
 
-# abdominal pain
-Have_you_been_nauseous_before "Yes, hasn't everyone."
 
-# PAST CARDIAC SYMPTOMS
-# blood pressure
-Any_previous_blood_pressure_problems "My blood pressure has always been normal."
+# cough
 
-#  sexual activity
-How_many_sexual_partners_in_the_past "Not very many. Probably less than 5 total."
-Who_were_your_past_sexual_partners "Really, you want names or just that they were all men?"
-Any_other_past_sexual_partners "None."
-Ever_been_sexually_active "Yes, I have and currently am."
-Ever_had_an_STI "Yes, I had a pelvic infection that my doctor said was from chlamydia, when I was 22 and had to stay in the hospital."
-Take_anything_for_the_past_infection "I got some antibiotics I think. I don't remember which kind."
 
-#  contraception
-Did_you_use_protection_every_time_before "I was always careful."
-Did_you_use_any_contraception_in_the_past "Yes, condoms and birth control pills."
+### CurrentTreatments
+# treatmentstried
 
-# bleeding
-Have_you_had_vaginal_bleeding_before "Not that I remember, at least nothing besides my regular period."
+HAVE_YOU_TRIED_A_HEATING_PAD "I haven't tried that yet, but I was thinking about it."
+HAVE_YOU_TRIED_HEAT_OR_ICE "No, nothing like that."
+HAVE_YOU_TRIED_HEAT "No, nothing like that."
+HAVE_YOU_TRIED_ICE "No, nothing like that."
+HAVE_YOU_TRIED_ANY_TOPICAL_TREATMENTS "No, nothing like that."
+WHAT_TREATMENT_WOULD_YOU_LIKE_TO_TRY "Something that will take this pain away."
+HAVE_YOU_TRIED_ANY_TREATMENT "I haven't  tried anything yet except for the ibuprofen."
+ DID_THAT_HELP "It used to help, but not today."
+WHAT_TREATMENT_HAVE_YOU_TRIED "I haven't  tried anything yet except for the ibuprofen."
+HAVE_YOU_HAD_ANY_IMAGING_DONE "No, maybe I should get an MRI or something.  I really want to see what is wrong.  There has got to be some problem causing all of this pain."
+DO_YOU_THINK_THAT_WOULD_HELP "I don't know. That's why I am here. So, you can help figure out what is causing this pain."
+RUN_SOME_TESTS "Ok, that sounds great, I really want to know what is causing this so it doesn't happen agaIn."
+DID_YOU_GO_TO_THE_HOSPITAL "No, you're the first person I've seen about this.  I thought about going to the hospital but I really just thought this would go away.  I didn't really want to wait in an emergency room or anything like.  It hasn't gone away yet though."
+WILL_YOU_SEE_A_PHYSICAL_THERAPIST "If you think that would help, I will see anybody."
+HAVE_YOU_HAD_PHYSICAL_THERAPY "No,  I have never had any trouble before."
 
-#  periods
-Were_your_periods_ever_irregular "Never."
-Were_your_periods_regular_before  "They have always been pretty regular."
-was_your_period_ever_late "Only now."
-How_long_did_your_periods_last_before "About 7 days."
-Describe_your_past_periods "Usually moderate to heavy and some clots."
-What_is_past_flow_like "Moderate to heavy."
-How_often_were_your_past_periods "Areound 29-31 days."
-Were_your_past_periods_painful "Not really."
-Did_you_ever_menstruate "Um, yes."
-Ever_use_tampons "Yes."
-How_many_tampons_before "Around 5 or 6 regular ones each day."
+### PastGeneralSymptoms
+# medicalproblems
 
-#  menstrual cycle
-Ever_had_any_menstrual_changes "No, not really."
-Ever_had_any_spotting "None other than the spotting I had a few weeks ago."
-Tell_me_about_your_past_menstrual_cycles "They were fine."
+HAVE_YOU_EVER_HAD_ANY_CHRONIC_ILLNESSES "No, I have been very healthy all of my life."
+HAVE_YOU_EVER_BEEN_IN_AN_ACCIDENT "No, never"
+HAVE_YOU_EVER_HAD_ANY_SERIOUS_ILLNESSES  "This pain is my first real issue."
+WHAT_IS_YOUR_PAST_MEDICAL_HISTORY "Well, I did have my wisdom teeth removed when I was 21, but have had no really serious issues."
 
-#  pain
-Ever_had_cramps "No, none."
-Any_vaginal_pain_before "Not really."
-Any_prior_vaginal_sores "None."
-Ever_had_sores_on_your_groin "No,."
+# hospitalizations
+
+ANY_OTHER_SURGERIES "Not that I recall."
+ANY_SURGERY_PROBLEMS "None that I am aware of."
+ANY_PRIOR_SURGERIES "I had my wisdom teeth removed when I was 21. Other than that, no."
+ANY_OTHER_HOSPITALIZATIONS "Not that I can remember."
+EVER_BEEN_IN_THE_HOSPITAL "When I was 22, I had a pelvic infection and had to stay in the hospital overnight for antibiotics."
+
+# sleepingproblems
+
+ANY_HISTORY_OF_INSOMNIA "I've always slept fine."
 
 # discharge
-Ever_had_vaginal_discharge "Nothing besides my period."
 
-#  itch
+
+# itch
+
 
 # odor
 
+
+### PastAbdominalGISymptoms
+# bowel
+
+HAVE_YOU_HAD_ANY_PAST_BOWEL_PROBLEMS "I have no problems with my bowels."
+
+# bowelandbladder
+
+ANY_PREVIOUS_BOWEL_OR_BLADDER_PROBLEMS "No, no problems there."
+
+# abdominalpain
+
+HAVE_YOU_BEEN_NAUSEOUS_BEFORE "Yes, hasn't everyone."
+
+# heartburn
+
+
+### PastCardiacSymptoms
+# bloodpressure
+
+ANY_PREVIOUS_BLOOD_PRESSURE_PROBLEMS "My blood pressure has always been normal."
+
+# chestpain
+
+
+# heartproblems
+
+
+### PastCardiovascularSymptoms
+# vascular
+
+
+### PastGYNSymptoms
+# sexualhealth
+
+WHO_WERE_YOUR_PAST_SEXUAL_PARTNERS "Really, you want names or just that they were all men?"
+ANY_OTHER_PAST_SEXUAL_PARTNERS "None."
+EVER_BEEN_SEXUALLY_ACTIVE "Yes, I have and currently am."
+EVER_HAD_AN_STI "Yes, I had a pelvic infection that my doctor said was from chlamydia, when I was 22 and had to stay in the hospital."
+WHEN_HAD_PAST_STI "When I was 22."
+TAKE_ANYTHING_FOR_THE_PAST_INFECTION "I got some antibiotics I think. I don't remember which kind."
+
+# contraception
+
+DID_YOU_USE_ANY_OTHER_PAST_CONTRACEPTION "Yes, condoms and birth control pills."
+DID_YOU_USE_PROTECTION_EVERY_TIME_BEFORE "I was always careful."
+USE_ANY_CONTRACEPTION_IN_THE_PAST "Yes, condoms and birth control pills."
+
+# bleeding
+
+HAVE_YOU_HAD_VAGINAL_BLEEDING_BEFORE "Not that I remember, at least nothing besides my regular period."
+
+# periods
+
+WERE_YOUR_PERIODS_EVER_IRREGULAR "Never."
+WERE_YOUR_PERIODS_REGULAR_BEFORE  "They have always been pretty regular."
+WAS_YOUR_PERIOD_EVER_LATE "Only now."
+HOW_LONG_DID_YOUR_PERIODS_LAST_BEFORE "About 7 days."
+DESCRIBE_YOUR_PAST_PERIODS "Usually moderate to heavy and some clots."
+WHAT_IS_PAST_FLOW_LIKE "Moderate to heavy."
+HOW_OFTEN_WERE_YOUR_PAST_PERIODS "Areound 29-31 days."
+WERE_YOUR_PAST_PERIODS_PAINFUL "Not really."
+DID_YOU_EVER_MENSTRUATE "Um, yes."
+EVER_USE_TAMPONS "Yes."
+HOW_MANY_TAMPONS_BEFORE "Around 5 or 6 regular or super ones each day."
+
+# menstrualcycle
+
+EVER_HAD_ANY_MENSTRUAL_CHANGES "No, not really."
+EVER_HAD_ANY_SPOTTING "None other than the spotting I had a few weeks ago."
+TELL_ME_ABOUT_YOUR_PAST_MENSTRUAL_CYCLES "They were fine."
+
+# pain
+
+EVER_HAD_CRAMPS "No, none."
+ANY_VAGINAL_PAIN_BEFORE "Not really."
+ANY_PRIOR_VAGINAL_SORES "None."
+EVER_HAD_SORES_ON_YOUR_GROIN "No."
+
+# vaginalsymptoms
+
+
 # pregnancy
-Ever_want_to_be_pregnant "Yes, actually we are trying now."
-Ever_taken_pregnancy_test_before "No, I have not."
-Ever_miscarried_before "I have never miscarried."
-Ever_been_pregnant_before "I have never been pregnant."
+
+EVER_WANT_TO_BE_PREGNANT "Yes, actually we are trying now."
+EVER_TAKEN_PREGNANCY_TEST_BEFORE "No, I have not."
+EVER_MISCARRIED_BEFORE "I have never miscarried."
+EVER_BEEN_PREGNANT_BEFORE "I have never been pregnant."
 
 # breast
 
 
-# PAST GU SYMPTOMS
+### PastGUSymptoms
 # bladder
-Have_you_had_incontinence_before "No, I haven't had that problem yet. Some of my friends that have kids seem to have a bit of that though."
-Have_you_had_any_past_bladder_problems "No I haven't."
 
-# PAST HEENT SYMPTOMS
+HAVE_YOU_HAD_INCONTINENCE_BEFORE "No, I haven't had that problem yet. Some of my friends that have kids seem to have a bit of that though."
+HAVE_YOU_HAD_ANY_PAST_BLADDER_PROBLEMS "No I haven't."
+
+# pastmaleGU
+
+
+### PastHEENTSymptoms
 # headache
-Have_you_ever_had_headaches "Well, I get an occasional headache."
 
-# neck stiffness/soreness
+EVER_HAD_HEADACHES_BEFORE "Well, I get an occasional headache."
 
-# PASTMUSCLESYMPTOMS
-# back pain
+# neckstiffness
 
-# back injury
 
-# muscle pain
+# nasal
 
-# back stiffness
 
-# spine pain
+# eye
 
-# leg pain
 
-# PASTNEUROLOGISYMPTOMS
+### PastMuscleSymptoms
+# backpain
+
+
+# backinjury
+
+
+# musclepain
+
+
+# backstiffness
+
+
+# spinepain
+
+
+# legpain
+
+
+# jointpain
+
+
+### PastNeurologicSymptoms
 # walking
 
-# numbness or tingling
+
+# numbness
+
 
 # weakness
 
-# PASTPAIN
-# Onset
 
-# Exacerbation
-Did_the_medicine_help_before "The antibiotics cleared it up."
-Did_rest_make_the_past_pain_go_away "Rest did not help."
-Did_you_have_past_pain_at_rest "The pain was constant before I finally went to the hospital."
+# dizziness
 
 
-# Intensity
-Can_you_rate_the_past_pain  "It was an 8, maybe a 9."
-Can_you_rate_your_past_pain "It was probably an 8."
-How_painful_was_past_pain "It was very painful."
-Did_the_past_pain_hurt_a_lot  "It really hurt."
-
-# General
-
-# Description
-Did_the_past_pain_radiate "Not that I  noticed."
-Did_you_have_past_radiating_pain "Not really."
-Was_the_past_pain_on_one_side  "That time it seemd to be in my entire abdomen."
-Was_the_past_pain_sharp  "It was sharp."
-Was_the_past_pain_dull  "It was sharp."
-Was_the_area_tender_before  "\[ Pain2 \]It did seem a little tender."
-Was_the_past_pain_in_the_muscle  "I don't recall."
-When_did_the_pain_hurt_before "It was really bad for about 2 days before I went to the ER. I was 22 at the time."
-How_did_it_feel_before "\[ Pain2 \]It hurt for a few days, then got really painful."
-How_has_the_pain_progressed "It has been getting progressively worse."
-Is_this_the_worst_pain_ever "It certainly is pretty bad. "
-
-# FAMILY GENERAL SYMPTOMS
-
-Any_conditions_that_run_in_your_family "I don't think so.  "
-Any_family_history_of_illness  "Nothing that I can think of. My parents are healthy."
-Parents_have_any_medical_problems "No, my parents are healthy.  "
+### PastPainSymptoms
+# onset
 
 
-# FAMILY ABDOMINAL/GI SYMPTOMS
-# familybowel
-Family_history_of_bowel_problems "No as far as I know my parents are pretty healthy"
+# exacerbation
 
-# bowel and bladder
-Bowel_or_bladder_problems_in_your_family "No as far as I know my parents are pretty healthy"
+DID_THE_MEDICINE_HELP_BEFORE "The antibiotics cleared it up."
+DID_REST_MAKE_THE_PAST_PAIN_GO_AWAY "Rest did not help."
+DID_YOU_HAVE_PAST_PAIN_AT_REST "The pain was constant before I finally went to the hospital."
 
-# FAMILY CARDIAC SYMPTOMS
-# family blood pressure
-Family_history_of_hypertension "Not that I know of."
+# intensity
 
-# FAMILY GU SYMPTOMS
-# family bladder
-Family_history_of_incontinence "No.  I didn't even know that sort of things ran in families. "
+RATE_THE_PAIN "It was an 8, maybe a 9."
+CAN_YOU_RATE_THE_PAST_PAIN "It was an 8, maybe a 9."
+CAN_YOU_RATE_YOUR_PAST_PAIN "It was probably an 8."
+HOW_PAINFUL_WAS_PAST_PAIN "It was very painful."
+DID_THE_PAST_PAIN_HURT_A_LOT "It really hurt."
 
-# FAMILY HEENT SYMPTOMS
-# family headaches
-Family_history_of_headaches  "Yes, my Mom had migraines.  She hasn't had one in awhile though.  "
+# general
 
-# family neck stiffness
-Family_history_of_neck_stiffness  "No, not that I know of."
 
-# FAMILY MUSCLE SYMPTOMS
-# family back pain
-Anyone_in_your_family_have_back_pain "Not that I am aware of."
+# description
 
-# family back injury
-Anyone_in_your_family_have_a_back_injury "Not that I am aware of."
+DID_THE_PAST_PAIN_RADIATE "Not that I  noticed."
+DID_YOU_HAVE_PAST_RADIATING_PAIN "Not really."
+WAS_THE_PAST_PAIN_ON_ONE_SIDE  "That time it seemd to be in my entire abdomen."
+WAS_THE_PAST_PAIN_SHARP  "It was sharp."
+WAS_THE_PAST_PAIN_DULL  "It was sharp."
+WAS_THE_AREA_TENDER_BEFORE  "\[ Pain2 \]It did seem a little tender."
+WAS_THE_PAST_PAIN_IN_THE_MUSCLE  "I don't recall."
+WHEN_DID_THE_PAIN_HURT_BEFORE "It was really bad for about 2 days before I went to the ER. I was 22 at the time."
+HOW_DID_IT_FEEL_BEFORE "\[ Pain2 \]It hurt for a few days, then got really painful."
+HOW_HAS_THE_PAIN_PROGRESSED "It has been getting progressively worse."
+IS_THIS_THE_WORST_PAIN_EVER "It certainly is pretty bad."
 
-# family muscle pain
-Anyone_in_your_family_have_muscle_pain "Not that I am aware of."
+### PastRespiratorySymptoms
+# breathing
 
-# WELLNESS
+
+# cough
+
+
+### FamilyGeneralSymptoms
+# medicalproblems
+
+ANY_CONDITIONS_THAT_RUN_IN_YOUR_FAMILY "I don't think so."
+ANY_FAMILY_HISTORY_OF_ILLNESS  "Nothing that I can think of. My parents are healthy."
+PARENTS_HAVE_ANY_MEDICAL_PROBLEMS "No, my parents are healthy."
+
+### FamilyAbdominalGISymptoms
+# bowel
+
+FAMILY_HISTORY_OF_BOWEL_PROBLEMS "No as far as I know my parents are pretty healthy"
+BOWEL_OR_BLADDER_PROBLEMS_IN_YOUR_FAMILY "No as far as I know my parents are pretty healthy"
+
+# abdominalpain
+
+
+### FamilyCardiacSymptoms
+# bloodpressure
+
+FAMILY_HISTORY_OF_HYPERTENSION "Not that I know of."
+
+# chestpain
+
+
+# heartproblems
+
+
+### FamilyCardiovascularSymptoms
+# vascular
+
+
+### FamilyGUSymptoms
+# bladder
+
+FAMILY_HISTORY_OF_INCONTINENCE "No.  I didn't even know that sort of things ran in families."
+
+### FamilyHEENTSymptoms
+# headache
+
+FAMILY_HISTORY_OF_HEADACHES  "Yes, my Mom had migraines.  She hasn't had one in awhile though."
+
+# neckstiffness
+
+FAMILY_HISTORY_OF_NECK_STIFFNESS  "No, not that I know of."
+
+# nasal
+
+
+### FamilyMuscleSymptoms
+# backpain
+
+ANYONE_IN_YOUR_FAMILY_HAVE_BACK_PAIN "Not that I am aware of."
+
+# backinjury
+
+ANYONE_IN_YOUR_FAMILY_HAVE_A_BACK_INJURY "Not that I am aware of."
+
+# musclepain
+
+ANYONE_IN_YOUR_FAMILY_HAVE_MUSCLE_PAIN "Not that I am aware of."
+
+### FamilyGYNSymptoms
+# sexualhealth
+
+
+# periods
+
+
+# pregnancy
+
+
+# breast
+
+
+### FamilyPainSymptoms
+# pain
+
+
+### FamilyRespiratorySymptoms
+# breathing
+
+
+# cough
+
+
+### NeonatalCounseling
+# neonatalcounseling
+
+
+### Wellness
 # vaccines
-have_you_been_vaccinated_for_MMR "Yes."
-have_you_been_vaccinated_for_HIB "Yes, I believe so "
-have_you_been_vaccinated_for_hepatitis_a  "Yes, I believe I did before I did some traveling.  "
-have_you_been_vaccinated_for_hepatitis_b "Yes, I think so "
-have_you_been_vaccinated_for_hepatitis "Which type? "
-have_you_had_hpv_vaccine "Yes, I got that one."
-have_you_had_flu_shot "Yes, I get one every year. "
-have_you_had_the_pneumonia_vaccine "No, I haven't had that. "
-have_you_received_your_shingles_vaccine  "No, I haven't had that. "
-when_was_your_last_tetanus_shot "I had my last booster within the last 5 years "
-are_you_current_on_vaccinations "Yes, to the best of my recollection"
+
+HAVE_YOU_BEEN_VACCINATED_FOR_MMR "Yes."
+HAVE_YOU_BEEN_VACCINATED_FOR_HIB "Yes, I believe so"
+HAVE_YOU_BEEN_VACCINATED_FOR_HEPATITIS_A  "Yes, I believe I did before I did some traveling."
+HAVE_YOU_BEEN_VACCINATED_FOR_HEPATITIS_B "Yes, I think so."
+HAVE_YOU_BEEN_VACCINATED_FOR_HEPATITIS "Which type?"
+HAVE_YOU_HAD_HPV_VACCINE "Yes, I got that one."
+HAVE_YOU_HAD_FLU_SHOT "Yes, I get one every year."
+HAVE_YOU_HAD_THE_PNEUMONIA_VACCINE "No, I haven't had that."
+HAVE_YOU_RECEIVED_YOUR_SHINGLES_VACCINE "No, I haven't had that."
+WHEN_WAS_YOUR_LAST_TETANUS_SHOT "I had my last booster within the last 5 years."
+ARE_YOU_CURRENT_ON_VACCINATIONS "Yes, to the best of my recollection."
+
+# seeingadoctor
+
+WHEN_DID_YOU_SEE_A_DOCTOR_LAST "I had my annual gyn exam about 1 month ago and my yearly checkup was here about 7 or 8 months ago, I think."
+WHEN_DID_YOU_SEE_A_GYNECOLOGIST_LAST "About a month ago."
+DO_YOU_HAVE_A_DOCTOR "Yes, I usually come here."
+DO_YOU_HAVE_ANNUAL_EXAMS "Yes, I do."
+HAVE_YOU_SEEN_A_DOCTOR "I had my annual gyn exam about 1 month ago and my yearly checkup was here about 7 or 8 months ago, I think."
+DID_YOU_HAVE_ANY_TROUBLE_FINDING_US "No, it was pretty easy to get here."
+DID_YOU_FIND_A_PARKING_SPOT "I had no problems parking.  Things around here are actually pretty easy.  There are a lot of clear signs."
+HOW_DID_YOU_GET_HERE_TODAY "I drove myself."
+HOW_DID_YOU_COME_TO_FIND_US "I usually come here. One of my friends recommended this office."
+HOW_DID_YOU_LEARN_ABOUT_THIS_OFFICE  "One of my friends recommended this office."
+HAVE_YOU_BEEN_SEEN_AT_THIS_OFFICE_BEFORE  "Yes, I was here for my annual checkup about 7 or 8 months ago."
+ARE_YOU_A_NEW_PATIENT "No, I have been here several times."
+WHERE_ARE_YOU_USUALLY_SEEN "Well, this office is the only one that I have ever been.  Do you have other offices in the area?"
+HAVE_YOU_BEEN_WAITING_LONG "I have not been waiting very long.  I am pretty impressed by how quickly things have moved."
+
+# mentalhealth
 
 
-# seeing a doctor
-When_did_you_see_a_doctor_last "I had my annual gyn exam about 1 month ago and my yearly checkup was here about 7 or 8 months ago, I think."
-Do_you_have_a_doctor "Yes, I usually come here."
-Did_you_have_any_trouble_finding_us "No, it was pretty easy to get here.  "
-Did_you_find_a_parking_spot "I had no problems parking.  Things around here are actually pretty easy.  There are a lot of clear signs."
-How_did_you_get_here_today "I drove myself."
-How_did_you_come_to_find_us "I usually come here. One of my friends recommended this office."
-How_did_you_learn_about_this_office  "One of my friends recommended this office."
-Have_you_been_seen_at_this_office_before  "Yes, I was here for my annual checkup about 7 or 8 months ago."
-Are_you_a_new_patient "No, I have been here several times. "
-Where_are_you_usually_seen "Well, this office is the only one that I have ever been.  Do you have other offices in the area?"
-Have_you_been_waiting_long "I have not been waiting very long.  I am pretty impressed by how quickly things have moved.  "
+# relationshiphealth
 
-# MOVEMENTS
-# range of motion
-What_movements_make_it_hurt "It seems like all movements make it hurt more."
-Does_it_hurt_when_you_bend "\[ Pain3 \]It hurts all the time now."
-Do_you_have_decreased_motion "Not that I have noticed, mostly because I am trying not to move."
-Have_you_been_moving "Yes, I have, but the pain is always there."
 
-# past range of motion
+### Movements
+# currentrangeofmotion
 
-# CHITCHAT
+WHAT_MOVEMENTS_MAKE_IT_HURT "It seems like all movements make it hurt more."
+DOES_IT_HURT_WHEN_YOU_BEND "\[ Pain3 \]It hurts all the time now."
+DO_YOU_HAVE_DECREASED_MOTION "Not that I have noticed, mostly because I am trying not to move."
+HAVE_YOU_BEEN_MOVING "Yes, I have, but the pain is always there."
+
+# pastrangeofmotion
+
+
+### ChitChat
 # weatherquestions
-What_is_it_like_outside "The usual for this time of year. Kind of gray and overcast."
-Is_it_starting_to_get_cold_outside "It is supposed to start getting colder in the next couple of days."
-It_is_starting_to_get_cold_outside "\[ Surprise1 \]I heard it was supposed to get cold again."
-Is_it_still_raining "It wasn't when I came in, but I think we are supposed to get some more rain today."
-What_do_you_think_about_this_weather "Eh, I like the cold, but not the dreariness."
+
+WHAT_IS_IT_LIKE_OUTSIDE "The usual for this time of year. Kind of gray and overcast."
+IS_IT_STARTING_TO_GET_COLD_OUTSIDE "I heard it was supposed to get cold again."
+IS_IT_STILL_RAINING "It wasn't when I came in, but I think we are supposed to get some more rain today."
+WHAT_DO_YOU_THINK_ABOUT_THIS_WEATHER "Eh, I like the cold, but not the dreariness."
 
 # seasonquestions
-Doesn't_seem_like_summer_any_more   "The seasons seem to change quickly these days. "
+
+DOESN'T_SEEM_LIKE_SUMMER_ANY_MORE "The seasons seem to change quickly these days."
 
 # sportsquestions
-see_game "I didn't get to see it, I had a school function to attend."
-What_do_you_think_about_the_buckeyes  "Well, I like to watch them. They usually have a really good team."
+
+SEE_GAME "I didn't get to see it, I had a school function to attend."
+WHAT_DO_YOU_THINK_ABOUT_THE_BUCKEYES  "Well, I like to watch them. They usually have a really good team."
 
 # readingquestions
-Read_any_good_books_lately "I try to read everything that Dr. Danforth writes, but other than that I don't read very often."
+
+READ_ANY_GOOD_BOOKS_LATELY "I try to read everything that Dr. Danforth writes, but other than that I don't read very often."
 
 # watchingquestions
-Seen_any_good_movies_lately "I don't watch that many movies. I like to do more active things with my free time."
-Watch_NCIS_last_night "No, I haven't watched much TV lately. "
 
-# hobbyquestions
-Do_you_have_any_hobbies "I like to bike and hike."
-Do_you_travel "I loke to travel, but I haven't done much."
+SEEN_ANY_GOOD_MOVIES_LATELY "I don't watch that many movies. I like to do more active things with my free time."
+WATCH_NCIS_LAST_NIGHT "No, I haven't watched much TV lately."
 
 # politicsquestions
-Who_are_you_going_to_vote_for "\[ Contempt \]I don't like discussing politics.  There is too much hate out there."
+
+WHO_ARE_YOU_GOING_TO_VOTE_FOR "\[ Contempt \]I don't like discussing politics.  There is too much hate out there."
 
 # restaurantquestions
-Been_to_any_good_restaurants_lately "I had a great lunch at a little sandwich place recently, but I forget the name."
+
+BEEN_TO_ANY_GOOD_RESTAURANTS_LATELY "I had a great lunch at a little sandwich place recently, but I forget the name."
 
 # howwasyourdayquestions
-How_was_your_day "My '_0 was just fine, thanks for asking. If it weren't for my back I would be feeling good."
-How_has_your_day_been_going "My '_0 was just fine, thanks for asking. If it weren't for my back I would be feeling good."
+
+HOW_WAS_YOUR_DAY "My '_0 was just fine, thanks for asking. If it weren't for my pain and nausea, I would be feeling good."
+HOW_HAS_YOUR_DAY_BEEN_GOING "My '_0 was just fine, thanks for asking. If it weren't for my pain and nausea, I would be feeling good."
 
 # feelingquestions
-Are_you_frustrated "I really just want to know what is going on and get some relief for the pain. "
-Are_you_nervous "Well I am a little anxious that you won't be able to help me and my pain will get worse.  "
 
-# CLOSURE
+ARE_YOU_FRUSTRATED "I really just want to know what is going on and get some relief for the pain."
+ARE_YOU_NERVOUS "Well I am a little anxious that you won't be able to help me and my pain will get worse."
+
+### Closure
 # closure
-Do_you_have_any_questions ^"^print(  [No] [No, I think that's all. Thank you for your time])"
-Anything_else_I_can_help_with "No, thank you for seeing me.  Hopefully we can get this pain taken care of and I can get back to work."
-Have_everything_you_need "Yes, thank you.  Just tell me what to try and I will do my best.  I really want to get this fixed."
-Have_all_the_information "\[ Happy1 \]OK Thanks."
-Do_an_exam_now "Sounds good,  I hope you can tell me what is wrong."
-Goodbye ^"^print(\[ Happy2 \][Goodbye then] [Goodbye and thanks])"
-Thanks "\[ Happy2 \]Thank you"
+
+DO_YOU_HAVE_ANY_QUESTIONS " print(  [No] [No, I think that's all. Thank you for your time])"
+ANYTHING_ELSE_I_CAN_HELP_WITH "No, thank you for seeing me.  Hopefully we can get this pain taken care of and I can get back to work."
+HAVE_EVERYTHING_YOU_NEED "Yes, thank you.  Just tell me what to try and I will do my best.  I really want to get this fixed."
+HAVE_ALL_THE_INFORMATION "\[ Happiness2 \]OK Thanks."
+DO_AN_EXAM_NOW "Sounds good,  I hope you can tell me what is wrong."
+GOODBYE " print(\[ Happy2 \][Goodbye then] [Goodbye and thanks])"
+THANKS "\[ Happiness2 \]Thank you."
 
 # summarize
-Can_you_summarize "Well, I really didn't do anything. My left side started hurting a couple of days ago and then today it seems worse and nothing helps."
-To_summarize ^"^print([That sounds about right] [I think that is correct])" 
-Did_I_miss_anything "I don't think so."
+
+CAN_YOU_SUMMARIZE "Well, I really didn't do anything. My left side started hurting a couple of days ago and then today it seems worse and nothing helps."
+TO_SUMMARIZE " print([That sounds about right] [I think that is correct])"
+DID_I_MISS_ANYTHING "I don't think so."
+
+### Screening
+# general
 
 
-# SCREENING
-# colon section
-have_you_had_a_colonoscopy "I've never had one."
+# colonsection
 
-# breast section
-have_you_had_your_mammogram "I've never had one of those."
+HAVE_YOU_HAD_A_COLONOSCOPY "I've never had one."
 
+# breastsection
 
-# male GU section
+HAVE_YOU_HAD_YOUR_MAMMOGRAM "I've never had one of those."
 
-# female GU section
-Have_you_had_a_pap_smear "I just had one at my checkup last month."
-Results_of_pap_smear "It was normal."
-Have_you_ever_had_an_abnormal_pap "I've never  had an abnormal pap smear."
-When_was_your_last_pap_smear "Just last month."
+# maleGUsection
 
 
-# family life
-Do_you_have_a_family "Yes, my parents and my brother and his family. "
-Do_you_have_any_pets "Yes, we have two cats. My husband wants to get a dog too, but so far I have been able to win that one."
-How_is_your_family "Pretty good. My parents are both well and my brother is too."
-Who_do_you_live_with "I live with my husband and our two cats."
-Do_you_live_alone "I live with my husband and our two cats."
-Where_do_you_live "We live in southern Delaware County near Polaris."
-Where_is_home "Well, home is actually what I call where I grew up, which is Toledo, Ohio."
+# femaleGUsection
 
-# parents_information
-Are_your_parents_living "Both of my parents are alive and well"
-Are_your_parents_healthy "Both of my parents are in good health. "
-How_old_are_your_parents "My mom is 62 and my dad is 68."
-Tell_me_about_your_parents "My parents are both doing well. They've always been really healthy"
+HAVE_YOU_HAD_A_PAP_SMEAR "I just had one at my checkup last month."
+RESULTS_OF_PAP_SMEAR "It was normal."
+HAVE_YOU_EVER_HAD_AN_ABNORMAL_PAP "I've never  had an abnormal pap smear."
+WHEN_WAS_YOUR_LAST_PAP_SMEAR "Just last month."
+
+# communicablediseasesection
 
 
-# grandparents_information
-Are_your_grandparents_living "Both of my grandparents are deceased."
-How_old_are_your_grandparents "Both of my grandparents are deceased."
-Are_your_grandparents_healthy  "Both of my grandparents are deceased."
-Tell_me_about_your_grandparents "Both of my grandparents are deceased."
-
-# siblings_information
-Do_you_have_siblings "Yes, I have one brother."
-How_old_are_your_siblings "He is 29"
-Are_your_siblings_healthy  "He is the picture of health."
-Tell_me_about_your_siblings "I have one brother. He is the picture of health."
-
-# relatives_information
-
-# children_information
-Do_you_want_children "We have been trying to have children for a little while now."
+# prenatalcare
 
 
-# spouse_information
-Are_you_divorced "My husband and I have been married for several years."
-Are_you_married "I have been married for over three years now."
-Are_you_single "I have been married for over three years now.."
-Are_you_in_a_relationship "I am married to my husband."
-Are_you_dating_anyone "I am happily married."
-Are_you_widowed "My husband is alive."
-Do_you_have_a_boyfriend "I am married to my husband."
-Do_you_have_a_girlfriend "I am married to my husband."
-Do_you_have_a_significant_other "I am married to my husband."
-Do_you_have_a_partner "I am married and my husband is my partner."
-Tell_me_about_your_partner "My husband and I have been married for several years."
-How_old_is_your_partner "He is 26."
-Is_your_partner_healthy  "He is very healthy."
-Do_you_have_a_partner "My husband."
-What_is_your_partners_name "His name is Drew."
-Is_your_partner_male "Yes, he is."
-Is_your_partner_female "What? I just said his name was Drew."
-
-# support_information
-
-Are_you_abused "\[ Contempt2 \]I have no concerns about my home life."
-Do_you_feel_safe "I feel safe.  Our home is in a nice area."
-Do_you_have_support_at_home "\[ Sadness3 \]Sure, I have my husband."
+# diabetes
 
 
+### Family
+# familylife
 
-# CHIEFCOMPLAINT
+DO_YOU_HAVE_A_FAMILY "Yes, my parents and my brother and his family."
+DO_YOU_HAVE_ANY_PETS "Yes, we have two cats. My husband wants to get a dog too, but so far I have been able to win that one."
+HOW_IS_YOUR_FAMILY "Pretty good. My parents are both well and my brother is too."
+WHO_DO_YOU_LIVE_WITH "I live with my husband and our two cats."
+DO_YOU_LIVE_ALONE "I live with my husband and our two cats."
+WHERE_DO_YOU_LIVE "We live in southern Delaware County near Polaris."
+WHERE_IS_HOME "Well, home is actually what I call where I grew up, which is Toledo, Ohio."
+
+# parentsinformation
+
+ARE_YOUR_PARENTS_LIVING "Both of my parents are alive and well"
+HOW_OLD_ARE_YOUR_PARENTS "My mom is 62 and my dad is 68."
+ARE_YOUR_PARENTS_HEALTHY "Both of my parents are in good health."
+TELL_ME_ABOUT_YOUR_PARENTS "My parents are both doing well. They've always been really healthy"
+
+# grandparentsinformation
+
+ARE_YOUR_GRANDPARENTS_LIVING "Both of my grandparents are deceased."
+HOW_DID_GRANDPARENTS_DIE "I'm not sure."
+HOW_OLD_ARE_YOUR_GRANDPARENTS "Both of my grandparents are deceased."
+ARE_YOUR_GRANDPARENTS_HEALTHY  "Both of my grandparents are deceased."
+TELL_ME_ABOUT_YOUR_GRANDPARENTS "Both of my grandparents are deceased."
+
+# siblingsinformation
+
+HOW_OLD_ARE_YOUR_SIBLINGS "He is 29."
+ARE_YOUR_SIBLINGS_HEALTHY  "He is the picture of health."
+TELL_ME_ABOUT_YOUR_SIBLINGS "I have one brother. He is the picture of health."
+DO_YOU_HAVE_SIBLINGS "Yes, I have one brother."
+
+# relativesinformation
+
+
+# childreninformation
+
+DO_YOU_WANT_CHILDREN "We have been trying to have children for a little while now."
+
+# spouseinformation
+
+ARE_YOU_DIVORCED "My husband and I have been married for several years."
+HOW_LONG_HAVE_YOU_BEEN_MARRIED "My husband and I have been married for several years."
+ARE_YOU_SINGLE "I have been married for over three years now.."
+ARE_YOU_IN_A_RELATIONSHIP "I am married to my husband."
+ARE_YOU_DATING_ANYONE "I am happily married."
+ARE_YOU_WIDOWED "My husband is alive."
+IS_YOUR_PARTNER_HEALTHY  "He is very healthy."
+DO_YOU_HAVE_A_BOYFRIEND "I am married to my husband."
+DO_YOU_HAVE_A_GIRLFRIEND "I am married to my husband."
+DO_YOU_HAVE_A_SIGNIFICANT_OTHER "I am married to my husband."
+TELL_ME_ABOUT_YOUR_PARTNER "My husband and I have been married for several years."
+HOW_OLD_IS_YOUR_PARTNER "He is 26."
+DO_YOU_HAVE_A_PARTNER "I am married and my husband is my partner."
+WHAT_IS_YOUR_PARTNERS_NAME "His name is Drew."
+IS_YOUR_PARTNER_MALE "Yes, he is."
+IS_YOUR_PARTNER_FEMALE "What? I just said his name was Drew."
+ARE_YOU_MARRIED "I have been married for over three years now."
+
+# supportinformation
+
+ARE_YOU_ABUSED "\[ Contempt2 \]I have no concerns about my home life."
+DO_YOU_FEEL_SAFE "I feel safe.  Our home is in a nice area."
+DO_YOU_HAVE_SUPPORT "Sure, I have my husband."
+
+### HOPIChiefcomplaint
 # onset
-Did_anything_happen_to_cause_the_1 "I can't think of anything."
-How_did_the_1_start "\[ Pain2 \] Nothing happened that I can remember, I just started having the pain 3 days ago."
-Doing_anything_when_the_1_started "Not anything out of the ordinary."
-Was_the_onset_sudden1 "It seemed to start suddenly."
-Did_the_1_start_immediately "It started suddenly."
-Is_the_1_new "I have never had a pain like this before."
-Is_this_the_first_time_for_1 "I have never had pain like this before. Maybe muscle ache now and then, but nothing like this.  "
-When_did_the_1_start "It started a few days ago. I think this is about the third day."
-1_worse_morning_or_night "\[ Sad2 \] Not sure it is any different."
-How_has_the_1_changed "\[ Fear1 \] It is constant now and definitely more severe."
-How_long_have_you_had_1 "Just the past 3 days."
-Is_the_1_constant "\[ Fear2 \] It is pretty much constant."
-Do_you_have_a_cause_for_1 "\[ Pain3 \]Not yet, but I am hoping you can help me figure it out."
+
+DID_ANYTHING_HAPPEN_TO_CAUSE_THE_1 "I can't think of anything."
+HOW_DID_THE_1_START "\[ Pain3 \]Nothing happened that I can remember, I just started having the pain 3 days ago."
+DOING_ANYTHING_WHEN_THE_1_STARTED "Not anything out of the ordinary."
+WAS_THE_ONSET_SUDDEN1 "It seemed to start suddenly."
+DID_THE_1_START_IMMEDIATELY "It started suddenly."
+IS_THE_1_NEW "I have never had a pain like this before."
+IS_THIS_THE_FIRST_TIME_FOR_1 "I have never had pain like this before. Maybe muscle ache now and then, but nothing like this."
+WHEN_DID_THE_1_START "It started a few days ago. I think this is about the third day."
+HOW_HAS_THE_1_CHANGED "\[ Fear1 \]It is constant now and definitely more severe."
+HOW_LONG_HAVE_YOU_HAD_1 "Just the past 3 days."
+IS_THE_1_CONSTANT "\[ Fear2 \]It is pretty much constant."
+DO_YOU_HAVE_A_CAUSE_FOR_1 "\[ Pain3 \]Not yet, but I am hoping you can help me figure it out."
 
 # exacerbation
-What_makes_the_1_worse "\[ Pain3 \] It seems to be getting worse all the time. When I move around, it seems to get noticably worse."
-Does_anything_change_1_intensity "\[ Pain4 \] Just pressing on it."
-What_have_you_tried_for_the_1 "I tried some ibuprofen, which didn't seem to help much."
-Have_you_tried_anything_for_the_1 "I tried some ibuprofen which hasn't really helped much."
-What_makes_the_1_better "\[ Sad2 \] Nothing is making it any better today."
-Does_anything_else_help_the_1 "I haven't tried anything else."
-Does_moving_increase_the_1 "\[ Fear2 \] It seems like every time I move it hurts.  Two days ago I bought an engine from a car parts store and I had to have the store clerk carry it to my car."
-Does_any_position_relieve_the_1 "Yes, moving around seems to make the pain more intense."
-Does_any_position_make_the_1_worse "\[ Pain5 \] No, I haven't been able to find a comfortable position today."
-Do_any_positions_make_1_worse_or_better "The pain is pretty much the same no matter what I do today."
-Can_you_move_around_with_the_1 "No, I haven't been able to find a comfortable position today."
-Is_1_worse_when_you_lie_down "It hurts all the time now."
-Do_you_have_1_when_you_lie_down "Yes, it is constant."
-Is_1_better_when_you_lie_down "Not really."
-Does_1_increase_when_you_stand "It hurts all the time now."
-Does_the_1_improve_with_exercise "I really haven't tried to exercise since this pain began."
-Does_the_1_keep_you_up_at_night "It has been very hard to sleep the past 2 or 3 nights."
-Avoid_exacerbate_1 "Nothing really."
-Is_the_1_improving "\[ Fear2 \] It has definitely gotten worse."
-Does_the_pain_get_worse_with_period "I don't know. I haven't had my period while having this pain."
+
+WHAT_MAKES_THE_1_WORSE "It seems to be getting worse all the time. When I move around, it seems to get noticably worse."
+DOES_ANYTHING_CHANGE_1_INTENSITY "\[ Pain4 \]Just pressing on it."
+WHAT_HAVE_YOU_TRIED_FOR_THE_1 "I tried some ibuprofen, which didn't seem to help much."
+HAVE_YOU_TRIED_ANYTHING_FOR_THE_1 "I tried some ibuprofen which hasn't really helped much."
+WHAT_MAKES_THE_1_BETTER "\[ Sadness2 \]Nothing is making it any better today."
+DOES_ANYTHING_ELSE_HELP_THE_1 "I haven't tried anything else."
+DOES_MOVING_INCREASE_THE_1 "\[ Fear2 \]It seems like every time I move it hurts.  Two days ago I bought an engine from a car parts store and I had to have the store clerk carry it to my car."
+DOES_ANY_POSITION_RELIEVE_THE_1 "No, I haven't been able to find a comfortable position today."
+DOES_ANY_POSITION_MAKE_THE_1_WORSE "\[ Pain4 \]Yes, moving around seems to make the pain more intense."
+DO_ANY_POSITIONS_MAKE_1_WORSE_OR_BETTER "The pain is pretty much the same no matter what I do today."
+CAN_YOU_MOVE_AROUND_WITH_THE_1 "No, I haven't been able to find a comfortable position today."
+IS_1_WORSE_WHEN_YOU_LIE_DOWN "It hurts all the time now."
+DO_YOU_HAVE_1_WHEN_YOU_LIE_DOWN "Yes, it is constant."
+IS_1_BETTER_WHEN_YOU_LIE_DOWN "Not really."
+DOES_1_INCREASE_WHEN_YOU_STAND "It hurts all the time now."
+DOES_THE_1_IMPROVE_WITH_EXERCISE "I really haven't tried to exercise since this pain began."
+DOES_THE_1_KEEP_YOU_UP_AT_NIGHT "It has been very hard to sleep the past 2 or 3 nights."
+1_WORSE_MORNING_OR_NIGHT "\[ Sadness2 \]Not sure it is any different."
+AVOID_EXACERBATE_1 "Nothing really."
+IS_THE_1_IMPROVING "\[ Fear2 \]It has definitely gotten worse."
+DOES_THE_1_GET_WORSE_WITH_PERIOD "I don't know. I haven't had my period while having this pain."
 
 # intensity
-How_intense_is_the_1 "\[ Fear2 \] It's really really bad and much worse than yesterday."
-Has_the_intensity1_changed "Yes, it is much more painful today that yesterday. Even the ibuprofen isn't working today."
-Has_the_1_become_worse "Yes, it is much more painful today that yesterday. Even the ibuprofen isn't working today."
-When_is_the_1_most_severe "It pretty much hurts all the time.  "
+
+IS_1_MORE_INTENSE "It's really, really bad and much worse than yesterday."
+HOW_INTENSE_IS_THE_1 "It's really really bad and much worse than yesterday."
+HAS_THE_INTENSITY1_CHANGED "Yes, it is much more painful today that yesterday. Even the ibuprofen isn't working today."
+HAS_THE_1_BECOME_WORSE "Yes, it is much more painful today that yesterday. Even the ibuprofen isn't working today."
+WHEN_IS_THE_1_MOST_SEVERE "It pretty much hurts all the time."
 
 # general
-Do_you_currently_have_1 "Yes, I am in pain."
-How_is_your_1_now "\[ Pain1 \] It really hurts a lot right now."
-Do_you_have_any_1 "\[ Pain3 \] Yes, I am in a lot of pain in my side."
-Are_you_having_any_other_1 "No, pretty much just in my side."
-How_else_is_the_1_affecting_your_life "\[ Fear2 \] Well, I haven't really been able to focus on teaching."
-Has_the_1_stopped_you "\[ Fear2 \] Today is the first day I took off from work and the first day I feel like I can't do much at all."
+
+DO_YOU_CURRENTLY_HAVE_1 "Yes, I am in pain."
+HOW_IS_YOUR_1_NOW "\[ Pain1 \]It really hurts a lot right now."
+DO_YOU_HAVE_ANY_1 "\[ Pain3 \]Yes, I am in a lot of pain in my side."
+ARE_YOU_HAVING_ANY_OTHER_1 "No, pretty much just in my side."
+HOW_ELSE_IS_THE_1_AFFECTING_YOUR_LIFE "\[ Fear2 \]Well, I haven't really been able to focus on teaching."
+HAS_THE_1_STOPPED_YOU "\[ Fear2 \]Today is the first day I took off from work and the first day I feel like I can't do much at all."
 
 # description
-When_do_you_have_the_1 "All the time now."
-How_long_does_the_1_last "It hurts pretty much all of the time."
-How_frequent_is_the_1 "It is constant now, it was sort of coming and going the first couple of days, but today it is constant."
-What_concerns_you_about_the_1 "It is there all the time now so it has gotten worse and I'm worried it is serious."
-Where_is_the_1 "Mainly on my lower left side, but sometimes it hurts so much it is hard to tell."
-Describe_the_1 "It is an aching and throbbing pain in my left side."
 
-# COMPLAINT2
+HAS_THE_1_CHANGED "It has definitely gotten worse."
+WHEN_DO_YOU_HAVE_THE_1 "All the time now."
+HOW_LONG_DOES_THE_1_LAST "It hurts pretty much all of the time."
+HOW_FREQUENT_IS_THE_1 "It is constant now, it was sort of coming and going the first couple of days, but today it is constant."
+WHAT_CONCERNS_YOU_ABOUT_THE_1 "It is there all the time now so it has gotten worse and I'm worried it is serious."
+WHERE_IS_THE_1 "Mainly on my lower left side, but sometimes it hurts so much it is hard to tell."
+DESCRIBE_THE_1 "It is an aching and throbbing pain in my left side."
+
+### HOPIComplaint2
 # onset
-Did_anything_happen_to_cause_the_2 "Not that I know of."
-How_did_the_2_start "I don't really know."
-Doing_anything_when_the_2_started "I wasn't doing anything that would have started this."
-Was_the_onset_sudden2 "No, more of a gradual thing."
-Did_the_2_start_immediately "No, more gradual."
-Is_the_2_new "It is. I have not had this before."
-Is_this_the_first_time_for_2 "I have never had trouble with this before."
-When_did_the_2_start "I believe it started about a week ago."
-2_worse_morning_or_night "The same."
-How_has_the_2_changed "It hasn't really changed since it started."
-How_long_have_you_had_2 "For about a week now I think."
-Is_the_2_constant "It seems to be more intermittent that constant, but I really don't know."
-Do_you_have_a_cause_for_2 "I have no ideas."
+
+DID_ANYTHING_HAPPEN_TO_CAUSE_THE_2 "Not that I know of."
+HOW_DID_THE_2_START "I don't really know."
+DOING_ANYTHING_WHEN_THE_2_STARTED "I wasn't doing anything that would have started this."
+WAS_THE_ONSET_SUDDEN2 "No, more of a gradual thing."
+DID_THE_2_START_IMMEDIATELY "No, more gradual."
+IS_THE_2_NEW "It is. I have not had this before."
+IS_THIS_THE_FIRST_TIME_FOR_2 "I have never had trouble with this before."
+WHEN_DID_THE_2_START "I believe it started about a week ago."
+2_WORSE_MORNING_OR_NIGHT "The same."
+HOW_HAS_THE_2_CHANGED "It hasn't really changed since it started."
+HOW_LONG_HAVE_YOU_HAD_2 "For about a week now I think."
+IS_THE_2_CONSTANT "It seems to be more intermittent that constant, but I really don't know."
+DO_YOU_HAVE_A_CAUSE_FOR_2 "I have no ideas."
 
 # exacerbation
-What_makes_the_2_worse "No, it doesn't seem to change at all."
-Does_anything_change_2_intensity "Not really."
-What_have_you_tried_for_the_2 "Nothing."
-Have_you_tried_anything_for_the_2 "I have not."
-What_makes_the_2_better "No, it doesn't seem to change at all."
-Does_2_increase_when_you_stand "I don't think so."
+
+WHAT_MAKES_THE_2_WORSE "No, it doesn't seem to change at all."
+DOES_ANYTHING_CHANGE_2_INTENSITY "Not really."
+WHAT_HAVE_YOU_TRIED_FOR_THE_2 "Nothing."
+HAVE_YOU_TRIED_ANYTHING_FOR_THE_2 "I have not."
+WHAT_MAKES_THE_2_BETTER "No, it doesn't seem to change at all."
+DOES_ANYTHING_ELSE_HELP_THE_2 "I don't think so."
+DOES_MOVING_INCREASE_THE_2 "No, it doesn't seem related."
+DOES_ANY_POSITION_RELIEVE_THE_2 "Not that I've noticed."
+DOES_ANY_POSITION_MAKE_THE_2_WORSE "No, it doesn't seem to change at all."
+DO_ANY_POSITIONS_MAKE_2_WORSE_OR_BETTER "I don't think so."
+IS_2_WORSE_WHEN_YOU_LIE_DOWN "Not that I've noticed."
+DO_YOU_HAVE_2_WHEN_YOU_LIE_DOWN "Sometimes, but it's pretty intermittent."
+IS_2_BETTER_WHEN_YOU_LIE_DOWN "I don't think so."
+DOES_2_INCREASE_WHEN_YOU_STAND "I don't think so."
+IS_THE_2_IMPROVING "Not really."
+DOES_THE_2_GET_WORSE_WITH_PERIOD "I haven't had my period in a while."
 
 # intensity
-How_intense_is_the_2 "It is really just some spotting, not much at all."
-When_is_the_2_most_severe "It's really not that bad. The pain is the problem."
+
+IS_2_MORE_INTENSE "It is really just some spotting, not much at all."
+HOW_INTENSE_IS_THE_2 "It is really just some spotting, not much at all."
+WHEN_IS_THE_2_MOST_SEVERE "It's really not that bad. The pain is the problem."
 
 # general
-Do_you_currently_have_2 "I had spotting, kind of like a light period about 4 weeks ago."
-How_is_your_2_now "Well, not terrible."
-Do_you_have_any_2 "Not a ton, just maybe a few teaspoons or so a day. Really just enough that I need to wear a pad."
-How_else_is_the_2_affecting_your_life "It is not affecting my life that much, the pain is the worst part."
-Has_the_2_stopped_you "Not really, it has been mostly the pain that has bothered me."
+
+DO_YOU_CURRENTLY_HAVE_2 "I had spotting, kind of like a light period about 4 weeks ago."
+HOW_IS_YOUR_2_NOW "Well, not terrible."
+DO_YOU_HAVE_ANY_2 "Not a ton, just maybe a few teaspoons or so a day. Really just enough that I need to wear a pad."
+HOW_ELSE_IS_THE_2_AFFECTING_YOUR_LIFE "It is not affecting my life that much, the pain is the worst part."
+HAS_THE_2_STOPPED_YOU "Not really, it has been mostly the pain that has bothered me."
 
 # description
-When_do_you_have_the_2 "sort of on and off."
-How_long_does_the_2_last "Comes and goes."
-How_frequent_is_the_2 "Not terribly frequent."
-What_concerns_you_about_the_2 "It is just not usual for me."
-Describe_the_2 "Well, I missed my last period, which I just chalked up to being stessed. About a week ago, it seemed like I was starting but it has just been spotting since then."
 
+WHEN_DO_YOU_HAVE_THE_2 "Sort of on and off."
+HOW_LONG_DOES_THE_2_LAST "It comes and goes."
+HOW_FREQUENT_IS_THE_2 "Not terribly frequent."
+WHAT_CONCERNS_YOU_ABOUT_THE_2 "It is just not usual for me."
+WHERE_IS_THE_2 "It's just some spotting here and there."
+DESCRIBE_THE_2 "Well, I missed my last period, which I just chalked up to being stessed. About a week ago, it seemed like I was starting but it has just been spotting since then."
+
+### HOPIComplaint3
+# onset
+
+
+# exacerbation
+
+
+# intensity
+
+
+# general
+
+
+# description

@@ -2,15 +2,15 @@ outputmacro: patient11()
 $patientfirstname = Arlinda
 $patientlastname = Ashwell
 $chiefcomplaint = ~breathing_problems
-$complaint2 = cough
-$complaint3 = 
+$complaint2 = ~cough
+$complaint3 =
 $Vpatient11 = Vpatient11
 $Vpatient = Vpatient11
 $patientTitle = Mrs
 $currentjob = Retired
 $currentmedication1 = hydrochlorothiazide
 $currentmedication2 = ibuprofen
-$currentmedication3 = 
+$currentmedication3 =
 $currentrateofpain = 2
 
 ^stdpatient()
@@ -21,79 +21,83 @@ table: ^patientdata(Vpatient11)
 ### OpeningDialogue
 # primary
 
-What_do_you_think_is_the_trouble "Well, I'm pretty sure my lungs are never really going to get better. Can we talk about what to do?"
-What_brings_you_in_today "I have been feeling short of breath a lot lately, like in the past couple of months."
-What_should_we_do "I was hoping you could help me so that I have comfort care. I don't want to be on a ventilator or anything. "
-What_would_you_like_me_to_do "I'd like you to help me out.I was hoping we could work of creating some kind of instructions for taking care of me if I get really sick."
-What_is_your_goal "I'm hoping you could help me out with this. Could you help me plan my care as my lungs get worse?"
-Does_anything_make_you_feel_better "Well, not really. But I am a religious person, and believe that God would want me to make sure I have a plan. I would be at peace if I had a plan. "
-Are_you_around_sick_people "Not that I know."
-Are_you_sick "I have been sick for a while. I think I am slowly getting worse."
-Tell_me_more "I have been feeling short of breath and it seems that over the past couple of months it is getting worse. I also have this cough that increase when I am doing things."
-Good "\[ NodYes \]"
-Got_it "\[ NodYes \]"
-Ok "\[ NodYes \]"
+WHAT_DO_YOU_THINK_IS_THE_PROBLEM "Well, I'm pretty sure my lungs are never really going to get better. Can we talk about what to do?"
+WHAT_BRINGS_YOU_IN_TODAY "I have been feeling short of breath a lot lately, like in the past couple of months."
+WHAT_SHOULD_WE_DO "I was hoping you could help me so that I have comfort care. I don't want to be on a ventilator or anything. "
+WHAT_WOULD_YOU_LIKE_ME_TO_DO "I'd like you to help me out.I was hoping we could work of creating some kind of instructions for taking care of me if I get really sick."
+WHAT_IS_YOUR_GOAL "I'm hoping you could help me out with this. Could you help me plan my care as my lungs get worse?"
+DOES_ANYTHING_MAKE_YOU_FEEL_BETTER "Well, not really. But I am a religious person, and believe that God would want me to make sure I have a plan. I would be at peace if I had a plan. "
+ARE_YOU_AROUND_SICK_PEOPLE "Not that I know."
+ARE_YOU_SICK "I have been sick for a while. I think I am slowly getting worse."
+TELL_ME_MORE "I have been feeling short of breath and it seems that over the past couple of months it is getting worse. I also have this cough that increase when I am doing things."
+GOOD "\[ NodYes \]"
+GOT_IT "\[ NodYes \]"
+OK "\[ NodYes \]"
 
 # greetings
 
-How_are_you "Not great. I'm really struggling with this shortness of breath and cough lately."
+HOW_ARE_YOU "Not great. I'm really struggling with this shortness of breath and cough lately."
 
 # followupdialogue
 
-Any_other_problems1 "The cough that I have is bothering me, but I think that is just a part of my lung problems."
-Have_you_seen_anyone_else "Well, I have talked with Pastor Bob and he said I should talk to you about planning for the end of my life. Can you help me with that?"
+ANY_OTHER_PROBLEMS1 "The cough that I have is bothering me, but I think that is just a part of my lung problems."
+HAVE_YOU_SEEN_ANYONE_ELSE "Well, I have talked with Pastor Bob and he said I should talk to you about planning for the end of my life. Can you help me with that?"
 
 ### PatientInformation
 # patientage
 
-How_old_are_you "I am 62 years old."
-When_were_you_born "I was born on July 27, 1952."
+HOW_OLD_ARE_YOU "I am 62 years old."
+WHEN_WERE_YOU_BORN "I was born on July 27, 1956."
 
 # patientname
 
-What_is_your_name ^" $patientfirstname $patientlastname"
-Do_you_mind_if_I_call_you "Sure. Most people just call me Linda."
-How_do_you_pronounce_that "Ar-Linda"
-What_should_I_call_you ^"You can call me $patientfirstname or just Linda."
-Are_you_mr_patientlastname ^"Yes, I am $patientfirstname $patientlastname. Good to meet you Doctor."
+NAME_AND_DATE_OF_BIRTH "Arlinda Ashwell, July 27, 1956."
+WHAT_IS_YOUR_NAME "Arlinda Ashwell."
+DO_YOU_MIND_IF_I_CALL_YOU "Sure. Most people just call me Linda."
+WHAT_SHOULD_I_CALL_YOU "You can call me Arlinda or just Linda."
+ARE_YOU_MR_PATIENTLASTNAME "Yes, I am Arlinda Ashwell. Good to meet you Doctor."
+ARE_YOU_MR_SOMEONEELSE "No, I am Arlinda Ashwell."
+HELLO_MR_SOMEONEELSE "Hello Doctor, however my name is Arlinda Ashwell."
+MR_PATIENTLASTNAME "Yes."
+MR_SOMEONEELSE "No. I am Arlinda Ashwell."
 
 ### Medications
 # currentmedications
 
-Taking_medication_for_the_1  "I haven't taken any medicine for that."
-Taking_medication_for_the_2 "I haven't tried any medication for my cough."
-Taking_medication_for_the_3 "I'm not taking any other medications."
-When_did_you_take_medicine "I take the blood pressure one every day and the ibuprofen I take when I need it for my knee."
-Need_to_take_the_medicine_that_often "Yes."
-How_often_did_you_take_the_medicine "I take the blood pressure one every day and the ibuprofen I take when I need it for my knee."
-How_long_taking_medicine "I can't remember exactly. Maybe 5 years or more."
-How_much_medicine_have_you_taken "I just take one pill of the blood pressure medication daily. I usually take two pills of the ibuprofen when I need it, though."
-Would_you_like_a_stronger_prescription "I don't know, do I need one?"
-What_is_the_strength_of_the_medicine "I'm not sure."
-Did_the_medicine_help "I think so."
-Did_you_take_medicine_today "I took the hydrochlorothiazide today."
-Are_you_still_taking_medicine "Yes."
-What_pills_did_you_take "I just take hydrochlorothiazide once a day, and ibuprofen when I need it."
-What_kind_of_medicine_is_that "Isn't the hydrochlorothiazide just a blood pressure medication? And I think ibuprofen is for pain relief."
-Would_you_like_some_pain_medication "I don't know. Do you think it would help?"
-Doctor_prescribe_the_medicine "My doctor prescribed the hydrochlorothiazide. I get the ibuprofen over-the-counter."
-Who_prescribed_the_medicine "My doctor prescribed the hydrochlorothiazide. I get the ibuprofen over-the-counter."
-What_is_medicine "Isn't the hydrochlorothiazide just a blood pressure medication? And I think ibuprofen is for pain relief."
-Are_you_taking_any_medication "I take hydrochlorothiazide for my high blood pressure, and sometimes I take ibuprofen for the arthritis in my knees."
- Is_medication_new "No, I've taken both for quite a while now."
-What_were_the_pills_called "Just hydrochlorothiazide and ibuprofen."
+TAKING_MEDICATION_FOR_THE_1  "I haven't taken any medicine for that."
+TAKING_MEDICATION_FOR_THE_2 "I haven't tried any medication for my cough."
+TAKING_MEDICATION_FOR_THE_3 "I'm not taking any other medications."
+WHEN_DID_YOU_TAKE_MEDICINE "I take the blood pressure one every day and the ibuprofen I take when I need it for my knee."
+NEED_TO_TAKE_THE_MEDICINE_THAT_OFTEN "Yes."
+HOW_OFTEN_DID_YOU_TAKE_THE_MEDICINE "I take the blood pressure one every day and the ibuprofen I take when I need it for my knee."
+HOW_LONG_TAKING_MEDICINE "I can't remember exactly. Maybe 5 years or more."
+HOW_MUCH_MEDICINE_HAVE_YOU_TAKEN "I just take one pill of the blood pressure medication daily. I usually take two pills of the ibuprofen when I need it, though."
+WOULD_YOU_LIKE_A_STRONGER_PRESCRIPTION "I don't know, do I need one?"
+WHAT_IS_THE_STRENGTH_OF_THE_MEDICINE "I'm not sure."
+DID_THE_MEDICINE_HELP "I think so."
+DID_YOU_TAKE_MEDICINE_TODAY "I took the hydrochlorothiazide today."
+ARE_YOU_STILL_TAKING_MEDICINE "Yes."
+WHAT_PILLS_DID_YOU_TAKE "I just take hydrochlorothiazide once a day, and ibuprofen when I need it."
+WHAT_KIND_OF_MEDICINE_IS_THAT "Isn't the hydrochlorothiazide just a blood pressure medication? And I think ibuprofen is for pain relief."
+WOULD_YOU_LIKE_SOME_PAIN_MEDICATION "I don't know. Do you think it would help?"
+DOCTOR_PRESCRIBE_THE_MEDICINE "My doctor prescribed the hydrochlorothiazide. I get the ibuprofen over-the-counter."
+WHO_PRESCRIBED_THE_MEDICINE "My doctor prescribed the hydrochlorothiazide. I get the ibuprofen over-the-counter."
+WHAT_IS_MEDICINE "Isn't the hydrochlorothiazide just a blood pressure medication? And I think ibuprofen is for pain relief."
+ARE_YOU_TAKING_ANY_MEDICATION "I take hydrochlorothiazide for my high blood pressure, and sometimes I take ibuprofen for the arthritis in my knees."
+ IS_MEDICATION_NEW "No, I've taken both for quite a while now."
+WHAT_WERE_THE_PILLS_CALLED "Just hydrochlorothiazide and ibuprofen."
 
 # supplements
 
-Are_you_taking_supplements "I just take an over the counter multi-vitamin."
-Which_multivitamin "I think it is Centrum silver maybe."
+ARE_YOU_TAKING_SUPPLEMENTS "I just take an over the counter multi-vitamin."
+WHICH_MULTIVITAMIN "I think it is Centrum silver maybe."
 
 # othermedications
 
 
 # pastmedications
 
-Ever_taken_other_medication "I take my high blood pressure medicine and some ibuprofen, that's it."
+EVER_TAKEN_OTHER_MEDICATION "I take my high blood pressure medicine and some ibuprofen, that's it."
 
 ### Allergies
 # Allergies
@@ -102,125 +106,125 @@ Ever_taken_other_medication "I take my high blood pressure medicine and some ibu
 ### SocialHistory
 # activity
 
-How_often_do_you_exercise "I don't do much organized exercise. Mostly I just do stuff around the house and garden and so forth."
-Do_you_exercise "I don't exercise that much."
-Are_you_active "I like to golf in the summer. Other than that, I am very active in the church and my community. I help with picnics and I do a lot of gardening and canning."
-How_is_your_energy "This summer, I have had to use a cart on the golf course instead of walking because I get too short of breath."
+HOW_OFTEN_DO_YOU_EXERCISE "I don't do much organized exercise. Mostly I just do stuff around the house and garden and so forth."
+DO_YOU_EXERCISE "I don't exercise that much."
+ARE_YOU_ACTIVE "I like to golf in the summer. Other than that, I am very active in the church and my community. I help with picnics and I do a lot of gardening and canning."
+HOW_IS_YOUR_ENERGY "This summer, I have had to use a cart on the golf course instead of walking because I get too short of breath."
 
 # alcoholuse
 
-How_much_do_you_drink "I drink a glass of wine occasionally."
-Do_you_drink "I drink a glass of wine occasionally."
-What_kind_of_drinks "Mainly just wine."
-How_many_drinks "I might have 1-2 glasses of wine per week."
+HOW_MUCH_DO_YOU_DRINK "I drink a glass of wine occasionally."
+DO_YOU_DRINK "I drink a glass of wine occasionally."
+WHAT_KIND_OF_DRINKS "Mainly just wine."
+HOW_MANY_DRINKS "I might have 1-2 glasses of wine per week."
 
 # caffeineuse
 
-Do_you_drink_coffee "I drink 2 or 3  cups of coffee on most mornings."
+DO_YOU_DRINK_COFFEE "I drink 2 or 3  cups of coffee on most mornings."
 
 # diet
 
-Do_you_eat_fruit "I love fruit. We grow some of our own here like blueberries and apples."
-Appetite "My appetite is down. I don't really feel much like eating."
-Can_you_eat "Eating is a challenge for me because I get short of breath. ."
-Have_you_been_eating "I have not been eating."
-What_snacks "I don't snack."
-What_were_you_eating_before "I used to be able to eat a whole meal without stopping, but now I have to stop and breathe. It takes a long time and I get tired."
-What_do_you_eat "I try to stick to the recommended portions of carbs, low fat meats, dairy, fruits, and vegetables."
-How_is_your_diet "My diet is less than what I used to eat."
+DO_YOU_EAT_FRUIT "I love fruit. We grow some of our own here like blueberries and apples."
+APPETITE "My appetite is down. I don't really feel much like eating."
+CAN_YOU_EAT "Eating is a challenge for me because I get short of breath. ."
+HAVE_YOU_BEEN_EATING "I have not been eating."
+WHAT_SNACKS "I don't snack."
+WHAT_WERE_YOU_EATING_BEFORE "I used to be able to eat a whole meal without stopping, but now I have to stop and breathe. It takes a long time and I get tired."
+WHAT_DO_YOU_EAT "I try to stick to the recommended portions of carbs, low fat meats, dairy, fruits, and vegetables."
+HOW_IS_YOUR_DIET "My diet is less than what I used to eat."
 
 # tobaccouse
 
-How_much_do_you_smoke "I quit smoking 10 years ago. I smoked a pack a day for 30 years before I quit."
-How_long_have_you_smoked "I used to smoke a pack a day for about 30 years before I was able to quit 10 years ago."
-Have_you_ever_smoked "I used to smoke a pack a day for about 30 years before I was able to quit 10 years ago."
-How_long_did_you_smoke "For about 30 years, I quit about 10 years ago."
-When_did_you_start_smoking "I was about 21 when I first started smoking regularly. I had tried it a few times before when I was younger."
-Have_you_quit_smoking "I did quit about 10 years ago."
-Do_you_smoke "Not anymore, I quit smoking 10 years ago."
+HOW_MUCH_DO_YOU_SMOKE "I quit smoking 10 years ago. I smoked a pack a day for 30 years before I quit."
+HOW_LONG_HAVE_YOU_SMOKED "I used to smoke a pack a day for about 30 years before I was able to quit 10 years ago."
+HAVE_YOU_EVER_SMOKED "I used to smoke a pack a day for about 30 years before I was able to quit 10 years ago."
+HOW_LONG_DID_YOU_SMOKE "For about 30 years, I quit about 10 years ago."
+WHEN_DID_YOU_START_SMOKING "I was about 21 when I first started smoking regularly. I had tried it a few times before when I was younger."
+HAVE_YOU_QUIT_SMOKING "I did quit about 10 years ago."
+DO_YOU_SMOKE "Not anymore, I quit smoking 10 years ago."
 
 # education
 
-How_far_in_school "I graduated from high school."
+HOW_FAR_IN_SCHOOL "I graduated from high school."
 
 # inrelationtohpi
 
-How_has_this_affected_you "I get tired much more easily these past couple of months. I had to use the golf cart on the course this past summer, normally I am able to walk."
-Can_you_do_normal_activities "I can do normal activities."
-What_bothers_you_the_most "I don't like feeling short of breath."
+HOW_HAS_THIS_AFFECTED_YOU "I get tired much more easily these past couple of months. I had to use the golf cart on the course this past summer, normally I am able to walk."
+CAN_YOU_DO_NORMAL_ACTIVITIES "I can do normal activities."
+WHAT_BOTHERS_YOU_THE_MOST "I don't like feeling short of breath."
 
 # job
 
-Is_your_job_physically_demanding "I am retired, so it really isn't demanding at all."
-Is_your_job_stressful "I am retired."
-Is_your_job_pleasurable "I am retired."
-Are_you_on_your_feet_a_lot "I am retired."
-Are_you_currently_working "I am retired."
-Why_are_you_off_work "I am retired."
-How_long_have_you_been_off_work "I am retired."
-Have_you_been_off_work_because "I am retired."
-Have_you_been_off_work "I am retired."
-Have_you_been_able_to_work "I am retired."
-What_can't_you_do_at_work "I am retired."
-Do_you_have_problems_working "I am retired."
-How_is_work "I am retired."
-When_was_the_last_time_you_worked "I have been retired for the past 2 years."
-Does_the_pain_interfere_with_work "I am retired."
-Does_it_hurt_to_work "I am retired."
-Where_do_you_work "I am retired."
-How_long_have_you_been_a_worker "I worked for 35 years before retiring."
-Do_you_have_exposure_to_chemicals "Not that I know of, but my father worked in the coal mine  for years. "
-What_do_you_do_for_a_living "I am retired now, but I worked as a secretary for 35 years."
-Do_you_work "I am retired."
-Anyone_sick_at_at_work "I am retired."
+IS_YOUR_JOB_PHYSICALLY_DEMANDING "I am retired, so it really isn't demanding at all."
+IS_YOUR_JOB_STRESSFUL "I am retired."
+IS_YOUR_JOB_PLEASURABLE "I am retired."
+ARE_YOU_ON_YOUR_FEET_A_LOT "I am retired."
+ARE_YOU_CURRENTLY_WORKING "I am retired."
+WHY_ARE_YOU_OFF_WORK "I am retired."
+HOW_LONG_HAVE_YOU_BEEN_OFF_WORK "I am retired."
+HAVE_YOU_BEEN_OFF_WORK_BECAUSE "I am retired."
+HAVE_YOU_BEEN_OFF_WORK "I am retired."
+HAVE_YOU_BEEN_ABLE_TO_WORK "I am retired."
+WHAT_CAN'T_YOU_DO_AT_WORK "I am retired."
+DO_YOU_HAVE_PROBLEMS_WORKING "I am retired."
+HOW_IS_WORK "I am retired."
+WHEN_WAS_THE_LAST_TIME_YOU_WORKED "I have been retired for the past 2 years."
+DOES_THE_PAIN_INTERFERE_WITH_WORK "I am retired."
+DOES_IT_HURT_TO_WORK "I am retired."
+WHERE_DO_YOU_WORK "I am retired."
+HOW_LONG_HAVE_YOU_BEEN_A_WORKER "I worked for 35 years before retiring."
+DO_YOU_HAVE_EXPOSURE_TO_CHEMICALS "Not that I know of, but my father worked in the coal mine  for years. "
+WHAT_DO_YOU_DO_FOR_A_LIVING "I am retired now, but I worked as a secretary for 35 years."
+DO_YOU_WORK "I am retired."
+ANYONE_SICK_AT_AT_WORK "I am retired."
 
 # recreationaldruguse
 
-Do_you_use_illegal_drugs "Oh my, no."
-Are_you_sure "Heavens yes, I would never use drugs."
+DO_YOU_USE_ILLEGAL_DRUGS "Oh my, no."
+ARE_YOU_SURE "Heavens yes, I would never use drugs."
 
 # tattoos
 
 
 # travel
 
-Have_you_traveled_anywhere "I have not traveled much."
+HAVE_YOU_TRAVELED_ANYWHERE "I have not traveled much."
 
 # hobby
 
-Do_you_have_any_hobbies "I don't have any specific hobbies, but I like cooking and taking care of my family. "
-What_do_you_do_for_fun "We like to get together with family and go to the park for walks."
+DO_YOU_HAVE_ANY_HOBBIES "I don't have any specific hobbies, but I like cooking and taking care of my family. "
+WHAT_DO_YOU-DO_FOR_FUN "We like to get together with family and go to the park for walks."
 
 # sexualactivity
 
-How_many_sexual_partners "One."
-Are_you_sexually_active "I was only ever sexually active with my husband and since he is gone, I am not sexually active.."
-When_did_you_last_have_intercourse "What?."
-Tell_me_about_your_sexual_history "I was only ever sexually active with my husband and since he is gone, I am not sexually active."
+HOW_MANY_SEXUAL_PARTNERS "One."
+ARE_YOU_SEXUALLY_ACTIVE "I was only ever sexually active with my husband and since he is gone, I am not sexually active.."
+WHEN_DID_YOU_LAST_HAVE_INTERCOURSE "What?."
+TELL_ME_ABOUT_YOUR_SEXUAL_HISTORY "I was only ever sexually active with my husband and since he is gone, I am not sexually active."
 
 # religion
 
-What_is_your_religious_preference "I have been a devoted Baptist all of my life. I attend church every Sunday and we have a ladies group that meets on Wednesday. My faith has always been a huge part of my life."
+WHAT_IS_YOUR_RELIGIOUS_PREFERENCE "I have been a devoted Baptist all of my life. I attend church every Sunday and we have a ladies group that meets on Wednesday. My faith has always been a huge part of my life."
 
 # advanceddirective
 
-Do_you_have_a_living_will "No, I was really hoping you could help me with that."
-Do_you_have_an_advanced_directive "No, I was really hoping you could help me with that."
-Do_you_have_a_medical_power_of_attorney "Yes, my daughter is my power of attorney and she agrees with my decisions."
+DO_YOU_HAVE_A_LIVING_WILL "No, I was really hoping you could help me with that."
+DO_YOU_HAVE_AN_ADVANCED_DIRECTIVE "No, I was really hoping you could help me with that."
+DO_YOU_HAVE_A_MEDICAL_POWER_OF_ATTORNEY "Yes, my daughter is my power of attorney and she agrees with my decisions."
 
 # generalhealth
 
-Are_you_healthy "I am usually pretty healthy, but this shortness of breath has been getting worse."
-Do_you_feel_well "I feel OK, but this shortness of breath is getting worse."
-Social_history "I was married to my husband for 40 years."
+ARE_YOU_HEALTHY "I am usually pretty healthy, but this shortness of breath has been getting worse."
+DO_YOU_FEEL_WELL "I feel OK, but this shortness of breath is getting worse."
+SOCIAL_HISTORY "I was married to my husband for 40 years."
 
 ### CurrentGeneralSymptoms
 # medicalproblems
 
-Do_you_have_any_medical_problems "I have high blood pressure and some arthritis in my knees."
-Do_you_have_a_health_problem "I have high blood pressure and some arthritis in my knees."
-Do_you_have_any_chronic_illnesses "I just have high blood pressure. I also have some arthritis in my knees."
-What_symptoms_are_you_having "I have been feeling more and more short of breath in the past few months. It is starting to interfere with my daily activities because it makes me tired."
+DO_YOU_HAVE_ANY_MEDICAL_PROBLEMS "I have high blood pressure and some arthritis in my knees."
+DO_YOU_HAVE_A_HEALTH_PROBLEM "I have high blood pressure and some arthritis in my knees."
+DO_YOU_HAVE_ANY_CHRONIC_ILLNESSES "I just have high blood pressure. I also have some arthritis in my knees."
+WHAT_SYMPTOMS_ARE_YOU_HAVING "I have been feeling more and more short of breath in the past few months. It is starting to interfere with my daily activities because it makes me tired."
 
 # sleepingproblems
 
@@ -237,14 +241,14 @@ What_symptoms_are_you_having "I have been feeling more and more short of breath 
 ### CurrentAbdominalGISymptoms
 # bowel
 
-When_was_last_bowel_movement "This morning, I'm very regular."
+WHEN_WAS_LAST_BOWEL_MOVEMENT "This morning, I'm very regular."
 
 # bothbowelandbladder
 
 
 # abdominalpain
 
-Have_you_been_nauseous "I have not, at least not recently."
+HAVE_YOU_BEEN_NAUSEOUS "I have not, at least not recently."
 
 # heartburn
 
@@ -256,15 +260,18 @@ Have_you_been_nauseous "I have not, at least not recently."
 # maleGU
 
 
-### CurrentCardiacSymptoms
+### CurrentCardiovascularSymptoms
 # bloodpressure
 
-How_is_your_blood_pressure "I take medication for my high blood pressure. The medicine works very well and has helped me keep my blood pressure normal."
+HOW_IS_YOUR_BLOOD_PRESSURE "I take medication for my high blood pressure. The medicine works very well and has helped me keep my blood pressure normal."
 
 # chestpain
 
 
 # heartproblems
+
+
+# vascular
 
 
 ### CurrentGYNSymptoms
@@ -273,24 +280,24 @@ How_is_your_blood_pressure "I take medication for my high blood pressure. The me
 
 # contraception
 
-Do_you_use_protection_every_time  "I don’t need it since I am in menopause."
-Have_you_had_unprotected_sex "Yes."
+DO_YOU_USE_PROTECTION_EVERY_TIME  "I donï¿½t need it since I am in menopause."
+HAVE_YOU_HAD_UNPROTECTED_SEX "Yes."
 
 # bleeding
 
 
 # periods
 
-First_day_of_last_period "I guess that would have been about 12 years ago now."
-When_was_your_last_period "About 12 years ago."
-How_long_do_your_periods_last "I don't have those."
-Are_your_periods_painful "I don't have those."
-Does_pain_change_with_period "I don't have those."
+FIRST_DAY_OF_LAST_PERIOD "I guess that would have been about 12 years ago now."
+WHEN_WAS_YOUR_LAST_PERIOD "About 12 years ago."
+HOW_LONG_DO_YOUR_PERIODS_LAST "I don't have those."
+ARE_YOUR_PERIODS_PAINFUL "I don't have those."
+DOES_PAIN_CHANGE_WITH_PERIOD "I don't have those."
 
 # menstrualcycles
 
-Tell_me_about_your_menstrual_cycles "I haven't had one in over 12 years."
-When_was_your_first_menstrual_cycle "I think I was around 12 years old."
+TELL_ME_ABOUT_YOUR_MENSTRUAL_CYCLES "I haven't had one in over 12 years."
+WHEN_WAS_YOUR_FIRST_MENSTRUAL_CYCLE "I think I was around 12 years old."
 
 # pain
 
@@ -300,15 +307,15 @@ When_was_your_first_menstrual_cycle "I think I was around 12 years old."
 
 # pregnancy
 
-Describe_pregnancy "They were fine."
+DESCRIBE_PREGNANCY "They were fine."
 
 # breast
 
 
 # menopause
 
-Do_you_have_hot_flashes "I really don't seem to have many of those anymore. I did have them for a while though."
-Are_you_in_menopause "I am in menopause."
+DO_YOU_HAVE_HOT_FLASHES "I really don't seem to have many of those anymore. I did have them for a while though."
+ARE_YOU_IN_MENOPAUSE "I am in menopause."
 
 ### CurrentHEENTSymptoms
 # headaches
@@ -344,14 +351,14 @@ Are_you_in_menopause "I am in menopause."
 
 # jointpain
 
-Do_your_joints_ache "My knees sometimes ache from the arthritis."
-Are_your_joints_swollen "My knees are sometimes a bit stiff."
+DO_YOUR_JOINTS_ACHE "My knees sometimes ache from the arthritis."
+ARE_YOUR_JOINTS_STIFF "My knees are sometimes a bit stiff."
 
 ### CurrentNeurologicSymptoms
 # walking
 
-Do_You_feel_unsteady_when_you_walk "I can walk fine, but get short of breath after a bit."
-Can_you_climb_stairs "I can climb stairs. I do seem to be slightly winded when I get to the top now though."
+DO_YOU_FEEL_UNSTEADY_WHEN_YOU_WALK "I can walk fine, but get short of breath after a bit."
+CAN_YOU_CLIMB_STAIRS "I can climb stairs. I do seem to be slightly winded when I get to the top now though."
 
 # numbness
 
@@ -368,14 +375,14 @@ Can_you_climb_stairs "I can climb stairs. I do seem to be slightly winded when I
 
 # exacerbation
 
-Does_it_hurt_to_cough "It does hurt a little bit to cough."
+DOES_IT_HURT_TO_COUGH "It does hurt a little bit to cough."
 
 # intensity
 
-Rate_pain_on_medicine "I'm not really having any pain to rate. Maybe a little pain like a 2 when I get to coughing."
-Can_you_rate_the_pain "I'm not really having any pain to rate. Maybe a little pain like a 2 when I get to coughing."
-Can_you_rate_it "I'm not really having any pain to rate. Maybe a little pain like a 1 when I get to coughing."
-Is_the_pain_always_a_number  "Only when I cough."
+RATE_PAIN_ON_MEDICINE "I'm not really having any pain to rate. Maybe a little pain like a 2 when I get to coughing."
+CAN_YOU_RATE_THE_PAIN "I'm not really having any pain to rate. Maybe a little pain like a 2 when I get to coughing."
+CAN_YOU_RATE_IT "I'm not really having any pain to rate. Maybe a little pain like a 1 when I get to coughing."
+IS_THE_PAIN_ALWAYS_A_NUMBER  "Only when I cough."
 
 # general
 
@@ -386,45 +393,45 @@ Is_the_pain_always_a_number  "Only when I cough."
 ### CurrentRespiratorySymptoms
 # breathing
 
-Are_you_having_any_breathing_problems "I am feeling short of breath a lot of the time, but that's it really."
+ARE_YOU_HAVING_ANY_BREATHING_PROBLEMS "I am feeling short of breath a lot of the time, but that's it really."
 
 # cough
 
-Is_your_cough_productive "It is dry and unproductive."
+IS_YOUR_COUGH_PRODUCTIVE "It is dry and unproductive."
 
 ### CurrentTreatments
 # treatmentstried
 
-Have_you_tried_a_heating_pad "I did put a heating pad on my chest the other day and it seemed to help a bit."
-Have_you_tried_heat_or_ice "I just tried the heating pad that once."
-Have_you_tried_heat "I did try heat."
-What_treatment_would_you_like_to_try "I think we have done all that we can do. I am at peace knowing I have made a decision about my care."
-Do_you_think_that_would_help "I will try whatever you recommend, but I feel pretty sure my lungs are not going to get much better. It is just the way it is."
-Run_some_tests "Ok.But I really want to make sure that there are orders for just comfort care on my chart, that's what I have decided to do."
-Did_you_go_to_the_hospital "No, I just talked to my pastor about it."
+HAVE_YOU_TRIED_A_HEATING_PAD "I did put a heating pad on my chest the other day and it seemed to help a bit."
+HAVE_YOU_TRIED_HEAT_OR_ICE "I just tried the heating pad that once."
+HAVE_YOU_TRIED_HEAT "I did try heat."
+WHAT_TREATMENT_WOULD_YOU_LIKE_TO_TRY "I think we have done all that we can do. I am at peace knowing I have made a decision about my care."
+DO_YOU_THINK_THAT_WOULD_HELP "I will try whatever you recommend, but I feel pretty sure my lungs are not going to get much better. It is just the way it is."
+RUN_SOME_TESTS "Ok.But I really want to make sure that there are orders for just comfort care on my chart, that's what I have decided to do."
+DID_YOU_GO_TO_THE_HOSPITAL "No, I just talked to my pastor about it."
 
 ### PastGeneralSymptoms
 # medicalproblems
 
-Have_you_ever_had_any_chronic_illnesses "I have high blood pressure, and a little bit of arthritis in my knees."
-Have_you_ever_had_any_serious_illnesses  "Nothing too serious, no."
+HAVE_YOU_EVER_HAD_ANY_CHRONIC_ILLNESSES "I have high blood pressure, and a little bit of arthritis in my knees."
+HAVE_YOU_EVER_HAD_ANY_SERIOUS_ILLNESSES  "Nothing too serious, no."
 
 # hospitalizations
 
-Any_other_surgeries "I had my appendix removed 50 years ago."
-Any_surgery_problems "No."
-Any_prior_surgeries "I had my appendix removed 50 years ago."
-Any_other_hospitalizations "Only when my appendix was taken out."
-Ever_been_in_the_hospital "Yes, I had pneumonia last year and ended up in the intensive care unit. I do not want to do that again. That's how I ended up on oxygen all the time. "
-Appendix "I had my appendix removed 50 years ago."
-Ever_been_on_a_ventilator "No, and I sure don’t want to be. If I stop breathing, that is my cue from God that it is time to come home."
+ANY_OTHER_SURGERIES "I had my appendix removed 50 years ago."
+ANY_SURGERY_PROBLEMS "No."
+ANY_PRIOR_SURGERIES "I had my appendix removed 50 years ago."
+ANY_OTHER_HOSPITALIZATIONS "Only when my appendix was taken out."
+EVER_BEEN_IN_THE_HOSPITAL "Yes, I had pneumonia last year and ended up in the intensive care unit. I do not want to do that again. That's how I ended up on oxygen all the time. "
+APPENDIX "I had my appendix removed 50 years ago."
+EVER_BEEN_ON_A_VENTILATOR "No, and I sure donï¿½t want to be. If I stop breathing, that is my cue from God that it is time to come home."
 
 # sleepingproblems
 
 
 # discharge
 
-Any_past_discharge "Nothing besides my period."
+ANY_PAST_DISCHARGE "Nothing besides my period."
 
 # itch
 
@@ -448,7 +455,7 @@ Any_past_discharge "Nothing besides my period."
 ### PastCardiacSymptoms
 # bloodpressure
 
-Any_previous_blood_pressure_problems "I take medication for high blood pressure."
+ANY_PREVIOUS_BLOOD_PRESSURE_PROBLEMS "I take medication for high blood pressure."
 
 # chestpain
 
@@ -456,32 +463,36 @@ Any_previous_blood_pressure_problems "I take medication for high blood pressure.
 # heartproblems
 
 
+### PastCardiovascularSymptoms
+# vascular
+
+
 ### PastGYNSymptoms
 # sexualhealth
 
-Who_were_your_past_sexual_partners "Just my husband."
-Any_other_past_sexual_partners "No."
-Ever_been_sexually_active "Yes, with my husband."
+WHO_WERE_YOUR_PAST_SEXUAL_PARTNERS "Just my husband."
+ANY_OTHER_PAST_SEXUAL_PARTNERS "No."
+EVER_BEEN_SEXUALLY_ACTIVE "Yes, with my husband."
 
 # contraception
 
-Did_you_use_any_other_past_contraception "Just condoms."
-Have_you_had_unprotected_sex_in_the_past "Yes."
-Use_any_contraception_in_the_past "We used to use condoms until I reached menopause."
+DID_YOU_USE_ANY_OTHER_PAST_CONTRACEPTION "Just condoms."
+HAVE_YOU_HAD_UNPROTECTED_SEX_IN_THE_PAST "Yes."
+USE_ANY_CONTRACEPTION_IN_THE_PAST "We used to use condoms until I reached menopause."
 
 # bleeding
 
 
 # periods
 
-Were_your_periods_regular_before  "Yes."
-was_your_period_ever_late "No."
-How_long_did_your_periods_last_before "About 5 days."
-Describe_your_past_periods "They were fine."
-What_is_past_flow_like "Pretty moderate."
-How_often_were_your_past_periods "Perhaps every 28-30 days."
-Were_your_past_periods_painful "My periods were fine."
-Did_pain_change_with_past_period "My periods were fine."
+WERE_YOUR_PERIODS_REGULAR_BEFORE  "Yes."
+WAS_YOUR_PERIOD_EVER_LATE "No."
+HOW_LONG_DID_YOUR_PERIODS_LAST_BEFORE "About 5 days."
+DESCRIBE_YOUR_PAST_PERIODS "They were fine."
+WHAT_IS_PAST_FLOW_LIKE "Pretty moderate."
+HOW_OFTEN_WERE_YOUR_PAST_PERIODS "Perhaps every 28-30 days."
+WERE_YOUR_PAST_PERIODS_PAINFUL "My periods were fine."
+DID_PAIN_CHANGE_WITH_PAST_PERIOD "My periods were fine."
 
 # menstrualcycle
 
@@ -491,20 +502,23 @@ Did_pain_change_with_past_period "My periods were fine."
 
 # vaginalsymptoms
 
-Ever_had_vaginal_dryness "Not really."
+EVER_HAD_VAGINAL_DRYNESS "Not really."
 
 # pregnancy
 
-When_were_you_pregnant "A long time ago."
-Ever_want_to_be_pregnant "Not anymore. I already had two kids."
-Ever_taken_pregnancy_test_before "Yes."
-Ever_been_pregnant_before "I have been pregnant twice."
+WHEN_WERE_YOU_PREGNANT "A long time ago."
+EVER_WANT_TO_BE_PREGNANT "Not anymore. I already had two kids."
+EVER_TAKEN_PREGNANCY_TEST_BEFORE "Yes."
+EVER_BEEN_PREGNANT_BEFORE "I have been pregnant twice."
 
 # breast
 
 
 ### PastGUSymptoms
 # bladder
+
+
+# pastmaleGU
 
 
 ### PastHEENTSymptoms
@@ -541,7 +555,7 @@ Ever_been_pregnant_before "I have been pregnant twice."
 
 # jointpain
 
-Have_you_had_joint_pain_before "Just my arthritis in my knees."
+HAVE_YOU_HAD_JOINT_PAIN_BEFORE "Just my arthritis in my knees."
 
 ### PastNeurologicSymptoms
 # walking
@@ -575,17 +589,17 @@ Have_you_had_joint_pain_before "Just my arthritis in my knees."
 ### PastRespiratorySymptoms
 # breathing
 
-Ever_had_any_breathing_problems "The occasional bout with bronchitis, but nothing serious."
+EVER_HAD_ANY_BREATHING_PROBLEMS "The occasional bout with bronchitis, but nothing serious."
 
 # cough
 
-Was_your_past_cough_productive "Sometimes, yes."
+WAS_YOUR_PAST_COUGH_PRODUCTIVE "Sometimes, yes."
 
 ### FamilyGeneralSymptoms
 # medicalproblems
 
-Any_conditions_that_run_in_your_family "My mother has high blood pressure. My father had heart disease and diabetes."
-Parents_have_any_medical_problems "My mother has high blood pressure. My father had heart disease and diabetes."
+ANY_CONDITIONS_THAT_RUN_IN_YOUR_FAMILY "My mother has high blood pressure. My father had heart disease and diabetes."
+PARENTS_HAVE_ANY_MEDICAL_PROBLEMS "My mother has high blood pressure. My father had heart disease and diabetes."
 
 ### FamilyAbdominalGISymptoms
 # bowel
@@ -597,14 +611,18 @@ Parents_have_any_medical_problems "My mother has high blood pressure. My father 
 ### FamilyCardiacSymptoms
 # bloodpressure
 
-Family_history_of_hypertension "My mother and brother have high blood pressure, and so do I."
+FAMILY_HISTORY_OF_HYPERTENSION "My mother and brother have high blood pressure, and so do I."
 
 # chestpain
 
 
 # heartproblems
 
-Any_family_heart_problems "My father had heart disease, but died of emphysema. He smoked for many years."
+ANY_FAMILY_HEART_PROBLEMS "My father had heart disease, but died of emphysema. He smoked for many years."
+
+### FamilyCardiovascularSymptoms
+# vascular
+
 
 ### FamilyGUSymptoms
 # bladder
@@ -634,9 +652,12 @@ Any_family_heart_problems "My father had heart disease, but died of emphysema. H
 # sexualhealth
 
 
+# periods
+
+
 # pregnancy
 
-How_many_children_did_your_mother_have "Me and my brother."
+HOW_MANY_CHILDREN_DID_YOUR_MOTHER_HAVE "Me and my brother."
 
 # breast
 
@@ -652,32 +673,39 @@ How_many_children_did_your_mother_have "Me and my brother."
 # cough
 
 
+### NeonatalCounseling
+# neonatalcounseling
+
+
 ### Wellness
 # vaccines
 
 
 # seeingadoctor
 
-Do_you_have_a_doctor "Yes, I usually come to this office."
-Do_you_have_annual_exams "Yes, I do."
-Have_you_seen_a_doctor "Not for this problem."
+DO_YOU_HAVE_A_DOCTOR "Yes, I usually come to this office."
+DO_YOU_HAVE_ANNUAL_EXAMS "Yes, I do."
+HAVE_YOU_SEEN_A_DOCTOR "Not for this problem."
 
 # mentalhealth
 
-Are_you_depressed "I am not depressed, but I would like to talk to to you about making some health care decisions."
-Having_mood_changes "I am not having moodiness."
-Are_you_stressed "Well, I am not stressed, but I would like to talk to you about some health care decisions."
-Are_you_suicidal "Oh my no. I would never do that. I love my family and have a good life."
+ARE_YOU_DEPRESSED "I am not depressed, but I would like to talk to to you about making some health care decisions."
+HAVING_MOOD_CHANGES "I am not having moodiness."
+ARE_YOU_STRESSED "Well, I am not stressed, but I would like to talk to you about some health care decisions."
+ARE_YOU_SUICIDAL "Oh my no. I would never do that. I love my family and have a good life."
+
+# relationshiphealth
+
 
 ### Movements
 # currentrangeofmotion
 
-Can_you_run  "Yes, but I will feel a bit short of breath afterwards."
-Are_you_stiff "Only occasionally in my knees, but it's not that bad, especially if I take ibuprofen."
+CAN_YOU_RUN  "Yes, but I will feel a bit short of breath afterwards."
+ARE_YOU_STIFF "Only occasionally in my knees, but it's not that bad, especially if I take ibuprofen."
 
 # pastrangeofmotion
 
-Have_you_had_stiffness_before "Just the arthritis in my knees, but it isn't that bad."
+HAVE_YOU_HAD_STIFFNESS_BEFORE "Just the arthritis in my knees, but it isn't that bad."
 
 ### ChitChat
 # weatherquestions
@@ -706,247 +734,257 @@ Have_you_had_stiffness_before "Just the arthritis in my knees, but it isn't that
 
 # feelingquestions
 
-Are_you_frustrated "No, I know that everyone has a plan for life. This is just my plan. ."
-Are_you_nervous "No, I find comfort in God."
+ARE_YOU_FRUSTRATED "No, I know that everyone has a plan for life. This is just my plan. ."
+ARE_YOU_NERVOUS "No, I find comfort in God."
 
 ### Closure
 # closure
 
-Do_you_have_any_questions "Yes, Pastor Bob and I talked about creating a Do Not Resuscitate-Comfort Care only order for my in my medical chart. Can you do that for me?"
-Anything_else_I_can_help_with "Yes, can you put a comfort care only note in my chart?"
-Have_everything_you_need "Well, I have all the medications I need and feel really good about my decision. You know, I just don't want to be a burden to anyone."
-Have_all_the_information "Yes, I have discussed the comfort care only idea with my family and pastor. As my lungs get worse, I think this is the best option for me."
+DO_YOU_HAVE_ANY_QUESTIONS "Yes, Pastor Bob and I talked about creating a Do Not Resuscitate-Comfort Care only order for my in my medical chart. Can you do that for me?"
+ANYTHING_ELSE_I_CAN_HELP_WITH "Yes, can you put a comfort care only note in my chart?"
+HAVE_EVERYTHING_YOU_NEED "Well, I have all the medications I need and feel really good about my decision. You know, I just don't want to be a burden to anyone."
+HAVE_ALL_THE_INFORMATION "Yes, I have discussed the comfort care only idea with my family and pastor. As my lungs get worse, I think this is the best option for me."
 
 # summarize
 
-Can_you_summarize "I've just been having some cough and shortness of breath that is starting to bother me. OK, my lungs are just not going to get better, I know."
+CAN_YOU_SUMMARIZE "I've just been having some cough and shortness of breath that is starting to bother me. OK, my lungs are just not going to get better, I know."
 
 ### Screening
+# general
+
+
 # colonsection
 
-have_you_had_a_colonoscopy "I have had two of those. They were both fine."
+HAVE_YOU_HAD_A_COLONOSCOPY "I have had two of those. They were both fine."
 
 # breastsection
 
-have_you_had_your_mammogram "Of course, I get that every year. They have been fine so far."
+HAVE_YOU_HAD_YOUR_MAMMOGRAM "Of course, I get that every year. They have been fine so far."
 
 # maleGUsection
 
 
 # femaleGUsection
 
-Have_you_had_a_pap_smear "Of course, I just had one last month when I went for my annual exam."
-Results_of_pap_smear "They have been normal."
-Have_you_ever_had_an_abnormal_pap "I don't remember having one."
-When_was_your_last_pap_smear "Just last month."
+HAVE_YOU_HAD_A_PAP_SMEAR "Of course, I just had one last month when I went for my annual exam."
+RESULTS_OF_PAP_SMEAR "They have been normal."
+HAVE_YOU_EVER_HAD_AN_ABNORMAL_PAP "I don't remember having one."
+WHEN_WAS_YOUR_LAST_PAP_SMEAR "Just last month."
 
 # communicablediseasesection
+
+
+# prenatalcare
+
+
+# diabetes
 
 
 ### Family
 # familylife
 
-Who_do_you_live_with "I live by myself, but my children and their families live real close to me."
-Do_you_live_alone "I live alone, but my children are close."
-Where_do_you_live "I live at home here in Richmond."
+WHO_DO_YOU_LIVE_WITH "I live by myself, but my children and their families live real close to me."
+DO_YOU_LIVE_ALONE "I live alone, but my children are close."
+WHERE_DO_YOU_LIVE "I live at home here in Richmond."
+WHERE_IS_HOME "I live in Richmond, VA, but I grew up in Pocahontas County, WV."
 
 # parentsinformation
 
-Are_your_parents_living "My mother is alive and doing well. My father has passed away."
-How_old_are_your_parents "My mother is 85. My father died at age 75 from heart disease."
-Are_your_parents_healthy "My mother has high blood pressure. My father had heart disease and diabetes when he was alive. He died 10 years ago."
-Tell_me_about_your_parents "My mother is doing well. She does have high blood pressure though. My father died at age 75. He had heart disease and diabetes."
+ARE_YOUR_PARENTS_LIVING "My mother is alive and doing well. My father has passed away."
+HOW_OLD_ARE_YOUR_PARENTS "My mother is 85. My father died at age 75 from heart disease."
+ARE_YOUR_PARENTS_HEALTHY "My mother has high blood pressure. My father had heart disease and diabetes when he was alive. He died 10 years ago."
+TELL_ME_ABOUT_YOUR_PARENTS "My mother is doing well. She does have high blood pressure though. My father died at age 75. He had heart disease and diabetes."
 
 # grandparentsinformation
 
-Are_your_grandparents_living "My grandparents are deceased. I really didn't know much about them."
-How_did_grandparents_die "I am really not sure."
-How_old_are_your_grandparents "My grandparents are deceased. I really didn't know much about them."
-Are_your_grandparents_healthy  "My grandparents are deceased. I really didn't know much about them."
-Tell_me_about_your_grandparents "My grandparents are deceased. I really didn't know much about them."
+ARE_YOUR_GRANDPARENTS_LIVING "My grandparents are deceased. I really didn't know much about them."
+HOW_DID_GRANDPARENTS_DIE "I am really not sure."
+HOW_OLD_ARE_YOUR_GRANDPARENTS "My grandparents are deceased. I really didn't know much about them."
+ARE_YOUR_GRANDPARENTS_HEALTHY  "My grandparents are deceased. I really didn't know much about them."
+TELL_ME_ABOUT_YOUR_GRANDPARENTS "My grandparents are deceased. I really didn't know much about them."
 
 # siblingsinformation
 
-How_old_are_your_siblings "My brother is 65."
-Are_your_siblings_healthy  "My brother has high blood pressure. That is all I know about his health."
-Tell_me_about_your_siblings "I have an older brother who has high blood pressure."
-Do_you_have_siblings "I have one brother."
+HOW_OLD_ARE_YOUR_SIBLINGS "My brother is 65."
+ARE_YOUR_SIBLINGS_HEALTHY  "My brother has high blood pressure. That is all I know about his health."
+TELL_ME_ABOUT_YOUR_SIBLINGS "I have an older brother who has high blood pressure."
+DO_YOU_HAVE_SIBLINGS "I have one brother."
 
 # relativesinformation
 
-Do_you_have_relatives "I have lots of relatives."
-How_old_are_your_relatives "I'm not sure."
-Are_your_relatives_healthy "I don't know for sure."
-Tell_me_about_your_relatives "What about them?"
+DO_YOU_HAVE_RELATIVES "I have lots of relatives."
+HOW_OLD_ARE_YOUR_RELATIVES "I'm not sure."
+ARE_YOUR_RELATIVES_HEALTHY "I don't know for sure."
+TELL_ME_ABOUT_YOUR_RELATIVES "What about them?"
 
 # childreninformation
 
-How_many_children "I have two children."
-How_old_are_your_children "My son is 30 and my daughter is 35."
-Are_your_children_healthy  "Both of my children are healthy as far as I know."
-How_are_your_children "My children are both well."
-Do_you_want_children "I already have two children."
-Do_you_have_any_children "I have two children."
-Tell_me_about_your_children "I have a son and a daughter who are both doing well."
+HOW_MANY_CHILDREN "I have two children."
+HOW_OLD_ARE_YOUR_CHILDREN "My son is 30 and my daughter is 35."
+ARE_YOUR_CHILDREN_HEALTHY  "Both of my children are healthy as far as I know."
+HOW_ARE_YOUR_CHILDREN "My children are both well."
+DO_YOU_WANT_CHILDREN "I already have two children."
+DO_YOU_HAVE_ANY_CHILDREN "I have two children."
+TELL_ME_ABOUT_YOUR_CHILDREN "I have a son and a daughter who are both doing well."
 
 # spouseinformation
 
-Are_you_divorced "No. I am widowed."
-How_long_have_you_been_married "I was married for 40 years."
-Are_you_single "I am a widow."
-Are_you_in_a_relationship "I ama widow."
-Are_you_dating_anyone "I am too old for that nonsense."
-Are_you_widowed "I am."
-Is_your_partner_healthy  " My husband was a smoker, and I think he has some lung problems too. He worked in the coal mine for years."
-Do_you_have_a_boyfriend "I do not."
-Do_you_have_a_significant_other "My husband but he is gone now."
-Tell_me_about_your_partner "I was married to my husband for 40 years."
-How_old_is_your_partner "My husband was 63 years old."
-Do_you_have_a_partner "I did, but he has gone on to be with God."
-What_is_your_partners_name "My husband's name is Charles."
-Is_your_partner_male "Well, hewas."
-Is_your_partner_female "I am a widow."
-Are_you_married "I am a widow."
+ARE_YOU_DIVORCED "No. I am widowed."
+HOW_LONG_HAVE_YOU_BEEN_MARRIED "I was married for 40 years."
+ARE_YOU_SINGLE "I am a widow."
+ARE_YOU_IN_A_RELATIONSHIP "I ama widow."
+ARE_YOU_DATING_ANYONE "I am too old for that nonsense."
+ARE_YOU_WIDOWED "I am."
+IS_YOUR_PARTNER_HEALTHY  " My husband was a smoker, and I think he has some lung problems too. He worked in the coal mine for years."
+DO_YOU_HAVE_A_BOYFRIEND "I do not."
+DO_YOU_HAVE_A_SIGNIFICANT_OTHER "My husband but he is gone now."
+TELL_ME_ABOUT_YOUR_PARTNER "I was married to my husband for 40 years."
+HOW_OLD_IS_YOUR_PARTNER "My husband was 63 years old."
+DO_YOU_HAVE_A_PARTNER "I did, but he has gone on to be with God."
+WHAT_IS_YOUR_PARTNERS_NAME "My husband's name is Charles."
+IS_YOUR_PARTNER_MALE "Well, hewas."
+IS_YOUR_PARTNER_FEMALE "I am a widow."
+ARE_YOU_MARRIED "I am a widow."
 
 # supportinformation
 
-Do_you_feel_safe "I feel safe. Ihave a huge supportive church community."
-Do_you_have_support "I have support from  my two children, as well as my friends in my church. "
-Who_supports_you "I have support from my two children, as well as my friends."
+DO_YOU_FEEL_SAFE "I feel safe. Ihave a huge supportive church community."
+DO_YOU_HAVE_SUPPORT "I have support from  my two children, as well as my friends in my church. "
+WHO_SUPPORTS_YOU "I have support from my two children, as well as my friends."
 
 ### HOPIChiefcomplaint
 # onset
 
-Did_anything_happen_to_cause_the_1 "It has come on gradually."
-How_did_the_1_start "I don't know exactly when I started to feel short of breath, but the past couple of months it has been getting worse."
-Doing_anything_when_the_1_started "I can't recall, it came on gradually."
-Was_the_onset_sudden1 "It has been gradual."
-Did_the_1_start_immediately "No, it is gradual."
-Is_the_1_new "It is not new. It has been getting worse over the past couple of months."
-Is_this_the_first_time_for_1 "No, it has been gradually getting worse over the past couple of months."
-When_did_the_1_start "I think it started almost a year ago, but I thought it was just old age. Over the past month or two, the shortness of breath has been getting worse."
-How_has_the_1_changed "It has been getting worse over the past couple of months."
-How_long_have_you_had_1 "I have been feeling short of breath for almost a year now, but in the past couple of months it has really been getting worse."
-Is_the_1_constant "I feel short of breath most everyday."
-Do_you_have_a_cause_for_1 "I don't know."
+DID_ANYTHING_HAPPEN_TO_CAUSE_THE_1 "It has come on gradually."
+HOW_DID_THE_1_START "I don't know exactly when I started to feel short of breath, but the past couple of months it has been getting worse."
+DOING_ANYTHING_WHEN_THE_1_STARTED "I can't recall, it came on gradually."
+WAS_THE_ONSET_SUDDEN1 "It has been gradual."
+DID_THE_1_START_IMMEDIATELY "No, it is gradual."
+IS_THE_1_NEW "It is not new. It has been getting worse over the past couple of months."
+IS_THIS_THE_FIRST_TIME_FOR_1 "No, it has been gradually getting worse over the past couple of months."
+WHEN_DID_THE_1_START "I think it started almost a year ago, but I thought it was just old age. Over the past month or two, the shortness of breath has been getting worse."
+HOW_HAS_THE_1_CHANGED "It has been getting worse over the past couple of months."
+HOW_LONG_HAVE_YOU_HAD_1 "I have been feeling short of breath for almost a year now, but in the past couple of months it has really been getting worse."
+IS_THE_1_CONSTANT "I feel short of breath most everyday."
+DO_YOU_HAVE_A_CAUSE_FOR_1 "I don't know."
 
 # exacerbation
 
-What_makes_the_1_worse "It seems to get worse with exercise and walking."
-Does_anything_change_1_intensity "It seems to get worse with exercise and walking."
-What_have_you_tried_for_the_1 "Nothing."
-Have_you_tried_anything_for_the_1 "No."
-What_makes_the_1_better "It sometimes gets better with rest."
-Does_moving_increase_the_1 "Yes, sometimes walking and exercise make the shortness of breath worse."
-Does_any_position_relieve_the_1 "Not really."
-Does_any_position_make_the_1_worse "Not really."
-Do_any_positions_make_1_worse_or_better "Not really."
-Can_you_move_around_with_the_1 "I can move around fine. Sometimes the shortness of breath makes me feel tired more quickly though."
-Is_1_worse_when_you_lie_down "It doesn't seem to get worse then."
-Do_you_have_1_when_you_lie_down "Sometimes."
-Is_1_better_when_you_lie_down "Sometimes, it gets better when I rest."
-Does_1_increase_when_you_stand "Not really."
-Does_the_1_improve_with_exercise "No, exercise makes it worse usually."
-Does_the_1_keep_you_up_at_night "No."
-1_worse_morning_or_night "Neither."
-Avoid_exacerbate_1 "I have been using a golf cart instead of walking the course this summer to lessen the shortness of breath."
-Is_the_1_improving "No. It has been gradually getting worse."
+WHAT_MAKES_THE_1_WORSE "It seems to get worse with exercise and walking."
+DOES_ANYTHING_CHANGE_1_INTENSITY "It seems to get worse with exercise and walking."
+WHAT_HAVE_YOU_TRIED_FOR_THE_1 "Nothing."
+HAVE_YOU_TRIED_ANYTHING_FOR_THE_1 "No."
+WHAT_MAKES_THE_1_BETTER "It sometimes gets better with rest."
+DOES_MOVING_INCREASE_THE_1 "Yes, sometimes walking and exercise make the shortness of breath worse."
+DOES_ANY_POSITION_RELIEVE_THE_1 "Not really."
+DOES_ANY_POSITION_MAKE_THE_1_WORSE "Not really."
+DO_ANY_POSITIONS_MAKE_1_WORSE_OR_BETTER "Not really."
+CAN_YOU_MOVE_AROUND_WITH_THE_1 "I can move around fine. Sometimes the shortness of breath makes me feel tired more quickly though."
+IS_1_WORSE_WHEN_YOU_LIE_DOWN "It doesn't seem to get worse then."
+DO_YOU_HAVE_1_WHEN_YOU_LIE_DOWN "Sometimes."
+IS_1_BETTER_WHEN_YOU_LIE_DOWN "Sometimes, it gets better when I rest."
+DOES_1_INCREASE_WHEN_YOU_STAND "Not really."
+DOES_THE_1_IMPROVE_WITH_EXERCISE "No, exercise makes it worse usually."
+DOES_THE_1_KEEP_YOU_UP_AT_NIGHT "No."
+1_WORSE_MORNING_OR_NIGHT "Neither."
+AVOID_EXACERBATE_1 "I have been using a golf cart instead of walking the course this summer to lessen the shortness of breath."
+IS_THE_1_IMPROVING "No. It has been gradually getting worse."
 
 # intensity
 
-How_intense_is_the_1 "Sometimes, feeling short of breath really scares me."
-Has_the_intensity1_changed "It has been gradually getting worse over the past couple of months."
-Has_the_1_become_worse "It has been gradually getting worse over the past couple of months."
-When_is_the_1_most_severe "It seems to be worse when I am on walks, like at the golf course, or trying to do any exercise."
+HOW_INTENSE_IS_THE_1 "Sometimes, feeling short of breath really scares me."
+HAS_THE_INTENSITY1_CHANGED "It has been gradually getting worse over the past couple of months."
+HAS_THE_1_BECOME_WORSE "It has been gradually getting worse over the past couple of months."
+WHEN_IS_THE_1_MOST_SEVERE "It seems to be worse when I am on walks, like at the golf course, or trying to do any exercise."
 
 # general
 
-Do_you_currently_have_1 "I have some shortness of breath."
-How_is_your_1_now "It isn't that bad when I am just sitting here."
-Do_you_have_any_1 "Yes, some."
-Are_you_having_any_other_1 "No."
-How_else_is_the_1_affecting_your_life "It has made me more tired. I can no longer walk the whole golf course, I have to ride in the cart."
-Has_the_1_stopped_you "It has made me a little more tired. I had to start using the golf cart this summer instead of walking the course."
-Have_you_had_1_before "Not before this time which has been a few months now."
+DO_YOU_CURRENTLY_HAVE_1 "I have some shortness of breath."
+HOW_IS_YOUR_1_NOW "It isn't that bad when I am just sitting here."
+DO_YOU_HAVE_ANY_1 "Yes, some."
+ARE_YOU_HAVING_ANY_OTHER_1 "No."
+HOW_ELSE_IS_THE_1_AFFECTING_YOUR_LIFE "It has made me more tired. I can no longer walk the whole golf course, I have to ride in the cart."
+HAS_THE_1_STOPPED_YOU "It has made me a little more tired. I had to start using the golf cart this summer instead of walking the course."
+HAVE_YOU_HAD_1_BEFORE "Not before this time which has been a few months now."
 
 # description
 
-Has_the_1_changed "It's definitely gotten worse."
-When_do_you_have_the_1 "I have it a lot. It's not that bad when I am just sitting though. It bothers me more when I am walking around or exercising."
-How_long_does_the_1_last "It is always there a little bit, but it just gets worse with more activity."
-How_frequent_is_the_1 "It is always there a little bit, but it just gets worse with more activity."
-What_concerns_you_about_the_1 "I am concerned about cancer because I used to smoke."
-Where_is_the_1 "I guess it feels mainly in my chest or lungs area."
-Describe_the_1 "It just makes me feel like I can't get enough air. The shortness of breath scares me sometimes."
+HAS_THE_1_CHANGED "It's definitely gotten worse."
+WHEN_DO_YOU_HAVE_THE_1 "I have it a lot. It's not that bad when I am just sitting though. It bothers me more when I am walking around or exercising."
+HOW_LONG_DOES_THE_1_LAST "It is always there a little bit, but it just gets worse with more activity."
+HOW_FREQUENT_IS_THE_1 "It is always there a little bit, but it just gets worse with more activity."
+WHAT_CONCERNS_YOU_ABOUT_THE_1 "I am concerned about cancer because I used to smoke."
+WHERE_IS_THE_1 "I guess it feels mainly in my chest or lungs area."
+DESCRIBE_THE_1 "It just makes me feel like I can't get enough air. The shortness of breath scares me sometimes."
 
 ### HOPIComplaint2
 # onset
 
-Did_anything_happen_to_cause_the_2 "I don't know. It seems to have come on gradually over the past couple of months."
-How_did_the_2_start "I'm not sure when it started exactly. It has gotten worse gradually over the past couple of months though."
-Doing_anything_when_the_2_started "I can't pinpoint when the cough started."
-Was_the_onset_sudden2 "No, it has been gradual."
-Did_the_2_start_immediately "No, it has been gradual."
-Is_the_2_new "No, it isn't new. It has been gradually getting worse over the past couple of months."
-Is_this_the_first_time_for_2 "Yes, I have never had a chronic cough before."
-When_did_the_2_start "I can't pin point when the cough started. It seems to have come on gradually over the past couple of months."
-2_worse_morning_or_night "It is about the same throughout the day."
-How_has_the_2_changed "It has gradually become more prevalent over the past couple of months."
-How_long_have_you_had_2 "For a few months."
-Is_the_2_constant "It comes and goes throughout the day."
-Do_you_have_a_cause_for_2 "I don't know."
+DID_ANYTHING_HAPPEN_TO_CAUSE_THE_2 "I don't know. It seems to have come on gradually over the past couple of months."
+HOW_DID_THE_2_START "I'm not sure when it started exactly. It has gotten worse gradually over the past couple of months though."
+DOING_ANYTHING_WHEN_THE_2_STARTED "I can't pinpoint when the cough started."
+WAS_THE_ONSET_SUDDEN2 "No, it has been gradual."
+DID_THE_2_START_IMMEDIATELY "No, it has been gradual."
+IS_THE_2_NEW "No, it isn't new. It has been gradually getting worse over the past couple of months."
+IS_THIS_THE_FIRST_TIME_FOR_2 "Yes, I have never had a chronic cough before."
+WHEN_DID_THE_2_START "I can't pin point when the cough started. It seems to have come on gradually over the past couple of months."
+2_WORSE_MORNING_OR_NIGHT "It is about the same throughout the day."
+HOW_HAS_THE_2_CHANGED "It has gradually become more prevalent over the past couple of months."
+HOW_LONG_HAVE_YOU_HAD_2 "For a few months."
+IS_THE_2_CONSTANT "It comes and goes throughout the day."
+DO_YOU_HAVE_A_CAUSE_FOR_2 "I don't know."
 
 # exacerbation
 
-What_makes_the_2_worse "My cough seems to get worse in cold weather, when I walk up steps, and when I exercise. It's also worse when I have a cold."
-Does_anything_change_2_intensity "It is worse with cold weather, exercise, and colds."
-What_have_you_tried_for_the_2 "I haven't tried anything."
-Have_you_tried_anything_for_the_2 "I haven't tried anything."
-What_makes_the_2_better "Rest and warmth usually help my cough."
-Does_anything_else_help_the_2 "I haven't tried anything."
-Have_you_tried_anything_else_for_2 "I haven't tried anything."
-Have_you_tried_anything_else2 "I haven't tried anything."
-Have_you_tried_any_other_methods2 "I haven't tried anything."
-What_else_have_you_tried_for_2 "I haven't tried anything."
-What_else_have_you_tried2 "I haven't tried anything."
-Does_moving_increase_the_2 "Sometimes, exercise and walking up steps make it worse."
-Does_any_position_relieve_the_2 "Not really."
-Does_any_position_make_the_2_worse "Not really."
-Do_any_positions_make_2_worse_or_better "Not that I have noticed."
-Is_2_worse_when_you_lie_down "I haven't noticed that."
-Do_you_have_2_when_you_lie_down "It's not worse when I lie down."
-Is_2_better_when_you_lie_down "It doesn't really change when I lie down."
-Does_2_increase_when_you_stand "Not that I have noticed. It does increase with activity though."
-Does_the_2_improve_with_exercise "No, it gets worse with exercise."
-Does_the_2_keep_you_up_at_night "I have been coughing a bit at night, but not enough to keep me from sleeping."
-Avoid_exacerbate_2 "Nothing."
-Is_the_2_improving "It has been gradually getting worse for the past couple of months."
+WHAT_MAKES_THE_2_WORSE "My cough seems to get worse in cold weather, when I walk up steps, and when I exercise. It's also worse when I have a cold."
+DOES_ANYTHING_CHANGE_2_INTENSITY "It is worse with cold weather, exercise, and colds."
+WHAT_HAVE_YOU_TRIED_FOR_THE_2 "I haven't tried anything."
+HAVE_YOU_TRIED_ANYTHING_FOR_THE_2 "I haven't tried anything."
+WHAT_MAKES_THE_2_BETTER "Rest and warmth usually help my cough."
+DOES_ANYTHING_ELSE_HELP_THE_2 "I haven't tried anything."
+HAVE_YOU_TRIED_ANYTHING_ELSE_FOR_2 "I haven't tried anything."
+HAVE_YOU_TRIED_ANYTHING_ELSE2 "I haven't tried anything."
+HAVE_YOU_TRIED_ANY_OTHER_METHODS2 "I haven't tried anything."
+WHAT_ELSE_HAVE_YOU_TRIED_FOR_2 "I haven't tried anything."
+WHAT_ELSE_HAVE_YOU_TRIED2 "I haven't tried anything."
+DOES_MOVING_INCREASE_THE_2 "Sometimes, exercise and walking up steps make it worse."
+DOES_ANY_POSITION_RELIEVE_THE_2 "Not really."
+DOES_ANY_POSITION_MAKE_THE_2_WORSE "Not really."
+DO_ANY_POSITIONS_MAKE_2_WORSE_OR_BETTER "Not that I have noticed."
+IS_2_WORSE_WHEN_YOU_LIE_DOWN "I haven't noticed that."
+DO_YOU_HAVE_2_WHEN_YOU_LIE_DOWN "It's not worse when I lie down."
+IS_2_BETTER_WHEN_YOU_LIE_DOWN "It doesn't really change when I lie down."
+DOES_2_INCREASE_WHEN_YOU_STAND "Not that I have noticed. It does increase with activity though."
+DOES_THE_2_IMPROVE_WITH_EXERCISE "No, it gets worse with exercise."
+DOES_THE_2_KEEP_YOU_UP_AT_NIGHT "I have been coughing a bit at night, but not enough to keep me from sleeping."
+AVOID_EXACERBATE_2 "Nothing."
+IS_THE_2_IMPROVING "It has been gradually getting worse for the past couple of months."
 
 # intensity
 
-How_intense_is_the_2 "It can get pretty intense sometimes when I am walking up steps or if I have a cold."
-Has_the_intensity2_changed "It has gradually gotten worse over the past couple of months."
-Has_the_2_become_worse "It has becomes worse over the past couple of months."
-When_is_the_2_most_severe "It is the worst in cold weather, with exercise, and when I have a cold."
+HOW_INTENSE_IS_THE_2 "It can get pretty intense sometimes when I am walking up steps or if I have a cold."
+HAS_THE_INTENSITY2_CHANGED "It has gradually gotten worse over the past couple of months."
+HAS_THE_2_BECOME_WORSE "It has becomes worse over the past couple of months."
+WHEN_IS_THE_2_MOST_SEVERE "It is the worst in cold weather, with exercise, and when I have a cold."
 
 # general
 
-Do_you_currently_have_2 "I have it off and on throughout the day."
-How_is_your_2_now "It is OK right now when I am just sitting."
-Do_you_have_any_2 "I have some cough."
-Are_you_having_any_other_2 "I have none."
-How_else_is_the_2_affecting_your_life "It is really starting to worry me."
-Has_the_2_stopped_you "It has caused me to have a low tolerance for exercise and to dread walking up steps."
-Have_you_had_2_before "On and off during hte years that I smoked. I just chalked that up to being smoker's cough. It seemed to go away a bit for a few years and now has come back."
+DO_YOU_CURRENTLY_HAVE_2 "I have it off and on throughout the day."
+HOW_IS_YOUR_2_NOW "It is OK right now when I am just sitting."
+DO_YOU_HAVE_ANY_2 "I have some cough."
+ARE_YOU_HAVING_ANY_OTHER_2 "I have none."
+HOW_ELSE_IS_THE_2_AFFECTING_YOUR_LIFE "It is really starting to worry me."
+HAS_THE_2_STOPPED_YOU "It has caused me to have a low tolerance for exercise and to dread walking up steps."
+HAVE_YOU_HAD_2_BEFORE "On and off during hte years that I smoked. I just chalked that up to being smoker's cough. It seemed to go away a bit for a few years and now has come back."
 
 # description
 
-When_do_you_have_the_2 "I have it on and off throughout the day, and sometimes at night too."
-How_long_does_the_2_last "It just depends on what I am doing. It is worse when I am really active."
-How_frequent_is_the_2 "It comes and goes throughout the day. It is worse when I am really active, and it seems to get better when I rest."
-What_concerns_you_about_the_2 "I am worried about lung cancer because I used to smoke."
-Where_is_the_2 "It seems to start in my lungs."
-Describe_the_2 "It is really dry. I don't usually bring up anything with the cough."
+WHEN_DO_YOU_HAVE_THE_2 "I have it on and off throughout the day, and sometimes at night too."
+HOW_LONG_DOES_THE_2_LAST "It just depends on what I am doing. It is worse when I am really active."
+HOW_FREQUENT_IS_THE_2 "It comes and goes throughout the day. It is worse when I am really active, and it seems to get better when I rest."
+WHAT_CONCERNS_YOU_ABOUT_THE_2 "I am worried about lung cancer because I used to smoke."
+WHERE_IS_THE_2 "It seems to start in my lungs."
+DESCRIBE_THE_2 "It is really dry. I don't usually bring up anything with the cough."
 
 ### HOPIComplaint3
 # onset
@@ -962,4 +1000,3 @@ Describe_the_2 "It is really dry. I don't usually bring up anything with the cou
 
 
 # description
-

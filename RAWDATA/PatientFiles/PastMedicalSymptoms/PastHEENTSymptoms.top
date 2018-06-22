@@ -1,17 +1,13 @@
 
 # ***************************************************************************************************
 
-
 topic: ~pastheadache keep repeat (headache)
 
-	u: ($present) respond(~currentheadache) ^fail(TOPIC) 
-	u: ($family) respond(~familyheadache) ^fail(TOPIC) 
-
+	u: ($present) respond(~currentheadache) ^fail(TOPIC)
+	u: ($family) respond(~familyheadache) ^fail(TOPIC)
 
 #! Have you ever had headaches before
-	u: Ever_had_headaches_before (have you ever had headaches before)     ^factanswer("I have never had headaches.") 
-	u: (headache) ^reuse (Ever_had_headaches_before)
-
+	u: EVER_HAD_HEADACHES_BEFORE (headache) ^factanswer("I have never had headaches.")
 
 # ***************************************************************************************************
 
@@ -19,51 +15,47 @@ topic: ~pastheadache keep repeat (headache)
 
 topic: ~pastneckstiffness keep repeat (~neck_stiffness bend)
 
-	u: ($present) respond(~currentneckstiffness) ^fail(TOPIC) 
-	u: ($family) respond(~familyneckstiffness) ^fail(TOPIC) 
-
+	u: ($present) respond(~currentneckstiffness) ^fail(TOPIC)
+	u: ($family) respond(~familyneckstiffness) ^fail(TOPIC)
 
 #! Have you ever had neck stiffness before
-	u: Ever_had_neck_stiffness_before (have you ever had neck stiffness before)    ^factanswer("Not that I recall.") 
-	u: (~neck_stiffness) ^reuse (Ever_had_neck_stiffness_before)
-
-
+	u: EVER_HAD_NECK_STIFFNESS_BEFORE (~neck_stiffness)    ^factanswer("Not that I recall.")
 
 # ***************************************************************************************************
 
 topic: ~pastnasal keep repeat (nose sinus sinusitis "nasal passages" mucus snot drainage infection infections)
 
-	u: ($present) respond(~currentnasal) ^fail(TOPIC)  
+	u: ($present) respond(~currentnasal) ^fail(TOPIC)
 	u: ($family) respond(~familynasal) ^fail(TOPIC)
 
 #! Have you ever had drainage down your throat
-	u: Ever_had_drainage_down_your_throat (have you ever had drainage down your throat)  ^factanswer("I never had drainage down my throat.")
-	u: (ever * [drainage mucus snot] * throat) ^reuse (Ever_had_drainage_down_your_throat)
+	u: EVER_HAD_DRAINAGE_DOWN_YOUR_THROAT (ever * [drainage mucus snot] * throat)  ^factanswer("I never had drainage down my throat.")
 
 #! Have you ever had sinus problems
-	u: Ever_had_sinus_problems (have you ever had sinus problems)  ^factanswer("My sinuses have been fine.")
-	u: (ever * [sinus sinusitis "nasal passages"] * [problem issue symptom infection infections])  ^reuse (Ever_had_sinus_problems)
-
+	u: EVER_HAD_SINUS_PROBLEMS (ever * [sinus sinusitis "nasal passages"] * [problem issue symptom infection infections])  ^factanswer("My sinuses have been fine.")
 
 # ***************************************************************************************************
 
 topic: ~pasteye keep repeat (eye eyes vision visual)
 
-	u: ($present) respond(~currenteye) ^fail(TOPIC)  
+	u: ($present) respond(~currenteye) ^fail(TOPIC)
 	u: ($family) respond(~familyeye) ^fail(TOPIC)
 
-
 #! Have you ever had double vision
-	u: Ever_had_double_vision (have you ever had double vision) ^factanswer("I never had double vision.")
-	u: (!blurry [have experience notice] * ["double vision" two twice]) ^reuse (Ever_had_double_vision)
+	u: EVER_HAD_DOUBLE_VISION (!blurry [have experience notice] * ["double vision" two twice]) ^factanswer("I never had double vision.")
 
 #! Have you ever had blurry vision
-	u: Ever_had_blurry_vision  (have you ever had blurry vision)  ^factanswer("I have never had blurry vision.")
-	u: (!double [have experience notice] * [blurry blurred fuzzy foggy blur] * [eye eyes vision]) ^reuse(Ever_had_blurry_vision)
-	u: (!double  [eye eyes vision][have experience notice] * [blurry blurred fuzzy foggy blur]) ^reuse(Ever_had_blurry_vision)
+	u: EVER_HAD_BLURRY_VISION
+		([
+			(!double [have experience notice] * [blurry blurred fuzzy foggy blur] * [eye eyes vision])
+			(!double  [eye eyes vision][have experience notice] * [blurry blurred fuzzy foggy blur])
+		])
+	^factanswer("I have never had blurry vision.")
 
 #! Have you ever had vision changes
-	u: Ever_had_vision_changes (have you ever had vision changes) ^factanswer("I have never had any vision changes.")
-	u: ([eye vision] * [change changes problems issues symptoms]) ^reuse (Ever_had_vision_changes)
-	u: ([change changes problems issues symptoms] * [eye vision]) ^reuse (Ever_had_vision_changes)
-
+	u: EVER_HAD_VISION_CHANGES
+		([
+			([eye vision] * [change changes problems issues symptoms])
+			([change changes problems issues symptoms] * [eye vision])
+		])
+	^factanswer("I have never had any vision changes.")

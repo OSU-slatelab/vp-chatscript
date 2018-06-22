@@ -1,778 +1,1146 @@
-outputmacro: patient9()  # you get patient1 by default
+outputmacro: patient9()
 $patientfirstname = Harold
 $patientlastname = Washington
-$chiefcomplaint = dizziness
-$complaint2 = hypertension
+$chiefcomplaint = ~dizziness
+$complaint2 = ~hypertension
+$complaint3 =
 $Vpatient9 = Vpatient9
-$vpatient = Vpatient9
+$Vpatient = Vpatient9
 $patientTitle = Mr
 $currentjob = retired
 $currentmedication1 = Ibuprofen
 $currentmedication2 = loratidine
-$currentmedication3 = Tums
+$currentmedication3 = Tims
 $currentrateofpain = 7
 
 ^stdpatient()
 
-table: ^patientdata(Vpatient9) 
+table: ^patientdata(Vpatient9)
 
 
-# OPENING DIALOGUE
+### OpeningDialogue
 # primary
-What_brings_you_in_today "I've been dizzy for the past 3 weeks"
-What_do_you_think_is_the_problem "\[ Pain3 \]I'm not sure,  I was hoping you could tell me"
-What_should_we_do "\[ Pain3 \]I am worried about what is going on in my brain"
-What_would_you_like_me_to_do "\[ Pain3 \] I'd like to  not be dizzy and fell better"
-What_is_your_goal "I'd like to  not be dizzy and know that I am going to be ok"
-Does_anything_make_you_feel_better "Nothing that I know of"
-Tell_me_more "The dizziness started when I bent over to tie my shoes.  The dizziness lasted for about one week"
 
-
-I_am_sorry "Thanks."
-That_must_be_awful "Yes. I hope you can help me."
-Why "I want to feel better"
-Good "\[ Nod \]"
-Got_it "\[ Nod \]"
-Ok "\[ Nod \]"
+WHAT_DO_YOU_THINK_IS_THE_PROBLEM "\[ Pain3 \]I'm not sure,  I was hoping you could tell me."
+WHAT_BRINGS_YOU_IN_TODAY "I've been dizzy for the past 3 weeks."
+WHAT_SHOULD_WE_DO "\[ Pain3 \]I am worried about what is going on in my brain."
+WHAT_WOULD_YOU_LIKE_ME_TO_DO "\[ Pain3 \]I'd like to  not be dizzy and feel better."
+WHAT_IS_YOUR_GOAL "I'd like to  not be dizzy and know that I am going to be ok."
+DOES_ANYTHING_MAKE_YOU_FEEL_BETTER "Nothing that I know of."
+TELL_ME_MORE "The dizziness started when I bent over to tie my shoes.  The dizziness lasted for about one week."
+I_AM_SORRY "Thanks."
+THAT_MUST_BE_AWFUL "Yes. I hope you can help me."
+WHY "I want to feel better."
+GOOD "\[ NodYes \]"
+GOT_IT "\[ NodYes \]"
+OK "\[ NodYes \]"
 
 # greetings
-I_am_doctor "Nice to meet you Doctor $drfirstname $drlastname"
-Nice_to_meet_you  "\[ Happiness1 \] Nice to meet you too. I am really glad to see you today.  I need help."
-Nice_to_see_you "\[ Happiness1 \]  Nice to see you too. I am really glad to see you today.  I need help."
-Nice_to_see_you_too "\[ Happiness1 \]  Thanks."
-How_are_you "\[ Pain2 \] Well I would be fairly well if I didn't feel dizzy"
-Tell_me_about_yourself "\[ Fear2 \] I am a pretty healthy person other than needing to be treated for hypertension of the past 10 years."
-Hello "Hello Doctor.  I am so glad to see you."
 
-# followupidalogue
-Any_other_problems1 "I've noted the dizziness is getting worse.  I've often had to sit back down when I stand up quickly"
-Have_you_seen_anyone_else "You're the first person I've seen about this."
+I_AM_DOCTOR ^"Nice to meet you Doctor $drfirstname $drlastname"
+NICE_TO_MEET_YOU  "\[ Happiness1 \]Nice to meet you too. I am really glad to see you today.  I need help."
+NICE_TO_SEE_YOU "\[ Happiness1 \] Nice to see you too. I am really glad to see you today. I need help."
+NICE_TO_SEE_YOU_TOO "\[ Happiness1 \]Thanks."
+HOW_ARE_YOU "\[ Pain2 \]Well I would be fairly well if I didn't feel dizzy."
+TELL_ME_ABOUT_YOURSELF "\[ Fear2 \]I am a pretty healthy person other than needing to be treated for hypertension of the past 10 years."
+HELLO "Hello Doctor.  I am so glad to see you."
 
-# PATIENT INFORMATION
-# age, date of birth
-How_old_are_you "I am 67"
-When_were_you_born "June 30, 1948"
+# followupdialogue
 
-# name, greetings
-What_is_your_name ^"$patientfirstname $patientlastname"
-Did_I_pronounce_that_correctly "Yes, that is correct."
-Do_you_mind_if_I_call_you "Sure.   My friends all do. "
-How_do_you_pronounce_that "Washington"
-What_should_I_call_you ^"You can call me $patientfirstname."
-Are_you_mr_patientlastname ^"Yes, I am $patientfirstname $patientlastname. Good to meet you Doctor."
-Are_you_mr_someoneelse ^"No, I am $patientfirstname $patientlastname. You can call me $patientfirstname." 
-Hello_mr_patientlastname "Hello Doctor.  I am so glad to see you."
-Hello_mr_someoneelse ^"Hello Doctor, however, my name is $patientlastname, not  '_0."
-Mr_patientlastname ^"Yes.  That is me.  Please feel free to call me $patientfirstname"
-Mr_someoneelse ^"No, I am $patientfirstname $patientlastname. You can call me $patientfirstname." 
+ANY_OTHER_PROBLEMS1 "I've noted the dizziness is getting worse.  I've often had to sit back down when I stand up quickly"
+HAVE_YOU_SEEN_ANYONE_ELSE "You're the first person I've seen about this."
 
-# MEDICATIONS
-# current medications
-Taking_medication_for_the_1  "I have not taken anything for it yet."
-Taking_medication_for_the_2  "I take a combination tablet containing  Lisinopril 10 mg/Hydrochlorothiazide 12.5 daily"
-When_did_you_take_medicine "I started the Lisinopril/Hydrochlorothizide medicine 5 years ago for my blood pressure"
-Need_to_take_the_medicine_that_often "I take this medication every morning"
-How_often_did_you_take_the_medicine "I take this medication once daily every morning"
-How_long_taking_medicine "I have been taking this medication for 5 years"
-How_much_medicine_have_you_taken "One tablet daily"
-Would_you_like_a_stronger_prescription "I haven't taken anything for the dizziness, so I am not sure I want something stronger"
-What_is_the_strength_of_the_medicine "I take a combination medicine with 10 mg of Lisinopril and 25 mg of Hydrocholorthiazide daily"
-Did_the_medicine_help "It has controlled my blood pressure well for 5 years"
-Did_you_take_medicine_today "Yes, I took it this morning"
-Are_you_still_taking_medicine "Yes, I took it this morning"
-What_was_the_dose "It is a combination tablet  with 10 mg of Lisinopril and 25 mg of hydrocholorthiazide"
-What_pills_did_you_take "I took my blood pressure medication.  I have not taken any other medications"
-What_kind_of_medicine_is_that "A blood pressure medication"
-Would_you_like_some_pain_medication "I am not having pain.  I would like some help with the dizziness"
-Doctor_prescribe_the_medicine "Yes."
-Who_prescribed_the_medicine "My family doctor"
-What_is_medicine "A blood pressure medication"
-What_were_the_pills_called "It is a combination tablet  with 10 mg of Lisinopril and 25 mg of hydrocholorthiazide"
-Are_you_taking_any_medication "I take lisinopril/Hydrochlorothiazide 10/12.5 daily, but nothing else except the occasional ibuprofen."
-       Is_medication_new "I have been taking that for 5 years or so now."
+### PatientInformation
+# patientage
+
+HOW_OLD_ARE_YOU "I am 67."
+WHEN_WERE_YOU_BORN "June 30, 1951."
+
+# patientname
+
+NAME_AND_DATE_OF_BIRTH "Harold Washington, June 30, 1951."
+WHAT_IS_YOUR_NAME "Harold Washington."
+DID_I_PRONOUNCE_THAT_CORRECTLY "Yes, that is correct."
+DO_YOU_MIND_IF_I_CALL_YOU "Sure. My friends all do."
+WHAT_SHOULD_I_CALL_YOU "You can call me Harold."
+ARE_YOU_MR_PATIENTLASTNAME "Yes, I am Harold Washington. Good to meet you Doctor."
+ARE_YOU_MR_SOMEONEELSE "No, I am Harold Washington. You can call me  Harold."
+HELLO_MR_PATIENTLASTNAME "Hello Doctor.  I am so glad to see you."
+HELLO_MR_SOMEONEELSE "Hello Doctor, however, my name is Harold Washington."
+MR_PATIENTLASTNAME "Yes.  That is me. Please feel free to call me Harold."
+MR_SOMEONEELSE "No, I am Harold Washington. You can call me Harold."
+
+### Medications
+# currentmedications
+
+TAKING_MEDICATION_FOR_THE_1  "I have not taken anything for it yet."
+TAKING_MEDICATION_FOR_THE_2 "I take a combination tablet containing  Lisinopril 10 mg/Hydrochlorothiazide 12.5 daily."
+WHEN_DID_YOU_TAKE_MEDICINE "I started the Lisinopril/Hydrochlorothizide medicine 5 years ago for my blood pressure."
+NEED_TO_TAKE_THE_MEDICINE_THAT_OFTEN "I take this medication every morning."
+HOW_OFTEN_DID_YOU_TAKE_THE_MEDICINE "I take this medication once daily every morning."
+HOW_LONG_TAKING_MEDICINE "I have been taking this medication for 5 years."
+HOW_MUCH_MEDICINE_HAVE_YOU_TAKEN "One tablet daily."
+WOULD_YOU_LIKE_A_STRONGER_PRESCRIPTION "I haven't taken anything for the dizziness, so I am not sure I want something stronger."
+WHAT_IS_THE_STRENGTH_OF_THE_MEDICINE "I take a combination medicine with 10 mg of Lisinopril and 25 mg of Hydrocholorthiazide daily."
+DID_THE_MEDICINE_HELP "It has controlled my blood pressure well for 5 years."
+DID_YOU_TAKE_MEDICINE_TODAY "Yes, I took it this morning."
+ARE_YOU_STILL_TAKING_MEDICINE "Yes, I took it this morning."
+WHAT_WAS_THE_DOSE "It is a combination tablet  with 10 mg of Lisinopril and 25 mg of Hydrocholorthiazide."
+WHAT_PILLS_DID_YOU_TAKE "I took my blood pressure medication. I have not taken any other medications."
+WHAT_KIND_OF_MEDICINE_IS_THAT "A blood pressure medication."
+WOULD_YOU_LIKE_SOME_PAIN_MEDICATION "I am not having pain. I would like some help with the dizziness."
+DOCTOR_PRESCRIBE_THE_MEDICINE "Yes."
+WHO_PRESCRIBED_THE_MEDICINE "My family doctor."
+WHAT_IS_MEDICINE "A blood pressure medication."
+ARE_YOU_TAKING_ANY_MEDICATION "I take Lisinopril/Hydrochlorothiazide 10/12.5 daily, but nothing else except the occasional ibuprofen."
+ IS_MEDICATION_NEW "I have been taking that for 5 years or so now."
+WHAT_WERE_THE_PILLS_CALLED "It is a combination tablet with 10 mg of Lisinopril and 25 mg of Hydrocholorthiazide."
 
 # supplements
-Are_you_taking_supplements "None at all. I don't believe in alternative medicine."
 
-# other medications
-Take_other_medication_for_1 "No."
-       How_much_medication_1 "I don't take anything else"
-       How_often_medication_1 "I don't take anything else"
-Take_other_medication_for_2 "No."
-       How_much_medication_2 "I don't take anything else"
-       How_often_medication_2 "I don't take anything else"
-Take_any_other_medication "I don't take anything else"
-       How_much_medication "I don't take any other medications"
-       How_often_medication "I don't take any other medications"
-Take_any_other_medication1 "I don't take any other medications"
-       How_much_medication1 "I don't take any other medications"
-       How_often_medication1 ""
-Take_any_other_medication2 "No"
-       How_much_medication2 "I don't take anything else"
-       How_often_medication2 "I don't take anything else"
+ARE_YOU_TAKING_SUPPLEMENTS "None at all. I don't believe in alternative medicine."
 
-# past medications
-Ever_taken_medication_for_1 "I don't take any other medications"
-Ever_taken_other_medication "No, I haven't taken any other medications. "
+# othermedications
 
-# ALLERGIES
+TAKE_OTHER_MEDICATION_FOR_1 "No."
+ HOW_MUCH_MEDICATION_1 "I don't take anything else."
+ HOW_OFTEN_MEDICATION_1 "I don't take anything else."
+TAKE_OTHER_MEDICATION_FOR_2 "No."
+ HOW_MUCH_MEDICATION_2 "I don't take anything else."
+ HOW_OFTEN_MEDICATION_2 "I don't take anything else."
+TAKE_ANY_OTHER_MEDICATION "I don't take anything else."
+ HOW_MUCH_MEDICATION "I don't take any other medications."
+ HOW_OFTEN_MEDICATION "I don't take any other medications."
+TAKE_ANY_OTHER_MEDICATION1 "I don't take any other medications."
+ HOW_MUCH_MEDICATION1 "I don't take any other medications."
+ HOW_OFTEN_MEDICATION1 "I don't take any other medications."
+TAKE_ANY_OTHER_MEDICATION2 "No."
+ HOW_MUCH_MEDICATION2 "I don't take anything else."
+ HOW_OFTEN_MEDICATION2 "I don't take anything else."
 
-Food_or_environmental_allergies "I am not allergic to any medications, food or plants"
-Do_you_take_medication_for_allergies "I do not have seasonal allergies"
-       How_much_allergy_medication "I do not .  I do not take allergy medication"
-       How_often_allergy_medication "I do not take allergy medication"
-       Does_allergy_medication_help "I do not take allergy medication"
-       Take_allergy_medication_today "I do not take allergy medication"
-What_are_allergy_reactions "I am not allergic to anything that I know of"
-Do_you_have_any_allergies "I am not allergic to any medications, food or plants"
+# pastmedications
 
-# SOCIAL HISTORY
+EVER_TAKEN_MEDICATION_FOR_1 "I don't take any other medications."
+EVER_TAKEN_OTHER_MEDICATION "No, I haven't taken any other medications."
+
+### Allergies
+# Allergies
+
+FOOD_OR_ENVIRONMENTAL_ALLERGIES "I am not allergic to any medications, food or plants."
+DO_YOU_TAKE_MEDICATION_FOR_ALLERGIES "I do not have seasonal allergies."
+ HOW_MUCH_ALLERGY_MEDICATION "I do not take allergy medication."
+ HOW_OFTEN_ALLERGY_MEDICATION "I do not take allergy medication."
+ DOES_ALLERGY_MEDICATION_HELP "I do not take allergy medication."
+ TAKE_ALLERGY_MEDICATION_TODAY "I do not take allergy medication."
+WHAT_ARE_ALLERGY_REACTIONS "I am not allergic to anything that I know of."
+DO_YOU_HAVE_ANY_ALLERGIES "I am not allergic to any medications, food or plants."
+
+### SocialHistory
 # activity
-How_often_do_you_exercise "I walk about 30 minutes twice weekly, sometimes with my wife"
-Do_you_exercise "I walk about 30 minutes twice weekly, sometimes with my wife"
-Are_you_active "I walk about 30 minutes twice weekly, sometimes with my wife"
-How_is_your_energy "My energy has been down a little as I have been sitting around so that I am less dizzy"
-Have_you_been_resting "I have been sitting around so that I am not as dizzy"
-Have_you_been_bedridden "NO, but I have not been moving around as much so that I am less dizzy"
-Are_you_able_to_drive "I can drive, but I am  doing this a little less as I am scared I will get dizzy"
-Are_you_able_to_drive_home "I can drive myself home. I am not too dizzy currently"
 
-# alcohol use
-How_much_do_you_drink "I really don't drink that much- maybe one or two beers on the weekends during the summer."
-Do_you_drink "I really don't drink that much- maybe one or two beers on the weekends during the summer."
-Do_you_feel_guilty_about_your_drinking   "\[ Surprise2 \] No. I have never felt guilty- I don’t drink much at all."
-Anyone_thought_alcohol_problem "\[ Disgust2 \] No, never. "
-Do_you_ever_need_an_eye_opener "\[ Surprise2 \] No! I haven't been drunk since my 21st birthday."
-Have_you_considered_reducing_alcohol  "\[ Contempt2 \]  No, I don't drink very much."
-Ever_felt_annoyed_about_alcohol "\[ Disgust2 \]I have never had anybody confront me about my drinking so I have never been annoyed."
-What_kind_of_drinks "Just beer."
-How_many_drinks "One or two."
+HOW_OFTEN_DO_YOU_EXERCISE "I walk about 30 minutes twice weekly, sometimes with my wife."
+DO_YOU_EXERCISE "I walk about 30 minutes twice weekly, sometimes with my wife."
+ARE_YOU_ACTIVE "I walk about 30 minutes twice weekly, sometimes with my wife."
+HOW_IS_YOUR_ENERGY "My energy has been down a little as I have been sitting around so that I am less dizzy."
+HAVE_YOU_BEEN_RESTING "I have been sitting around so that I am not as dizzy."
+HAVE_YOU_BEEN_BEDRIDDEN "No, but I have not been moving around as much so that I am less dizzy."
+ARE_YOU_ABLE_TO_DRIVE "I can drive, but I am doing this a little less as I am scared I will get dizzy."
+ARE_YOU_ABLE_TO_DRIVE_HOME "I can drive myself home. I am not too dizzy currently."
 
-# caffeine use
-Do_you_drink_coffee "I have 1- 2 cups of coffee in the morning.  I don't like to drink more than that as it can upset my stomach"
+# alcoholuse
+
+HOW_MUCH_DO_YOU_DRINK "I really don't drink that much. Maybe one or two beers on the weekends during the summer."
+DO_YOU_DRINK "I really don't drink that much. Maybe one or two beers on the weekends during the summer."
+DO_YOU_FEEL_GUILTY_ABOUT_YOUR_DRINKING "\[ Surprise2 \]No. I have never felt guilty- I donï¿½t drink much at all."
+ANYONE_THOUGHT_ALCOHOL_PROBLEM "\[ Disgust2 \]No, never."
+DO_YOU_EVER_NEED_AN_EYE_OPENER "\[ Surprise2 \]No! I haven't been drunk since my 21st birthday."
+HAVE_YOU_CONSIDERED_REDUCING_ALCOHOL "\[ Contempt2 \]No, I don't drink very much."
+EVER_FELT_ANNOYED_ABOUT_ALCOHOL "\[ Disgust2 \]I have never had anybody confront me about my drinking so I have never been annoyed."
+WHAT_KIND_OF_DRINKS "Just beer."
+HOW_MANY_DRINKS "One or two."
+
+# caffeineuse
+
+DO_YOU_DRINK_COFFEE "I have 1- 2 cups of coffee in the morning. I don't like to drink more than that as it can upset my stomach."
 
 # diet
-Do_you_drink_enough_fluid "Yes, I drink  5-6  glasses of water per day."
-Do_you_eat_dairy "\[ Happy2 \] I love milk. I drink a couple glasses a day."
-Do_you_eat_fiber "yes I eat a normal diet with lots of fruits and vegetables in the summer, a little less in the winter"
-Do_you_eat_fast_food "I have some fast food sandwhiches when we travel "
-Do_you_eat_fruit "Yes, more in the summer when I visit the farmer's markets"
-Any_changes_in_your_diet "No, I have been eating the same diet all my life"
-How_is_your_diet "I think my diet is very healthy. I eat vegetables, some fruits, chicken and some beef"
-Appetite "My appetite is fine.  I eat pretty well."
-Can_you_eat "Sure, eating is not a problem."
-Have_you_been_eating "My appetite has been fine.  I haven't had any trouble with that.  "
-What_snacks "I'm not really much of a snacker."
-What_were_you_eating_before "I eat a normal diet with lots of fruits and vegetables in the summer, a little less in the winter"
-What_do_you_eat "I eat a normal diet with lots of fruits and vegetables in the summer, a little less in the winter"
 
-# tobacco use
-How_much_do_you_smoke "\[ Contempt1 \] I don't smoke.  I never have."
-Have_you_ever_smoked "\[ Contempt2 \] No, never. "
-Do_you_smoke "\[ Contempt1 \] No.  Never."
+DO_YOU_DRINK_ENOUGH_FLUID "Yes, I drink  5-6  glasses of water per day."
+DO_YOU_EAT_DAIRY "\[ Happiness2 \]I love milk. I drink a couple glasses a day."
+DO_YOU_EAT_FIBER "Yes, I eat a normal diet with lots of fruits and vegetables in the summer, a little less in the winter."
+DO_YOU_EAT_FAST_FOOD "I have some fast food sandwhiches when we travel."
+DO_YOU_EAT_FRUIT "Yes, more in the summer when I visit the farmer's markets."
+ANY_CHANGES_IN_YOUR_DIET "No, I have been eating the same diet all my life."
+APPETITE "My appetite is fine. I eat pretty well."
+CAN_YOU_EAT "Sure, eating is not a problem."
+HAVE_YOU_BEEN_EATING "My appetite has been fine. I haven't had any trouble with that."
+WHAT_SNACKS "I'm not really much of a snacker."
+WHAT_WERE_YOU_EATING_BEFORE "I eat a normal diet with lots of fruits and vegetables in the summer, a little less in the winter."
+WHAT_DO_YOU_EAT "I eat a normal diet with lots of fruits and vegetables in the summer, a little less in the winter"
+HOW_IS_YOUR_DIET "I think my diet is very healthy. I eat vegetables, some fruits, chicken and some beef."
+
+# tobaccouse
+
+HOW_MUCH_DO_YOU_SMOKE "\[ Contempt1 \]I don't smoke. I never have."
+HAVE_YOU_EVER_SMOKED "\[ Contempt2 \]No, never."
+DO_YOU_SMOKE "\[ Contempt1 \]No. Never."
 
 # education
-How_much_schooling "I finished college with a teaching degree."
+
+HOW_FAR_IN_SCHOOL "I finished college with a teaching degree."
+WHAT_IS_YOUR_MAJOR "I studied teaching."
+
+# inrelationtohpi
+
+HOW_HAS_THIS_AFFECTED_YOU "\[ Fear1 \]I have been anxious driving and have not attended some meetings and parties the last few weeks."
+CAN_YOU_DO_NORMAL_ACTIVITIES "\[ Fear1 \]I've been able to work around the house, but I have been a little leary to drive when I do not need to."
+HAS_THE_PAIN_AFFECTED_YOUR_ACTIVITY "I have not had any pain."
+HOW_HAVE_YOU_BEEN_HANDLING_THIS "\[ Sadness2 \]I'm doing OK, but I have not been as active as I usually am."
+WHAT_BOTHERS_YOU_THE_MOST "\[ Sadness1 \]It's been going on for about 3 weeks and I am worried about my ability to drive.  I also am a little more tired."
+CAN_YOU_CARE_FOR_YOURSELF "\[ Sadness2 \]Yes, I can care for myself without help."
+
+# job
+
+DO_YOU_DO_ANY_HEAVY_LIFTING_AT_WORK "I am retired, but I have avoided heavy lifing at home as I am scared about getting dizzy."
+IS_YOUR_JOB_PHYSICALLY_DEMANDING "No, not at all."
+IS_YOUR_JOB_STRESSFUL "I am retired and have a good pension. I am not stressed."
+ARE_YOU_ON_YOUR_FEET_A_LOT "\[ Sadness2 \]Generally I am always on my feet and really active."
+ARE_YOU_CURRENTLY_WORKING "\[ Sadness2 \]No, I am retired. I do a lot of odd jobs around my home and for my neighbors though."
+WHY_ARE_YOU_OFF_WORK "I am retired from teaching."
+HOW_LONG_HAVE_YOU_BEEN_OFF_WORK "I retired a few years ago."
+HAVE_YOU_BEEN_OFF_WORK_BECAUSE "I retired from teaching."
+HAVE_YOU_BEEN_OFF_WORK "I retired a few years ago."
+HAVE_YOU_BEEN_ABLE_TO_WORK "I retired a few years ago."
+WHAT_CAN'T_YOU_DO_AT_WORK "I do not work currently, but I have gotten dizzy bending over doing things around the house."
+WHAT_ELSE_CAN'T_YOU_DO "I don't want to move quickly as this makes me dizzy. I also worry about driving."
+DO_YOU_HAVE_PROBLEMS_WORKING "I am retired. I worry about getting dizzy, so I have not lifted heavy things or bent over unless I really needed to."
+HOW_IS_WORK "I am retired. I do a lot of odd jobs around my home and for my neighbors."
+WHEN_WAS_THE_LAST_TIME_YOU_WORKED "I retired a few years ago."
+DO_YOU_NEED_A_NOTE_FOR_WORK "No, I am retired. I do a lot of odd jobs around my home and for my  neighbors though."
+DOES_THE_PAIN_INTERFERE_WITH_WORK "I am not having pain. I do worry that lifting or bending over will cause dizziness, so I have not been as active at home."
+IS_THE_PAIN_RELATED_TO_WORK "I do not have any pain."
+DOES_IT_HURT_TO_WORK "No."
+WHERE_DO_YOU_WORK "\[ Happiness2 \]I am retired. I do a lot of odd jobs around my home and for my neighbors though."
+HOW_LONG_HAVE_YOU_BEEN_A_WORKER "I retired after 35 years of teaching."
+DO_YOU_HAVE_INSURANCE "I have Blue Cross/Blue Shield."
+DO_YOU_HAVE_EXPOSURE_TO_CHEMICALS "Not that I know of."
+HAVE_YOU_EVER_BEEN_IN_THE_MILITARY "Yes, I served for 2 years."
+WHAT_DO_YOU_DO_FOR_A_LIVING "I am a retired teacher."
+DO_YOU_WORK "I am a retired teacher."
+
+# recreationaldruguse
+
+DO_YOU_USE_ILLEGAL_DRUGS "\[ Contempt4 \]No, never."
+ARE_YOU_SURE "Of course."
+
+# tattoos
 
 
-#  in relation to hpi
-How_has_this_affected_you "\[ Fear1 \]I have been anxious driving and have not attended some meetings and parties the last few weeks "
-Has_the_pain_affected_your_activity "I have not had any pain"
-Can_you_do_normal_activities "\[ Fear1 \] I've been able to work around the house, but I have been a little leary to drive when I do not need to."
-How_have_you_been_handling_this "\[ Sad2 \]I'm doing OK, but I have not been as active as I usually am."
-What_bothers_you_the_most "\[ Sad2 \]It's been going on for about 3 weeks and I am worried about my ability to drive.  I also am a little more tired"
-Can_you_care_for_yourself "\[ Sad2 \]Yes, I can care for myself without help."
-
-#  job
-Do_you_do_any_heavy_lifting_at_work "I am retired, but I have avoided heavy lifing at home as I am scared about getting dizzy"
-Is_your_job_physically_demanding "No, not at all."
-Is_your_job_stressful "I am retired and have a good pension.  I am not stressed"
-Are_you_on_your_feet_a_lot "\[ Sad2 \]Generally I am always on my feet and really active.   "
-Are_you_currently_working "\[ Sad2 \]No, I am retired.  I do a lot of odd jobs around my home and for my neighbors though. "
-Why_are_you_off_work "I am retired from teaching"
-How_long_have_you_been_off_work "I retired from teaching."
-Have_you_been_off_work_because "I retired a few years ago"
-Have_you_been_off_work "I retired a few years ago"
-Have_you_been_able_to_work "I retired a few years ago"
-What_can't_you_do_at_work "I do not work currently, but I have gotten dizzy bending over doing things around the house"
-What_else_can't_you_do "I don't want to move quickly as this makes me dizzy.  I also worry about driving"
-Do_you_have_problems_working "I am retired.  I worry about getting dizzy, so I have not lifted heavy things or bent over unless I really needed to"
-How_is_work "I am retired.  I do a lot of odd jobs around my home and for my neighbors"
-When_was_the_last_time_you_worked "I retired a few years ago"
-Do_you_need_a_note_for_work "No, I am retired.  I do a lot of odd jobs around my home and for my  neighbors though. "
-Does_the_pain_interfere_with_work "I am not having pain.  I do worry that lifting or bending over will cause dizziness, so I have not been as active at home"
-Is_the_pain_related_to_work "I do not have any pain"
-Does_it_hurt_to_work "no"
-Where_do_you_work "\[ Happy2 \]I am retired. I do a lot of odd jobs around my home and for my neighbors though"
-How_long_have_you_been_a_worker "I retired after 35 years of teaching"
-Do_you_have_insurance "I have Blue Cross/Blue Shield."
-Do_you_have_exposure_to_chemicals "Not that I know of. "
-Have_you_ever_been_in_the_military "Yes, I served for 2 years"
-What_do_you_do_for_a_living "I am a retired teacher"
-Do_you_work "I am a retired teacher"
+# travel
 
 
+# hobby
+
+DO_YOU_HAVE_ANY_HOBBIES "I refinish furniture, and I like to fish."
+WHAT_DO_YOU-DO_FOR_FUN "I refinish furniture, and I like to fish."
+
+# sexualactivity
+
+HOW_MANY_SEXUAL_PARTNERS "Only my wife."
+MONOGAMOUS "Only my wife."
+DO_YOU_PREFER_MEN_OR_WOMEN "\[ Surprise4 \]Women."
+WHO_ARE_YOUR_SEXUAL_PARTNERS "Only my wife."
+ANY_OTHER_SEXUAL_PARTNERS "No."
+ARE_YOU_SEXUALLY_ACTIVE "Yes, with my wife."
+WHEN_DID_YOU_LAST_HAVE_INTERCOURSE "A week ago or so."
+
+# religion
 
 
+# advanceddirective
 
-# recreational drug use
-Do_you_use_illegal_drugs "\[ Contempt4 \] No, never."
-Are_you_sure "Of course."
 
-# general health
-Are_you_healthy "I am pretty healthy.  My blood pressure has been controlled and I have had lab tests done yearly.  I think I have had my immunizations, but would have to check.  I did have a normal colonoscopy. "
-What_is_quality_of_life "Well, life is pretty good. I am a generally pretty content.  I have a good marriage and a new grandchild on the way"
+# generalhealth
 
-#  CURRENTGENERALSYMPTOMS
-# medical problems
-Do_you_have_any_medical_problems "No, not really.  I have always been pretty healthy exceot for my blood pressure, which has been controlled for the last 5 years"
-Do_you_have_a_health_problem "I have high blood pressue that has been controlled with a daily medication.  "
-Did_you_hurt_yourself "I don't remember hurting myself"
-Do_you_have_any_chronic_illnesses "I have high blood pressure that has been controlled with a daily medication.  "
-Have_you_had_an_accident  "I have never had any accidents or serious injuries."
-What_symptoms_are_you_having "Well, I sometimes feel dizzy when I bend over or move too quickly"
+ARE_YOU_HEALTHY "I am pretty healthy. My blood pressure has been controlled and I have had lab tests done yearly. I think I have had my immunizations, but would have to check. I did have a normal colonoscopy."
+WHAT_IS_QUALITY_OF_LIFE "Well, life is pretty good. I am a generally pretty content.  I have a good marriage and a new grandchild on the way."
 
-# sleeping problems
-Why_are_you_having_trouble_sleeping "\[ Pain1 \]I havn't been having trouble sleeping."
-Have_you_had_any_trouble_sleeping "\[ Pain1 \]I havn't been having trouble sleeping. I have no dizziness when I lie down."
+### CurrentGeneralSymptoms
+# medicalproblems
 
-# CURRENTABDOMINALSYMPTOMS
+DO_YOU_HAVE_ANY_MEDICAL_PROBLEMS "No, not really. I have always been pretty healthy except for my blood pressure, which has been controlled for the last 5 years."
+DO_YOU_HAVE_A_HEALTH_PROBLEM "I have high blood pressue that has been controlled with a daily medication."
+DID_YOU_HURT_YOURSELF "I don't remember hurting myself."
+DO_YOU_HAVE_ANY_CHRONIC_ILLNESSES "I have high blood pressure that has been controlled with a daily medication."
+HAVE_YOU_HAD_AN_ACCIDENT "I have never had any accidents or serious injuries."
+WHAT_SYMPTOMS_ARE_YOU_HAVING "Well, I sometimes feel dizzy when I bend over or move too quickly."
+
+# sleepingproblems
+
+WHY_ARE_YOU_HAVING_TROUBLE_SLEEPING "\[ Pain1 \]I havn't been having trouble sleeping."
+HAVE_YOU_HAD_ANY_TROUBLE_SLEEPING "\[ Pain1 \]I havn't been having trouble sleeping. I have no dizziness when I lie down."
+
+# discharge
+
+
+# itch
+
+
+# odor
+
+
+### CurrentAbdominalGISymptoms
 # bowel
-Are_you_able_to_control_your_bowels "I have no problems with my bowels"
-Do_you_have_any_bowel_problems "I have no problems with my bowels.  ."
 
-# both bowel and bladder
-Loss_of_bowel_or_bladder_control "No! I have never lost control of my bowels or bladder."
-Do_you_have_bowel_or_bladder_control "Yes. I haven't had any problems with incontinence."
+ARE_YOU_ABLE_TO_CONTROL_YOUR_BOWELS "I have no problems with my bowels."
+DO_YOU_HAVE_ANY_BOWEL_PROBLEMS "I have no problems with my bowels."
 
-# CURRENTGUSYMPTOMS
+# bothbowelandbladder
+
+LOSS_OF_BOWEL_OR_BLADDER_CONTROL "No! I have never lost control of my bowels or bladder."
+DO_YOU_HAVE_BOWEL_OR_BLADDER_CONTROL "Yes. I haven't had any problems with incontinence."
+
+# abdominalpain
+
+
+# heartburn
+
+
+### CurrentGUSymptoms
 # bladder
-Any_pain_while_urinating "No, I haven't had any pain while urinating."
-Blood_in_urine "I haven't noticed blood in my urine."
-Are_you_able_to_control_your_bladder "I have no problems with my bladder."
-Have_you_been_incontinent "No. I haven't had any problems with incontinence."
-Do_you_have_any_bladder_problems "No bladder problems."
-How_about_your_bladder "No problems with my bladder."
+
+HAVE_YOU_NOTICED_PAIN_WHILE_URINATING "No, I haven't had any pain while urinating."
+BLOOD_IN_URINE "I haven't noticed blood in my urine."
+ARE_YOU_ABLE_TO_CONTROL_YOUR_BLADDER "I have no problems with my bladder."
+HAVE_YOU_BEEN_INCONTINENT "No. I haven't had any problems with incontinence."
+DO_YOU_HAVE_ANY_BLADDER_PROBLEMS "No bladder problems."
+HOW_ABOUT_YOUR_BLADDER "No problems with my bladder."
+
+# maleGU
 
 
-# CURRENTCARDIACSYMPTOMS
-# blood pressure
-How_is_your_blood_pressure "I did, but my blood pressure has been normal as long as I take my medication daily"
+### CurrentCardiovascularSymptoms
+# bloodpressure
+
+HOW_IS_YOUR_BLOOD_PRESSURE "I did have high blood pressure, but it has been normal as long as I take my medication daily."
+
+# chestpain
+
 
 # heartproblems
-Any_heart_problems "No, other than my high blood pressure"
 
-# CURRENT GYN SYMPTOMS
-#  sexual activity
-How_many_sexual_partners "Only my wife."
-Monogamous "Only my wife."
-Do_you_prefer_men_or_women "\[ Surprise4 \]Women"
-Who_are_your_sexual_partners "Only my wife."
-Are_you_sexually_active "yes, with my wife."
-When_did_you_last_have_intercourse "A week ago or so."
+ANY_HEART_PROBLEMS "No, other than my high blood pressure."
 
-#  contraception
-Do_you_use_any_other_contraception "No, my wife has gone through menopause"
-Do_you_use_protection_every_time "We don't use condoms"
-Have_you_had_unprotected_sex "Only with my wife."
-Do_you_use_contraception "My wife is on birth control pills."
+# vascular
+
+
+### CurrentGYNSymptoms
+# sexualhealth
+
+
+# contraception
+
+DO_YOU_USE_ANY_OTHER_CONTRACEPTION "No, my wife has gone through menopause."
+DO_YOU_USE_PROTECTION_EVERY_TIME  "We don't use condoms."
+HAVE_YOU_HAD_UNPROTECTED_SEX "Only with my wife."
+DO_YOU_USE_CONTRACEPTION "My wife was on birth control pills."
+
+# bleeding
+
+
+# periods
+
+
+# menstrualcycles
+
 
 # pain
-Do_you_have_any_sores_on_your_groin "No sores on my groin."
+
+DO_YOU_HAVE_ANY_SORES_ON_YOUR_GROIN "No sores on my groin."
+
+# vaginalsymptoms
 
 
-# CURRENTHEENTSYMPTOMS
+# pregnancy
+
+
+# breast
+
+
+# menopause
+
+
+### CurrentHEENTSymptoms
 # headaches
-Do_you_have_headaches "Well, I get the occasional headache if I am tired or had a really long day.   Rarely I will take a tylenol or something.  I haven't really had any of thoses lately."
+
+DO_YOU_HAVE_HEADACHES "Well, I get the occasional headache if I am tired or had a really long day. Rarely I will take a tylenol or something. I haven't really had any of thoses lately."
+
+# neckstiffness
+
+DO_YOU_HAVE_ANY_NECK_STIFFNESS "No, my neck is fine."
+
+# nasal
 
 
-# neck stiffness/soreness
-Do_you_have_any_neck_stiffness "No, my neck is fine."
-
-# CURRENTMUSCLESYMPTOMS
-# back pain
-
-# back injury
-
-# muscle pain
-
-# back stiffness
-
-# spine pain
+# eye
 
 
-# CURRENTNEUROLOGICSYMPTOMS
+### CurrentMuscleSymptoms
+# backpain
+
+
+# backinjury
+
+
+# musclepain
+
+
+# backstiffness
+
+
+# spinepain
+
+
+# legpain
+
+
+# jointpain
+
+
+### CurrentNeurologicSymptoms
 # walking
-Do_you_feel_unsteady_when_you_walk "No, I am pretty good on my feet.  "
-Can_you_climb_stairs "\[ Pain2 \]They are painful to climb since I have to tilt my back"
-Are_you_able_to_walk "\[ Pain3 \]I can walk around my house and go where I need to go but I haven't been able to run without pain."
-Are_you_able_to_sit "I have no pain while sitting."
-Did_You_fall "No I did not fall."
+
+DO_YOU_FEEL_UNSTEADY_WHEN_YOU_WALK "No, I am pretty good on my feet."
+CAN_YOU_CLIMB_STAIRS "\[ Pain2 \]hey are painful to climb since I have to tilt my back."
+ARE_YOU_ABLE_TO_WALK "\[ Pain2 \]I can walk around my house and go where I need to go but I haven't been able to run without pain."
+ARE_YOU_ABLE_TO_SIT "I have no pain while sitting."
+DID_YOU_FALL "No, I did not fall."
 
 # numbness
-Do_you_have_numbness_or_tingling "No numbness or tingling."
+
+DO_YOU_HAVE_NUMBNESS_OR_TINGLING "No numbness or tingling."
 
 # weakness
-Do_you_have_any_weakness "No, I haven't felt weakness in my back or legs."
+
+DO_YOU_HAVE_ANY_WEAKNESS "No, I haven't felt weakness in my back or legs."
 
 # dizziness
-Are_you_dizzy "I've been feeling a little off for 3 weeks, especially when I bend over or move quickly.  I mostly feel like I'm going to fall over at times"
-How_long_have_you_been_dizzy "about 3 weeks"
-Have_you_noticed_spinning "not really, I just usually feel lightheaded and off when I have one of these spells"
-Have_you_fainted "I've felt a littly tippy when I bend over or move quickly, but I've never passed out"
 
-# CURRENTPAINSYMPTOMS
-# Onset
+HOW_LONG_HAVE_YOU_BEEN_DIZZY "About 3 weeks."
+HAVE_YOU_NOTICED_SPINNING "Not really, I just usually feel lightheaded and off when I have one of these spells."
+HAVE_YOU_FAINTED "I've felt a littly tippy when I bend over or move quickly, but I've never passed out."
+ARE_YOU_DIZZY "I've been feeling a little off for 3 weeks, especially when I bend over or move quickly. I mostly feel like I'm going to fall over at times."
 
-# Exacerbation
+### CurrentPainSymptoms
+# onset
 
-# Intensity
 
-# General
+# exacerbation
 
-# Description
-Does_the_pain_radiate  "No, I'm not really having pain"
-Do_you_have_any_radiating_pain  "No, I'm not really having pain"
-Any_pain_on_right_side  "No, I'm not really having pain"
-Any_pain_on_left_side "No, I'm not really having pain"
-Is_the_pain_on_one_side  "No, I'm not really having pain"
-Is_the_pain_sharp  "No, I'm not really having pain"
-Is_the_pain_dull  "No, I'm not really having pain"
-Is_the_area_tender  "\[ Pain2 \]No, I'm not really having pain"
-Is_the_pain_in_the_muscle  "No, I'm not really having pain"
-How_did_it_feel  "\[ Pain2 \]It mostly feels like I am lightheaded and tired.  The symptoms get worse when I move quickly or bend over"
 
-# CURRENTTREATMENTS
-Have_you_tried_a_heating_pad "no"
-Have_you_tried_heat_or_ice "no"
-Have_you_tried_heat "no"
-Have_you_tried_ice "no"
-Have_you_tried_any_topical_treatments "No"
-What_treatment_would_you_like_to_try "I have no idea. I was hoping you would suggest something."
-Have_you_tried_any_treatment "I have not tried anything , except resting"
-What_treatment_have_you_tried "I have not tried anything yet except for resting"
-Have_you_had_any_imaging_done "No, maybe I should get an MRI or something.  I really want to see what is wrong.  There has got to be some problem causing all this dizziness and light headedness"
-Do_you_think_that_would_help "I have no idea.  Maybe a medicine to help me be less dizzy"
-Run_some_tests "Sure, whatever youthink is neccessary."
-Did_you_go_to_the_hospital "No, not for this."
-Will_you_see_a_physical_therapist "Sure, if you think it's worth a try."
-Have_you_had_physical_therapy "No,  I have never had any trouble before but I have heard it can make a lot of difference and usually is the first thing to try."
+# intensity
 
-# PAST GENERAL SYMPTOMS
+
 # general
-Have_you_ever_had_any_serious_illnesses  "My only issue has been high blood pressure that has been controlled for the past 5 years"
-Have_you_ever_had_any_chronic_illnesses "just high blood pressure, that has been controlled the past 5 years"
-Have_you_ever_been_in_an_accident "No, never"
-What_is_your_past_medical_history "I have had High blood pressure that has been controlled for the last 5 years with a daily medication"
 
-# past surgical history and hospitalizations
-Any_other_surgeries "No surgeries that I recall."
-Any_surgery_problems "No surgery problems  that I am aware of but then again I have never had a surgery."
-Any_prior_surgeries "I have never had any surgeries.  I have gotten stitches a few times when I have done stupid things like slice my finger but I haven't had any in years."
-Any_other_hospitalizations "No hospitalizations that I can remember."
-Ever_been_in_the_hospital "No hospitalizations that I can remember."
 
-# sleeping problems
-Any_history_of_insomnia "I've always slept fine.  I usually watch some sort or sports until ten or eleven and then go to bed.  I am kind of a morning person so I don't have any trouble falling alseep."
+# description
 
-# PAST ABDOMINAL SYMPTOMS
+DOES_THE_PAIN_RADIATE  "No, I'm not really having pain."
+DO_YOU_HAVE_ANY_RADIATING_PAIN  "No, I'm not really having pain."
+ANY_PAIN_ON_RIGHT_SIDE "No, I'm not really having pain."
+ANY_PAIN_ON_LEFT_SIDE "No, I'm not really having pain."
+IS_THE_PAIN_ON_ONE_SIDE "No, I'm not really having pain."
+IS_THE_PAIN_SHARP  "No, I'm not really having pain."
+IS_THE_PAIN_DULL  "No, I'm not really having pain."
+IS_THE_AREA_TENDER "\[ Pain2 \]No, I'm not really having pain."
+IS_THE_PAIN_IN_THE_MUSCLE "No, I'm not really having pain."
+HOW_DID_IT_FEEL "It mostly feels like I am lightheaded and tired. The symptoms get worse when I move quickly or bend over."
+
+### CurrentRespiratorySymptoms
+# breathing
+
+
+# cough
+
+
+### CurrentTreatments
+# treatmentstried
+
+HAVE_YOU_TRIED_A_HEATING_PAD "No."
+HAVE_YOU_TRIED_HEAT_OR_ICE "No."
+HAVE_YOU_TRIED_HEAT "No."
+HAVE_YOU_TRIED_ICE "No."
+HAVE_YOU_TRIED_ANY_TOPICAL_TREATMENTS "No."
+WHAT_TREATMENT_WOULD_YOU_LIKE_TO_TRY "I have no idea. I was hoping you would suggest something."
+HAVE_YOU_TRIED_ANY_TREATMENT "I have not tried anything, except resting."
+ DID_THAT_HELP "It helps, but the dizziness always comes back later."
+WHAT_TREATMENT_HAVE_YOU_TRIED "I have not tried anything yet except for resting."
+HAVE_YOU_HAD_ANY_IMAGING_DONE "No, maybe I should get an MRI or something. I really want to see what is wrong. There has got to be some problem causing all this dizziness and lightheadedness."
+DO_YOU_THINK_THAT_WOULD_HELP "I have no idea. Maybe a medicine would help me be less dizzy."
+RUN_SOME_TESTS "Sure, whatever you think is neccessary."
+DID_YOU_GO_TO_THE_HOSPITAL "No, not for this."
+WILL_YOU_SEE_A_PHYSICAL_THERAPIST "Sure, if you think it's worth a try."
+HAVE_YOU_HAD_PHYSICAL_THERAPY "No, I have never had any trouble before, but I have heard it can make a lot of difference and usually is the first thing to try."
+
+### PastGeneralSymptoms
+# medicalproblems
+
+HAVE_YOU_EVER_HAD_ANY_CHRONIC_ILLNESSES "Just high blood pressure, but that has been controlled for the past 5 years."
+HAVE_YOU_EVER_BEEN_IN_AN_ACCIDENT "No, never."
+HAVE_YOU_EVER_HAD_ANY_SERIOUS_ILLNESSES  "My only issue has been high blood pressure that has been controlled for the past 5 years."
+WHAT_IS_YOUR_PAST_MEDICAL_HISTORY "I have had High blood pressure that has been controlled for the last 5 years with a daily medication."
+
+# hospitalizations
+
+ANY_OTHER_SURGERIES "No surgeries that I recall."
+ANY_SURGERY_PROBLEMS "No surgery problems that I am aware of, but then again, I have never had a surgery."
+ANY_PRIOR_SURGERIES "I have never had any surgeries. I have gotten stitches a few times when I have done stupid things like slice my finger, but I haven't had any in years."
+ANY_OTHER_HOSPITALIZATIONS "No hospitalizations that I can remember."
+EVER_BEEN_IN_THE_HOSPITAL "No hospitalizations that I can remember."
+
+# sleepingproblems
+
+ANY_HISTORY_OF_INSOMNIA "I've always slept fine. I usually watch some sort or sports until ten or eleven and then go to bed. I am kind of a morning person so I don't have any trouble falling alseep."
+
+# discharge
+
+
+# itch
+
+
+# odor
+
+
+### PastAbdominalGISymptoms
 # bowel
-Have_you_had_any_past_bowel_problems "I have no problems with my bowels"
 
-# bowel and bladder
-Any_previous_bowel_or_bladder_problems "No previous bowel or bladder problems."
+HAVE_YOU_HAD_ANY_PAST_BOWEL_PROBLEMS "I have no problems with my bowels."
 
-# PAST CARDIAC SYMPTOMS
-# blood pressure
-Any_previous_blood_pressure_problems "I have had High blood pressure that has been controlled for the last 5years with a daily medication"
+# bowelandbladder
 
-# PAST GU SYMPTOMS
+ANY_PREVIOUS_BOWEL_OR_BLADDER_PROBLEMS "No previous bowel or bladder problems."
+
+# abdominalpain
+
+
+# heartburn
+
+
+### PastCardiacSymptoms
+# bloodpressure
+
+ANY_PREVIOUS_BLOOD_PRESSURE_PROBLEMS "I have had high blood pressure that has been controlled for the last 5 years with a daily medication."
+
+# chestpain
+
+
+# heartproblems
+
+
+### PastCardiovascularSymptoms
+# vascular
+
+
+### PastGYNSymptoms
+# sexualhealth
+
+WHO_WERE_YOUR_PAST_SEXUAL_PARTNERS "Just my wife."
+ANY_OTHER_PAST_SEXUAL_PARTNERS "No."
+EVER_BEEN_SEXUALLY_ACTIVE "Yes."
+
+# contraception
+
+DID_YOU_USE_ANY_OTHER_PAST_CONTRACEPTION "My wife was on birth control pills."
+DID_YOU_USE_PROTECTION_EVERY_TIME_BEFORE "No."
+HAVE_YOU_HAD_UNPROTECTED_SEX_IN_THE_PAST "Yes."
+USE_ANY_CONTRACEPTION_IN_THE_PAST "My wife was on birth control pills."
+
+# bleeding
+
+
+# periods
+
+
+# menstrualcycle
+
+
+# pain
+
+
+# vaginalsymptoms
+
+
+# pregnancy
+
+
+# breast
+
+
+### PastGUSymptoms
 # bladder
-Have_you_had_incontinence_before "No, I have never had problems with incotinence."
-Have_you_had_any_past_bladder_problems "No, I have never had problems with incotinence."
 
-# PAST HEENT SYMPTOMS
+HAVE_YOU_HAD_INCONTINENCE_BEFORE "No, I have never had problems with incontinence."
+HAVE_YOU_HAD_ANY_PAST_BLADDER_PROBLEMS "No, I have never had problems with incontinence."
+
+# pastmaleGU
+
+
+### PastHEENTSymptoms
 # headache
-Have_you_ever_had_headaches "Only when I have been dehydrated or stressed.  Ibuprofen  usually helps"
 
-# neck stiffness/soreness
-Have_you_ever_had_neck_stiffness "No, I don't feel neck stiffness except when I am really stressed out but it hasn't been an issue recently."
+EVER_HAD_HEADACHES_BEFORE "Only when I have been dehydrated or stressed. Ibuprofen usually helps."
 
-# PASTMUSCLESYMPTOMS
-# back pain
-When_have_you_had_this_back_pain "I have had only occassional back pain during my life.  I do not remember any problems"
-Have_you_had_back_pain_before  "I have had only  occassional back pain during my life.  I do not remember any problems"
-Have_you_lifted_heavy_furniture_before  "I have had only  occassional back pain during my life.  I do not remember any problems"
+# neckstiffness
 
-# back injury
-Have_you_had_back_injury_before  "I have had only occassional back pain during my life.  I do not remember having any issues."
-Have_you_had_back_surgery_before  "Nope. Never had any surgery before."
+EVER_HAD_NECK_STIFFNESS_BEFORE "No, I don't feel neck stiffness except when I am really stressed out, but it hasn't been an issue recently."
 
-# muscle pain
-Have_you_had_muscle_pain_before "I had a little back pain a few times, but never a big issue "
+# nasal
 
-# back stiffness
-Have_you_had_back_stiffness_before "Not really.  I am usually pretty active and things don't really stiffen up on me."
 
-# spine pain
-Have_you_had_spine_pain_before "No spine pain that I know of.  "
+# eye
 
-# leg pain
-Have_you_had_leg_pain_before "No leg pain that I really noticed."
 
-# PASTNEUROLOGISYMPTOMS
+### PastMuscleSymptoms
+# backpain
+
+WHEN_HAVE_YOU_HAD_BACK_PAIN_BEFORE "I have had only occassional back pain during my life. I do not remember any problems."
+HAVE_YOU_HAD_BACK_PAIN_BEFORE "I have had only occassional back pain during my life. I do not remember any problems."
+HAVE_YOU_LIFTED_HEAVY_FURNITURE_BEFORE "Yes, but without any problems."
+WHEN_WERE_YOU_LIFTING_THE_FURNITURE "Just here and there, I don't remember exactly when."
+
+# backinjury
+
+HAVE_YOU_HAD_BACK_INJURY_BEFORE "I have had only occassional back pain during my life. I do not remember having any issues."
+HAVE_YOU_HAD_BACK_SURGERY_BEFORE "Nope. Never had any surgery before."
+
+# musclepain
+
+HAVE_YOU_HAD_MUSCLE_PAIN_BEFORE "I had a little back pain a few times, but never a big issue."
+
+# backstiffness
+
+HAVE_YOU_HAD_BACK_STIFFNESS_BEFORE "Not really. I am usually pretty active and things don't really stiffen up on me."
+
+# spinepain
+
+HAVE_YOU_HAD_SPINE_PAIN_BEFORE "No spine pain that I know of."
+
+# legpain
+
+HAVE_YOU_HAD_LEG_PAIN_BEFORE "No leg pain that I really noticed."
+
+# jointpain
+
+
+### PastNeurologicSymptoms
 # walking
-Have_you_ever_had_trouble_walking ""
 
-# numbness or tingling
-Have_you_ever_had_numbness "Not in my back or legs or anything.  I seem to feel things fine."
+
+# numbness
+
+HAVE_YOU_EVER_HAD_NUMBNESS "Not in my back or legs or anything. I seem to feel things fine."
 
 # weakness
-Have_you_ever_had_weakness "No, I have never felt any weakness."
+
+HAVE_YOU_EVER_HAD_WEAKNESS "No, I have never felt any weakness."
 
 # dizziness
-Ever_been_dizzy "I really do not remember having feelings like this before. Maybe just a bit lightheaded a couple of times in the past, but it never lasted very long, like a few seconds. "
 
-# PASTPAIN
-# Onset
+EVER_BEEN_DIZZY "I really do not remember having feelings like this before. Maybe just a bit lightheaded a couple of times in the past, but it never lasted very long, like a few seconds."
 
-# Intensity
-Rate_the_pain "I am not having any pain"
-Can_you_rate_the_past_pain  "I am not having any pain"
-Can_you_rate_your_past_pain "I have not had any significant back pain"
-How_painful_was_past_pain "I have not had any significant back pain"
-Did_the_past_pain_hurt_a_lot  "It was a little painful, but the Tylenol took care of it."
-
-# Description
-Did_the_past_pain_radiate "Not that I have noticed.  It pretty much just stayed in my back."
-Did_you_have_past_radiating_pain "Not really, the pain pretty much just stayed in my back."
-Was_the_past_pain_on_one_side  "It was in the middle of my lower back. "
-Was_the_past_pain_sharp  "It seemed more dull and achy, not like a knife or anything."
-Was_the_past_pain_dull  "It seemed more dull and achy, not like a knife or something.  It felt more like someone was stepping on me."
-Was_the_area_tender_before  "\[ Pain2 \]A little bit maybe, but not too bad. I don't really remember."
-Was_the_past_pain_in_the_muscle  "I don't recall."
-When_did_the_pain_hurt_before "I had it for about a day, then it was gone. The Tylenol took care of it."
-How_did_it_feel_before "\[ Pain2 \]It hurt a bit for about a day. That's it."
-How_has_the_pain_progressed "Hard to say. It has probably stayed the same."
-Is_this_the_worst_pain_ever "It's the worst back pain I have ever had. "
-
-# FAMILY GENERAL SYMPTOMS
-
-Any_conditions_that_run_in_your_family "My mother died of a stroke at age 88.  My dad died of lung cancer at age 53.  I have a brother two years younger than me also treated for high blood pressure.  I have two grown  daughters who are healthy adults.  "
-Any_family_history_of_illness  "My mother died of a stroke at age 88.  My dad died of lung cancer at age 53.  I have a brother two years younger than me also treated for high blood pressure.  I have two grown  daughters who are healthy adults.  "
-Parents_have_any_medical_problems "My mother died of a stroke at age 88.  My dad died of lung cancer at age 53.  "
+### PastPainSymptoms
+# onset
 
 
-# FAMILY ABDOMINAL/GI SYMPTOMS
-# familybowel
-Family_history_of_bowel_problems "No issues that I know of"
-Bowel_or_bladder_problems_in_your_family "No issues that I know of"
+# exacerbation
 
-# FAMILY CARDIAC SYMPTOMS
-# family blood pressureMy borther has high blood pressure.  I think my mother may have had high blood pressure. 
-Family_history_of_hypertension "My borther has high blood pressure.  I think my mother may have had high blood pressure. "
 
-# FAMILY GU SYMPTOMS
-# family bladder
-Family_history_of_incontinence "No.  I didn't even know that sort of things ran in families.  As far as I know everyone pees just fine."
+# intensity
 
-# FAMILY HEENT SYMPTOMS
-# family headaches
-Family_history_of_headaches  "I do not know of anyone in the family who had headaches"
+RATE_THE_PAIN "I did not have much pain."
+CAN_YOU_RATE_THE_PAST_PAIN "I have not had much pain in the past."
+CAN_YOU_RATE_YOUR_PAST_PAIN "I have not had any significant back pain."
+HOW_PAINFUL_WAS_PAST_PAIN "I have not had any significant back pain."
+DID_THE_PAST_PAIN_HURT_A_LOT "It was a little painful, but the Tylenol took care of it."
 
-# family neck stiffness
-Family_history_of_neck_stiffness  "I do not know of anyone in the famly who has had neck issues"
+# general
 
-# FAMILY MUSCLE SYMPTOMS
-# family back pain
-Anyone_in_your_family_have_back_pain "Not that I am aware of."
 
-# family back injury
-Anyone_in_your_family_have_a_back_injury "Not that I am aware of."
+# description
 
-# family muscle pain
-Anyone_in_your_family_have_muscle_pain "Not that I am aware of."
+DID_THE_PAST_PAIN_RADIATE "Not that I have noticed. It pretty much just stayed in my back."
+DID_YOU_HAVE_PAST_RADIATING_PAIN "Not really, the pain pretty much just stayed in my back."
+WAS_THE_PAST_PAIN_IN_YOUR_LOWER_BACK "It was in the middle of my lower back."
+WAS_THE_PAST_PAIN_ON_ONE_SIDE  "It was in the middle of my lower back."
+WAS_THE_PAST_PAIN_SHARP  "It seemed more dull and achy, not like a knife or anything."
+WAS_THE_PAST_PAIN_DULL  "It seemed more dull and achy, not like a knife or anything."
+WAS_THE_AREA_TENDER_BEFORE  "\[ Pain2 \]A little bit maybe, but not too bad. I don't really remember."
+WAS_THE_PAST_PAIN_IN_THE_MUSCLE  "I don't recall."
+WHEN_DID_THE_PAIN_HURT_BEFORE "I had it for about a day, then it was gone. The Tylenol took care of it."
+HOW_DID_IT_FEEL_BEFORE "\[ Pain2 \]It hurt a bit for about a day. That's it"
+HOW_HAS_THE_PAIN_PROGRESSED "I don't really have it anymore."
+IS_THIS_THE_WORST_PAIN_EVER "No, it really wasn't too bad."
 
-# WELLNESS
+### PastRespiratorySymptoms
+# breathing
+
+
+# cough
+
+
+### FamilyGeneralSymptoms
+# medicalproblems
+
+ANY_CONDITIONS_THAT_RUN_IN_YOUR_FAMILY "My mother died of a stroke at age 88. My dad died of lung cancer at age 53. I have a brother two years younger than me also treated for high blood pressure. I have two grown daughters who are healthy adults."
+ANY_FAMILY_HISTORY_OF_ILLNESS  "My mother died of a stroke at age 88. My dad died of lung cancer at age 53. I have a brother two years younger than me also treated for high blood pressure. I have two grown daughters who are healthy adults."
+PARENTS_HAVE_ANY_MEDICAL_PROBLEMS "My mother died of a stroke at age 88. My dad died of lung cancer at age 53."
+FAMILY_HISTORY "My mother died of a stroke at age 88. My dad died of lung cancer at age 53. I have a brother two years younger than me also treated for high blood pressure. I have two grown daughters who are healthy adults."
+
+### FamilyAbdominalGISymptoms
+# bowel
+
+FAMILY_HISTORY_OF_BOWEL_PROBLEMS "No issues that I know of."
+BOWEL_OR_BLADDER_PROBLEMS_IN_YOUR_FAMILY "No issues that I know of."
+
+# abdominalpain
+
+
+### FamilyCardiacSymptoms
+# bloodpressure
+
+FAMILY_HISTORY_OF_HYPERTENSION "My brother has high blood pressure. I think my mother may have had high blood pressure."
+
+# chestpain
+
+
+# heartproblems
+
+
+### FamilyCardiovascularSymptoms
+# vascular
+
+
+### FamilyGUSymptoms
+# bladder
+
+FAMILY_HISTORY_OF_INCONTINENCE "No. I didn't even know that sort of things ran in families. As far as I know everyone pees just fine."
+
+### FamilyHEENTSymptoms
+# headache
+
+FAMILY_HISTORY_OF_HEADACHES  "I do not know of anyone in the family who had headaches."
+
+# neckstiffness
+
+FAMILY_HISTORY_OF_NECK_STIFFNESS  " do not know of anyone in the famly who has had neck issues."
+
+# nasal
+
+
+### FamilyMuscleSymptoms
+# backpain
+
+ANYONE_IN_YOUR_FAMILY_HAVE_BACK_PAIN "Not that I am aware of."
+
+# backinjury
+
+ANYONE_IN_YOUR_FAMILY_HAVE_A_BACK_INJURY "Not that I am aware of."
+
+# musclepain
+
+ANYONE_IN_YOUR_FAMILY_HAVE_MUSCLE_PAIN "Not that I am aware of."
+
+### FamilyGYNSymptoms
+# sexualhealth
+
+
+# periods
+
+
+# pregnancy
+
+HOW_MANY_CHILDREN_DID_YOUR_MOTHER_HAVE "Just me and my brother."
+
+# breast
+
+FAMILY_HAD_CANCER "My father had lung cancer, but that's about it."
+
+### FamilyPainSymptoms
+# pain
+
+
+### FamilyRespiratorySymptoms
+# breathing
+
+
+# cough
+
+
+### NeonatalCounseling
+# neonatalcounseling
+
+
+### Wellness
 # vaccines
-have_you_been_vaccinated_for_MMR "I am not sure I had this vaccine.  I had measles and mumps as a child"
-have_you_been_vaccinated_for_HIB "No"
-have_you_been_vaccinated_for_hepatitis_a  "Yes, I believe I did before I did some traveling.  A couple of years ago I went to Mexico with some friends to check out a car show.  I think I needed that vaccine then."
-have_you_been_vaccinated_for_hepatitis_b "no"
-have_you_been_vaccinated_for_hepatitis "Which type? "
-have_you_had_hpv_vaccine "I don't think so.   Isn't that for teenage girls?  "
-have_you_had_flu_shot "Yes, the last time I was supposed to "
-have_you_had_the_pneumonia_vaccine "Yes, I had one just after I turned age 65"
-have_you_received_your_shingles_vaccine  "Yes, I had one just about the time I retired"
-when_was_your_last_tetanus_shot "I had my last booster within the last 5 years "
-are_you_current_on_vaccinations "I am current on vaccinations."
+
+HAVE_YOU_BEEN_VACCINATED_FOR_MMR "I am not sure I had this vaccine. I had measles and mumps as a child."
+HAVE_YOU_BEEN_VACCINATED_FOR_HIB "No."
+HAVE_YOU_BEEN_VACCINATED_FOR_HEPATITIS_A  "Yes, I believe I did before I did some traveling. A couple of years ago I went to Mexico with some friends to check out a car show. I think I needed that vaccine then."
+HAVE_YOU_BEEN_VACCINATED_FOR_HEPATITIS_B "No."
+HAVE_YOU_BEEN_VACCINATED_FOR_HEPATITIS "Which type?"
+HAVE_YOU_HAD_HPV_VACCINE "I don't think so. Isn't that for teenage girls?"
+HAVE_YOU_HAD_FLU_SHOT "Yes, the last time I was supposed to."
+HAVE_YOU_HAD_THE_PNEUMONIA_VACCINE "Yes, I had one just after I turned age 65."
+HAVE_YOU_RECEIVED_YOUR_SHINGLES_VACCINE "Yes, I had one just about the time I retired."
+WHEN_WAS_YOUR_LAST_TETANUS_SHOT "I had my last booster within the last 5 years."
+ARE_YOU_CURRENT_ON_VACCINATIONS "I am current on vaccinations."
+
+# seeingadoctor
+
+WHEN_DID_YOU_SEE_A_DOCTOR_LAST "I was here about 6 months ago for a blood pressure check."
+DO_YOU_HAVE_A_DOCTOR "Yes, I have a regular primary care physician."
+DO_YOU_HAVE_ANNUAL_EXAMS "Yes."
+HAVE_YOU_SEEN_A_DOCTOR "Yes, I have a regular primary care physician."
+DID_YOU_HAVE_ANY_TROUBLE_FINDING_US "No, it was pretty easy to get here. In general I know the area really well."
+DID_YOU_FIND_A_PARKING_SPOT "I had no problems parking. Things around here are actually pretty easy. There are a lot of clear signs."
+HOW_DID_YOU_GET_HERE_TODAY "I was able to drive my car."
+HOW_DID_YOU_COME_TO_FIND_US "I have been coming here for a long time. My wife set up the initial appointment."
+HOW_DID_YOU_LEARN_ABOUT_THIS_OFFICE  "I have been here before for my blood pressure checks."
+HAVE_YOU_BEEN_SEEN_AT_THIS_OFFICE_BEFORE  "I have been coming here for a long time. My wife set up the initial appointment."
+ARE_YOU_A_NEW_PATIENT "No, I have been coming here for my blood pressure checks."
+WHERE_ARE_YOU_USUALLY_SEEN "Well, this office is the only one that I have ever been.  Do you have other offices in the area?"
+HAVE_YOU_BEEN_WAITING_LONG "I have not been waiting very long. I am pretty impressed by how quickly things have moved. I always hear about long waits at doctor's offices, but I have not had any trouble with that here."
+
+# mentalhealth
 
 
-# seeing a doctor
-When_did_you_see_a_doctor_last "I was here about 6 months ago for a blood pressure check"
-Do_you_have_a_doctor "Yes, I have a regular primary care physicians"
-Did_you_have_any_trouble_finding_us "No, it was pretty easy to get here.  In general I know the area really well.  ."
-Did_you_find_a_parking_spot "I had no problems parking.  Things around here are actually pretty easy.  There are a lot of clear signs."
-How_did_you_get_here_today "I was able to drive my car"
-How_did_you_come_to_find_us "I have been coming here for a long time.  My wife set up the initial appointment"
-How_did_you_learn_about_this_office  "I have been here before for my blood pressure checks"
-Have_you_been_seen_at_this_office_before  "I have been coming here for a long time.  My wife set up the initial appointment"
-Are_you_a_new_patient "No, I have been coming here for my blood pressure checks"
-Where_are_you_usually_seen "Well, this office is the only one that I have ever been.  Do you have other offices in the area?"
-Have_you_been_waiting_long "I have not been waiting very long.  I am pretty impressed by how quickly things have moved.  I always hear about long waits at doctor's offices, but I have not had any trouble with that. "
+# relationshiphealth
 
-# MOVEMENTS
-# range of motion
-Did_you_bend_down "I might have bent a little bit when I got injured but I have been avoiding bending.  "
-Can_you_bend_down "I can, it is just that I get a little dizzy when I stand back up."
-Can_you_touch_you_toes "\[ Fear1 \] I can, but I might get dizzy when I stand back up."
 
-# past range of motion
+### Movements
+# currentrangeofmotion
 
-# CHITCHAT
+DID_YOU_BEND_DOWN "I might have bent a little bit when I get dizzy, but I have been avoiding bending."
+CAN_YOU_BEND_DOWN "I can, it is just that I get a little dizzy when I stand back up."
+CAN_YOU_TOUCH_YOU_TOES "\[ Fear1 \]I can, but I might get dizzy when I stand back up."
+
+# pastrangeofmotion
+
+
+### ChitChat
 # weatherquestions
-What_is_it_like_outside "It seems ok. I hope it doesn't rain. "
-Is_it_starting_to_get_cold_outside "I don't know, I haven't been outside in a while.  I hope not."
-It_is_starting_to_get_cold_outside "\[ Surprise1 \]Really? I haven't been outside in a while."
-Is_it_still_raining "I don't know, I haven't been outside in quite a while."
-What_do_you_think_about_this_weather "It seems ok. I hope it doesn't rain. "
+
+WHAT_IS_IT_LIKE_OUTSIDE "It seems ok. I hope it doesn't rain."
+IS_IT_STARTING_TO_GET_COLD_OUTSIDE "I don't know, I haven't been outside in a while.  I hope not."
+IS_IT_STILL_RAINING "I don't know, I haven't been outside in quite a while."
+WHAT_DO_YOU_THINK_ABOUT_THIS_WEATHER "It seems ok. I hope it doesn't rain."
 
 # seasonquestions
-Doesn't_seem_like_summer_any_more   "The seasons seem to change quickly these days.  I really hate the cold.  I can' t stand being trapped indoors."
+
+DOESN'T_SEEM_LIKE_SUMMER_ANY_MORE "The seasons seem to change quickly these days. I really hate the cold. I can't stand being trapped indoors."
 
 # sportsquestions
-see_game "Man it was crazy.  I couldn’t believe that call at the end.  I don't get to watch sports very often but I do like the Buckeyes!"
-What_do_you_think_about_the_buckeyes  "I like their chances this season, especially with that new freshman.  I'm not into sports that much but I do like the Buckeyes!"
+
+SEE_GAME "Man, it was crazy. I couldnï¿½t believe that call at the end. I don't get to watch sports very often, but I do like the Buckeyes!"
+WHAT_DO_YOU_THINK_ABOUT_THE_BUCKEYES  "I like their chances this season, especially with that new freshman. I'm not into sports that much, but I do like the Buckeyes!"
 
 # readingquestions
-Read_any_good_books_lately "Yes, my wife and I just finished reading Unbroken.  What a story.  I think the guy just died recently. "
+
+READ_ANY_GOOD_BOOKS_LATELY "Yes, my wife and I just finished reading Unbroken. What a story. I think the guy just died recently."
 
 # watchingquestions
-Seen_any_good_movies_lately "I really haven't watched many movies lately"
-Watch_NCIS_last_night "Yes, I my wife and I like the show"
 
-# hobbyquestions
-Do_you_have_any_hobbies "I refinish furniture and I like to fish"
+SEEN_ANY_GOOD_MOVIES_LATELY "I really haven't watched many movies lately."
+WATCH_NCIS_LAST_NIGHT "Yes, my wife and I like the show."
 
 # politicsquestions
-Who_are_you_going_to_vote_for "\[ Contempt \]I really don't like to discuss politics"
+
+WHO_ARE_YOU_GOING_TO_VOTE_FOR "\[ Contempt \]I really don't like to discuss politics."
 
 # restaurantquestions
-Been_to_any_good_restaurants_lately "We eat out every once in a while.  My wife and I enjoy a meal at Bravo! Every once in a while"
+
+BEEN_TO_ANY_GOOD_RESTAURANTS_LATELY "We eat out every once in a while. My wife and I enjoy a meal at Bravo! Every once in a while."
 
 # howwasyourdayquestions
-How_was_your_day "My '_0 was just fine, thanks for asking. If it weren't for my concern about dizziness, I would be feeling ok,  I am a little tired"
-How_has_your_day_been_going "My '_0 was just fine, thanks for asking. If it weren't for myconcern about dizziness, I would be feeling ok.  I am a little tired"
+
+HOW_WAS_YOUR_DAY "My '_0 was just fine, thanks for asking. If it weren't for my concern about dizziness, I would be feeling ok. I am a little tired."
+HOW_HAS_YOUR_DAY_BEEN_GOING "My '_0 was just fine, thanks for asking. If it weren't for my concern about dizziness, I would be feeling ok. I am a little tired."
 
 # feelingquestions
-Are_you_frustrated "I really just want to know what is going on and find out what I need to do to not be dizzy anymore"
-Are_you_nervous "Well I am a little anxious that I might have some problem with by brain or ears as the dizziness worries me a little"
 
-# CLOSURE
+ARE_YOU_FRUSTRATED "I really just want to know what is going on and find out what I need to do to not be dizzy anymore."
+ARE_YOU_NERVOUS "Well, I am a little anxious that I might have some problem with by brain or ears as the dizziness worries me a little."
+
+### Closure
 # closure
-Do_you_have_any_questions ^"^print(  [No] [No, I think that's all. Thank you for your time])"
-Anything_else_I_can_help_with "No, thank you for seeing me.  Hopefully we can get this dizziness taken care of and I can get back to my usual activities."
-Have_everything_you_need "Yes, thank you.  Just tell me what to try and I will do my best.  I really want to get this fixed."
-Have_all_the_information "\[ Happy1 \]OK Thanks."
-Do_an_exam_now "Sounds good,  I hope you can tell me what is wrong."
-Goodbye ^"^print(\[ Happy2 \][Goodbye then] [Goodbye and thanks])"
-Thanks "\[ Happy2 \]Thank you"
+
+DO_YOU_HAVE_ANY_QUESTIONS "No, I think that's all. Thank you for your time."
+ANYTHING_ELSE_I_CAN_HELP_WITH "No, thank you for seeing me. Hopefully we can get this dizziness taken care of and I can get back to my usual activities."
+HAVE_EVERYTHING_YOU_NEED "Yes, thank you. Just tell me what to try and I will do my best. I really want to get this fixed."
+HAVE_ALL_THE_INFORMATION "\[ Happiness2 \]OK, thanks."
+DO_AN_EXAM_NOW "Sounds good, I hope you can tell me what is wrong."
+GOODBYE "\[ Happiness2 \]Goodbye, and thanks!"
+THANKS "\[ Happiness2 \]Thank you."
 
 # summarize
-Can_you_summarize "Well, I started having dizziness about 3 weeks ago when I bent over to tie my shoes.  The dizziness lasted about a week.  The problem has gotten worse as I feel dizzy when I get up quickly.  I have to sit down in order to be steady.  I am also more tired than usual."
-To_summarize ^"^print([That sounds about right] [I think that is correct])" 
-Did_I_miss_anything "I don't think so."
+
+CAN_YOU_SUMMARIZE "Well, I started having dizziness about 3 weeks ago when I bent over to tie my shoes. The dizziness lasted about a week. The problem has gotten worse as I feel dizzy when I get up quickly. I have to sit down in order to be steady. I am also more tired than usual."
+TO_SUMMARIZE "That sounds about right."
+DID_I_MISS_ANYTHING "I don't think so."
+
+### Screening
+# general
 
 
-# SCREENING
-# colon section
-have_you_had_a_colonoscopy "Yes, I had a colonoscopy a few years ago that was normal"
+# colonsection
 
-# male GU section
-have_you_had_a_prostate_exam "No, my doctor never suggested that I have a prostate exam."
+HAVE_YOU_HAD_A_COLONOSCOPY "Yes, I had a colonoscopy a few years ago that was normal."
 
-
-# family life
-Do_you_have_a_family "I have my wife and one brother."
-Do_you_have_any_pets "No pets. They are too much trouble."
-How_is_your_family "My wife is very healthy. "
-Who_do_you_live_with "I live with my wife of 45 years."
-Do_you_live_alone "I live with my wife of 45 years."
-Where_do_you_live "We live in the house we bought when we were first married."
-Where_is_home "I live in Prior Hall at the OSU College of Medicine."
-
-# parents_information
-Are_your_parents_living "My mom died when she was 88 and my dad died when he was 53."
-Are_your_parents_healthy "My parents are both deceased."
-How_old_are_your_parents "My parents are both deceased."
-Tell_me_about_your_parents "My parents are both deceased. My mother died of a stroke at age 88 and my father died from lung cancer at 533. He smoked all of his life."
+# breastsection
 
 
-# grandparents_information
-Are_your_grandparents_living "All of my grandparents are deceased."
-How_old_are_your_grandparents "All of my grandparents are deceased."
-Are_your_grandparents_healthy  "All of my grandparents are deceased."
-Tell_me_about_your_grandparents "All of my grandparents are deceased."
+# maleGUsection
 
-# siblings_information
-Do_you_have_siblings "I have one brother."
-How_old_are_your_siblings "He is 2 years older than me, so I guess that makes him 69."
-Are_your_siblings_healthy  "My brother has high blood pressure, but other than that he is healthy."
-Tell_me_about_your_siblings "I have one brother who has high blood pressure, but no other health problems."
+HAVE_YOU_HAD_A_PROSTATE_EXAM "No, my doctor never suggested that I have a prostate exam."
 
-# relatives_information
-
-# children_information
-
-# spouse_information
-Are_you_divorced "I have been married for 45 years"
-Are_you_married "I have been married for 45 years"
-	What_is_spouse_name "Her name is Jean."
-Are_you_single "I have been married for 45 years"
-Are_you_in_a_relationship "I have been married for 45 years"
-Are_you_dating_anyone "no, I have been married for 45 years"
-Do_you_have_a_boyfriend "What?"
-Do_you_have_a_girlfriend "I have a wife so I don't think she would take it well if I had a girl friend."
-Do_you_have_a_significant_other "I have a wife so I don't think she would take it well if I had a girl friend."
-Do_you_have_a_partner "I have a wife."
-Tell_me_about_your_partner "My wife is also a retired teacher who is very active volunteering at the hospital."
-How_old_is_your_partner "She is about my age."
-Is_your_partner_healthy  "yes. She also eats well and takes good care of herself like me."
-
-# support_information
-
-Are_you_abused "\[ Contempt2 \]I have no concerns about my home life."
-Do_you_feel_safe "Yes. I feel safe.  We live in a very nice area and know all of our neighbors."
-Do_you_have_support_at_home "\[ Sadness3 \]Yes. My wife is very supportive and we are very happy."
+# femaleGUsection
 
 
+# communicablediseasesection
 
-# CHIEFCOMPLAINT
+
+# prenatalcare
+
+
+# diabetes
+
+
+### Family
+# familylife
+
+DO_YOU_HAVE_A_FAMILY "I have my wife and one brother."
+DO_YOU_HAVE_ANY_PETS "No pets. They are too much trouble."
+HOW_IS_YOUR_FAMILY "My wife is very healthy."
+WHO_DO_YOU_LIVE_WITH "I live with my wife of 45 years."
+DO_YOU_LIVE_ALONE "I live with my wife of 45 years."
+WHERE_DO_YOU_LIVE "We live in the house we bought when we were first married."
+WHERE_IS_HOME "Here in Columbus."
+
+# parentsinformation
+
+ARE_YOUR_PARENTS_LIVING "My mom died when she was 88 and my dad died when he was 53."
+HOW_OLD_ARE_YOUR_PARENTS "My parents are both deceased."
+ARE_YOUR_PARENTS_HEALTHY "My parents are both deceased."
+TELL_ME_ABOUT_YOUR_PARENTS "My parents are both deceased. My mother died of a stroke at age 88 and my father died from lung cancer at 533. He smoked all of his life."
+
+# grandparentsinformation
+
+ARE_YOUR_GRANDPARENTS_LIVING "All of my grandparents are deceased."
+HOW_DID_GRANDPARENTS_DIE "I don't know."
+HOW_OLD_ARE_YOUR_GRANDPARENTS "All of my grandparents are deceased."
+ARE_YOUR_GRANDPARENTS_HEALTHY  "All of my grandparents are deceased."
+TELL_ME_ABOUT_YOUR_GRANDPARENTS "All of my grandparents are deceased."
+
+# siblingsinformation
+
+HOW_OLD_ARE_YOUR_SIBLINGS "He is 2 years older than me, so I guess that makes him 69."
+ARE_YOUR_SIBLINGS_HEALTHY  "My brother has high blood pressure, but other than that he is healthy."
+TELL_ME_ABOUT_YOUR_SIBLINGS "I have one brother who has high blood pressure, but no other health problems."
+DO_YOU_HAVE_SIBLINGS "I have one brother."
+
+# relativesinformation
+
+
+# childreninformation
+
+HOW_MANY_CHILDREN "I have two daughters."
+HOW_OLD_ARE_YOUR_CHILDREN "They are 37 and 42."
+ARE_YOUR_CHILDREN_HEALTHY  "Yes, they are very healthy."
+HOW_ARE_YOUR_CHILDREN "They are healthy."
+DO_YOU_WANT_CHILDREN "No, I think I'm good with what I have."
+DO_YOU_HAVE_ANY_CHILDREN "Yes."
+TELL_ME_ABOUT_YOUR_CHILDREN "I have two daughters. They are 37 and 42. Both are healthy."
+
+# spouseinformation
+
+ARE_YOU_DIVORCED "I have been married for 45 years."
+HOW_LONG_HAVE_YOU_BEEN_MARRIED "I have been married for 45 years."
+ARE_YOU_SINGLE "I have been married for 45 years."
+ARE_YOU_IN_A_RELATIONSHIP "I have been married for 45 years."
+ARE_YOU_DATING_ANYONE "No, I have been married for 45 years."
+ARE_YOU_WIDOWED "I have been married for 45 years."
+IS_YOUR_PARTNER_HEALTHY  "Yes. She also eats well and takes good care of herself like me."
+DO_YOU_HAVE_A_BOYFRIEND "What?"
+DO_YOU_HAVE_A_GIRLFRIEND "I have a wife, so I don't think she would take it well if I had a girlfriend."
+DO_YOU_HAVE_A_SIGNIFICANT_OTHER "I have my wife."
+TELL_ME_ABOUT_YOUR_PARTNER "My wife is also a retired teacher who is very active volunteering at the hospital."
+HOW_OLD_IS_YOUR_PARTNER "She is about my age."
+DO_YOU_HAVE_A_PARTNER "I have a wife."
+WHAT_IS_YOUR_PARTNERS_NAME "Her name is Jean."
+IS_YOUR_PARTNER_MALE "No."
+IS_YOUR_PARTNER_FEMALE "Yes."
+ARE_YOU_MARRIED "I have been married for 45 years."
+
+# supportinformation
+
+ARE_YOU_ABUSED "\[ Contempt2 \]I have no concerns about my home life."
+DO_YOU_FEEL_SAFE "Yes. I feel safe. We live in a very nice area and know all of our neighbors."
+DO_YOU_HAVE_SUPPORT "Yes. My wife is very supportive, and we are very happy."
+WHO_SUPPORTS_YOU "My wife."
+
+### HOPIChiefcomplaint
 # onset
-Did_anything_happen_to_cause_the_1 "It started with feeling a little dizzy and light headed when I bent over to tie my shoes.  The lightheadedness lasted for about a week"
-How_did_the_1_start "\[ Pain2 \] It started with feeling a little dizzy and light headed when I bent over to tie my shoes.  The lightheadedness lasted for about a week"
-Doing_anything_when_the_1_started "It started with feeling a little dizzy and light headed when I bent over to tie my shoes.  The lightheadedness lasted for about a week"
-Was_the_onset_sudden1 "Yes, it started just as I was bending over to tie my shoes"
-Did_the_1_start_immediately "Yes, it started just as I was bending over to tie my shoes"
-Is_the_1_new "Yes, I have never felt like this before"
-Is_this_the_first_time_for_1 "Yes, I have never felt like this before"
-When_did_the_1_start "It started about 3 weeks ago when I bent over to tie my shoes"
-1_worse_morning_or_night "\[ Sad2 \] It may be a little worse after being up all day as I am a little more tired"
-How_has_the_1_changed "\[ Fear1 \]  The dizziness and lightheadedness are worse with moving too quickly"
-How_long_have_you_had_1 "About 3 weeks"
-Is_the_1_constant "\[ Fear2 \] The fatigue is now constant.  I seem to have more lightheadedness when I move quickly or bend over"
-Do_you_have_a_cause_for_1 "\[ Pain3 \]I really don't, but I am worried there may be something wrong with my brain"
+
+DID_ANYTHING_HAPPEN_TO_CAUSE_THE_1 "It started with feeling a little dizzy and lightheaded when I bent over to tie my shoes. The lightheadedness lasted for about a week."
+HOW_DID_THE_1_START "\[ Pain2 \]It started with feeling a little dizzy and lightheaded when I bent over to tie my shoes. The lightheadedness lasted for about a week."
+DOING_ANYTHING_WHEN_THE_1_STARTED "It started with feeling a little dizzy and lightheaded when I bent over to tie my shoes. The lightheadedness lasted for about a week."
+WAS_THE_ONSET_SUDDEN1 "Yes, it started just as I was bending over to tie my shoes."
+DID_THE_1_START_IMMEDIATELY "Yes, it started just as I was bending over to tie my shoes."
+IS_THE_1_NEW "Yes, I have never felt like this before."
+IS_THIS_THE_FIRST_TIME_FOR_1 "Yes, I have never felt like this before."
+WHEN_DID_THE_1_START "It started about 3 weeks ago when I bent over to tie my shoes."
+HOW_HAS_THE_1_CHANGED "\[ Fear1 \]The dizziness and lightheadedness are worse with moving too quickly."
+HOW_LONG_HAVE_YOU_HAD_1 "About 3 weeks."
+IS_THE_1_CONSTANT "\[ Fear2 \]The fatigue is now constant. I seem to have more lightheadedness when I move quickly or bend over."
+DO_YOU_HAVE_A_CAUSE_FOR_1 "\[ Pain3 \]I really don't, but I am worried there may be something wrong with my brain."
 
 # exacerbation
-What_makes_the_1_worse "\[ Pain3 \] Bending down or moving too quickly causes me to feel dizzy and lightheaded"
-Does_anything_change_1_intensity "\[ Pain4 \] Bending down or moving too quickly causes me to feel dizzy and lightheaded"
-What_have_you_tried_for_the_1 "I've tried resting, which helps a little.  I have not tried any medication"
-Have_you_tried_anything_for_the_1 "I've tried resting, which helps a little.  I have not tried any medication"
-What_makes_the_1_better "\[ Sad2 \] If I don't move, I am less dizzy and lightheaded.  "
-Does_anything_else_help_the_1 "I haven't tried anything other than resting."
-Have_you_tried_anything_else_for_1 "I haven't tried anything other than resting."
-Have_you_tried_anything_else1 "I haven't tried anything other than resting."
-Have_you_tried_any_other_methods1 "I haven't tried anything other than resting."
-What_else_have_you_tried_for_1 "I haven't tried anything other than resting."
-What_else_have_you_tried1 "I haven't tried anything other than resting."
-Does_moving_increase_the_1 "\[ Fear2 \] Bending down or moving too quickly causes me to feel dizzy and lightheaded"
-Does_any_position_relieve_the_1 "Resting helps a little, but not much"
-Does_any_position_make_the_1_worse "\[ Pain5 \] Bending down or moving too quickly causes me to feel dizzy and lightheaded"
-Do_any_positions_make_1_worse_or_better "Bending down or moving too quickly causes me to feel dizzy and lightheaded"
-Can_you_move_around_with_the_1 "I can move around, but I feel more dizzy and lightheaded"
-Is_1_worse_when_you_lie_down "Its a little better when I lie down"
-Do_you_have_1_when_you_lie_down "Its a little better when I lie down"
-Is_1_better_when_you_lie_down "Its a little better when I lie down"
-Does_1_increase_when_you_stand "I'm a little more tired when I stand.  I am a little more lightheaded"
-Does_the_1_improve_with_exercise "No, I don't think exercise would help"
-Does_the_1_keep_you_up_at_night "no"
-Avoid_exacerbate_1 "I rest as much as possible and move as little as possible"
-Is_the_1_improving "\[ Fear2 \] No, it is definitely getting worse "
+
+WHAT_MAKES_THE_1_WORSE "\[ Pain3 \]Bending down or moving too quickly causes me to feel dizzy and lightheaded."
+DOES_ANYTHING_CHANGE_1_INTENSITY "\[ Pain4 \]Bending down or moving too quickly causes me to feel dizzy and lightheaded."
+WHAT_HAVE_YOU_TRIED_FOR_THE_1 "I've tried resting, which helps a little. I have not tried any medication."
+HAVE_YOU_TRIED_ANYTHING_FOR_THE_1 "I've tried resting, which helps a little. I have not tried any medication."
+WHAT_MAKES_THE_1_BETTER "\[ Sadness2 \]If I don't move, I am less dizzy and lightheaded."
+DOES_ANYTHING_ELSE_HELP_THE_1 "I haven't tried anything other than resting."
+HAVE_YOU_TRIED_ANYTHING_ELSE_FOR_1 "I haven't tried anything other than resting."
+HAVE_YOU_TRIED_ANYTHING_ELSE1 "I haven't tried anything other than resting."
+HAVE_YOU_TRIED_ANY_OTHER_METHODS1 "I haven't tried anything other than resting."
+WHAT_ELSE_HAVE_YOU_TRIED_FOR_1 "I haven't tried anything other than resting."
+WHAT_ELSE_HAVE_YOU_TRIED1 "I haven't tried anything other than resting."
+DOES_MOVING_INCREASE_THE_1 "\[ Fear2 \]Bending down or moving too quickly causes me to feel dizzy and lightheaded."
+DOES_ANY_POSITION_RELIEVE_THE_1 "Resting helps a little, but not much."
+DOES_ANY_POSITION_MAKE_THE_1_WORSE "\[ Pain4 \]Bending down or moving too quickly causes me to feel dizzy and lightheaded."
+DO_ANY_POSITIONS_MAKE_1_WORSE_OR_BETTER "Bending down or moving too quickly causes me to feel dizzy and lightheaded."
+CAN_YOU_MOVE_AROUND_WITH_THE_1 "I can move around, but I feel more dizzy and lightheaded."
+IS_1_WORSE_WHEN_YOU_LIE_DOWN "It's a little better when I lie down."
+DO_YOU_HAVE_1_WHEN_YOU_LIE_DOWN "It's a little better when I lie down."
+IS_1_BETTER_WHEN_YOU_LIE_DOWN "It's a little better when I lie down."
+DOES_1_INCREASE_WHEN_YOU_STAND "I'm a little more tired when I stand. I am also a little more lightheaded."
+DOES_THE_1_IMPROVE_WITH_EXERCISE "No, I don't think exercise would help."
+DOES_THE_1_KEEP_YOU_UP_AT_NIGHT "No."
+1_WORSE_MORNING_OR_NIGHT "\[ Sadness2 \]It may be a little worse after being up all day as I am a little more tired."
+AVOID_EXACERBATE_1 "I rest as much as possible and move as little as possible."
+IS_THE_1_IMPROVING "\[ Fear2 \]No, it is definitely getting worse."
 
 # intensity
-Is_1_more_intense "No, it is definitely getting worse"
-How_intense_is_the_1 "\[ Fear2 \] I definitely feel tired all the time now and feel as though I am more lightheaded when I move"
-Has_the_intensity1_changed "I am feeling more tired"
-Has_the_1_become_worse "I definitely feel tired all the time now and feel as though I am more lightheaded when I move"
-When_is_the_1_most_severe "Bending down or moving too quickly causes me to feel dizzy and lightheaded"
+
+IS_1_MORE_INTENSE "No, it is definitely getting worse."
+HOW_INTENSE_IS_THE_1 "\[ Fear2 \]I definitely feel tired all the time now and feel as though I am more lightheaded when I move."
+HAS_THE_INTENSITY1_CHANGED "I am feeling more tired."
+HAS_THE_1_BECOME_WORSE "I definitely feel tired all the time now and feel as though I am more lightheaded when I move."
+WHEN_IS_THE_1_MOST_SEVERE "Bending down or moving too quickly causes me to feel dizzy and lightheaded."
 
 # general
-Do_you_currently_have_1 "Right now, I am more tired than usual.  I know I will have more dizziness and lightheadedness when I move to quickly"
-How_is_your_1_now "\[ Pain1 \] Right now, I am more tired than usual.  I know I will have more dizziness and lightheadedness when I move to quickly"
-Do_you_have_any_1 "\[ Pain3 \] Right now, I am more tired than usual.  I know I will have more dizziness and lightheadedness when I move to quickly"
-Are_you_having_any_other_1 "No, I am tired, and have some dizziness and lightheadedness"
-How_else_is_the_1_affecting_your_life "\[ Fear2 \] I am not as active as I am more tired.  I also am scared about getting dizzy and falling"
-Has_the_1_stopped_you "\[ Fear2 \] I have been walking a little less, but I am still trying to be active.  I'm getting a little worried about driving."
+
+DO_YOU_CURRENTLY_HAVE_1 "Right now, I am more tired than usual. I know I will have more dizziness and lightheadedness when I move to quickly."
+HOW_IS_YOUR_1_NOW "\[ Pain1 \]Right now, I am more tired than usual. I know I will have more dizziness and lightheadedness when I move to quickly."
+DO_YOU_HAVE_ANY_1 "\[ Pain3 \]Right now, I am more tired than usual. I know I will have more dizziness and lightheadedness when I move to quickly."
+ARE_YOU_HAVING_ANY_OTHER_1 "No, I am tired, and have some dizziness and lightheadedness."
+HOW_ELSE_IS_THE_1_AFFECTING_YOUR_LIFE "\[ Fear2 \]I am not as active as I am more tired. I also am scared about getting dizzy and falling."
+HAS_THE_1_STOPPED_YOU "I have been walking a little less, but I am still trying to be active. I'm getting a little worried about driving."
 
 # description
-When_do_you_have_the_1 "I have dizziness and lightheadedness when I bend down or move too quickly"
-How_long_does_the_1_last "At first, it lasted a few minutes.  Now I am tired all the time and lightheaded when almost every time I move."
-How_frequent_is_the_1 "I'm tired most days, and have had more spells each day the last 3 weeks"
-What_concerns_you_about_the_1 "I am afraid I may have a problem in my brain "
-Where_is_the_1 ""
-Describe_the_1 "I feel dizzy and lightheaded when I bend over or move quickly."
 
-# COMPLAINT2
+HAS_THE_1_CHANGED "I think it has gotten worse. I am more tired."
+WHEN_DO_YOU_HAVE_THE_1 "I have dizziness and lightheadedness when I bend down or move too quickly."
+HOW_LONG_DOES_THE_1_LAST "At first, it lasted a few minutes. Now I am tired all the time and lightheaded when almost every time I move."
+HOW_FREQUENT_IS_THE_1 "I'm tired most days, and have had more spells each day the last 3 weeks."
+WHAT_CONCERNS_YOU_ABOUT_THE_1 "I am afraid I may have a problem in my brain."
+WHERE_IS_THE_1 "In my head, I guess?"
+DESCRIBE_THE_1 "I feel dizzy and lightheaded when I bend over or move quickly."
+
+### HOPIComplaint2
 # onset
-Did_anything_happen_to_cause_the_2 "Not that I remember"
-How_did_the_2_start "I found out I had a high blood pressure reading at a health fair about 5 years ago"
-Doing_anything_when_the_2_started "I don't remember anything that happened 5 years ago that would have started the high blood pressure"
-Was_the_onset_sudden2 "I'm not sure.  I had a high reading at a health fair and followed up with my physician.  I continued to have high readings when they took by blood pressure, so I was placed on medication.  I am doing well with the current medication"
-Did_the_2_start_immediately "I noticed it first when I bent over to tie my shoes.  If felt a little dizzy and lightheaded"
-Is_the_2_new "It started about 5 years ago"
-Is_this_the_first_time_for_2 "I dont' remember having high blood pressure until 5 years ago"
-When_did_the_2_start "It started about 5 years ago"
-2_worse_morning_or_night "My pressure is about the same anytime I take it.  It does go up a little if I am stressed, but otherwise has been ok"
-How_has_the_2_changed "My blood pressure has been stable for the past 5 years since I started on blood pressure medication"
-How_long_have_you_had_2 "I have been having problems for about 5 years"
-Is_the_2_constant "I have high blood pressure, but I have not had problems or side effects since starting the medication"
-Do_you_have_a_cause_for_2 "I'm not really sure we ever found a cause.  "
+
+DID_ANYTHING_HAPPEN_TO_CAUSE_THE_2 "Not that I remember."
+HOW_DID_THE_2_START "I found out I had a high blood pressure reading at a health fair about 5 years ago."
+DOING_ANYTHING_WHEN_THE_2_STARTED "I don't remember anything that happened 5 years ago that would have started the high blood pressure."
+WAS_THE_ONSET_SUDDEN2 "I'm not sure. I had a high reading at a health fair and followed up with my physician. I continued to have high readings when they took by blood pressure, so I was placed on medication. I am doing well with the current medication."
+DID_THE_2_START_IMMEDIATELY "I'm not sure. I had a high reading at a health fair and followed up with my physician. I continued to have high readings when they took by blood pressure, so I was placed on medication. I am doing well with the current medication."
+IS_THE_2_NEW "It started about 5 years ago."
+IS_THIS_THE_FIRST_TIME_FOR_2 "I don't remember having high blood pressure until 5 years ago."
+WHEN_DID_THE_2_START "It started about 5 years ago."
+2_WORSE_MORNING_OR_NIGHT "My pressure is about the same anytime I take it. It does go up a little if I am stressed, but otherwise has been ok."
+HOW_HAS_THE_2_CHANGED "My blood pressure has been stable for the past 5 years since I started on blood pressure medication."
+HOW_LONG_HAVE_YOU_HAD_2 "I have had this for about 5 years."
+IS_THE_2_CONSTANT "I have high blood pressure, but I have not had problems or side effects since starting the medication."
+DO_YOU_HAVE_A_CAUSE_FOR_2 "I'm not really sure we ever found a cause."
 
 # exacerbation
-What_makes_the_2_worse "Stress can raise my blood pressure.  However, it is usually well controlled if I take my blood pressure medication every day"
-Does_anything_change_2_intensity "Stress can raise my blood pressure."
-What_have_you_tried_for_the_2 "I take my blood pressure medication daily.  IF I do this my blood pressure is pretty good"
-Have_you_tried_anything_for_the_2 "I take my blood pressure medication daily.  IF I do this my blood pressure is pretty good"
-What_makes_the_2_better "Taking my blood pressure medication everyday"
-Does_anything_else_help_the_2 "Trying to stay less stressed, walk when I can and keep my weight under control"
-Have_you_tried_anything_else_for_2 "I haven't tried anything other than  blood pressure medication and walking"
-Have_you_tried_anything_else2 "I haven't tried anything other than  blood pressure medication and walking"
-Have_you_tried_any_other_methods2 "I haven't tried anything other than  blood pressure medication and walking"
-What_else_have_you_tried_for_2 "I haven't tried anything other than  blood pressure medication and walking"
-What_else_have_you_tried2 "I haven't tried anything other than  blood pressure medication and walking"
-Does_moving_increase_the_2 "Not really"
-Does_any_position_relieve_the_2 "Lying down helps a little bit, but I don't have to rest to keep my blood pressure down"
-Does_any_position_make_the_2_worse "Lying down helps a little bit, but I don't have to rest to keep my blood pressure down"
-Do_any_positions_make_2_worse_or_better "Lying down helps a little bit, but I don't have to rest to keep my blood pressure down"
-Can_you_move_around_with_the_2 "I try to walk  as much as I can.  The blood pressure does not cause problems with movement"
-Is_2_worse_when_you_lie_down "Lying down helps a little bit, but I don't have to rest to keep my blood pressure down"
-Do_you_have_2_when_you_lie_down "Lying down helps a little bit, but I don't have to rest to keep my blood pressure down"
-Is_2_better_when_you_lie_down "Lying down helps a little bit, but I don't have to rest to keep my blood pressure down"
-Does_2_increase_when_you_stand "No, not really"
-Does_the_2_improve_with_exercise "Actually, my blood pressure is better when I exercise"
-Does_the_2_keep_you_up_at_night "No.  "
-Avoid_exacerbate_2 "Stress can raise my blood pressure.  However, it is usually well controlled if I take my blood pressure medication every day"
-Is_the_2_improving "It seems to be  stable as long as I take my blood pressure medication everyday"
+
+WHAT_MAKES_THE_2_WORSE "Stress can raise my blood pressure. However, it is usually well controlled if I take my blood pressure medication every day."
+DOES_ANYTHING_CHANGE_2_INTENSITY "Stress can raise my blood pressure."
+WHAT_HAVE_YOU_TRIED_FOR_THE_2 "I take my blood pressure medication daily. If I do this my blood pressure is pretty good."
+HAVE_YOU_TRIED_ANYTHING_FOR_THE_2 "I take my blood pressure medication daily. If I do this my blood pressure is pretty good."
+WHAT_MAKES_THE_2_BETTER "Taking my blood pressure medication everyday."
+DOES_ANYTHING_ELSE_HELP_THE_2 "Trying to stay less stressed, walk when I can and keep my weight under control."
+HAVE_YOU_TRIED_ANYTHING_ELSE_FOR_2 "I haven't tried anything other than blood pressure medication and walking."
+HAVE_YOU_TRIED_ANYTHING_ELSE2 "I haven't tried anything other than blood pressure medication and walking."
+HAVE_YOU_TRIED_ANY_OTHER_METHODS2 "I haven't tried anything other than blood pressure medication and walking."
+WHAT_ELSE_HAVE_YOU_TRIED_FOR_2 "I haven't tried anything other than blood pressure medication and walking."
+WHAT_ELSE_HAVE_YOU_TRIED2 "I haven't tried anything other than blood pressure medication and walking."
+DOES_MOVING_INCREASE_THE_2 "Not really."
+DOES_ANY_POSITION_RELIEVE_THE_2 "Lying down helps a little bit, but I don't have to rest to keep my blood pressure down."
+DOES_ANY_POSITION_MAKE_THE_2_WORSE "Not that I've noticed."
+DO_ANY_POSITIONS_MAKE_2_WORSE_OR_BETTER "Lying down helps a little bit, but I don't have to rest to keep my blood pressure down."
+CAN_YOU_MOVE_AROUND_WITH_THE_2 "I try to walk  as much as I can. The blood pressure does not cause problems with movement."
+IS_2_WORSE_WHEN_YOU_LIE_DOWN "Lying down helps a little bit, but I don't have to rest to keep my blood pressure down."
+DO_YOU_HAVE_2_WHEN_YOU_LIE_DOWN "Lying down helps a little bit, but I don't have to rest to keep my blood pressure down."
+IS_2_BETTER_WHEN_YOU_LIE_DOWN "Lying down helps a little bit, but I don't have to rest to keep my blood pressure down."
+DOES_2_INCREASE_WHEN_YOU_STAND "No, not really."
+DOES_THE_2_IMPROVE_WITH_EXERCISE "Actually, my blood pressure is better when I exercise."
+DOES_THE_2_KEEP_YOU_UP_AT_NIGHT "No."
+AVOID_EXACERBATE_2 "Stress can raise my blood pressure. However, it is usually well controlled if I take my blood pressure medication every day."
+IS_THE_2_IMPROVING "It seems to be  stable as long as I take my blood pressure medication everyday."
 
 # intensity
-Is_2_more_intense "no"
-How_intense_is_the_2 "The blood pressure seems to be pretty stable and I really don't think about it being a problem"
-Has_the_intensity2_changed "My blood pressure has been stable for the past 5 years since I started on blood pressure medication.  The issue has not changed in intensity"
-Has_the_2_become_worse "no, it is stable as long as I take my blood pressure medication everyday"
-When_is_the_2_most_severe "When I am stressed, don't walk and eat poorly."
+
+IS_2_MORE_INTENSE "No."
+HOW_INTENSE_IS_THE_2 "The blood pressure seems to be pretty stable, and I really don't think about it being a problem."
+HAS_THE_INTENSITY2_CHANGED "My blood pressure has been stable for the past 5 years since I started on blood pressure medication. The issue has not changed in intensity."
+HAS_THE_2_BECOME_WORSE "No, it is stable as long as I take my blood pressure medication everyday."
+WHEN_IS_THE_2_MOST_SEVERE "When I am stressed, don't walk, and eat poorly."
 
 # general
-Do_you_currently_have_2 "My blood pressure has been stable for the past 5 years since I started on blood pressure medication.  "
-How_is_your_2_now "My blood pressure has been stable for the past 5 years since I started on blood pressure medication.  "
-Do_you_have_any_2 "My blood pressure has been stable for the past 5 years since I started on blood pressure medication.  "
-Are_you_having_any_other_2 "I I am having no other problems with my blood pressure"
-How_else_is_the_2_affecting_your_life "I don't think that my blood pressure is affecting my life other than it can remind me to walk more and eat less desserts!"
-Has_the_2_stopped_you "It has not stopped my from doing things,.  In fact, having high blood pressure started by walking at least twice a week"
+
+DO_YOU_CURRENTLY_HAVE_2 "My blood pressure has been stable for the past 5 years since I started on blood pressure medication."
+HOW_IS_YOUR_2_NOW "My blood pressure has been stable for the past 5 years since I started on blood pressure medication."
+DO_YOU_HAVE_ANY_2 "My blood pressure has been stable for the past 5 years since I started on blood pressure medication."
+ARE_YOU_HAVING_ANY_OTHER_2 "I am having no other problems with my blood pressure."
+HOW_ELSE_IS_THE_2_AFFECTING_YOUR_LIFE "I don't think that my blood pressure is affecting my life other than it can remind me to walk more and eat less desserts!"
+HAS_THE_2_STOPPED_YOU "It has not stopped my from doing things. In fact, having high blood pressure made me start walking at least twice a week."
 
 # description
-When_do_you_have_the_2 "I don't have any symptoms from my blood pressure.  I just take my blood pressure medication everyday"
-How_long_does_the_2_last ""
-How_frequent_is_the_2 ""
-What_concerns_you_about_the_2 "I havn't really been worried about my blood pressure.  I know there have been some issues in my family that could be caused by high blood pressure"
-Where_is_the_2 "There is no particular place that I have the symptoms"
-Describe_the_2 "I really do not have any symptoms of high blood pressure"
+
+WHEN_DO_YOU_HAVE_THE_2 "I don't have any symptoms from my blood pressure. I just take my blood pressure medication everyday."
+HOW_LONG_DOES_THE_2_LAST "I've had it for the last 5 years."
+HOW_FREQUENT_IS_THE_2 "I've had it for the last 5 years."
+WHAT_CONCERNS_YOU_ABOUT_THE_2 "I havn't really been worried about my blood pressure.  I know there have been some issues in my family that could be caused by high blood pressure."
+WHERE_IS_THE_2 "There is no particular place that I have the symptoms."
+DESCRIBE_THE_2 "I really do not have any symptoms of high blood pressure."
+
+### HOPIComplaint3
+# onset
+
+
+# exacerbation
+
+
+# intensity
+
+
+# general
+
+
+# description

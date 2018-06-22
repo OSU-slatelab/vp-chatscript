@@ -3,14 +3,14 @@ $patientfirstname = Ann
 $patientlastname = Tomlin
 $chiefcomplaint = ~gyn_pain
 $complaint2 = ~bowel_problems
-$complaint3 = 
+$complaint3 =
 $VPatient15 = VPatient15
 $Vpatient = VPatient15
 $patientTitle = Ms
 $currentjob = Microbiologist
-$currentmedication1 = 
-$currentmedication2 = 
-$currentmedication3 = 
+$currentmedication1 =
+$currentmedication2 =
+$currentmedication3 =
 $currentrateofpain = 6
 
 ^stdpatient()
@@ -21,73 +21,76 @@ table: ^patientdata(VPatient15)
 ### OpeningDialogue
 # primary
 
-What_do_you_think_is_the_trouble "I don't know for sure, just that I have worse cramps than ever during my period."
-What_brings_you_in_today "I have been having some problems the past year or so with cramps during my period. I am not used to it and am missing two or three days of work every month because of it."
-What_should_we_do "Well, I am hooing you can help me find out why and help stop it."
-What_is_your_goal "Well, I guess to find out why I'm having these cramps and helpthem."
-Does_anything_make_you_feel_better "Nothing that I have tried seems to help."
-Tell_me_more "I get my period every 29 days, and it lasts six to seven days. The first day is light, but the cramping starts. Then on the second and third days I am miserable with cramping pain, and one of those days I have diarrhea. Other than that, the rest of it is manageable."
+WHAT_DO_YOU_THINK_IS_THE_TROUBLE "I don't know for sure, just that I have worse cramps than ever during my period."
+WHAT_BRINGS_YOU_IN_TODAY "I have been having some problems the past year or so with cramps during my period. I am not used to it and am missing two or three days of work every month because of it."
+WHAT_SHOULD_WE_DO "Well, I am hoping you can help me find out why and help stop it."
+WHAT_IS_YOUR_GOAL "Well, I guess to find out why I'm having these cramps and help them."
+DOES_ANYTHING_MAKE_YOU_FEEL_BETTER "Nothing that I have tried seems to help."
+TELL_ME_MORE "I get my period every 29 days, and it lasts six to seven days. The first day is light, but the cramping starts. Then on the second and third days I am miserable with cramping pain, and one of those days I have diarrhea. Other than that, the rest of it is manageable."
 
 # greetings
 
-How_are_you "I have been having some problems the past year or so with cramps during my period."
-Tell_me_about_yourself "I am a 33 year old wife and mother of 2. I work as a microbiologist for a local laboratory."
+HOW_ARE_YOU "I have been having some problems the past year or so with cramps during my period."
+TELL_ME_ABOUT_YOURSELF "I am a 33 year old wife and mother of 2. I work as a microbiologist for a local laboratory."
 
 # followupdialogue
 
-Any_other_problems1 "Sometimes I have diarrhea as well, but that is only for one day at the beginning."
-Any_other_problems2 "For the entire time I have my period I am just so exhausted."
+ANY_OTHER_PROBLEMS1 "Sometimes I have diarrhea as well, but that is only for one day at the beginning."
+ANY_OTHER_PROBLEMS2 "For the entire time I have my period I am just so exhausted."
 
 ### PatientInformation
 # patientage
 
-How_old_are_you "I am 33 years old."
-When_were_you_born "April 18, 1983"
+HOW_OLD_ARE_YOU "I am 33 years old."
+WHEN_WERE_YOU_BORN "April 18, 1985."
 
 # patientname
 
-Name_and_date_of_birth "Ann Tomlin. April 18, 1983."
-What_is_your_name "Ann Tomlin"
-Do_you_mind_if_I_call_you "That is fine."
-What_should_I_call_you "You can call me Ann."
-Are_you_mr_patientlastname "Yes, I am Ann Tomlin."
-Are_you_mr_someoneelse "No, I am Ann Tomlin."
+NAME_AND_DATE_OF_BIRTH "Ann Tomlin. April 18, 1985."
+WHAT_IS_YOUR_NAME "Ann Tomlin"
+DO_YOU_MIND_IF_I_CALL_YOU "That is fine."
+WHAT_SHOULD_I_CALL_YOU "You can call me Ann."
+ARE_YOU_MR_PATIENTLASTNAME "Yes, I am Ann Tomlin."
+ARE_YOU_MR_SOMEONEELSE "No, I am Ann Tomlin."
+HELLO_MR_SOMEONEELSE "Hello Doctor, however my name is Ann Tomlin."
+MR_PATIENTLASTNAME "Yes, but please call me Ann."
+MR_SOMEONEELSE "No, I am Ann Tomlin."
 
 ### Medications
 # currentmedications
 
-Taking_medication_for_the_1  " Sometimes I try Pamprin from the drug store, and I have tried acetaminophen, but nothing regular because it did not seem to help."
-Taking_medication_for_the_3 "I have not."
-When_did_you_take_medicine "When I was on my period and having cramps."
-Need_to_take_the_medicine_that_often "I didn't take it very often or regularly since it really didn't help."
-How_often_did_you_take_the_medicine "Only during my periods."
-How_long_taking_medicine "Not long. I have only been having this trouble for a year or so now."
-Would_you_like_a_stronger_prescription "Do I need it?"
-What_is_the_strength_of_the_medicine "I don't know about the Pamprin, but the acetominophen was 325mg per tablet."
-Did_the_medicine_help "It really didn't seem to help much."
-Did_you_take_medicine_today "I did not."
-Are_you_still_taking_medicine "Only when I am on my period and actually not recently since it wasn't helpful."
-What_pills_did_you_take "I tried Pamprin and acetominophen."
-What_kind_of_medicine_is_that "I think the Pamprin was supposed to be for problems with PMS and cramps. Acetominophen is for pain."
-Doctor_prescribe_the_medicine "They are over the counter medications."
-What_is_medicine "Just for pain and cramping with periods, I think."
-Are_you_taking_any_medication "I don't take any daily medications."
- Is_medication_new "I have just tried it within the past year."
-What_were_the_pills_called "Pamprin and generic Tylenol, acetaminophen."
+TAKING_MEDICATION_FOR_THE_1  " Sometimes I try Pamprin from the drug store, and I have tried acetaminophen, but nothing regular because it did not seem to help."
+TAKING_MEDICATION_FOR_THE_3 "I have not."
+WHEN_DID_YOU_TAKE_MEDICINE "When I was on my period and having cramps."
+NEED_TO_TAKE_THE_MEDICINE_THAT_OFTEN "I didn't take it very often or regularly since it really didn't help."
+HOW_OFTEN_DID_YOU_TAKE_THE_MEDICINE "Only during my periods."
+HOW_LONG_TAKING_MEDICINE "Not long. I have only been having this trouble for a year or so now."
+WOULD_YOU_LIKE_A_STRONGER_PRESCRIPTION "Do I need it?"
+WHAT_IS_THE_STRENGTH_OF_THE_MEDICINE "I don't know about the Pamprin, but the acetominophen was 325mg per tablet."
+DID_THE_MEDICINE_HELP "It really didn't seem to help much."
+DID_YOU_TAKE_MEDICINE_TODAY "I did not."
+ARE_YOU_STILL_TAKING_MEDICINE "Only when I am on my period and actually not recently since it wasn't helpful."
+WHAT_PILLS_DID_YOU_TAKE "I tried Pamprin and acetominophen."
+WHAT_KIND_OF_MEDICINE_IS_THAT "I think the Pamprin was supposed to be for problems with PMS and cramps. Acetominophen is for pain."
+DOCTOR_PRESCRIBE_THE_MEDICINE "They are over the counter medications."
+WHAT_IS_MEDICINE "Just for pain and cramping with periods, I think."
+ARE_YOU_TAKING_ANY_MEDICATION "I don't take any daily medications."
+ IS_MEDICATION_NEW "I have just tried it within the past year."
+WHAT_WERE_THE_PILLS_CALLED "Pamprin and generic Tylenol, acetaminophen."
 
 # supplements
 
-Are_you_taking_supplements "No. I am not."
-Which_multivitamin "I don't take any vitamins."
+ARE_YOU_TAKING_SUPPLEMENTS "No. I am not."
+WHICH_MULTIVITAMIN "I don't take any vitamins."
 
 # othermedications
 
-Take_other_medication_for_1 "That's all."
+TAKE_OTHER_MEDICATION_FOR_1 "That's all."
 
 # pastmedications
 
-Ever_taken_medication_for_1 "I have really only had this happening over the past year or so, so I haven't had to take anything previously."
-Ever_taken_other_medication "I really don't take any medications."
+EVER_TAKEN_MEDICATION_FOR_1 "I have really only had this happening over the past year or so, so I haven't had to take anything previously."
+EVER_TAKEN_OTHER_MEDICATION "I really don't take any medications."
 
 ### Allergies
 # Allergies
@@ -96,56 +99,56 @@ Ever_taken_other_medication "I really don't take any medications."
 ### SocialHistory
 # activity
 
-How_often_do_you_exercise "Gosh, certainly not as much as I used to. I do try to ride bikes with my kids or go to the park every day that is nice."
-Do_you_exercise "I don't always get in an official exercise regimen every day, but I do at least 2 times per week."
-Are_you_active "I have 2 young children, so I am very active."
-How_is_your_energy "Usually I have energy, but during my period I really feel tired."
+HOW_OFTEN_DO_YOU_EXERCISE "Gosh, certainly not as much as I used to. I do try to ride bikes with my kids or go to the park every day, that is nice."
+DO_YOU_EXERCISE "I don't always get in an official exercise regimen every day, but I do get to the gym at least 2 times per week."
+ARE_YOU_ACTIVE "I have 2 young children, so I am very active."
+HOW_IS_YOUR_ENERGY "Usually I have energy, but during my period I really feel tired."
 
 # alcoholuse
 
-How_much_do_you_drink "I drink a glas of wine sometimes."
-Do_you_drink "Occasionally."
-Do_you_feel_guilty_about_your_drinking "I don't drink enough to feel guilty."
-Ever_felt_annoyed_about_alcohol "Not until now. I don't really drink that much, so why do I need to answer so many questions about it?"
-What_kind_of_drinks "If I have a drink, I usually have a glass or 2 of white wine."
-How_many_drinks "One or 2 max."
+HOW_MUCH_DO_YOU_DRINK "I drink a glass of wine probably 3 times a week with dinner."
+DO_YOU_DRINK "I drink a glass of wine 3 or 4 times a week with dinner."
+DO_YOU_FEEL_GUILTY_ABOUT_YOUR_DRINKING "I don't drink enough to feel guilty."
+EVER_FELT_ANNOYED_ABOUT_ALCOHOL "Not until now. I don't really drink that much, so why do I need to answer so many questions about it?"
+WHAT_KIND_OF_DRINKS "If I have a drink, I usually have a glass or 2 of white wine."
+HOW_MANY_DRINKS "One or 2 max."
 
 # caffeineuse
 
-Do_you_drink_coffee "I drink a cup or 2 in the mornings, but that is all. I never have coffee later in the day, I prefer tea."
+DO_YOU_DRINK_COFFEE "I drink a cup or 2 in the mornings, but that is all. I never have coffee later in the day, I prefer tea."
 
 # diet
 
-Do_you_eat_fast_food "We have it rarely. If we do it is for the kids."
+DO_YOU_EAT_FAST_FOOD "We have it rarely. If we do it is for the kids."
 
 # tobaccouse
 
 
 # education
 
-How_far_in_school "I have a PhD. In Microbiology."
-What_is_your_major "I majored in biology and microbiology"
+HOW_FAR_IN_SCHOOL "I have a PhD. In Microbiology."
+WHAT_IS_YOUR_MAJOR "I majored in biology and microbiology"
 
 # inrelationtohpi
 
-How_has_this_affected_you "Well, I have had to take a couple of days off of work each cycle and I just don't have time for that."
-Can_you_do_normal_activities "I can do everything I normally do, I  am just tired and cramping those few days out of my cycle."
-Has_the_pain_affected_your_activity "Not really."
-How_have_you_been_handling_this "Well, not too bad, except for the days when I can't go to work."
-What_bothers_you_the_most "the pain and the fact that I miss work because eof it."
+HOW_HAS_THIS_AFFECTED_YOU "Well, I have had to take a couple of days off of work each cycle and I just don't have time for that."
+CAN_YOU_DO_NORMAL_ACTIVITIES "I can do everything I normally do, I  am just tired and cramping those few days out of my cycle."
+HAS_THE_PAIN_AFFECTED_YOUR_ACTIVITY "Not really."
+HOW_HAVE_YOU_BEEN_HANDLING_THIS "Well, not too bad, except for the days when I can't go to work."
+WHAT_BOTHERS_YOU_THE_MOST "the pain and the fact that I miss work because eof it."
 
 # job
 
-Are_you_on_your_feet_a_lot "I am up and down quite a bit."
-Why_are_you_off_work "I have recently had to take off a day or 2 during the worst days of my period for cramping."
-How_long_have_you_been_off_work "I only take a day or 2 off for cramps."
-Have_you_been_off_work_because "That's right, for the cramps during my period."
-Does_the_pain_interfere_with_work "Only on the days when I have the bad cramps."
-Is_the_pain_related_to_work "I don't believe so."
-Where_do_you_work "I work at the university."
-How_long_have_you_been_a_worker "Oh my, for about 12 years now."
-Do_you_have_exposure_to_chemicals "I am a microbiologist, so I do work with some chemicals, but we follow all of the safe practice guidelines."
-What_do_you_do_for_a_living "I am a microbiologist."
+ARE_YOU_ON_YOUR_FEET_A_LOT "I am up and down quite a bit."
+WHY_ARE_YOU_OFF_WORK "I have recently had to take off a day or 2 during the worst days of my period for cramping."
+HOW_LONG_HAVE_YOU_BEEN_OFF_WORK "I only take a day or 2 off for cramps."
+HAVE_YOU_BEEN_OFF_WORK_BECAUSE "That's right, for the cramps during my period."
+DOES_THE_PAIN_INTERFERE_WITH_WORK "Only on the days when I have the bad cramps."
+IS_THE_PAIN_RELATED_TO_WORK "I don't believe so."
+WHERE_DO_YOU_WORK "I work at the university."
+HOW_LONG_HAVE_YOU_BEEN_A_WORKER "Oh my, for about 12 years now."
+DO_YOU_HAVE_EXPOSURE_TO_CHEMICALS "I am a microbiologist, so I do work with some chemicals, but we follow all of the safe practice guidelines."
+WHAT_DO_YOU_DO_FOR_A_LIVING "I am a microbiologist."
 
 # recreationaldruguse
 
@@ -158,35 +161,35 @@ What_do_you_do_for_a_living "I am a microbiologist."
 
 # hobby
 
-Do_you_have_any_hobbies "I am an avid reader and also do some crocheting."
-What_do_you-do_for_fun "I like to spend time with the kids outside hiking or biking."
+DO_YOU_HAVE_ANY_HOBBIES "I am an avid reader and also do some crocheting."
+WHAT_DO_YOU-DO_FOR_FUN "I like to spend time with the kids outside hiking or biking."
 
 # sexualactivity
 
-How_many_sexual_partners "Just my husband for many years now."
-Do_you_prefer_men_or_women "I prefer my husband."
-Who_are_your_sexual_partners "Just my husband."
-Any_other_sexual_partners "Just my husband."
-Are_you_sexually_active "With my husband."
-When_did_you_last_have_intercourse "I am not certain, I don't keep track."
+HOW_MANY_SEXUAL_PARTNERS "Just my husband for many years now."
+DO_YOU_PREFER_MEN_OR_WOMEN "I prefer my husband."
+WHO_ARE_YOUR_SEXUAL_PARTNERS "Just my husband."
+ANY_OTHER_SEXUAL_PARTNERS "Just my husband."
+ARE_YOU_SEXUALLY_ACTIVE "With my husband."
+WHEN_DID_YOU_LAST_HAVE_INTERCOURSE "I am not certain, I don't keep track."
 
 # religion
 
-What_is_your_religious_preference "I attend a methodist church, so I guess I am methodist."
+WHAT_IS_YOUR_RELIGIOUS_PREFERENCE "I attend a methodist church, so I guess I am methodist."
 
 # advanceddirective
 
 
 # generalhealth
 
-Are_you_healthy "I guess I am pretty healthy."
-Do_you_feel_well "Right now I feel fine."
+ARE_YOU_HEALTHY "I guess I am pretty healthy."
+DO_YOU_FEEL_WELL "Right now I feel fine."
 
 ### CurrentGeneralSymptoms
 # medicalproblems
 
-Do_you_have_any_chronic_illnesses "Nothing."
-What_symptoms_are_you_having "I have some diarrhea on the first day of my period. And I feel exhausted."
+DO_YOU_HAVE_ANY_CHRONIC_ILLNESSES "Nothing."
+WHAT_SYMPTOMS_ARE_YOU_HAVING "I have some diarrhea on the first day of my period. And I feel exhausted."
 
 # sleepingproblems
 
@@ -203,8 +206,8 @@ What_symptoms_are_you_having "I have some diarrhea on the first day of my period
 ### CurrentAbdominalGISymptoms
 # bowel
 
-When_was_last_bowel_movement "This morning. I am very regular."
-Do_you_have_any_bowel_problems "I have diarrhea during my period, usually only for one day at the beginning."
+WHEN_WAS_LAST_BOWEL_MOVEMENT "This morning. I am very regular."
+DO_YOU_HAVE_ANY_BOWEL_PROBLEMS "I have diarrhea during my period, usually only for one day at the beginning."
 
 # bothbowelandbladder
 
@@ -218,12 +221,12 @@ Do_you_have_any_bowel_problems "I have diarrhea during my period, usually only f
 ### CurrentGUSymptoms
 # bladder
 
-Have_you_noticed_pain_while_urinating "I will have times when I have to urinate frequently but it is never painful."
+HAVE_YOU_NOTICED_PAIN_WHILE_URINATING "I will have times when I have to urinate frequently but it is never painful."
 
 # maleGU
 
 
-### CurrentCardiacSymptoms
+### CurrentCardiovascularSymptoms
 # bloodpressure
 
 
@@ -233,58 +236,61 @@ Have_you_noticed_pain_while_urinating "I will have times when I have to urinate 
 # heartproblems
 
 
+# vascular
+
+
 ### CurrentGYNSymptoms
 # sexualhealth
 
-Does_it_hurt_during_intercourse "At times, but it is rare. I think that is when I have some dryness though. Maybe I also get it when my husband is deeper as well. I had not thought about it much until now."
+DOES_IT_HURT_DURING_INTERCOURSE "At times, but it is rare. I think that is when I have some dryness though. Maybe I also get it when my husband is deeper as well. I had not thought about it much until now."
 
 # contraception
 
-Do_you_use_any_other_contraception "We use condoms mostly. I tried the pill once but I had vomiting with it and stopped after a week. I actually ended up trying three different types and had vomiting with all three."
-Do_you_use_protection_every_time  "We use condoms mostly."
-Do_you_use_contraception "We use condoms mostly. I tried the pill once but I had vomiting with it and stopped after a week. I actually ended up trying three different types and had vomiting with all three."
+DO_YOU_USE_ANY_OTHER_CONTRACEPTION "We use condoms mostly. I tried the pill once but I had vomiting with it and stopped after a week. I actually ended up trying three different types and had vomiting with all three."
+DO_YOU_USE_PROTECTION_EVERY_TIME  "We use condoms mostly."
+DO_YOU_USE_CONTRACEPTION "We use condoms mostly. I tried the pill once but I had vomiting with it and stopped after a week. I actually ended up trying three different types and had vomiting with all three."
 
 # bleeding
 
-Tell_me_more_about_your_vaginal_bleeding "The first day is light and then the cramps start. By the second and third day I have to change my tampon every 2 to 3 hours. I also have clots."
-Are_there_clots "On the days of the worst cramping I also pass some clots."
+TELL_ME_MORE_ABOUT_YOUR_VAGINAL_BLEEDING "The first day is light and then the cramps start. By the second and third day I have to change my tampon every 2 to 3 hours. I also have clots."
+ARE_THERE_CLOTS "On the days of the worst cramping I also pass some clots."
 
 # periods
 
-First_day_of_last_period "Gosh let me think. I will say about 2 weeks ago or so."
-When_was_your_last_period "A couple of weeks ago.."
-Are_you_having_your_period "Not right now."
-Are_your_periods_irregular "They are regularly every 29 days."
-Are_your_periods_regular "They are every 29 days."
-Is_your_period_late "It is not."
-How_long_do_your_periods_last "They last 6 to 7 days."
-Can_you_describe_your_periods "I get my period every 29 days, and it lasts six to seven days. The first day is light, but the cramping starts. Then on the second and third days I am miserable with cramping pain, and one of those days I have diarrhea. Other than that, the rest of it is manageable."
-What_is_flow_like "It is significantly heavier now than before delivering my children. Now they last 1 to 2 days longer than ever before too, which means they are lasting 7 days usually instead of the 5 days for most of my life."
-How_often_are_your_periods "Every 29 days."
-Are_your_periods_painful "They have gotten painful in the last year or so. The cramps start on the first day and are terrible on the second and third days."
-Does_pain_change_with_period "The pain si during my period, so I don't understand this question."
-Do_you_menstruate "I have 29 day cycles with my period lasting 6 to 7 days."
-Use_tampons "I use a super tampon every 2 to 3 hours od days 2 through 5 of my period. Sometimes I need a pad as well."
-How_many_tampons "One super tampon every 2 to 3 hours on days 2 to 5 of my period."
-Do_you_have_bloating_with_period "Sometimes I have some water weight gain that I just thought was normal."
+FIRST_DAY_OF_LAST_PERIOD "Gosh let me think. I will say about 2 weeks ago or so."
+WHEN_WAS_YOUR_LAST_PERIOD "A couple of weeks ago.."
+ARE_YOU_HAVING_YOUR_PERIOD "Not right now."
+ARE_YOUR_PERIODS_IRREGULAR "They are regularly every 29 days."
+ARE_YOUR_PERIODS_REGULAR "They are every 29 days."
+IS_YOUR_PERIOD_LATE "It is not."
+HOW_LONG_DO_YOUR_PERIODS_LAST "They last 6 to 7 days."
+CAN_YOU_DESCRIBE_YOUR_PERIODS "I get my period every 29 days, and it lasts six to seven days. The first day is light, but the cramping starts. Then on the second and third days I am miserable with cramping pain, and one of those days I have diarrhea. Other than that, the rest of it is manageable."
+WHAT_IS_FLOW_LIKE "It is significantly heavier now than before delivering my children. Now they last 1 to 2 days longer than ever before too, which means they are lasting 7 days usually instead of the 5 days for most of my life."
+HOW_OFTEN_ARE_YOUR_PERIODS "Every 29 days."
+ARE_YOUR_PERIODS_PAINFUL "They have gotten painful in the last year or so. The cramps start on the first day and are terrible on the second and third days."
+DOES_PAIN_CHANGE_WITH_PERIOD "The pain si during my period, so I don't understand this question."
+DO_YOU_MENSTRUATE "I have 29 day cycles with my period lasting 6 to 7 days."
+USE_TAMPONS "I have for the past year or so used a super tampon every 2 to 3 hours on days 2 through 5 of my period. Sometimes I need a pad as well. This is more than before in my life. I never had to change my tampon this frequently."
+HOW_MANY_TAMPONS "One super tampon every 2 to 3 hours on days 2 to 5 of my period."
+DO_YOU_HAVE_BLOATING_WITH_PERIOD "Sometimes I have some water weight gain that I just thought was normal."
 
 # menstrualcycles
 
-Have_you_had_any_menstrual_changes "My periods are much heavier than before my pregnancies."
-Tell_me_about_your_menstrual_cycles "I get my period every 29 days, and it lasts six to seven days. The first day is light, but the cramping starts. Then on the second and third days I am miserable with cramping pain, and one of those days I have diarrhea. Other than that, the rest of it is manageable."
-When_was_your_first_menstrual_cycle "I was in 8th grade, so I think I was about 13."
+HAVE_YOU_HAD_ANY_MENSTRUAL_CHANGES "My periods are much heavier than before my pregnancies."
+TELL_ME_ABOUT_YOUR_MENSTRUAL_CYCLES "I get my period every 29 days, and it lasts six to seven days. The first day is light, but the cramping starts. Then on the second and third days I am miserable with cramping pain, and one of those days I have diarrhea. Other than that, the rest of it is manageable."
+WHEN_WAS_YOUR_FIRST_MENSTRUAL_CYCLE "I was in 8th grade, so I think I was about 13."
 
 # pain
 
-Are_you_having_cramps "With my period I am."
+ARE_YOU_HAVING_CRAMPS "With my period I am."
 
 # vaginalsymptoms
 
 
 # pregnancy
 
-Want_to_be_pregnant "We don't want any more children right now but I am not sure about two or three years from now."
-Describe_pregnancy "I have two kids, aged eight and six. We conceived both times within a few months without difficulty, but I was never pregnant other than those two times. The pregnancies were fine. I didn't need a C-section or anything -- the deliveries went off without any problems."
+WANT_TO_BE_PREGNANT "We don't want any more children right now but I am not sure about two or three years from now."
+DESCRIBE_PREGNANCY "I have two kids, aged eight and six. We conceived both times within a few months without difficulty, but I was never pregnant other than those two times. The pregnancies were fine. I didn't need a C-section or anything -- the deliveries went off without any problems."
 
 # breast
 
@@ -346,33 +352,33 @@ Describe_pregnancy "I have two kids, aged eight and six. We conceived both times
 
 # exacerbation
 
-Does_rest_make_the_pain_go_away "I have to rest, but it doesn't make the pain go away."
-Do_you_have_pain_at_rest "When I have the cramps, I do have them at rest."
-Does_it_hurt_when_not_moving "The cramps are there allt he time, moving or not."
-Does_it_hurt_to_move "It hurts all the time, moving or not."
+DOES_REST_MAKE_THE_PAIN_GO_AWAY "I have to rest, but it doesn't make the pain go away."
+DO_YOU_HAVE_PAIN_AT_REST "When I have the cramps, I do have them at rest."
+DOES_IT_HURT_WHEN_NOT_MOVING "The cramps are there allt he time, moving or not."
+DOES_IT_HURT_TO_MOVE "It hurts all the time, moving or not."
 
 # intensity
 
-Rate_pain_on_medicine "The only thing I tried was Pamprin and acetominophen and they didn't change the pain at all, so still a 8 or 9."
-Can_you_rate_the_pain "At its worst, its about a 8 or 9 out of 10."
-Can_you_rate_it "It is probably a 8 or 9 out of 10."
-How_painful_is_it "It is pretty painful at times."
-Is_the_pain_always_a_number  "Usually."
-Does_the_pain_hurt_a_lot  "Yes."
+RATE_PAIN_ON_MEDICINE "The only thing I tried was Pamprin and acetominophen and they didn't change the pain at all, so still a 8 or 9."
+CAN_YOU_RATE_THE_PAIN "At its worst, its about a 8 or 9 out of 10."
+CAN_YOU_RATE_IT "It is probably a 8 or 9 out of 10."
+HOW_PAINFUL_IS_IT "It is pretty painful at times."
+IS_THE_PAIN_ALWAYS_A_NUMBER  "Usually."
+DOES_THE_PAIN_HURT_A_LOT  "Yes."
 
 # general
 
 
 # description
 
-Does_the_pain_radiate  "No, it does not."
-Any_pain_on_right_side "The cramps are mostly in the middle."
-Any_pain_on_left_side "The cramps are mostly in the middle."
-Is_the_pain_on_one_side "The cramps are mostly in the middle."
-Is_the_pain_sharp  "I would say more dull and achy."
-Is_the_pain_dull  "The cramps do seem to be a dull achy pain."
-Is_the_area_tender "I am not sure I would call it tender."
-When_does_the_pain_hurt "It starts on the first day of my period and goes through the 5th day."
+DOES_THE_PAIN_RADIATE  "No, it does not."
+ANY_PAIN_ON_RIGHT_SIDE "The cramps are mostly in the middle."
+ANY_PAIN_ON_LEFT_SIDE "The cramps are mostly in the middle."
+IS_THE_PAIN_ON_ONE_SIDE "The cramps are mostly in the middle."
+IS_THE_PAIN_SHARP  "I would say more dull and achy."
+IS_THE_PAIN_DULL  "The cramps do seem to be a dull achy pain."
+IS_THE_AREA_TENDER "I am not sure I would call it tender."
+WHEN_DOES_THE_PAIN_HURT "It starts on the first day of my period and goes through the 5th day."
 
 ### CurrentRespiratorySymptoms
 # breathing
@@ -384,18 +390,18 @@ When_does_the_pain_hurt "It starts on the first day of my period and goes throug
 ### CurrentTreatments
 # treatmentstried
 
-Have_you_tried_a_heating_pad "I have tried a heating pad. It seems to help some when I put it on my lower stomach."
-Have_you_tried_heat_or_ice "Just the heating pad, which seems to help some when I put it on my lower stomach."
-Have_you_tried_heat "I tried a heating pad. It helped some when it was on my lower stomach."
-Have_you_tried_any_treatment "I have tried a heating pad and sometimes Pamprin and acetominophen."
- Did_that_help "The heating pad seemed to help when placed on my lower stomach. The medicines did not seem to help much at all."
-What_treatment_have_you_tried "I have tried a heating pad and sometimes Pamprin and acetominophen."
+HAVE_YOU_TRIED_A_HEATING_PAD "I have tried a heating pad. It seems to help some when I put it on my lower stomach."
+HAVE_YOU_TRIED_HEAT_OR_ICE "Just the heating pad, which seems to help some when I put it on my lower stomach."
+HAVE_YOU_TRIED_HEAT "I tried a heating pad. It helped some when it was on my lower stomach."
+HAVE_YOU_TRIED_ANY_TREATMENT "I have tried a heating pad and sometimes Pamprin and acetominophen."
+ DID_THAT_HELP "The heating pad seemed to help when placed on my lower stomach. The medicines did not seem to help much at all."
+WHAT_TREATMENT_HAVE_YOU_TRIED "I have tried a heating pad and sometimes Pamprin and acetominophen."
 
 ### PastGeneralSymptoms
 # medicalproblems
 
-Have_you_ever_had_any_serious_illnesses  "Nothing serious."
-What_is_your_past_medical_history "I really haven't had any issues. I have had 2 normal pregnancies and deliveries."
+HAVE_YOU_EVER_HAD_ANY_SERIOUS_ILLNESSES  "Nothing serious."
+WHAT_IS_YOUR_PAST_MEDICAL_HISTORY "I really haven't had any issues. I have had 2 normal pregnancies and deliveries."
 
 # hospitalizations
 
@@ -435,54 +441,58 @@ What_is_your_past_medical_history "I really haven't had any issues. I have had 2
 # heartproblems
 
 
+### PastCardiovascularSymptoms
+# vascular
+
+
 ### PastGYNSymptoms
 # sexualhealth
 
-Did_it_ever_hurt_during_intercourse "At times, but it is rare. I think that is when I have some dryness though. Maybe I also get it when my husband is deeper as well. I had not thought about it much until now."
-Who_were_your_past_sexual_partners "Just my husband."
-Any_other_past_sexual_partners "That's  all, just my husband."
-Ever_been_sexually_active "Only with my husband."
+DID_IT_EVER_HURT_DURING_INTERCOURSE "At times, but it is rare. I think that is when I have some dryness though. Maybe I also get it when my husband is deeper as well. I had not thought about it much until now."
+WHO_WERE_YOUR_PAST_SEXUAL_PARTNERS "Just my husband."
+ANY_OTHER_PAST_SEXUAL_PARTNERS "That's  all, just my husband."
+EVER_BEEN_SEXUALLY_ACTIVE "Only with my husband."
 
 # contraception
 
 
 # bleeding
 
-Were_there_clots "I never really had any clots with my periods that I can recall."
+WERE_THERE_CLOTS "I never really had any clots with my periods that I can recall."
 
 # periods
 
-Were_your_periods_regular_before  "They have always been regular."
-was_your_period_ever_late "Only when I was pregnant."
-How_long_did_your_periods_last_before "About 5 or 6 days."
-Describe_your_past_periods "They were pretty uneventful. About 5 days of bleeding and no pain until after my first child. I had some minor cramping after that but nothing like this."
-What_is_past_flow_like "They were always pretty normal, nothing unusually heavy or anything."
-How_often_were_your_past_periods "Always 29 days."
-Were_your_past_periods_painful "They were not painful in the past. Some minor cramping began after my first child but was better after the second until I finished breastfeeding and it came back."
-Did_pain_change_with_past_period "I didn't have pain with my periods in the past."
-Did_you_ever_menstruate "I still do."
-Ever_use_tampons "I still use them."
-How_many_tampons_before "Maybe 4 or so a day."
-Ever_have_bloating_with_period "Sometimes I have some water weight retention, but I just thought that was normal."
+WERE_YOUR_PERIODS_REGULAR_BEFORE  "They have always been regular."
+WAS_YOUR_PERIOD_EVER_LATE "Only when I was pregnant."
+HOW_LONG_DID_YOUR_PERIODS_LAST_BEFORE "About 5 or 6 days."
+DESCRIBE_YOUR_PAST_PERIODS "They were pretty uneventful. About 5 days of bleeding and no pain until after my first child. I had some minor cramping after that but nothing like this."
+WHAT_IS_PAST_FLOW_LIKE "They were always pretty normal, nothing unusually heavy or anything."
+HOW_OFTEN_WERE_YOUR_PAST_PERIODS "Always 29 days."
+WERE_YOUR_PAST_PERIODS_PAINFUL "They were not painful in the past. Some minor cramping began after my first child but was better after the second until I finished breastfeeding and it came back."
+DID_PAIN_CHANGE_WITH_PAST_PERIOD "I didn't have pain with my periods in the past."
+DID_YOU_EVER_MENSTRUATE "I still do."
+EVER_USE_TAMPONS "I still use them."
+HOW_MANY_TAMPONS_BEFORE "Maybe 4 or so a day."
+EVER_HAVE_BLOATING_WITH_PERIOD "Sometimes I have some water weight retention, but I just thought that was normal."
 
 # menstrualcycle
 
-When_was_your_first_menstrual_cycle "I think I was in 8th grade, so about 13 then."
+WHEN_WAS_YOUR_FIRST_MENSTRUAL_CYCLE "I think I was in 8th grade, so about 13 then."
 
 # pain
 
-Ever_had_cramps "I never used to have cramps."
+EVER_HAD_CRAMPS "I never used to have cramps."
 
 # vaginalsymptoms
 
 
 # pregnancy
 
-When_were_you_pregnant "Well, my children are now 8 and 6 years old."
-Ever_want_to_be_pregnant "We may want to have more children, but not right now."
-Ever_taken_pregnancy_test_before "I did when I was pregnant with my children."
-Ever_been_pregnant_before "I have been pregnant twice."
-How_many_pregnancies "I have only been pregnant twice with my 2 children."
+WHEN_WERE_YOU_PREGNANT "Well, my children are now 8 and 6 years old."
+EVER_WANT_TO_BE_PREGNANT "We may want to have more children, but not right now."
+EVER_TAKEN_PREGNANCY_TEST_BEFORE "I did when I was pregnant with my children."
+EVER_BEEN_PREGNANT_BEFORE "I have been pregnant twice."
+HOW_MANY_PREGNANCIES "I have only been pregnant twice with my 2 children."
 
 # breast
 
@@ -557,8 +567,8 @@ How_many_pregnancies "I have only been pregnant twice with my 2 children."
 
 # description
 
-How_has_the_pain_progressed "Seems like I have had the cramps bad like this for about the past year."
-Is_this_the_worst_pain_ever "I don't know."
+HOW_HAS_THE_PAIN_PROGRESSED "Seems like I have had the cramps bad like this for about the past year."
+IS_THIS_THE_WORST_PAIN_EVER "I don't know."
 
 ### PastRespiratorySymptoms
 # breathing
@@ -586,6 +596,10 @@ Is_this_the_worst_pain_ever "I don't know."
 
 
 # heartproblems
+
+
+### FamilyCardiovascularSymptoms
+# vascular
 
 
 ### FamilyGUSymptoms
@@ -621,8 +635,8 @@ Is_this_the_worst_pain_ever "I don't know."
 
 # pregnancy
 
-Has_your_sister_been_pregnant "She has 2 children too."
-How_many_children_did_your_mother_have "Just me and my two sisters."
+HAS_YOUR_SISTER_BEEN_PREGNANT "She has 2 children too."
+HOW_MANY_CHILDREN_DID_YOUR_MOTHER_HAVE "Just me and my two sisters."
 
 # breast
 
@@ -648,14 +662,14 @@ How_many_children_did_your_mother_have "Just me and my two sisters."
 
 # seeingadoctor
 
-When_did_you_see_a_gynecologist_last "Last year."
-Do_you_have_a_doctor "I have a family physician."
-Do_you_have_annual_exams "I do get an annual exam and an annual gyn exam."
+WHEN_DID_YOU_SEE_A_GYNECOLOGIST_LAST "Last year."
+DO_YOU_HAVE_A_DOCTOR "I have a family physician."
+DO_YOU_HAVE_ANNUAL_EXAMS "I do get an annual exam and an annual gyn exam."
 
 # mentalhealth
 
-Having_mood_changes "I don't really know if I do, but my husband seems to think I get grumpy."
-Do_you_feel_anxious " I'm just a little concerned and that's why I am here today."
+HAVING_MOOD_CHANGES "I don't really know if I do, but my husband seems to think I get grumpy."
+DO_YOU_FEEL_ANXIOUS " I'm just a little concerned and that's why I am here today."
 
 # relationshiphealth
 
@@ -705,7 +719,7 @@ Do_you_feel_anxious " I'm just a little concerned and that's why I am here today
 ### Screening
 # general
 
-have_you_had_a_blood_typing "I think I must have because I know that my blood type is O+."
+HAVE_YOU_HAD_A_BLOOD_TYPING "I think I must have because I know that my blood type is O+."
 
 # colonsection
 
@@ -718,205 +732,208 @@ have_you_had_a_blood_typing "I think I must have because I know that my blood ty
 
 # femaleGUsection
 
-Have_you_had_a_pap_smear "I had one just last year and it was normal."
-Results_of_pap_smear "They have always been normal."
-Have_you_ever_had_an_abnormal_pap "They have always been normal."
-When_was_your_last_pap_smear "Just last year."
+HAVE_YOU_HAD_A_PAP_SMEAR "I had one just last year and it was normal."
+RESULTS_OF_PAP_SMEAR "They have always been normal."
+HAVE_YOU_EVER_HAD_AN_ABNORMAL_PAP "They have always been normal."
+WHEN_WAS_YOUR_LAST_PAP_SMEAR "Just last year."
 
 # communicablediseasesection
 
-Have_you_had_HIV_test "I think they do that when you are pregnant."
+HAVE_YOU_HAD_HIV_TEST "I think they do that when you are pregnant."
 
 # prenatalcare
 
-Have_you_had_glucose_test "I think my doctor does that every year when I get blood work done."
-Have_you_had_strep_test "When I was pregnant I did. I think that was negative."
+HAVE_YOU_HAD_GLUCOSE_TEST "I think my doctor does that every year when I get blood work done."
+HAVE_YOU_HAD_STREP_TEST "When I was pregnant I did. I think that was negative."
+
+# diabetes
+
 
 ### Family
 # familylife
 
-Do_you_have_any_pets "We have a parrot named Roger."
-Who_do_you_live_with "I live with my husband and our 2 children."
-Do_you_live_alone "I live with my husband and our 2 children."
-Where_do_you_live "We live in the suburbs."
+DO_YOU_HAVE_ANY_PETS "We have a parrot named Roger."
+WHO_DO_YOU_LIVE_WITH "I live with my husband and our 2 children."
+DO_YOU_LIVE_ALONE "I live with my husband and our 2 children."
+WHERE_DO_YOU_LIVE "We live in the suburbs."
 
 # parentsinformation
 
-How_old_are_your_parents "My mother is 62 and my dad is 63."
+HOW_OLD_ARE_YOUR_PARENTS "My mother is 62 and my dad is 63."
 
 # grandparentsinformation
 
 
 # siblingsinformation
 
-How_old_are_your_siblings "My sisters are 35 and 31."
-Are_your_siblings_healthy  "They are healthy."
-Tell_me_about_your_siblings "I have 2 sisters, one older and one younger. They both live in town and have children of their own."
-Do_you_have_siblings "I have 2 sisters."
+HOW_OLD_ARE_YOUR_SIBLINGS "My sisters are 35 and 31."
+ARE_YOUR_SIBLINGS_HEALTHY  "They are healthy."
+TELL_ME_ABOUT_YOUR_SIBLINGS "I have 2 sisters, one older and one younger. They both live in town and have children of their own."
+DO_YOU_HAVE_SIBLINGS "I have 2 sisters."
 
 # relativesinformation
 
-Do_you_have_relatives "I have tons of relatives."
-How_old_are_your_relatives "Really?"
-Are_your_relatives_healthy "Again, really?"
-Tell_me_about_your_relatives "Which one again?"
+DO_YOU_HAVE_RELATIVES "I have tons of relatives."
+HOW_OLD_ARE_YOUR_RELATIVES "Really?"
+ARE_YOUR_RELATIVES_HEALTHY "Again, really?"
+TELL_ME_ABOUT_YOUR_RELATIVES "Which one again?"
 
 # childreninformation
 
-How_many_children "I have two  children."
-How_old_are_your_children "They are 8 and 6 years old."
-Are_your_children_healthy  "They are healthy."
-How_are_your_children "They are healthy I believe."
-Do_you_want_children "I already have two children, but we are not sure if we want more yet or not."
-Do_you_have_any_children "Yes, I have two."
-Tell_me_about_your_children "My daughters are 8 and 6."
+HOW_MANY_CHILDREN "I have two  children."
+HOW_OLD_ARE_YOUR_CHILDREN "They are 8 and 6 years old."
+ARE_YOUR_CHILDREN_HEALTHY  "They are healthy."
+HOW_ARE_YOUR_CHILDREN "They are healthy I believe."
+DO_YOU_WANT_CHILDREN "I already have two children, but we are not sure if we want more yet or not."
+DO_YOU_HAVE_ANY_CHILDREN "Yes, I have two."
+TELL_ME_ABOUT_YOUR_CHILDREN "My daughters are 8 and 6."
 
 # spouseinformation
 
-Are_you_divorced "No, I am still married."
-How_long_have_you_been_married "I guess 11 years now."
-Are_you_single "I am married."
-Are_you_in_a_relationship "I am married."
-Are_you_dating_anyone "I am married."
-Are_you_widowed "Heavens, no."
-Is_your_partner_healthy  "Yes, as far as I know."
-Do_you_have_a_significant_other "I am married."
-Tell_me_about_your_partner "What would you like to know?"
-How_old_is_your_partner "My husband is 34 years old."
-Do_you_have_a_partner "I guess my husband is my partner."
-What_is_your_partners_name "My husband's name is Lewis."
-Is_your_partner_male "Yes."
-Is_your_partner_female "No."
-Are_you_married "Yes."
+ARE_YOU_DIVORCED "No, I am still married."
+HOW_LONG_HAVE_YOU_BEEN_MARRIED "I guess 11 years now."
+ARE_YOU_SINGLE "I am married."
+ARE_YOU_IN_A_RELATIONSHIP "I am married."
+ARE_YOU_DATING_ANYONE "I am married."
+ARE_YOU_WIDOWED "Heavens, no."
+IS_YOUR_PARTNER_HEALTHY  "Yes, as far as I know."
+DO_YOU_HAVE_A_SIGNIFICANT_OTHER "I am married."
+TELL_ME_ABOUT_YOUR_PARTNER "What would you like to know?"
+HOW_OLD_IS_YOUR_PARTNER "My husband is 34 years old."
+DO_YOU_HAVE_A_PARTNER "I guess my husband is my partner."
+WHAT_IS_YOUR_PARTNERS_NAME "My husband's name is Lewis."
+IS_YOUR_PARTNER_MALE "Yes."
+IS_YOUR_PARTNER_FEMALE "No."
+ARE_YOU_MARRIED "Yes."
 
 # supportinformation
 
-Who_supports_you "My family is a very strong support for ma as well as my frineds."
+WHO_SUPPORTS_YOU "My family is a very strong support for ma as well as my frineds."
 
 ### HOPIChiefcomplaint
 # onset
 
-Did_anything_happen_to_cause_the_1 "Nothing that I know of."
-Was_the_onset_sudden1 "I would have to say most likely not."
-Did_the_1_start_immediately "It has been ongoing for the past year. I don't really think it started suddenly or anything like that."
-Is_the_1_new "I have not had cramping like this before."
-When_did_the_1_start "I think it has been going on for about a year now at least."
-How_has_the_1_changed "Well I never really had any trouble with cramping until a year ago."
-How_long_have_you_had_1 "It has been going on for the past year at least."
-Is_the_1_constant "I only have the cramping during my period."
-Do_you_have_a_cause_for_1 "Not that I know."
+DID_ANYTHING_HAPPEN_TO_CAUSE_THE_1 "Nothing that I know of."
+WAS_THE_ONSET_SUDDEN1 "I would have to say most likely not."
+DID_THE_1_START_IMMEDIATELY "It has been ongoing for the past year. I don't really think it started suddenly or anything like that."
+IS_THE_1_NEW "I have not had cramping like this before."
+WHEN_DID_THE_1_START "I think it has been going on for about a year now at least."
+HOW_HAS_THE_1_CHANGED "Well I never really had any trouble with cramping until a year ago."
+HOW_LONG_HAVE_YOU_HAD_1 "It has been going on for the past year at least."
+IS_THE_1_CONSTANT "I only have the cramping during my period."
+DO_YOU_HAVE_A_CAUSE_FOR_1 "Not that I know."
 
 # exacerbation
 
-What_makes_the_1_worse "Just my period."
-Does_anything_change_1_intensity "Nothing really."
-What_have_you_tried_for_the_1 "Heating pad, Pamprin and acetominophen."
-Have_you_tried_anything_for_the_1 "Heating pad, Pamprin, and acetominophen."
-What_makes_the_1_better "So far nothing helps it."
-Have_you_tried_any_other_methods1 "Nothing else."
-Does_moving_increase_the_1 "I don't really think that any movements make it worse."
-Does_any_position_relieve_the_1 "Not really."
-Does_any_position_make_the_1_worse "Not really."
-Do_any_positions_make_1_worse_or_better "Its nothing that changes with position."
-Is_1_worse_when_you_lie_down "I don't really think that lying down makes it worse."
-Do_you_have_1_when_you_lie_down "They are always there when I am on my period."
-Is_1_better_when_you_lie_down "I'm not sure."
-Does_1_increase_when_you_stand "Not really."
-Does_the_1_improve_with_exercise "No it does not."
-Does_the_1_keep_you_up_at_night "I think I have been able to sleep."
-Avoid_exacerbate_1 "What?"
-Is_the_1_improving "They are not getting any better and I don't like having to miss work."
-Does_the_1_get_worse_with_period "That is the only time I have them."
+WHAT_MAKES_THE_1_WORSE "Just my period."
+DOES_ANYTHING_CHANGE_1_INTENSITY "Nothing really."
+WHAT_HAVE_YOU_TRIED_FOR_THE_1 "Heating pad, Pamprin and acetominophen."
+HAVE_YOU_TRIED_ANYTHING_FOR_THE_1 "Heating pad, Pamprin, and acetominophen."
+WHAT_MAKES_THE_1_BETTER "So far nothing helps it."
+HAVE_YOU_TRIED_ANY_OTHER_METHODS1 "Nothing else."
+DOES_MOVING_INCREASE_THE_1 "I don't really think that any movements make it worse."
+DOES_ANY_POSITION_RELIEVE_THE_1 "Not really."
+DOES_ANY_POSITION_MAKE_THE_1_WORSE "Not really."
+DO_ANY_POSITIONS_MAKE_1_WORSE_OR_BETTER "Its nothing that changes with position."
+IS_1_WORSE_WHEN_YOU_LIE_DOWN "I don't really think that lying down makes it worse."
+DO_YOU_HAVE_1_WHEN_YOU_LIE_DOWN "They are always there when I am on my period."
+IS_1_BETTER_WHEN_YOU_LIE_DOWN "I'm not sure."
+DOES_1_INCREASE_WHEN_YOU_STAND "Not really."
+DOES_THE_1_IMPROVE_WITH_EXERCISE "No it does not."
+DOES_THE_1_KEEP_YOU_UP_AT_NIGHT "I think I have been able to sleep."
+AVOID_EXACERBATE_1 "What?"
+IS_THE_1_IMPROVING "They are not getting any better and I don't like having to miss work."
+DOES_THE_1_GET_WORSE_WITH_PERIOD "That is the only time I have them."
 
 # intensity
 
-How_intense_is_the_1 "It is pretty intense at times."
-Has_the_intensity1_changed "I don't really think they have changed in intensity."
-Has_the_1_become_worse "I think it has been about the same for the past year now."
-When_is_the_1_most_severe "On the 2 through the 5th day of my period."
+HOW_INTENSE_IS_THE_1 "It is pretty intense at times."
+HAS_THE_INTENSITY1_CHANGED "I don't really think they have changed in intensity."
+HAS_THE_1_BECOME_WORSE "I think it has been about the same for the past year now."
+WHEN_IS_THE_1_MOST_SEVERE "On the 2 through the 5th day of my period."
 
 # general
 
-Do_you_currently_have_1 "Not right now."
-How_is_your_1_now "It is the same I guess."
-Do_you_have_any_1 "I do have cramping  now, but I didn't used to until after my first child was born. I had some minor cramping then but nothing like this. Thena fter my second child I started having this cramping and diarrhea."
-Are_you_having_any_other_1 "Not really."
-How_else_is_the_1_affecting_your_life "The biggest effect it has is that I am very tired and have those cramps and diarrhea that make me miss a day or 2 of work."
-Has_the_1_stopped_you "Sometimes."
-Have_you_had_1_before "My periods were not painful in the past. Some minor cramping after my first child but got better, then after my second child was born it came back and was worse."
+DO_YOU_CURRENTLY_HAVE_1 "Not right now."
+HOW_IS_YOUR_1_NOW "It is the same I guess."
+DO_YOU_HAVE_ANY_1 "I do have cramping  now, but I didn't used to until after my first child was born. I had some minor cramping then but nothing like this. Thena fter my second child I started having this cramping and diarrhea."
+ARE_YOU_HAVING_ANY_OTHER_1 "Not really."
+HOW_ELSE_IS_THE_1_AFFECTING_YOUR_LIFE "The biggest effect it has is that I am very tired and have those cramps and diarrhea that make me miss a day or 2 of work."
+HAS_THE_1_STOPPED_YOU "Sometimes."
+HAVE_YOU_HAD_1_BEFORE "My periods were not painful in the past. Some minor cramping after my first child but got better, then after my second child was born it came back and was worse."
 
 # description
 
-When_do_you_have_the_1 "During the first 4 or 5 days of my period."
-How_long_does_the_1_last "for the first 4 or 5 days of my period."
-How_frequent_is_the_1 "Every 29 days, when I get my period."
-What_concerns_you_about_the_1 "That the cramps and diarrhea make me miss work and exhaust me."
-Where_is_the_1 "the cramps are in my lower abdomen."
-Describe_the_1 "I get my period every 29 days, and it lasts six to seven days. The first day is light, but the cramping starts. Then on the second and third days I am miserable with cramping pain, and one of those days I have diarrhea. Other than that, the rest of it is manageable."
-When_else_do_you_have_the_1 "Just during the times I told you."
+WHEN_DO_YOU_HAVE_THE_1 "During the first 4 or 5 days of my period."
+HOW_LONG_DOES_THE_1_LAST "for the first 4 or 5 days of my period."
+HOW_FREQUENT_IS_THE_1 "Every 29 days, when I get my period."
+WHAT_CONCERNS_YOU_ABOUT_THE_1 "That the cramps and diarrhea make me miss work and exhaust me."
+WHERE_IS_THE_1 "the cramps are in my lower abdomen, kind of throughout. Not really on one side or the other."
+DESCRIBE_THE_1 "I get my period every 29 days, and it lasts six to seven days. The first day is light, but the cramping starts. Then on the second and third days I am miserable with cramping pain, and one of those days I have diarrhea. Other than that, the rest of it is manageable."
+WHEN_ELSE_DO_YOU_HAVE_THE_1 "Just during the times I told you."
 
 ### HOPIComplaint2
 # onset
 
-Did_anything_happen_to_cause_the_2 "I don't think so."
-How_did_the_2_start "I'm not sure."
-Doing_anything_when_the_2_started "It only happens on the first day or so of my period."
-Was_the_onset_sudden2 "I'm not sure."
-Did_the_2_start_immediately "Not sure really."
-Is_the_2_new "Well, it has been going on for about a year now, so not sure I'd call it new."
-When_did_the_2_start "About a year ago."
-2_worse_morning_or_night "It really isn't anything like that."
-How_has_the_2_changed "It has not changed either."
-How_long_have_you_had_2 "For as long as I have had the cramping, a year or so now."
-Is_the_2_constant "It only happens during my period."
-Do_you_have_a_cause_for_2 "Not that I know of."
+DID_ANYTHING_HAPPEN_TO_CAUSE_THE_2 "I don't think so."
+HOW_DID_THE_2_START "I'm not sure."
+DOING_ANYTHING_WHEN_THE_2_STARTED "It only happens on the first day or so of my period."
+WAS_THE_ONSET_SUDDEN2 "I'm not sure."
+DID_THE_2_START_IMMEDIATELY "Not sure really."
+IS_THE_2_NEW "Well, it has been going on for about a year now, so not sure I'd call it new."
+WHEN_DID_THE_2_START "About a year ago."
+2_WORSE_MORNING_OR_NIGHT "It really isn't anything like that."
+HOW_HAS_THE_2_CHANGED "It has not changed either."
+HOW_LONG_HAVE_YOU_HAD_2 "For as long as I have had the cramping, a year or so now."
+IS_THE_2_CONSTANT "It only happens during my period."
+DO_YOU_HAVE_A_CAUSE_FOR_2 "Not that I know of."
 
 # exacerbation
 
-What_makes_the_2_worse "The cramps."
-Does_anything_change_2_intensity "Not really."
-What_have_you_tried_for_the_2 "Nothing."
-Have_you_tried_anything_for_the_2 "I have not tried anything."
-What_makes_the_2_better "It goes away after a day or 2, so I haven't noticed anything making it better except time."
-Does_anything_else_help_the_2 "I have not tried anything."
-Have_you_tried_anything_else_for_2 "I have not tried anything."
-Have_you_tried_anything_else2 "I have not tried anything."
-Have_you_tried_any_other_methods2 "I have not tried anything."
-What_else_have_you_tried_for_2 "I have not tried anything."
-What_else_have_you_tried2 "I have not tried anything."
-Does_moving_increase_the_2 "I haven't really noticed."
-Does_any_position_relieve_the_2 "Nothing really."
-Does_any_position_make_the_2_worse "Not really."
-Do_any_positions_make_2_worse_or_better "Not really."
-Is_2_worse_when_you_lie_down "Not really."
-Do_you_have_2_when_you_lie_down "What?"
-Is_2_better_when_you_lie_down "Not really."
-Does_2_increase_when_you_stand "Not really."
-Does_the_2_improve_with_exercise "I really can't exercise when I am having diarrhea."
-Is_the_2_improving "It hasn't changed much."
-Does_the_2_get_worse_with_period "That is when I have the diarrhea, so it does get worse with my period onset."
+WHAT_MAKES_THE_2_WORSE "The cramps."
+DOES_ANYTHING_CHANGE_2_INTENSITY "Not really."
+WHAT_HAVE_YOU_TRIED_FOR_THE_2 "Nothing."
+HAVE_YOU_TRIED_ANYTHING_FOR_THE_2 "I have not tried anything."
+WHAT_MAKES_THE_2_BETTER "It goes away after a day or 2, so I haven't noticed anything making it better except time."
+DOES_ANYTHING_ELSE_HELP_THE_2 "I have not tried anything."
+HAVE_YOU_TRIED_ANYTHING_ELSE_FOR_2 "I have not tried anything."
+HAVE_YOU_TRIED_ANYTHING_ELSE2 "I have not tried anything."
+HAVE_YOU_TRIED_ANY_OTHER_METHODS2 "I have not tried anything."
+WHAT_ELSE_HAVE_YOU_TRIED_FOR_2 "I have not tried anything."
+WHAT_ELSE_HAVE_YOU_TRIED2 "I have not tried anything."
+DOES_MOVING_INCREASE_THE_2 "I haven't really noticed."
+DOES_ANY_POSITION_RELIEVE_THE_2 "Nothing really."
+DOES_ANY_POSITION_MAKE_THE_2_WORSE "Not really."
+DO_ANY_POSITIONS_MAKE_2_WORSE_OR_BETTER "Not really."
+IS_2_WORSE_WHEN_YOU_LIE_DOWN "Not really."
+DO_YOU_HAVE_2_WHEN_YOU_LIE_DOWN "What?"
+IS_2_BETTER_WHEN_YOU_LIE_DOWN "Not really."
+DOES_2_INCREASE_WHEN_YOU_STAND "Not really."
+DOES_THE_2_IMPROVE_WITH_EXERCISE "I really can't exercise when I am having diarrhea."
+IS_THE_2_IMPROVING "It hasn't changed much."
+DOES_THE_2_GET_WORSE_WITH_PERIOD "That is when I have the diarrhea, so it does get worse with my period onset."
 
 # intensity
 
-How_intense_is_the_2 "It can become pretty intense I guess."
-When_is_the_2_most_severe "The first day or so of my period."
+HOW_INTENSE_IS_THE_2 "It can become pretty intense I guess."
+WHEN_IS_THE_2_MOST_SEVERE "The first day or so of my period."
 
 # general
 
-Do_you_currently_have_2 "I only have it when I am having my period."
-How_is_your_2_now "I am not having it right now."
-Do_you_have_any_2 "Not right now."
-How_else_is_the_2_affecting_your_life "I have to take off of work when I am having thie cramps and diarrhea."
-Has_the_2_stopped_you "It keeps me from going to work,s o it has stopped me from doing some normal things."
+DO_YOU_CURRENTLY_HAVE_2 "I only have it when I am having my period."
+HOW_IS_YOUR_2_NOW "I am not having it right now."
+DO_YOU_HAVE_ANY_2 "Not right now."
+HOW_ELSE_IS_THE_2_AFFECTING_YOUR_LIFE "I have to take off of work when I am having thie cramps and diarrhea."
+HAS_THE_2_STOPPED_YOU "It keeps me from going to work,s o it has stopped me from doing some normal things."
 
 # description
 
-When_do_you_have_the_2 "on the first day or so of my period."
-How_long_does_the_2_last "Only a couple of days a month."
-How_frequent_is_the_2 "I really only notice it whenever I start my period or the day before."
-What_concerns_you_about_the_2 "That It keeps happening and I have to miss work."
-Where_is_the_2 "What do you mean?"
-Describe_the_2 "Seriouly? It is diarrhea. Runny, urgent bowel movements."
+WHEN_DO_YOU_HAVE_THE_2 "on the first day or so of my period."
+HOW_LONG_DOES_THE_2_LAST "Only a couple of days a month."
+HOW_FREQUENT_IS_THE_2 "I really only notice it whenever I start my period or the day before."
+WHAT_CONCERNS_YOU_ABOUT_THE_2 "That It keeps happening and I have to miss work."
+WHERE_IS_THE_2 "What do you mean?"
+DESCRIBE_THE_2 "Seriouly? It is diarrhea. Runny, urgent bowel movements."
 
 ### HOPIComplaint3
 # onset
@@ -932,4 +949,3 @@ Describe_the_2 "Seriouly? It is diarrhea. Runny, urgent bowel movements."
 
 
 # description
-

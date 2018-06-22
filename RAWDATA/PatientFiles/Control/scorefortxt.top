@@ -36,13 +36,14 @@ u: () $totalQueries += 1
 	createfact($$tmp form $$label) # this was asked this way this turn
 
 	# track how many open questions asked in early stages
-	if (%input == 5) {$first5open = $open}
-	else if (%input == 10) {$first10open = $open}
-	else if (%input == 15) {$first15open = $open}
+#	if (%input == 5) {$first5open = $open}
+#	else if (%input == 10) {$first10open = $open}
+#	else if (%input == 15) {$first15open = $open}
 
 topic: ~finalscore system repeat()
 u: () 
-	 createfact(^"\nScorecard for:  $login\n" scorecard x FACTTRANSIENT)
+#	 createfact(^"\nScorecard for:  $login\n" scorecard x FACTTRANSIENT)
+	 createfact(^"\nScorecard for:  $cs_login\n" scorecard x FACTTRANSIENT)
 
 	@4 = query(direct_vo ? $cs_bot grade_items)  # get sections to grade for this patient, eg ("Family History" zone grade_items)
 
@@ -88,43 +89,6 @@ u: ()
 
 	createfact(^"\n\nTotal questions: $totalQueries \n" scorecard x  FACTTRANSIENT)
 
-
-	# open information
-	 if (!$open) {$open = 0}
-	 createfact(^"Open questions: $open \n" scorecard x  FACTTRANSIENT)
-
-
-	 $$tmpfile1 = $open * 100 / $totalQueries
-	 createfact(^"Open question percent: $$tmpfile1 \n" scorecard x  FACTTRANSIENT)
-
-
-	 if (%input <= 5) { $first5open = $open}
-	 createfact("^Open in first 5: $first5open \n" scorecard x  FACTTRANSIENT)
-
-
-	 if (%input <= 10) { $first10open = $open}
-	 createfact(^"Open in first 10: $first10open \n" scorecard x  FACTTRANSIENT)
-
-
-	 if (%input <= 15) { $first15open = $open}
-	 createfact(^"Open in first 15: $first15open \n" scorecard x  FACTTRANSIENT)
-
-
-	# closed information
-	 if (!$closed) {$closed = 0}
-	 createfact(^"Closed questions: $closed \n" scorecard x  FACTTRANSIENT)
-
-
-	 $$tmpfile1 = $closed * 100 / $totalQueries
-	 createfact(^"Closed question percent: $$tmpfile1 \n" scorecard x  FACTTRANSIENT)
-	 
-	 $$tmpfile1 = $open * 100 / $closed
-	 createfact(^"Open/Closed ratio: $$tmpfile1 \n\n" scorecard x  FACTTRANSIENT)
-
-	 # for summarizing questions, show the question and from what topic it was asked
-     nofail(rule query(direct_v ? summary ?))
-	 createfact(^"Summarizing questions:" scorecard x  FACTTRANSIENT)
-
 	if (^length(@0) == 0) 
 	{ 
 	 	createfact(^" none \n" scorecard x  FACTTRANSIENT)
@@ -152,8 +116,9 @@ u: ()
 
    }
 
-   # output all answers to user and file
+   # output all answers to user and file NOTE IF THIS FAILS TO CREATE THE FILE IN THE CORRECT FOLDER THEN SCORE ME FAILS. SO IF WRITING TO inetpub AND IT DOES NOT EXIST THEN SCORE ME WILL FAIL 
 	$$tmpfile = join(TMP/ $cs_login .txt)
+#	$$tmpfile = join(C:\inetpub\wwwroot/Scores/ $cs_login .txt)
 	^log(FILE $$tmpfile NEW)  # start file from scratch
 	@0 = query(direct_vo ? scorecard x)
 	loop()

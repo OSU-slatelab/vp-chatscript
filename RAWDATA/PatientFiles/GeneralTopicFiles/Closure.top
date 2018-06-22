@@ -1,92 +1,91 @@
 
-topic: ~closure keep repeat deprioritize (~emothanks else "anything else" other questions physician comments concern ~emogoodbye "help you with" "do for you" information "on your mind" exam examine talk speak pleasure everything need pleasant "take a look" attending wonderful detail ~yes OK ok okay Ok welcome helpful informative understand follow-up follow)
+topic: ~closure deprioritize keep repeat (~emothanks else "anything else" other questions physician comments concern ~emogoodbye "help you with" "do for you" information "on your mind" exam examine talk speak pleasure everything need pleasant "take a look" attending wonderful detail ~yes OK ok okay Ok welcome helpful informative understand follow-up follow)
 
 #! do you have any questions
-	u: Do_you_have_any_questions (do you have any questions) ^factanswer("No, I don't have any questions.")
-	u: (any * [questions concerns comments]) ^reuse(do_you_have_any_questions)
+	u: DO_YOU_HAVE_ANY_QUESTIONS (any * [questions concerns comments]) ^factanswer("No, I don't have any questions.")
 
 #! Make a follow up appointment
-	u: Make_a_follow_up_appointment (make a follow up appointment) ^factanswer("Of course.")
-	u: (<< [follow up follow-up] [visit appointment] >>) ^reuse (Make_a_follow_up_appointment)
-	u: ([follow up follow-up]) ^reuse (Make_a_follow_up_appointment)
-
+	u: MAKE_A_FOLLOW_UP_APPOINTMENT
+		([
+			(<< [follow up follow-up] [visit appointment] >>)
+			([follow up follow-up])
+		])
+	^factanswer("Of course.")
 
 #! I have more questions
-	u: I_have_more_questions (I have more questions) ^factanswer("Ok, sure.")
-	u: ([need want more few ask] * [questions concerns items detail understand]) ^reuse(I_have_more_questions)
+	u: I_HAVE_MORE_QUESTIONS ([need want more few ask] *~3 [questions concerns items detail understand]) ^factanswer("Ok, sure.")
 
 #! Is there anything else I can help you with
-	u: Anything_else_I_can_help_with (anything else I can help you with) ^factanswer("No, I don't think so.")
-	u: ([anything else] * ["help you with" "do for you" discuss address need tell mind know add aware]) ^reuse (Anything_else_I_can_help_with)
-	u: (any other problems) ^reuse (Anything_else_I_can_help_with)
+	u: ANYTHING_ELSE_I_CAN_HELP_WITH
+		([
+			([anything else] *~3 ["help you with" "do for you" discuss address need tell mind know add aware])
+			(any other problems)
+		])
+	^factanswer("No, I don't think so.")
 
 #! Do you have all the information you need
-	u: Have_everything_you_need (do you have all the information you need) ^factanswer("Yes, thank you.")
-	u: ([information everything] * you need) ^reuse (Have_everything_you_need)
+	u: HAVE_EVERYTHING_YOU_NEED ([information everything] *~3 you need) ^factanswer("Yes, thank you.")
 
 #! I have all the information I need
-	u: Have_all_the_information (have all the information)  ^factanswer("OK Thanks")
-	u: ([information everything have] * I need) ^reuse(Have_all_the_information)
+	u: HAVE_ALL_THE_INFORMATION ([information everything have] *~3 I need)  ^factanswer("OK Thanks")
 
 #! May I do an exam now
-	u: Do_an_exam_now (I * do an exam now) ^factanswer("OK.")
-	u: ([we I] * [perform do] * [exam examination test]) ^reuse (Do_an_exam_now)
-	u: ([we I] * [examine exam examination "take a look" look]) ^reuse (Do_an_exam_now)
+	u: DO_AN_EXAM_NOW
+		([
+			([we I] * [perform do] * [exam examination test])
+			([we I] * [examine exam examination "take a look" look])
+		])
+	^factanswer("OK.")
 
 #! I'll go report to the doctor
-	u: I'll_go_report_to_the_doctor (I'll go report to the doctor) ^factanswer("Ok I hope you guys can figure something out.")
-	u: ([go take give report talk pass let meet discuss get find] * [doctor attending physician team]) ^reuse (I'll_go_report_to_the_doctor)
+	u: I'LL_GO_REPORT_TO_THE_DOCTOR ([go take give report talk pass let meet discuss get find] *~3 [doctor attending physician team]) ^factanswer("Ok thanks.")
 
 #! Nice talking with you
-	u: Nice_talking_with_you (nice talking with you)  ^factanswer ("Thanks for helping me")
-	u: ([nice pleasant pleasure glad happy good] * [talk speak meet see came]) ^reuse (Nice_talking_with_you)
-	u: ([~itwords you] * [helpful informative pleasure]) ^reuse (Nice_talking_with_you)
+	u: NICE_TALKING_WITH_YOU
+		([
+			([nice pleasant pleasure glad happy good] * [talk speak meet see came])
+			([~itwords you] * [helpful informative pleasure])
+		])
+	^factanswer ("Thanks for helping me")
 
-#!!P Goodbye => ~emogoodbye
-	u: Goodbye (goodbye) ^factanswer("Goodbye and thanks.")
-	u: (~emogoodbye) ^reuse (Goodbye)
-	u: (< that is all >) ^reuse (Goodbye)
+#! Goodbye
+	u: GOODBYE
+		([
+			(~emogoodbye)
+			(< that is all >)
+		])
+	^factanswer("Goodbye and thanks.")
 
-#!!P Thanks => ~emothanks
-	u: Thanks ([thanks "thank you"]) ^factanswer("Thank you")
-	u: (~emothanks) ^reuse (Thanks)
-	u: ([~yes OK okay] * ~emothanks) ^reuse (Thanks)
+#! Thanks
+	u: THANKS
+		([
+			([thanks "thank you"])
+			(~emothanks)
+		])
+	^factanswer("Thank you")
 
 #! You are welcome
-	s: You_are_welcome (you are welcome)  ^factanswer("thanks again.")
-	s: (you * welcome) ^reuse (You_are_welcome)
+	s: YOU_ARE_WELCOME (you *~3 welcome)  ^factanswer("thanks again.")
 
 # ##############################################################################################
 
 # Summary section
 
-topic: ~summarize keep repeat priority (summary summarize miss forget recap "is that correct")
+topic: ~summarize priority keep repeat (summary summarize miss forget recap correct right)
 
 # Need to figure out a way to tell if the summary statement is appropriately thorough. For now, no matter what they say it will be OK
 
 #! Can you summarize
-	u: Can_you_summarize (can you summarize) ^factanswer("What would you like to know?")
-	u: (you * [summarize recap]) ^reuse (Can_you_summarize)
+	u: CAN_YOU_SUMMARIZE (you *~3 [summarize recap]) ^factanswer("What would you like to know?")
 
 #! To summarize
-	u: To_summarize (to summarize) ^factanswer("That sounds correct.")
-	u: ([summary summarize recap "is that correct"]) ^reuse (To_summarize)
+	u: TO_SUMMARIZE
+		([
+			([summary summarize recap])
+			(is that {about} [correct right])
+			(does that [seem sound] {about} [correct right])
+		])
+		^factanswer("That sounds correct.")
 
 #! Did I miss anything
-	u: Did_I_miss_anything (did I miss anything) ^factanswer("I think you've got everything.")
-	u: (I * [miss forget]) ^reuse (Did_I_miss_anything)
-
-
-# ##############################################################################################
-
-# This is used only for the speech to text version of the VP in the CSEAC. Without this the VP is constantly interrupting and saying "I'm sorry I don't understand." 
-# So I added this so now he just returns a period when he doesn't understand. The period is ignored by Unity and not spoken by the VP. 
-# If I want the VP to say "I don't understand" I just press the = key on the keyboard as I am watching the student interview the patient.
-# For normal (web) use this section should be commented out
-
-#  topic: ~blankanswers keep repeat NoStay ( )
-#  
-#  	u: blankanswers(=) ^factanswer(^"I'm afraid I don't understand that question.")
-#  
-#  	u: () .
- 
+	u: DID_I_MISS_ANYTHING (I *~3 [miss forget]) ^factanswer("I think you've got everything.")

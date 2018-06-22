@@ -181,7 +181,7 @@ u: ()
 
 	createfact(^"/closeSquare//closeCurly/" scorecard x  FACTTRANSIENT)
 
-   # output all answers to user and file
+   # output all answers to user and file NOTE IF THIS FAILS TO CREATE THE FILE IN THE CORRECT FOLDER THEN SCORE ME FAILS. SO IF WRITING TO inetpub AND IT DOES NOT EXIST THEN SCORE ME WILL FAIL 
 	$$tmpfile = join(TMP/ $cs_login .txt)
 	^log(FILE $$tmpfile NEW)  # start file from scratch
 	@0 = query(direct_vo ? scorecard x)

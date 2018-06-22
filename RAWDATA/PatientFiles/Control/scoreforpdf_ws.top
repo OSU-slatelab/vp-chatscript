@@ -189,8 +189,8 @@ u: ()
 	createfact(^"/closeSquare//closeCurly/" scorecard x  FACTTRANSIENT)
 
    # output all answers to user and file
-	$$tmpfile = join(TMP/ $cs_login .txt)
-#	$$tmpfile = join(C:\inetpub\wwwroot/Scores/ $cs_login .txt)
+#	$$tmpfile = join(TMP/ $cs_login .txt)
+	$$tmpfile = join(C:\inetpub\wwwroot/Scores/ $cs_login .txt)
 	^log(FILE $$tmpfile NEW)  # start file from scratch
 	@0 = query(direct_vo ? scorecard x)
 	loop()

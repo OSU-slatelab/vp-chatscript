@@ -1,0 +1,9 @@
+# ***************************************************************************************************
+
+topic: ~pastendocrine keep repeat (diabetes)
+
+	u: ($present) respond(~currentendocrine)  ^fail(TOPIC)
+	u: ($family) respond(~familyendocrine) ^fail(TOPIC)
+
+#! Have you ever had diabetes
+	u: EVER_HAD_DIABETES (<< diabetes [before past previously prior child youth] >>) ^factanswer("I have never had that.")

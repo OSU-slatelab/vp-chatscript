@@ -1,210 +1,265 @@
 # ***************************************************************************************************
 
 # pain - I have defined several pain concepts in MedicalConcepts.top
-
+# The ones below have been moved to MedicalConcepts.top
 # ~the_pain  [~pain ~itwords]
 # ~pain [pain hurt sore throb crush ache burn squeeze gnaw]
 # ~itwords [it this that them those these they such]
 
-
-
-topic: ~currentpain keep repeat (10 ten painful better go worse "lie down" "lay down" food exercise position progress dull intensity injury injure onset exactly specifically ibuprofen cause rate uncomfortable tender situation "go away" positions use symptom travel radiate place spread swallow walk)
+topic: ~currentpain keep repeat
+	(10 ten painful ~pain better worse "lie down" "lay down" food exercise position progress dull intensity injury injure onset exactly specifically
+	ibuprofen cause rate uncomfortable tender situation "go away" positions use symptom travel radiate place spread swallow walk point)
 
 	u: ($pasthistory) respond(~pastpain) ^fail(TOPIC)
 	u: ($family) respond(~familypain) ^fail(TOPIC)
 
-
 # Onset  ***************
 
-
 #! What were you doing when you injured yourself
-	u: What_were_you_doing_when_injured (what were you doing when you injured yourself)  ^factanswer("I didn't injure myself.")
-	u: (what * do * [hurt injure] * [yourself "your back"]) ^reuse (What_were_you_doing_when_injured)
-	u: (what * do * ~the_pain * ~start) ^reuse (What_were_you_doing_when_injured)
+	u: WHAT_WERE_YOU_DOING_WHEN_INJURED
+		([
+			(what *~3 do *~3 [hurt injure] *~3 [yourself "your back"])
+			(what *~3 do *~3 ~the_pain *~3 ~start)
+		])
+	^factanswer("I didn't injure myself.")
 
 #! What were the circumstances of the injury
-	u: Circumstances_of_the_injury (what were the circumstances of the injury)  ^factanswer("I haven't had an injury.")
-	u: (circumstance * injury) ^reuse (Circumstances_of_the_injury)
+	u: CIRCUMSTANCES_OF_THE_INJURY (circumstance *~3 injury)  ^factanswer("I haven't had an injury.")
 
 #! How did you injure yourself
-	u: How_did_you_injure_yourself (how did you injure yourself)  ^factanswer("I didn't injure myself.")
-	u: (how did * [injure injury]) ^reuse (How_did_you_injure_yourself)
+	u: HOW_DID_YOU_INJURE_YOURSELF (how did *~3 [injure injury])  ^factanswer("I didn't injure myself.")
 
 #! Did you injure yourself
-	u: Did_you_injure_yourself ([have did] you injure yourself)   ^factanswer("No, I didn't injure myself.")
-	u: (!other !~bodyparts have you had *~3 injury) ^reuse (Did_you_injure_yourself)
-	u: (were you injured) ^reuse (Did_you_injure_yourself)
-	u: (was there * injury) ^reuse (Did_you_injure_yourself)
-	u: (do you remember * injury) ^reuse (Did_you_injure_yourself)
+	u: DID_YOU_INJURE_YOURSELF
+		([
+			(!other !~bodyparts have you had *~3 injury)
+			(were you injured)
+ 			(was there * injury)
+			(do you remember * injury)
+		])
+	^factanswer("No, I didn't injure myself.")
 
-#!!K How long ago was the incident
-	u: How_long_ago_was_the_incident (how long ago was the incident)    ^factanswer("There was no incident.")
-	u: ([when "long ago"] * [incident accident]) ^reuse (How_long_ago_was_the_incident)
-	u: (how long * [since ago] * [issue incident accident injury]) ^reuse (How_long_ago_was_the_incident)
+#! How long ago was the incident
+	u: HOW_LONG_AGO_WAS_THE_INCIDENT
+		([
+			([when "long ago"] *~3 [incident accident])
+			(how long * [since ago] *~3 [issue incident accident injury])
+		])
+	^factanswer("There was no incident.")
 
+#! Did the pain begin immediately
+	u: DID_THE_PAIN_BEGIN_IMMEDIATELY ([pain hurt] *~3 immediately) ^factanswer("I don't recall exactly when the pain started.")
+
+#! Is the pain constant
+#! Does the pain increase over time
+#! Has the pain changed
+u: IS_THE_PAIN_CONSTANT # ?: does not work
+	([
+		(![intensity severity] ~the_pain *~3 ["come and go" consistent increase decrease always sometimes constant constantly intermittent "throughout the day" "always there" "always present" "all the time" "wax and wane" "ever go away" "ever get better" continuous "all day" ongoing change persist])
+		(![intensity severity] ~the_pain *~3 [change fluctuate] *~3 [severity intensity])
+		(["come and go" consistent always sometimes constant constantly intermittent "throughout the day" "always there" "always present" "all the time" "wax and wane" "ever go away" "ever get better" continuous "all day" ongoing change] *~3 ~the_pain)
+		(![intensity severity] ~the_pain *~3 [change "get worse" "get better" fluctuate])
+	])
+	^factanswer("I don't have anything wrong.")
+
+#! How has the pain changed
+	?: HOW_HAS_THE_PAIN_CHANGED (how [has does did] *~2 ~the_pain [change develop]) ^factanswer("I don't have anything wrong.")
 
 # Exacerbation  ******************************************************************************************
 
-
-# #! Did the medicine help $currentmedication1=medicine
-#	u: Did_the_medicine_help (did the $currentmedication1? help)   ^factanswer("I did not take any medication.")
-#	u: (!else [did does] * [~itwords $currentmedication1?] * [help "go away" decrease difference]) ^reuse (Did_the_medicine_help)
-
 #! Does rest make the pain go away
-	u: Does_rest_make_the_pain_go_away (does rest make the pain go away)    ^factanswer("I don't have any pain.")
-	u: (<< rest ~the_pain ["go away" better relieve help] >>) ^reuse (Does_rest_make_the_pain_go_away)
-	u: (<< rest ["go away" better relieve help] >>) ^reuse (Does_rest_make_the_pain_go_away)
+	u: DOES_REST_MAKE_THE_PAIN_GO_AWAY
+		([
+			(<< rest ~the_pain ["go away" better relieve help] >>)
+			(<< rest ["go away" better relieve help] >>)
+		])
+	^factanswer("I don't have any pain.")
 
 #! Do you have pain when you are at rest
-	u: Do_you_have_pain_at_rest (do you have pain when you are at rest)  ^factanswer("I don't have any pain at all.")
-	u: (<< rest ~the_pain >>) ^reuse (Do_you_have_pain_at_rest)
+	u: DO_YOU_HAVE_PAIN_AT_REST (<< rest ~the_pain >>)  ^factanswer("I don't have any pain at all.")
 
 #! Does it hurt when you are not moving
-	u: Does_it_hurt_when_not_moving (does it hurt when you are not moving)   ^factanswer("No.")
-	u: ([hurt painful bother ~pain] * not * [move moving]) ^reuse (Does_it_hurt_when_not_moving)
-	u: ([hurt painful bother ~pain] * still) ^reuse (Does_it_hurt_when_not_moving)
-	u: (still * [hurt painful bother ~pain]) ^reuse (Does_it_hurt_when_not_moving)
-	u: (!down [lay lie] * [motionless still]) ^reuse (Does_it_hurt_when_not_moving)
+	u: DOES_IT_HURT_WHEN_NOT_MOVING
+		([
+			([hurt painful bother ~pain] * not * [move moving])
+			([hurt painful bother ~pain] * still)
+			(still * [hurt painful bother ~pain])
+			(!down [lay lie] * [motionless still])
+		])
+	^factanswer("No.")
 
 #! Does it hurt to sneeze
-	u: Does_it_hurt_to_sneeze (does it hurt to sneeze )    ^factanswer("It doesn't hurt to sneeze.")
-	u: ([hurt painful bother ~pain] *~2 sneeze) ^reuse (Does_it_hurt_to_sneeze)
-	u: ([sneeze sneezing] * [increase exacerbate] * ~the_pain) ^reuse (Does_it_hurt_to_sneeze)
+	u: DOES_IT_HURT_TO_SNEEZE
+		([
+			([hurt painful bother ~pain] *~2 sneeze)
+			([sneeze sneezing] * [increase exacerbate] * ~the_pain)
+		])
+	^factanswer("It doesn't hurt to sneeze.")
 
 #! Does it hurt to cough
-	u: Does_it_hurt_to_cough (does it hurt to cough)    ^factanswer("It doesn't hurt to cough.")
-	u: ([hurt painful bother ~pain] *~2 cough) ^reuse (Does_it_hurt_to_cough)
-	u: ([cough coughing] * [increase exacerbate] * ~the_pain) ^reuse (Does_it_hurt_to_cough)
+	u: DOES_IT_HURT_TO_COUGH
+		([
+			([hurt painful bother ~pain] *~2 cough)
+			([cough coughing] * [increase exacerbate] * ~the_pain)
+		])
+	^factanswer("It doesn't hurt to cough.")
 
 #! Does it hurt to swallow
-	u: Does_it_hurt_to_swallow (does it hurt to swallow)    ^factanswer("It doesn't hurt to swallow.")
-	u: ([hurt painful bother ~pain] * swallow) ^reuse (Does_it_hurt_to_swallow)
-	u: ([swallow swallowing] * [increase exacerbate] * ~the_pain) ^reuse (Does_it_hurt_to_swallow)
+	u: DOES_IT_HURT_TO_SWALLOW
+		([
+			([hurt painful bother ~pain] * swallow)
+			([swallow swallowing] * [increase exacerbate] * ~the_pain)
+		])
+	^factanswer("It doesn't hurt to swallow.")
 
 #! Does it hurt to move
-	u: Does_it_hurt_to_move (does it hurt to move)   ^factanswer("It doesn't hurt to move.")
-	u: (!radiate [hurt painful bother] * [walk run move turn]) ^reuse (Does_it_hurt_to_move)
-	u: (!radiate [move movement moving walk] * [increase exacerbate] * ~the_pain) ^reuse (Does_it_hurt_to_move)
+	u: DOES_IT_HURT_TO_MOVE
+		([
+			(!radiate [hurt painful bother] * [walk run move turn])
+			(!radiate [move movement moving walk] * [increase exacerbate] * ~the_pain)
+		])
+	^factanswer("It doesn't hurt to move.")
 
 #! Is the pain associated with food
-	u: Is_the_pain_associated_with_food (is the pain associated with food)   ^factanswer("No.")
-	u: (~the_pain * [food eating]) ^reuse (Is_the_pain_associated_with_food)
+	u: IS_THE_PAIN_ASSOCIATED_WITH_FOOD (~the_pain * [food eating])   ^factanswer("No.")
 
+#! Does the pain get worse at work
+	u: DOES_THE_PAIN_GET_WORSE_AT_WORK ([does be] *~3 ~the_pain * [~job working]) ^factanswer("The pain is not related to work.")
 
 # Intensity  ***************
 
 #! How would you rate the pain on the medicine $currentmedication1=medicine
-	u: Rate_pain_on_medicine (how would you rate the pain on the $currentmedication1?)    ^factanswer("I'm not taking any medicine.")
-	u: (rate * ~the_pain * on * [$currentmedication1? ~medicines]) ^reuse (Rate_pain_on_medicine)
-
+	u: RATE_PAIN_ON_MEDICINE (rate * ~the_pain * on * [$currentmedication1? ~medicines])    ^factanswer("I'm not taking any medicine.")
 
 # For rating scale is 1 - 10. probably should improve this rule
 
 #! Can you rate the pain
-	u: Can_you_rate_the_pain (!5 !five can you rate the pain)    ^factanswer("I'm not really having any pain to rate.")
-	u: (!describe !5 !five [rate scale rank quality quantify] * ~the_pain) ^reuse (Can_you_rate_the_pain)
-	u: (!5 !five ~the_pain * [between rate scale rank]) ^reuse (Can_you_rate_the_pain)
-	u: (!5 !five [10 ten] * [painful severe worst highest]) ^reuse (Can_you_rate_the_pain)
+#! On a scale of 1-10
+	u: CAN_YOU_RATE_THE_PAIN
+		([
+			(![describe 5 five] [rate scale rank quality quantify] * ~the_pain)
+			(![5 five] ~the_pain * [between rate scale rank])
+			(![5 five] [10 ten] * [painful severe worst highest])
+			(number * ~the_pain)
+			(scale * [10 ten])
+		])
+	^factanswer("I'm not really having any pain to rate.")
 
 # For rating scale 1-5
 
-#!!B Can you rate it
-	u: Can_you_rate_it (!10 !ten can you rate it)    ^factanswer("I'm not really having any pain to rate.")
-	u: (!10 !ten [rate scale rank] * ~the_pain) ^reuse (Can_you_rate_it)
-	u: (!10 !ten ~the_pain * [rate scale rank]) ^reuse (Can_you_rate_it)
+#! Can you rate it
+	u: CAN_YOU_RATE_IT
+		([
+			(![10 ten] [rate scale rank] * ~the_pain)
+			(![10 ten] ~the_pain * [rate scale rank])
+		])
+	^factanswer("I'm not really having any pain to rate.")
 
 #! How painful is it
-	u: How_painful_is_it (how painful is it >)    ^factanswer("It's not painful.")
-	u: (how * [painful much] * [~itwords injury hurt]) ^reuse (How_painful_is_it)
+	u: HOW_PAINFUL_IS_IT (how * [painful much] * [~itwords injury hurt])    ^factanswer("It's not painful.")
 
 #! Is the pain always a number $currentrateofpain=number
-	u: Is_the_pain_always_a_number (is the pain always a $currentrateofpain?)    ^factanswer("I don't have any pain.")
-	u: (~the_pain * [usually always mostly] * $currentrateofpain?) ^reuse (Is_the_pain_always_a_number)
+	u: IS_THE_PAIN_ALWAYS_A_NUMBER (~the_pain * [usually always mostly] * $currentrateofpain?)    ^factanswer("I don't have any pain.")
 
 #! Does the pain hurt a lot
-	u: Does_the_pain_hurt_a_lot (does the pain hurt a lot)    ^factanswer("I have no pain.")
-	u: (![when how if where] does * ~the_pain *~2 hurt *~2 [much lot "great deal"]) ^reuse (Does_the_pain_hurt_a_lot)
-	u: (is it *~2 painful >) ^reuse (Does_the_pain_hurt_a_lot)
-
+	u: DOES_THE_PAIN_HURT_A_LOT
+		([
+			(![when how if where] does * ~the_pain *~2 hurt *~2 [much lot "great deal"])
+			(is it *~2 painful >)
+		])
+	^factanswer("I have no pain.")
 
 # General ****************************************************************************************************
 
-
 #! Are you sore
-	u: Are_you_sore (are you sore) ^factanswer("I am not sore.")
-	u: (![throat mouth]  'you * [sore tender] *~2) ^reuse (Are_you_sore)
+	u: ARE_YOU_SORE (![throat mouth] 'you * [sore tender] *~2) ^factanswer("I am not sore.")
 
 #! Does the pain start somewhere else
-	u: Does_the_pain_start_somewhere_else (does the pain start somewhere else)    ^factanswer("It does not.")
-	u: (~the_pain * ~start * [anywhere anyplace "any place"] * else) ^reuse (Does_the_pain_start_somewhere_else)
+	u: DOES_THE_PAIN_START_SOMEWHERE_ELSE (~the_pain * ~start * [anywhere anyplace "any place"] * else) ^factanswer("It does not.")
 
 #! Do you have pain anywhere else
-	u: Do_you_have_pain_anywhere_else (do you have pain anywhere else)    ^factanswer("Nowhere else.")
-	u: (![go radiate] ~the_pain * [anywhere anyplace "any place" any] * [location else area part]) ^reuse (Do_you_have_pain_anywhere_else)
-	u: (![go radiate] [anywhere anyplace "any place" anything] * else * [hurt painful sore]) ^reuse (Do_you_have_pain_anywhere_else)
-	u: (![go radiate] [anywhere anyplace "any place" any] * [location else area part] * [~the_pain hurt painful] ) ^reuse (Do_you_have_pain_anywhere_else)
+#! Does the pain affect any other part of your body
+	u: DO_YOU_HAVE_PAIN_ANYWHERE_ELSE
+		([
+			(![go radiate] ~the_pain * [anywhere anyplace "any place" any] *~3 [location else area part])
+			(![go radiate] [anywhere anyplace "any place" anything] * else * [hurt painful sore])
+			(![go radiate] [anywhere anyplace "any place" any] *~3 [location else area part] * [~the_pain hurt painful])
+		])
+	^factanswer("Nowhere else.")
 
 #! You seem uncomfortable
-	u: You_seem_uncomfortable (you seem uncomfortable)   ^factanswer("I'm not really uncomfortable.")
-	u: ([seem appear feel] * [uncomfortable "in pain" discomfort]) ^reuse (You_seem_uncomfortable)
-	u: (you * [uncomfortable "in pain"]) ^reuse (You_seem_uncomfortable)
+	u: YOU_SEEM_UNCOMFORTABLE
+		([
+			([seem appear feel] * [uncomfortable "in pain" discomfort])
+			(you * [uncomfortable "in pain"])
+		])
+	^factanswer("I'm not really uncomfortable.")
 
 #! Can you point to the pain
-	u: Can_you_point_to_the_pain (can you point to the pain) ^factanswer("I'm not able to do that.")
-	u: ([show point]) ^reuse (Can_you_point_to_the_pain)
-	u: (!toe !knee can you touch) ^reuse (Can_you_point_to_the_pain)
-
+	u: CAN_YOU_POINT_TO_THE_PAIN
+		([
+			([show point])
+			(!toe !knee can you touch)
+		])
+	^factanswer("I'm not able to do that.")
 
 # Description  ***************
 
 #! Does the pain radiate
-	u: Does_the_pain_radiate (does the pain radiate)    ^factanswer("I don't have any pain.")
-	u: (!["how long" when away "going on" where ~pain_descriptors describe constant] ~the_pain * [radiate travel go spread shoot place extend "move around"]) ^reuse (Does_the_pain_radiate)
-	u: (![when away where ~pain_descriptors constant] does * ~the_pain * stay) ^reuse (Does_the_pain_radiate)
-	u: (!["how long" when away where ~pain_descriptors constant] ["same spot" "same area"]) ^reuse (Does_the_pain_radiate) ^reuse (Does_the_pain_radiate)
-	u: (!["how long" when away "going on" where ~pain_descriptors describe constant] << [radiate travel go spread shoot extend "move around"][~the_pain feeling] >>) ^reuse (Does_the_pain_radiate)
+	u: DOES_THE_PAIN_RADIATE
+		([
+			(!["how long" when away "going on" where ~pain_descriptors describe constant "come and go"] ~the_pain * [radiate travel go spread shoot place extend "move around"])
+			(!["how long" when away "going on" where ~pain_descriptors describe constant "come and go"] does * ~the_pain * stay)
+			(!["how long" when away "going on" where ~pain_descriptors describe constant "come and go"] ["same spot" "same area"])
+			(!["how long" when away "going on" where ~pain_descriptors describe constant "come and go"] << [radiate travel go spread shoot extend "move around"][~the_pain feeling] >>)
+		])
+	^factanswer("I don't have any pain.")
 
-#!!B Do you have any radiating pain
-	u: Do_you_have_any_radiating_pain (do you have any radiating pain)    ^factanswer("I don't have any radiating pain.")
-	u: (!where radiating pain) ^reuse (Do_you_have_any_radiating_pain)
+#! Do you have any radiating pain
+	u: DO_YOU_HAVE_ANY_RADIATING_PAIN (!where radiating pain) ^factanswer("I don't have any radiating pain.")
 
 #! Any pain on right side
-	u: Any_pain_on_right_side (Any pain on right side)    ^factanswer("I don't have any pain")
-	u: (![where when did outside] ~the_pain * right side) ^reuse (Any_pain_on_right_side)
+	u: ANY_PAIN_ON_RIGHT_SIDE (![where when did outside] ~the_pain *~3 right side)    ^factanswer("I don't have any pain")
 
 #! Any pain on left side
-	u: Any_pain_on_left_side (Any pain on left side)    ^factanswer("I don't have any pain")
-	u: (![where when did outside] ~the_pain * left side) ^reuse (Any_pain_on_left_side)
+	u: ANY_PAIN_ON_LEFT_SIDE (![where when did outside] ~the_pain *~3 left side)    ^factanswer("I don't have any pain")
 
 #! Is the pain on one side
-	u: Is_the_pain_on_one_side (is the pain on one side)    ^factanswer("I have no pain.")
-	u: (![where when did outside always night how] [any ~the_pain] * [single one particular] * [~pain_locations other]) ^reuse (Is_the_pain_on_one_side)
-	u: (![where when did outside always night away how] ~the_pain * [~pain_locations]) ^reuse (Is_the_pain_on_one_side)
-	u: (![where when did outside always night away how] [what which] * ~pain_locations * ~the_pain) ^reuse (Is_the_pain_on_one_side)
-	u: (![where when did outside always night how] [single one particular] * [~pain_locations] * [~the_pain]) ^reuse (Is_the_pain_on_one_side)
+	u: IS_THE_PAIN_ON_ONE_SIDE
+		([
+			(![where when did outside always night how] [any ~the_pain] * [single one particular] * [~pain_locations other])
+			(![where when did outside always night away how] ~the_pain * [~pain_locations])
+			(![where when did outside always night away how] [what which] * ~pain_locations * ~the_pain)
+			(![where when did outside always night how] [single one particular] * [~pain_locations] * [~the_pain])
+		])
+	^factanswer("I have no pain.")
 
 #! Is the pain sharp
-	u: Is_the_pain_sharp (is the pain sharp)      ^factanswer("It is not.")
-	u: (![where when did "how long"] ~the_pain * sharp) ^reuse (Is_the_pain_sharp)
-	u: (![where when "how long"] [feel experience] * ~pain_descriptors  pain) ^reuse (Is_the_pain_sharp)
-	u: (![where when "how long"] [feel experience] * ~pain_descriptors) ^reuse (Is_the_pain_sharp)
+	u: IS_THE_PAIN_SHARP
+		([
+			(![where when did "how long"] ~the_pain *~2 sharp)
+			(![where when "how long"] [feel experience] *~2 ~pain_descriptors  pain)
+			(![where when "how long"] [feel experience] *~2 ~pain_descriptors)
+		])
+	^factanswer("It is not.")
 
 #! Is the pain dull
-	u: Is_the_pain_dull (is the pain dull)      ^factanswer("It is not.")
-	u: (![where when did ~bodyparts "how long"] << ~the_pain ~pain_descriptors >>) ^reuse (Is_the_pain_dull)
+	u: IS_THE_PAIN_DULL
+		([
+			(![where when did "how long"] ~the_pain *~2 dull)
+			(![where when "how long"] [feel experience] *~2 ~pain_descriptors  pain)
+			(![where when "how long"] [feel experience] *~2 ~pain_descriptors)
+		])
+	^factanswer("It is not.")
 
 #! Is the area tender
-	u: Is_the_area_tender (is the area tender)      ^factanswer("No.")
-	u: (![where when did] [~itwords area spot point] tender) ^reuse (Is_the_area_tender)
+	u: IS_THE_AREA_TENDER (![where when did] [~itwords area spot point] tender) ^factanswer("No.")
 
 #! Is the pain in the muscle
-	u: Is_the_pain_in_the_muscle (is the pain in the muscle)      ^factanswer("No, I don't think so.")
-	u: (!where !when !did ~the_pain * muscle) ^reuse (Is_the_pain_in_the_muscle)
+	u: IS_THE_PAIN_IN_THE_MUSCLE (![where when did] ~the_pain * muscle) ^factanswer("I don't think so.")
 
 #! When does the pain hurt
-	u: When_does_the_pain_hurt (when does the pain hurt)      ^factanswer("It doesn't hurt at all.")
-	u: (when * ~pain * [present hurt]) ^reuse (When_does_the_pain_hurt)
+	u: WHEN_DOES_THE_PAIN_HURT (when *~3 ~pain *~3 [present hurt]) ^factanswer("It doesn't hurt at all.")
 
-#!!K How did it feel
-	u: How_did_it_feel (how did it feel)      ^factanswer("I haven't had any pain or injury to feel.")
-	u: (how * ~the_pain * [feel felt]) ^reuse (How_did_it_feel)
+#! How did it feel
+	u: HOW_DID_IT_FEEL (how *~3 ~the_pain *~2 [feel felt])      ^factanswer("I haven't had any pain or injury to feel.")

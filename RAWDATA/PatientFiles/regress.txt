@@ -1,14 +1,12 @@
 :silent
 regress
 can you tell me what brings you in today
-can you tell me what brings you in today
 tell me more
 when did this happen
 is there anything that makes the pain better
 how has the pain changed over the last 5 days
 does it hurt to move
 where is the pain
-where is the pain again
 does the pain go anywhere
 do you have any numbness or tingling
 do you have any other symptoms
@@ -58,6 +56,7 @@ where does it hurt
 do your muscles ache
 have you tried to stretch
 have you tried bending
+:reset
 Hi, what brings you in today?
 Oh, I'm sorry to hear that, when did that begin?
 When did your back pain begin?
@@ -75,6 +74,7 @@ On a scale of one to ten, how bad is the pain?
 Is it getting better or worse?
 Is your pain improving?
 Have you ever had pain like this before?
+:reset
 what brings you into the office today?
 can you tell me more about your back pain?
 When did it start?
@@ -90,6 +90,7 @@ Do you have numbness or tingling anywhere
 Does the pain radiate?
 Have you had anything like this before
 are you able to walk
+:reset
 So, what brings you in today?
 When did it start?
 Can you describe the pain?
@@ -136,6 +137,7 @@ is there anything else you would like us to address today
 does it hurt to touch
 how intense is the pain on a scale from 1 to 10
 did you fall at all
+:reset
 What brings you in today?
 When did the pain start
 What happened on the day of the move?
@@ -161,6 +163,7 @@ What makes it worse
 Have you ever been in a car accident
 Have you ever been treated for whiplash
 Does it hurt when you cough
+:reset
 hello. why are you here today?
 I am sorry to hear that. Can you tell me more about this back pain?
 Is it in your upper or lower back?
@@ -231,6 +234,7 @@ Any numbness or tingling?
 Any numbness?
 Have you had any imaging done?
 Have you seen anyone else about this yet?
+:reset
 How are you doing today, sir?
 When did your back start hurting?
 Were you doing anything at the time that may have brought on the pain?
@@ -304,4 +308,4 @@ have you noticed any numbness or tingling
 any trouble with your bowels or bladder
 any history of back problems
 :silent
-:diff c:\users\arbo04\desktop\VPatientChatscript5.51\RAWDATA/PatientFiles/regressoutput.txt LOGS/vp.txt :
+:diff c:\users\danf01\desktop\VPatientChatscript7.73\RAWDATA/PatientFiles/regressoutput.txt LOGS/vp.txt :

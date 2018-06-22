@@ -10,344 +10,414 @@ topic: ~chiefcomplaint  keep repeat ()
 # Onset  ***************
 
 #! Did anything happen to cause the 1 $chiefcomplaint=1
-	u: Did_anything_happen_to_cause_the_1 (did anything happen to cause the $chiefcomplaint?)    ^factanswer("Nothing.")
-	u: (!think [remember happen situation what did notice anything] * ["bring on" caused cause trigger set specific new change] * [~itwords $chiefcomplaint? symptoms life world]) ^reuse (Did_anything_happen_to_cause_the_1)
-	u: ([describe discuss elaborate] * [happen situation]) ^reuse (Did_anything_happen_to_cause_the_1)
+	?: DID_ANYTHING_HAPPEN_TO_CAUSE_THE_1
+		([
+ 			(!think [remember happen situation what did notice anything] *~3 ["bring on" caused cause trigger set specific new change] *~3 [~itwords $chiefcomplaint? symptoms life world])
+ 			([describe discuss elaborate] *~3 [happen situation])
+		])
+	^factanswer("Nothing.")
 
 #! How did the 1 start $chiefcomplaint=1
-	u: How_did_the_1_start (how did the $chiefcomplaint? start) ^factanswer("I don't know how.")
-	u: (!"how long" !when !exacerbate !"how much" how *[~itwords $chiefcomplaint? symptoms] * [~start happen brought]) ^reuse (How_did_the_1_start)
-	u: (!cause !causing ![does has] [what how] * [precipitate start] * [~itwords $chiefcomplaint?]) ^reuse (How_did_the_1_start)
-	u: (what * [notice felt] * [~itwords $chiefcomplaint?]) ^reuse (How_did_the_1_start)
-	u: ([~itwords $chiefcomplaint?] * [start begin] * [activity trauma physical death]) ^reuse (How_did_the_1_start)
+	?: HOW_DID_THE_1_START
+		([
+			(!["how long" when exacerbate "how much"] how *~3 [~itwords $chiefcomplaint? symptoms] *~3 [~start happen brought])
+ 			(!cause !causing ![does has] [what how] *~3 [precipitate start] *~3 [~itwords $chiefcomplaint?])
+			(what * [notice felt] *~3 [~itwords $chiefcomplaint?])
+ 			([~itwords $chiefcomplaint?] *~3 [start begin] *~3 [activity trauma physical death])
+		])
+	^factanswer("I don't know how.")
 
 #! Were you doing anything when the 1 started $chiefcomplaint=1
-	u: Doing_anything_when_the_1_started (were you doing anything when the $chiefcomplaint? started)  ^factanswer("Nothing at all.")
-	u: (!when !else do * [~itwords $chiefcomplaint?] * ~start >) ^reuse (Doing_anything_when_the_1_started)
-	u: (!else !try do * felt * [~itwords $chiefcomplaint?]) ^reuse (Doing_anything_when_the_1_started)
-	u: (!avoid !exacerbate [brought bring] * [~itwords $chiefcomplaint?] * on) ^reuse (Doing_anything_when_the_1_started)
-	u: (!avoid !exacerbate [happening doing] * [brought bring when] * [~itwords $chiefcomplaint?]) ^reuse (Doing_anything_when_the_1_started)
-	u: (!exacerbate !avoid !injure !away what * [doing happened]) ^reuse (Doing_anything_when_the_1_started)
+	?: DOING_ANYTHING_WHEN_THE_1_STARTED
+		([
+ 			(![when else] do *~3 [~itwords $chiefcomplaint?] *~3 ~start >)
+			(![else try] do *~3 felt *~3 [~itwords $chiefcomplaint?])
+			(![avoid exacerbate] [brought bring] *~3 [~itwords $chiefcomplaint?] *~3 on)
+			(![avoid exacerbate] [happening doing] *~3 [brought bring when] *~3 [~itwords $chiefcomplaint?])
+ 			(![exacerbate avoid injure away] what *~3 [doing happened])
+		])
+	^factanswer("Nothing at all.")
 
 #! Was the onset sudden1 $chiefcomplaint=1
-	u: Was_the_onset_sudden1 (was the onset sudden1)   ^factanswer("There was no onset.")
- 	u: (<< onset [sudden abrupt] >>) ^reuse (Was_the_onset_sudden1)
-	u: ([~itwords $chiefcomplaint? symptoms] *~2 [immediate sudden abrupt instant instantaneous gradual gradually]) ^reuse (Was_the_onset_sudden1)
-	u: (onset * [sudden abrupt]) ^reuse (Was_the_onset_sudden1)
+	?: WAS_THE_ONSET_SUDDEN1
+		([
+			(<< onset [sudden abrupt] >>)
+ 			([~itwords $chiefcomplaint? symptoms] *~2 [immediate sudden abrupt instant instantaneous gradual gradually])
+		])
+	^factanswer("There was no onset.")
 
 #! Did the 1 start immediately $chiefcomplaint=1
-	u: Did_the_1_start_immediately (did the $chiefcomplaint? start immediately)   ^factanswer("It didn't start.")
-	u: (!when [~itwords $chiefcomplaint?] * [start begin hurt happen "come on"] * [immediately "right away" "right after" "straight away" suddenly abruptly]) ^reuse (Did_the_1_start_immediately)
+	?: DID_THE_1_START_IMMEDIATELY (!when [~itwords $chiefcomplaint?] * [start begin hurt happen "come on"] * [immediately "right away" "right after" "straight away" suddenly abruptly])   ^factanswer("It didn't start.")
 
 #! Is the 1 new $chiefcomplaint=1
-	u: Is_the_1_new (is the $chiefcomplaint? new)   ^factanswer("It is new.")
-	u: (!~medicines is *[~itwords $chiefcomplaint?] * [new novel]) ^reuse (Is_the_1_new)
-	u: (!~medicines is * [new novel] * [~itwords $chiefcomplaint?]) ^reuse (Is_the_1_new)
+	?: IS_THE_1_NEW
+		([
+			(!~medicines is *[~itwords $chiefcomplaint?] * [new novel])
+			(!~medicines is * [new novel] * [~itwords $chiefcomplaint?])
+		])
+	^factanswer("It is new.")
 
 #! Is this the first time you have had this 1 $chiefcomplaint=1
-	u: Is_this_the_first_time_for_1 (is this the first time you have had this $chiefcomplaint?)   ^factanswer("This is the first time.")
-	u: (first time * [~itwords $chiefcomplaint?]) ^reuse (Is_this_the_first_time_for_1)
+	?: IS_THIS_THE_FIRST_TIME_FOR_1 (first time * [~itwords $chiefcomplaint?])   ^factanswer("This is the first time.")
 
 #! When did the 1 start $chiefcomplaint=1
-	u: When_did_the_1_start (when did the $chiefcomplaint? start)   ^factanswer("It hasn't started.")
- 	u: (![what night 'do pregnant frequently describe] [when "how long ago"] * [~itwords $chiefcomplaint?] * [start happen begin occur]) ^reuse (When_did_the_1_start)
-	u: (![what night 'do pregnant frequently describe] [when "how long ago"] * [start happen begin hurt] * [~itwords $chiefcomplaint?]) ^reuse (When_did_the_1_start)
-	u: (![what night 'do pregnant describe] [when "how long ago"] * [feel experience notice] * [~itwords $chiefcomplaint? symptom problem]) ^reuse (When_did_the_1_start)
-	u: (![pregnant describe] [when "how long ago"] * [onset start this] >) ^reuse (When_did_the_1_start)
-	u: (!much ["how long ago" ago] >) ^reuse (When_did_the_1_start)
-	u: (!much [start begin notice onset ago] * ~timename) ^reuse (When_did_the_1_start)
-	u: (![worse much] ~timename * [start begin notice onset ago "so far"]) ^reuse (When_did_the_1_start)
+	?: WHEN_DID_THE_1_START
+		([
+			(![what night 'do pregnant frequently describe] [when "how long ago"] *~3 [~itwords $chiefcomplaint?] *~3 [start happen begin occur])
+			(![what night 'do pregnant frequently describe] [when "how long ago"] *~3 [start happen begin hurt] *~3 [~itwords $chiefcomplaint?])
+			(![what night 'do pregnant describe] [when "how long ago"] *~3 [feel experience notice] *~3 [~itwords $chiefcomplaint? symptom problem])
+ 			(![pregnant describe] [when "how long ago"] * [onset start this] >)
+			(!much ["how long ago" ago] >)
+ 			(!much [start begin notice onset ago] * ~timename)
+ 			(![worse much] ~timename * [start begin notice onset ago "so far"])
+		])
+	^factanswer("It hasn't started.")
 
 #! How has the 1 changed over time $chiefcomplaint=1
-	u: How_has_the_1_changed (how has the $chiefcomplaint? changed over time)  ^factanswer("It has not changed.")
-	u: (!when !what !rest !does !~position !anything how * [~itwords $chiefcomplaint?] * [progress progressed worse better increase change] >) ^reuse (How_has_the_1_changed)
-	u: (!when !what !rest !does !~position !anything how * [~itwords $chiefcomplaint?] * [progress progressed worse better increase change been] * [time day year]) ^reuse (How_has_the_1_changed)
-	u: (!when !what !rest !does !~position !anything how * [~itwords $chiefcomplaint?] * since * [start begin then first]) ^reuse (How_has_the_1_changed)
+	?: HOW_HAS_THE_1_CHANGED
+		([
+			(![when what rest does ~position anything] how *~3 [~itwords $chiefcomplaint?] *~3 [progress progressed worse better increase change] >)
+			(![when what rest does ~position anything] how *~3 [~itwords $chiefcomplaint?] *~3 [progress progressed worse better increase change been] *~3 [time day year])
+ 			(![when what rest does ~position anything] how *~3 [~itwords $chiefcomplaint?] *~3 since * [start begin then first])
+		])
+	^factanswer("It has not changed.")
 
 #! How long have you had the 1 $chiefcomplaint=1
-	u: How_long_have_you_had_1 (how long have you had the $chiefcomplaint?)   ^factanswer("I have nothing.")
-	u: (![last take] how [long "many days"] * [had been having experience felt notice need] * [~itwords $chiefcomplaint?]) ^reuse (How_long_have_you_had_1)
-	u: (how * [weeks days] * [~itwords $chiefcomplaint?]) ^reuse (How_long_have_you_had_1)
-	u: (!last how long * [~itwords $chiefcomplaint?] * [hurt going happen occur bother]) ^reuse (How_long_have_you_had_1)
-	u: (![were does similar had take severe] ["how long"] * [~itwords $chiefcomplaint?] * [~start "been there" "been a problem"]) ^reuse (How_long_have_you_had_1)
+	?: HOW_LONG_HAVE_YOU_HAD_1
+		([
+			(![last take] how [long "many days"] *~3 [had been having experience felt notice need] *~3 [~itwords $chiefcomplaint?])
+ 			(how *~3 [weeks days] *~3 [~itwords $chiefcomplaint?])
+			(!last how long *~3 [~itwords $chiefcomplaint?] *~3 [hurt going happen occur bother])
+			(![were does similar had take severe] ["how long"] *~3 [~itwords $chiefcomplaint?] *~3 [~start "been there" "been a problem"])
+		])
+	^factanswer("I have nothing.")
 
 #! Is the 1 constant $chiefcomplaint=1
-	u: Is_the_1_constant (is the $chiefcomplaint? constant)    ^factanswer("I don't have anything wrong.")
-	u: (![intensity severity] [~itwords $chiefcomplaint?] * ["come and go" consistent always sometimes constant constantly intermittent "throughout the day" "always there" "always present" "all the time" "wax and wane" "ever go away" "ever get better" continuous "all day" ongoing change persist]) ^reuse (Is_the_1_constant)
-	u: (![intensity severity] [~itwords $chiefcomplaint?] * [change fluctuate] * [severity intensity]) ^reuse (Is_the_1_constant)
-	u: (["come and go" consistent always sometimes constant constantly intermittent "throughout the day" "always there" "always present" "all the time" "wax and wane" "ever go away" "ever get better" continuous "all day" ongoing change] * [~itwords $chiefcomplaint?]) ^reuse (Is_the_1_constant)
+#! Did the pain increase over time
+	u: IS_THE_1_CONSTANT # ?: does not work. Also have IS_THE_PAIN_CONSTANT in ~CurrentPainSymptoms
+		([
+			(![intensity severity] [~itwords $chiefcomplaint?] *~3 ["come and go" consistent increase decrease fluctuate change always sometimes constant constantly intermittent "throughout the day" "always there" "always present" "all the time" "wax and wane" "ever go away" "get better" "get worse" continuous "all day" ongoing persist])
+			(![intensity severity] [~itwords $chiefcomplaint?] *~3 [change fluctuate] *~3 [severity intensity])
+			(["come and go" consistent always sometimes constant constantly intermittent "throughout the day" "always there" "always present" "all the time" "wax and wane" "ever go away" "ever get better" continuous "all day" ongoing change] *~3 [~itwords $chiefcomplaint?])
+		])
+	^factanswer("I don't have anything wrong.")
 
 #! Do you have a cause for the 1 $chiefcomplaint=1
-	u: Do_you_have_a_cause_for_1 (do you have a cause for the $chiefcomplaint?) ^factanswer("I have nothing to have a cause for.")
-	u: ([cause reason why] * [~itwords $chiefcomplaint? ~pain]) ^reuse (Do_you_have_a_cause_for_1)
-	u: ([thought think idea] * [~itwords $chiefcomplaint?] * [cause reason]) ^reuse (Do_you_have_a_cause_for_1)
-	u: ([thought think idea] * [cause reason] * [~itwords $chiefcomplaint?]) ^reuse (Do_you_have_a_cause_for_1)
+	?: DO_YOU_HAVE_A_CAUSE_FOR_1
+		([
+			([cause reason why] * [~itwords $chiefcomplaint? ~pain])
+			([thought think idea] * [~itwords $chiefcomplaint?] * [cause reason])
+			([thought think idea] * [cause reason] * [~itwords $chiefcomplaint?])
+		])
+	^factanswer("I am not sure.")
 
 # Exacerbation  *********
 
 #! What makes the 1 worse $chiefcomplaint=1
-	u: What_makes_the_1_worse (what makes the $chiefcomplaint? worse)    ^factanswer("I have nothing.")
-	u: (!avoid [what anything seems] * [~itwords $chiefcomplaint?] * [worse increase worsen more hard harder]) ^reuse (What_makes_the_1_worse)
-	u: (!avoid [what anything] * [aggravate exacerbate worsen more affect] * [~itwords $chiefcomplaint?]) ^reuse (What_makes_the_1_worse)
-	u: (!avoid any * [exacerbate exacerbating]) ^reuse (What_makes_the_1_worse)
+	?: WHAT_MAKES_THE_1_WORSE
+		([
+			(!avoid [what anything "any thing" seems] *~3 [~itwords $chiefcomplaint?] *~3 [worse increase worsen more hard harder])
+			(!avoid [what anything "any thing"] *~3 [aggravate exacerbate worsen more affect increase] *~3 [~itwords $chiefcomplaint?])
+			(!avoid any *~3 [exacerbate exacerbating])
+		])
+	^factanswer("I am not sure.")
 
 #! Does anything change the intensity of the 1 $chiefcomplaint=1
-	u: Does_anything_change_1_intensity (does anything change the intensity of the $chiefcomplaint?)   ^factanswer("Nothing.")
-	u: ([what anything] * change * [intensity severity] * [~itwords $chiefcomplaint?]) ^reuse (Does_anything_change_1_intensity)
-	u: ([what anything] * change * [~itwords $chiefcomplaint?] * [intense intensity severity]) ^reuse (Does_anything_change_1_intensity)
-	u: ([~itwords $chiefcomplaint?] * change * [move movement]) ^reuse (Does_anything_change_1_intensity)
+	?: DOES_ANYTHING_CHANGE_1_INTENSITY
+		([
+			([what anything] *~3 change *~3 [intensity severity] *~3 [~itwords $chiefcomplaint?])
+			([what anything] *~3 change *~3 [~itwords $chiefcomplaint?] *~3 [intense intensity severity])
+		])
+	^factanswer("Nothing.")
 
 #! What have you tried for the 1 $chiefcomplaint=1
-	u: What_have_you_tried_for_the_1 (what have you tried for the $chiefcomplaint?)   ^factanswer("Nothing.")
-		a: ([dosage dose "how much"]) ^reuse (~currentmedications.How_much_medicine_have_you_taken)
+	?: WHAT_HAVE_YOU_TRIED_FOR_THE_1
+		([
+			(![dose dosage else how] what *~3 [try take taken use attempt done doing 'do] *~3 [~itwords $chiefcomplaint?])
+			(![dose dosage else how] what *~3 [try take taken use attempt done] >)
+		])
+	^factanswer("Nothing.")
+		a: ([dosage dose "how much"]) ^reuse (~currentmedications.HOW_MUCH_MEDICINE_HAVE_YOU_TAKEN)
 		a: (did that [work help]) It helped a little, but didn't make the pain go away
-	u: (!dose !dosage !else !how what * [try take taken use attempt done doing 'do] * [~itwords $chiefcomplaint?]) ^reuse (What_have_you_tried_for_the_1)
-	u: (!dose !dosage !else !how what * [try take taken use attempt done] >) ^reuse (What_have_you_tried_for_the_1)
 
 
 #! Have you tried anything for the 1 $chiefcomplaint=1
-	u: Have_you_tried_anything_for_the_1 (have you tried anything for the $chiefcomplaint?)   ^factanswer("I haven't tried anything.")
-		a: ([dosage dose "how much"]) ^reuse (~currentmedications.How_much_medicine_have_you_taken)
-		a: (["did that" "how much"] * [work help ]) It helped a little but didn't make the pain go away.
-	u: (![else other how need ~medical_treatments ~medicines we] [try attempt take use] * [~itwords $chiefcomplaint?]) ^reuse (Have_you_tried_anything_for_the_1)
-	u: (![else other ~medical_treatments ~medicines we] [try attempt take use] * home) ^reuse (Have_you_tried_anything_for_the_1) # have you tried anything at home
-	u: (![else other avoid exacerbate start hurt ~medical_treatments ~medicines we] [doing done use] * [~itwords $chiefcomplaint?]) ^reuse (Have_you_tried_anything_for_the_1)
-	u: (![else other how need ~medical_treatments ~medicines we] [try attempt take used] * [help relieve] * [~itwords $chiefcomplaint?]) ^reuse (Have_you_tried_anything_for_the_1)
-	u: (![~medical_treatments ~medicines we] [did have] *~2 [do try] *~2 anything >) ^reuse (Have_you_tried_anything_for_the_1)
-	u: (![~medical_treatments ~medicines we] [did have] *~2 [do try] *~2 anything * [symptoms $chiefcomplaint? ~itwords problem]) ^reuse(Have_you_tried_anything_for_the_1)
-
+#! have you tried anything at home
+	?: HAVE_YOU_TRIED_ANYTHING_FOR_THE_1
+		([
+			(![else other how need ~medical_treatments ~medicines we work] [try attempt take use] * [~itwords $chiefcomplaint?])
+			(![else other ~medical_treatments ~medicines we work] [try attempt take use] * home)
+			(![else other avoid exacerbate start hurt ~medical_treatments ~medicines we work] [doing done use] * [~itwords $chiefcomplaint?])
+			(![else other how need ~medical_treatments ~medicines we work] [try attempt take used] * [help relieve] * [~itwords $chiefcomplaint?])
+			(![~medical_treatments ~medicines we] [did have] *~2 [do try] *~2 anything >)
+			(![~medical_treatments ~medicines we] [did have] *~2 [do try] *~2 anything * [symptoms $chiefcomplaint? ~itwords problem])
+		])
+	^factanswer("I haven't tried anything.")
+	a: ([dosage dose "how much"]) ^reuse (~currentmedications.HOW_MUCH_MEDICINE_HAVE_YOU_TAKEN)
+	a: (["did that" "how much"] * [work help ]) It helped a little but didn't make the pain go away.
 
 #! What makes the 1 better $chiefcomplaint=1
-	u: What_makes_the_1_better (what makes the $chiefcomplaint? better)   ^factanswer("Nothing makes it better.")
-		a: ([dosage dose "how much"]) ^reuse (~currentmedications.How_much_medicine_have_you_taken)
-	u: (!else [what anything] * [$chiefcomplaint? ~itwords] * [less better "hurt less""less painful" "go away" improve]) ^reuse (What_makes_the_1_better)
-	u: (!else [$chiefcomplaint? ~itwords] * [less better "hurt less""less painful" "go away" improve] * anything) ^reuse (What_makes_the_1_better)
-	u: (!else [what anything] * [help alleviate reduce lessen decrease improve relieve relief less ease] * [$chiefcomplaint? ~itwords]) ^reuse (What_makes_the_1_better)
-	u: (!else [what anything] * [help alleviate reduce lessen decrease improve relieve relief less ease]) ^reuse (What_makes_the_1_better)
-
+	?: WHAT_MAKES_THE_1_BETTER
+		([
+			(!else [what anything] *~3 [$chiefcomplaint? ~itwords] *~3 [less better "hurt less""less painful" "go away" improve])
+ 			(!else [$chiefcomplaint? ~itwords] *~3 [less better "hurt less""less painful" "go away" improve] *~3 anything)
+			(!else [what anything] *~3 [help alleviate reduce lessen decrease improve relieve relief less ease] *~3 [$chiefcomplaint? ~itwords])
+ 			(!else [what anything] *~3 [help alleviate reduce lessen decrease improve relieve relief less ease])
+		])
+	^factanswer("Nothing makes it better.")
+			a: ([dosage dose "how much"]) ^reuse (~currentmedications.HOW_MUCH_MEDICINE_HAVE_YOU_TAKEN)
 
 #! Does anything else help the 1 $chiefcomplaint=1
-	u: Does_anything_else_help_the_1 (does anything else help the $chiefcomplaint?)  ^factanswer("Nothing else helps.")
-	u: ([what anything] else * [help alleviate reduce lessen decrease] * [~itwords $chiefcomplaint?]) ^reuse (Does_anything_else_help_the_1)
-	u: ([what anything] else * [~itwords $chiefcomplaint?] * [help alleviate reduce lessen decrease better]) ^reuse (Does_anything_else_help_the_1)
+	u: DOES_ANYTHING_ELSE_HELP_THE_1
+		([
+			([what anything] else *~3 [help alleviate reduce lessen decrease] *~3 [~itwords $chiefcomplaint?])
+			([what anything] else *~3 [~itwords $chiefcomplaint?] *~3 [help alleviate reduce lessen decrease better])
+		])
+	^factanswer("Nothing else helps.")
 
 #!!K Have you tried anything else for the 1 $chiefcomplaint=1
-	u: Have_you_tried_anything_else_for_1 (have you tried anything else for the $chiefcomplaint?)  ^factanswer("I have not tried anything else yet.")
-	u: ([try take] * else * [~itwords $chiefcomplaint?]) ^reuse (Have_you_tried_anything_else_for_1)
+	u: HAVE_YOU_TRIED_ANYTHING_ELSE_FOR_1 ([try take] *~3 else *~3 [~itwords $chiefcomplaint?])  ^factanswer("I have not tried anything else yet.")
 
 #!!K Have you tried anything else1 $chiefcomplaint=1
-	u: Have_you_tried_anything_else1 (have you tried anything else1)  ^factanswer("I have not tried anything else yet.")
-	u: (!take try * [besides else]) ^reuse (Have_you_tried_anything_else1)
+	u: HAVE_YOU_TRIED_ANYTHING_ELSE1 (!take try *~3 [besides else])  ^factanswer("I have not tried anything else yet.")
 
 #!!K Have you tried any other methods1 $chiefcomplaint=1
-	u: Have_you_tried_any_other_methods1 (have you tried any other methods1)   ^factanswer("I have not tried methods.")
-	u: (try * other * [method approach treatment]) ^reuse (Have_you_tried_any_other_methods1)
+	u: HAVE_YOU_TRIED_ANY_OTHER_METHODS1 (try *~3 other *~3 [method approach treatment])   ^factanswer("I have not tried methods.")
 
 #! What else have you tried for the 1 $chiefcomplaint=1
-	u: What_else_have_you_tried_for_1 (what else have you tried for the $chiefcomplaint?) ^factanswer("I have not tried anything else yet.")
-	u: (<< [else other] [try attempt] [~itwords $chiefcomplaint?] >>) ^reuse (What_else_have_you_tried_for_1)
+	?: WHAT_ELSE_HAVE_YOU_TRIED_FOR_1 (<< [else other] [try attempt] [~itwords $chiefcomplaint?] >>) ^factanswer("I have not tried anything else yet.")
 
 #!!K What else have you tried1 $chiefcomplaint=1
-	u: What_else_have_you_tried1 (what else have you tried1) ^factanswer("I have not tried anything else yet.")
-	u: (!take !~medicines << [else other] [try attempt] >>) ^reuse (What_else_have_you_tried1)
+	?: WHAT_ELSE_HAVE_YOU_TRIED1 (![take ~medicines] << [else other] [try attempt] >>) ^factanswer("I have not tried anything else yet.")
 
 #! Does moving increase the 1 $chiefcomplaint=1
-	u: Does_moving_increase_the_1 (does [activity moving] increase the $chiefcomplaint?)    ^factanswer("Moving doesn't increase it.")
-	u: ([activity move active] * [increase worse aggravate enhance] * [~itwords $chiefcomplaint?]) ^reuse (Does_moving_increase_the_1)
-	u: ([activity move active]  * [~itwords $chiefcomplaint?] * [increase worse]) ^reuse (Does_moving_increase_the_1)
-	u: (![not rest] [~itwords $chiefcomplaint?] * [increase worse hurt] * [move movement activity active]) ^reuse (Does_moving_increase_the_1)
+	?: DOES_MOVING_INCREASE_THE_1
+		([
+			([activity move active] * [increase worse aggravate enhance] * [~itwords $chiefcomplaint?])
+			([activity move active]  * [~itwords $chiefcomplaint?] * [increase worse])
+			(![not rest] [~itwords $chiefcomplaint?] * [increase worse hurt] * [move movement activity active])
+		])
+	^factanswer("Moving doesn't increase it.")
 
 #! Does any position relieve the 1 $chiefcomplaint=1
-	u: Does_any_position_relieve_the_1 (does any position relieve the $chiefcomplaint?)   ^factanswer("No positions help.")
-	u: (!worse !anything position * relieve * [~itwords $chiefcomplaint?]) ^reuse (does_any_position_relieve_the_1)
-	u: (!worse !anything position * [~itwords $chiefcomplaint?] * [better "hurt less"]) ^reuse (Does_any_position_relieve_the_1)
-	u: (!worse !anything position * [better improve comfortable]) ^reuse (Does_any_position_relieve_the_1)
-	u: (!worse !anything [~itwords $chiefcomplaint?] * [better improve] * position) ^reuse (Does_any_position_relieve_the_1)
-	u: (!worse !anything [better improve help] * [~itwords $chiefcomplaint?] * [move position]) ^reuse (Does_any_position_relieve_the_1)
+	?: DOES_ANY_POSITION_RELIEVE_THE_1
+		([
+			(!worse !anything position *~3 relieve *~3 [~itwords $chiefcomplaint?])
+ 			(!worse !anything position *~3 [~itwords $chiefcomplaint?] *~3 [better "hurt less"])
+			(!worse !anything position *~3 [better improve comfortable])
+			(!worse !anything [~itwords $chiefcomplaint?] *~3 [better improve] *~3 position)
+			(!worse !anything [better improve help] *~3 [~itwords $chiefcomplaint?] *~3 [move position])
+		])
+	^factanswer("No positions help.")
 
 #! Does any position make the 1 worse $chiefcomplaint=1
-	u: Does_any_position_make_the_1_worse (does any position make the $chiefcomplaint? worse)   ^factanswer("No positions make it worse.")
-	u: (!better !anything position * [increase worsen aggravate enhance] [~itwords $chiefcomplaint?]) ^reuse (Does_any_position_make_the_1_worse)
-	u: (!better !anything position * [~itwords $chiefcomplaint?] * [worse increase]) ^reuse (Does_any_position_make_the_1_worse)
+	?: DOES_ANY_POSITION_MAKE_THE_1_WORSE
+		([
+			(!better !anything position *~4 [increase worsen aggravate enhance] [~itwords $chiefcomplaint?])
+			(!better !anything position *~4 [~itwords $chiefcomplaint?] *~3 [worse increase])
+		])
+	^factanswer("No positions make it worse.")
 
 #! Do any positions make 1 worse or better $chiefcomplaint=1
-	u: Do_any_positions_make_1_worse_or_better (do any positions make $chiefcomplaint? worse or better)   ^factanswer("Not that I can tell.")
-	u: (!anything [thing position] * [~itwords $chiefcomplaint?] * [better worse intensity severity most]) ^reuse (Do_any_positions_make_1_worse_or_better)
+	?: DO_ANY_POSITIONS_MAKE_1_WORSE_OR_BETTER (!anything [thing position] *~4 [~itwords $chiefcomplaint?] *~3 [better worse intensity severity most])   ^factanswer("Not that I can tell.")
 
 #! Can you move around with the 1 $chiefcomplaint=1
-	u: Can_you_move_around_with_the_1 (can you move around with the $chiefcomplaint?)    ^factanswer("I can move around fine.")
-	u: (!~bodyparts move * [~itwords $chiefcomplaint?]) ^reuse (Can_you_move_around_with_the_1)
-	u: (!~bodyparts [able "can you"] * [around move] * [~itwords $chiefcomplaint?]) ^reuse (Can_you_move_around_with_the_1)
+	?: CAN_YOU_MOVE_AROUND_WITH_THE_1
+		([
+			(!~bodyparts move * [~itwords $chiefcomplaint?])
+			(!~bodyparts [able "can you"] * [around move] * [~itwords $chiefcomplaint?])
+		])
+	^factanswer("I can move around fine.")
 
 #! Is 1 worse when you lie down $chiefcomplaint=1
-	u: Is_1_worse_when_you_lie_down (is $chiefcomplaint? worse when you lie down)     ^factanswer("I don't have any difficulty with that.")
-	u: (<< [~itwords $chiefcomplaint?] [hurt worse] ["lie down" "lying down" "lay down" rest] >>) ^reuse (Is_1_worse_when_you_lie_down)
+	?: IS_1_WORSE_WHEN_YOU_LIE_DOWN (<< [~itwords $chiefcomplaint?] [hurt worse] ["lie down" "lying down" "lay down" rest] >>)     ^factanswer("I don't have any difficulty with that.")
 
 #! Do you have 1 when you lie down $chiefcomplaint=1
-	u: Do_you_have_1_when_you_lie_down (do you have $chiefcomplaint? when you lie down)    ^factanswer("I don't have any difficulty with that.")
-	u: (!better !less !hurt !feel << [~itwords $chiefcomplaint?] ["lie down" "lying down" rest] >>) ^reuse (Do_you_have_1_when_you_lie_down)
+	?: DO_YOU_HAVE_1_WHEN_YOU_LIE_DOWN (![better less hurt feel] << [~itwords $chiefcomplaint?] ["lie down" "lying down" rest] >>)    ^factanswer("I don't have any difficulty with that.")
 
 #! Is 1 better when you lie down $chiefcomplaint=1
-	u: Is_1_better_when_you_lie_down (is $chiefcomplaint? better when you lie down)     ^factanswer("I haven't noticed.")
-	u: ([~itwords $chiefcomplaint?] * [improve better] * ["lay down" "lie down" "lying down" rest]) ^reuse (Is_1_better_when_you_lie_down)
-	u: ([better help comfortable] * ["lay down" "lie down" "lying down" rest]) ^reuse (Is_1_better_when_you_lie_down)
-	u: (["lay down" "lie down" "lying down" rest] * [better help comfortable]) ^reuse (Is_1_better_when_you_lie_down)
+	?: IS_1_BETTER_WHEN_YOU_LIE_DOWN
+		([
+			([~itwords $chiefcomplaint?] * [improve better] * ["lay down" "lie down" "lying down" rest])
+ 			([better help comfortable] * ["lay down" "lie down" "lying down" rest])
+			(["lay down" "lie down" "lying down" rest] * [better help comfortable])
+		])
+	^factanswer("I haven't noticed.")
 
 #! Does 1 increase when you stand $chiefcomplaint=1
-	u: Does_1_increase_when_you_stand (does $chiefcomplaint? increase when you stand)      ^factanswer("I haven't noticed.")
-	u: (<< [~itwords $chiefcomplaint?] [increase worse] stand >>) ^reuse (Does_1_increase_when_you_stand)
+	?: DOES_1_INCREASE_WHEN_YOU_STAND (<< [~itwords $chiefcomplaint?] [increase worse] stand >>) ^factanswer("I haven't noticed.")
 
 #! Does the 1 improve with exercise $chiefcomplaint=1
-	u: Does_the_1_improve_with_exercise (does the $chiefcomplaint? improve with exercise)   ^factanswer("I haven't noticed.")
-	u: (<< [~itwords $chiefcomplaint?] [improve better worse] [exercise sitting standing walking moving] >>) ^reuse (Does_the_1_improve_with_exercise)
+	?: DOES_THE_1_IMPROVE_WITH_EXERCISE (<< [~itwords $chiefcomplaint?] [improve better worse] [exercise sitting standing walking moving] >>) ^factanswer("I haven't noticed.")
 
 #! Does the 1 keep you up at night $chiefcomplaint=1
-	u: Does_the_1_keep_you_up_at_night (does the $chiefcomplaint? keep you up at night) ^factanswer("This is not keeping me up.")
-	u: (!worse !better [~itwords $chiefcomplaint? symptom] * [wake bed night sleep asleep sleeping]) ^reuse (Does_the_1_keep_you_up_at_night)
-	u: (!worse !better [~itwords $chiefcomplaint? symptom] * [wake keep] * [night bed sleep asleep]) ^reuse (Does_the_1_keep_you_up_at_night)
-	u: (!worse !better [wake bed night sleep asleep sleeping] * [~itwords $chiefcomplaint? symptom]) ^reuse (Does_the_1_keep_you_up_at_night)
+	?: DOES_THE_1_KEEP_YOU_UP_AT_NIGHT
+		([
+			(!worse !better [~itwords $chiefcomplaint? symptom] * [wake bed night sleep asleep sleeping])
+			(!worse !better [~itwords $chiefcomplaint? symptom] * [wake keep] * [night bed sleep asleep])
+			(!worse !better [wake bed night sleep asleep sleeping] * [~itwords $chiefcomplaint? symptom])
+		])
+	^factanswer("This is not keeping me up.")
 
 #! Is the 1 worse in the morning or at night $chiefcomplaint=1
-	u: 1_worse_morning_or_night (is the $chiefcomplaint? worse in the morning or at night)  ^factanswer("Neither.")
-	u: ([~itwords $chiefcomplaint? symptoms] * [worse better hurt painful worst more easier tolerable tolerate] * [morning night evening "time of day" "time in the day" "times of the day" "day goes on"]) ^reuse (1_worse_morning_or_night)
-	u: (!"trouble getting" [~itwords $chiefcomplaint? symptoms] * [morning night evening "time of day" "time in the day"]) ^reuse (1_worse_morning_or_night)
-	u: ([morning night "time of day" evening "time in the day" "day goes on"] * [~itwords $chiefcomplaint? symptoms] * [tolerable worse better hurt painful worst more]) ^reuse (1_worse_morning_or_night)
+	?: 1_WORSE_MORNING_OR_NIGHT
+		([
+			([~itwords $chiefcomplaint? symptoms] *~3 [worse better hurt painful worst more easier tolerable tolerate] *~3 [morning night evening "time of day" "time in the day" "times of the day" "day goes on"])
+			(!"trouble getting" [~itwords $chiefcomplaint? symptoms] *~3 [morning night evening "time of day" "time in the day"])
+ 			([morning night "time of day" evening "time in the day" "day goes on"] *~3 [~itwords $chiefcomplaint? symptoms] *~3 [tolerable worse better hurt painful worst more])
+		])
+	^factanswer("Neither.")
 
 # What have you been doing to avoid exacerbating the 1 $chiefcomplaint=1
-	u: Avoid_exacerbate_1 (what have you been doing to avoid exacerbating the $chiefcomplaint?)   ^factanswer("I haven't been doing anything special.")
-	u: (avoid * [~itwords $chiefcomplaint?]) ^reuse (Avoid_exacerbate_1)
+	?: AVOID_EXACERBATE_1 (avoid * [~itwords $chiefcomplaint?])   ^factanswer("I haven't been doing anything special.")
 
 #! Is the 1 improving $chiefcomplaint=1
-	u: Is_the_1_improving (is the $chiefcomplaint? improving)     ^factanswer("I don't know.")
-	u: (![intensity severity][~itwords $chiefcomplaint?] * ["getting better" "getting worse" worsening "the same" improve worsened "gotten worse"]) ^reuse (Is_the_1_improving)
-	u: (![intensity severity] [~itwords $chiefcomplaint?] * the same) ^reuse (Is_the_1_improving)
+	?: IS_THE_1_IMPROVING
+		([
+			(![intensity severity] [~itwords $chiefcomplaint?] *~3 ["getting better" "getting worse" worsening "the same" improve worsened "gotten worse"])
+ 			(![intensity severity] [~itwords $chiefcomplaint?] *~3 the same)
+		])
+	^factanswer("I don't know.")
 
 #! Does the 1 get worse with your period $chiefcomplaint=1
-	u: Does_the_1_get_worse_with_period (does the $chiefcomplaint? get worse with your period)   ^factanswer("I have nothing like that.")
-	u: (<< [~itwords $chiefcomplaint?] [worse worsen increase] [~gyn_bleeding bleeding vaginal] >>) ^reuse (Does_the_1_get_worse_with_period)
-
+	?: DOES_THE_1_GET_WORSE_WITH_PERIOD (<< [~itwords $chiefcomplaint?] [worse worsen increase] [~gyn_bleeding bleeding vaginal] >>)   ^factanswer("I have nothing like that.")
 
 # Intensity  ***************
 
 #! Is 1 more intense  $chiefcomplaint=1
-	u: Is_1_more_intense  (is $chiefcomplaint? more intense)  ^factanswer("More intense than what?")
-	u: ([~itwords $chiefcomplaint?] * [intense severe higher greater worse better] * [$complaint2? $complaint3?])   ^reuse (Is_1_more_intense)
-
-#! How intense is the 1 $chiefcomplaint=1
-	u: How_intense_is_the_1 (how intense is the $chiefcomplaint?)   ^factanswer("I am not sure.")
-		a: That_must_be_stressful ([stressful awful terrible]) It is.
-	u: (![$currentmedication1? scale 1 one 10 ten rate] [can how what] * [severe intense 'much bad badly sore level painful] * [~itwords $chiefcomplaint? symptoms]) ^reuse (How_intense_is_the_1)
-	u: (![$currentmedication1? scale 1 one 10 ten rate] [~itwords $chiefcomplaint? symptoms] * [severe intense 'much bad badly sore level painful]) ^reuse (How_intense_is_the_1)
-
-#! Has the intensity1 changed $chiefcomplaint=1
-	u: Has_the_intensity1_changed (has the intensity1 changed)   ^factanswer("It has not changed.")
-	u: (<< intensity change >>) ^reuse (Has_the_intensity1_changed)
-	u: ([intensity severity] * [change same]) ^reuse (Has_the_intensity1_changed)
-	u: ([change same] * [intensity severity]) ^reuse (Has_the_intensity1_changed)
+	?: IS_1_MORE_INTENSE  ([~itwords $chiefcomplaint?] *~2 [intense severe higher greater worse better] *~3 [$complaint2? $complaint3?])  ^factanswer("More intense than what?")
 
 #! Has the 1 become worse or better $chiefcomplaint=1
-	u: Has_the_1_become_worse (has the $chiefcomplaint? become worse)    ^factanswer("I am not sure.")
-	u: ([have has] *~2 [~itwords $chiefcomplaint? symptoms] * [worse better increase decrease change]>) ^reuse (Has_the_1_become_worse)
-	u: ([have has] * [~itwords $chiefcomplaint? symptoms] * [worse better increase decrease change] * [time ~timename all]) ^reuse (Has_the_1_become_worse)
-	u: ([~itwords $chiefcomplaint? symptoms] * [has have] * [worse better increase decrease change] * [time ~timename all]) ^reuse (Has_the_1_become_worse)
+		?: HAS_THE_1_BECOME_WORSE
+			([
+				([have has] *~3 [~itwords $chiefcomplaint? symptoms] *~3 [worse better increase decrease change])
+				([have has] *~3 [~itwords $chiefcomplaint? symptoms] *~3 [worse better increase decrease change] *~3 [time ~timename all])
+				([~itwords $chiefcomplaint? symptoms] *~3 [has have] *~3 [worse better increase decrease change] *~3 [time ~timename all])
+			])
+		^factanswer("I am not sure.")
+
+#! How intense is the 1 $chiefcomplaint=1
+	?: HOW_INTENSE_IS_THE_1
+		([
+			(![$currentmedication1? scale 1 one 10 ten rate ~job] [can how what] * [severe intense 'much bad badly sore level painful] * [~itwords $chiefcomplaint? symptoms])
+ 			(![$currentmedication1? scale 1 one 10 ten rate ~job] [~itwords $chiefcomplaint? symptoms] * [severe intense 'much bad badly sore level painful])
+		])
+	^factanswer("I am not sure.")
+		a: THAT_MUST_BE_STRESSFUL ([stressful awful terrible]) It is.
+
+#! Has the intensity1 changed $chiefcomplaint=1
+	?: HAS_THE_INTENSITY1_CHANGED
+		([
+			(<< intensity change >>)
+ 			([intensity severity] *~4 [change same])
+ 			([change same] *~3 [intensity severity])
+		])
+	^factanswer("It has not changed.")
 
 #! When is the 1 most severe $chiefcomplaint=1
-	u: When_is_the_1_most_severe (when is the $chiefcomplaint? most severe)    ^factanswer("I don't really have problems with that.")
-	u: (when * [~itwords $chiefcomplaint?] * [worst worse severe painful most]) ^reuse (When_is_the_1_most_severe)
-	u: ([severity intensity painfulness] * [~itwords $chiefcomplaint?] * ~timename) ^reuse (When_is_the_1_most_severe)
+	?: WHEN_IS_THE_1_MOST_SEVERE
+		([
+			(when *~3 [~itwords $chiefcomplaint?] *~3 [worst worse severe painful most])
+			([severity intensity painfulness] *~3 [~itwords $chiefcomplaint?] *~3 ~timename)
+		])
+	^factanswer("I don't really have problems with that.")
 
 # General ********************
 
-
 #! Do you currently have 1 $chiefcomplaint=1
-	u: Do_you_currently_have_1 (do you currently have $chiefcomplaint?)    ^factanswer("I don't have that.")
-	u: (<< ![how what before] [current currently now moment] [~itwords $chiefcomplaint?] >>) ^reuse (Do_you_currently_have_1)
+	u: DO_YOU_CURRENTLY_HAVE_1 (<< ![how what before] [current currently now moment] [~itwords $chiefcomplaint?] >>) ^factanswer("I don't have that.")
 
 #! How is your 1 now $chiefcomplaint=1
-	u: How_is_your_1_now (how is your $chiefcomplaint? now)    ^factanswer("I don't have that.")
-	u: (![rate scale] [what how] * [~itwords $chiefcomplaint?] * [now currently moment]) ^reuse (How_is_your_1_now)
-
+	u: HOW_IS_YOUR_1_NOW (![rate scale] [what how] *~3 [~itwords $chiefcomplaint?] *~3 [now currently moment]) ^factanswer("I don't have that.")
 
 #! Are you having any other 1 $chiefcomplaint=1
-	u: Are_you_having_any_other_1 (are you having any other $chiefcomplaint?)    ^factanswer("I am not.")
-	u: (!~medicines [just other] * $chiefcomplaint?) ^reuse (Are_you_having_any_other_1)
-	u: (!~medicines $chiefcomplaint? * [other any]) ^reuse (Are_you_having_any_other_1)
+	u: ARE_YOU_HAVING_ANY_OTHER_1
+		([
+			(![~medicines does] [just other] * $chiefcomplaint?)
+			(![~medicines does] $chiefcomplaint? * [other any]) # want to avoid does the pain affect any other part of your body
+		])
+	^factanswer("I am not.")
 
 #! How else is the 1 affecting your life $chiefcomplaint=1
-	u: How_else_is_the_1_affecting_your_life (how else is the $chiefcomplaint? affecting your life)   ^factanswer("It is not affecting my life.")
-	u: (how else * [~itwords $chiefcomplaint?] [affect effect]) ^reuse (How_else_is_the_1_affecting_your_life)
+	?: HOW_ELSE_IS_THE_1_AFFECTING_YOUR_LIFE (how else *~3 [~itwords $chiefcomplaint?] [affect effect]) ^factanswer("It is not affecting my life.")
 
 #! Has the 1 stopped you from doing anything $chiefcomplaint=1
-	u: Has_the_1_stopped_you (has the $chiefcomplaint? stopped you from doing anything)    ^factanswer("It hasn't stopped me.")
-	u: (has * [~itwords $chiefcomplaint?] * [stopped kept] you from doing) ^reuse (Has_the_1_stopped_you)
+	?: HAS_THE_1_STOPPED_YOU (has * [~itwords $chiefcomplaint?] * [stopped kept] you from doing) ^factanswer("It hasn't stopped me.")
 
 #! Have you had 1 before $chiefcomplaint=1
-	u: Have_you_had_1_before (have you had $chiefcomplaint? before)     ^factanswer("No, never.")
-	u: (![when worse surgery accident how medical family] [~itwords $chiefcomplaint?] * [before prior past history ever previously]) ^reuse (Have_you_had_1_before)
-	u: (![when worse surgery accident how medical family] [prior past history ever had] * [~itwords $chiefcomplaint?]) ^reuse (Have_you_had_1_before)
-
+	?: HAVE_YOU_HAD_1_BEFORE
+		([
+ 			(![when worse surgery accident how medical family] [~itwords $chiefcomplaint?] * [before prior past history ever previously])
+			(![when worse surgery accident how medical family] [prior past history ever had] * [~itwords $chiefcomplaint?])
+		])
+	^factanswer("No, never.")
 
 # Description  ***************
 
 #! Has the 1 changed  $chiefcomplaint=1
-	u: Has_the_1_changed (has the $chiefcomplaint? changed) ^factanswer("It hasn't changed.")
-	u: (!how has * [~itwords $chiefcomplaint?] * [change "better or worse" "worse or better"]) ^reuse (Has_the_1_changed)
+	?: HAS_THE_1_CHANGED (!how has *~3 [~itwords $chiefcomplaint?] *~3 [change "better or worse" "worse or better"]) ^factanswer("It hasn't changed.")
 
 #! Have you noticed any physical changes   $chiefcomplaint=1
-	u: Any_physical_changes_in_your_1 (any physical changes in your $chiefcomplaint?) ^factanswer("I don't think so.")
-	u: ([notice see look any] * [~skin_changes ~physical_changes] * ) ^reuse (Any_physical_changes_in_your_1)
-	u: ([notice see look any] * [~skin_changes ~physical_changes]) ^reuse (Any_physical_changes_in_your_1)
-	u: ([~itwords $chiefcomplaint?] * [~skin_changes ~physical_changes]) ^reuse (Any_physical_changes_in_your_1)
+	u: ANY_PHYSICAL_CHANGES_IN_YOUR_1
+		([
+ 			([notice see look any] *~3 [~skin_changes ~physical_changes])
+			([~itwords $chiefcomplaint?] * [~skin_changes ~physical_changes])
+		])
+	^factanswer("I don't think so.")
 
 #! When do you have the 1 $chiefcomplaint=1
-	u: When_do_you_have_the_1 (when do you have the $chiefcomplaint?)      ^factanswer("I don't have that.")
-	u: (when * [have notice get feel hurt] * [~itwords $chiefcomplaint?]) ^reuse (When_do_you_have_the_1)
+	?: WHEN_DO_YOU_HAVE_THE_1 (when *~3 [have notice get feel hurt] *~3 [~itwords $chiefcomplaint?]) ^factanswer("I don't have that.")
 
 #! When else do you have the 1 $chiefcomplaint=1
-	u: When_else_do_you_have_the_1 (when else do you have the $chiefcomplaint?)      ^factanswer("I don't have that.")
-	u: (when else * [have notice get feel] * [~itwords $chiefcomplaint?]) ^reuse (When_else_do_you_have_the_1)
-	u: (when else * [~itwords $chiefcomplaint?]) ^reuse (When_else_do_you_have_the_1)
-
+	?: WHEN_ELSE_DO_YOU_HAVE_THE_1
+		([
+			(when else *~3 [have notice get feel] * [~itwords $chiefcomplaint?])
+ 			(when else *~3 [~itwords $chiefcomplaint?])
+		])
+	^factanswer("I don't have that.")
 
 #! How long does the 1 last $chiefcomplaint=1
-	u: How_long_does_the_1_last (how long does the $chiefcomplaint? last)      ^factanswer("There is nothing like that.")
-	u: (how long * [~itwords $chiefcomplaint?] * last) ^reuse (How_long_does_the_1_last)
+	?: HOW_LONG_DOES_THE_1_LAST (how long *~3 [~itwords $chiefcomplaint?] *~3 last) ^factanswer("There is nothing like that.")
 
 #! How frequent is the 1 $chiefcomplaint=1
-	u: How_frequent_is_the_1 (how frequent is the $chiefcomplaint?)      ^factanswer("There isn't any.")
-	u: (!take !use << [frequent often] [~itwords $chiefcomplaint?] >>) ^reuse (How_frequent_is_the_1)
+	?: HOW_FREQUENT_IS_THE_1 (!take !use << [frequent often] [~itwords $chiefcomplaint?] >>) ^factanswer("There isn't any.")
 
 #! What concerns you about the 1 $chiefcomplaint=1
-	u: What_concerns_you_about_the_1 (what concerns you about the $chiefcomplaint?)      ^factanswer("I have none of that.")
-	u: ([concern worry bother] * [~itwords $chiefcomplaint?]) ^reuse (What_concerns_you_about_the_1)
-	u: ([~itwords $chiefcomplaint?] * [concern worry bother]) ^reuse (What_concerns_you_about_the_1)
+	?: WHAT_CONCERNS_YOU_ABOUT_THE_1
+		([
+			([concern worry bother] * [~itwords $chiefcomplaint?])
+			([~itwords $chiefcomplaint?] * [concern worry bother])
+		])
+	^factanswer("I have none of that.")
 
 #! Where is the 1 $chiefcomplaint=1
-	u: Where_is_the_1 (where is the $chiefcomplaint?)      ^factanswer("I don't have that.")
-	u: (!scale where * [~itwords $chiefcomplaint?]) ^reuse (Where_is_the_1)
-	u: (!scale where * [~itwords $chiefcomplaint?] * [located location feel hurt]) ^reuse (Where_is_the_1)
-	u: (!scale where * [located location feel] * [~itwords $chiefcomplaint?] ) ^reuse (Where_is_the_1)
-	u: (!scale what [area part location] * [~itwords $chiefcomplaint?]) ^reuse (Where_is_the_1)
-	u: (!scale where * [exactly specifically]) ^reuse (Where_is_the_1)
+	?: WHERE_IS_THE_1
+		([
+			(!scale where *~3 [~itwords $chiefcomplaint?])
+			(!scale where *~3 [~itwords $chiefcomplaint?] *~3 [located location feel hurt])
+			(!scale where *~3 [located location feel] *~3 [~itwords $chiefcomplaint?] )
+			(!scale what [area part location] *~3 [~itwords $chiefcomplaint?])
+			(!scale where *~3 [exactly specifically])
+		])
+	^factanswer("I don't have that.")
 
 #! Describe the 1 $chiefcomplaint=1
-	u: Describe_the_1 (describe the [$chiefcomplaint? ~pain])    ^factanswer("There is nothing to describe.")
-	u: (!when !where [tell ~describe description] * [~itwords $chiefcomplaint?]) ^reuse (Describe_the_1)
-	u: (what * [kind type nature] * $chiefcomplaint?) ^reuse (Describe_the_1)
-	u: (!outside [how what] * [~itwords $chiefcomplaint?] * [look like smell feel]) ^reuse (Describe_the_1)
-	u: ([kind type sort manner] * [~itwords $chiefcomplaint?]) ^reuse (Describe_the_1)
-	u: (!when !where how * [~describe description] * [$chiefcomplaint?]) ^reuse (Describe_the_1)
+	u: DESCRIBE_THE_1
+		([
+ 			(!when !where [tell ~describe description] * [~itwords $chiefcomplaint?])
+			(what * [kind type nature] * $chiefcomplaint?)
+			(!outside [how what] * [~itwords $chiefcomplaint?] * [look like smell feel])
+			([kind type sort manner] * [~itwords $chiefcomplaint?])
+			(!when !where how * [~describe description] * [$chiefcomplaint?])
+		])
+	^factanswer("There is nothing to describe.")
 
 #! Do you have any 1 $chiefcomplaint=1
-	u: Do_you_have_any_1 (!where do you have {any} $chiefcomplaint?)     ^factanswer("I don't have that.")
-	u: ([do are] you have $chiefcomplaint?) ^reuse (Do_you_have_any_1)
-	# u: (![where other ~bodyparts when how describe activity concern worry bother past before rate scale ~number] 'you * $chiefcomplaint?) ^reuse (Do_you_have_any_1)
- 	# u: (![where other worse ~bodyparts when how activity past before rate scale ~number] [~itwords $chiefcomplaint?] * [bother painful hurt]) ^reuse (Do_you_have_any_1)
-
+	?: DO_YOU_HAVE_ANY_1 (!where [do are] you have *~2 $chiefcomplaint? >) ^factanswer("I don't have that.")
 
 # ***************************************************************************************************
 
-topic: ~complaint2   keep repeat ()
+topic: ~complaint2 keep repeat ()
 
 	u: ($chiefcomplaint?) respond(~chiefcomplaint) ^fail(TOPIC)
 	u: ($complaint3?) respond(~complaint3) ^fail(TOPIC)
@@ -645,7 +715,7 @@ topic: ~complaint2   keep repeat ()
 
 # ***************************************************************************************************
 
-topic: ~complaint3   keep repeat ()
+topic: ~complaint3 keep repeat ()
 
 	u: ($chiefcomplaint?) respond(~chiefcomplaint) ^fail(TOPIC)
 	u: ($complaint2?) respond(~complaint2) ^fail(TOPIC)

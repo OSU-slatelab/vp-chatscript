@@ -1576,6 +1576,9 @@ excecution execution
 excedded exceeded
 excell excel
 excells excels 
+excersise exercise
+exersise exercise
+exercize exercise
 exchagnes exchanges 
 exelent excellent
 exerbate exacerbate 
@@ -1929,6 +1932,9 @@ hoocker hooker
 hootsbah chutzpah
 hott sexy
 house-mate housemate
+hospitil hospital
+hospitilization hospitalization
+hospitilizations hospitalizations
 hsi his
 htey they 
 htikn think
@@ -2882,6 +2888,7 @@ photoe photo
 photoes photos
 physision physician
 physisist physicist
+physcial physical
 pich pitch
 pickeled pickled
 picknick picnic

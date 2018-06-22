@@ -1,74 +1,89 @@
 # Age, Date of BIrth
 
-
 topic: ~Patient_age keep repeat (age born "date of birth" old birthday)
 
-
 #! How old are you
-	u: How_old_are_you (how old are you)  ^factanswer("I'm sorry. I don't know.")
-	u: (![~family_children ~sibling ~family_adult]  [old age]) ^reuse (How_old_are_you)
+	?: HOW_OLD_ARE_YOU
+		([
+			(![~family_children ~sibling ~family_adult]  how old are you)
+			(![~family_children ~sibling ~family_adult]  your age)
+		])
+	^factanswer("I'm sorry. I don't know.")
 
 #! When were you born
-	u: When_were_you_born (when were you born) ^factanswer("I'm sorry. I don't know.")
-	u: (!where when * [born birthday]) ^reuse (When_were_you_born)
-	u: (!name ["date of birth" birthday]) ^reuse (When_were_you_born)
-
+	?: WHEN_WERE_YOU_BORN
+	([
+		(!where when *~3 [born birthday])
+		(!name ["date of birth" birthday])
+	])
+	^factanswer("I'm sorry. I don't know.")
 
 # #############################################################################################################
 
+topic: ~Patient_weight keep repeat (weigh weight)
+
+#! How much do you weigh
+	u: HOW_MUCH_DO_YOU_WEIGH ([weigh weight]) ^factanswer("I don't know. I haven't weighed myself in a while.")
+
+
 topic: ~Patient_name keep repeat (name Mr. Mrs. Ms Ms. address pronounce mind call speak "speaking with" who)
 
-
 #! Name and date of birth
-	u: Name_and_date_of_birth (name and date of birth)  ^factanswer("I thought I told you.")
-	u: (name and ["date of birth" birthday])  ^reuse (Name_and_date_of_birth)
+	u: NAME_AND_DATE_OF_BIRTH
+		([
+			(name and date of birth)
+			(name and ["date of birth" birthday])
+		])
+	^factanswer("I thought I told you.")
 
 #! What is your name
-	u: What_is_your_name (what is your name) $patientfirstname $patientlastname
-	u: (what * your name) ^reuse (What_is_your_name)
-	u: (!lives [whom who] * [speak "speaking with" you]) ^reuse (What_is_your_name)
-	u: ([tell remind verify] * name) ^reuse (What_is_your_name)
+	?: WHAT_IS_YOUR_NAME
+	([
+		 (what *~4 your name)
+		 (!lives [whom who] *~3 [speak "speaking with" you])
+		 ([tell remind verify confirm] *~4 name)
+		])
+	^factanswer("You can call me anything you want.")
+#	$patientfirstname $patientlastname # putting variables in answer tables and using factanswer does not work so just putting variables in here also works.
 
 #! Did I pronounce that correctly
-	u: Did_I_pronounce_that_correctly (did I pronounce that correctly) ^factanswer("That is correct.")
-	u: (pronounce * [correct correctly]) ^reuse (Did_I_pronounce_that_correctly)
+	?: DID_I_PRONOUNCE_THAT_CORRECTLY (pronounce *~3 [correct correctly]) ^factanswer("That is correct.")
 
 #! Do you mind if I call you Bob $patientfirstname=Bob
-	u: Do_you_mind_if_I_call_you (do you mind if I call you $patientfirstname?) ^factanswer("That is fine.")
-	u: ([mind care OK allright may can] * call you * $patientfirstname?) ^reuse (Do_you_mind_if_I_call_you)
-	u: ([mind care OK allright may can] * call you * $patientlastname?) ^reuse (Do_you_mind_if_I_call_you)
-	u: ([prefer rather] * [$patientlastname? $patientfirstname?]) ^reuse (Do_you_mind_if_I_call_you)
+	?: DO_YOU_MIND_IF_I_CALL_YOU
+	 ([
+		 ([mind care OK okay allright may can] *~3 call you *~3 $patientfirstname?)
+		 ([mind care OK okay allright may can] *~3 call you *~3 $patientlastname?)
+		 ([prefer rather] *~4 [$patientlastname? $patientfirstname?])
+		])
+	^factanswer("That is fine.")
 
 #! How do you pronounce that
-	u: How_do_you_pronounce_that (how do you pronounce that)  ^factanswer("Just like it looks.")
-	u: (pronounce that) ^reuse (How_do_you_pronounce_that)
+	?: HOW_DO_YOU_PRONOUNCE_THAT (pronounce that)  ^factanswer("Just like it looks.")
 
 #! What should I call you
-	u: What_should_I_call_you (what should I call you) ^factanswer("Please call me by my first name.")
-	u: ([what how] * ["call you" name address])  ^reuse (What_should_I_call_you)
+	?: WHAT_SHOULD_I_CALL_YOU ([what how] * ["call you" name address]) ^factanswer("Please call me by my first name.")
 
 #! Are you Mr. Wilcox $patientlastname=Wilcox
-	u: Are_you_mr_patientlastname (!how are you * $patientlastname?) ^factanswer("I am.")
+	?: ARE_YOU_MR_PATIENTLASTNAME (< !brings !how !what are you *~3 $patientlastname?) Yes, I am $patientfirstname $patientlastname. # Note no factanswer
 
 #! Are you Mr. $patientlastname=null
-	u: Are_you_mr_someoneelse (!how !$patientlastname? are you [Mr. Mrs. Ms Ms.]) ^factanswer("I'm not.")
+	?: ARE_YOU_MR_SOMEONEELSE (!how !$patientlastname? 'are you [Mr. Mrs. Ms Ms.]) No, I am $patientfirstname $patientlastname.  # Note no factanswer
 
 #! Do you have a different Name
-	u: Different_name (different_name) ^factanswer("No")
-	u: ([different another other] name) ^reuse (Different_name)
+	?: DIFFERENT_NAME ([different another other] name) ^factanswer("No")
 
 #!!P Hello Mr =>  ~emohello and then Mr.  $patientlastname=Wilcox
-	u: Hello_mr_patientlastname ([hi hello ~emohello] [Mr. Mrs. Ms Ms. mr mr.] $patientlastname? >)  ^factanswer("Hello, doctor.")
+	u: HELLO_MR_PATIENTLASTNAME ([hi hello ~emohello] [Mr. Mrs. Ms Ms. mr mr.] $patientlastname? >)  ^factanswer("Hello, doctor.")
 
 #!!P Hello Mr.  =>  ~emohello  and then Mr. $patientlastname=null
-	u: Hello_mr_someoneelse (!$patientlastname?  [hi hello ~emohello] [Mr. Mrs. Ms Ms.] _*1) ^factanswer("Hello, doctor.")
+	u: HELLO_MR_SOMEONEELSE (!$patientlastname?  [hi hello ~emohello] [Mr. Mrs. Ms Ms.] _*1) Hello, doctor, but my name is $patientfirstname $patientlastname. # Note no factanswer
 
 # Have to do this because "Hello Mr. Coddington" gets tokenized into ~emohello Mr. Coddington
 # so if someone types "Mr. Coddington?" we have to respond "Hello Doctor" instead of "Yes, I am Roger Coddington"
 
-
 #! Mr. Wilcox $patientlastname=wilcox
-	u: Mr_patientlastname (< !~emohello [Mr. Mrs. Ms Ms.] $patientlastname?)   ^factanswer("Hello.")
+	u: MR_PATIENTLASTNAME (< !~emohello [Mr. Mrs. Ms Ms.] $patientlastname?)   ^factanswer("Hello.")
 
 #! Mr. $patientlastname=null
-	u: Mr_someoneelse (!$patientlastname?  !~emohello [Mr. Mrs. Ms Ms.]) ^factanswer("Hello.")
+	u: MR_SOMEONEELSE (!$patientlastname?  !~emohello [Mr. Mrs. Ms Ms.]) No, I am $patientfirstname $patientlastname. # Note no factanswer

@@ -2,28 +2,26 @@
 
 topic: ~pastbreathing keep repeat (breath labor ~breathing_problems inhaler puffer child youth ~breathing_conditions)
 
-	u: ($present) respond(~currentbreathing)  ^fail(TOPIC) 
-	u: ($family) respond(~familybreathing) ^fail(TOPIC) 
-
+	u: ($present) respond(~currentbreathing)  ^fail(TOPIC)
+	u: ($family) respond(~familybreathing) ^fail(TOPIC)
 
 #! Have you ever had any breathing problems
-	u: Ever_had_any_breathing_problems (ever had any breathing problems)  ^factanswer("My breathing has been fine.")
-	u: ([~breathing_problems ~breathing_conditions] * [before past previously prior child youth]) ^reuse (Ever_had_any_breathing_problems)
-#	u: ([ever past previous prior] * [~breathing_problems ~breathing_conditions]) ^reuse (Ever_had_any_breathing_problems)
+	u: EVER_HAD_ANY_BREATHING_PROBLEMS ([~breathing_problems ~breathing_conditions] * [before past previously prior child youth])  ^factanswer("My breathing has been fine.")
 
 #! Ever use an inhaler
-	u: Ever_use_an_inhaler  (ever use an inhaler)  ^factanswer("I never have.")
-	u: ([previously prior ever] * [use carry sniff] * [inhaler puffer]) ^reuse (Ever_use_an_inhaler)
-	u: ([use carry sniff] * [inhaler puffer] * [before past previously prior]) ^reuse (Ever_use_an_inhaler)
+	u: EVER_USE_AN_INHALER  (inhaler puffer)  ^factanswer("I never have.")
 
 # ***************************************************************************************************
 
 topic: ~pastcough keep repeat (cough)
 
-	u: ($present) respond(~currentcough)  ^fail(TOPIC) 
-	u: ($family) respond(~familycough) ^fail(TOPIC) 
+	u: ($present) respond(~currentcough)  ^fail(TOPIC)
+	u: ($family) respond(~familycough) ^fail(TOPIC)
 
 #! Was your past cough productive
-	u: Was_your_past_cough_productive  (was your past cough productive)  ^factanswer("I never had a cough.")
-	u: (ever * [produce bring hack] * cough) ^reuse (Was_your_past_cough_productive)
-	u: (cough * [productive produce "bring up" phlegm sputum] * [past ever before]) ^reuse (Was_your_past_cough_productive)
+	u: WAS_YOUR_PAST_COUGH_PRODUCTIVE
+		([
+			(ever * [produce bring hack] * cough)
+			(cough * [productive produce "bring up" phlegm sputum] * [past ever before])
+		])
+	^factanswer("I never had a cough.")

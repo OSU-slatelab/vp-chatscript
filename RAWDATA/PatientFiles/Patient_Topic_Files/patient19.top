@@ -2,16 +2,16 @@ outputmacro: patient19()
 $patientfirstname = Brittany
 $patientlastname = Watson
 $chiefcomplaint = ~obstetric
-$complaint2 = 
-$complaint3 = 
+$complaint2 =
+$complaint3 =
 $Vpatient19 = Vpatient19
 $Vpatient = Vpatient19
 $patientTitle = Miss
 $currentjob = waitress
 $currentmedication1 = prenatal vitamins
-$currentmedication2 = 
-$currentmedication3 = 
-$currentrateofpain = 
+$currentmedication2 =
+$currentmedication3 =
+$currentrateofpain =
 
 ^stdpatient()
 
@@ -21,9 +21,9 @@ table: ^patientdata(Vpatient19)
 ### OpeningDialogue
 # primary
 
-What_brings_you_in_today "My water broke so I called and was told to come in."
-What_would_you_like_me_to_do "Can you tell me what will happen to the baby."
-What_is_your_goal "I'm hoping you could help me understand what problems the baby might have."
+WHAT_BRINGS_YOU_IN_TODAY "My water broke so I called and was told to come in."
+WHAT_WOULD_YOU_LIKE_ME_TO_DO "Can you tell me what will happen to the baby."
+WHAT_IS_YOUR_GOAL "I'm hoping you could help me understand what problems the baby might have."
 
 # greetings
 
@@ -34,46 +34,46 @@ What_is_your_goal "I'm hoping you could help me understand what problems the bab
 ### PatientInformation
 # patientage
 
-How_old_are_you "I'm 23 years old."
-When_were_you_born "January 15th, 1993"
+HOW_OLD_ARE_YOU "I'm 23 years old."
+WHEN_WERE_YOU_BORN "January 15th, 1993"
 
 # patientname
 
-Name_and_date_of_birth "Brittany Watson, January 15th, 1993"
-What_is_your_name "Brittany Watson"
+NAME_AND_DATE_OF_BIRTH "Brittany Watson, January 15th, 1993"
+WHAT_IS_YOUR_NAME "Brittany Watson"
 
 ### Medications
 # currentmedications
 
-Taking_medication_for_the_1  "I take prenatal vitamins"
-Taking_medication_for_the_3 "I don't take any medications or supplements. Only prenatal vitamins."
-When_did_you_take_medicine "I take a prenatal vitamin every morning."
-Need_to_take_the_medicine_that_often "I take only prenatal vitamins."
-How_often_did_you_take_the_medicine "I take a prenatal vitamin every morning."
-How_long_taking_medicine "Only since I found out I was pregnant."
-How_much_medicine_have_you_taken "I take one prenatal vitamin every day"
-Would_you_like_a_stronger_prescription " I don't take any prescription medications."
-What_is_the_strength_of_the_medicine "I don't know."
-Did_the_medicine_help "I haven't taken any medicine. Only prenatal vitamins."
-Did_you_take_medicine_today "I did take a prenatal vitamin today."
-Are_you_still_taking_medicine "I am still taking prenatal vitamins."
-What_was_the_dose "I take one a day."
-What_pills_did_you_take "I take prenatal vitamins."
-What_kind_of_medicine_is_that "It's a prenatal vitamin."
-Would_you_like_some_pain_medication "I am not in pain and I don't think that would be good for the baby."
-What_is_medicine "It is a prenatal vitamin."
-Are_you_taking_any_medication "I take prenatal vitamins."
- Is_medication_new "I started taking it when I got pregnant."
-What_were_the_pills_called "Prenatal vitamins"
+TAKING_MEDICATION_FOR_THE_1  "I take prenatal vitamins"
+TAKING_MEDICATION_FOR_THE_3 "I don't take any medications or supplements. Only prenatal vitamins."
+WHEN_DID_YOU_TAKE_MEDICINE "I take a prenatal vitamin every morning."
+NEED_TO_TAKE_THE_MEDICINE_THAT_OFTEN "I take only prenatal vitamins."
+HOW_OFTEN_DID_YOU_TAKE_THE_MEDICINE "I take a prenatal vitamin every morning."
+HOW_LONG_TAKING_MEDICINE "Only since I found out I was pregnant."
+HOW_MUCH_MEDICINE_HAVE_YOU_TAKEN "I take one prenatal vitamin every day"
+WOULD_YOU_LIKE_A_STRONGER_PRESCRIPTION " I don't take any prescription medications."
+WHAT_IS_THE_STRENGTH_OF_THE_MEDICINE "I don't know."
+DID_THE_MEDICINE_HELP "I haven't taken any medicine. Only prenatal vitamins."
+DID_YOU_TAKE_MEDICINE_TODAY "I did take a prenatal vitamin today."
+ARE_YOU_STILL_TAKING_MEDICINE "I am still taking prenatal vitamins."
+WHAT_WAS_THE_DOSE "I take one a day."
+WHAT_PILLS_DID_YOU_TAKE "I take prenatal vitamins."
+WHAT_KIND_OF_MEDICINE_IS_THAT "It's a prenatal vitamin."
+WOULD_YOU_LIKE_SOME_PAIN_MEDICATION "I am not in pain and I don't think that would be good for the baby."
+WHAT_IS_MEDICINE "It is a prenatal vitamin."
+ARE_YOU_TAKING_ANY_MEDICATION "I take prenatal vitamins."
+ IS_MEDICATION_NEW "I started taking it when I got pregnant."
+WHAT_WERE_THE_PILLS_CALLED "Prenatal vitamins"
 
 # supplements
 
-Are_you_taking_supplements "I don't take any supplements. Only prenatal vitamins."
-Which_multivitamin "I take prenatal vitamins."
+ARE_YOU_TAKING_SUPPLEMENTS "I don't take any supplements. Only prenatal vitamins."
+WHICH_MULTIVITAMIN "I take prenatal vitamins."
 
 # othermedications
 
-Why_do_you_take_the_medication "For the baby, so he will be healthy."
+WHY_DO_YOU_TAKE_THE_MEDICATION "For the baby, so he will be healthy."
 
 # pastmedications
 
@@ -88,7 +88,7 @@ Why_do_you_take_the_medication "For the baby, so he will be healthy."
 
 # alcoholuse
 
-Have_you_considered_reducing_alcohol "I don't drink."
+HAVE_YOU_CONSIDERED_REDUCING_ALCOHOL "I don't drink."
 
 # caffeineuse
 
@@ -122,12 +122,12 @@ Have_you_considered_reducing_alcohol "I don't drink."
 
 # sexualactivity
 
-How_many_sexual_partners "Five in my life."
-Do_you_prefer_men_or_women "Men"
-Who_are_your_sexual_partners "My boyfriend."
-Any_other_sexual_partners "None. Just my boyfriend."
-Are_you_sexually_active "I am sexually active with my boyfriend."
-When_did_you_last_have_intercourse "Yesterday."
+HOW_MANY_SEXUAL_PARTNERS "Five in my life."
+DO_YOU_PREFER_MEN_OR_WOMEN "Men"
+WHO_ARE_YOUR_SEXUAL_PARTNERS "My boyfriend."
+ANY_OTHER_SEXUAL_PARTNERS "None. Just my boyfriend."
+ARE_YOU_SEXUALLY_ACTIVE "I am sexually active with my boyfriend."
+WHEN_DID_YOU_LAST_HAVE_INTERCOURSE "Yesterday."
 
 # religion
 
@@ -147,15 +147,15 @@ When_did_you_last_have_intercourse "Yesterday."
 
 # discharge
 
-What_color_is_the_discharge "It is clear."
-Have_you_noticed_a_discharge "I noticed some fluid leakage a few hours ago."
+WHAT_COLOR_IS_THE_DISCHARGE "It is clear."
+HAVE_YOU_NOTICED_A_DISCHARGE "I noticed some fluid leakage a few hours ago."
 
 # itch
 
 
 # odor
 
-Is_the_odor_strong "It doesn't have an odor."
+IS_THE_ODOR_STRONG "It doesn't have an odor."
 
 ### CurrentAbdominalGISymptoms
 # bowel
@@ -177,7 +177,7 @@ Is_the_odor_strong "It doesn't have an odor."
 # maleGU
 
 
-### CurrentCardiacSymptoms
+### CurrentCardiovascularSymptoms
 # bloodpressure
 
 
@@ -187,32 +187,35 @@ Is_the_odor_strong "It doesn't have an odor."
 # heartproblems
 
 
+# vascular
+
+
 ### CurrentGYNSymptoms
 # sexualhealth
 
 
 # contraception
 
-Do_you_use_protection_every_time  "Not all the time."
-Have_you_had_unprotected_sex "I have."
-Do_you_use_contraception "Not all the time."
+DO_YOU_USE_PROTECTION_EVERY_TIME  "Not all the time."
+HAVE_YOU_HAD_UNPROTECTED_SEX "I have."
+DO_YOU_USE_CONTRACEPTION "Not all the time."
 
 # bleeding
 
 
 # periods
 
-First_day_of_last_period "I don't remember exactly, but it was about 6 months ago."
-When_was_your_last_period "About 6 months ago."
-Are_you_having_your_period "Not now since I am pregnant. My last period was about 6 months ago."
-Are_your_periods_irregular "They are regular."
-Are_your_periods_regular "They are regular."
-Is_your_period_late "Ummm, I am pregnant so...My last period was 6 months ago."
-How_long_do_your_periods_last "3 to 5 days."
-Can_you_describe_your_periods "They happened regularly like every 28 days and lasted 3 to 5 days."
-What_is_flow_like "It is normal."
-How_often_are_your_periods "Before I got pregnant, they were monthly, like every 28 days."
-Are_your_periods_painful "I am not currently having periods, but never were too bad."
+FIRST_DAY_OF_LAST_PERIOD "I don't remember exactly, but it was about 6 months ago."
+WHEN_WAS_YOUR_LAST_PERIOD "About 6 months ago."
+ARE_YOU_HAVING_YOUR_PERIOD "Not now since I am pregnant. My last period was about 6 months ago."
+ARE_YOUR_PERIODS_IRREGULAR "They are regular."
+ARE_YOUR_PERIODS_REGULAR "They are regular."
+IS_YOUR_PERIOD_LATE "Ummm, I am pregnant so...My last period was 6 months ago."
+HOW_LONG_DO_YOUR_PERIODS_LAST "3 to 5 days."
+CAN_YOU_DESCRIBE_YOUR_PERIODS "They happened regularly like every 28 days and lasted 3 to 5 days."
+WHAT_IS_FLOW_LIKE "It is normal."
+HOW_OFTEN_ARE_YOUR_PERIODS "Before I got pregnant, they were monthly, like every 28 days."
+ARE_YOUR_PERIODS_PAINFUL "I am not currently having periods, but never were too bad."
 
 # menstrualcycles
 
@@ -225,16 +228,16 @@ Are_your_periods_painful "I am not currently having periods, but never were too 
 
 # pregnancy
 
-Could_you_be_pregnant "I am 23 weeks pregnant."
-Want_to_be_pregnant "I didn't expect to get pregnant, but I'm ok with it now."
-Are_you_pregnant "I am pregnant."
-Have_you_taken_pregnancy_test "I took a pregnancy test after I missed my period and it was positive."
-Describe_pregnancy "It was going well until my water broke today."
+COULD_YOU_BE_PREGNANT "I am 23 weeks pregnant."
+WANT_TO_BE_PREGNANT "I didn't expect to get pregnant, but I'm ok with it now."
+ARE_YOU_PREGNANT "I am pregnant."
+HAVE_YOU_TAKEN_PREGNANCY_TEST "I took a pregnancy test after I missed my period and it was positive."
+DESCRIBE_PREGNANCY "It was going well until my water broke today."
 
 # breast
 
-Any_breast_changes "They are more full and a little tender."
-Are_you_breastfeeding "I am planning on breastfeeding."
+ANY_BREAST_CHANGES "They are more full and a little tender."
+ARE_YOU_BREASTFEEDING "I am planning on breastfeeding."
 
 # menopause
 
@@ -356,31 +359,35 @@ Are_you_breastfeeding "I am planning on breastfeeding."
 # heartproblems
 
 
+### PastCardiovascularSymptoms
+# vascular
+
+
 ### PastGYNSymptoms
 # sexualhealth
 
-Who_were_your_past_sexual_partners "I have had 4 others and my current boyfriend. Do you want me to name them?"
-Any_other_past_sexual_partners "I have been with my boyfriend for a year."
-Ever_been_sexually_active "Of course."
+WHO_WERE_YOUR_PAST_SEXUAL_PARTNERS "I have had 4 others and my current boyfriend. Do you want me to name them?"
+ANY_OTHER_PAST_SEXUAL_PARTNERS "I have been with my boyfriend for a year."
+EVER_BEEN_SEXUALLY_ACTIVE "Of course."
 
 # contraception
 
-Did_you_use_any_other_past_contraception "Only condoms."
-Did_you_use_protection_every_time_before "I did not, that's how I got pregnant, we didn't use a condom."
-Have_you_had_unprotected_sex_in_the_past "I have."
-Use_any_contraception_in_the_past "Just condoms."
+DID_YOU_USE_ANY_OTHER_PAST_CONTRACEPTION "Only condoms."
+DID_YOU_USE_PROTECTION_EVERY_TIME_BEFORE "I did not, that's how I got pregnant, we didn't use a condom."
+HAVE_YOU_HAD_UNPROTECTED_SEX_IN_THE_PAST "I have."
+USE_ANY_CONTRACEPTION_IN_THE_PAST "Just condoms."
 
 # bleeding
 
 
 # periods
 
-Were_your_periods_regular_before  "My periods were fine."
-was_your_period_ever_late "My periods were always regular before the pregnancy."
-How_long_did_your_periods_last_before "3 to 5 days."
-Describe_your_past_periods "They were regular."
-What_is_past_flow_like "Normal."
-How_often_were_your_past_periods "They were always monthly."
+WERE_YOUR_PERIODS_REGULAR_BEFORE  "My periods were fine."
+WAS_YOUR_PERIOD_EVER_LATE "My periods were always regular before the pregnancy."
+HOW_LONG_DID_YOUR_PERIODS_LAST_BEFORE "3 to 5 days."
+DESCRIBE_YOUR_PAST_PERIODS "They were regular."
+WHAT_IS_PAST_FLOW_LIKE "Normal."
+HOW_OFTEN_WERE_YOUR_PAST_PERIODS "They were always monthly."
 
 # menstrualcycle
 
@@ -393,17 +400,20 @@ How_often_were_your_past_periods "They were always monthly."
 
 # pregnancy
 
-When_were_you_pregnant "This is my first pregnancy."
-Ever_want_to_be_pregnant "I wasn't planning on getting pregnant now."
-Ever_taken_pregnancy_test_before "I took a pregnancy test after I missed my period and it was positive. This was the first time I ever used a pregnancy test."
-Ever_been_pregnant_before "This is my first pregnancy."
+WHEN_WERE_YOU_PREGNANT "This is my first pregnancy."
+EVER_WANT_TO_BE_PREGNANT "I wasn't planning on getting pregnant now."
+EVER_TAKEN_PREGNANCY_TEST_BEFORE "I took a pregnancy test after I missed my period and it was positive. This was the first time I ever used a pregnancy test."
+EVER_BEEN_PREGNANT_BEFORE "This is my first pregnancy."
 
 # breast
 
-Any_past_breast_changes "They are a little full and tender."
+ANY_PAST_BREAST_CHANGES "They are a little full and tender."
 
 ### PastGUSymptoms
 # bladder
+
+
+# pastmaleGU
 
 
 ### PastHEENTSymptoms
@@ -498,6 +508,10 @@ Any_past_breast_changes "They are a little full and tender."
 # heartproblems
 
 
+### FamilyCardiovascularSymptoms
+# vascular
+
+
 ### FamilyGUSymptoms
 # bladder
 
@@ -526,6 +540,9 @@ Any_past_breast_changes "They are a little full and tender."
 # sexualhealth
 
 
+# periods
+
+
 # pregnancy
 
 
@@ -543,6 +560,10 @@ Any_past_breast_changes "They are a little full and tender."
 # cough
 
 
+### NeonatalCounseling
+# neonatalcounseling
+
+
 ### Wellness
 # vaccines
 
@@ -551,6 +572,9 @@ Any_past_breast_changes "They are a little full and tender."
 
 
 # mentalhealth
+
+
+# relationshiphealth
 
 
 ### Movements
@@ -591,7 +615,7 @@ Any_past_breast_changes "They are a little full and tender."
 ### Closure
 # closure
 
-Nice_talking_with_you "Thanks for talking with me"
+NICE_TALKING_WITH_YOU "Thanks for talking with me"
 
 # summarize
 
@@ -599,7 +623,7 @@ Nice_talking_with_you "Thanks for talking with me"
 ### Screening
 # general
 
-have_you_had_a_blood_typing "My blood type is O positive."
+HAVE_YOU_HAD_A_BLOOD_TYPING "My blood type is O positive."
 
 # colonsection
 
@@ -615,21 +639,24 @@ have_you_had_a_blood_typing "My blood type is O positive."
 
 # communicablediseasesection
 
-Have_you_had_HIV_test "It was negative."
-Have_you_had_Hepatitis_B_test "The test was negative."
+HAVE_YOU_HAD_HIV_TEST "It was negative."
+HAVE_YOU_HAD_HEPATITIS_B_TEST "The test was negative."
 
 # prenatalcare
 
-Have_you_had_glucose_test "My blood sugars were fine."
-Have_you_had_antibody_test "That test was negative."
+HAVE_YOU_HAD_GLUCOSE_TEST "My blood sugars were fine."
+HAVE_YOU_HAD_ANTIBODY_TEST "That test was negative."
+
+# diabetes
+
 
 ### Family
 # familylife
 
-Who_do_you_live_with "I live with my boyfriend."
-Do_you_live_alone "I live with my boyfriend."
-Where_do_you_live "I live with my boyfriend in an apartment in Bellingham."
-Where_is_home "I live in Bellingham."
+WHO_DO_YOU_LIVE_WITH "I live with my boyfriend."
+DO_YOU_LIVE_ALONE "I live with my boyfriend."
+WHERE_DO_YOU_LIVE "I live with my boyfriend in an apartment in Bellingham."
+WHERE_IS_HOME "I live in Bellingham."
 
 # parentsinformation
 
@@ -645,22 +672,22 @@ Where_is_home "I live in Bellingham."
 
 # childreninformation
 
-Do_you_want_children "Of course. I'm just not sure I'm ready for one right now."
+DO_YOU_WANT_CHILDREN "Of course. I'm just not sure I'm ready for one right now."
 
 # spouseinformation
 
-Are_you_in_a_relationship "I'm with my boyfriend."
-Are_you_dating_anyone "I am with my boyfriend."
-Is_your_partner_healthy  "Jake is healthy."
-Do_you_have_a_boyfriend "I do have a boyfriend."
-Do_you_have_a_significant_other "My boyfriend, I guess."
-Tell_me_about_your_partner "Jake is a sales manager. We have been together for a year."
-How_old_is_your_partner "He is 24."
-Do_you_have_a_partner "I am with my boyfriend."
-What_is_your_partners_name "His name is Jake."
-Is_your_partner_male "I have a boyfriend."
-Is_your_partner_female "I have no female partner."
-Are_you_married "We are not married."
+ARE_YOU_IN_A_RELATIONSHIP "I'm with my boyfriend."
+ARE_YOU_DATING_ANYONE "I am with my boyfriend."
+IS_YOUR_PARTNER_HEALTHY  "Jake is healthy."
+DO_YOU_HAVE_A_BOYFRIEND "I do have a boyfriend."
+DO_YOU_HAVE_A_SIGNIFICANT_OTHER "My boyfriend, I guess."
+TELL_ME_ABOUT_YOUR_PARTNER "Jake is a sales manager. We have been together for a year."
+HOW_OLD_IS_YOUR_PARTNER "He is 24."
+DO_YOU_HAVE_A_PARTNER "I am with my boyfriend."
+WHAT_IS_YOUR_PARTNERS_NAME "His name is Jake."
+IS_YOUR_PARTNER_MALE "I have a boyfriend."
+IS_YOUR_PARTNER_FEMALE "I have no female partner."
+ARE_YOU_MARRIED "We are not married."
 
 # supportinformation
 
@@ -668,58 +695,58 @@ Are_you_married "We are not married."
 ### HOPIChiefcomplaint
 # onset
 
-Was_the_onset_sudden1 "I just felt my water break."
-Did_the_1_start_immediately "it was immediate."
-When_did_the_1_start "A few hours ago."
-How_long_have_you_had_1 "A few hours."
-Is_the_1_constant "I feel a little trickle everytime I move."
-Do_you_have_a_cause_for_1 "I do not."
+WAS_THE_ONSET_SUDDEN1 "I just felt my water break."
+DID_THE_1_START_IMMEDIATELY "it was immediate."
+WHEN_DID_THE_1_START "A few hours ago."
+HOW_LONG_HAVE_YOU_HAD_1 "A few hours."
+IS_THE_1_CONSTANT "I feel a little trickle everytime I move."
+DO_YOU_HAVE_A_CAUSE_FOR_1 "I do not."
 
 # exacerbation
 
-What_makes_the_1_worse "Moving around makes it worse."
-Does_anything_change_1_intensity "Nothing."
-What_have_you_tried_for_the_1 "Nothing."
-Have_you_tried_anything_for_the_1 "I have not."
-What_makes_the_1_better "Resting I guess."
-Have_you_tried_any_other_methods1 "I have not tried any other methods."
-Does_moving_increase_the_1 "Moving around makes it worse."
-Does_any_position_relieve_the_1 "Lying down seems to make it better."
-Does_any_position_make_the_1_worse "Sitting or standing makes the leakage worse."
-Do_any_positions_make_1_worse_or_better "Sitting or standing makes the leakage worse."
-Can_you_move_around_with_the_1 "I can move around fine."
-Is_1_worse_when_you_lie_down "Lying down seems to make it better."
-Do_you_have_1_when_you_lie_down "I do not."
-Is_1_better_when_you_lie_down "It seems to be better."
-Does_1_increase_when_you_stand "It definitely increases when I stand."
-Does_the_1_improve_with_exercise "I haven't exercised."
-Does_the_1_keep_you_up_at_night "It does not."
-Is_the_1_improving "It improved when I was admitted for bedrest."
+WHAT_MAKES_THE_1_WORSE "Moving around makes it worse."
+DOES_ANYTHING_CHANGE_1_INTENSITY "Nothing."
+WHAT_HAVE_YOU_TRIED_FOR_THE_1 "Nothing."
+HAVE_YOU_TRIED_ANYTHING_FOR_THE_1 "I have not."
+WHAT_MAKES_THE_1_BETTER "Resting I guess."
+HAVE_YOU_TRIED_ANY_OTHER_METHODS1 "I have not tried any other methods."
+DOES_MOVING_INCREASE_THE_1 "Moving around makes it worse."
+DOES_ANY_POSITION_RELIEVE_THE_1 "Lying down seems to make it better."
+DOES_ANY_POSITION_MAKE_THE_1_WORSE "Sitting or standing makes the leakage worse."
+DO_ANY_POSITIONS_MAKE_1_WORSE_OR_BETTER "Sitting or standing makes the leakage worse."
+CAN_YOU_MOVE_AROUND_WITH_THE_1 "I can move around fine."
+IS_1_WORSE_WHEN_YOU_LIE_DOWN "Lying down seems to make it better."
+DO_YOU_HAVE_1_WHEN_YOU_LIE_DOWN "I do not."
+IS_1_BETTER_WHEN_YOU_LIE_DOWN "It seems to be better."
+DOES_1_INCREASE_WHEN_YOU_STAND "It definitely increases when I stand."
+DOES_THE_1_IMPROVE_WITH_EXERCISE "I haven't exercised."
+DOES_THE_1_KEEP_YOU_UP_AT_NIGHT "It does not."
+IS_THE_1_IMPROVING "It improved when I was admitted for bedrest."
 
 # intensity
 
-How_intense_is_the_1 "Not very."
-Has_the_1_become_worse "It has not."
-When_is_the_1_most_severe "When I am moving around."
+HOW_INTENSE_IS_THE_1 "Not very."
+HAS_THE_1_BECOME_WORSE "It has not."
+WHEN_IS_THE_1_MOST_SEVERE "When I am moving around."
 
 # general
 
-Do_you_currently_have_1 "I have had some leakage."
-How_is_your_1_now "I am still having some leakage of fluid."
-Do_you_have_any_1 "I have some leakage."
-Are_you_having_any_other_1 "I am not having that."
-How_else_is_the_1_affecting_your_life "I am worried about the baby."
-Has_the_1_stopped_you "It has not."
+DO_YOU_CURRENTLY_HAVE_1 "I have had some leakage."
+HOW_IS_YOUR_1_NOW "I am still having some leakage of fluid."
+DO_YOU_HAVE_ANY_1 "I have some leakage."
+ARE_YOU_HAVING_ANY_OTHER_1 "I am not having that."
+HOW_ELSE_IS_THE_1_AFFECTING_YOUR_LIFE "I am worried about the baby."
+HAS_THE_1_STOPPED_YOU "It has not."
 
 # description
 
-When_do_you_have_the_1 "When I am moving around."
-How_long_does_the_1_last "I am still having some leakage of fluid."
-How_frequent_is_the_1 "It is always there."
-What_concerns_you_about_the_1 "I am worried about the baby."
-Where_is_the_1 "At first I thought I had to go to the restroom, but then I realized it wasn't that."
-Describe_the_1 "At first I thought I had to go, but then I realized it wasn't that."
-When_else_do_you_have_the_1 "Mostly just when I move."
+WHEN_DO_YOU_HAVE_THE_1 "When I am moving around."
+HOW_LONG_DOES_THE_1_LAST "I am still having some leakage of fluid."
+HOW_FREQUENT_IS_THE_1 "It is always there."
+WHAT_CONCERNS_YOU_ABOUT_THE_1 "I am worried about the baby."
+WHERE_IS_THE_1 "At first I thought I had to go to the restroom, but then I realized it wasn't that."
+DESCRIBE_THE_1 "At first I thought I had to go, but then I realized it wasn't that."
+WHEN_ELSE_DO_YOU_HAVE_THE_1 "Mostly just when I move."
 
 ### HOPIComplaint2
 # onset
@@ -751,4 +778,3 @@ When_else_do_you_have_the_1 "Mostly just when I move."
 
 
 # description
-

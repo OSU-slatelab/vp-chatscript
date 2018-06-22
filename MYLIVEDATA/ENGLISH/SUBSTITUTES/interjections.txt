@@ -801,10 +801,6 @@
  it_does> ~yes
  it_is_not> ~no
  it_is> ~yes
- 
-# okay ~yes
-
- okey ~yes
 
 # oops ~yes
 
