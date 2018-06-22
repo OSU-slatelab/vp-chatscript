@@ -9,19 +9,18 @@
 ../RAWDATA/PatientFiles/Control/medicalcontrol.top		# system control
 ../RAWDATA/PatientFiles/Control/scorefn.top			
 # ../RAWDATA/PatientFiles/Control/scoreforpdf.top 		# This scoring file is used to provide formatted output for pdf
-../RAWDATA/PatientFiles/Control/scoreforpdf_ws.top # This scoring file is used to provide formatted output for pdf fixed by Adam Stiff
-# ../RAWDATA/PatientFiles/Control/scorefortxt.top		# This scoring file is used to provide unformatted output for text file	
+ ../RAWDATA/PatientFiles/Control/scoreforpdf_ws.top # This scoring file is used to provide formatted output for pdf fixed by Adam Stiff
+#../RAWDATA/PatientFiles/Control/scorefortxt.top		# This scoring file is used to provide unformatted output for text file	
 
 # Patient Topic Files
 
-../RAWDATA/PatientFiles/Patient_Topic_Files/patient1.top
-
+# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient1.top
 ../RAWDATA/PatientFiles/Patient_Topic_Files/patient2.top
 # ../RAWDATA/PatientFiles/Patient_Topic_Files/patient3.top
 # ../RAWDATA/PatientFiles/Patient_Topic_Files/patient4.top
 # ../RAWDATA/PatientFiles/Patient_Topic_Files/patient5.top
 # ../RAWDATA/PatientFiles/Patient_Topic_Files/patient6.top
-../RAWDATA/PatientFiles/Patient_Topic_Files/patient7.top
+# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient7.top
 # ../RAWDATA/PatientFiles/Patient_Topic_Files/patient8.top
 # ../RAWDATA/PatientFiles/Patient_Topic_Files/patient9.top
 # ../RAWDATA/PatientFiles/Patient_Topic_Files/patient10.top
@@ -29,10 +28,12 @@
 # ../RAWDATA/PatientFiles/Patient_Topic_Files/patient12.top
 # ../RAWDATA/PatientFiles/Patient_Topic_Files/patient13.top
 # ../RAWDATA/PatientFiles/Patient_Topic_Files/patient14.top
-# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient15.top       # This is one of the patients for MEd-U
+
+# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient15.top     	# This is one of the patients for MEd-U
 # ../RAWDATA/PatientFiles/Patient_Topic_Files/patient16.top	# This is one of the patients for MEd-U
 # ../RAWDATA/PatientFiles/Patient_Topic_Files/patient17.top	# This is one of the patients for MEd-U
 # ../RAWDATA/PatientFiles/Patient_Topic_Files/patient18.top	# This is one of the patients for MEd-U
+
 # ../RAWDATA/PatientFiles/Patient_Topic_Files/patient19.top	# This is one of the patients for Rachel Umoren
 # ../RAWDATA/PatientFiles/Patient_Topic_Files/patient20.top	# This is VANESSA for Rachel Umoren
 
@@ -44,23 +45,26 @@
 # General Topic Files
 
 ../RAWDATA/PatientFiles/GeneralTopicFiles/Opening_Dialogue.top		# What brings you in today questions
+../RAWDATA/PatientFiles/GeneralTopicFiles/job.top					# Job and work questions
 ../RAWDATA/PatientFiles/GeneralTopicFiles/PatientInformation.top	# Demographics
-../RAWDATA/PatientFiles/GeneralTopicFiles/Socialhistory.top		# Social History Questions
-../RAWDATA/PatientFiles/GeneralTopicFiles/Family.top			# Family Questions
-../RAWDATA/PatientFiles/GeneralTopicFiles/Allergies.top			# Allergies Questions
-../RAWDATA/PatientFiles/GeneralTopicFiles/Wellness.top			# Wellness and Prevention Questions
-../RAWDATA/PatientFiles/GeneralTopicFiles/Screening.top			# Screening Questions
-../RAWDATA/PatientFiles/GeneralTopicFiles/Movements.top			# Movement Questions
-../RAWDATA/PatientFiles/GeneralTopicFiles/ChitChat.top			# General ChitChat
-../RAWDATA/PatientFiles/GeneralTopicFiles/Medications.top		# Medications past and present
-../RAWDATA/PatientFiles/GeneralTopicFiles/closure.top			# Goodbye
-../RAWDATA/PatientFiles/GeneralTopicFiles/Hopi.top	       		# History of present illness 
+../RAWDATA/PatientFiles/GeneralTopicFiles/Socialhistory.top			# Social History Questions
+../RAWDATA/PatientFiles/GeneralTopicFiles/Family.top				# Family Questions
+../RAWDATA/PatientFiles/GeneralTopicFiles/Allergies.top				# Allergies Questions
+../RAWDATA/PatientFiles/GeneralTopicFiles/Wellness.top				# Wellness and Prevention Questions
+../RAWDATA/PatientFiles/GeneralTopicFiles/Screening.top				# Screening Questions
+../RAWDATA/PatientFiles/GeneralTopicFiles/Movements.top				# Movement Questions
+../RAWDATA/PatientFiles/GeneralTopicFiles/ChitChat.top				# General ChitChat
+../RAWDATA/PatientFiles/GeneralTopicFiles/Medications.top			# Medications past and present
+../RAWDATA/PatientFiles/GeneralTopicFiles/closure.top				# Goodbye
+../RAWDATA/PatientFiles/GeneralTopicFiles/Hopi.top	       			# History of present illness 
 ../RAWDATA/PatientFiles/GeneralTopicFiles/Inappropriate_Language.top	# All the bad words 
-../RAWDATA/PatientFiles/GeneralTopicFiles/Statements.top		# Statements
+../RAWDATA/PatientFiles/GeneralTopicFiles/Statements.top			# Statements
 # ../RAWDATA/PatientFiles/GeneralTopicFiles/Neonatalcounseling.top	# Neonatal counseling for patient20 only
 ../RAWDATA/PatientFiles/GeneralTopicFiles/Emotions.top	       		# Causes avatar to display emotion upon command show emotion xxxx 
-../RAWDATA/PatientFiles/GeneralTopicFiles/SystemsandSymptoms.top		# All symptoms in all systems
+../RAWDATA/PatientFiles/GeneralTopicFiles/SystemsandSymptoms.top	# All symptoms in all systems
 ../RAWDATA/PatientFiles/GeneralTopicFiles/VariableMatches.top		# Uses input to match varaible and repsond
+../RAWDATA/PatientFiles/GeneralTopicFiles/Keywordless.top			# Topic file for anything with no useable keywords or obvious topic
+../RAWDATA/PatientFiles/GeneralTopicFiles/MyReplacements.top		# Topic file for my spelling corrections
 
 # Current Symptoms
 
@@ -75,13 +79,13 @@
 ../RAWDATA/PatientFiles/CurrentSymptoms/CurrentGeneralSymptoms.top		# Current General Symptoms
 ../RAWDATA/PatientFiles/CurrentSymptoms/CurrentTreatments.top			# Treatment Questions
 ../RAWDATA/PatientFiles/CurrentSymptoms/CurrentRespiratorySymptoms.top		# Respiratory Questions
+../RAWDATA/PatientFiles/CurrentSymptoms/CurrentEndocrineSymptoms.top		# Endocrine (diabetes) Questions
 
 
 #Family History Symptoms
 
 ../RAWDATA/PatientFiles/FamilyHistorySymptoms/FamilyMuscleSymptoms.top		# Family Musculoskeletal and Rheumatologic Symptoms
 ../RAWDATA/PatientFiles/FamilyHistorySymptoms/FamilyHEENTSymptoms.top		# Family HEENT Symptoms
-../RAWDATA/PatientFiles/FamilyHistorySymptoms/FamilyGeneralSymptoms.top		# Family General Symptoms/Questions
 ../RAWDATA/PatientFiles/FamilyHistorySymptoms/FamilyGUSymptoms.top		# Family GU Symptoms/Questions
 ../RAWDATA/PatientFiles/FamilyHistorySymptoms/FamilyAbdominalGISymptoms.top	# Family Abdome GI Symptoms/Questions
 ../RAWDATA/PatientFiles/FamilyHistorySymptoms/FamilyCardiovascularSymptoms.top	# Family Cardiac Symptoms/Questions
@@ -89,6 +93,7 @@
 ../RAWDATA/PatientFiles/FamilyHistorySymptoms/FamilyPainSymptoms.top		# Family Pain Symptoms/Questions
 ../RAWDATA/PatientFiles/FamilyHistorySymptoms/FamilyGYNSymptoms.top		# Family GYN Symptoms/Questions
 ../RAWDATA/PatientFiles/FamilyHistorySymptoms/FamilyRespiratorySymptoms.top	# Family Respiratory Questions
+../RAWDATA/PatientFiles/FamilyHistorySymptoms/FamilyEndocrineSymptoms.top	# Family Endocrine (diabetes) Questions
 
 
 # Past Medical Symptoms
@@ -103,3 +108,4 @@
 ../RAWDATA/PatientFiles/PastMedicalSymptoms/Pastpainsymptoms.top		# Past Pain Symptoms
 ../RAWDATA/PatientFiles/PastMedicalSymptoms/PastGYNsymptoms.top			# Past GYN Symptoms
 ../RAWDATA/PatientFiles/PastMedicalSymptoms/PastRespiratorySymptoms.top		# Past Respiratory Questions
+../RAWDATA/PatientFiles/PastMedicalSymptoms/PastEndocrineSymptoms.top		# Past Endocrine (diabetes) Questions
