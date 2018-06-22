@@ -1,4 +1,4 @@
-﻿What_brings_you_in_today :  can you tell me what brings you in today
+What_brings_you_in_today :  can you tell me what brings you in today
 Tell_me_more :  tell me more
 When_did_the_1_start :  when did this happen
 What_makes_the_1_better :  is there anything that makes the pain better

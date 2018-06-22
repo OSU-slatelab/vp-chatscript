@@ -1,4 +1,4 @@
-﻿Table: ^equivalent() 		# these are all essential
+Table: ^equivalent() 		# these are all essential
 Loss_of_bowel_control  	Loss_of_bowel_control   	# this is the base question - all similar questions map to this base
 Are_you_able_to_control_your_bowels 	Loss_of_bowel_control 	
 Do_you_have_any_bowel_problems 	Loss_of_bowel_control	
