@@ -1,6 +1,6 @@
 #! /bin/bash
 
-cd /var/opt/chatscript/ChatScript
+cd ChatScript
 
 ./BINARIES/LinuxChatScript64 \
   local \
