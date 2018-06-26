@@ -6,7 +6,7 @@ topic: ~currentsex keep repeat (~groin_male ~sex_problems_male ~groin_female ~se
 # SEXUAL HEALTH
 
 #! Does it hurt during intercourse
-	u: DOES_IT_HURT_DURING_INTERCOURSE
+	?: DOES_IT_HURT_DURING_INTERCOURSE
 		([
 			(<< [hurt painful bother ~pain] [sex intercourse "sexual activity"] >>)
 			([sex intercourse "sexual activity"] * [increase exacerbate] * [~the_pain $relevantpain?])
@@ -14,24 +14,24 @@ topic: ~currentsex keep repeat (~groin_male ~sex_problems_male ~groin_female ~se
 	^factanswer("It does not.")
 
 #! Do you have bleeding after intercourse
-	u: BLEEDING_AFTER_INTERCOURSE ([blood bleeding] * [sex intercourse "sexual activity"])    ^factanswer("I do not.")
+	?: BLEEDING_AFTER_INTERCOURSE ([blood bleeding] * [sex intercourse "sexual activity"])    ^factanswer("I do not.")
 
 #! Do you have a sexually transmitted infection
-	u: DO_YOU_HAVE_AN_STI (![had been] [any have] * ~STI)	  ^factanswer("I do not.")
+	?: DO_YOU_HAVE_AN_STI (![had been] [any have] * ~STI)	  ^factanswer("I do not.")
 
 #! Have you been raped
-	u: HAVE_YOU_BEEN_RAPED ([rape forced]) ^factanswer("Never.")
+	?: HAVE_YOU_BEEN_RAPED ([rape forced]) ^factanswer("Never.")
 
 # CONTRACEPTION
 
 #! Do you use any other contraception
-	u: DO_YOU_USE_ANY_OTHER_CONTRACEPTION (use * other * ~contraceptives) 	^factanswer("I do not.")
+	?: DO_YOU_USE_ANY_OTHER_CONTRACEPTION (use * other * ~contraceptives) 	^factanswer("I do not.")
 
 #! Do you use any protection every time
-	u: DO_YOU_USE_PROTECTION_EVERY_TIME (<< [always "every time"] ~contraceptives >>)     ^factanswer("Of course.")
+	?: DO_YOU_USE_PROTECTION_EVERY_TIME (<< [always "every time"] ~contraceptives >>)     ^factanswer("Of course.")
 
 #! Have you had unprotected sex
-	u: HAVE_YOU_HAD_UNPROTECTED_SEX
+	?: HAVE_YOU_HAD_UNPROTECTED_SEX
 		([
 			(unprotected [sex intercourse])
 			([sex intercourse] * without * ~contraceptives)
@@ -39,7 +39,7 @@ topic: ~currentsex keep repeat (~groin_male ~sex_problems_male ~groin_female ~se
 	^factanswer("I have not.")
 
 #! Do you use any contraception
-	u: DO_YOU_USE_CONTRACEPTION
+	?: DO_YOU_USE_CONTRACEPTION
 		([
 			(!other !additional use * ~contraceptives)
 			(!other !additional [practice use] * [safe ~contraceptives] * [intercourse sex])
@@ -57,18 +57,18 @@ topic: ~currentvaginal_bleeding keep repeat (~gyn_bleeding tampon cramp cramping
 # BLEEDING
 
 #! Tell me more about your vaginal bleeding
-	u: TELL_ME_MORE_ABOUT_YOUR_VAGINAL_BLEEDING (tell * [more some bit] * [~itwords vaginal bleeding spotting])   ^factanswer("I have none")
+	?: TELL_ME_MORE_ABOUT_YOUR_VAGINAL_BLEEDING (tell * [more some bit] * [~itwords vaginal bleeding spotting])   ^factanswer("I have none")
 
 #! Are there any clots
-	u: ARE_THERE_CLOTS ([clot clots clotting])  ^factanswer("There are none.")
+	?: ARE_THERE_CLOTS ([clot clots clotting])  ^factanswer("There are none.")
 
 # PERIODS
 
 #! When was the first day of your last period
-	u: FIRST_DAY_OF_LAST_PERIOD  (!"vaginal bleeding" first day * [last recent prior previous] * ~gyn_bleeding)   ^factanswer("I don't have those.")
+	?: FIRST_DAY_OF_LAST_PERIOD  (!"vaginal bleeding" first day * [last recent prior previous] * ~gyn_bleeding)   ^factanswer("I don't have those.")
 
 #! When was your last period
-	u: WHEN_WAS_YOUR_LAST_PERIOD
+	?: WHEN_WAS_YOUR_LAST_PERIOD
 		([
 			(!"vaginal bleeding" [when "how long ago"] * [last recent prior previous stop] * [~gyn_bleeding one])
 			(!"vaginal bleeding" [when "how long ago"] * [~gyn_bleeding one] * [last recent prior previous stop])
@@ -76,19 +76,19 @@ topic: ~currentvaginal_bleeding keep repeat (~gyn_bleeding tampon cramp cramping
 	^factanswer("I don't have those.")
 
 #! Are you currently having your period
-	u: ARE_YOU_HAVING_YOUR_PERIOD  (are you [currently on] * ~gyn_bleeding)   ^factanswer("I don't have those.")
+	?: ARE_YOU_HAVING_YOUR_PERIOD  (are you [currently on] * ~gyn_bleeding)   ^factanswer("I don't have those.")
 
 #! Are your periods irregular
-	u: ARE_YOUR_PERIODS_IRREGULAR  (<<[~gyn_bleeding ~itwords] [irregular abnormal] >>)   ^factanswer("I don't have those.")
+	?: ARE_YOUR_PERIODS_IRREGULAR  (<<[~gyn_bleeding ~itwords] [irregular abnormal] >>)   ^factanswer("I don't have those.")
 
 #! Are your periods regular
-	u: ARE_YOUR_PERIODS_REGULAR  (<<[~gyn_bleeding ~itwords] [regular normal] >>)   ^factanswer("I don't have those.")
+	?: ARE_YOUR_PERIODS_REGULAR  (<<[~gyn_bleeding ~itwords] [regular normal] >>)   ^factanswer("I don't have those.")
 
 #! Is your period late
-	u: IS_YOUR_PERIOD_LATE  ([~gyn_bleeding ~itwords] late)  ^factanswer("I don't have those.")
+	?: IS_YOUR_PERIOD_LATE  ([~gyn_bleeding ~itwords] late)  ^factanswer("I don't have those.")
 
 #! How long do your periods last
-	u: HOW_LONG_DO_YOUR_PERIODS_LAST
+	?: HOW_LONG_DO_YOUR_PERIODS_LAST
 		([
 			([!ago often pad tampon] [duration "how long"] * [~gyn_bleeding flow])
 			([!ago often pad tampon] [~gyn_bleeding flow] * [duration last])
@@ -96,10 +96,10 @@ topic: ~currentvaginal_bleeding keep repeat (~gyn_bleeding tampon cramp cramping
 	^factanswer("I don't have periods. ")
 
 #! Can you describe your periods
-	u: CAN_YOU_DESCRIBE_YOUR_PERIODS  ([tell ~describe description] * [~gyn_bleeding])   ^factanswer("I don't have those.")
+	?: CAN_YOU_DESCRIBE_YOUR_PERIODS  ([tell ~describe description] * [~gyn_bleeding])   ^factanswer("I don't have those.")
 
 #! What is the flow of your period like
-	u: WHAT_IS_FLOW_LIKE
+	?: WHAT_IS_FLOW_LIKE
 		([
 			(!always [what how is] * [flow ~gyn_bleeding])
 			(!always [heavy light amount] * [menses menstrual blood ~gyn_bleeding])
@@ -108,10 +108,10 @@ topic: ~currentvaginal_bleeding keep repeat (~gyn_bleeding tampon cramp cramping
 	^factanswer("I am not sure.")
 
 #! How often are your periods
-	u: HOW_OFTEN_ARE_YOUR_PERIODS (<< [frequent often] [~gyn_bleeding] >>) ^factanswer("I don't have those.")
+	?: HOW_OFTEN_ARE_YOUR_PERIODS (<< [frequent often] [~gyn_bleeding] >>) ^factanswer("I don't have those.")
 
 #! Are your periods painful
-	u: ARE_YOUR_PERIODS_PAINFUL
+	?: ARE_YOUR_PERIODS_PAINFUL
 		([
 			([~gyn_bleeding ~itwords] * [hurt painful])
 			([hurt painful] * [~gyn_bleeding ~itwords])
@@ -119,19 +119,19 @@ topic: ~currentvaginal_bleeding keep repeat (~gyn_bleeding tampon cramp cramping
 	^factanswer("My periods are fine.")
 
 #! Does pain change with period
-	u: DOES_PAIN_CHANGE_WITH_PERIOD (pain * [change better worse increase decrease lessen worsen] * ~gyn_bleeding) ^factanswer("My periods are fine.")
+	?: DOES_PAIN_CHANGE_WITH_PERIOD (pain * [change better worse increase decrease lessen worsen] * ~gyn_bleeding) ^factanswer("My periods are fine.")
 
 #! Do you use tampons
-	u: Use_tampons ([tampons pads])	^factanswer("I do not.")
+	?: Use_tampons ([tampons pads])	^factanswer("I do not.")
 		a: HOW_MANY_TAMPONS ([many number amount]) ^factanswer("I don't use those")
 
 #! Do you have bloating with period
-	u: DO_YOU_HAVE_BLOATING_WITH_PERIOD ([bloat bloating "water retention"] * [~gyn_bleeding]) ^factanswer("I do not.")
+	?: DO_YOU_HAVE_BLOATING_WITH_PERIOD ([bloat bloating "water retention"] * [~gyn_bleeding]) ^factanswer("I do not.")
 
 # MENSTRUAL CYCLE
 
 #! Have you had any menstrual changes
-	u: HAVE_YOU_HAD_ANY_MENSTRUAL_CHANGES
+	?: HAVE_YOU_HAD_ANY_MENSTRUAL_CHANGES
 		([
 			(["have you had" 'are] * ~gyn_bleeding [change different])
 			(["have you had" 'are] * [change different] * ~gyn_bleeding)
@@ -139,13 +139,13 @@ topic: ~currentvaginal_bleeding keep repeat (~gyn_bleeding tampon cramp cramping
 	^factanswer("My menstrual cycle has been normal")
 
 #! Have you had any spotting
-	u: HAVE_YOU_HAD_ANY_SPOTTING (["have you had"] * [bleeding spotting])    ^factanswer("I have not.")
+	?: HAVE_YOU_HAD_ANY_SPOTTING (["have you had"] * [bleeding spotting])    ^factanswer("I have not.")
 
 #! Tell me about your menstrual cycles
-	u: TELL_ME_ABOUT_YOUR_MENSTRUAL_CYCLES (["tell me" describe] * [~gyn_bleeding])   ^factanswer("They are fine.")
+	?: TELL_ME_ABOUT_YOUR_MENSTRUAL_CYCLES (["tell me" describe] * [~gyn_bleeding])   ^factanswer("They are fine.")
 
 #! When did you have your first period
-	u: WHEN_DID_YOU_HAVE_YOUR_FIRST_PERIOD
+	?: WHEN_DID_YOU_HAVE_YOUR_FIRST_PERIOD
 		([
 			([when how] *  [began first start] * [~gyn_bleeding menstruation menstrual cycle])
 			([when how] *  [~gyn_bleeding menstruation menstrual cycle] * [began first start])
@@ -155,16 +155,16 @@ topic: ~currentvaginal_bleeding keep repeat (~gyn_bleeding tampon cramp cramping
 # PAIN
 
 #! Are you having cramps
-	u: ARE_YOU_HAVING_CRAMPS (![where try when] [cramps cramping])  ^factanswer("No, None.")
+	?: ARE_YOU_HAVING_CRAMPS (![where try when] [cramps cramping])  ^factanswer("No, None.")
 
 #! Any vaginal pain
-	u: ANY_VAGINAL_PAIN (<< [vaginal vagina] [pain discomfort] >>) ^factanswer("Not really.")
+	?: ANY_VAGINAL_PAIN (<< [vaginal vagina] [pain discomfort] >>) ^factanswer("Not really.")
 
 #! Any vaginal sores
-	u: ANY_VAGINAL_SORES (<< [vaginal vagina] [sores spots rash] >>) ^factanswer("None.")
+	?: ANY_VAGINAL_SORES (<< [vaginal vagina] [sores spots rash] >>) ^factanswer("None.")
 
 #! Do you have any sores on your groin
-	u: DO_YOU_HAVE_ANY_SORES_ON_YOUR_GROIN (["sores * ~groin" "bleeding * ~groin_male" ~groin_male "bleeding * groin_female" ~groin_female])    ^factanswer("No.")
+	?: DO_YOU_HAVE_ANY_SORES_ON_YOUR_GROIN (["sores * ~groin" "bleeding * ~groin_male" ~groin_male "bleeding * groin_female" ~groin_female])    ^factanswer("No.")
 
 # ###################################################################################
 topic: ~currentvaginalsymptoms keep repeat (~gyn_bleeding vagina vaginal douche vulva)
@@ -173,10 +173,10 @@ topic: ~currentvaginalsymptoms keep repeat (~gyn_bleeding vagina vaginal douche 
 	u: ($family) respond(~familyvaginalsymptoms) ^fail(TOPIC)
 
 #! Any vaginal dryness
-	u: ANY_VAGINAL_DRYNESS (<< [vaginal vagina area] dryness >>) ^factanswer("I have none of that.")
+	?: ANY_VAGINAL_DRYNESS (<< [vaginal vagina area] dryness >>) ^factanswer("I have none of that.")
 
 #! Do you douche
-	u: DO_YOU_DOUCHE (douche) ^factanswer("I do not.")
+	?: DO_YOU_DOUCHE (douche) ^factanswer("I do not.")
 
 # ###################################################################################
 
@@ -186,28 +186,28 @@ topic: ~current_pregnancy keep repeat (~gyn_bleeding pregnant miscarry miscarria
 	u: ($family) respond(~family_pregnancy) ^fail(TOPIC)
 
 #! Could you be pregnant
-	u: COULD_YOU_BE_PREGNANT (!ever !past [could might think possible possibility chance] * pregnant >) ^factanswer("No.")
+	?: COULD_YOU_BE_PREGNANT (!ever !past [could might think possible possibility chance] * pregnant >) ^factanswer("No.")
 
 #! Do you want to be pregnant
-	u: WANT_TO_BE_PREGNANT (!ever !past [want desire try trying] * pregnant >) ^factanswer("No.")
+	?: WANT_TO_BE_PREGNANT (!ever !past [want desire try trying] * pregnant >) ^factanswer("No.")
 
 #! Are you pregnant
-	u: ARE_YOU_PREGNANT (are you * pregnant)	 ^factanswer("I don't think so.")
+	?: ARE_YOU_PREGNANT (are you * pregnant)	 ^factanswer("I don't think so.")
 
 #! Have you taken a pregnancy test
-	u: HAVE_YOU_TAKEN_PREGNANCY_TEST ([take taken checked done "have you had" "have you"] * [pregnant pregnancy] * [test kit strip])  ^factanswer("I have not.")
+	?: HAVE_YOU_TAKEN_PREGNANCY_TEST ([take taken checked done "have you had" "have you"] * [pregnant pregnancy] * [test kit strip])  ^factanswer("I have not.")
 
 #! Have you miscarried
-	u: HAVE_YOU_MISCARRIED  ([miscarry miscarried miscarriage])  ^factanswer("I have not had a miscarriage.")
+	?: HAVE_YOU_MISCARRIED  ([miscarry miscarried miscarriage])  ^factanswer("I have not had a miscarriage.")
 
 #! How many pregnancies
-	u: HOW_MANY_PREGNANCIES (how * [many number time] * [pregnant pregnancy]) ^factanswer("I have never been pregnant.")
+	?: HOW_MANY_PREGNANCIES (how * [many number time] * [pregnant pregnancy]) ^factanswer("I have never been pregnant.")
 
 #! When was last time you were pregnant
-	u: WHEN_WAS_LAST_TIME_YOU_WERE_PREGNANT ([when how] * "last time" * [pregnant pregnancy deliver birth]) ^factanswer("I have never been pregnant.")
+	?: WHEN_WAS_LAST_TIME_YOU_WERE_PREGNANT ([when how] * "last time" * [pregnant pregnancy deliver birth]) ^factanswer("I have never been pregnant.")
 
 #! Describe pregnancy
-	u: DESCRIBE_PREGNANCY
+	?: DESCRIBE_PREGNANCY
 		([
 			([describe "how was"] * [pregnant pregnancy] >)
 			(<< [pregnant pregnancy delivery born] [problem issues free easy normal complications go "all right" vaginal vaginally c-section cesarean] >>)
@@ -222,7 +222,7 @@ topic: ~current_breast keep repeat (breast ~breast_problems feed breastfeed)
 	u: ($family) respond(~family_breast) ^fail(TOPIC)
 
 #! Any breast changes
-	u: ANY_BREAST_CHANGES
+	?: ANY_BREAST_CHANGES
 		([
 			(~Breast_Problems * [change size tenderness])
 			(~Breast_Problems)
@@ -230,7 +230,7 @@ topic: ~current_breast keep repeat (breast ~breast_problems feed breastfeed)
 	^factanswer("No breast changes.")
 
 #! Are you breastfeeding
-	u: ARE_YOU_BREASTFEEDING ([breastfeed breastfeeding])  ^factanswer("I am not breastfeeding.")
+	?: ARE_YOU_BREASTFEEDING ([breastfeed breastfeeding])  ^factanswer("I am not breastfeeding.")
 
 # ###################################################################################
 
@@ -240,7 +240,7 @@ topic: ~menopause keep repeat (menopause perimenopause ~gyn_problems menopausal)
 ##	u: ($family) respond(~familygyn) ^fail(TOPIC)
 
 #! Do you have hot flashes
-	u: DO_YOU_HAVE_HOT_FLASHES  (hot * [flash flush])   ^factanswer("I do not.")
+	?: DO_YOU_HAVE_HOT_FLASHES  (hot * [flash flush])   ^factanswer("I do not.")
 
 #! Are you in menopause
-	u: ARE_YOU_IN_MENOPAUSE  ([menopause perimenopause menopausal])   ^factanswer("I am not.")
+	?: ARE_YOU_IN_MENOPAUSE  ([menopause perimenopause menopausal])   ^factanswer("I am not.")

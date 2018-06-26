@@ -4,7 +4,7 @@ topic: ~familybackpain keep repeat (~back_pain ~role_family )
 	u: ($pasthistory) respond(~pastbackpain) ^fail(TOPIC)
 
 #! Does anyone in your family have back pain
-	u: ANYONE_IN_YOUR_FAMILY_HAVE_BACK_PAIN (~back_pain)    ^factanswer("Not that I am aware of.")
+	?: ANYONE_IN_YOUR_FAMILY_HAVE_BACK_PAIN (~back_pain)    ^factanswer("Not that I am aware of.")
 
 # ***************************************************************************************************
 
@@ -14,7 +14,7 @@ topic: ~familybackinjury keep repeat (~role_family ~back_injury hurt injure inju
 	u: ($pasthistory) respond(~pastbackinjury) ^fail(TOPIC)
 
 #! Does anyone in your family have a back injury
-	u: ANYONE_IN_YOUR_FAMILY_HAVE_A_BACK_INJURY (~back_injury)   ^factanswer("Not that I am aware of.")
+	?: ANYONE_IN_YOUR_FAMILY_HAVE_A_BACK_INJURY (~back_injury)   ^factanswer("Not that I am aware of.")
 
 # ***************************************************************************************************
 
@@ -24,7 +24,7 @@ topic: ~familymusclepain keep repeat (~role_family ~muscle_pain stretch)
 	u: ($pasthistory) respond(~pastmusclepain) ^fail(TOPIC)
 
 #! Does anyone in your family have muscle pain
-	u: ANYONE_IN_YOUR_FAMILY_HAVE_MUSCLE_PAIN (~muscle_pain)  ^factanswer("Not that I am aware of.")
+	?: ANYONE_IN_YOUR_FAMILY_HAVE_MUSCLE_PAIN (~muscle_pain)  ^factanswer("Not that I am aware of.")
 
 # ***************************************************************************************************
 

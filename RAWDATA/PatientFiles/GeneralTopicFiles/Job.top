@@ -12,19 +12,19 @@ topic: ~jobrelatedquestions keep repeat
 	?: DO_YOU_DO_ANY_HEAVY_LIFTING_AT_WORK
 			([
 				(<< heavy [lifting lift] [~job] >>)
-				([bend lift back~n] *~3 [lot ~job ever])
+				(!pain [bend lift back~n] *~3 [lot ~job ever])
 			])
 	^factanswer("I don't lift.")
 
 #! Do you bend down a lot at work
 #! Do you move a lot at work
 #! Does your job require tyou to move around a lot
-	u: DO_YOU_BEND_AT_WORK (<< [bend move] [~job] >>) ^factanswer("I rarely have to bend at work.")
+	?: DO_YOU_BEND_AT_WORK (<< [bend move] [~job] >>) ^factanswer("I rarely have to bend at work.")
 
 #! Is your job physically demanding
 	?: IS_YOUR_JOB_PHYSICALLY_DEMANDING
 		([
-			(be *~3 ~job *~3 [demanding difficult strenuous "physical labor"])
+			(be *~3 ~job *~3 ['demanding difficult strenuous "physical labor"])
 			(<< [job employer] "physical labor" >>)
 		])
 			^factanswer("It is not.")
@@ -70,7 +70,7 @@ topic: ~jobrelatedquestions keep repeat
 
 #! Have you been off work because of $chiefcomplaint
 #! And you can't work because of the back pain?
-	u: HAVE_YOU_BEEN_OFF_WORK_BECAUSE
+	?: HAVE_YOU_BEEN_OFF_WORK_BECAUSE
 		([
 			([off unable "can not" can't] *~3 ~job *~3 [because due] *~3 $chiefcomplaint)
 			($chiefcomplaint *~3 [stop prevent keep] *~3 ~job)
@@ -102,7 +102,7 @@ topic: ~jobrelatedquestions keep repeat
 		a: WHAT_ELSE_CAN'T_YOU_DO (else) ^factanswer("Nothing.")
 
 #! Do you have problems working
-	u: DO_YOU_HAVE_PROBLEMS_WORKING (problem *~3 ~job) ^factanswer("I have no problems working.")
+	?: DO_YOU_HAVE_PROBLEMS_WORKING (problem *~3 ~job) ^factanswer("I have no problems working.")
 
 #! Do you feel safe at work
 	?: DO_YOU_FEEL_SAFE_AT_WORK (safe * ~job) ^factanswer("I feel safe.")
@@ -142,9 +142,11 @@ topic: ~jobrelatedquestions keep repeat
 #! Does the pain interfere with work
 #! Has your work been affected by your back pain?
 #! Does the pain make your job difficult
-	?: DOES_THE_PAIN_INTERFERE_WITH_WORK
+#! The injury must really get in the way of that
+	u: DOES_THE_PAIN_INTERFERE_WITH_WORK
 		([
-			(!how [~pain ~itwords injury] *~3 [problem bother interfere interferring impair inhibit keep prevent stop miss affect impact difficult "in the way"] *~3 [working ~job])
+			(!how [~pain ~itwords injury] *~3 [problem bother interfere interferring impair inhibit keep prevent stop miss affect impact difficult "in the way"] *~3 [~itwords working ~job])
+			(!how [~pain injury] *~3 [problem bother interfere interferring impair inhibit keep prevent stop miss affect impact difficult "in the way"] *~3 [~itwords working ~job])
 			(!how [~pain ~itwords injury] *~3 [working ~job] *~3 [difficult hard])
 			(!how ~job * [affect inhibit bother impact] * [~pain ~itwords injury])
 		])
@@ -195,7 +197,7 @@ topic: ~jobrelatedquestions keep repeat
 
 #! Do you have exposure to chemicals
 #! Do you have exposure to hazardous materials
-	u: DO_YOU_HAVE_EXPOSURE_TO_CHEMICALS
+	?: DO_YOU_HAVE_EXPOSURE_TO_CHEMICALS
 		([
 			([expose exposure around] *~3 [~chemicals solvent hazardous hazard asbestos fumes noise lead])
 			(<< [work job] [~chemicals solvent hazardous hazard asbestos fumes noise lead] >>)
@@ -211,6 +213,17 @@ topic: ~jobrelatedquestions keep repeat
 				([happy enjoy like~v] * ~job)
 		 	])
 		 	^factanswer("I enjoy my job")
+
+	#! Do you work alone
+	#! Does anyone else work with you
+	#! Anyone to help you at work
+		?: DO_YOU_WORK_ALONE
+			([
+				(~job *~3 [alone yourself else])
+				(else *~3 [work working] with you)
+				(<< [help assist] ~job >>)
+			])
+			^factanswer("I generally work by myself.")
 
 #! What do you do for a living
 #! Do you work outside the home
@@ -233,7 +246,7 @@ topic: ~jobrelatedquestions keep repeat
 	u: TELL_ME_ABOUT_YOUR_WORK (tell me * ~job) ^factanswer("What would you like to know?")
 
 #! Any other jobs
-	u: ANY_OTHER_JOBS ([other else] * ~job) ^factanswer("I only have the one job.")
+	?: ANY_OTHER_JOBS ([other else] * ~job) ^factanswer("I only have the one job.")
 
 #! Are you retired
 	?: ARE_YOU_RETIRED ([retire retiree]) ^factanswer("I still work.")
@@ -248,7 +261,7 @@ topic: ~jobrelatedquestions keep repeat
 	?: DO_YOU_HAVE_INSURANCE ([insurance insured Medicare Medicaid]) ^factanswer("I do.")
 
 #! Have you ever been in the military
-	u: HAVE_YOU_EVER_BEEN_IN_THE_MILITARY ([military]) ^factanswer("I have not.")
+	?: HAVE_YOU_EVER_BEEN_IN_THE_MILITARY ([military]) ^factanswer("I have not.")
 
 #! Is anyone sick at work
 	?: ANYONE_SICK_AT_AT_WORK ([anyone anybody] *~3 [sick ill] *~3 ~job) ^factanswer("Not that I am aware of.")
@@ -256,18 +269,7 @@ topic: ~jobrelatedquestions keep repeat
 #! How long have you worked
 #! How long have you owned your shop
 #! How long have you been a worker
-	u: HOW_LONG_HAVE_YOU_WORKED (how long * [work job own]) ^factanswer("Many years")
+	?: HOW_LONG_HAVE_YOU_WORKED (how long * [work job own]) ^factanswer("Many years")
 
 #! Get you back to work
 	s: GET_YOU_BACK_TO_WORK (back to *~2 ~job) ^factanswer("Thanks.")
-
-#! Do you work alone
-#! Does anyone else work with you
-#! Anyone to help you at work
-	u: DO_YOU_WORK_ALONE
-		([
-			(~job *~3 [alone yourself else])
-			(else *~3 [work working] with you)
-			(<< [help assist] ~job >>)
-		])
-			^factanswer("I generally work by myself.")

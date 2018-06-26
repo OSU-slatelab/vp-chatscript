@@ -1,9 +1,9 @@
-topic: ~allergies keep repeat (allergy allergic)
+topic: ~allergies keep repeat (allergy allergic reaction)
 
 	u: ( $$family) ^fail(TOPIC)
 
 #! Food or environmental allergies
-	u: FOOD_OR_ENVIRONMENTAL_ALLERGIES
+	?: FOOD_OR_ENVIRONMENTAL_ALLERGIES
 		([
 			(<< [food environment environmental pollen bee sting peanut hay] [allergy allergies allergic] >>)
 		])
@@ -28,11 +28,14 @@ topic: ~allergies keep repeat (allergy allergic)
 			u: ([take use] * ~timename ^incontext(DO_YOU_TAKE_MEDICATION_FOR_ALLERGIES) ^reuse(TAKE_ALLERGY_MEDICATION_TODAY))
 
  #! Do you have any allergies
-	 u: DO_YOU_HAVE_ANY_ALLERGIES
+	 ?: DO_YOU_HAVE_ANY_ALLERGIES
 		 ([allergy allergies allergic]) ^factanswer("I am not allergic to anything.")
 		  	a: WHAT_ARE_ALLERGY_REACTIONS ([react reaction symptoms happens]) ^factanswer("I get a rash")
 		#	 a: WHAT_ARE_ALLERGY_REACTIONS ([react reaction symptoms happens]) ^factanswer("Nothing")
 	#		 a: SEVERITY_OF_ALLERGY_REACTIONS ([bad severe severity]) ^factanswer("Not too bad")
-		 u: WHAT_ARE_ALLERGY_REACTIONS ([react reaction symptoms happens]) ^incontext(DO_YOU_HAVE_ANY_ALLERGIES) ^factanswer("cooties") # this incontext stuff does not work yet.
+		 ?: WHAT_ARE_ALLERGY_REACTIONS ([react reaction symptoms happens]) ^incontext(DO_YOU_HAVE_ANY_ALLERGIES) ^factanswer("cooties") # this incontext stuff does not work yet.
 	#	 u: ([bad severe severity]) ^incontext(DO_YOU_HAVE_ANY_ALLERGIES) ^reuse(SEVERITY_OF_ALLERGY_REACTIONS)
-		 u: SEVERITY_OF_ALLERGY_REACTIONS ([bad severe severity]) ^incontext(DO_YOU_HAVE_ANY_ALLERGIES) ^factanswer("Not bad")
+		 ?: SEVERITY_OF_ALLERGY_REACTIONS ([bad severe severity]) ^incontext(DO_YOU_HAVE_ANY_ALLERGIES) ^factanswer("Not bad")
+
+	#! Any reactions to anything
+		u: ANY_REACTIONS_TO_ANYTHING (reaction) ^factanswer("No.")

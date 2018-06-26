@@ -2,13 +2,13 @@
 topic: ~closure deprioritize keep repeat (~emothanks else "anything else" other questions physician comments concern ~emogoodbye "help you with" "do for you" information "on your mind" exam examine talk speak pleasure everything need pleasant "take a look" attending wonderful detail ~yes OK ok okay Ok welcome helpful informative understand follow-up follow)
 
 #! do you have any questions
-	u: DO_YOU_HAVE_ANY_QUESTIONS (any * [questions concerns comments]) ^factanswer("No, I don't have any questions.")
+	?: DO_YOU_HAVE_ANY_QUESTIONS (any * [questions concerns comments]) ^factanswer("No, I don't have any questions.")
 
 #! Make a follow up appointment
 	u: MAKE_A_FOLLOW_UP_APPOINTMENT
 		([
-			(<< [follow up follow-up] [visit appointment] >>)
-			([follow up follow-up])
+			(<< ["follow up" follow-up] [visit appointment] >>)
+			(["follow up" follow-up])
 		])
 	^factanswer("Of course.")
 
@@ -18,7 +18,7 @@ topic: ~closure deprioritize keep repeat (~emothanks else "anything else" other 
 #! Is there anything else I can help you with
 	u: ANYTHING_ELSE_I_CAN_HELP_WITH
 		([
-			([anything else] *~3 ["help you with" "do for you" discuss address need tell mind know add aware])
+			([anything else] *~3 ["help you with" "do for you" discuss "bring up" address need tell mind know add aware])
 			(any other problems)
 		])
 	^factanswer("No, I don't think so.")
@@ -76,7 +76,7 @@ topic: ~summarize priority keep repeat (summary summarize miss forget recap corr
 # Need to figure out a way to tell if the summary statement is appropriately thorough. For now, no matter what they say it will be OK
 
 #! Can you summarize
-	u: CAN_YOU_SUMMARIZE (you *~3 [summarize recap]) ^factanswer("What would you like to know?")
+	?: CAN_YOU_SUMMARIZE (you *~3 [summarize recap]) ^factanswer("What would you like to know?")
 
 #! To summarize
 	u: TO_SUMMARIZE
@@ -88,4 +88,4 @@ topic: ~summarize priority keep repeat (summary summarize miss forget recap corr
 		^factanswer("That sounds correct.")
 
 #! Did I miss anything
-	u: DID_I_MISS_ANYTHING (I *~3 [miss forget]) ^factanswer("I think you've got everything.")
+	?: DID_I_MISS_ANYTHING (I *~3 [miss forget]) ^factanswer("I think you've got everything.")

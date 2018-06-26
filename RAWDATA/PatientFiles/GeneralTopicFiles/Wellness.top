@@ -157,7 +157,7 @@ topic: ~mentalhealth keep repeat
 	?: DO_YOU_FEEL_ANXIOUS (![~family_members ~spouse anyone anybody pain] [anxious anxiety anxiousness worry "panic attack"])  ^factanswer("Not really.")
 
 #! Are you depressed
-	?: ARE_YOU_DEPRESSED (!bend [depressed depression sad blue lonely "mental health" down hopeless])  ^factanswer("I am fine.")
+	?: ARE_YOU_DEPRESSED (![bend crouch lean] [depressed depression sad blue lonely "mental health" down hopeless])  ^factanswer("I am fine.")
 
 #! Having mood changes
 	?: HAVING_MOOD_CHANGES

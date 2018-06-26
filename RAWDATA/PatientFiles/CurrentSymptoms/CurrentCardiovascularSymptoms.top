@@ -8,7 +8,7 @@ topic: ~currentbloodpressure keep repeat ("blood pressure" high low normal hyper
 	u: ($family) respond(~familybloodpressure) ^fail(TOPIC)
 
 #! How is your blood pressure
-	u: HOW_IS_YOUR_BLOOD_PRESSURE (!urine !pee ["blood pressure" ~high_blood_pressure])   ^factanswer("My blood pressure has been normal.")
+	?: HOW_IS_YOUR_BLOOD_PRESSURE (![urine pee] ["blood pressure" ~high_blood_pressure])   ^factanswer("My blood pressure has been normal.")
 
 # ***************************************************************************************************
 
@@ -18,7 +18,7 @@ topic: ~currentchestpain keep repeat (~chest_pain chest)
 	u: ($family) respond(~familychestpain) ^fail(TOPIC)
 
 #! Any chest pain
-	u: ANY_CHEST_PAIN (~chest_pain)   ^factanswer("I have no chest pain.")
+	?: ANY_CHEST_PAIN (~chest_pain)   ^factanswer("I have no chest pain.")
 
 # ***************************************************************************************************
 
@@ -28,7 +28,7 @@ topic: ~currentheartproblem keep repeat (~chest_pain heart race cardiovascular)
 	u: ($family) respond(~familyheartproblem) ^fail(TOPIC)
 
 #! Any heart problems
-	u: ANY_HEART_PROBLEMS (heart * [wrong condition issue problem trouble disease race])   ^factanswer("I have no heart problems.")
+	?: ANY_HEART_PROBLEMS (heart * [wrong condition issue problem trouble disease race])   ^factanswer("I have no heart problems.")
 
 # ***************************************************************************************************
 
@@ -38,7 +38,7 @@ topic: ~currentvascular keep repeat (~cardiovascular image probe catheter ultras
 	u: ($family) respond(~familyvascular) ^fail(TOPIC)
 
 #! Any vascular problems
-	u: ANY_VASCULAR_PROBLEMS
+	?: ANY_VASCULAR_PROBLEMS
 		([
 			(~cardiovascular * [wrong condition issue problem trouble disease])
 			([wrong condition issue problem trouble disease] * ~cardiovascular)
@@ -47,7 +47,7 @@ topic: ~currentvascular keep repeat (~cardiovascular image probe catheter ultras
 
 
 #! Any vascular testing
-	u: ANY_VASCULAR_TESTING
+	?: ANY_VASCULAR_TESTING
 		([
 			(~cardiovascular * [test image probe catheter ultrasound check])
 			([test image probe catheter ultrasound check] * ~cardiovascular)
@@ -55,7 +55,7 @@ topic: ~currentvascular keep repeat (~cardiovascular image probe catheter ultras
 	^factanswer("I have not had any vascular testing.")
 
 #! Any clotting problems
-	u: ANY_CLOTTING_PROBLEMS
+	?: ANY_CLOTTING_PROBLEMS
 		([
 			([have any experience] * ["blood clot" clot])
 			([blood vascular] * [clot problems thick thickness plaques embolism])
@@ -63,4 +63,4 @@ topic: ~currentvascular keep repeat (~cardiovascular image probe catheter ultras
 	^factanswer("I have no clotting problems.")
 
 #! How is your cholesterol
-	u: HOW_IS_YOUR_CHOLESTEROL (cholesterol) ^factanswer ("My cholesterol is fine")
+	?: HOW_IS_YOUR_CHOLESTEROL (cholesterol) ^factanswer ("My cholesterol is fine")

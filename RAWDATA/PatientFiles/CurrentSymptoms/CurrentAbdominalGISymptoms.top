@@ -8,13 +8,13 @@ topic: ~currentbowel keep repeat (~bowel_problems hold control difficulty)
 	u: ($family) respond(~familybowel) ^fail(TOPIC)
 
 #! Do you have loss of bowel control
-	u: LOSS_OF_BOWEL_CONTROL (!bladder << [loss lost] bowel control >>)    ^factanswer("My bowels are fine.")
+	?: LOSS_OF_BOWEL_CONTROL (!bladder << [loss lost] bowel control >>)    ^factanswer("My bowels are fine.")
 
 #! Are you able to control your bowels
-	u: ARE_YOU_ABLE_TO_CONTROL_YOUR_BOWELS (![problem trouble bladder loss lost] control * bowel)    ^factanswer("I have no problems with my bowels.")
+	?: ARE_YOU_ABLE_TO_CONTROL_YOUR_BOWELS (![problem trouble bladder loss lost] control * bowel)    ^factanswer("I have no problems with my bowels.")
 
 #! When was your last bowel movement
-	u: WHEN_WAS_LAST_BOWEL_MOVEMENT
+	?: WHEN_WAS_LAST_BOWEL_MOVEMENT
 		([
 			(!pain [when long often] *~4 [last latest "most recent"] *~3 [bowel movement poop])
 			(!pain [when long often] *~4 [bowel movement poop])
@@ -43,8 +43,7 @@ topic: ~currentbowel keep repeat (~bowel_problems hold control difficulty)
 	^factanswer("My bowels and bladder are fine.")
 
 #! Do you have bowel or bladder control
-	u: DO_YOU_HAVE_BOWEL_OR_BLADDER_CONTROL (do you have bowel or bladder control)    ^factanswer("My bowels and bladder are fine.")
-	u: (![loss lost] << bowel bladder >>) ^reuse (Do_you_have_bowel_or_bladder_control)
+	u: DO_YOU_HAVE_BOWEL_OR_BLADDER_CONTROL (![loss lost] << bowel bladder >>) ^factanswer("My bowels and bladder are fine.")
 
 # ***************************************************************************************************
 
@@ -59,10 +58,10 @@ topic: ~currentabdominalpain keep repeat (~abdominal_pain nausea nauseous vomit 
 	u: HAVE_YOU_BEEN_NAUSEOUS ([been had experienced do any are about] * [nausea nauseous stomachache bellyache "sick to your stomach" nauseated]) ^factanswer("I am not nauseous.")
 
 #! Describe the nausea
-	u: DESCRIBE_THE_NAUSEA (!pain [describe tell] * [nausea nauseous "sick to the stomach"])  ^factanswer ("I have no nausea.")
+	?: DESCRIBE_THE_NAUSEA (!pain [describe tell] * [nausea nauseous "sick to the stomach"])  ^factanswer ("I have no nausea.")
 
 #! Have you thrown up
-	u: HAVE_YOU_THROWN_UP ([been have experience] * ["throwing up" vomit vomitting puke puking hurling vomited vomitted regurgitate regurgitation "throw up"]) ^factanswer("I have not.")
+	?: HAVE_YOU_THROWN_UP ([been have experience] * ["throwing up" vomit vomitting puke puking hurling vomited vomitted regurgitate regurgitation "throw up"]) ^factanswer("I have not.")
 
 # ***************************************************************************************************
 
@@ -82,10 +81,10 @@ topic: ~currentheartburn keep repeat (~heartburn acid reflux metallic food sour 
 	^factanswer ("I have no acid taste.")
 
 #! What foods make heartburn worse
-	u: WHAT_FOOD_MAKES_HEARTBURN_WORSE (what * [food eat drink] * [~heartburn ~itwords] * [worse increase]) ^factanswer ("I have no heartburn.")
+	?: WHAT_FOOD_MAKES_HEARTBURN_WORSE (what * [food eat drink] * [~heartburn ~itwords] * [worse increase]) ^factanswer ("I have no heartburn.")
 
 #! Does food make heartburn worse
-	u: DOES_FOOD_MAKE_HEARTBURN_WORSE
+	?: DOES_FOOD_MAKE_HEARTBURN_WORSE
 		([
 			(![what which] [food drink eat] * [~heartburn ~itwords] * [worse increase])
 			(![what which] [~heartburn ~itwords] * [worse increase] * [food meal drink eat])
@@ -94,10 +93,10 @@ topic: ~currentheartburn keep repeat (~heartburn acid reflux metallic food sour 
 	^factanswer ("I have no heartburn.")
 
 #! What foods make heartburn better
-	u: WHAT_FOOD_MAKES_HEARTBURN_BETTER (what * [food eat drink] * [~heartburn ~itwords] * [better decrease lessen subside "go away"]) ^factanswer ("I have no heartburn.")
+	?: WHAT_FOOD_MAKES_HEARTBURN_BETTER (what * [food eat drink] * [~heartburn ~itwords] * [better decrease lessen subside "go away"]) ^factanswer ("I have no heartburn.")
 
 #! Does food make heartburn better
-	u: DOES_FOOD_MAKE_HEARTBURN_BETTER
+	?: DOES_FOOD_MAKE_HEARTBURN_BETTER
 		([
 			(![what which] [food drink eat] * [~heartburn ~itwords] * [better decrease lessen subside "go away"])
 			(![what which] [~heartburn ~itwords] * [better decrease lessen subside "go away"] * [food meal drink eat])
@@ -113,4 +112,4 @@ topic: ~currentheartburn keep repeat (~heartburn acid reflux metallic food sour 
 	?: ANY_PROBLEMS_WITH_DIGESTION ([problem difficulty] *~3 digestion) ^factanswer ("I have no issues with that.")
 
 #! Do you belch
-	u: DO_YOU_BELCH  ([notice experience 'do] * [belch burp])  ^factanswer ("I do not belch.")
+	?: DO_YOU_BELCH  ([notice experience 'do] * [belch burp])  ^factanswer ("I do not belch.")

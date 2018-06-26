@@ -5,3 +5,5 @@ replace: exersise exercise # already corrected by CS so probably no need to put 
 replace: excersise exercise
 replace: excersize exercise
 replace: exersize exercise
+replace: surgies surgeries
+replace: hospilizations hospitalizations

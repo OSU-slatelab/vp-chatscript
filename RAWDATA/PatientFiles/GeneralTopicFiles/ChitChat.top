@@ -7,7 +7,7 @@ topic: ~weatherquestions keep repeat (~weather weather outside outdoors)
 	u: IT_IS_STARTING_TO_GET_COLD_OUTSIDE ([cold hot warm chilly toasty nice nasty rainy snowy] outside) ^factanswer("\[ Surprise1 \] Really? I haven't been outside in a while.")
 
 #! Is it still raining
-	u: IS_IT_STILL_RAINING (is it *~3 ~weather) ^factanswer("I don't know, I haven't been outside in quite a while.")
+	?: IS_IT_STILL_RAINING (is it *~3 ~weather) ^factanswer("I don't know, I haven't been outside in quite a while.")
 
 #! What do you think about this weather
 	?: WHAT_DO_YOU_THINK_ABOUT_THIS_WEATHER (~weather) ^factanswer("I don't pay much attention to the weather.")
@@ -23,10 +23,10 @@ topic: ~seasonquestions keep repeat (!fall~v ~seasons)
 topic: ~sportsquestions keep repeat (!team ~sport buckeyes bucks game)
 
 #! Did you see the game yesterday
-	u: SEE_GAME (!team [see watch catch] *~4 game)  ^factanswer("I don't get to watch sports very often but I do like the Buckeyes!")
+	?: SEE_GAME (!team [see watch catch] *~4 game)  ^factanswer("I don't get to watch sports very often but I do like the Buckeyes!")
 
 #! What do you think about the buckeyes
-	u: WHAT_DO_YOU_THINK_ABOUT_THE_BUCKEYES (![health care walk healthcare team] [~sport buckeyes]) ^factanswer("I hope they have a good season")
+	?: WHAT_DO_YOU_THINK_ABOUT_THE_BUCKEYES (![health care walk healthcare team] [~sport buckeyes]) ^factanswer("I hope they have a good season")
 
 # ***************************************************************************************************
 topic: ~readingquestions keep repeat (read books)

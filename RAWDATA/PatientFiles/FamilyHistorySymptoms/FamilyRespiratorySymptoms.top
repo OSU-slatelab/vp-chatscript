@@ -6,7 +6,7 @@ topic: ~familybreathing keep repeat (breath labor ~breathing_problems ~role_fami
 	u: ($pasthistory) respond(~pastbreathing)  ^fail(TOPIC)
 
 #! Do you have a family history of breathing problems
-	u: FAMILY_HISTORY_OF_BREATHING_PROBLEMS
+	?: FAMILY_HISTORY_OF_BREATHING_PROBLEMS
 		([
 			([family history] * [breath breathing] * [trouble problem issue labored])
 			([family history] * [trouble problem issue labored] * [breath breathing])
@@ -22,4 +22,4 @@ topic: ~familycough keep repeat (~role_family cough)
 	u: ($pasthistory) respond(~pastcough) ^fail(TOPIC)
 
 #! Do you have a family history of productive cough
-	u: FAMILY_HISTORY_OF_PRODUCTIVE_COUGH  ([productive produce "bring up" phlegm sputum] * cough)  ^factanswer("I don't know about that.")
+	?: FAMILY_HISTORY_OF_PRODUCTIVE_COUGH  ([productive produce "bring up" phlegm sputum] * cough)  ^factanswer("I don't know about that.")

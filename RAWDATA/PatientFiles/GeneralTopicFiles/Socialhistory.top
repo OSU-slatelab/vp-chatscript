@@ -2,7 +2,7 @@
 # ***************************************************************************************************
 # Activity
 
-topic: ~normal_activity keep repeat (exercise ~exerciselist activity rest drive "work out" active energy bedridden shape tired walk)
+topic: ~normal_activity keep repeat (exercise ~exerciselist activity rest drive seatbelt seat_belt "work out" active energy bedridden shape tired walk)
 
 	?: ( $$family) ^fail(TOPIC)
 
@@ -39,6 +39,9 @@ topic: ~normal_activity keep repeat (exercise ~exerciselist activity rest drive 
 
 #! Are you able to drive home
 	?: ARE_YOU_ABLE_TO_DRIVE_HOME ([able can] *~2 drive *~3 home)  ^factanswer("I can drive.")
+
+#! Do you wear a seatbelt
+	?: WEAR_A_SEATBELT ([seatbelt seat_belt]) ^factanswer("I always wear a seatbelt.")
 
 # ***************************************************************************************************
 # Alcohol use
@@ -95,10 +98,10 @@ topic: ~alcoholuse keep repeat (~alcoholic_beverage "eye opener" "eye-opener" dr
 	?: WHAT_KIND_OF_DRINKS ([kind type brand] *~3 [alcohol drinks]) ^factanswer("I don't drink.")
 
 #! How many
-	u: HOW_MANY_DRINKS (["how many" number] * drinks) ^factanswer("I don't drink.")
+	?: HOW_MANY_DRINKS (["how many" number] * drinks) ^factanswer("I don't drink.")
 
 #! What about alcohol
-	u: WHAT_ABOUT_ALCOHOL (alcohol) ^factanswer("I don't drink.")
+	?: WHAT_ABOUT_ALCOHOL (alcohol) ^factanswer("I don't drink.")
 
 # ***************************************************************************************************
 # Caffeine use
@@ -108,7 +111,7 @@ topic: ~caffeineuse keep repeat (~caffinated_drinks pop soda coke caffeine drink
 	u: ( $$family) ^fail(TOPIC)
 
 #! Do you drink coffee
-	u: DO_YOU_DRINK_COFFEE ([~caffinated_drinks caffeine pop~n soda coke]) ^factanswer("I try to avoid caffeine.")
+	?: DO_YOU_DRINK_COFFEE ([~caffinated_drinks caffeine pop~n soda coke]) ^factanswer("I try to avoid caffeine.")
 
 # ***************************************************************************************************
 # Diet
@@ -128,28 +131,28 @@ topic: ~yourdiet keep repeat (~beverage diet drink consume eat fluid liquid  hyd
 		a: HOW_MUCH_FLUID (how [many much dose]) ^factanswer("I drink the recommended amount of 8 glasses per day.")
 
 #! Do you eat enough dairy
-	u: DO_YOU_EAT_DAIRY ([dairy milk "ice cream"]) ^factanswer("I get enough dairy.")
+	?: DO_YOU_EAT_DAIRY ([dairy milk "ice cream"]) ^factanswer("I get enough dairy.")
 
 #! Do you eat enough fiber
-	u: DO_YOU_EAT_FIBER (fiber) ^factanswer("I get enough fiber.")
+	?: DO_YOU_EAT_FIBER (fiber) ^factanswer("I get enough fiber.")
 
 #! Do you eat fast food
-	u: DO_YOU_EAT_FAST_FOOD ([fast junk] food) ^factanswer("I don't go to fast food restaurants very often.")
+	?: DO_YOU_EAT_FAST_FOOD ([fast junk] food) ^factanswer("I don't go to fast food restaurants very often.")
 
 #! Do you eat healthy food
-	u: DO_YOU_EAT_HEALTHY_FOOD ([healthy good nutritious] *~3 [food meals]) ^factanswer("I eat pretty healthy.")
+	?: DO_YOU_EAT_HEALTHY_FOOD ([healthy good nutritious] *~3 [food meals]) ^factanswer("I eat pretty healthy.")
 
 #! Do you eat fruits and vegetables
-	u: DO_YOU_EAT_FRUIT ([fruit vegetable]) ^factanswer("I do eat them.")
+	?: DO_YOU_EAT_FRUIT ([fruit vegetable]) ^factanswer("I do eat them.")
 
 #! Any changes in your diet
-	u: ANY_CHANGES_IN_YOUR_DIET (change * [diet eating]) ^factanswer("My diet is the same.")
+	?: ANY_CHANGES_IN_YOUR_DIET (change * [diet eating]) ^factanswer("My diet is the same.")
 
 #! Tell me about your appetite
-	u: APPETITE (!weight appetite) ^factanswer("My appetite is fine.")
+	?: APPETITE (!weight appetite) ^factanswer("My appetite is fine.")
 
 #! Do you have dietary restrictions
-	u: ANY_DIETARY_RESTRICTIONS (!how [diet dietary] *~3 [restrictions rules]) ^factanswer("I have no restrictions.")
+	?: ANY_DIETARY_RESTRICTIONS (!how [diet dietary] *~3 [restrictions rules]) ^factanswer("I have no restrictions.")
 
 #! Do you feel full quickly
 	?: DO_YOU_FEEL_FULL_QUICKLY ([full fill] * [fast quickly]) ^factanswer("I eat fine.")
@@ -161,10 +164,10 @@ topic: ~yourdiet keep repeat (~beverage diet drink consume eat fluid liquid  hyd
 	?: HAVE_YOU_BEEN_EATING (![what how why do pain] eat)  ^factanswer("I have been eating.")
 
 #! What snacks do you eat
-	u: WHAT_SNACKS (snack) ^factanswer("I don't snack.")
+	?: WHAT_SNACKS (snack) ^factanswer("I don't snack.")
 
 #! What were you eating before
-	u: WHAT_WERE_YOU_EATING_BEFORE (eat *~3 before)  ^factanswer("My diet hasn't changed.")
+	?: WHAT_WERE_YOU_EATING_BEFORE (eat *~3 before)  ^factanswer("My diet hasn't changed.")
 
 #! What do you eat each day
 	?: WHAT_DO_YOU_EAT
@@ -178,7 +181,7 @@ topic: ~yourdiet keep repeat (~beverage diet drink consume eat fluid liquid  hyd
 	?: HOW_MUCH_SALT ([how what 'do] * [salt sodium salty])  ^factanswer("Not too much.")
 
 #! How is your diet
-	u: HOW_IS_YOUR_DIET
+	?: HOW_IS_YOUR_DIET
 		([
 			(!change !on diet)
  			(!change !on eat * [healthy well])
@@ -238,7 +241,7 @@ topic: ~tobaccouse keep repeat (!~drugs_illegal ~tobacco smoke cigarettes pipe c
 	^factanswer("I have never smoked.")
 
 #! Any other tobacco
-	u: ANY_OTHER_TOBACCO ([any other] *~3 tobacco)  ^factanswer("I haven't touched tobacco.")
+	?: ANY_OTHER_TOBACCO ([any other] *~3 tobacco)  ^factanswer("I haven't touched tobacco.")
 
 # ***************************************************************************************************
 # Education
@@ -249,7 +252,7 @@ topic: ~education keep repeat (education school college study major minor)
 
 
 #! How far did you get in school
-	u: HOW_FAR_IN_SCHOOL ([what how] * [education school college]) ^factanswer("I graduated from college")
+	?: HOW_FAR_IN_SCHOOL ([what how] * [education school college]) ^factanswer("I graduated from college")
 
 #! What is your major
 	?: WHAT_IS_YOUR_MAJOR (what * [study studying major minor]) ^factanswer("I haven't decided yet.")
@@ -327,7 +330,7 @@ topic: ~inrelationtohpi keep repeat (~pain work activity afraid limit interfere 
 # ***************************************************************************************************
 # Recreational drug use
 
-topic: ~druguse keep repeat (~drugs_illegal "bath salts" pills sure recreational drug illicit illegal street experiment)
+topic: ~druguse keep repeat (~drugs_illegal "bath salts" pills sure recreational drug illicit illegal street experiment use)
 
 	u: ( $$family) ^fail(TOPIC)
 
@@ -339,14 +342,15 @@ topic: ~druguse keep repeat (~drugs_illegal "bath salts" pills sure recreational
 			(!ever ["bath salts" bathsalts])
  			(!ever ["recreational drug" "street drug" "drug use" "IV drugs" "intraveous drugs"])
 			(<< !ever drug [recreationally recreational illicit illegal] >>)
- 			(!ever [used experiment] * drug)
+ 			(!ever [used experiment] * [~drugs_illegal drug])
 			(!ever illegal)
+			([drug ~drugs_illegal substance] *~3 use)
 		])
 	^factanswer("Never.")
 		a: ARE_YOU_SURE (are you [sure certain])  ^factanswer("I am sure.")
 
 #! Have you ever used illegal drugs
-		u: HAVE_YOU_EVER_USED_ILLEGAL_DRUGS
+		?: HAVE_YOU_EVER_USED_ILLEGAL_DRUGS
 			([
 				([use take do indulge experiment] *~3 [drugs substances] {ever} >)
 				(![taste reflux feel] [~drugs_illegal "pcp" MDMA Adam])
@@ -367,7 +371,7 @@ topic: ~tattoo keep repeat (tattoo "body art")
 	?: DO_YOU_HAVE_A_TATTOO (do you * [tattoo "body art"]) ^factanswer("I have no tattoos.")
 
 #! Have you ever had a tattoo
-	u: EVER_HAD_A_TATTOO (ever * [tattoo "body art"]) ^factanswer("I have never had a tattoo.")
+	?: EVER_HAD_A_TATTOO (ever * [tattoo "body art"]) ^factanswer("I have never had a tattoo.")
 
 # ***************************************************************************************************
 # Travel
@@ -378,7 +382,7 @@ topic: ~travel keep repeat (travel visit country plane airplane trip)
 	?: HAVE_YOU_TRAVELED_ANYWHERE ([have did recent recently] * [travel travels country trip]) ^factanswer("I have not traveled.")
 
 #! Have you been on a plane
-	u: HAVE_YOU_BEEN_ON_A_PLANE
+	?: HAVE_YOU_BEEN_ON_A_PLANE
 		([
 			([have did recent recently] * [plane airplane])
 			([plane airplane] * [recently "not long ago" ~timename])
@@ -427,7 +431,7 @@ topic: ~sexualactivity keep repeat (sex sexual sexually sexuality intercourse me
 
 #! How many sexual partners ever
 #! How many life-time sexual partners have you had
-	u: HOW_MANY_SEXUAL_PARTNERS_EVER
+	?: HOW_MANY_SEXUAL_PARTNERS_EVER
 		([
 			([many number several one] * [partner men women] * [past ever life life-time])
 			([many number several one] * [life life-time] * [partner men women])
@@ -446,10 +450,10 @@ topic: ~sexualactivity keep repeat (sex sexual sexually sexuality intercourse me
 	^factanswer("None.")
 
 #! Are you monogamous
-	u: MONOGAMOUS (monogamous)	^factanswer("Yes.")
+	?: MONOGAMOUS (monogamous)	^factanswer("Yes.")
 
 #! Any other sexual partners
-	u: ANY_OTHER_SEXUAL_PARTNERS
+	?: ANY_OTHER_SEXUAL_PARTNERS
 		([
 			([new other additional extra] * [sex sexual] * [partner men women])
 			(other * [sex sexual] * [~spouse])
@@ -514,7 +518,7 @@ topic: ~sexualactivity keep repeat (sex sexual sexually sexuality intercourse me
 		 ^factanswer("What do you want to know?")
 
 #! Any sexual problems
-	u: ANY_SEXUAL_PROBLEMS
+	?: ANY_SEXUAL_PROBLEMS
 		([
 			([sex sexual] [problem issue concern])
 			([problem issue concern] * [with in about concerning] *~3 [sex sexual])
@@ -522,7 +526,7 @@ topic: ~sexualactivity keep repeat (sex sexual sexually sexuality intercourse me
 		^factanswer("I have no concerns about that.")
 
 #! How often do you have sex
-	u: HOW_OFTEN_DO_YOU_HAVE_SEX
+	?: HOW_OFTEN_DO_YOU_HAVE_SEX
 		([
 			(how [often frequent regularly frequently] * [sex sexual sexually intercourse])
 			(do you *~3 [sex sexual sexually intercourse] * [often frequent regularly frequently])
@@ -548,7 +552,7 @@ topic: ~advanced_directive keep repeat ("living will" "end of life" "advanced di
 	u: ( $$family) ^fail(TOPIC)
 
 #! What is in your living will
-	u: WHAT_IS_IN_YOUR_LIVING_WILL
+	?: WHAT_IS_IN_YOUR_LIVING_WILL
 		([
 			([how what] * [contain cover] * ["living will"])
 			([consider want thought] * [DNR "do not resuscitate" CPR ventilator die dying])
@@ -556,13 +560,13 @@ topic: ~advanced_directive keep repeat ("living will" "end of life" "advanced di
 	^factanswer("I don't have one.")
 
 #! Do you have a living will
-	u: DO_YOU_HAVE_A_LIVING_WILL ("living will") ^factanswer("I do not have one of those.")
+	?: DO_YOU_HAVE_A_LIVING_WILL ("living will") ^factanswer("I do not have one of those.")
 
 #! Do you have an advanced directive
-	u: DO_YOU_HAVE_AN_ADVANCED_DIRECTIVE  (["advanced directive" "end of life"]) ^factanswer("I do not.")
+	?: DO_YOU_HAVE_AN_ADVANCED_DIRECTIVE  (["advanced directive" "end of life"]) ^factanswer("I do not.")
 
 #! Do you have a medical power of attorney
-	u: DO_YOU_HAVE_A_MEDICAL_POWER_OF_ATTORNEY  (<< [proxy agent "power of attorney"] [medical health care] >>)  ^factanswer("I have none.")
+	?: DO_YOU_HAVE_A_MEDICAL_POWER_OF_ATTORNEY  (<< [proxy agent "power of attorney"] [medical health care] >>)  ^factanswer("I have none.")
 
 # ***************************************************************************************************
 # General Health
@@ -590,10 +594,10 @@ topic: ~generalhealth keep repeat (health healthy quality everyday "social histo
 	^factanswer("I feel fine.")
 
 #! What is your quality of life
-	u: WHAT_IS_QUALITY_OF_LIFE (what * [current everyday daily quality] * life) ^factanswer("It is good.")
+	?: WHAT_IS_QUALITY_OF_LIFE (what * [current everyday daily quality] * life) ^factanswer("It is good.")
 
 #! Social history
-	u: SOCIAL_HISTORY (social history) ^factanswer("OK")
+	?: SOCIAL_HISTORY (social history) ^factanswer("OK")
 
 topic: ~feelingquestions keep repeat (frustrate nervous )
 

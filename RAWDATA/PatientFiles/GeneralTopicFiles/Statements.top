@@ -3,7 +3,7 @@
 topic: ~statements keep repeat deprioritize
 	("hear you" understand "healthcare team" nice noble pretty friend kind uncomfortable hard ask best doctor sounds "get to the bottom"
 	address "take care of" "look into" "get you back" "work on that" talk irritate confidential discuss address discussion "between you and me"
-	"I would like to" tough review system "I see" "I can see" "move on" patients first stressful)
+	"I would like to" tough review system "I see" "I can see" "move on" patients first stressful worrisome concerning)
 
 #! That was nice
 	s: THAT_WAS_NICE
@@ -37,7 +37,7 @@ topic: ~statements keep repeat deprioritize
 	s: DISCUSSION_IS_CONFIDENTIAL ([discuss discussion talk] *~3 [confidential private "between you and me"])  ^factanswer("That makes me feel good.")
 
 #! That must be hard
-	s: THAT_MUST_BE_HARD (!confidential ~itwords *~3 [hard frustrating uncomfortable terrible painful difficult bad tough rough stressful])  ^factanswer("It is challenging.")
+	s: THAT_MUST_BE_HARD (!confidential ~itwords *~3 [hard frustrating uncomfortable terrible painful difficult bad tough rough stressful worrisome concerning])  ^factanswer("It is challenging.")
 
 #! I would like to get to know more
 	s: I_WOULD_LIKE_TO_GET_TO_KNOW_MORE ("I would like to" *~3 ["get to know" learn] * [medical social past family])  ^factanswer("I will try my best to tell you.")

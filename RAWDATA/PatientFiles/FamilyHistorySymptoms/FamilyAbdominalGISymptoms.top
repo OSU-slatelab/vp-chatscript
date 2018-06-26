@@ -8,12 +8,12 @@ topic: ~familybowel keep repeat (~bowel_problems ~role_family)
 	u: ($pasthistory) respond(~pastbowel) ^fail(TOPIC)
 
 #! Do you have a family history of bowel problems
-	u: FAMILY_HISTORY_OF_BOWEL_PROBLEMS (![bladder incontinence] ~bowel_problems)     ^factanswer("I don't know of any.")
+	?: FAMILY_HISTORY_OF_BOWEL_PROBLEMS (![bladder incontinence] ~bowel_problems)     ^factanswer("I don't know of any.")
 
 # Both bowel and bladder
 
 #! Any bowel or bladder problems in your family
-	u: BOWEL_OR_BLADDER_PROBLEMS_IN_YOUR_FAMILY (<< bowel bladder >>)    ^factanswer("I don't know of any.")
+	?: BOWEL_OR_BLADDER_PROBLEMS_IN_YOUR_FAMILY (<< bowel bladder >>)    ^factanswer("I don't know of any.")
 
 # ***************************************************************************************************
 
@@ -23,7 +23,7 @@ topic: ~familyabdominalpain keep repeat (~role_family ~abdominal_pain nausea nau
 	u: ($pasthistory) respond(~pastabdominalpain) ^fail(TOPIC)
 
 #! Anyone in your family been nauseous
-	u: ANYONE_IN_YOUR_FAMILY_BEEN_NAUSEOUS (family * [nausea nauseous stomachache bellyache "sick to your stomach"]) ^factanswer("Not that I know of.")
+	?: ANYONE_IN_YOUR_FAMILY_BEEN_NAUSEOUS (family * [nausea nauseous stomachache bellyache "sick to your stomach"]) ^factanswer("Not that I know of.")
 
 # ***************************************************************************************************
 
@@ -35,4 +35,4 @@ topic: ~familyheartburn keep repeat (~role_family ~heartburn acid reflux metalli
 	u: ($pasthistory) respond(~pastheartburn) ^fail(TOPIC)
 
 #! Do you have a family history of heartburn
-		u: FAMILY_HISTORY_OF_HEARTBURN (~heartburn) ^factanswer("I don't know of any.")
+		?: FAMILY_HISTORY_OF_HEARTBURN (~heartburn) ^factanswer("I don't know of any.")

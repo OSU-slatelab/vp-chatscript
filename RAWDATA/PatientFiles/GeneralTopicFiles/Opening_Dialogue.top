@@ -10,7 +10,7 @@ topic: ~openingdialogue keep repeat ()
 # 1.Primary
 
 #! What do you think is the problem
-	u: WHAT_DO_YOU_THINK_IS_THE_PROBLEM
+	?: WHAT_DO_YOU_THINK_IS_THE_PROBLEM
 		([
  			(!when [what "can you"] * think * [problem wrong "led to" "going on" reason matter])
 	 		(!when what * [wrong "going on"] with * [back~n ~itwords])
@@ -19,7 +19,7 @@ topic: ~openingdialogue keep repeat ()
 	^factanswer("Well, I'm hoping you can tell me that.")
 
 #! What brings you in today
-	u: WHAT_BRINGS_YOU_IN_TODAY
+	?: WHAT_BRINGS_YOU_IN_TODAY
 		([
 			(["what brings you" "why are you"] in today)
 			(![when other else] [why what] * ["do for" bring help come] * [today tonight evening afternoon morning day])
@@ -31,7 +31,6 @@ topic: ~openingdialogue keep repeat ()
 	 		(![when other else] why * [in into come] * ["to the doctor" today]) # What brings you in today tokenizes to Why are you in today
 	 		(![when other else worse better chronic] [problem trouble] * [having experiencing])
 			(![when other else] [what how] * [help assist] you)
-			(![when other else pain] [is what about] * [problem trouble bother concern complaint issue])
  			(![when other else] come * see me)
 			(![when other else] seems * [trouble problem issue]) # this tokenizes to What is the trouble so not sure I need it
 			(![when other else] why * [here in to at] * today)
@@ -43,10 +42,10 @@ topic: ~openingdialogue keep repeat ()
 	^factanswer("I'm hoping you can help me out with a problem I've been having.")
 
 #! What should we do
-	u: WHAT_SHOULD_WE_DO (!when what * [should we help helpful]) ^factanswer("I was hoping you could tell me.")
+	?: WHAT_SHOULD_WE_DO (!when what * [should we help helpful]) ^factanswer("I was hoping you could tell me.")
 
 #! What would you like me to do
-	u: WHAT_WOULD_YOU_LIKE_ME_TO_DO
+	?: WHAT_WOULD_YOU_LIKE_ME_TO_DO
 		([
 	 		(!when what * [I me]* [do try])
 			(!when what * [want like can] * [me I] * do)
@@ -55,7 +54,7 @@ topic: ~openingdialogue keep repeat ()
 	^factanswer("I'd like you to help me out.")
 
 #! What is your goal for this visit
-	u: WHAT_IS_YOUR_GOAL
+	?: WHAT_IS_YOUR_GOAL
 		([
 			([you your] *~2 [hope goal achieve want] *~2 [consultation visit today])
 			([hope want] * accomplish)
@@ -63,7 +62,7 @@ topic: ~openingdialogue keep repeat ()
 	^factanswer("I'm hoping you could help me out with a problem I've been having.")
 
 #! Does anything make you feel better
-	u: DOES_ANYTHING_MAKE_YOU_FEEL_BETTER
+	?: DOES_ANYTHING_MAKE_YOU_FEEL_BETTER
 		([
 			(anything * feel * better)
  			(!else !other anything * help)
@@ -71,7 +70,7 @@ topic: ~openingdialogue keep repeat ()
 	^factanswer("Nothing makes me feel better.")
 
 #! Are you around sick people
-	u: ARE_YOU_AROUND_SICK_PEOPLE
+	?: ARE_YOU_AROUND_SICK_PEOPLE
 		([
 			(!other !else [around near close know] * [~family_members ~sibling ~people] * [sick ill "feeling poorly" "under the weather"])
 			(!other !else [~family_members ~sibling ~people] * [around near close know] * [sick ill "feeling poorly" "under the weather"])
@@ -79,8 +78,9 @@ topic: ~openingdialogue keep repeat ()
 	^factanswer("Not that I know.")
 
 #! Are you sick
-	u: ARE_YOU_SICK (![other else ~family_members sibling people] you [sick ill "feeling poorly" "under the weather"]) ^factanswer("I am not sick.")
+	?: ARE_YOU_SICK (![other else ~family_members sibling people] you [sick ill "feeling poorly" "under the weather"]) ^factanswer("I am not sick.")
 
+##<< Moved this to Negative symptoms so it is searched as a last resort and other Tell me mores will match first
 #! Tell me more
 	u: TELL_ME_MORE
 		([
@@ -89,12 +89,13 @@ topic: ~openingdialogue keep repeat ()
 			(![we 'I] tell * [more happened doing "going on" about])
 		])
 		What do you want to know?
+##>>
 
 #! Let me wash my hands
 	u: LET_ME_WASH_MY_HANDs ([wash clean] * hands) ^factanswer("Ok take your time.")
 
 #! Hopefully we can help you
-	u: HOPEFULLY_WE_CAN_HELP_YOU
+	s: HOPEFULLY_WE_CAN_HELP_YOU
 		([
 			(hopefully we can help you)
 			([hopefully hope] * [help "feeling better" "feel better" plan solution communicate "figure out" "take care"])
@@ -172,7 +173,7 @@ topic: ~openingdialogue keep repeat ()
 	^factanswer("Sounds good.")
 
 #! Today we have 15 minutes
-	u: TODAY_WE_HAVE_15_MINUTES ([we I] * [minutes min]) ^factanswer("OK, thanks.")
+	u: TODAY_WE_HAVE_15_MINUTES ([we I take] * [minutes min]) ^factanswer("OK, thanks.")
 
 #! Does that plan sound good
 	?: DOES_THAT_PLAN_SOUND_GOOD ([does is] *~2 [plan approach] *~2 [good OK acceptable]) ^factanswer("Sure.")
@@ -190,7 +191,7 @@ topic: ~openingdialogue keep repeat ()
 	s: NICE_TO_SEE_YOU_TOO ([nice pleased pleasure good glad] * see *~2 you [too "as well"]) ^factanswer("Thanks.")
 
 #! How are you
-	u: HOW_ARE_YOU
+	?: HOW_ARE_YOU
 		([
 			(how are you [> ,])
 			(!~family_members ~emohowzit >)
@@ -235,16 +236,16 @@ topic: ~openingdialogue keep repeat ()
 topic: ~followupdialogue erase norepeat (else other additional only any "before now" discuss)
 
 #! Any other problems
-	u: ANY_OTHER_PROBLEMS1 (!health !medical [other else only associated] * [symptom issue concern problem "bothering you" discuss discussion trouble "talk about"])  ^factanswer("I don't believe so.")
+	?: ANY_OTHER_PROBLEMS1 (!health !medical [other else only associated] * [symptom issue complaint concern problem "bothering you" discuss discussion trouble "talk about"])  ^factanswer("I don't believe so.")
 
 #! Any other problems
-	u: ANY_OTHER_PROBLEMS2 (!health !medical [other else associated] * [symptom issue concern problem "bothering you" discuss trouble])  ^factanswer("I don't think so.")
+	?: ANY_OTHER_PROBLEMS2 (!health !medical [other else associated] * [symptom issue concern problem "bothering you" discuss trouble])  ^factanswer("I don't think so.")
 
 #! Any other problems
-	u: ANY_OTHER_PROBLEMS3 (!health !medical [other else associated] * [symptom issue concern problem "bothering you" discuss trouble])  ^factanswer("I can't think of anything.")
+	?: ANY_OTHER_PROBLEMS3 (!health !medical [other else associated] * [symptom issue concern problem "bothering you" discuss trouble])  ^factanswer("I can't think of anything.")
 
 #! Have you seen anyone else
-	u: HAVE_YOU_SEEN_ANYONE_ELSE
+	?: HAVE_YOU_SEEN_ANYONE_ELSE
 		([
 			([see discuss] * [~medical_professionals anybody anyone] * ["before now" else])
  			([see discuss] * [any other] * [~medical_professionals])

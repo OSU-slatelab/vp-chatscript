@@ -8,7 +8,7 @@ topic: ~pastbloodpressure keep repeat (blood pressure)
 	u: ($family) respond(~familybloodpressure) ^fail(TOPIC)
 
 #! Any previous blood pressure problems
-	u: ANY_PREVIOUS_BLOOD_PRESSURE_PROBLEMS ("blood pressure") ^factanswer("My blood pressure has always been normal.")
+	?: ANY_PREVIOUS_BLOOD_PRESSURE_PROBLEMS ("blood pressure") ^factanswer("My blood pressure has always been normal.")
 
 # ***************************************************************************************************
 
@@ -18,7 +18,7 @@ topic: ~pastchestpain keep repeat (~chest_pain)
 	u: ($family) respond(~familychestpain) ^fail(TOPIC)
 
 #! Any history of chest pain
-	u: ANY_HISTORY_OF_CHEST_PAIN (~chest_pain)  ^factanswer("No.")
+	?: ANY_HISTORY_OF_CHEST_PAIN (~chest_pain)  ^factanswer("No.")
 
 # ***************************************************************************************************
 
@@ -28,7 +28,7 @@ topic: ~pastheartproblem keep repeat (~chest_pain heart coronary artery cardiac)
 	u: ($family) respond(~familyheartproblem) ^fail(TOPIC)
 
 #! Any previous heart problems
-	u: ANY_PREVIOUS_HEART_PROBLEMS (<< [coronary artery heart cardiac] [wrong condition issue problem trouble disease] >>)   ^factanswer("I have not had any heart problems.")
+	?: ANY_PREVIOUS_HEART_PROBLEMS (<< [coronary artery heart cardiac] [wrong condition issue problem trouble disease] >>)   ^factanswer("I have not had any heart problems.")
 
 # ***************************************************************************************************
 
@@ -38,7 +38,7 @@ topic: ~pastvascular keep repeat (~cardiovascular image probe catheter ultrasoun
 	u: ($family) respond(~familyvascular)  ^fail(TOPIC)
 
 #! Any past vascular problems
-	u: ANY_PAST_VASCULAR_PROBLEMS
+	?: ANY_PAST_VASCULAR_PROBLEMS
 		([
 			(~cardiovascular * [wrong condition issue problem trouble disease])
 			([wrong condition issue problem trouble disease] * ~cardiovascular)
@@ -47,7 +47,7 @@ topic: ~pastvascular keep repeat (~cardiovascular image probe catheter ultrasoun
 
 
 #! Any past vascular testing
-	u: ANY_PAST_VASCULAR_TESTING
+	?: ANY_PAST_VASCULAR_TESTING
 		([
 			(~cardiovascular * [test image probe catheter ultrasound check])
 			([test image probe catheter ultrasound check] * ~cardiovascular)
@@ -55,7 +55,7 @@ topic: ~pastvascular keep repeat (~cardiovascular image probe catheter ultrasoun
 	^factanswer("I have never had any vascular testing.")
 
 #! Any past clotting problems
-	u: ANY_PAST_CLOTTING_PROBLEMS
+	?: ANY_PAST_CLOTTING_PROBLEMS
 		([
 			([have any experience] * ["blood clot" clot])
 			([blood vascular] * [clot problems thick thickness plaques embolism])

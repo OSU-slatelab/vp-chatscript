@@ -6,7 +6,7 @@ topic: ~currentmedications keep repeat (~medicines "how much" drug dose strength
 	u: ($family) respond(~familymedicalproblems) ^fail(TOPIC) # don't have a familymedicaitons topic so will put the odd family medication question in familymedicalproblems
 
 #! Are you taking any medication for the 1 $chiefcomplaint=1
-	u: TAKING_MEDICATION_FOR_THE_1
+	?: TAKING_MEDICATION_FOR_THE_1
 		([
  			(![how long other] [use take on try] * [alleviate get_rid_of reduce diminish "help with" for] *~2 [~itwords $chiefcomplaint? symptom])
  			(![how long other] [use take on try "no"] * ~medicines * [~itwords $chiefcomplaint? symptom])
@@ -16,7 +16,7 @@ topic: ~currentmedications keep repeat (~medicines "how much" drug dose strength
 			a: DOSE_1 ([dosage dose "how much"]) ^factanswer("I am not sure.")
 
 #! Are you taking any medication for the 2 $complaint2=2
-u: TAKING_MEDICATION_FOR_THE_2
+?: TAKING_MEDICATION_FOR_THE_2
 	([
 		(![how long other] [use take on try] * [alleviate get_rid_of reduce diminish "help with" for] *~2 [~itwords $chiefcomplaint? symptom])
 		(![how long other] [use take on try "no"] * ~medicines * [~itwords $chiefcomplaint? symptom])
@@ -26,7 +26,7 @@ u: TAKING_MEDICATION_FOR_THE_2
 		a: DOSE_2 ([dosage dose "how much"]) ^factanswer("I am not sure.")
 
 #! Are you taking any medication for the 3 $complaint3=3
-u: TAKING_MEDICATION_FOR_THE_3
+?: TAKING_MEDICATION_FOR_THE_3
 	([
 		(![how long other] [use take on try] * [alleviate get_rid_of reduce diminish "help with" for] *~2 [~itwords $chiefcomplaint? symptom])
 		(![how long other] [use take on try "no"] * ~medicines * [~itwords $chiefcomplaint? symptom])
@@ -39,7 +39,7 @@ u: TAKING_MEDICATION_FOR_THE_3
 	?: WHEN_DID_YOU_TAKE_MEDICINE (when * [~medicines $currentmedication1?])   ^factanswer("I didn't take medication.")
 
 #! Any reactions to medications
-	u: ANY_REACTIONS_TO_MEDICATIONS (reaction to ~medicines) ^factanswer("Not that I am aware of.")
+	?: ANY_REACTIONS_TO_MEDICATIONS (reaction to ~medicines) ^factanswer("Not that I am aware of.")
 
 #! Do you need to take the medicine that often  $currentmedication1=medicine
 	?: NEED_TO_TAKE_THE_MEDICINE_THAT_OFTEN ([need "have to"] * [take use] * [$currentmedication1? ~itwords] * [often hours])   ^factanswer("I don't take any medications, supplements, or vitamins.")
@@ -131,15 +131,18 @@ u: TAKING_MEDICATION_FOR_THE_3
 		a: DOSE_1 ([dosage dose "how much"]) ^factanswer("I am not sure.")
 
 #! Any prescription medication
-	u: ANY_PRESCRIPTION_MEDICATION
+	?: ANY_PRESCRIPTION_MEDICATION
 		([
-			(![how long other herbal ~vitamin ~minerals allergies allergic ~OTCmedicines] [take on about any no] *~3 ~prescribedmedicines)
- 			(![how long other herbal ~vitamin ~minerals allergies allergic ~OTCmedicines] [take on] *~3 ~prescribedmedicines *~3 [regular regularly daily])
-			(![how long other herbal ~vitamin ~minerals allergies allergic ~OTCmedicines]  ~prescribedmedicines *~3 [take on] *~3 [regular regularly daily])
+			(![how long other herbal ~vitamin ~minerals allergies allergic ~OTCmedicines non non-prescription] [take on about any no] *~3 ~prescribedmedicines)
+ 			(![how long other herbal ~vitamin ~minerals allergies allergic ~OTCmedicines non non-prescription] [take on] *~3 ~prescribedmedicines *~3 [regular regularly daily])
+			(![how long other herbal ~vitamin ~minerals allergies allergic ~OTCmedicines non non-prescription]  ~prescribedmedicines *~3 [take on] *~3 [regular regularly daily])
 		])
 	^factanswer("I don't take any prescription medications.")
 		a: DOSE_1 ([dosage dose "how much"]) ^factanswer("I am not sure.")
 		a: IS_MEDICATION_NEW (<< [~itwords ~prescribedmedicines] [new old first] >>) ^factanswer ("I don't take anything.")
+
+#! Why do you take the medication
+		?: WHY_DO_YOU_TAKE_THE_MEDICATION (why *~3 [take use] *~3 ~medicines) ^factanswer("For my health.")
 
 #! Are you taking any medication
 	?: ARE_YOU_TAKING_ANY_MEDICATION
@@ -154,6 +157,7 @@ u: TAKING_MEDICATION_FOR_THE_3
 		a: DOSE_1 ([dosage dose "how much"]) ^factanswer("I am not sure.")
 		a: IS_MEDICATION_NEW (<< [~itwords ~prescribedmedicines] [new old first] >>) ^factanswer ("I don't take anything.")
 		a: ANY_OTHER_MEDICATION (anything else) ^reuse (~othermedications.TAKE_ANY_OTHER_MEDICATION)
+		a: WHY_DO_YOU_TAKE_THE_MEDICATION (why) ^reuse (WHY_DO_YOU_TAKE_THE_MEDICATION)
 
 #! What were the pills called
 	?: WHAT_WERE_THE_PILLS_CALLED
@@ -179,7 +183,7 @@ topic: ~supplements keep repeat (~vitamin minerals supplement herbal OTC "over t
 	u: WHICH_MULTIVITAMIN ([which what] * ~vitamin * [take use]) ^factanswer("I don't take any medications, supplements, or vitamins.")
 
 	#! Any OTC medication
-		u: ANY_OTC_MEDICATION (![how long other herbal ~vitamin ~minerals allergies allergic ~prescribedmedicines] [take on about any] * ~OTCmedicines) ^factanswer("I don't take any OTC medications.")
+		?: ANY_OTC_MEDICATION (![how long other herbal ~vitamin ~minerals allergies allergic ~prescribedmedicines] [take on about any] * ~OTCmedicines) ^factanswer("I don't take any OTC medications.")
 
 # ###############################################################################
 
@@ -188,7 +192,7 @@ topic: ~supplements keep repeat (~vitamin minerals supplement herbal OTC "over t
 topic: ~othermedications (~medicines)
 
 #! Are you taking any other medication for 1 $chiefcomplaint=1
- 	u: TAKE_OTHER_MEDICATION_FOR_1
+ 	?: TAKE_OTHER_MEDICATION_FOR_1
 		([
 			(!ever << other ~medicines $chiefcomplaint? >>)
  			(!ever other * $chiefcomplaint? * ~medicines)
@@ -201,7 +205,7 @@ topic: ~othermedications (~medicines)
 		a: WHAT_DOES_MEDICATION_1_DO (!reason [what purpose])   ^factanswer("I didn't take medication.")
 
 #! Are you taking any other medication for 2 $complaint2=2
-u: TAKE_OTHER_MEDICATION_FOR_2
+?: TAKE_OTHER_MEDICATION_FOR_2
 	([
 		(!ever << other ~medicines $complaint2? >>)
 		(!ever other * $complaint2? * ~medicines)
@@ -214,7 +218,7 @@ u: TAKE_OTHER_MEDICATION_FOR_2
 	a: WHAT_DOES_MEDICATION_2_DO (!reason [what purpose])   ^factanswer("I didn't take medication.")
 
 #! Are you taking any other medication for 3 $complaint3=3
-u: TAKE_OTHER_MEDICATION_FOR_3
+?: TAKE_OTHER_MEDICATION_FOR_3
 	([
 		(!ever << other ~medicines $complaint3? >>)
 		(!ever other * $complaint3? * ~medicines)
@@ -227,7 +231,7 @@ u: TAKE_OTHER_MEDICATION_FOR_3
 	a: WHAT_DOES_MEDICATION_3_DO (!reason [what purpose])   ^factanswer("I didn't take medication.")
 
 #! Are you taking any other medication
- 	u: TAKE_ANY_OTHER_MEDICATION
+ 	?: TAKE_ANY_OTHER_MEDICATION
 		([
 			(![pain ever try $currentmedication1? $currentmedication3?] other ~medicines)
 			(![pain ever does "help you with" bother bothering try $currentmedication1? $currentmedication3? know me] anything else >)
@@ -241,7 +245,7 @@ u: TAKE_OTHER_MEDICATION_FOR_3
 		a: WHAT_DOES_MEDICATION_DO (!reason [what purpose])   ^factanswer("I didn't take medication.")
 
 #! Are you taking any other medication
- 	u: TAKE_ANY_OTHER_MEDICATION1
+ 	?: TAKE_ANY_OTHER_MEDICATION1
 		([
 			(![pain ever try why $currentmedication1? $currentmedication2?] other * ~medicines)
 			(![pain ever try why does "help you with" bother bothering $currentmedication1? $currentmedication2?] anything else >)
@@ -255,7 +259,7 @@ u: TAKE_OTHER_MEDICATION_FOR_3
 		a: WHAT_DOES_MEDICATION_1_DO (!reason [what purpose])   ^factanswer("I didn't take medication.")
 
 #! Are you taking any other medication
- 	u: TAKE_ANY_OTHER_MEDICATION2
+ 	?: TAKE_ANY_OTHER_MEDICATION2
 		([
 			(![pain ever] other * ~medicines)
 			(![pain ever does "help you with" bother bothering] anything else)
@@ -267,9 +271,6 @@ u: TAKE_OTHER_MEDICATION_FOR_3
 		a: WHY_TAKE_OTHER_MEDICATION_2 (why) ^factanswer("I haven't taken anything.")
 		a: WHEN_DID_YOU_START_MEDICATION_2 ([start begin])   ^factanswer("I didn't take medication.")
 		a: WHAT_DOES_MEDICATION_2_DO (!reason [what purpose])   ^factanswer("I didn't take medication.")
-
-#! Why do you take the medication
-	?: WHY_DO_YOU_TAKE_THE_MEDICATION (why *~3 [take use] *~3 ~medicines) ^factanswer("For my health.")
 
 # ###############################################################################
 # PAST MEDICATIONS
@@ -289,7 +290,7 @@ topic: ~pastmedications keep repeat ("anything else" ibuprofen ~medicines antibi
 	?: EVER_TAKEN_MEDICATION_FOR_3 (![how long] ever [use take try on] * ~medicines * $complaint3?)    ^factanswer("Never.")
 
 #! Have you had any reactions to medications
-	u: ANY_REACTIONS_TO_MEDICATIONS (reaction to ~medicines) ^factanswer("Not that I am aware of.") # this is repeated here because of "have you had" which triggers past
+	?: ANY_REACTIONS_TO_MEDICATIONS (reaction to ~medicines) ^factanswer("Not that I am aware of.") # this is repeated here because of "have you had" which triggers past
 
 #! Have you ever taken any other medication
 	?: EVER_TAKEN_OTHER_MEDICATION

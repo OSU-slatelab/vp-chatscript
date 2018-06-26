@@ -8,7 +8,7 @@ topic: ~currentbladder keep repeat (!bowel ~bladder_problems hold control diffic
 	u: ($family) respond(~familybladder) ^fail(TOPIC)
 
 #! Have you noticed pain while urinating
-	u: HAVE_YOU_NOTICED_PAIN_WHILE_URINATING
+	?: HAVE_YOU_NOTICED_PAIN_WHILE_URINATING
 		([
 			([notice experience have] * [hurt pain burn] * ~bladder_function)
 			(~bladder_function * [pain hurt painful burn])
@@ -17,25 +17,25 @@ topic: ~currentbladder keep repeat (!bowel ~bladder_problems hold control diffic
 	^factanswer("I haven't had that.")
 
 #! Have you noticed any blood in your urine
-	u: BLOOD_IN_URINE (<< [color blood] [urine pee urinate] >>)     ^factanswer("I haven't noticed anything like that.")
+	?: BLOOD_IN_URINE (<< [color blood] [urine pee urinate] >>)     ^factanswer("I haven't noticed anything like that.")
 
 #! Do you have loss of bladder control
-	u: LOSS_OF_BLADDER_CONTROL (!bowel << [loss lost] bladder control >>)    ^factanswer("My bladder is fine.")
+	?: LOSS_OF_BLADDER_CONTROL (!bowel << [loss lost] bladder control >>)    ^factanswer("My bladder is fine.")
 
 #! Are you able to control your bladder
-	u: ARE_YOU_ABLE_TO_CONTROL_YOUR_BLADDER (![problem trouble bowel loss lost] control * [bladder urination])    ^factanswer("I have no problems with my bladder.")
+	?: ARE_YOU_ABLE_TO_CONTROL_YOUR_BLADDER (![problem trouble bowel loss lost] control * [bladder urination])    ^factanswer("I have no problems with my bladder.")
 
 #! Have you been incontinent
-	u: HAVE_YOU_BEEN_INCONTINENT  ([incontinence incontinent])    ^factanswer("I have not.")
+	?: HAVE_YOU_BEEN_INCONTINENT  ([incontinence incontinent])    ^factanswer("I have not.")
 
 #! Do you have any bladder problems
-	u: DO_YOU_HAVE_ANY_BLADDER_PROBLEMS (![where when how bowel] ['do 'are can] * [~bladder_problems ~bladder_function])  ^factanswer("I have no problems with my bladder.")
+	?: DO_YOU_HAVE_ANY_BLADDER_PROBLEMS (![where when how bowel] ['do 'are can] * [~bladder_problems ~bladder_function])  ^factanswer("I have no problems with my bladder.")
 
 #! How often do you urinate
-	u: HOW_OFTEN_DO_YOU_URINATE  (how * [many often frequent frequently] * [urinate pee "go to the bathroom"])  ^factanswer("I don't know exactly, several times a day.")
+	?: HOW_OFTEN_DO_YOU_URINATE  (how * [many often frequent frequently] * [urinate pee "go to the bathroom"])  ^factanswer("I don't know exactly, several times a day.")
 
 #! How about your bladder
-	u: HOW_ABOUT_YOUR_BLADDER (!bowel bladder >)   ^factanswer("No problems with my bladder.")
+	?: HOW_ABOUT_YOUR_BLADDER (!bowel bladder >)   ^factanswer("No problems with my bladder.")
 
 # ***************************************************************************************************
 
@@ -45,7 +45,7 @@ topic: ~currentmaleGU keep repeat (!bowel erection prostate)
 	u: ($family) respond(~familymaleGU) ^fail(TOPIC)
 
 #! Do you have any erection issues
-	u: DO_YOU_HAVE_ANY_ERECTION_ISSUES
+	?: DO_YOU_HAVE_ANY_ERECTION_ISSUES
 		([
 			(erection * [problem issue])
 			([keep get able] * erection)
@@ -53,7 +53,7 @@ topic: ~currentmaleGU keep repeat (!bowel erection prostate)
 	^factanswer("I have no problems with that.")
 
 #! Do you have prostate problems
-	u: DO_YOU_HAVE_PROSTATE_PROBLEMS
+	?: DO_YOU_HAVE_PROSTATE_PROBLEMS
 		([
 			(prostate * [problem issue trouble])
 			([problem issue trouble wrong] * prostate)

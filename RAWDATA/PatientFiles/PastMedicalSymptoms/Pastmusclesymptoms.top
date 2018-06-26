@@ -9,7 +9,7 @@ topic: ~pastbackpain keep repeat (~back_pain similar furniture) # added similar 
 	u: ($family) respond(~familybackpain) ^fail(TOPIC)
 
 #! When have you had back pain like this before
-	u: WHEN_HAVE_YOU_HAD_BACK_PAIN_BEFORE
+	?: WHEN_HAVE_YOU_HAD_BACK_PAIN_BEFORE
 		([
 			(when << ~back_pain [before prior previously past history ever "last time"] >>)
 			(when << similar ~back_pain  >>)
@@ -17,7 +17,7 @@ topic: ~pastbackpain keep repeat (~back_pain similar furniture) # added similar 
 	^factanswer("Never.")
 
 #! Have you had back pain before
-	u: HAVE_YOU_HAD_BACK_PAIN_BEFORE
+	?: HAVE_YOU_HAD_BACK_PAIN_BEFORE
 		([
 			(!when [~back_pain ~itwords] * [before prior past history ever previously])
 			(!when ever * [~back_pain ~itwords] * [before prior past history previously])
@@ -27,10 +27,10 @@ topic: ~pastbackpain keep repeat (~back_pain similar furniture) # added similar 
 		a: WHAT_CAUSED_IT ([why what was] * [cause happen did brought] * [~itwords ~back_pain lifting]) ^factanswer ("I don't remember.")
 
 #! Have you lifted heavy furniture before
-	u: HAVE_YOU_LIFTED_HEAVY_FURNITURE_BEFORE (![when how why] [move lift] * [furniture couch] * [before prior past history ever "as well"])     ^factanswer("No, never.")
+	?: HAVE_YOU_LIFTED_HEAVY_FURNITURE_BEFORE (![when how why] [move lift] * [furniture couch] * [before prior past history ever "as well"])     ^factanswer("No, never.")
 
 #! When were you lifting the furniture
-	u: WHEN_WERE_YOU_LIFTING_THE_FURNITURE
+	?: WHEN_WERE_YOU_LIFTING_THE_FURNITURE
 		([
 			(![hurt back what] [when "how long ago"] * [lift move] * [furniture couch things])
 			(![hurt back what] [when "how long ago"] * help * friend)
@@ -45,10 +45,10 @@ topic: ~pastbackinjury keep repeat (~back_injury surgery)
 	u: ($family) respond(~familybackinjury) ^fail(TOPIC)
 
 #! Have you had back injury before
-	u: HAVE_YOU_HAD_BACK_INJURY_BEFORE (<< ~back_injury [before prior past history ever] >>)   ^factanswer("No, never.")
+	?: HAVE_YOU_HAD_BACK_INJURY_BEFORE (<< ~back_injury [before prior past history ever] >>)   ^factanswer("No, never.")
 
 #! Have you had back surgery before
-	u: HAVE_YOU_HAD_BACK_SURGERY_BEFORE (<< surgery back~n [before prior past history ever] >>)   ^factanswer("No, never.")
+	?: HAVE_YOU_HAD_BACK_SURGERY_BEFORE (<< surgery back~n [before prior past history ever] >>)   ^factanswer("No, never.")
 
 # ***************************************************************************************************
 
@@ -58,7 +58,7 @@ topic: ~pastmusclepain keep repeat (~muscle_pain !pain stretch )
 	u: ($family) respond(~familymusclepain) ^fail(TOPIC)
 
 #! Have you had muscle pain before
-	u: HAVE_YOU_HAD_MUSCLE_PAIN_BEFORE (!back << ~muscle_pain [before prior past history ever] >>)   ^factanswer("No, never.")
+	?: HAVE_YOU_HAD_MUSCLE_PAIN_BEFORE (!back << ~muscle_pain [before prior past history ever] >>)   ^factanswer("No, never.")
 
 # ***************************************************************************************************
 
@@ -69,7 +69,7 @@ topic: ~pastbackstiffness keep repeat (back stiff "back stiffness")
 
 
 #! Have you had back stiffness before
-	u: HAVE_YOU_HAD_BACK_STIFFNESS_BEFORE (<< "back stiffness" [before prior past history ever] >>)     ^factanswer("No, never.")
+	?: HAVE_YOU_HAD_BACK_STIFFNESS_BEFORE (<< "back stiffness" [before prior past history ever] >>)     ^factanswer("No, never.")
 
 # ***************************************************************************************************
 
@@ -79,7 +79,7 @@ topic: ~pastspinepain keep repeat (~spine_pain !pain)
 	u: ($family) respond(~familyspinepain) ^fail(TOPIC)
 
 #! Have you had spine pain before
-	u: HAVE_YOU_HAD_SPINE_PAIN_BEFORE (!back << ~spine_pain [before prior past history ever] >>)    ^factanswer("No, never.")
+	?: HAVE_YOU_HAD_SPINE_PAIN_BEFORE (!back << ~spine_pain [before prior past history ever] >>)    ^factanswer("No, never.")
 
 # ***************************************************************************************************
 
@@ -89,7 +89,7 @@ topic: ~pastlegpain keep repeat (~leg_pain !pain)
 	u: ($family) respond(~familylegpain) ^fail(TOPIC)
 
 #! Have you had leg pain before
-	u: HAVE_YOU_HAD_LEG_PAIN_BEFORE (!back << ~leg_pain [before prior past history ever] >>)     ^factanswer("No, never.")
+	?: HAVE_YOU_HAD_LEG_PAIN_BEFORE (!back << ~leg_pain [before prior past history ever] >>)     ^factanswer("No, never.")
 
 # ***************************************************************************************************
 
@@ -99,7 +99,7 @@ topic: ~pastjointpain keep repeat (~joint_pain thumb joint joints)
 	u: ($family) respond(~familyjointpain) ^fail(TOPIC)
 
 #! Have you had joint pain before
-	u: HAVE_YOU_HAD_JOINT_PAIN_BEFORE
+	?: HAVE_YOU_HAD_JOINT_PAIN_BEFORE
 		([
 			(![back abdominal belly] << ~joint_pain [before prior past history ever] >>)
 			(![back abdominal belly] "have you had" * ~joint_pain)

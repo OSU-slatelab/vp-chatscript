@@ -9,7 +9,7 @@ topic: ~pastwalking keep repeat (~walking_problems)
 	u: ($family) respond(~familywalking) ^fail(TOPIC)
 
 #! Have you ever had trouble walking
-	u: HAVE_YOU_EVER_HAD_TROUBLE_WALKING (~walking_problems)    ^factanswer("I have never had trouble walking.")
+	?: HAVE_YOU_EVER_HAD_TROUBLE_WALKING (~walking_problems)    ^factanswer("I have never had trouble walking.")
 
 # ***************************************************************************************************
 
@@ -19,7 +19,7 @@ topic: ~pastnumbness keep repeat (numb numbness tingle sensation)
 	u: ($family) respond(~familynumbness) ^fail(TOPIC)
 
 #! Have you ever had numbness
-	u: HAVE_YOU_EVER_HAD_NUMBNESS (["have you had" ever] * [numb numbness tingling])     ^factanswer("Not really.")
+	?: HAVE_YOU_EVER_HAD_NUMBNESS (["have you had" ever] * [numb numbness tingling])     ^factanswer("Not really.")
 
 # ***************************************************************************************************
 
@@ -29,7 +29,7 @@ topic: ~pastweakness keep repeat (weak weakness)
 	u: ($family) respond(~familyweakness) ^fail(TOPIC)
 
 #! Have you ever had weakness
-	u: HAVE_YOU_EVER_HAD_WEAKNESS (weakness weak)     ^factanswer("Not really.")
+	?: HAVE_YOU_EVER_HAD_WEAKNESS (weakness weak)     ^factanswer("Not really.")
 
 # ***************************************************************************************************
 
@@ -39,10 +39,10 @@ topic: ~pastdizziness keep repeat (dizzy dizziness lightheaded lightheadedness s
 	u: ($family) respond(~familydizziness) ^fail(TOPIC)
 
 #! Have you ever been dizzy
-	u: EVER_BEEN_DIZZY  ([been ever] * [dizzy dizziness lightheaded "light headed"])  ^factanswer("I have never been dizzy")
+	?: EVER_BEEN_DIZZY  ([been ever] * [dizzy dizziness lightheaded "light headed"])  ^factanswer("I have never been dizzy")
 
 #! Have you noticed spinning
-	u: HAVE_YOU_EVER_NOTICED_SPINNING (ever * [noticed felt experienced] * [spin spinning])  ^factanswer("I have never felt spinning")
+	?: HAVE_YOU_EVER_NOTICED_SPINNING (ever * [noticed felt experienced] * [spin spinning])  ^factanswer("I have never felt spinning")
 
 #! Have you ever fainted
-	u: HAVE_YOU_EVER_FAINTED (fainted "passed out" "blacked out")  ^factanswer("I have never fainted")
+	?: HAVE_YOU_EVER_FAINTED (fainted "passed out" "blacked out")  ^factanswer("I have never fainted")

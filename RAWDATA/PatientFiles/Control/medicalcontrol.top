@@ -17,10 +17,15 @@ $cs_prepass = ~xpreprocess 	# remap inputs for idioms and augmenting question re
 $userprompt = ^"Doctor:"
 $cs_token = #DO_ESSENTIALS |
 						#DO_SUBSTITUTES |
-						#DO_PRIVATE |
+						#DO_PRIVATE | # DO_PRIVATE added 5.2018 to handle spelling fixes in MyReplacements.top
 						#DO_SPELLCHECK |
-						#DO_CONTRACTIONS # DO_PRIVATE added 5.2018 to handle spelling fixes in replace
+						#DO_SPELLING |
+						#DO_CONTRACTIONS |
+						#DO_POSTAG |
+						#DO_PARSE |
+						NO_ERASE
 
+$tokeninit = $cs_token
 $tokenfull =  #DO_SUBSTITUTE_SYSTEM | #DO_NUMBER_MERGE
 $botprompt = ^"$patientTitle. $patientlastname:"
 
@@ -50,13 +55,13 @@ topic: ~control system ()
 
 # get a master copy of input then do our normal copies
  u: ($cs_token=#DO_ESSENTIALS | #DO_PRIVATE | #DO_SPELLCHECK | #DO_CONTRACTIONS _*) $$rawinput = '_0
-	if (_0)
+ 	if (_0)
 	{
 		if (?) {$$rawinput = join($$rawinput ?)}
 		$cs_token = $tokenfull
 		retry(SENTENCE)
 	}
- u: ($cs_token!=#DO_ESSENTIALS _*) $cs_token = #DO_ESSENTIALS | #DO_SUBSTITUTES | #DO_PRIVATE | #DO_SPELLCHECK | #DO_CONTRACTIONS # convert $CS_token back to original parameters
+ u: ($cs_token!=#DO_ESSENTIALS _*) $cs_token = $tokeninit
 
 # on startup, do introduction
 u: (< \[ * q: _*1 * \] ) $q_num_external = '_0 # record query num from web service
@@ -66,6 +71,7 @@ u: (< reset score  > ) reset(user) fail(INPUT)
 u: (< regress >) $regression = 1 Regressing. Log(FILE LOGS/vp.txt new ) reset(TOPIC *) END(TOPIC)
 
 u: (%more) ^fail(SENTENCE)   # added 9.6.2012 to ignore multiple questions in one input sentence so unsure how this fits with $$startInput below
+
 
 # The following refine section ensures that only one variable is true at a time.
 u: () refine ()  # classify input into 3 zones: present, family, past
@@ -120,7 +126,7 @@ u: MAINCONTROL(_*) # main per-sentence processing
 
 	if (%response == $$startInput)  {nofail(TOPIC ^respond(~openingdialogue))} # if no matches yet, look in openingdialogue
 	if (%response == $$startInput)  {nofail(TOPIC ^respond(~chiefcomplaint))}  # if still no matches look in chiefcomplaint
-	if (%response == $$startInput)  {nofail(TOPIC ^respond(~keywordless))} # if still no matches look in keywordless
+  if (%response == $$startInput)  {nofail(TOPIC ^respond(~keywordless))} # if still no matches look in keywordless
 
 	if (%response == $$startInput  AND $$currentTopicIninput) { nofail(TOPIC ^gambit($currenttopic)) } # gambit current topic since keywords match current topic
 
@@ -154,12 +160,12 @@ u: MAINCONTROL(_*) # main per-sentence processing
 	}
 
 	if (%response == $$startInput)  {nofail(TOPIC ^respond(~negativesymptoms))} # last ditch attempt to match in negativesymptoms
+
 	if (%response == $$startInput)
 	{
-		 ^repeat()
-		 factanswer(^"[I'm afraid I don't understand that question.]  [I'm sorry, I don't understand that question. Would you restate it?]")
+		^repeat()
+	 	factanswer(^"[I'm afraid I don't understand that question.]  [I'm sorry, I don't understand that question. Would you restate it?]")
 	}
-
 
 topic: ~control_post system()
 

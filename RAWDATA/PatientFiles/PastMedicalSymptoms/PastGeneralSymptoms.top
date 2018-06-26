@@ -9,13 +9,13 @@ topic: ~pastmedicalproblems keep repeat (medical problem condition illness injur
 	u: ($family) respond(~familymedicalproblems) ^fail(TOPIC)
 
 #! Have you ever had any chronic illnesses
-	u: HAVE_YOU_EVER_HAD_ANY_CHRONIC_ILLNESSES (!they [major chronic] * [illness problem disease illnesses])    ^factanswer("I have been very healthy all of my life.")
+	?: HAVE_YOU_EVER_HAD_ANY_CHRONIC_ILLNESSES (!they [major chronic] * [illness problem disease illnesses])    ^factanswer("I have been very healthy all of my life.")
 
 #! Have you ever been in an accident
-	u: HAVE_YOU_EVER_BEEN_IN_AN_ACCIDENT (!they [ever any] * [injury accident injured])    ^factanswer("Never.")
+	?: HAVE_YOU_EVER_BEEN_IN_AN_ACCIDENT (!they [ever any] * [injury accident injured])    ^factanswer("Never.")
 
 #! Have you ever had any serious illnesses
-	u: HAVE_YOU_EVER_HAD_ANY_SERIOUS_ILLNESSES
+	?: HAVE_YOU_EVER_HAD_ANY_SERIOUS_ILLNESSES
 		([
 			(![when this they] [illness problem condition injury trauma illnesses cancer] *~4b [before prior past history ever])
 			(had * [illness illnesses sickness])
@@ -41,29 +41,29 @@ topic: ~hospitalizations keep repeat (!hospitality hospital hospitalized hospita
 	u: ($family) respond(~familymedicalproblems) ^fail(TOPIC)
 
 #! Have you had gynecologic surgery
-	u: HAVE_YOU_HAD_GYNECOLOGIC_SURGERY ([gyn gynecologic] *~3b [operation surgery])      ^factanswer("No.")
+	?: HAVE_YOU_HAD_GYNECOLOGIC_SURGERY ([gyn gynecologic] *~3b [operation surgery])      ^factanswer("No.")
 
 #! Any other surgeries
-	u: ANY_OTHER_SURGERIES (other [surgery surgical operation])  ^factanswer("No.")
+	?: ANY_OTHER_SURGERIES (other [surgery surgical operation])  ^factanswer("No.")
 
 #! Any problems with surgeries
-	u: ANY_SURGERY_PROBLEMS (!other [surgery surgical operation] *~3b [problem issue complication])  ^factanswer("None.")
+	?: ANY_SURGERY_PROBLEMS (!other [surgery surgical operation] *~3b [problem issue complication])  ^factanswer("None.")
 
 #! Any prior surgeries
-	u: ANY_PRIOR_SURGERIES (!other [surgery surgical operation])  ^factanswer("No.")
+	?: ANY_PRIOR_SURGERIES (!other [surgery surgical operation])  ^factanswer("No.")
 
 #! Any other hospitalizations
-	u: ANY_OTHER_HOSPITALIZATIONS (other *~3 [hosp*l hosp*d hosp*n hosp*s]) ^factanswer("I don't think so.")
+	?: ANY_OTHER_HOSPITALIZATIONS (other *~3 [hosp*l hosp*d hosp*n hosp*s]) ^factanswer("I don't think so.")
 
 #! Have you ever been in the hospital
 	# u: EVER_BEEN_IN_THE_HOSPITAL (![did 'go other] [hosp*l hosp*d hosp*n hosp*s]) ^factanswer("I don't think so.")
-	u: EVER_BEEN_IN_THE_HOSPITAL ( hosp* ) ^factanswer("I don't think so.")
+	?: EVER_BEEN_IN_THE_HOSPITAL (hosp*) ^factanswer("I don't think so.")
 
 #! Have you ever been on a ventilator
-	u: EVER_BEEN_ON_A_VENTILATOR (ventilator) ^factanswer("I have never been on a ventilator.")
+	?: EVER_BEEN_ON_A_VENTILATOR (ventilator) ^factanswer("I have never been on a ventilator.")
 
 #! Appendix
-	u: APPENDIX (appendix appendectomy) ^factanswer("I still have my appendix.")
+	?: APPENDIX (appendix appendectomy) ^factanswer("I still have my appendix.")
 
 # ***************************************************************************************************
 
@@ -72,7 +72,7 @@ topic: ~pastsleepingproblems keep repeat (~sleeping_problems)
 	u: ($present) respond(~currentsleepingproblems) ^fail(TOPIC)
 
 #! Any history of insomnia
-	u: ANY_HISTORY_OF_INSOMNIA
+	?: ANY_HISTORY_OF_INSOMNIA
 		([
 			([history past previous prior] * ~sleeping_problems)
 			(~sleeping_problems * [history past previous prior])
@@ -80,10 +80,10 @@ topic: ~pastsleepingproblems keep repeat (~sleeping_problems)
 	^factanswer("I've always slept fine.")
 
 #! Describe your past sleeping trouble
-	u: DESCRIBE_YOUR_PAST_SLEEPING_TROUBLE ([sort kind describe] * [trouble difficulty issue problem] * ~sleeping_problems * ["have you had" past before]) ^factanswer("I have had no trouble sleeping.")
+	?: DESCRIBE_YOUR_PAST_SLEEPING_TROUBLE ([sort kind describe] * ~sleeping_problems) ^factanswer("I have had no trouble sleeping.")
 
 #! Have you had any trouble sleeping
-	u: HAVE_YOU_HAD_ANY_TROUBLE_SLEEPING
+	?: HAVE_YOU_HAD_ANY_TROUBLE_SLEEPING
 		([
 			(![what describe] [trouble problems issues able] * ~sleeping_problems)
 			(![what describe] ~sleeping_problems * [trouble problems issues])
@@ -98,7 +98,7 @@ topic: ~pastdischarge keep repeat (discharge color ~discharge_descriptors)
 	u: ($present) respond(~currentdischarge) ^fail(TOPIC)
 
 #! What color was the discharge
-	u: WHAT_COLOR_WAS_THE_DISCHARGE
+	?: WHAT_COLOR_WAS_THE_DISCHARGE
 		([
 			([color shade hue] * [discharge ~itwords])
 			([discharge ~itwords] * [color shade hue])
@@ -106,10 +106,10 @@ topic: ~pastdischarge keep repeat (discharge color ~discharge_descriptors)
 	^factanswer("I don't know.")
 
 #! Was the discharge thick
-	u: WAS_THE_DISCHARGE_THICK (![where when ~bodyparts] [~itwords discharge] * [~discharge_descriptors color])      ^factanswer("I don't have that.")
+	?: WAS_THE_DISCHARGE_THICK (![where when ~bodyparts] [~itwords discharge] * [~discharge_descriptors color])      ^factanswer("I don't have that.")
 
 #! Any past discharge
-	u: ANY_PAST_DISCHARGE (![when what why how ~describe ~medicines take use try] [past prior previous ever] * discharge) ^factanswer("I had no discharge.")
+	?: ANY_PAST_DISCHARGE (![when what why how ~describe ~medicines take use try] [past prior previous ever] * discharge) ^factanswer("I had no discharge.")
 
 # ***************************************************************************************************
 
@@ -118,7 +118,7 @@ topic: ~pastitch keep repeat (itch ~itch_descriptors)
 	u: ($present) respond(~currentitch)   ^fail(TOPIC)
 
 #! Was the itch crawling
-	u: WAS_THE_ITCH_CRAWLING
+	?: WAS_THE_ITCH_CRAWLING
 		([
 			(!where !when !~bodyparts [~itwords itch] * ~itch_descriptors)
 			(!where !when [~itwords itch] * [feel experience] * ~itch_descriptors)
@@ -126,10 +126,10 @@ topic: ~pastitch keep repeat (itch ~itch_descriptors)
 	^factanswer("I never had that.")
 
 #! WaS there a rash with the itch
-	u: WAS_THERE_A_RASH ([red redness bumps rash] * [~itwords itch])      ^factanswer("I have never had a rash or itch.")
+	?: WAS_THERE_A_RASH ([red redness bumps rash] * [~itwords itch])      ^factanswer("I have never had a rash or itch.")
 
 #! Any past itch
-	u: ANY_PAST_ITCH (![when what why how ~describe ~medicines take use try] [ever past prior previous] * itch) ^factanswer("I have never had an itch.")
+	?: ANY_PAST_ITCH (![when what why how ~describe ~medicines take use try] [ever past prior previous] * itch) ^factanswer("I have never had an itch.")
 
 # ***************************************************************************************************
 
@@ -138,10 +138,10 @@ topic: ~pastodor keep repeat (odor)
 	u: ($present) respond(~currentodor)   ^fail(TOPIC)
 
 #! Was the odor strong
-	u: WAS_THE_ODOR_STRONG (![where when ~bodyparts] [~itwords odor] * ~odor_descriptors)      ^factanswer("I never had that.")
+	?: WAS_THE_ODOR_STRONG (![where when ~bodyparts] [~itwords odor] * ~odor_descriptors)      ^factanswer("I never had that.")
 
 #! Did you ever notice an odor
-	u: DID_YOU_EVER_NOTICE_AN_ODOR
+	?: DID_YOU_EVER_NOTICE_AN_ODOR
 		([
 			([notice smell] * [odor stink])
 			([~itwords discharge] *~3b [odor smell stink])

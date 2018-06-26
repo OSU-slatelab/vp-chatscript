@@ -4,7 +4,7 @@
 
 # Range of Motion
 
-topic: ~currentrangeofmotion keep repeat (range "range of motion" motion move movement bend bending toe lift stand twist jump stiff stiffness lean straighten run "lie down" action open grip drop "lose grip" difficult tightness)
+topic: ~currentrangeofmotion keep repeat (range "range of motion" motion move movement crouch lean bend bending toe lift stand twist jump stiff stiffness lean straighten run "lie down" action open grip drop "lose grip" difficult tightness)
 
 	u: ($pasthistory) respond(~pastrangeofmotion) ^fail(TOPIC)
 
@@ -17,7 +17,7 @@ topic: ~currentrangeofmotion keep repeat (range "range of motion" motion move mo
 	^factanswer("No movements cause it to hurt.")
 
 #! Does it hurt when you bend
-	?: DOES_IT_HURT_WHEN_YOU_BEND (<< [hurt painful worse] bend >>)  ^factanswer("It doesn't hurt when I bend.")
+	?: DOES_IT_HURT_WHEN_YOU_BEND (<< [hurt painful worse] [bend crouch lean] >>)  ^factanswer("It doesn't hurt when I bend.")
 
 #! Does it hurt when you move
 	?: DOES_IT_HURT_WHEN_YOU_MOVE

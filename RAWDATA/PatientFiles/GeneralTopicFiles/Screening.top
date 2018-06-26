@@ -9,7 +9,7 @@ topic: ~screenings keep repeat (screen screening screened colonoscopy mammogram 
 # This is the general section
 
 #! have you had a blood typing
-	u: HAVE_YOU_HAD_A_BLOOD_TYPING
+	?: HAVE_YOU_HAD_A_BLOOD_TYPING
 		([
 			([screen screened screening test testing tested determined] *~3 [blood type "blood typing" "blood type"])
 			([blood type "blood typing" "blood type"] *~3 [screen screened screening test testing tested determined])
@@ -17,7 +17,7 @@ topic: ~screenings keep repeat (screen screening screened colonoscopy mammogram 
 	^factanswer("I've never had one of those.")
 
 #! Have you had blood drawn
-	u: HAVE_YOU_HAD_BLOOD_DRAWN (blood *~3 [work draw drawn test]) ^factanswer("I've not had my blood drawn.")
+	?: HAVE_YOU_HAD_BLOOD_DRAWN (blood *~3 [work draw drawn test]) ^factanswer("I've not had my blood drawn.")
 
 # ***************************************************************************************************
 
@@ -25,7 +25,7 @@ topic: ~screenings keep repeat (screen screening screened colonoscopy mammogram 
 
 #! have you had a colonoscopy
 
-	u: HAVE_YOU_HAD_A_COLONOSCOPY
+	?: HAVE_YOU_HAD_A_COLONOSCOPY
 		([
 	 		(<< [screen screened screening] "colon cancer" >>)
 			(!abnormal colonoscopy)
@@ -33,7 +33,7 @@ topic: ~screenings keep repeat (screen screening screened colonoscopy mammogram 
 	^factanswer("I've never had one of those.")
 
 #! Have you had abnormal colonoscopy
-	u: HAVE_YOU_HAD_ABNORMAL_COLONOSCOPY ([abnormal unusual benign malignant] *~3 colonoscopy) ^factanswer("They have been normal.")
+	?: HAVE_YOU_HAD_ABNORMAL_COLONOSCOPY ([abnormal unusual benign malignant] *~3 colonoscopy) ^factanswer("They have been normal.")
 
 # ***************************************************************************************************
 
@@ -41,7 +41,7 @@ topic: ~screenings keep repeat (screen screening screened colonoscopy mammogram 
 
 #! have you had your mammogram
 
-	u: HAVE_YOU_HAD_YOUR_MAMMOGRAM
+	?: HAVE_YOU_HAD_YOUR_MAMMOGRAM
 		([
 			(<<[screen screened screening] "breast cancer" >>)
 	 		([mammogram mammography])
@@ -53,7 +53,7 @@ topic: ~screenings keep repeat (screen screening screened colonoscopy mammogram 
 # This is the male GU section
 
 #! have you had a prostate exam
-	u: HAVE_YOU_HAD_A_PROSTATE_EXAM
+	?: HAVE_YOU_HAD_A_PROSTATE_EXAM
 		([
 			(<<[screen exam check screened screening] "prostate cancer" >>)
 			([prostate psa])
@@ -62,7 +62,7 @@ topic: ~screenings keep repeat (screen screening screened colonoscopy mammogram 
 		a: RESULTS_OF_PROSTATE_EXAM (result) ^factanswer("Never had a prostate exam.")
 
 #! What were results of prostate exam
-	u: RESULTS_OF_PROSTATE_EXAM
+	?: RESULTS_OF_PROSTATE_EXAM
 		([
 			([~itwords "prostate exam" psa] * [result normal])
 			([~itwords "prostate exam" psa] * [result normal])
@@ -74,7 +74,7 @@ topic: ~screenings keep repeat (screen screening screened colonoscopy mammogram 
 # This is the female GU section
 
 #! Have you had a pap smear
-	u: HAVE_YOU_HAD_A_PAP_SMEAR
+	?: HAVE_YOU_HAD_A_PAP_SMEAR
 		([
 			(<<[screen screened screening] [cervical "cervical cancer"]>>)
 			(!abnormal [ever "have you had"] *~3 ["pap smear" pap Pap_smear])
@@ -83,13 +83,13 @@ topic: ~screenings keep repeat (screen screening screened colonoscopy mammogram 
 		a: RESULTS_OF_PAP_SMEAR  (result)  ^factanswer("Never had a pap smear.")
 
 #! What were results of pap smear
-	u: RESULTS_OF_PAP_SMEAR  ([~itwords pap smear] *~3 [result normal])  ^factanswer("Never had a pap smear.")
+	?: RESULTS_OF_PAP_SMEAR  ([~itwords pap smear] *~3 [result normal])  ^factanswer("Never had a pap smear.")
 
 #! Have you ever had an abnormal pap
-	u: HAVE_YOU_EVER_HAD_AN_ABNORMAL_PAP  (<< abnormal [pap Pap_smear "pap smear"] >>)  ^factanswer("Never had one.")
+	?: HAVE_YOU_EVER_HAD_AN_ABNORMAL_PAP  (<< abnormal [pap Pap_smear "pap smear"] >>)  ^factanswer("Never had one.")
 
 #! When was your last pap smear
-	u: WHEN_WAS_YOUR_LAST_PAP_SMEAR (when * [last recent] *~3 [pap smear "pap smear" "pap test" pap]) ^factanswer("Never had one.")
+	?: WHEN_WAS_YOUR_LAST_PAP_SMEAR (when * [last recent] *~3 [pap smear "pap smear" "pap test" pap]) ^factanswer("Never had one.")
 
 # ***************************************************************************************************
 
@@ -144,7 +144,7 @@ topic: ~screenings keep repeat (screen screening screened colonoscopy mammogram 
 # This is the diabetes section
 
 #! Have you had blood glucose checked
-	u: HAVE_YOU_HAD_BLOOD_GLUCOSE_CHECKED
+	?: HAVE_YOU_HAD_BLOOD_GLUCOSE_CHECKED
 		([
 	 		(["blood glucose" sugar "blood sugar" glucose "hemoglobin A1c" A1c "hgb A1c"] *~3 [check measure run test screen level])
 	 		([check measure run test screen level know] *~3 ["blood glucose" sugar "blood sugar" glucose "hemoglobin A1c" A1c "hgb A1c"])
@@ -152,7 +152,7 @@ topic: ~screenings keep repeat (screen screening screened colonoscopy mammogram 
 	^factanswer("My blood glucose has always been normal.")
 
 #! Are you current on bloodwork
-		u: ARE_YOU_CURRENT_ON_BLOODWORK
+		?: ARE_YOU_CURRENT_ON_BLOODWORK
 			([
 		 		([current recent recently had up-to-date "up to date"] * [bloodwork screening])
 	 			([bloodwork screening] * [current recent recently up-to-date "up to date"])

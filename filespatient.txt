@@ -9,12 +9,12 @@
 ../RAWDATA/PatientFiles/Control/medicalcontrol.top		# system control
 ../RAWDATA/PatientFiles/Control/scorefn.top			
 # ../RAWDATA/PatientFiles/Control/scoreforpdf.top 		# This scoring file is used to provide formatted output for pdf
- ../RAWDATA/PatientFiles/Control/scoreforpdf_ws.top # This scoring file is used to provide formatted output for pdf fixed by Adam Stiff
-#../RAWDATA/PatientFiles/Control/scorefortxt.top		# This scoring file is used to provide unformatted output for text file	
+../RAWDATA/PatientFiles/Control/scoreforpdf_ws.top # This scoring file is used to provide formatted output for pdf fixed by Adam Stiff
+# ../RAWDATA/PatientFiles/Control/scorefortxt.top		# This scoring file is used to provide unformatted output for text file	
 
 # Patient Topic Files
 
-# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient1.top
+../RAWDATA/PatientFiles/Patient_Topic_Files/patient1.top
 ../RAWDATA/PatientFiles/Patient_Topic_Files/patient2.top
 # ../RAWDATA/PatientFiles/Patient_Topic_Files/patient3.top
 # ../RAWDATA/PatientFiles/Patient_Topic_Files/patient4.top
@@ -45,7 +45,7 @@
 # General Topic Files
 
 ../RAWDATA/PatientFiles/GeneralTopicFiles/Opening_Dialogue.top		# What brings you in today questions
-../RAWDATA/PatientFiles/GeneralTopicFiles/job.top					# Job and work questions
+../RAWDATA/PatientFiles/GeneralTopicFiles/Job.top					# Job and work questions
 ../RAWDATA/PatientFiles/GeneralTopicFiles/PatientInformation.top	# Demographics
 ../RAWDATA/PatientFiles/GeneralTopicFiles/Socialhistory.top			# Social History Questions
 ../RAWDATA/PatientFiles/GeneralTopicFiles/Family.top				# Family Questions
@@ -55,7 +55,7 @@
 ../RAWDATA/PatientFiles/GeneralTopicFiles/Movements.top				# Movement Questions
 ../RAWDATA/PatientFiles/GeneralTopicFiles/ChitChat.top				# General ChitChat
 ../RAWDATA/PatientFiles/GeneralTopicFiles/Medications.top			# Medications past and present
-../RAWDATA/PatientFiles/GeneralTopicFiles/closure.top				# Goodbye
+../RAWDATA/PatientFiles/GeneralTopicFiles/Closure.top				# Goodbye
 ../RAWDATA/PatientFiles/GeneralTopicFiles/Hopi.top	       			# History of present illness 
 ../RAWDATA/PatientFiles/GeneralTopicFiles/Inappropriate_Language.top	# All the bad words 
 ../RAWDATA/PatientFiles/GeneralTopicFiles/Statements.top			# Statements
@@ -68,8 +68,8 @@
 
 # Current Symptoms
 
-../RAWDATA/PatientFiles/CurrentSymptoms/currentmusclesymptoms.top		# Current Musculoskeletal and Rheumatologic Symptoms
-../RAWDATA/PatientFiles/CurrentSymptoms/currentHEENTsymptoms.top		# Current HEENT Symptoms
+../RAWDATA/PatientFiles/CurrentSymptoms/CurrentMuscleSymptoms.top		# Current Musculoskeletal and Rheumatologic Symptoms
+../RAWDATA/PatientFiles/CurrentSymptoms/CurrentHEENTSymptoms.top		# Current HEENT Symptoms
 ../RAWDATA/PatientFiles/CurrentSymptoms/CurrentCardiovascularSymptoms.top	# Current CardiacSymptoms
 ../RAWDATA/PatientFiles/CurrentSymptoms/CurrentAbdominalGISymptoms.top		# Current Abdominal and GI Symptoms
 ../RAWDATA/PatientFiles/CurrentSymptoms/CurrentGUSymptoms.top			# Current Genitourinary Symptoms
@@ -98,14 +98,14 @@
 
 # Past Medical Symptoms
 
-../RAWDATA/PatientFiles/PastMedicalSymptoms/PastAbdominalGIsymptoms.top		# Past Abdominal and GI Symptoms
-../RAWDATA/PatientFiles/PastMedicalSymptoms/Pastcardiovascularsymptoms.top	# Past Cardiac Symptoms
-../RAWDATA/PatientFiles/PastMedicalSymptoms/PastGUsymptoms.top			# Past GU Symptoms
-../RAWDATA/PatientFiles/PastMedicalSymptoms/PastGeneralsymptoms.top		# Past General Symptoms
-../RAWDATA/PatientFiles/PastMedicalSymptoms/PastHEENTsymptoms.top		# Past HEENT Symptoms
+../RAWDATA/PatientFiles/PastMedicalSymptoms/PastAbdominalGISymptoms.top		# Past Abdominal and GI Symptoms
+../RAWDATA/PatientFiles/PastMedicalSymptoms/PastCardiovascularSymptoms.top	# Past Cardiac Symptoms
+../RAWDATA/PatientFiles/PastMedicalSymptoms/PastGUSymptoms.top			# Past GU Symptoms
+../RAWDATA/PatientFiles/PastMedicalSymptoms/PastGeneralSymptoms.top		# Past General Symptoms
+../RAWDATA/PatientFiles/PastMedicalSymptoms/PastHEENTSymptoms.top		# Past HEENT Symptoms
 ../RAWDATA/PatientFiles/PastMedicalSymptoms/Pastmusclesymptoms.top		# Past Musculoskeletal and Rheumatologic Symptoms
-../RAWDATA/PatientFiles/PastMedicalSymptoms/Pastneurologicsymptoms.top		# Past Neurologic Symptoms
-../RAWDATA/PatientFiles/PastMedicalSymptoms/Pastpainsymptoms.top		# Past Pain Symptoms
-../RAWDATA/PatientFiles/PastMedicalSymptoms/PastGYNsymptoms.top			# Past GYN Symptoms
+../RAWDATA/PatientFiles/PastMedicalSymptoms/PastNeurologicSymptoms.top		# Past Neurologic Symptoms
+../RAWDATA/PatientFiles/PastMedicalSymptoms/PastPainSymptoms.top		# Past Pain Symptoms
+../RAWDATA/PatientFiles/PastMedicalSymptoms/PastGYNSymptoms.top			# Past GYN Symptoms
 ../RAWDATA/PatientFiles/PastMedicalSymptoms/PastRespiratorySymptoms.top		# Past Respiratory Questions
 ../RAWDATA/PatientFiles/PastMedicalSymptoms/PastEndocrineSymptoms.top		# Past Endocrine (diabetes) Questions

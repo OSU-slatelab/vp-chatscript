@@ -21,7 +21,7 @@ concept: ~HEENT_Problems
 	hair hoarse hoarseness nosebleed
 	"dry mouth" mouth taste canker "mouth sore" "mouth sores" breath halitosis drool drooling gum voice throat teeth tongue lip toothache
 	eye eyesight vision flasher light floater tear visual blind blindness glasses contacts "contact lens"
-	ear hearing tinnitus "ringing in your ears" sneezing sneeze
+	ear hearing tinnitus "ringing in your ears" sneezing sneeze ringing
 	nose nasal sinus smell congestion snore snoring "sore throat" swallowing
 	]  # removed "hear" because of "I'm sorry to hear that" 8.26.2012 Removed "seeing because of "Are you seeing anyone" 1.2018
 
@@ -141,7 +141,8 @@ concept: ~Other_Problems
 topic: ~jargon keep repeat deprioritize (~medical_jargon)
 
 	u: Have_medical_jargon(have * _~medical_jargon) ^factanswer(^"I don't know what '_0 means")
-	u: Medical_jargon(~medical_jargon) ^factanswer(^"I don't know what that means.")
+	u: Medical_jargon(~medical_jargon) ^factanswer("I don't know what that means.")
+
 
 # This catches all symptoms that are negative. So, any positive symptoms will be caught by other topics, and everything else is no.
 # Need to work on this because it also catches all negative family symptoms. OK for now since they are all negative for covington
@@ -153,5 +154,23 @@ topic: ~jargon keep repeat deprioritize (~medical_jargon)
 
 topic: ~negativesymptoms keep repeat NoStay deprioritize ()
 
-	u: THIS_MATCHED_NEGATIVE_FAMILY_SYMPTOMS (![back when pain just only ~joint who] << ~role_family ~all_systems >>) ^factanswer(^"No.")
-	u: THIS_MATCHED_NEGATIVE_SYMPTOMS (![back when pain just only ~joint who] ~all_systems) ^factanswer(^"No.")
+# onewordinputs
+	u: (!. < *1 >) $$oneword = '_0 What do you want to know about '_0?
+		a: () $_sentence = ^join('_0 " "  $$oneword " " '_1) ^input($_sentence) ^fail(SENTENCE)
+
+
+#! Tell me more
+	u: TELL_ME_MORE # moved this here from opening dialogue so other "Tell me mores" will match first
+		([
+			("tell me more" >)
+			([continue elaborate])
+			(![we 'I] tell * [more happened doing "going on" about])
+		])
+		What do you want to know?
+
+
+	u: THIS_MATCHED_NEGATIVE_FAMILY_SYMPTOMS (![back when pain just only ~joint who] << ~role_family ~all_systems >>) ^factanswer("No.")
+	u: THIS_MATCHED_NEGATIVE_SYMPTOMS (![back when pain just only ~joint who] ~all_systems) ^factanswer("No.")
+
+#! Catch-all for statements - need to check carefully
+#	s:() ^factanswer(" ")

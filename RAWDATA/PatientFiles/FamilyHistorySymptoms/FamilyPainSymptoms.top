@@ -8,4 +8,4 @@ topic: ~familypain keep repeat (~role_family ~pain)
 	u: ($pasthistory) respond(~pastpain) ^fail(TOPIC)
 
 #! Does anyone in your family have pain
-	u: ANYONE_IN_YOUR_FAMILY_HAVE_PAIN (~back_pain)    ^factanswer("Not that I am aware of.")
+	?: ANYONE_IN_YOUR_FAMILY_HAVE_PAIN (~back_pain)    ^factanswer("Not that I am aware of.")

@@ -6,10 +6,10 @@ topic: ~pastbreathing keep repeat (breath labor ~breathing_problems inhaler puff
 	u: ($family) respond(~familybreathing) ^fail(TOPIC)
 
 #! Have you ever had any breathing problems
-	u: EVER_HAD_ANY_BREATHING_PROBLEMS ([~breathing_problems ~breathing_conditions] * [before past previously prior child youth])  ^factanswer("My breathing has been fine.")
+	?: EVER_HAD_ANY_BREATHING_PROBLEMS ([~breathing_problems ~breathing_conditions] * [before past previously prior child youth])  ^factanswer("My breathing has been fine.")
 
 #! Ever use an inhaler
-	u: EVER_USE_AN_INHALER  (inhaler puffer)  ^factanswer("I never have.")
+	?: EVER_USE_AN_INHALER  (inhaler puffer)  ^factanswer("I never have.")
 
 # ***************************************************************************************************
 
@@ -19,7 +19,7 @@ topic: ~pastcough keep repeat (cough)
 	u: ($family) respond(~familycough) ^fail(TOPIC)
 
 #! Was your past cough productive
-	u: WAS_YOUR_PAST_COUGH_PRODUCTIVE
+	?: WAS_YOUR_PAST_COUGH_PRODUCTIVE
 		([
 			(ever * [produce bring hack] * cough)
 			(cough * [productive produce "bring up" phlegm sputum] * [past ever before])

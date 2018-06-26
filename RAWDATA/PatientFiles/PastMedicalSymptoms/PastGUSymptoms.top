@@ -9,10 +9,10 @@ topic: ~pastbladder keep repeat (~bladder_problems hold control difficulty UTI "
 
 
 #! Have you had incontinence before
-	u: HAVE_YOU_HAD_INCONTINENCE_BEFORE ([incontinence incontinent])    ^factanswer("I have not had that before.")
+	?: HAVE_YOU_HAD_INCONTINENCE_BEFORE ([incontinence incontinent])    ^factanswer("I have not had that before.")
 
 #! Have you had any  past bladder problems
-	u: HAVE_YOU_HAD_ANY_PAST_BLADDER_PROBLEMS (![where when how bowel] [ever past] * [~bladder_problems "urinary retention"])    ^factanswer("I have no problems with my bladder.")
+	?: HAVE_YOU_HAD_ANY_PAST_BLADDER_PROBLEMS (![where when how bowel] [ever past] * [~bladder_problems "urinary retention"])    ^factanswer("I have no problems with my bladder.")
 
 # ***************************************************************************************************
 
@@ -22,4 +22,4 @@ topic: ~pastmaleGU keep repeat (!bowel erection)
 	u: ($family) respond(~familymaleGU) ^fail(TOPIC)
 
 #! Have you had erectile dysfunction before
-	u: HAVE_YOU_HAD_ERECTILE_DYSFUNCTION_BEFORE (["erectile dysfunction" erection])  ^factanswer("I have not experienced that.")
+	?: HAVE_YOU_HAD_ERECTILE_DYSFUNCTION_BEFORE (["erectile dysfunction" erection])  ^factanswer("I have not experienced that.")

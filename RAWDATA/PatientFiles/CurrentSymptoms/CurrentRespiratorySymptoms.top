@@ -6,7 +6,7 @@ topic: ~currentbreathing keep repeat (breath labor ~breathing_problems inhaler p
 	u: ($family) respond(~familybreathing) ^fail(TOPIC)
 
 #! Do you use an inhaler
-	u: DO_YOU_USE_AN_INHALER  (!ever [use carry sniff have] * [inhaler puffer])  ^factanswer("I do not.")
+	?: DO_YOU_USE_AN_INHALER  (!ever [use carry sniff have] * [inhaler puffer])  ^factanswer("I do not.")
 
 # ***************************************************************************************************
 
@@ -16,7 +16,7 @@ topic: ~currentcough keep repeat (cough sputum phlegm)
 	u: ($family) respond(~familycough) ^fail(TOPIC)
 
 #! Is your cough productive
-	u: IS_YOUR_COUGH_PRODUCTIVE
+	?: IS_YOUR_COUGH_PRODUCTIVE
 		([
 			(!ever [produce bring hack] * cough)
 			(!ever cough * [productive produce "bring up" phlegm sputum wet dry])
