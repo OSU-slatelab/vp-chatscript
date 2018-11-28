@@ -39,7 +39,7 @@ OK "\[ NodYes \]"
 NICE_TO_MEET_YOU  "\[ Happiness1 \]Nice to meet you too. I am really glad to see you today."
 NICE_TO_SEE_YOU "\[ Happiness1 \]Nice to see you too. I am really glad to see you today."
 NICE_TO_SEE_YOU_TOO "\[ Happiness1 \]Thanks."
-HOW_ARE_YOU "\[ Pain2 \]Well I would be doing pretty well if my back weren't hurting so badly."
+HOW_ARE_YOU "\[ Pain2 \] Well I would be doing pretty well if my back weren't hurting so badly."
 TELL_ME_ABOUT_YOURSELF "\[ Fear2 \]Most of my friends think I am pretty tough, but these past few days I haven't been so tough.  I guess my pain tolerance is lower than I thought.  Usually I can cut myself or get knocked around ok, but this back things has really thrown me for a loop."
 HELLO "Hello Doctor.  I am glad to see you."
 
@@ -926,7 +926,7 @@ HOW_HAS_YOUR_DAY_BEEN_GOING "My '_0 was just fine, thanks for asking. If it were
 ### Closure
 # closure
 
-DO_YOU_HAVE_ANY_QUESTIONS "print(  [No] [No, I think that's all. Thank you for your time])"
+DO_YOU_HAVE_ANY_QUESTIONS ^"[ No ] [ No, I think that's all. Thank you for your time ]"
 ANYTHING_ELSE_I_CAN_HELP_WITH "No, thank you for seeing me.  Hopefully we can get this pain taken care of and I can get back to work."
 HAVE_EVERYTHING_YOU_NEED "Yes, thank you.  Just tell me what to try and I will do my best.  I really want to get this fixed."
 HAVE_ALL_THE_INFORMATION "\[ Happiness1 \]OK Thanks."

@@ -3,11 +3,12 @@ outputmacro: ^factanswer(^failmsg)
 	$$label = GetRule(LABEL ~)
 	if (^query(direct_sv $$label $vpatient ? 1))
 	{  
-		print (OUTPUT_NOQUOTES  @0object)	
+		$$answer = @0object
+		^print( ^eval(OUTPUT_NOQUOTES $$answer))
 	}
 	else
 	{
-		print(OUTPUT_NOQUOTES ^failmsg)  # print needed to strip quotes off the variable value
+		^print(OUTPUT_NOQUOTES ^failmsg)  # print needed to strip quotes off the variable value
 	}
 	$$output = ^response(1)
 	if ($regression) { Log (FILE LOGS/VP.txt  $$label ^" : "  $$userInput : $$output \n) }

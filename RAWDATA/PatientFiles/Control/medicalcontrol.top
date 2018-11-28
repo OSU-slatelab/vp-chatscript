@@ -164,7 +164,8 @@ u: MAINCONTROL(_*) # main per-sentence processing
 	if (%response == $$startInput)
 	{
 		^repeat()
-	 	factanswer(^"[I'm afraid I don't understand that question.]  [I'm sorry, I don't understand that question. Would you restate it?]")
+		$dunno = [ I'm afraid I don't understand that question. ] [ I'm sorry, I don't understand that question. Would you restate it?]
+	 	^factanswer( $dunno )
 	}
 
 topic: ~control_post system()
