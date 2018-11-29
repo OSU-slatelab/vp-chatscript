@@ -1,3 +1,4 @@
+
 topic: ~score ()
 u: () $totalQueries = $q_num_external
 
@@ -21,20 +22,20 @@ u: () $totalQueries = $q_num_external
 	}
 
 	# now note this new question was asked
-	$$tmp = %originalSentence # $$rawinput
+	$$tmp = $$rawinput
 
 	# find out if this is a retry query by checking for another query with the same number;
 	# if so we want to keep the old form and replace the label in the fact set.
-	@17 = ^query ( direct_vo ? asked $totalQueries )
+	@17 = ^query(direct_vo ? asked $totalQueries )
 	if (!@17)
 	{
-		^createfact ( $$tmp form $totalQueries ) # Only store the form if this is the first time this query num was seen
+		^createfact($$tmp form $totalQueries) # Only store the form if this is the first time this query num was seen
 	}
 	else {
-		^delete ( ^first ( @17fact ) )
+		^delete(^first(@17fact))
 	}
 
-	^createfact ( $$label asked $totalQueries FACTDUPLICATE ) # store label; this was deleted if there was a previous label
+	^createfact($$label asked $totalQueries FACTDUPLICATE) # store label; this was deleted if there was a previous label
 
 	if (!$open) {$open = 0}
 

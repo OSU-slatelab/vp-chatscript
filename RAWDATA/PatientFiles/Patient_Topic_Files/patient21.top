@@ -1,11 +1,11 @@
-outputmacro: patient2()
-$patientfirstname = Jack
-$patientlastname = Wilson
+outputmacro: patient21()
+$patientfirstname = Carlos
+$patientlastname = Martinez
 $chiefcomplaint = ~back_pain
 $complaint2 =
 $complaint3 =
-$Vpatient2 = Vpatient2
-$Vpatient = Vpatient2
+$Vpatient2 = Vpatient21
+$Vpatient = Vpatient21
 $patientTitle = Mr
 $currentjob = mechanic
 $currentmedication1 = Ibuprofen
@@ -15,7 +15,7 @@ $currentpainnum = 7
 
 ^stdpatient()
 
-table: ^patientdata(Vpatient2)
+table: ^patientdata(Vpatient21)
 
 
 ### OpeningDialogue
@@ -69,23 +69,23 @@ WHY_DID_YOU_WAIT "I don't know."
 ### PatientInformation
 # patientage
 
-HOW_OLD_ARE_YOU "I am 54."
-WHEN_WERE_YOU_BORN "August 10, 1964"
+HOW_OLD_ARE_YOU "I am 40."
+WHEN_WERE_YOU_BORN "August 10, 1978"
 
 # patientname
 
-NAME_AND_DATE_OF_BIRTH "My name  is Jack Wilson and I was born August 10, 1964."
-WHAT_IS_YOUR_NAME "My Name is Jack Wilson."
+NAME_AND_DATE_OF_BIRTH "My name  is Carlos Martinez and I was born August 10, 1978."
+WHAT_IS_YOUR_NAME "My Name is Carlos Martinez."
 DID_I_PRONOUNCE_THAT_CORRECTLY "Yes, that is correct."
 DO_YOU_MIND_IF_I_CALL_YOU "Sure.   My friends all do."
 HOW_DO_YOU_PRONOUNCE_THAT "Just like it is spelled."
-WHAT_SHOULD_I_CALL_YOU "Please call me Jack."
+WHAT_SHOULD_I_CALL_YOU "Please call me Javier."
 ARE_YOU_MR_PATIENTLASTNAME "Yes."
-ARE_YOU_MR_SOMEONEELSE "No, I am Jack Wilson"
+ARE_YOU_MR_SOMEONEELSE "No, I am Carlos Martinez"
 HELLO_MR_PATIENTLASTNAME "Hello Doctor.  I am so glad to see you."
-HELLO_MR_SOMEONEELSE "Hello Doctor, however my name is Jack Wilson."
+HELLO_MR_SOMEONEELSE "Hello Doctor, however my name is Carlos Martinez."
 MR_PATIENTLASTNAME "That is correct."
-MR_SOMEONEELSE "I am Jack Wilson."
+MR_SOMEONEELSE "I am Carlos Martinez."
 DIFFERENT_NAME "No."
 
 # patientweight
@@ -116,9 +116,8 @@ DOCTOR_PRESCRIBE_THE_MEDICINE "I just got it at the grocery store. It is not pre
 WHO_PRESCRIBED_THE_MEDICINE "I just got it at the grocery store."
 WHAT_IS_MEDICINE "A painkiller as far as I know.  My aunt told me that it helps her for aches and pain so I tried it."
 ARE_YOU_TAKING_ANY_MEDICATION "I have been taking ibuprofen for a few days, but that is not helping much."
- IS_MEDICATION_NEW "I have been taking this same painkiller since I hurt my back."
+IS_MEDICATION_NEW "I have been taking this same painkiller since I hurt my back."
 WHAT_WERE_THE_PILLS_CALLED "Just generic ibuprofen from CVS."
-WHAT_WAS_THE_DOSAGE "I am not sure, just regular strength."
 ANY_OTC_MEDICATION "Just the ibuprofen."
 ANY_PRESCRIPTION_MEDICATION "I am not taking any prescription medicines."
 ANY_REACTIONS_TO_MEDICATIONS "I am allergic to iodine, but other than than that I don't have any other allergies."
@@ -180,17 +179,17 @@ EVER_PRESCRIBED_MEDICATION "I have not been prescribed any medications."
 
 FOOD_OR_ENVIRONMENTAL_ALLERGIES "The only thing I am allergic to is iodine. Other than that I have never had any problems with allergies."
 DO_YOU_TAKE_MEDICATION_FOR_ALLERGIES "I don't take any medicine for it."
- HOW_MUCH_ALLERGY_MEDICATION "I don't take anything."
- HOW_OFTEN_ALLERGY_MEDICATION "I don't take anything."
- DOES_ALLERGY_MEDICATION_HELP "I don't take anything."
- TAKE_ALLERGY_MEDICATION_TODAY "I don't take anything."
+HOW_MUCH_ALLERGY_MEDICATION "I don't take anything."
+HOW_OFTEN_ALLERGY_MEDICATION "I don't take anything."
+DOES_ALLERGY_MEDICATION_HELP "I don't take anything."
+TAKE_ALLERGY_MEDICATION_TODAY "I don't take anything."
 WHAT_ARE_ALLERGY_REACTIONS "My skin got really red when they used iodine when I donated blood a long time ago so now I just tell them to use something else."
 DO_YOU_HAVE_ANY_ALLERGIES "I am allergic to iodine."
 
 ### SocialHistory
 # activity
 
-HOW_OFTEN_DO_YOU_EXERCISE "Not vas often as I should I'm afraid, maybe once or twice a month.  My job keeps me pretty active though."
+HOW_OFTEN_DO_YOU_EXERCISE "Not as often as I should I'm afraid, maybe once or twice a month.  My job keeps me pretty active though."
 DO_YOU_EXERCISE "I don't exercise that much. Occasionally I go jogging or for a long walk.  I am always on my feet for work though."
 ARE_YOU_ACTIVE "I suppose I don't exercise as much as I should, but I do go jogging once in a while or go for a long walk."
 HOW_IS_YOUR_ENERGY "I suppose I'm not as energetic as I once was, but I do get a little exercise."
@@ -220,7 +219,7 @@ DO_YOU_DRINK_COFFEE "I have a cup of coffee in the morning, but that's about it.
 
 # diet
 
-DO_YOU_DRINK_ENOUGH_FLUID "I drink 4-5 glasses of water per day."
+DO_YOU_DRINK_ENOUGH_FLUID "I drink four to five glasses of water per day."
 DO_YOU_EAT_DAIRY "\[ Happiness2 \] I love milk. I drink a couple glasses a day. I also like cheese."
 DO_YOU_EAT_FIBER "I'm not a big fiber person.  Salads just aren't quite enough for me and I like a lot of meat."
 DO_YOU_EAT_FAST_FOOD "I don't go to fast food restaurants very often, but now and then I will stop and get a hamburger or something like that."
@@ -274,10 +273,10 @@ ARE_YOU_ON_YOUR_FEET_A_LOT "\[ Sadness2 \]Generally I am always on my feet, espe
 ARE_YOU_CURRENTLY_WORKING "\[ Sadness2 \]I really haven't been able to work much lately.  Everything I try to do seems to involve bending or lifting something."
 WHY_ARE_YOU_OFF_WORK "I have been trying to work but I can't get much done with this back pain.  I can't lift anything or bend down."
 HOW_LONG_HAVE_YOU_BEEN_OFF_WORK "For the past 4 or 5 days. Ever since I hurt my back, I have not been able to work much."
-HAVE_YOU_BEEN_OFF_WORK_BECAUSE "My back hurts so much I can't do much work.  Every day I try and I can do some little things but I really can't lift anything or get under the cars so I haven't been very productive."
+HAVE_YOU_BEEN_OFF_WORK_BECAUSE "My back is so sore I can't do much of any work.  Every day I try and I can do some little things but I really can't lift anything or get under the cars so I haven't been very productive."
 HAVE_YOU_BEEN_OFF_WORK "My back is so sore I can't do much of any work.  Every day I try and I can do some little things but I really can't lift anything or get under the cars so I haven't been very productive."
 HAVE_YOU_BEEN_ABLE_TO_WORK "Every day I try and I can do some little things but I really can't lift anything or get under the cars so I haven't been very productive."
-WHAT_CAN_YOU_NOT_DO_AT_WORK "I can't do much of anything at work.  I can't carry any of the car parts, I can't get under the car.  I have even having trouble going to the store to get things.  I can't really lift anything or bend down."
+WHAT_CAN_YOU_NOT_DO_AT_WORK "I can't do much of anything at work.  I can't carry any of the car parts, I can't get under the car.  I am even having trouble going to the store to get things.  I can't really lift anything or bend down."
 WHAT_ELSE_CAN_YOU_NOT_DO "I can't do much of anything because my back hurts so much."
 DO_YOU_HAVE_PROBLEMS_WORKING "I haven't really been able to work although I keep trying.  I have customers waiting for their cars to be fixed."
 HOW_IS_WORK "Work has generally been good before this back pain.  I have been developing a strong customer base.  I have been working on restoring an old Ford Mustang. I haven't been able to keep up with any of that since this started though."
@@ -291,14 +290,14 @@ HOW_LONG_HAVE_YOU_BEEN_A_WORKER "About 17 years. I used to work for Jiffy-Lube, 
 DO_YOU_HAVE_INSURANCE "I have Blue Cross/Blue Shield."
 DO_YOU_HAVE_EXPOSURE_TO_CHEMICALS "I am around a lot of gasoline but I don't think that would cause my back to hurt!"
 HAVE_YOU_EVER_BEEN_IN_THE_MILITARY "I have never been in the military."
-WHAT_DO_YOU_DO_FOR_A_LIVING "I am an auto mechanic.  I have a garage a couple of blocks from my place.  I do repairs and custom restorations."
+WHAT_DO_YOU_DO_FOR_A_LIVING "I am an auto mechanic.  I have a garage a couple of blocks from here.  I do repairs and custom restorations."
 DO_YOU_WORK "I am an auto mechanic.  I have a garage a couple of blocks from here.  I do repairs and custom restorations."
 ANYONE_SICK_AT_AT_WORK "I generally work by myself."
 EXPOSURE_TO_HAZARDOUS_MATERIALS "I don't keep any hazardous stuff at work."
 HAVE_YOU_MADE_MISTAKES_AT_WORK "I haven't been able to work much."
 KIND_OF_MISTAKES "I haven't been able to work much."
 IS_YOUR_JOB_SECURE "I am self-employed but I need to get back to work soon."
-HOW_LONG_HAVE_YOU_WORKED "I have worked at my garage for about 17 years. Before that I worked at Jiffy lube for several years."
+HOW_LONG_HAVE_YOU_WORKED "I have worked at my garage for about 10 years. Before that I worked at Jiffy lube for several years."
 INABILITY_TO_WORK_CAUSED_PROBLEMS "Not being able to work is stressful. I really enjoy my job."
 TELL_ME_ABOUT_YOUR_WORK "What would you like to know?"
 DO_YOU_BEND_AT_WORK "Bending is difficult."
@@ -335,7 +334,7 @@ WHAT_DO_YOU-DO_FOR_FUN "Well, I like to play basketball a little with my buddies
 HOW_MANY_SEXUAL_PARTNERS "It has been a slow year.  I haven't had any."
 MONOGAMOUS "I am not sexually active at present.  When I am with someone I am only with that person though."
 DO_YOU_PREFER_MEN_OR_WOMEN "\[ Surprise4 \]I only date women."
-WHO_ARE_YOUR_SEXUAL_PARTNERS "I am not seeing anyone at the present time."
+WHO_ARE_YOUR_SEXUAL_PARTNERS "I am not seeing anyone at the moment."
 ANY_OTHER_SEXUAL_PARTNERS "I am not currently sexually active."
 ARE_YOU_SEXUALLY_ACTIVE "I am not currently  sexually active ."
 WHEN_DID_YOU_LAST_HAVE_INTERCOURSE "It has been over a year. I don't really remember."
@@ -427,7 +426,7 @@ DO_YOU_HAVE_BOWEL_OR_BLADDER_CONTROL "I haven't had any problems with that."
 
 HAVE_YOU_BEEN_NAUSEOUS "I have not been nauseous or sick to my stomach."
 DESCRIBE_THE_NAUSEA "I don't have anything like that."
-HAVE_YOU_BEEN_THROWING_UP "I have not."
+HAVE_YOU_BEEN_THROWING_UP "I have not been throwing up."
 
 # heartburn
 
@@ -501,7 +500,7 @@ DO_YOU_USE_CONTRACEPTION "I have always used condoms."
 
 # pain
 
-DO_YOU_HAVE_ANY_SORES_ON_YOUR_GROIN "It's all been pretty normal down there."
+DO_YOU_HAVE_ANY_SORES_ON_YOUR_GROIN "I have never had anything like that."
 
 # vaginalsymptoms
 
@@ -558,6 +557,7 @@ AVOIDING_MOVING_YOUR_BACK  "I try to avoid making any sudden moves because that 
 ARE_THE_MUSCLES_IN_YOUR_BACK_TIGHT  "My whole lower back feels tight."
 ARE_THE_MUSCLES_IN_YOUR_BACK_WEAK  "My back is so sore that it is difficult to tell."
 IS_THE_PAIN_ALWAYS_IN_YOUR_LOWER_BACK  "It pretty much just stays in my lower back."
+IS_THE_PAIN_ONLY_IN_YOUR_LOWER_BACK  "It pretty much just stays in my lower back."
 IS_THE_PAIN_IN_YOUR_UPPER_OR_LOWER_BACK  "It is mostly at the bottom, just above my jeans.  Maybe above it some too."
 IS_THE_PAIN_ON_THE_LEFT_OR_RIGHT_SIDE  "Mostly right in the middle.  Sometimes if I twist to a side or something it seems worse on the side but most of the time it is just in the middle."
 ANY_SPECIFIC_PART_OF_YOUR_BACK  "I don't know what you call it.  It is just above my jeans in the center of my back."
@@ -637,10 +637,10 @@ ARE_YOU_DIZZY "I have never had any problems like that."
 ### CurrentPainSymptoms
 # onset
 
-WHAT_WERE_YOU_DOING_WHEN_INJURED "A few days ago I was just getting dressed and bent over to tie my shoes and felt a sharp pain in my back. It has been hurting ever since."
+WHAT_WERE_YOU_DOING_WHEN_INJURED "A few days ago I was just getting dressed and when I bent over to tie my shoes I felt a sharp pain in my back."
 CIRCUMSTANCES_OF_THE_INJURY "I was just tying my shoes."
 HOW_DID_YOU_INJURE_YOURSELF "I hurt my back when I was getting dressed a few days ago. I bent over to tie my shoes and all of a sudden felt a sharp pain in my lower back."
-DID_YOU_INJURE_YOURSELF "I must have injured something because it really hurts.  I didn�t get hit by something or fall down or anything like that though."
+DID_YOU_INJURE_YOURSELF "I must have injured something because it really hurts.  I didn't get hit by something or fall down or anything like that though."
 HOW_LONG_AGO_WAS_THE_INCIDENT "About 4 or 5 days ago."
 DID_THE_PAIN_BEGIN_IMMEDIATELY "The pain began immediatley after bending over."
 IS_THE_PAIN_CONSTANT "The pain is there most of the time."
@@ -771,7 +771,7 @@ HAVE_YOU_BEEN_THROWING_UP "I have not."
 
 # heartburn
 
-EVER_HAD_ACID_TASTE_BEFORE "Not that I am aware of."
+EVER_HAD_ACID_TASTE_BEFORE "I have never had that."
 WHAT_FOOD_MADE_PAST_HEARTBURN_WORSE "I have never had heartburn,"
 
 ### PastCardiacSymptoms
@@ -1107,7 +1107,7 @@ HAVE_YOU_SEEN_A_DOCTOR "Not since last year for my physical."
 DID_YOU_HAVE_ANY_TROUBLE_FINDING_US "It was pretty easy to get here.  In general I know the area really well.  I have a lot of customers who come to my shop from here."
 DID_YOU_FIND_A_PARKING_SPOT "I had no problems parking.  Things around here are actually pretty easy.  There are a lot of clear signs."
 HOW_DID_YOU_GET_HERE_TODAY "\[ Happiness4 \]I rode a horse.  Just kidding.  I fix cars and usually have no trouble with transportation.  I have a lot of cars in various states of repair around my shop."
-HOW_DID_YOU_COME_TO_FIND_US "I have been here before for my annual physical. This office is pretty close for me and I have a couple of friends that have recommended you."
+HOW_DID_YOU_COME_TO_FIND_US "I have been here before for my annual physical exam. This office is pretty close for me and I have a couple of friends that have recommended you."
 HOW_DID_YOU_LEARN_ABOUT_THIS_OFFICE  "I have been here before for my annual physical exam. This office is pretty close for me and I have a couple of friends that have recommended you."
 HAVE_YOU_BEEN_SEEN_AT_THIS_OFFICE_BEFORE  "I was here about a year ago for a routine physical."
 ARE_YOU_A_NEW_PATIENT "I have been to this office about a year ago for a routine physical."
@@ -1381,9 +1381,9 @@ ANY_PROBLEMS_AT_HOME "No concerns there."
 ### HOPIChiefcomplaint
 # onset
 
-DID_ANYTHING_HAPPEN_TO_CAUSE_THE_1 "A few days ago I was just getting dressed and when I bent over to tie my shoes I felt a sharp pain in my lower back."
-HOW_DID_THE_1_START "\[ Pain2 \]My back started hurting when I bent over the other day to ties my shoes. All of a sudden I felt a sharp pain in my lower back. It really hurt!"
-DOING_ANYTHING_WHEN_THE_1_STARTED "A few days ago I was just putting on my shoes and when I bent over I felt a shapr pain in my back."
+DID_ANYTHING_HAPPEN_TO_CAUSE_THE_1 "A few days ago I was just getting dressed and when I bent over to tie my shoes I felt a sharp pain in my back."
+HOW_DID_THE_1_START "\[ Pain2 \]My back started hurting when I bent over the other day to tie my shoes. All of a sudden I felt a sharp pain in my lower back. It really hurt!"
+DOING_ANYTHING_WHEN_THE_1_STARTED "A few days ago I was just getting dressed and when I bent over to tie my shoes I felt a sharp pain in my back."
 WAS_THE_ONSET_SUDDEN1 "Yes it started immediately.  I had to straighten up and just sit there for a while."
 DID_THE_1_START_IMMEDIATELY "I felt a sharp pain right away."
 IS_THE_1_NEW "It started about 4-5 days ago so yeah, it is pretty recent.  I don't remember any trouble before then."
@@ -1397,8 +1397,8 @@ DO_YOU_HAVE_A_CAUSE_FOR_1 "\[ Pain3 \]I'm not really sure, all I know is that my
 # exacerbation
 
 WHAT_MAKES_THE_1_WORSE "\[ Pain3 \]Bending down and moving makes it feel a lot worse.  The other day I couldn't even pick up a car part off of the bottom shelf."
-DOES_ANYTHING_CHANGE_1_INTENSITY "\[ Pain4 \]Bending over and moving generally makes it worse.   The other day I couldn't even pick up a car part off of the bottom shelf."
-WHAT_HAVE_YOU_TRIED_FOR_THE_1 "I tried some ibuprofen, but that hasn't helped very much.  A buddy of mine swears by accupuncture and has been trying to get me to do that but I don't really like needles.  At first I tried just laying in bed, but that didn't really seem to help and I can't just lay there all day."
+DOES_ANYTHING_CHANGE_1_INTENSITY "\[ Pain4 \]Bending down and moving makes it feel a lot worse.  The other day I couldn't even pick up a car part off of the bottom shelf."
+WHAT_HAVE_YOU_TRIED_FOR_THE_1 "I tried some ibuprofen, but I don't think that is helping very much.  A buddy of mine swears by accupuncture and has been trying to get me to do that but I don't really like needles.  At first I tried just laying in bed, but that didn't really seem to help and I can't just lay there all day."
 HAVE_YOU_TRIED_ANYTHING_FOR_THE_1 "I tried some ibuprofen, but I don't think that is helping very much.  A buddy of mine swears by accupuncture and has been trying to get me to do that but I don't really like needles.  At first I tried just laying in bed, but that didn't really seem to help and I can't just lay there all"
 WHAT_MAKES_THE_1_BETTER "\[ Sadness2 \]The only thing that seems to help some is ibuprofen, and that doesn't help all that much.  That is why I am coming to you."
 DOES_ANYTHING_ELSE_HELP_THE_1 "I haven't tried anything else yet.  On the first day after it happened I just laid in bed, but I don't know if that helped much and was real antsy.  I have been thinking about getting a massage but they are pretty expensive.  I really just don't know what to do."

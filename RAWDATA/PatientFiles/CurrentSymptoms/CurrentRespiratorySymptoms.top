@@ -1,25 +1,23 @@
-# ***************************************************************************************************
-
 topic: ~currentbreathing keep repeat (breath labor ~breathing_problems inhaler puffer ~breathing_conditions)
 
-	u: ($pasthistory) respond(~pastbreathing)  ^fail(TOPIC)
-	u: ($family) respond(~familybreathing) ^fail(TOPIC)
+u: ($pasthistory) respond(~pastbreathing)  ^fail(TOPIC)
+u: ($family) respond(~familybreathing) ^fail(TOPIC)
 
 #! Do you use an inhaler
-	u: DO_YOU_USE_AN_INHALER  (!ever [use carry sniff have] * [inhaler puffer])  ^factanswer("I do not.")
+u: DO_YOU_USE_AN_INHALER  (!ever [use carry sniff have] * [inhaler puffer])  ^factanswer("I do not.")
 
 # ***************************************************************************************************
 
 topic: ~currentcough keep repeat (cough sputum phlegm)
 
-	u: ($pasthistory) respond(~pastcough)  ^fail(TOPIC)
-	u: ($family) respond(~familycough) ^fail(TOPIC)
+u: ($pasthistory) respond(~pastcough)  ^fail(TOPIC)
+u: ($family) respond(~familycough) ^fail(TOPIC)
 
 #! Is your cough productive
-	u: IS_YOUR_COUGH_PRODUCTIVE
-		([
-			(!ever [produce bring hack] * cough)
-			(!ever cough * [productive produce "bring up" phlegm sputum wet dry])
-			(!ever [sputum phlegm] production)
-		])
-	^factanswer("I do not have a cough.")
+u: IS_YOUR_COUGH_PRODUCTIVE
+	([
+		(!ever [produce bring hack] * cough)
+		(!ever cough * [productive produce "bring up" phlegm sputum wet dry])
+		(!ever [sputum phlegm] production)
+	])
+	^factanswer("I have not had any problems like that.")

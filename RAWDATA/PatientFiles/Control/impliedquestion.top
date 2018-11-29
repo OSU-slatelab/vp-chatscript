@@ -116,3 +116,9 @@ s: QUESTION (!~interjections) if (%length == 0) {END(TOPIC)}
 
 	#! Ever taken medication?
 	a: (!since < ever) ^SetTokenFlags(#QUESTIONMARK) # I added this to Bruce's impliedquestion list - probably only good for us
+
+	#! Anyone taken medication?
+	#! Any breast changes?
+		a: (< [any anyone] *) ^SetTokenFlags(#QUESTIONMARK) # I added this to Bruce's impliedquestion list - probably only good for us
+
+	a: (< and *) ^SetTokenFlags(#QUESTIONMARK) # and do they have any illness? starting sentence with and makes it a statemtent.

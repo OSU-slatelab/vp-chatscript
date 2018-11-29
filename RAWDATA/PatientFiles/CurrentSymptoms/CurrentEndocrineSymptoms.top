@@ -2,8 +2,8 @@
 
 topic: ~currentendocrine keep repeat (diabetes)
 
-	u: ($pasthistory) respond(~pastendocrine)  ^fail(TOPIC)
-	u: ($family) respond(~familyendocrine) ^fail(TOPIC)
+u: ($pasthistory) respond(~pastendocrine)  ^fail(TOPIC)
+u: ($family) respond(~familyendocrine) ^fail(TOPIC)
 
 #! Do  you have diabetes
-	?: DO_YOU_HAVE_DIABETES (do you have diabetes) ^factanswer("I do not.")
+u: DO_YOU_HAVE_DIABETES (do you have diabetes) ^factanswer("I have not had any problems like that.")

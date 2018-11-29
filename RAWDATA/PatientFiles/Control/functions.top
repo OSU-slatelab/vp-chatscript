@@ -1,9 +1,9 @@
 
-outputmacro: ^factanswer(^failmsg)
+outputmacro: ^factanswer(^failmsg) # this is the code that queries the table of labels and answers and returns the answer if one is available.
 	$$label = GetRule(LABEL ~)
 	if (^query(direct_sv $$label $vpatient ? 1))
-	{  
-		print (OUTPUT_NOQUOTES  @0object)	
+	{
+		print (OUTPUT_NOQUOTES  @0object)
 	}
 	else
 	{
@@ -12,4 +12,4 @@ outputmacro: ^factanswer(^failmsg)
 	$$output = ^response(1)
 	if ($regression) { Log (FILE LOGS/VP.txt  $$label ^" : "  $$userInput : $$output \n) }
 
-	nofail(TOPIC respond(~score)) # compute current scoring information
+	nofail(TOPIC respond(~score)) # compute current scoring information - this runs for every question 

@@ -5,7 +5,7 @@ concept: ~myunkonwnnouns NOUN ["eye-opener" "pcp" bathsalts hib "hpv" illnesses 
 # ***************************************************************************************************
 
 concept: ~age_words (age day millennium month old week year young )
-concept: ~alcoholic_beverage (~COCKTAIL ~SPIRITS ~WINE_RED ~WINE_WHITE alcoholic_beverage~1 beer cocktail alcohol liquor booze)
+concept: ~alcoholic_beverage (~COCKTAIL ~WINE_RED ~WINE_WHITE alcoholic_beverage~1 beer cocktail alcohol liquor booze)
 
 concept: ~wine_red NOUN (cabernet_sauvignon Chianti gamay Lambrusco Merlot Montepulciano Nebbiolo pinot_noir red_wine sangiovese Shiraz Syrah Tempranillo zinfandel )
 concept: ~wine_white NOUN (chardonnay chenin_blanc gewurztrauminer pinot_blanc pinot_grigio riesling sauvignon_blanc scheuerbe viognier white_wine )
@@ -13,7 +13,7 @@ concept: ~wine_white NOUN (chardonnay chenin_blanc gewurztrauminer pinot_blanc p
 concept: ~anger_emotion ( "fed up"  angry mad anger      loathing rancor temper )
 concept: ~bad_weather (frost gale hail hailstorm ice_storm icicle mist precipitation rain rainfall rainstorm rainy sleet snow snowy )
 concept: ~baseorgans (gut heart heartbeat intestine kidney liver lung pancreas bladder bowel)
-concept: ~beverage (milk cream water tea ~ALCOHOLIC_BEVERAGE ~CAFFINATED_DRINKS ~JUICE_DRINKS ~MILK_DRINKS ~WATER_DRINKS drinkable~1 )
+concept: ~beverage (milk cream water tea ~ALCOHOLIC_BEVERAGE ~CAFFEINATED_DRINKS ~JUICE_DRINKS ~MILK_DRINKS ~WATER_DRINKS drinkable~1 )
 
 concept: ~water_drinks (glass_of_water tonic water~n )
 
@@ -26,7 +26,7 @@ concept: ~bone (bone carpus coccyx cranium femur fibula humerus  metatarsus pate
 concept: ~musculoskeletal (tendon ligament muscle)
 concept: ~blemishmark (dimple freckle mole wart )
 
-concept: ~caffinated_drinks (cappuccino chai coffee espresso iced_coffee iced_tea latte tea )
+concept: ~caffeinated_drinks (cappuccino chai coffee espresso iced_coffee iced_tea latte tea )
 concept: ~cocktail (Alabama_Slammer Anejo_Highball Bay_Breeze Bellini Black_Russian Bloody_Caesar Bloody_Maria Bloody_Mary Blue_Lagoon Bocce_Ball Boilermaker Bourbon_and_Water Brandy Brandy_Alexander Brown_Cow Buck_'s_Fizz Cactus_Banger Campari_and_Soda Cape_Codder
                     Champagne_Cocktail Cherry_Hooker Cosmopolitan Cuba_Libre Daiquiri Freddie_Fuddpucker Fuzzy_Navel Gimlet Gin_and_Tonic Gin_Buck Gin_Rickey Hairy_Navel Harvey_Wallbanger Highball Horny_Bull Irish_coffee Kir Kir_Royale Lime_Rickey Long_Island_Ice_Tea
                     Madras Mai_Tai Manhattan Margarita Martini Mimosa Mint_Julep Mojito Moscow_Mule Old_Fashioned Orange_Blossom Pina_Colada Red_Beer Rum_and_Coke Rum_and_Pepsi Salty_Dog Sangria Scotch_and_soda Screwdriver Seven_and_Seven
@@ -74,19 +74,19 @@ concept: ~family_adult_generic (relative ancestor cousin descendant ~parents ste
 concept: ~family_adult_male (~BROTHER ~FATHER boyfriend brother-in-law ex-husband father-in-law fiance grandpaw grandfather grandpa grandpop hubby husband patriarch son-in-law stepfather uncle widower )
 concept: ~family_children (~FAMILY_CHILDREN_FEMALE ~FAMILY_CHILDREN_GENERIC ~FAMILY_CHILDREN_MALE )
 concept: ~family_children_female (~SISTER daughter granddaughter grandniece niece sister sister-in-law step-daughter step-sister stepdaughter stepsister )
-concept: ~family_children_generic (baby child  grandchild  grandkid infant kid sibling step-child stepchild teen teenager toddler tot children )
+concept: ~family_children_generic (baby~n child  grandchild  grandkid infant kid sibling step-child stepchild teen teenager toddler tot children )
 concept: ~family_children_male (brother grandnephew grandson nephew son step-brother step-son stepson )
 concept: ~fastfood_place (breakfast burger dinner food french_fries fried_chicken fries hamburger lunch milk_shake )
 concept: ~father (dad dada daddy father old_man pa papa pappy step-father )
 concept: ~mother (mamma mama ma mammy momma mom mommy mother~n mother-in-law mum mummy step-mother mother)
 concept: ~brother (bro brother male_sibling~1 )
-concept: ~grandparents (grandma grandpa grandmother grandfather grandparents grandparent gram nanna NANA "mom 's mom" 'mom 's dad" "dad 's mom" "dad 's dad" "mother 's mother" "mother 's father" "father 's mother" "father 's father" "father 's parents" "mother 's parents")
+concept: ~grandparents (grandma grandpa grandmother grandfather grandparents grandparent gram nanna NANA "mom 's mom" "mom 's dad" "dad 's mom" "dad 's dad" "mother 's mother" "mother 's father" "father 's mother" "father 's father" "father 's parents" "mother 's parents" "mothers parents" "fathers parents")
 concept: ~sister (sis sister )
 concept: ~sibling (brother sister sibling "brother or sister" "sister or brother" "brother and sister" "sister and brother")
 concept: ~female (babe bachelorette spinster chick chix dame damsel vixen female femme gal girl lady lass lassie woman women )
 concept: ~male (bachelor bloke boy swain  chap dude fellow gent gentleman guy lad laddie male man mister Mr. men )
 concept: ~parents (!~grandparents parent mom mother dad father parents)
-concept: ~spouse (man woman wife husband "significant other" partner)
+concept: ~spouse (man woman wife husband "significant other" partner spouse)
 
 concept: ~genderfemale (dudette female gal girl lady lass lassie lesbian lesbo woman spinster)
 concept: ~gendermale (bloke boy dude fellow  gentleman guy lad laddie male man )
@@ -105,10 +105,10 @@ concept: ~diseaselist( "yellow fever" typhoid  diphtheria  tetanus  cancer Cance
 concept: ~number (1 one 2 two 3 three 4 four 5 five 6 six 7 seven 8 eight 9 nine 10 ten)
 concept: ~sicknesses (~BIRTH_DEFECT ~DISEASELIST ~MENTAL_ILLNESSES ailment allergy amnesia blind deaf deafness death disease epidemic Fibromyalgia ill illness infection malfunction mute
           parasite plague sick symptom toothache )
-concept: ~spirits (~SPIRITS_GIN ~SPIRITS_VODKA ~SPIRITS_WHISKY cordial liqueur Mexcal ouzo port rum scotch Soju spirits tequila Tom_Cobb whiskey )
-concept: ~spirits_gin (Genever gin Jenever )
-concept: ~spirits_vodka (akvavit aquavit  schnapps vodka )
-concept: ~spirits_whisky (bourbon Irish_whiskey Scotch Scotch_whisky whiskey whisky )
+# concept: ~spirits (~SPIRITS_GIN ~SPIRITS_VODKA ~SPIRITS_WHISKY cordial liqueur Mexcal ouzo port rum scotch Soju spirits tequila Tom_Cobb whiskey )
+# concept: ~spirits_gin (Genever gin Jenever )
+# oncept: ~spirits_vodka (akvavit aquavit  schnapps vodka )
+# concept: ~spirits_whisky (bourbon Irish_whiskey Scotch Scotch_whisky whiskey whisky )
 concept: ~symptom (crummy awful rotten a_rash a_temperature ache achy anxiety bellyache cold~a cough fatigue  fever flu headache hives laryngitis nausea pain phlegm queasy runny_nose
 					ache awful cold dizzy faint feel_sick fever flu headache ill illness insomnia nausea nauseous numb numbness queasy sick sickness stomach_ache tingle
                    sneeze sniffle sore sore_throat stomachache stomach_ache tired tummy_ache upset_stomach vomit diarrhea)
@@ -146,7 +146,7 @@ concept: ~sport (~COMBAT_SPORTS ~EQUESTRIAN_SPORTS ~MINOR_OUTDOOR_ACTIVITIES ~MO
 
 concept: ~shelter (home house apartment flat)
 
-concept: ~job (~jobmechanic earn a_career a_job career dream_job ideal_job perfect_job employment employ employer employment job livelihood make_a_buck occupation profession work~n workplace)
+concept: ~job (~jobmechanic earn a_career a_job career dream_job ideal_job perfect_job employment employ employer employment job livelihood make_a_buck occupation profession work~n workplace working)
 concept: ~jobmechanic (shop car auto machine garage)
 
 concept: ~chemicals (chemical chemical_compound~1 compound organic_compound~1 )

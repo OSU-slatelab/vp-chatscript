@@ -1,6 +1,7 @@
 outputmacro: patient1()
 $patientfirstname = Jim
 $patientlastname = Wilkins
+$bodypart = back # we use this to exclude matching in variablematches
 $chiefcomplaint = ~back_pain
 $complaint2 = ~urinary_frequency_complaint
 $complaint3 =
@@ -11,7 +12,7 @@ $currentjob = mechanic
 $currentmedication1 = Ibuprofen
 $currentmedication2 =
 $currentmedication3 =
-$currentrateofpain = 7
+$currentpainnum = 7
 
 ^stdpatient()
 
@@ -179,7 +180,7 @@ HOW_FAR_IN_SCHOOL "I finished high school.  I thought about college but it wasn'
 
 HOW_HAS_THIS_AFFECTED_YOU "\[ Fear1 \]I haven't been able to work."
 CAN_YOU_DO_NORMAL_ACTIVITIES "\[ Fear1 \]Even grocery shopping is hard.  The other day I had to ask a little old lady to get something off of a shelf for me!  I have had to virtually stop working on the cars in my shop."
-HAS_THE_PAIN_AFFECTED_YOUR_ACTIVITY "Well, I can't move around very well so that is pretty limiting. E ven grocery shopping is hard.  The other day I had to ask a little old lady to get something off of a shelf for me!  I have had to virtually stop working on the cars in my shop."
+HAS_THE_PAIN_AFFECTED_YOUR_ACTIVITY "Well, I can't move around very well so that is pretty limiting. Even grocery shopping is hard.  The other day I had to ask a little old lady to get something off of a shelf for me!  I have had to virtually stop working on the cars in my shop."
 HOW_HAVE_YOU_BEEN_HANDLING_THIS "\[ Sadness2 \]I'm doing OK, but I have not been able to work so that is frustrating."
 WHAT_BOTHERS_YOU_THE_MOST "\[ Sadness2 \]It's been going on for almost a week and I can't work."
 CAN_YOU_CARE_FOR_YOURSELF "\[ Sadness2 \]At this point I am OK but it is pretty difficult just doing normal things."

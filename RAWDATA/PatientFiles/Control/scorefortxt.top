@@ -2,8 +2,8 @@
 topic: ~score ()
 u: () $totalQueries += 1
 
-	# get this label's properties for this bot's diagnosis 
-	@1 = query(direct_sv '$$label $cs_bot ?) # get this label's properties 
+	# get this label's properties for this bot's diagnosis
+	@1 = query(direct_sv '$$label $cs_bot ?) # get this label's properties
 	loop () # process each property
 	{
 		$$tmp = first(@1object) # DATA IS: ( What_is_your_goal Patient1a Open ) - so this gets property Open or whatever
@@ -16,22 +16,22 @@ u: () $totalQueries += 1
 		{
 			Createfact($$label summary $currenttopic) # from what topic did they ask this question
 		}
-		
+
 		$$kind = join('$ $$tmp) # get property like "open" making it $open
 		^$$kind += 1 	# increment count
 	}
 
 	# now note this new question was asked
-	$$tmp = $$rawinput 
+	$$tmp = $$rawinput
 	if ($$label == NOANSWER OR $$label == MAINCONTROL)
 	{
 		$$tmp = ^"$$tmp    - Question not understood."
 	}
-	else 
+	else
 	{
 		$$tmp = ^"$$tmp"
 	}
-	createfact($$tmp asked $totalQueries) # this was asked this turn  
+	createfact($$tmp asked $totalQueries) # this was asked this turn
 
 	createfact($$tmp form $$label) # this was asked this way this turn
 
@@ -41,7 +41,8 @@ u: () $totalQueries += 1
 #	else if (%input == 15) {$first15open = $open}
 
 topic: ~finalscore system repeat()
-u: () 
+
+u: ()
 #	 createfact(^"\nScorecard for:  $login\n" scorecard x FACTTRANSIENT)
 	 createfact(^"\nScorecard for:  $cs_login\n" scorecard x FACTTRANSIENT)
 
@@ -51,7 +52,7 @@ u: ()
 	loop()
 	{
 		$$section = ^last(@4subject)  # get a section
-		createfact(^"\n$$section: \n" scorecard x FACTTRANSIENT)
+		createfact(^"\n$$section:\n" scorecard x FACTTRANSIENT)
 
 		$$categoryCount = 0
 		$$didasksection = 0
@@ -69,15 +70,15 @@ u: ()
 			loop()
 			{
 				$$question = ^last(@2subject)
-	
+
 				# did he ask this?
-				if (^query(direct_vo ? form $$question)) # he asked this 
+				if (^query(direct_vo ? form $$question)) # he asked this
 				{
 					createfact(^"        @0subject \n" scorecard x FACTTRANSIENT)
 					$$didask += 1
 				}
 			}
-			if ($$didask == 0) 
+			if ($$didask == 0)
 			{
 				createfact(^"        No question asked.  \n" scorecard x FACTDUPLICATE)
 				$$didask += 1
@@ -87,36 +88,39 @@ u: ()
 		createfact(^"    Summary: $$didasksection of $$categoryCount essential questions asked. \n" scorecard x  FACTTRANSIENT)
 	}
 
+# going to comment out this next section because it isn't working 12.2018
+##<<
 	createfact(^"\n\nTotal questions: $totalQueries \n" scorecard x  FACTTRANSIENT)
 
-	if (^length(@0) == 0) 
-	{ 
+	if (^length(@0) == 0)
+	{
 	 	createfact(^" none \n" scorecard x  FACTTRANSIENT)
 	}
-	
+
  	 $$count = 0
      loop()
-	 {  
+	 {
 		$$count += 1
          _0 = last(@0all)
 		createfact(^"     $$count. Asked: _0 \( from topic _2 \ at question" scorecard x  FACTTRANSIENT)
 
-		@1 = query(direct_sv _0 asked ? 1 ) 
+		@1 = query(direct_sv _0 asked ? 1 )
  	 	createfact(^"@1object \) \n" scorecard x  FACTTRANSIENT)
     }
-	 
+##>>
+
 	 # here is the history of what they asked
  	createfact(^"\nThese questions were asked in this order: \n" scorecard x  FACTTRANSIENT)
 
 	 nofail(rule query(direct_v ? asked ?))
      loop()
-	 {  
+	 {
         _0 = last(@0all)
   		createfact(^"     _2. _0 \n" scorecard x  FACTTRANSIENT)
 
    }
 
-   # output all answers to user and file NOTE IF THIS FAILS TO CREATE THE FILE IN THE CORRECT FOLDER THEN SCORE ME FAILS. SO IF WRITING TO inetpub AND IT DOES NOT EXIST THEN SCORE ME WILL FAIL 
+   # output all answers to user and file NOTE IF THIS FAILS TO CREATE THE FILE IN THE CORRECT FOLDER THEN SCORE ME FAILS. SO IF WRITING TO inetpub AND IT DOES NOT EXIST THEN SCORE ME WILL FAIL
 	$$tmpfile = join(TMP/ $cs_login .txt)
 #	$$tmpfile = join(C:\inetpub\wwwroot/Scores/ $cs_login .txt)
 	^log(FILE $$tmpfile NEW)  # start file from scratch

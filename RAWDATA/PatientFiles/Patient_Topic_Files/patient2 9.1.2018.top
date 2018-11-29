@@ -1,6 +1,7 @@
 outputmacro: patient2()
 $patientfirstname = Jack
 $patientlastname = Wilson
+$bodypart = back
 $chiefcomplaint = ~back_pain
 $complaint2 =
 $complaint3 =
@@ -39,7 +40,6 @@ GOOD "\[ NodYes \]Good."
 GOT_IT "\[ NodYes \]Got it."
 OK "\[ NodYes \]OK."
 REPEAT_THAT "OK."
-WHAT_HAPPENED "Well, I was just getting dressed for work and when I bent over to tie my shoes, I felt a sharp pain in my lower back."
 
 # greetings
 
@@ -61,15 +61,15 @@ DOES_THAT_PLAN_SOUND_GOOD "Sure."
 # followupdialogue
 
 ANY_OTHER_PROBLEMS1 "I don't believe so."
-ANY_OTHER_PROBLEMS2 "I don't think so."
-ANY_OTHER_PROBLEMS3 "I can't think of any."
+ANY_OTHER_PROBLEMS2 "I don't hink so."
+ANY_OTHER_PROBLEMS3 "I can't hink of any."
 HAVE_YOU_SEEN_ANYONE_ELSE "You're the first person I've seen about this."
 WHY_DID_YOU_WAIT "I don't know."
 
 ### PatientInformation
 # patientage
 
-HOW_OLD_ARE_YOU "I am 54."
+HOW_OLD_ARE_YOU "I am 53."
 WHEN_WERE_YOU_BORN "August 10, 1964"
 
 # patientname
@@ -125,8 +125,6 @@ ANY_REACTIONS_TO_MEDICATIONS "I am allergic to iodine, but other than than that 
 DOSE_1 "Just regular strength."
 DOSE_2 "I am not sure."
 DOSE_3 "I am not sure."
-DOES_ANYTHING_BESIDES_MEDICINE_HELP "I haven't really tried anything besides the ibuprofen."
-WHEN_DID_YOU_START_TAKING_MEDICINE "I started takling the ibuprofen the same day I hurt my back."
 
 # supplements
 
@@ -266,7 +264,7 @@ HAS_THE_PAIN_AFFECTED_YOU "I can't move around very well so that isn't great."
 
 # job
 
-DO_YOU_DO_ANY_HEAVY_LIFTING_AT_WORK "I am usually careful.  I often have to take engines in and out and they can be heavy.  I haven't had any trouble with it before."
+DO_YOU_DO_ANY_HEAVY_LIFTING_AT_WORK "Sometimes, but I am usually careful.  I often have to take engines in and out and they can be heavy.  I haven't had any trouble with it before."
 IS_YOUR_JOB_PHYSICALLY_DEMANDING "I ocassionally have to lift heavy things, but I try to be careful."
 IS_YOUR_JOB_STRESSFUL "My job is not stressful, I really like my work."
 IS_YOUR_JOB_PLEASURABLE "I really like what I do. I have always enjoyed working with cars and so that sure makes it fun, to do something you love as your career is very rewarding."
@@ -277,8 +275,8 @@ HOW_LONG_HAVE_YOU_BEEN_OFF_WORK "For the past 4 or 5 days. Ever since I hurt my 
 HAVE_YOU_BEEN_OFF_WORK_BECAUSE "My back hurts so much I can't do much work.  Every day I try and I can do some little things but I really can't lift anything or get under the cars so I haven't been very productive."
 HAVE_YOU_BEEN_OFF_WORK "My back is so sore I can't do much of any work.  Every day I try and I can do some little things but I really can't lift anything or get under the cars so I haven't been very productive."
 HAVE_YOU_BEEN_ABLE_TO_WORK "Every day I try and I can do some little things but I really can't lift anything or get under the cars so I haven't been very productive."
-WHAT_CAN_YOU_NOT_DO_AT_WORK "I can't do much of anything at work.  I can't carry any of the car parts, I can't get under the car.  I have even having trouble going to the store to get things.  I can't really lift anything or bend down."
-WHAT_ELSE_CAN_YOU_NOT_DO "I can't do much of anything because my back hurts so much."
+WHAT_CAN'T_YOU_DO_AT_WORK "I can't do much of anything at work.  I can't carry any of the car parts, I can't get under the car.  I have even having trouble going to the store to get things.  I can't really lift anything or bend down."
+WHAT_ELSE_CAN'T_YOU_DO "I can't do much of anything because my back hurts so much."
 DO_YOU_HAVE_PROBLEMS_WORKING "I haven't really been able to work although I keep trying.  I have customers waiting for their cars to be fixed."
 HOW_IS_WORK "Work has generally been good before this back pain.  I have been developing a strong customer base.  I have been working on restoring an old Ford Mustang. I haven't been able to keep up with any of that since this started though."
 WHEN_WAS_THE_LAST_TIME_YOU_WORKED "I keep going in to work, but haven't really been able to work since before I hurt my back 4 or 5 days ago."
@@ -455,7 +453,7 @@ HOW_ABOUT_YOUR_BLADDER "No problems going to the bathroom."
 # maleGU
 
 DO_YOU_HAVE_ANY_ERECTION_ISSUES "I don't have anything like that."
-DO_YOU_HAVE_PROSTATE_PROBLEMS "I have never had any problems with my prostate."
+DO_YOU_HAVE_PROSTATE_PROBLEMS "I don't have anything like that."
 
 ### CurrentCardiovascularSymptoms
 # bloodpressure
@@ -564,7 +562,6 @@ ANY_SPECIFIC_PART_OF_YOUR_BACK  "I don't know what you call it.  It is just abov
 HOW_DID_YOU_HURT_YOUR_BACK  "I just bent over to ties my shoes and all of a sudden I felt a sharp pain."
 DID_YOU_HURT_YOUR_BACK  "I hurt it when I was tying my shoes."
 DID_YOU_STRAIN_A_MUSCLE_IN_YOUR_BACK  "I guess maybe I did.  I am not exactly sure what happened."
-WHAT_HAPPENED_TO_YOUR_BACK "I don't know what it wrong with it. I just felt a sharp pain in my lower back when I bent over to tie my shoes.."
 
 # backinjury
 
@@ -674,8 +671,6 @@ DOES_THE_PAIN_START_SOMEWHERE_ELSE "My pain right now is pretty localized to my 
 DO_YOU_HAVE_PAIN_ANYWHERE_ELSE "The pain is just in my back."
 YOU_SEEM_UNCOMFORTABLE "My back hurts quite a bit so almost any position is uncomfortable."
 CAN_YOU_POINT_TO_THE_PAIN "I'm not able to do that but the pain is in the middle of my lower back.  It is right at the bottom and a little further up."
-DOES_PAIN_LIMIT_MOVEMENT "It is difficult to move very much. Bending over is especially hard."
-ARE_YOU_IN_PAIN "My back really hurts."
 
 # description
 
@@ -1192,7 +1187,7 @@ WHAT_DO_YOU_THINK_ABOUT_THIS_WEATHER "It seems ok although I am worried it will 
 
 # seasonquestions
 
-DOES_NOT_SEEM_LIKE_SUMMER_ANY_MORE "The seasons seem to change quickly these days.  I really hate the cold.  I can't fix cars as well in the cold."
+DOESN'T_SEEM_LIKE_SUMMER_ANY_MORE "The seasons seem to change quickly these days.  I really hate the cold.  I can't fix cars as well in the cold."
 
 # sportsquestions
 
@@ -1263,7 +1258,7 @@ HAVE_YOU_HAD_ABNORMAL_COLONOSCOPY "Mine was normal."
 
 # maleGUsection
 
-HAVE_YOU_HAD_A_PROSTATE_EXAM "I had a prostate exam last year.  The doc said it was normal.  I don't really want to have one of those again."
+HAVE_YOU_HAD_A_PROSTATE_EXAM "I remember that from last year.  The doc said it was normal.  I don't really want to have one of those again."
 RESULTS_OF_PROSTATE_EXAM "It was normal."
 
 # femaleGUsection
@@ -1383,7 +1378,7 @@ ANY_PROBLEMS_AT_HOME "No concerns there."
 
 DID_ANYTHING_HAPPEN_TO_CAUSE_THE_1 "A few days ago I was just getting dressed and when I bent over to tie my shoes I felt a sharp pain in my lower back."
 HOW_DID_THE_1_START "\[ Pain2 \]My back started hurting when I bent over the other day to ties my shoes. All of a sudden I felt a sharp pain in my lower back. It really hurt!"
-DOING_ANYTHING_WHEN_THE_1_STARTED "A few days ago I was just putting on my shoes and when I bent over I felt a shapr pain in my back."
+DOING_ANYTHING_WHEN_THE_1_STARTED "A few days ago I was just putting on my shoes and when I bent over I felt a sharp pain in my back."
 WAS_THE_ONSET_SUDDEN1 "Yes it started immediately.  I had to straighten up and just sit there for a while."
 DID_THE_1_START_IMMEDIATELY "I felt a sharp pain right away."
 IS_THE_1_NEW "It started about 4-5 days ago so yeah, it is pretty recent.  I don't remember any trouble before then."
@@ -1430,7 +1425,6 @@ HOW_INTENSE_IS_THE_1 "\[ Fear2 \]It is pretty bad. My back hurts all the time an
 HAS_THE_INTENSITY1_CHANGED "Hard to say. I don't think it is getting any better."
 HAS_THE_1_BECOME_WORSE "Hard to say. I don't think it is getting any better."
 WHEN_IS_THE_1_MOST_SEVERE "It pretty much hurts all the time.   Yesterday a heard a pretty loud bang behind me and I turned around quickly which was a mistake as my back pain was excruciating.  All it was was the neighbors cat knocking down a trashcan.  Man, did I want to hurt that cat!"
-HOW_BAD_WAS_IT_WHEN_IT_STARTED "It hurt a lot when it happened. I felt the sharp pain and could hardly straighten up."
 
 # general
 

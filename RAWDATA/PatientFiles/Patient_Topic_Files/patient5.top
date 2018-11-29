@@ -11,7 +11,7 @@ $currentjob = Librarian
 $currentmedication1 = Baby aspirin
 $currentmedication2 = Fish Oil
 $currentmedication3 = Calcium/VitaminD
-$currentrateofpain = 7
+$currentpainnum = 7
 
 ^stdpatient()
 

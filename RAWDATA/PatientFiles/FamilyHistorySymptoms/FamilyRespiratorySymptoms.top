@@ -1,25 +1,23 @@
-# ***************************************************************************************************
-
 topic: ~familybreathing keep repeat (breath labor ~breathing_problems ~role_family history shortness)
 
-	u: ($present) respond(~currentbreathing)  ^fail(TOPIC)
-	u: ($pasthistory) respond(~pastbreathing)  ^fail(TOPIC)
+u: ($present) respond(~currentbreathing)  ^fail(TOPIC)
+u: ($pasthistory) respond(~pastbreathing)  ^fail(TOPIC)
 
 #! Do you have a family history of breathing problems
-	u: FAMILY_HISTORY_OF_BREATHING_PROBLEMS
-		([
-			([family history] * [breath breathing] * [trouble problem issue labored])
-			([family history] * [trouble problem issue labored] * [breath breathing])
-			([family history] * [~breathing_problems ])
-		])
-	^factanswer("No one that I know about.")
+u: FAMILY_HISTORY_OF_BREATHING_PROBLEMS
+	([
+		([family history] * [breath breathing] * [trouble problem issue labored])
+		([family history] * [trouble problem issue labored] * [breath breathing])
+		([family history] * [~breathing_problems ])
+	])
+	^factanswer("Not that I know of.")
 
 # ***************************************************************************************************
 
 topic: ~familycough keep repeat (~role_family cough)
 
-	u: ($present) respond(~currentcough)  ^fail(TOPIC)
-	u: ($pasthistory) respond(~pastcough) ^fail(TOPIC)
+u: ($present) respond(~currentcough)  ^fail(TOPIC)
+u: ($pasthistory) respond(~pastcough) ^fail(TOPIC)
 
 #! Do you have a family history of productive cough
-	u: FAMILY_HISTORY_OF_PRODUCTIVE_COUGH  ([productive produce "bring up" phlegm sputum] * cough)  ^factanswer("I don't know about that.")
+u: FAMILY_HISTORY_OF_PRODUCTIVE_COUGH  ([productive produce "bring up" phlegm sputum] * cough)  ^factanswer("Not that I know of.")

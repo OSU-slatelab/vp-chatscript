@@ -11,7 +11,7 @@ $currentjob = English teacher
 $currentmedication1 = triamterene-hydrochlorothiazide
 $currentmedication2 =
 $currentmedication3 =
-$currentrateofpain =
+$currentpainnum = 
 
 ^stdpatient()
 

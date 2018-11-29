@@ -11,7 +11,7 @@ $currentjob =
 $currentmedication1 =
 $currentmedication2 =
 $currentmedication3 =
-$currentrateofpain =
+$currentpainnum = 
 
 ^stdpatient()
 

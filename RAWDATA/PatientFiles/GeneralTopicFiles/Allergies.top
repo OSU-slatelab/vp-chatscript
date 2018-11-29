@@ -1,38 +1,41 @@
-topic: ~allergies keep repeat (allergy allergic)
+topic: ~allergies keep repeat (allergy allergic reaction)
 
-	u: ( $$family) ^fail(TOPIC)
+u: ( $$family) ^fail(TOPIC)
 
-#! Food or environmental allergies
-	u: FOOD_OR_ENVIRONMENTAL_ALLERGIES
-		([
-			(<< [food environment environmental pollen bee sting peanut hay] [allergy allergies allergic] >>)
-		])
-	^factanswer("No allergies of any kind that I know of.")
-			a: WHAT_ARE_ALLERGY_REACTIONS ([react reaction symptoms happens]) ^factanswer("I get a rash")
+#! Do you have any food or environmental allergies
+u: FOOD_OR_ENVIRONMENTAL_ALLERGIES
+	([
+		(<< [food environment environmental pollen bee sting peanut hay] [allergy allergies allergic] >>)
+	])
+	^factanswer("I am not allergic to anything.")
+		a: WHAT_ARE_ALLERGY_REACTIONS ([react reaction symptoms happens]) ^factanswer("I am not sure.")
 
 #! Do you take medication for allergies
-	?: DO_YOU_TAKE_MEDICATION_FOR_ALLERGIES
-		([
-			([use take on prescribed] *~4 [~itwords allergy])
-			(~medicines *~3 [take prescribed] *~3 allergy)
-			(allergy *~3 ~medicines *~3 [take prescribed use on])
-		])
-		^factanswer("I am not allergic to anything.")
-				a: HOW_MUCH_ALLERGY_MEDICATION ([many much dose dosage]) ^factanswer("I don't take anything for allergies")
-				a: HOW_OFTEN_ALLERGY_MEDICATION (["as needed" often frequently]) ^factanswer("I don't take anything for allergies.")
-				a: DOES_ALLERGY_MEDICATION_HELP ([help work alleviate]) ^factanswer("I don't take anything for allergies.")
-				a: TAKE_ALLERGY_MEDICATION_TODAY ([take use] * ~timename) ^factanswer("I don't take anything for allergies.")
-			u: ([many much dose dosage] ^incontext(DO_YOU_TAKE_MEDICATION_FOR_ALLERGIES) ^reuse(HOW_MUCH_ALLERGY_MEDICATION))
-			u: (["as needed" often frequently] ^incontext(DO_YOU_TAKE_MEDICATION_FOR_ALLERGIES) ^reuse(HOW_OFTEN_ALLERGY_MEDICATION))
-			u: ([help work alleviate] ^incontext(DO_YOU_TAKE_MEDICATION_FOR_ALLERGIES) ^reuse(DOES_ALLERGY_MEDICATION_HELP))
-			u: ([take use] * ~timename ^incontext(DO_YOU_TAKE_MEDICATION_FOR_ALLERGIES) ^reuse(TAKE_ALLERGY_MEDICATION_TODAY))
+u: DO_YOU_TAKE_MEDICATION_FOR_ALLERGIES
+	([
+		([use take on prescribed] *~4 [~itwords allergy])
+		(~medicines *~3 [take prescribed] *~3 allergy)
+		(allergy *~3 ~medicines *~3 [take prescribed use on])
+	])
+	^factanswer("I am not allergic to anything.")
+		a: HOW_MUCH_ALLERGY_MEDICATION ([many much dose dosage]) ^factanswer("I don't take anything for allergies.")
+		a: HOW_OFTEN_ALLERGY_MEDICATION (["as needed" often frequently]) ^factanswer("I don't take anything for allergies.")
+		a: DOES_ALLERGY_MEDICATION_HELP ([help work alleviate]) ^factanswer("I don't take anything for allergies.")
+		a: TAKE_ALLERGY_MEDICATION_TODAY ([take use] * ~timename) ^factanswer("I don't take anything for allergies.")
+		u: ([many much dose dosage] ^incontext(DO_YOU_TAKE_MEDICATION_FOR_ALLERGIES) ^reuse(HOW_MUCH_ALLERGY_MEDICATION))
+		u: (["as needed" often frequently] ^incontext(DO_YOU_TAKE_MEDICATION_FOR_ALLERGIES) ^reuse(HOW_OFTEN_ALLERGY_MEDICATION))
+		u: ([help work alleviate] ^incontext(DO_YOU_TAKE_MEDICATION_FOR_ALLERGIES) ^reuse(DOES_ALLERGY_MEDICATION_HELP))
+		u: ([take use] * ~timename ^incontext(DO_YOU_TAKE_MEDICATION_FOR_ALLERGIES) ^reuse(TAKE_ALLERGY_MEDICATION_TODAY))
 
- #! Do you have any allergies
-	 u: DO_YOU_HAVE_ANY_ALLERGIES
-		 ([allergy allergies allergic]) ^factanswer("I am not allergic to anything.")
-		  	a: WHAT_ARE_ALLERGY_REACTIONS ([react reaction symptoms happens]) ^factanswer("I get a rash")
-		#	 a: WHAT_ARE_ALLERGY_REACTIONS ([react reaction symptoms happens]) ^factanswer("Nothing")
-	#		 a: SEVERITY_OF_ALLERGY_REACTIONS ([bad severe severity]) ^factanswer("Not too bad")
-		 u: WHAT_ARE_ALLERGY_REACTIONS ([react reaction symptoms happens]) ^incontext(DO_YOU_HAVE_ANY_ALLERGIES) ^factanswer("cooties") # this incontext stuff does not work yet.
-	#	 u: ([bad severe severity]) ^incontext(DO_YOU_HAVE_ANY_ALLERGIES) ^reuse(SEVERITY_OF_ALLERGY_REACTIONS)
-		 u: SEVERITY_OF_ALLERGY_REACTIONS ([bad severe severity]) ^incontext(DO_YOU_HAVE_ANY_ALLERGIES) ^factanswer("Not bad")
+#! Do you have any allergies
+ u: DO_YOU_HAVE_ANY_ALLERGIES
+	 ([allergy allergies allergic]) ^factanswer("I am not allergic to anything.")
+  	a: WHAT_ARE_ALLERGY_REACTIONS ([react reaction symptoms happens]) ^factanswer("I am not sure.")
+	#	 a: WHAT_ARE_ALLERGY_REACTIONS ([react reaction symptoms happens]) ^factanswer("Nothing")
+#		 a: SEVERITY_OF_ALLERGY_REACTIONS ([bad severe severity]) ^factanswer("Not too bad")
+		u: WHAT_ARE_ALLERGY_REACTIONS ([react reaction symptoms happens]) ^incontext(DO_YOU_HAVE_ANY_ALLERGIES) ^factanswer("I am not sure.") # this incontext stuff does not work yet.
+#	 u: ([bad severe severity]) ^incontext(DO_YOU_HAVE_ANY_ALLERGIES) ^reuse(SEVERITY_OF_ALLERGY_REACTIONS)
+		u: SEVERITY_OF_ALLERGY_REACTIONS ([bad severe severity]) ^incontext(DO_YOU_HAVE_ANY_ALLERGIES) ^factanswer("I am not sure.")
+
+#! Any reactions to anything
+u: ANY_REACTIONS_TO_ANYTHING (reaction) ^factanswer("I am not allergic to anything.")

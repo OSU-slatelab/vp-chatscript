@@ -1,51 +1,45 @@
-# ***************************************************************************************************
-
 # bowel - I have defined bowel as a concept in MedicalConcepts.top
 
 topic: ~pastbowel keep repeat (~bowel_problems hold control difficulty)
 
-	u: ($present) respond(~currentbowel) ^fail(TOPIC)
-	u: ($family) respond(~familybowel) ^fail(TOPIC)
+u: ($present) respond(~currentbowel) ^fail(TOPIC)
+u: ($family) respond(~familybowel) ^fail(TOPIC)
 
 #! Have you had any past bowel problems
-	u: HAVE_YOU_HAD_ANY_PAST_BOWEL_PROBLEMS (![where when how bladder] << ~pastwords ~bowel_problems >>)    ^factanswer("I have no problems with my bowels.")
+u: HAVE_YOU_HAD_ANY_PAST_BOWEL_PROBLEMS (![~bladder_function ~bladder_problems where when how] << ~pastwords ~bowel_problems >>)    ^factanswer("I have no problems with my bowels.")
 
 # Both bowel and bladder
 
 #! Have you had any previous bowel or bladder problems
-	u: ANY_PREVIOUS_BOWEL_OR_BLADDER_PROBLEMS (<< bladder bowel >>)    ^factanswer("My bowels and bladder have been fine.")
-
-# ***************************************************************************************************
+u: ANY_PREVIOUS_BOWEL_OR_BLADDER_PROBLEMS (<< bladder bowel >>)    ^factanswer("My bowels and bladder have been fine.")
 
 # abdominal_pain - I have defined abdominal_pain as a concept in MedicalConcepts.top
 
 topic: ~pastabdominalpain keep repeat (~abdominal_pain nausea nauseous vomit "throw up" "thrown up")
 
-	u: ($present) respond(~currentabdominalpain)  ^fail(TOPIC)
-	u: ($family) respond(~familyabdominalpain) ^fail(TOPIC)
+u: ($present) respond(~currentabdominalpain)  ^fail(TOPIC)
+u: ($family) respond(~familyabdominalpain) ^fail(TOPIC)
 
 #! Have you been nauseous before
-	u: HAVE_YOU_BEEN_NAUSEOUS_BEFORE ([been had experienced ever] * [nausea nauseous stomachache bellyache "sick to your stomach"] * [past previously before]) ^factanswer("Of course.")
+u: HAVE_YOU_BEEN_NAUSEOUS_BEFORE ([been had experienced ever] * [nausea nauseous stomachache bellyache "sick to your stomach"] * [past previously before]) ^factanswer("Of course.")
 
 #! Have you been throwing up
-	u: HAVE_YOU_BEEN_THROWING_UP ([been had experienced ever] * ["throwing up" vomit vomitting puke puking hurling vomited vomitted regurgitate regurgitation "throw up" "thrown up"]) ^factanswer("I have not.")
-
-# ***************************************************************************************************
+u: HAVE_YOU_BEEN_THROWING_UP ([been had experienced ever] * ["throwing up" vomit vomitting puke puking hurling vomited vomitted regurgitate regurgitation "throw up" "thrown up"]) 	^factanswer("I have not.")
 
 # heartburn - I have defined heartburn as a concept in MedicalConcepts.top
 
 topic: ~pastheartburn keep repeat (~heartburn acid reflux metallic food)
 
-	u: ($present) respond(~currentheartburn)  ^fail(TOPIC)
-	u: ($family) respond(~familyheartburn) ^fail(TOPIC)
+u: ($present) respond(~currentheartburn)  ^fail(TOPIC)
+u: ($family) respond(~familyheartburn) ^fail(TOPIC)
 
 #! Have you had an acid taste before
-	u: EVER_HAD_ACID_TASTE_BEFORE
-		([
-			([had experienced] *~3 [acid metallic] taste *~3 [before previously past])
-			([acid metallic] taste *~3 [mouth tongue throat] *~3 [before past previously])
-		])
+u: EVER_HAD_ACID_TASTE_BEFORE
+	([
+		([had experienced] *~3 [acid metallic] taste *~3 [before previously past])
+		([acid metallic] taste *~3 [mouth tongue throat] *~3 [before past previously])
+	])
 	^factanswer ("I had no acid taste.")
 
 #! What foods made past heartburn worse
-	u: WHAT_FOOD_MADE_PAST_HEARTBURN_WORSE ([food eat drink] * [~heartburn ~itwords] * [worse increase]) ^factanswer ("I had no heartburn.")
+u: WHAT_FOOD_MADE_PAST_HEARTBURN_WORSE ([food eat drink] * [~heartburn ~itwords] * [worse increase]) ^factanswer ("I had no heartburn.")

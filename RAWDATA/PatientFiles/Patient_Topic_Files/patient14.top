@@ -11,7 +11,7 @@ $currentjob = retired
 $currentmedication1 = hydrochlorothiazide/water_pill
 $currentmedication2 =
 $currentmedication3 =
-$currentrateofpain =
+$currentpainnum = 
 
 ^stdpatient()
 

@@ -1,21 +1,19 @@
-# ***************************************************************************************************
-
 topic: ~currentheadache keep repeat (headache aura flashing spot)
 
-	u: ($pasthistory) respond(~pastheadache) ^fail(TOPIC)
-	u: ($family) respond(~familyheadache) ^fail(TOPIC)
+u: ($pasthistory) respond(~pastheadache) ^fail(TOPIC)
+u: ($family) respond(~familyheadache) ^fail(TOPIC)
 
 #! Do you have headaches
-	u: DO_YOU_HAVE_HEADACHES (headache)    ^factanswer("I don't have headaches.")
+u: DO_YOU_HAVE_HEADACHES (headache)    ^factanswer("I have not had any problems like that.")
 
 #! Do you have auras
-	u: DO_YOU_HAVE_AURAS (aura) ^factanswer("I have never had anything like that.")
+u: DO_YOU_HAVE_AURAS (aura) ^factanswer("I have not had any problems like that.")
 
 #! Do you see flashing lights
-	u: DO_YOU_SEE_FLASHING_LIGHTS (see * light) ^factanswer("I don't see anything like that.")
+u: DO_YOU_SEE_FLASHING_LIGHTS (see * light) ^factanswer("I have not had any problems like that.")
 
 #! Do you see spots
-	u: DO_YOU_SEE_SPOTS (see * spot) ^factanswer("I don't see anything like that.")
+u: DO_YOU_SEE_SPOTS (see * spot) ^factanswer("I have not had any problems like that.")
 
 # ***************************************************************************************************
 
@@ -23,59 +21,59 @@ topic: ~currentheadache keep repeat (headache aura flashing spot)
 
 topic: ~currentneckstiffness keep repeat (~neck_stiffness bend neck)
 
-	u: ($pasthistory) respond(~pastbackstiffness)  ^fail(TOPIC)
-	u: ($family) respond(~familybackstiffness) ^fail(TOPIC)
+u: ($pasthistory) respond(~pastbackstiffness)  ^fail(TOPIC)
+u: ($family) respond(~familybackstiffness) ^fail(TOPIC)
 
 #! Do you have any neck stiffness
-	u: DO_YOU_HAVE_ANY_NECK_STIFFNESS (!where !when !how ['do 'are any] * ~neck_stiffness)   ^factanswer("My neck is fine.")
+u: DO_YOU_HAVE_ANY_NECK_STIFFNESS (!where !when !how ['do 'are any] * ~neck_stiffness)   ^factanswer("My neck is fine.")
 
 #! How is your neck
-	u: HOW_IS_YOUR_NECK (how is your neck)    ^factanswer("My neck is fine.")
+u: HOW_IS_YOUR_NECK (how is your neck)    ^factanswer("My neck is fine.")
 
 #! Is your neck painful
-	u: IS_YOUR_NECK_PAINFUL (neck [hurt tender sore painful])  ^factanswer("My neck is fine.")
+u: IS_YOUR_NECK_PAINFUL (neck [hurt tender sore painful])  ^factanswer("My neck is fine.")
 
 #! Did you hurt your neck
-	u: DID_YOU_HURT_YOUR_NECK (!where !when hurt * neck)   ^factanswer("My neck is fine.")
+u: DID_YOU_HURT_YOUR_NECK (!where !when hurt * neck)   ^factanswer("My neck is fine.")
 
 #! Can you move your neck
-	u: CAN_YOU_MOVE_YOUR_NECK ([move bend] * neck)    ^factanswer("My neck is fine.")
+u: CAN_YOU_MOVE_YOUR_NECK ([move bend] * neck)    ^factanswer("My neck is fine.")
 
 # ***************************************************************************************************
 
 topic: ~currentnasal keep repeat (nose sinus sinusitis "nasal passages" mucus snot drainage infection)
 
-	u: ($pasthistory) respond(~pastnasal) ^fail(TOPIC)
-	u: ($family) respond(~familynasal) ^fail(TOPIC)
+u: ($pasthistory) respond(~pastnasal) ^fail(TOPIC)
+u: ($family) respond(~familynasal) ^fail(TOPIC)
 
 #! Do you have drainage down your throat
-	u: DO_YOU_HAVE_DRAINAGE_DOWN_YOUR_THROAT ([drainage mucus snot] * throat)  ^factanswer("I have no drainage down my throat.")
+u: DO_YOU_HAVE_DRAINAGE_DOWN_YOUR_THROAT ([drainage mucus snot] * throat)  ^factanswer("I have not had any problems like that.")
 
 #! Do you have sinus problems
-	u: DO_YOU_HAVE_SINUS_PROBLEMS (<< [sinus sinusitis "nasal passages"][problem issue symptom infection] >>)  ^factanswer("My sinuses are fine.")
+u: DO_YOU_HAVE_SINUS_PROBLEMS (<< [sinus sinusitis "nasal passages"][problem issue symptom infection] >>)  ^factanswer("Not that I am aware of.")
 
 # ***************************************************************************************************
 
 topic: ~currenteye keep repeat (eye eyes vision visual)
 
-	u: ($pasthistory) respond(~pasteye) ^fail(TOPIC)
-	u: ($family) respond(~familyeye) ^fail(TOPIC)
+u: ($pasthistory) respond(~pasteye) ^fail(TOPIC)
+u: ($family) respond(~familyeye) ^fail(TOPIC)
 
 #! Are you having double vision
-	u: ARE_YOU_HAVING_DOUBLE_VISION (!blurry [have experience notice] * ["double vision" two twice]) ^factanswer("I am not having double vision.")
+u: ARE_YOU_HAVING_DOUBLE_VISION (!blurry [have experience notice] * ["double vision" two twice]) ^factanswer("I have not had any problems like that.")
 
 #! Have you had blurry vision
-	u: HAVE_YOU_HAD_BLURRY_VISION
-		([
-			(!double [have experience notice] * [blurry blurred fuzzy foggy blur] * [eye eyes vision])
-			(!double  [eye eyes vision][have experience notice] * [blurry blurred fuzzy foggy blur])
-		])
-	^factanswer("I have not had blurry vision.")
+u: HAVE_YOU_HAD_BLURRY_VISION
+	([
+		(!double [have experience notice] * [blurry blurred fuzzy foggy blur] * [eye eyes vision])
+		(!double  [eye eyes vision][have experience notice] * [blurry blurred fuzzy foggy blur])
+	])
+	^factanswer("I have not had any problems like that.")
 
 #! Do you have vision changes
-	u: DO_YOU_HAVE_VISION_CHANGES
-		([
-			([eye vision] * [change changes problems issues symptoms])
-			([change changes problems issues symptoms] * [eye vision])
-		])
-	^factanswer("I don't seem to have any problems with my vision.")
+u: DO_YOU_HAVE_VISION_CHANGES
+	([
+		([eye vision] * [change changes problems issues symptoms])
+		([change changes problems issues symptoms] * [eye vision])
+	])
+	^factanswer("I have not had any problems like that.")

@@ -11,7 +11,7 @@ $currentjob = Microbiologist
 $currentmedication1 =
 $currentmedication2 =
 $currentmedication3 =
-$currentrateofpain = 6
+$currentpainnum = 6
 
 ^stdpatient()
 

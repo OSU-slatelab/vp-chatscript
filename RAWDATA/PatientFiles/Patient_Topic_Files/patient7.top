@@ -11,7 +11,7 @@ $currentjob = accountant
 $currentmedication1 = Tums
 $currentmedication2 = multivitamin
 $currentmedication3 =
-$currentrateofpain = 6
+$currentpainnum = 7
 
 ^stdpatient()
 
@@ -841,15 +841,15 @@ ARE_YOU_CURRENT_ON_VACCINATIONS "Yes, to the best of my recollection."
 
 # seeingadoctor
 
-WHEN_DID_YOU_SEE_A_DOCTOR_LAST "I had my annual gyn exam about 1 month ago, and my yearly checkup was here about 7 or 8 
+WHEN_DID_YOU_SEE_A_DOCTOR_LAST "I had my annual gyn exam about 1 month ago, and my yearly checkup was here about 7 or 8
 months ago, I think."
 WHEN_DID_YOU_SEE_A_GYNECOLOGIST_LAST "About a month ago."
 DO_YOU_HAVE_A_DOCTOR "Yes, I usually come here."
 DO_YOU_HAVE_ANNUAL_EXAMS "Yes, I do."
-HAVE_YOU_SEEN_A_DOCTOR "I had my annual gyn exam about 1 month ago, and my yearly checkup was here about 7 or 8 
+HAVE_YOU_SEEN_A_DOCTOR "I had my annual gyn exam about 1 month ago, and my yearly checkup was here about 7 or 8
 months ago, I think."
 DID_YOU_HAVE_ANY_TROUBLE_FINDING_US "No, it was pretty easy to get here."
-DID_YOU_FIND_A_PARKING_SPOT "I had no problems parking.  Things around here are actually pretty easy.  There are a lot of clear 
+DID_YOU_FIND_A_PARKING_SPOT "I had no problems parking.  Things around here are actually pretty easy.  There are a lot of clear
 signs."
 HOW_DID_YOU_GET_HERE_TODAY "I drove myself."
 HOW_DID_YOU_COME_TO_FIND_US "I usually come here. One of my friends recommended this office."
@@ -926,7 +926,7 @@ ARE_YOU_NERVOUS "Well I am a little anxious that you won't be able to help me an
 # closure
 
 DO_YOU_HAVE_ANY_QUESTIONS "No, I think that's all. Thank you for your time."
-ANYTHING_ELSE_I_CAN_HELP_WITH "No, thank you for seeing me. Hopefully we can get this heartburn taken care of and I can get 
+ANYTHING_ELSE_I_CAN_HELP_WITH "No, thank you for seeing me. Hopefully we can get this heartburn taken care of and I can get
 back to my usual routine."
 HAVE_EVERYTHING_YOU_NEED "Yes, thank you. Just tell me what to try and I will do my best. I really want to get this fixed."
 HAVE_ALL_THE_INFORMATION "\[ Happiness1 \]OK Thanks."
@@ -936,7 +936,7 @@ THANKS "\[ Happiness2 \]Thank you."
 
 # summarize
 
-CAN_YOU_SUMMARIZE "Well, I really didn't do anything. I had heartburn when I was pregnant, but it is still bothering me even since I had the baby."
+CAN_YOU_SUMMARIZE "Well, I really didn't do anything. I had heartburn when I was pregnant, but it is still bothering me even since Ihad the baby."
 TO_SUMMARIZE "That sounds about right."
 DID_I_MISS_ANYTHING "I don't think so."
 
@@ -1055,7 +1055,7 @@ DID_THE_1_START_IMMEDIATELY "It started when I was pregnant."
 IS_THE_1_NEW "I started having heartburn when I was pregnant, and it has continued since the baby was born."
 IS_THIS_THE_FIRST_TIME_FOR_1 "It started when I was pregnant. I never had it before then."
 WHEN_DID_THE_1_START "It started when I was pregnant."
-HOW_HAS_THE_1_CHANGED "\[ Fear1 \]It is gradually getting worse. It is usually bad in the morning, then gets better once I eat 
+HOW_HAS_THE_1_CHANGED "\[ Fear1 \]It is gradually getting worse. It is usually bad in the morning, then gets better once I eat
 something. Now, even if I eat something, the heartburn comes back after a few hours."
 HOW_LONG_HAVE_YOU_HAD_1 "For about 8 months or so."
 IS_THE_1_CONSTANT "\[ Fear2 \]No, it comes and goes."
@@ -1070,7 +1070,7 @@ HAVE_YOU_TRIED_ANYTHING_FOR_THE_1 "I tried some TUMS, which seem to help tempora
 WHAT_MAKES_THE_1_BETTER "\[ Sadness2 \]Nothing is making it any better today."
 DOES_ANYTHING_ELSE_HELP_THE_1 "I haven't tried anything else."
 DOES_MOVING_INCREASE_THE_1 "\[ Fear2 \]Moving makes it worse only if I bend over."
-DOES_ANY_POSITION_RELIEVE_THE_1 "No, nothing really relieves the heartburn except drinking some milk or maybe eating some 
+DOES_ANY_POSITION_RELIEVE_THE_1 "No, nothing really relieves the heartburn except drinking some milk or maybe eating some
 bread."
 DOES_ANY_POSITION_MAKE_THE_1_WORSE "\[ Pain4 \]Yes, it seems worse if I lie flat on my back or if I bend over."
 DO_ANY_POSITIONS_MAKE_1_WORSE_OR_BETTER "I feel better sitting up or standing."
@@ -1131,7 +1131,7 @@ DO_YOU_HAVE_A_CAUSE_FOR_2 "Well, I thought it was kind of normal for pregnancy t
 
 # exacerbation
 
-WHAT_MAKES_THE_2_WORSE "Certain foods seem to make it worse. I ate buffalo wings at a party and had really bad heartburn after that."
+WHAT_MAKES_THE_2_WORSE "Certain foods seem to make it worse. I ate buffalo wings at a party and had really bad heartburn afterthat."
 DOES_ANYTHING_CHANGE_2_INTENSITY "Drinking milk or eating bread sometimes makes it better."
 WHAT_HAVE_YOU_TRIED_FOR_THE_2 "Just TUMS."
 HAVE_YOU_TRIED_ANYTHING_FOR_THE_2 "Just TUMS."

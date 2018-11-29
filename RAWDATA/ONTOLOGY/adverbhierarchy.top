@@ -26,7 +26,7 @@ concept: ~place_adverbs (about~b above~b abroad~b across~b ahead~b along~b aroun
           forwards~b here~b homewards~b home~b indoors~b inwards~b in~b nearby~b northwards~b nowhere~b off~b onwards~b on~b outdoors~b outside~b outwards~b out~b overseas~b over~b 
           round~b sideways~b southwards~b there~b through~b under~b uphill~b upwards~b up~b westwards~b )
 concept: ~purpose_adverbs (because~b in_order_that~b in_order_to~b lest~b so~b )
-concept: ~question_adverbs (how~b when~b where~b why~b )
+concept: ~question_adverbs (how~b when where~b why~b )
 concept: ~rarely (every_now_and_then~b from_time_to_time~b occasionally once once_in_a_while~b rarely sometimes~b twice )
 concept: ~result_adverbs (and_so~b and_therefore~b hence~b so_that~b so~b therefore~b )
 concept: ~sequence_adverbs (first~b fourth~b second~b third~b )
