@@ -9,8 +9,8 @@
 ../RAWDATA/PatientFiles/Control/medicalcontrol.top		# system control
 ../RAWDATA/PatientFiles/Control/scorefn.top			
 # ../RAWDATA/PatientFiles/Control/scoreforpdf.top 		# This scoring file is used to provide formatted output for pdf
-# ../RAWDATA/PatientFiles/Control/scoreforpdf_ws.top # This scoring file is used to provide formatted output for pdf fixed by Adam Stiff
-../RAWDATA/PatientFiles/Control/scorefortxt.top		# This scoring file is used to provide unformatted output for text file	
+../RAWDATA/PatientFiles/Control/scoreforpdf_ws.top # This scoring file is used to provide formatted output for pdf fixed by Adam Stiff
+# ../RAWDATA/PatientFiles/Control/scorefortxt.top		# This scoring file is used to provide unformatted output for text file	
 
 # Patient Topic Files
 
