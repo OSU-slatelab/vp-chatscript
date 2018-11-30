@@ -10,7 +10,7 @@ $patientTitle = Mr
 $currentjob = retired
 $currentmedication1 = Ibuprofen
 $currentmedication2 = loratidine
-$currentmedication3 = Tims
+$currentmedication3 = Tums
 $currentrateofpain = 7
 
 ^stdpatient()

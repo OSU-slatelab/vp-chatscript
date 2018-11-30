@@ -1,111 +1,108 @@
-
-
-# ***************************************************************************************************
-
 # Range of Motion
 
-topic: ~currentrangeofmotion keep repeat (range "range of motion" motion move movement crouch lean bend bending toe lift stand twist jump stiff stiffness lean straighten run "lie down" action open grip drop "lose grip" difficult tightness)
+topic: ~currentrangeofmotion keep repeat
+	(range "range of motion" motion move movement motion crouch lean bend bending toe lift stand twist jump
+	stiff stiffness lean straighten run "lie down" action open grip drop "lose grip" difficult tightness)
 
-	u: ($pasthistory) respond(~pastrangeofmotion) ^fail(TOPIC)
+u: ($pasthistory) respond(~pastrangeofmotion) ^fail(TOPIC)
 
 #! What movements make it hurt
-	?: WHAT_MOVEMENTS_MAKE_IT_HURT
-		([
-			([action movement 'do what] * [make cause] * [hurt pain painful worse])
-			([action movement 'do what] * [hurt pain painful worse])
-		])
-	^factanswer("No movements cause it to hurt.")
+u: WHAT_MOVEMENTS_MAKE_IT_HURT
+	([
+		([action movement what] * [make cause] * [hurt pain painful worse])
+		([action movement what] * [hurt pain painful worse])
+	])
+	^factanswer("It is difficult to say.")
 
 #! Does it hurt when you bend
-	?: DOES_IT_HURT_WHEN_YOU_BEND (<< [hurt painful worse] [bend crouch lean] >>)  ^factanswer("It doesn't hurt when I bend.")
+u: DOES_IT_HURT_WHEN_YOU_BEND (<< [hurt painful worse] [bend crouch lean] >>)  ^factanswer("I don't have any problems with that.")
 
 #! Does it hurt when you move
-	?: DOES_IT_HURT_WHEN_YOU_MOVE
-		([
-			(<< [hurt painful worse] [move movement] >>)
-			([~itwords $chiefcomplaint?] *~3 change *~3 [move movement])
-		])
-		^factanswer("It doesn't hurt when I move.")
+u: DOES_IT_HURT_WHEN_YOU_MOVE
+	([
+		(<< [hurt painful worse] [move movement] >>)
+		([~itwords $chiefcomplaint?] *~3 change *~3 [move movement])
+	])
+		^factanswer("I don't have any problems with that.")
 
 #! Did you bend down
-	?: DID_YOU_BEND_DOWN (!can did * bend [down over])  ^factanswer("I didn't bend down.")
+u: DID_YOU_BEND_DOWN (!can did * bend [down over])  ^factanswer("I am not sure.")
 
 #! How far can you bend
-	?: HOW_FAR_CAN_YOU_BEND (how far *~3 bend) ^factanswer("I don't have any problems with that.")
+u: HOW_FAR_CAN_YOU_BEND (how far *~3 bend) ^factanswer("I don't have any problems with that.")
 
 #! Can you bend down
-	?: CAN_YOU_BEND_DOWN (!worse [can are difficult] *~3 bend) ^factanswer("I don't have any problems with that.")
+u: CAN_YOU_BEND_DOWN (!worse [can are difficult] *~3 bend) ^factanswer("I don't have any problems with that.")
 
 #! Have you tried to bend down
-	?: HAVE_YOU_TRIED_TO_BEND (try *~3 [bend bending]) ^factanswer("I don't have any problems with that.")
+u: HAVE_YOU_TRIED_TO_BEND (try *~3 [bend bending]) ^factanswer("I don't have any problems with that.")
 
 #! Can you straighten up
-	?: CAN_YOU_STRAIGHTEN_UP ([can are] *~3 ["get up" straighten]) ^factanswer("I don't have any problems with that.")
+u: CAN_YOU_STRAIGHTEN_UP ([can are] *~3 ["get up" straighten]) ^factanswer("I don't have any problems with that.")
 
 #! Can you lean backwards
-	?: CAN_YOU_LEAN ([can are] *~3 lean) ^factanswer("I don't have any problems with that.")
+u: CAN_YOU_LEAN ([can are] *~3 lean) ^factanswer("I don't have any problems with that.")
 
 #! Can you jump
-	?: CAN_YOU_JUMP ([can are] *~3 jump)  ^factanswer("I don't have any problems with that.")
+u: CAN_YOU_JUMP ([can are] *~3 jump)  ^factanswer("I don't have any problems with that.")
 
 #! Can you run
-	?: CAN_YOU_RUN (!family [can are] *~3 run)  ^factanswer("I can do that just fine.")
+u: CAN_YOU_RUN (!family [can are] *~3 run)  ^factanswer("I can do that just fine.")
 
 #! Can you lie down
-	?: CAN_YOU_LIE_DOWN ([can are] *~3 "lie down")  ^factanswer("I can do that just fine.")
+u: CAN_YOU_LIE_DOWN ([can are] *~3 "lie down")  ^factanswer("I can do that just fine.")
 
-#! Can you open
-	?: CAN_YOU_OPEN ([open twist screw unscrew] *~3 [jar bottle thing])  ^factanswer("I can open.")
+#! Can you open a jar
+u: CAN_YOU_OPEN ([open twist screw unscrew] *~3 [jar bottle thing anything])  ^factanswer("I don't have any problems with that.")
 
 #! Have you been dropping things
-	?: HAVE_YOU_BEEN_DROPPING_THINGS  ([drop "lose grip"])  ^factanswer("I haven't dropped things.")
+u: HAVE_YOU_BEEN_DROPPING_THINGS  ([drop "lose grip"])  ^factanswer("I don't have any problems with that.")
 
 #! Do you have any decreased range of motion
-	?: DO_YOU_HAVE_DECREASED_MOTION (~decrease_count * [motion move movement ~itwords]) ^factanswer("I don't think so.")
+u: DO_YOU_HAVE_DECREASED_MOTION (~decrease_count * [motion move movement ~itwords]) ^factanswer("I don't have any problems with that.")
 
 #! Can you touch your toes
-	?: CAN_YOU_TOUCH_YOU_TOES ([put reach touch] * [toe shoe])  ^factanswer("I don't have any problems with that.")
+u: CAN_YOU_TOUCH_YOU_TOES ([put reach touch] * [toe shoe])  ^factanswer("I don't have any problems with that.")
 
 #! Do you know how to lift properly
-	?: DO_YOU_KNOW_HOW_TO_LIFT_PROPERLY (lift * [properly correctly "with your legs" "with your back"]) ^factanswer("I know how to lift.")
+u: DO_YOU_KNOW_HOW_TO_LIFT_PROPERLY (lift * [properly correctly "with your legs" "with your back"]) ^factanswer("I know how to lift.")
 
 #! Were you lifting anything
-	?: WERE_YOU_LIFTING_ANYTHING
-		([
-			(![when are can able work job] [be have do] *~3 [lift pick])
-			(![when are can able work job] << heavy [lift lifting] >>)
-		])
-	^factanswer("I wasn't lifting.")
+u: WERE_YOU_LIFTING_ANYTHING
+	([
+		(![when are can able work job] [were have do] *~3 [lift pick])
+		(![when are can able work job] << heavy [lift lifting] >>)
+	])
+	^factanswer("Not that I recall.")
 
 #! Can you lift anything
-	?: CAN_YOU_LIFT_ANYTHING ([able can] *~4 lift)  ^factanswer("I can lift fine.")
+u: CAN_YOU_LIFT_ANYTHING ([able can] *~4 lift)  ^factanswer("I don't have any problems with that.")
 
 #! Were you twisting
-	?: WERE_YOU_TWISTING (twist) ^factanswer("I wasn't twisting.")
+u: WERE_YOU_TWISTING (twist) ^factanswer("Not that I am aware of.")
 
 #! Can you move your back
-	?: CAN_YOU_MOVE_YOUR_BACK (![I we] move *~3 [back~n ~itwords]) ^factanswer("I can do that just fine.")
+u: CAN_YOU_MOVE_YOUR_BACK (![I we] move *~3 [back ~itwords]) ^factanswer("I can do that just fine.")
 
 #! Have you been moving OK
-	?: HAVE_YOU_BEEN_MOVING (![were ~bodyparts][can been able] *~3 move) ^factanswer("I have been moving just fine.")
+u: HAVE_YOU_BEEN_MOVING (![were ~bodyparts][can been able] *~3 move) ^factanswer("I have been moving just fine.")
 
 #! Are you able to stand
-	?: ARE_YOU_ABLE_TO_STAND (!does [able can] *~3 [stand "stand up" "get up"])  ^factanswer("I don't have any problems with that.")
+u: ARE_YOU_ABLE_TO_STAND (!does [able can] *~3 [stand "stand up" "get up"])  ^factanswer("I don't have any problems with that.")
 
 #! Is standing a problem
-	?: IS_STANDING_A_PROBLEM (!long-standing standing *~2 [problem issue concern difficult painful hurt])  ^factanswer("It's not a problem.")
+u: IS_STANDING_A_PROBLEM (!long-standing standing *~2 [problem issue concern difficult painful hurt])  ^factanswer("I don't have any problems with that.")
 
 #! Are you stiff
-	?: ARE_YOU_STIFF (!neck [stiff stiffness tight tightness]) ^factanswer("I am not stiff.")
-
+u: ARE_YOU_STIFF (!neck [stiff stiffness tight tightness]) ^factanswer("I am not stiff.")
 
 # ***************************************************************************************************
 topic: ~pastrangeofmotion keep repeat (motion move movement bend bending stiffness stiff)
 
-	u: ($present) respond (~currentrangeofmotion) ^fail(TOPIC)
+u: ($present) respond (~currentrangeofmotion) ^fail(TOPIC)
 
 #! Have you lost range of motion before
-	?: HAVE_YOU_LOST_RANGE_OF_MOTION_BEFORE (<< "range of motion" [before prior past history ever] >>) ^factanswer("I've never had any problems with that.")
+u: HAVE_YOU_LOST_RANGE_OF_MOTION_BEFORE (<< "range of motion" [before prior past history ever] >>) ^factanswer("I've never had any problems with that.")
 
 #! Have you had stiffness before
-	?: HAVE_YOU_HAD_STIFFNESS_BEFORE (<< stiffness [before prior past history ever] >>) ^factanswer("I've never had any problems with that.")
+u: HAVE_YOU_HAD_STIFFNESS_BEFORE (<< stiffness [before prior past history ever] >>) ^factanswer("I've never had any problems with that.")

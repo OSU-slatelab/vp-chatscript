@@ -1,63 +1,54 @@
-# ***************************************************************************************************
-
 # Blood Pressure - I have defined blood_pressure as a concept in MedicalConcepts.top
 
 topic: ~pastbloodpressure keep repeat (blood pressure)
 
-	u: ($present) respond(~currentbloodpressure) ^fail(TOPIC)
-	u: ($family) respond(~familybloodpressure) ^fail(TOPIC)
+u: ($present) respond(~currentbloodpressure) ^fail(TOPIC)
+u: ($family) respond(~familybloodpressure) ^fail(TOPIC)
 
 #! Any previous blood pressure problems
-	?: ANY_PREVIOUS_BLOOD_PRESSURE_PROBLEMS ("blood pressure") ^factanswer("My blood pressure has always been normal.")
-
-# ***************************************************************************************************
+u: ANY_PREVIOUS_BLOOD_PRESSURE_PROBLEMS ("blood pressure") ^factanswer("My blood pressure has always been normal.")
 
 topic: ~pastchestpain keep repeat (~chest_pain)
 
-	u: ($present) respond(~currentchestpain) ^fail(TOPIC)
-	u: ($family) respond(~familychestpain) ^fail(TOPIC)
+u: ($present) respond(~currentchestpain) ^fail(TOPIC)
+u: ($family) respond(~familychestpain) ^fail(TOPIC)
 
 #! Any history of chest pain
-	?: ANY_HISTORY_OF_CHEST_PAIN (~chest_pain)  ^factanswer("No.")
-
-# ***************************************************************************************************
+u: ANY_HISTORY_OF_CHEST_PAIN (~chest_pain)  ^factanswer("No.")
 
 topic: ~pastheartproblem keep repeat (~chest_pain heart coronary artery cardiac)
 
-	u: ($present) respond(~currentheartproblem)  ^fail(TOPIC)
-	u: ($family) respond(~familyheartproblem) ^fail(TOPIC)
+u: ($present) respond(~currentheartproblem)  ^fail(TOPIC)
+u: ($family) respond(~familyheartproblem) ^fail(TOPIC)
 
 #! Any previous heart problems
-	?: ANY_PREVIOUS_HEART_PROBLEMS (<< [coronary artery heart cardiac] [wrong condition issue problem trouble disease] >>)   ^factanswer("I have not had any heart problems.")
-
-# ***************************************************************************************************
+u: ANY_PREVIOUS_HEART_PROBLEMS (<< [coronary artery heart cardiac] [wrong condition issue problem trouble disease] >>)   ^factanswer("I have not had any heart problems.")
 
 topic: ~pastvascular keep repeat (~cardiovascular image probe catheter ultrasound)
 
-	u: ($present) respond(~currentvascular) ^fail(TOPIC)
-	u: ($family) respond(~familyvascular)  ^fail(TOPIC)
+u: ($present) respond(~currentvascular) ^fail(TOPIC)
+u: ($family) respond(~familyvascular)  ^fail(TOPIC)
 
 #! Any past vascular problems
-	?: ANY_PAST_VASCULAR_PROBLEMS
-		([
-			(~cardiovascular * [wrong condition issue problem trouble disease])
-			([wrong condition issue problem trouble disease] * ~cardiovascular)
-		])
+u: ANY_PAST_VASCULAR_PROBLEMS
+	([
+		(~cardiovascular * [wrong condition issue problem trouble disease])
+		([wrong condition issue problem trouble disease] * ~cardiovascular)
+	])
 	^factanswer("I have never had vascular problems.")
 
-
 #! Any past vascular testing
-	?: ANY_PAST_VASCULAR_TESTING
-		([
-			(~cardiovascular * [test image probe catheter ultrasound check])
-			([test image probe catheter ultrasound check] * ~cardiovascular)
-		])
+u: ANY_PAST_VASCULAR_TESTING
+	([
+		(~cardiovascular * [test image probe catheter ultrasound check])
+		([test image probe catheter ultrasound check] * ~cardiovascular)
+	])
 	^factanswer("I have never had any vascular testing.")
 
 #! Any past clotting problems
-	?: ANY_PAST_CLOTTING_PROBLEMS
-		([
-			([have any experience] * ["blood clot" clot])
-			([blood vascular] * [clot problems thick thickness plaques embolism])
-		])
+u: ANY_PAST_CLOTTING_PROBLEMS
+	([
+		([have any experience] * ["blood clot" clot])
+		([blood vascular] * [clot problems thick thickness plaques embolism])
+	])
 	^factanswer("I have never had clotting problems.")

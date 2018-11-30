@@ -3,57 +3,67 @@
 topic: ~statements keep repeat deprioritize
 	("hear you" understand "healthcare team" nice noble pretty friend kind uncomfortable hard ask best doctor sounds "get to the bottom"
 	address "take care of" "look into" "get you back" "work on that" talk irritate confidential discuss address discussion "between you and me"
-	"I would like to" tough review system "I see" "I can see" "move on" patients first stressful worrisome concerning)
+	"I would like to" tough review system "I see" "I can see" "move on" patients first stressful worrisome concerning frustrate talk "right back")
 
 #! That was nice
-	s: THAT_WAS_NICE
-		([
-			([that you] *~3 [very quite incredibly good] * [nice friendly noble friend])
-			([that you] *~3 [nice friendly noble friend kind])
-		])
+s: THAT_WAS_NICE
+	([
+		([that you] *~3 [very quite incredibly good] * [nice friendly noble friend])
+		([that you] *~3 [nice friendly noble friend kind])
+	])
 	^factanswer("I try to be a nice person.")
 
 #! I understand completely
-	s: I_UNDERSTAND ([I ~itwords] *~3 [understand understandable "hear you"])  ^factanswer("Thanks for understanding.")
+s: I_UNDERSTAND ([I ~itwords] *~3 [understand understandable "hear you"])  ^factanswer("Thanks for understanding.")
 
 #! Want to ask about
-	s: WANT_TO_ASK_ABOUT
-		([
-			(!confidential [want going like want] *~3 [ask discuss run over talk review] *~3 [about through system])
-			(!confidential [discuss run over talk "move on"] *~3 [about through more])
-		])
+s: WANT_TO_ASK_ABOUT
+	([
+		(!confidential [want going like want] *~3 [ask discuss run over talk review] *~3 [about through system])
+		(!confidential [discuss run over talk "move on"] *~3 [about through more])
+	])
 ^factanswer("I'll try to give answers as best I can.")
 
 #! I will do my best
-	s: I_WILL_DO_MY_BEST ([I we "healthcare team" ~itwords] *~3 [best try help "get to the bottom" address "take care of" "look into" "get you back" "work on that"])  ^factanswer("I appreciate that.")
+s: I_WILL_DO_MY_BEST ([I we "healthcare team" ~itwords] *~3 [best try help "get to the bottom" address "take care of" "look into" "get you back" "work on that"])  ^factanswer("I appreciate that.")
 
 #! The doctor will be in
-	s: THE_DOCTOR_WILL_BE_IN ([doctor he she they] *~3 [come be])  ^factanswer("Sounds good.")
-
-#! Sounds like
-	s: SOUNDS_LIKE ([sounds seems] *~4 [irritating like pretty really])  ^factanswer("That sounds right.")
+s: THE_DOCTOR_WILL_BE_IN ([doctor he she they] *~3 [come be])  ^factanswer("Sounds good.")
 
 #! Discussion is confidential
-	s: DISCUSSION_IS_CONFIDENTIAL ([discuss discussion talk] *~3 [confidential private "between you and me"])  ^factanswer("That makes me feel good.")
+s: DISCUSSION_IS_CONFIDENTIAL ([discuss discussion talk] *~3 [confidential private "between you and me"])  ^factanswer("That makes me feel good.")
 
-#! That must be hard
-	s: THAT_MUST_BE_HARD (!confidential ~itwords *~3 [hard frustrating uncomfortable terrible painful difficult bad tough rough stressful worrisome concerning])  ^factanswer("It is challenging.")
+#! I would like to get to know more about your medical history
+s: I_WOULD_LIKE_TO_GET_TO_KNOW_MORE (["get to know" learn tell] * [medical social past family history])  ^factanswer("I will try my best to tell you.")
 
-#! I would like to get to know more
-	s: I_WOULD_LIKE_TO_GET_TO_KNOW_MORE ("I would like to" *~3 ["get to know" learn] * [medical social past family])  ^factanswer("I will try my best to tell you.")
-
-#! You look
-	s: YOU_LOOK (you look *~4 [tired anxious uncomfortable])  ^factanswer("I guess so.")
+#! You look uncomfortable
+s: YOU_LOOK (you look *~4 [tired anxious uncomfortable])  ^factanswer("I guess so.")
 
 #! I ask them of all my patients
-	s: ASK_THEM_OF_ALL_MY_PATIENTS (ask {them} *~3 my *~2 patients) ^factanswer("OK.")
+s: ASK_THEM_OF_ALL_MY_PATIENTS (ask {them} *~3 my *~2 patients) ^factanswer("OK.")
+
+#! Let me know if these questions make you uncomfortable
+#! Let me know if you are uncomfortable answering questions
+s: QUESTIONS_MAKE_YOU_UNCOMFORTABLE (<< question uncomfortable >>) ^factanswer("OK.")
+
+#! That must be hard
+s: THAT_MUST_BE_HARD (!confidential ~itwords *~4 [hard frustrating uncomfortable terrible painful difficult bad tough rough stressful worrisome concerning])  ^factanswer("It is challenging.")
 
 #! Let's discuss this first
-	s: DISSCUSS_THIS_FIRST (discuss * first) ^factanswer("OK.")
+s: DISSCUSS_THIS_FIRST (discuss * first) ^factanswer("OK.")
 
 #! We will adress that
-	u: WE_WILL_ADDRESS_THAT ([address discuss "go over"] *~3 [that those]) ^factanswer("OK.") # s: does not work for "If that is all, we will adress that.
+u: WE_WILL_ADDRESS_THAT ([address discuss "go over"] *~3 [that those]) ^factanswer("OK.") # s: does not work for "If that is all, we will adress that.
 
-#! I see
-#! I can see
-	s: I_SEE (I *~1 see) ^factanswer("Thanks.")
+#! I see it bothers you
+#! I can see it bothers you
+s: I_SEE (I *~1 see * bother) ^factanswer("Thanks.")
+
+#! Let's talk about your concerns
+u: LET_US_TALK (let us talk) ^factanswer("OK.") # s: does not work because input gets marked as a question somehow
+
+#! Sounds like
+s: SOUNDS_LIKE ([sounds seems] *~4 [irritating like pretty really])  ^factanswer("That sounds right.") # what is this supposed to catch?
+
+#! I will be right back
+s: I_WILL_BE_RIGHT_BACK (I will * [return "right back"] ) ^factanswer("OK.")

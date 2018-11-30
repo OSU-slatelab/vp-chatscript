@@ -27,7 +27,7 @@ concept: ~gyndoctor [ob obstetrician ob/gyn gyn gynecologist]
 
 # Musculoskeletal
 
-concept: ~back_pain [back~6 back~7 back~n pain "back problem" "back problems" "back pain" backache "back ache" "back soreness" "back tenderness" "back tightness" "back discomfort" "back hurt" "hurt your back" "back trouble" "back stiffness"]
+concept: ~back_pain [back~6 back~7 back pain "back problem" "back problems" "back pain" backache "back ache" "back soreness" "back tenderness" "back tightness" "back discomfort" "back hurt" "hurt your back" "back trouble" "back stiffness"]
 
 concept: ~muscle_pain [muscle pain "muscle pain" "muscle ache" "muscle soreness" "muscle tenderness" "muscle tightness" "muscle discomfort" "muscle achiness" "muscle achy" "muscle hurt" muscular "muscle cramp"]
 
@@ -89,7 +89,7 @@ concept: ~medical_jargon NOUN
 # Abdominal or GI Symptoms
 
 
-concept: ~bowel_problems [bowel stool incontinence defecation poop bathroom defecate diarrhea constipation]
+concept: ~bowel_problems [bowel stool incontinence defecation poop bathroom defecate diarrhea constipation constipated]
 
 concept: ~abdominal_pain [pain abdomen abdominal stomach stomachache belly "abdominal pain"]
 
@@ -104,7 +104,7 @@ concept: ~bladder_problems [UTI "urinary tract infection" bladder incontinence i
 
 concept: ~bladder_function [urinate pee potty bathroom urine urination stream]
 
-concept: ~urinary_frequency_complaint ["urinary frequency" "frequent urination" "urinate more frequently" "urinating more frequently" "problems urinating" "increase in frequency" "increased frequency" urge "urge to urinate" night]
+concept: ~urinary_frequency_complaint ["urinary frequency" "frequent urination" "urinate more frequently" "urinating more frequently" "problems urinating" "increase in frequency" "increased frequency" urge "urge to urinate"]
 
 concept: ~groin_male [penis groin scrotum genital testicles testes testis]
 
@@ -183,7 +183,7 @@ concept: ~pastwords [ever past history prior before previous ago "when were" "ha
 
 concept: ~medicines [medication medications medicine pill tablet antidote remedy analgesia meds drug drugs ~drugs_legal]
 
-concept: ~prescribedmedicines [prescription  painkiller "pain killer" "pain killers" narcotic steroid hormone hormonal antibiotics  "prescription medication" "prescription medications""prescribed to you"]
+concept: ~prescribedmedicines [prescription  prescribed painkiller "pain killer" "pain killers" narcotic steroid hormone hormonal antibiotics]
 
 concept: ~OTCmedicines [tums ~drugs_legal "over the counter" otc OTC]
 
@@ -193,8 +193,10 @@ concept: ~activity [sit stand breathe cough sneeze walk "lift your arms" "raise 
 
 concept: ~medical_treatments [hot heat cold rest ice "heating pad" "physical therapy" physiotherapy PT therapy chiropractor massage surgery operation surgeries acupuncture]
 
-concept: ~medical_professionals [doctor nurse "physical therapist" physiotherapist psychologist psychiatrist chiropractor "mental health provider" "mental health professional" counselor physician]
+concept: ~medical_professionals [doctor nurse therapist physiotherapist psychologist psychiatrist chiropractor "mental health provider" "mental health professional" counselor physician specialist cardiologist endocrinologist pediatrician]
 
 concept: ~medical_tests ["spinal tap" MRI x-ray xray "x ray" "x rays" imaging]
+
+concept: ~medical_devices ["back brace" wheelchair cane walker crutch "heating pad"]
 
 # ********************************************************************************

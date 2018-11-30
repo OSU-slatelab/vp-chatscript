@@ -1,8 +1,9 @@
+
 topic: ~score ()
 u: () $totalQueries = $q_num_external
 
-	# get this label's properties for this bot's diagnosis 
-	@1 = query(direct_sv '$$label $cs_bot ?) # get this label's properties 
+	# get this label's properties for this bot's diagnosis
+	@1 = query(direct_sv '$$label $cs_bot ?) # get this label's properties
 	loop () # process each property
 	{
 		$$tmp = first(@1object) # DATA IS: ( What_is_your_goal Patient1 Open ) - so this gets property Open or whatever
@@ -15,26 +16,26 @@ u: () $totalQueries = $q_num_external
 		{
 			Createfact($$label summary $currenttopic) # from what topic did they ask this question
 		}
-		
+
 		$$kind = join('$ $$tmp) # get property like "open" making it $open
 		^$$kind += 1 	# increment count
 	}
 
 	# now note this new question was asked
-	$$tmp = %originalSentence # $$rawinput 
-	
-	# find out if this is a retry query by checking for another query with the same number; 
+	$$tmp = $$rawinput
+
+	# find out if this is a retry query by checking for another query with the same number;
 	# if so we want to keep the old form and replace the label in the fact set.
-	@17 = ^query ( direct_vo ? asked $totalQueries )
+	@17 = ^query(direct_vo ? asked $totalQueries )
 	if (!@17)
 	{
-		^createfact ( $$tmp form $totalQueries ) # Only store the form if this is the first time this query num was seen
-	} 
+		^createfact($$tmp form $totalQueries) # Only store the form if this is the first time this query num was seen
+	}
 	else {
-		^delete ( ^first ( @17fact ) )
+		^delete(^first(@17fact))
 	}
 
-	^createfact ( $$label asked $totalQueries FACTDUPLICATE ) # store label; this was deleted if there was a previous label 
+	^createfact($$label asked $totalQueries FACTDUPLICATE) # store label; this was deleted if there was a previous label
 
 	if (!$open) {$open = 0}
 
@@ -44,14 +45,14 @@ u: () $totalQueries = $q_num_external
 	else if (%input == 15) {$first15open = $open}
 
 topic: ~finalscore system repeat()
-u: () 
+u: ()
 #	 createfact(^"/openCurly/\"name\": \"$login\", \"sections\": /openSquare/" scorecard x FACTTRANSIENT)
 	 createfact(^"/openCurly/\"name\": \"$cs_login\", \"sections\": /openSquare/" scorecard x FACTTRANSIENT)
 
 	@4 = query(direct_vo ? $cs_bot grade_items)  # get sections to grade for this patient, eg ("Family History" zone grade_items)
-	
+
 	$$sectionnumber = 0
-	
+
 	# handle each section of grading
 	loop()
 	{
@@ -62,7 +63,7 @@ u: ()
 			createfact(^"/openCurly/\"name\": \"$$section\", \"categories\": /openSquare/" scorecard x FACTTRANSIENT)
 		}
 		else {createfact(^", /openCurly/\"name\": \"$$section\", \"categories\": /openSquare/" scorecard x FACTTRANSIENT)}
-		$$sectionnumber += 1		
+		$$sectionnumber += 1
 
 		$$categoryCount = 0
 		$$didasksection = 0
@@ -85,22 +86,22 @@ u: ()
 			loop()
 			{
 				$$question = ^last(@2subject)
-	
+
 				# did he ask this?
-				if (^query(direct_sv $$question asked ?)) # he asked this 
-				{	
+				if (^query(direct_sv $$question asked ?)) # he asked this
+				{
 					$$q_num = ^last(@0object)
 					@18 = ^query(direct_vo ? form $$q_num)
 					$$form = ^last(@18subject)
 					if ($$didask == 0)
-					{	
+					{
 						createfact(^"\"$$form\"" scorecard x FACTTRANSIENT)
 					}
 					else {createfact(^", \"$$form\"" scorecard x FACTTRANSIENT)}
 					$$didask += 1
 				}
 			}
-			if ($$didask == 0) 
+			if ($$didask == 0)
 			{
 				createfact(^"\"No question asked.\"" scorecard x FACTTRANSIENT)
 			}
@@ -140,7 +141,7 @@ u: ()
 
 	 $$tmpfile1 = $closed * 100 / $totalQueries
 	 createfact(^", \"closed question percent\": \"$$tmpfile1\"" scorecard x  FACTTRANSIENT)
-	 
+
 	 $$tmpfile1 = $open * 100 / $closed # MULTIPLIED BY 100 TO GET CORRECT RATIO
 	 createfact(^", \"open/closed ratio\": \"$$tmpfile1\"" scorecard x  FACTTRANSIENT)
 
@@ -148,14 +149,14 @@ u: ()
      nofail(rule query(direct_v ? summary ?))
 	 createfact(^", \"summarizing questions\": /openSquare/" scorecard x  FACTTRANSIENT)
 
-	if (^length(@0) == 0) 
-	{ 
+	if (^length(@0) == 0)
+	{
 	 	createfact(^"\"none\"" scorecard x  FACTTRANSIENT)
 	}
-	
+
  	 $$count = 0
      loop()
-	 {  
+	 {
 		$$count += 1
          _0 = last(@0all)
 		if ($$count == 1)
@@ -167,7 +168,7 @@ u: ()
 		@19 = ^query(direct_vo ? form @1object)
  	 	createfact(^"@1subject \)\"" scorecard x  FACTTRANSIENT)
     }
-	 
+
 	 # here is the history of what they asked
  	createfact(^"/closeSquare/, \"transcript\": /openSquare/" scorecard x  FACTTRANSIENT)
 
@@ -175,7 +176,7 @@ u: ()
 
 	 nofail(rule query(direct_v ? form ?))
      loop()
-	 {  
+	 {
         _0 = last(@0all)
 		if ($$whichquestion == 0)
 		{

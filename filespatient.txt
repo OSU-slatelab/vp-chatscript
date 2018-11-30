@@ -9,38 +9,41 @@
 ../RAWDATA/PatientFiles/Control/medicalcontrol.top		# system control
 ../RAWDATA/PatientFiles/Control/scorefn.top			
 # ../RAWDATA/PatientFiles/Control/scoreforpdf.top 		# This scoring file is used to provide formatted output for pdf
-../RAWDATA/PatientFiles/Control/scoreforpdf_ws.top # This scoring file is used to provide formatted output for pdf fixed by Adam Stiff
-# ../RAWDATA/PatientFiles/Control/scorefortxt.top		# This scoring file is used to provide unformatted output for text file	
+# ../RAWDATA/PatientFiles/Control/scoreforpdf_ws.top # This scoring file is used to provide formatted output for pdf fixed by Adam Stiff
+../RAWDATA/PatientFiles/Control/scorefortxt.top		# This scoring file is used to provide unformatted output for text file	
 
 # Patient Topic Files
 
-../RAWDATA/PatientFiles/Patient_Topic_Files/patient1.top
-../RAWDATA/PatientFiles/Patient_Topic_Files/patient2.top
-# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient3.top
-# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient4.top
-# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient5.top
-# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient6.top
-# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient7.top
-# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient8.top
-# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient9.top
-# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient10.top
-# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient11.top
-# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient12.top
-# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient13.top
-# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient14.top
+# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient1.top # Jim Wilkins - Back Pain - Couch
+# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient2.top # Jack Wilson - Back pain - shoes
+# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient3.top # Josh Colson - Back Pain - sliding
+# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient4.top # Melissa Phillips -= DUB
+# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient5.top # Greta Schmidt - Vaginal Discharge
+# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient6.top # Carmen Flores - Headache
+# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient7.top # Jasmine Zhang - GERD
+# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient8.top # Marcus Robertson - Dysuria
+# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient9.top # Harold Washington - Anemia/dizziness
+# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient10.top # Alexander Spiros - Sinusitis
+# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient11.top # Arlinda Ashwell - COPD/Bronshitis
+# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient12.top # Kathleen Michael - Depression
+# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient13.top # Candy Carruthers - DJD
+# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient14.top # Paul Cannardley - BPH
 
-# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient15.top     	# This is one of the patients for MEd-U
-# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient16.top	# This is one of the patients for MEd-U
-# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient17.top	# This is one of the patients for MEd-U
-# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient18.top	# This is one of the patients for MEd-U
+# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient15.top # This is one of the patients for MEd-U Ann Tomlin gyn pain
+# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient16.top	# This is one of the patients for MEd-U Cesar Rodriguez abdominal pain
+# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient17.top	# This is one of the patients for MEd-U Joe Smith diabetes/leg swelling
+# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient18.top	# This is one of the patients for MEd-U Jacob Farber back pain
 
-# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient19.top	# This is one of the patients for Rachel Umoren
-# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient20.top	# This is VANESSA for Rachel Umoren
+# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient19.top	# This is one of the patients for Rachel Umoren Brittany Watson prenatal counselling
+# ../RAWDATA/PatientFiles/Patient_Topic_Files/patient20.top	# This is VANESSA for Rachel Umoren Vanessa Watson
+../RAWDATA/PatientFiles/Patient_Topic_Files/patient21.top	# Carlos Martinez - back pain
 
 # Grading Tables
 
-../RAWDATA/PatientFiles/Grading_Tables/Jim_Wilkins_Grading9.2016.top	# Table must be defined after macro definition of table in scorefn.top
-../RAWDATA/PatientFiles/Grading_Tables/Jack_Wilson_Grading2.2018.top	# Table must be defined after macro definition of table in scorefn.top
+# ../RAWDATA/PatientFiles/Grading_Tables/Jim_Wilkins_Grading9.2016.top	# Table must be defined after macro definition of table in scorefn.top
+# ../RAWDATA/PatientFiles/Grading_Tables/Jack_Wilson_Grading_12.2018.top	# Table must be defined after macro definition of table in scorefn.top
+../RAWDATA/PatientFiles/Grading_Tables/Carlos_Martinez_Grading_12.2018.top	# Table must be defined after macro definition of table in scorefn.top
+
 
 # General Topic Files
 
@@ -57,6 +60,7 @@
 ../RAWDATA/PatientFiles/GeneralTopicFiles/Medications.top			# Medications past and present
 ../RAWDATA/PatientFiles/GeneralTopicFiles/Closure.top				# Goodbye
 ../RAWDATA/PatientFiles/GeneralTopicFiles/Hopi.top	       			# History of present illness 
+# ../RAWDATA/PatientFiles/GeneralTopicFiles/HOPISpecificSymptoms.top	# Topics unique to specific bots such as lifting furniture 
 ../RAWDATA/PatientFiles/GeneralTopicFiles/Inappropriate_Language.top	# All the bad words 
 ../RAWDATA/PatientFiles/GeneralTopicFiles/Statements.top			# Statements
 # ../RAWDATA/PatientFiles/GeneralTopicFiles/Neonatalcounseling.top	# Neonatal counseling for patient20 only
@@ -103,7 +107,7 @@
 ../RAWDATA/PatientFiles/PastMedicalSymptoms/PastGUSymptoms.top			# Past GU Symptoms
 ../RAWDATA/PatientFiles/PastMedicalSymptoms/PastGeneralSymptoms.top		# Past General Symptoms
 ../RAWDATA/PatientFiles/PastMedicalSymptoms/PastHEENTSymptoms.top		# Past HEENT Symptoms
-../RAWDATA/PatientFiles/PastMedicalSymptoms/Pastmusclesymptoms.top		# Past Musculoskeletal and Rheumatologic Symptoms
+../RAWDATA/PatientFiles/PastMedicalSymptoms/PastMuscleSymptoms.top		# Past Musculoskeletal and Rheumatologic Symptoms
 ../RAWDATA/PatientFiles/PastMedicalSymptoms/PastNeurologicSymptoms.top		# Past Neurologic Symptoms
 ../RAWDATA/PatientFiles/PastMedicalSymptoms/PastPainSymptoms.top		# Past Pain Symptoms
 ../RAWDATA/PatientFiles/PastMedicalSymptoms/PastGYNSymptoms.top			# Past GYN Symptoms

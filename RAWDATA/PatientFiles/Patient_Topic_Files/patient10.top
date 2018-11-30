@@ -11,7 +11,7 @@ $currentjob = college_student
 $currentmedication1 = Afrin
 $currentmedication2 =
 $currentmedication3 =
-$currentrateofpain = 4
+$currentpainnum = 4
 
 ^stdpatient()
 

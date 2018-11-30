@@ -4,46 +4,46 @@
 
 topic: ~currentbowel keep repeat (~bowel_problems hold control difficulty)
 
-	u: ($pasthistory) respond(~pastbowel)  ^fail(TOPIC)
-	u: ($family) respond(~familybowel) ^fail(TOPIC)
+u: ($pasthistory) respond(~pastbowel)  ^fail(TOPIC)
+u: ($family) respond(~familybowel) ^fail(TOPIC)
 
 #! Do you have loss of bowel control
-	?: LOSS_OF_BOWEL_CONTROL (!bladder << [loss lost] bowel control >>)    ^factanswer("My bowels are fine.")
+u: LOSS_OF_BOWEL_CONTROL (![~bladder_function ~bladder_problems] << [loss lost] bowel control >>)    ^factanswer("My bowels are fine.")
 
 #! Are you able to control your bowels
-	?: ARE_YOU_ABLE_TO_CONTROL_YOUR_BOWELS (![problem trouble bladder loss lost] control * bowel)    ^factanswer("I have no problems with my bowels.")
+u: ARE_YOU_ABLE_TO_CONTROL_YOUR_BOWELS (![problem trouble ~bladder_function ~bladder_problems loss lost] control * bowel)    ^factanswer("My bowels are fine.")
 
 #! When was your last bowel movement
-	?: WHEN_WAS_LAST_BOWEL_MOVEMENT
-		([
-			(!pain [when long often] *~4 [last latest "most recent"] *~3 [bowel movement poop])
-			(!pain [when long often] *~4 [bowel movement poop])
-		])
-	^factanswer("I don't remember.")
+u: WHEN_WAS_LAST_BOWEL_MOVEMENT
+	([
+		(!pain [when long often] *~4 [last latest "most recent"] *~3 [bowel movement poop])
+		(!pain [when long often] *~4 [bowel movement poop])
+	])
+	^factanswer("I am not sure.")
 
 #! Do you have any bowel problems
-	u: DO_YOU_HAVE_ANY_BOWEL_PROBLEMS
-		([
-			(![where when how bladder incontinence] ['do 'are any] * ~bowel_problems) # not sure why I need this
-			(![bladder when incontinence] ~bowel_problems)
-		])
-	^factanswer("I have no problems with my bowels.")
+u: DO_YOU_HAVE_ANY_BOWEL_PROBLEMS
+	([
+		(![where when how ~bladder_function ~bladder_problems] ['do 'are any] * ~bowel_problems) # not sure why I need this
+		(![~bladder_function ~bladder_problems when] ~bowel_problems)
+	])
+	^factanswer("My bowels are fine.")
 
 #! Any pain with bowel movements
-	u: ANY_PAIN_WITH_BOWEL_MOVEMENTS (![where how bladder incontinence] ['do 'are any] * [pain discomfort] * [bowel movement poop])  ^factanswer("I have no problems with my bowel movements.")
+u: ANY_PAIN_WITH_BOWEL_MOVEMENTS (![~bladder_function ~bladder_problems where how] ['do 'are any] * [pain discomfort] * [bowel movement poop])  ^factanswer("I have no problems with that.")
 
 # Both bowel and bladder
 
 #! Do you have loss of bowel or bladder control
-	u: LOSS_OF_BOWEL_OR_BLADDER_CONTROL
-		([
-			(<< [loss lost] bowel bladder >>)
-			(<< bowel bladder [problem trouble issue] >>)
-		])
+u: LOSS_OF_BOWEL_OR_BLADDER_CONTROL
+	([
+		(<< [loss lost] bowel bladder >>)
+		(<< bowel bladder [problem trouble issue] >>)
+	])
 	^factanswer("My bowels and bladder are fine.")
 
 #! Do you have bowel or bladder control
-	u: DO_YOU_HAVE_BOWEL_OR_BLADDER_CONTROL (![loss lost] << bowel bladder >>) ^factanswer("My bowels and bladder are fine.")
+u: DO_YOU_HAVE_BOWEL_OR_BLADDER_CONTROL (![loss lost] << bowel bladder >>) ^factanswer("My bowels and bladder are fine.")
 
 # ***************************************************************************************************
 
@@ -51,17 +51,17 @@ topic: ~currentbowel keep repeat (~bowel_problems hold control difficulty)
 
 topic: ~currentabdominalpain keep repeat (~abdominal_pain nausea nauseous vomit nauseated regurgitate regurgitation)
 
-	u: ($pasthistory) respond(~pastabdominalpain)  ^fail(TOPIC)
-	u: ($family) respond(~familyabdominalpain) ^fail(TOPIC)
+u: ($pasthistory) respond(~pastabdominalpain)  ^fail(TOPIC)
+u: ($family) respond(~familyabdominalpain) ^fail(TOPIC)
 
 #! Have you been nauseous
-	u: HAVE_YOU_BEEN_NAUSEOUS ([been had experienced do any are about] * [nausea nauseous stomachache bellyache "sick to your stomach" nauseated]) ^factanswer("I am not nauseous.")
+u: HAVE_YOU_BEEN_NAUSEOUS ([been had experienced do any are about] * [nausea nauseous stomachache bellyache "sick to your stomach" nauseated]) ^factanswer("I am not nauseous.")
 
 #! Describe the nausea
-	?: DESCRIBE_THE_NAUSEA (!pain [describe tell] * [nausea nauseous "sick to the stomach"])  ^factanswer ("I have no nausea.")
+u: DESCRIBE_THE_NAUSEA (!pain [describe tell] * [nausea nauseous "sick to the stomach"])  ^factanswer ("I am not nauseous.")
 
 #! Have you thrown up
-	?: HAVE_YOU_THROWN_UP ([been have experience] * ["throwing up" vomit vomitting puke puking hurling vomited vomitted regurgitate regurgitation "throw up"]) ^factanswer("I have not.")
+u: HAVE_YOU_THROWN_UP ([been have experience] * ["throwing up" vomit vomitting puke puking hurling vomited vomitted regurgitate regurgitation "throw up"]) ^factanswer("I have not had any problems like that.")
 
 # ***************************************************************************************************
 
@@ -69,47 +69,47 @@ topic: ~currentabdominalpain keep repeat (~abdominal_pain nausea nauseous vomit 
 
 topic: ~currentheartburn keep repeat (~heartburn acid reflux metallic food sour bitter acidic belch burp eat digestion)
 
-	u: ($pasthistory) respond(~pastheartburn)  ^fail(TOPIC)
-	u: ($family) respond(~familyheartburn) ^fail(TOPIC)
+u: ($pasthistory) respond(~pastheartburn)  ^fail(TOPIC)
+u: ($family) respond(~familyheartburn) ^fail(TOPIC)
 
 #! Are you having an acid taste
-	u: ARE_YOU_HAVING_ACID_TASTE
-		([
-			([have experience feel] * [acid metallic] taste acidy)
-			([acid metallic bitter sour acidy] taste * [mouth tongue throat])
-		])
-	^factanswer ("I have no acid taste.")
+u: ARE_YOU_HAVING_ACID_TASTE
+	([
+		([have experience feel] * [acid metallic] * [taste acidy])
+		([acid metallic bitter sour acidy] taste * [mouth tongue throat])
+	])
+	^factanswer ("I have not had any problems like that.")
 
 #! What foods make heartburn worse
-	?: WHAT_FOOD_MAKES_HEARTBURN_WORSE (what * [food eat drink] * [~heartburn ~itwords] * [worse increase]) ^factanswer ("I have no heartburn.")
+u: WHAT_FOOD_MAKES_HEARTBURN_WORSE (what * [food eat drink] * [~heartburn ~itwords] * [worse increase]) ^factanswer ("I don't have any heartburn.")
 
 #! Does food make heartburn worse
-	?: DOES_FOOD_MAKE_HEARTBURN_WORSE
-		([
-			(![what which] [food drink eat] * [~heartburn ~itwords] * [worse increase])
-			(![what which] [~heartburn ~itwords] * [worse increase] * [food meal drink eat])
-			(![what which] [~heartburn ~itwords] * [worse increase] * [before after] * [food meal drink eat])
-		])
-	^factanswer ("I have no heartburn.")
+u: DOES_FOOD_MAKE_HEARTBURN_WORSE
+	([
+		(![what which] [food drink eat] * [~heartburn ~itwords] * [worse increase])
+		(![what which] [~heartburn ~itwords] * [worse increase] * [food meal drink eat])
+		(![what which] [~heartburn ~itwords] * [worse increase] * [before after] * [food meal drink eat])
+	])
+	^factanswer ("I don't have any heartburn.")
 
 #! What foods make heartburn better
-	?: WHAT_FOOD_MAKES_HEARTBURN_BETTER (what * [food eat drink] * [~heartburn ~itwords] * [better decrease lessen subside "go away"]) ^factanswer ("I have no heartburn.")
+u: WHAT_FOOD_MAKES_HEARTBURN_BETTER (what * [food eat drink] * [~heartburn ~itwords] * [better decrease lessen subside "go away"]) ^factanswer ("I don't have any heartburn.")
 
 #! Does food make heartburn better
-	?: DOES_FOOD_MAKE_HEARTBURN_BETTER
-		([
-			(![what which] [food drink eat] * [~heartburn ~itwords] * [better decrease lessen subside "go away"])
-			(![what which] [~heartburn ~itwords] * [better decrease lessen subside "go away"] * [food meal drink eat])
-			(![what which] [~heartburn ~itwords] * [better decrease lessen subside "go away"] * [before after] * [food meal drink eat])
-			(![what which] [food drink eat] * [help relieve])
-		])
-	^factanswer ("I have no heartburn.")
+u: DOES_FOOD_MAKE_HEARTBURN_BETTER
+	([
+		(![what which] [food drink eat] * [~heartburn ~itwords] * [better decrease lessen subside "go away"])
+		(![what which] [~heartburn ~itwords] * [better decrease lessen subside "go away"] * [food meal drink eat])
+		(![what which] [~heartburn ~itwords] * [better decrease lessen subside "go away"] * [before after] * [food meal drink eat])
+		(![what which] [food drink eat] * [help relieve])
+	])
+	^factanswer ("I don't have any heartburn.")
 
 #! Do you get heartburn
-	u: DO_YOU_GET_HEARTBURN ([experience get suffer] * ~heartburn) ^factanswer ("I never have heartburn.")
+u: DO_YOU_GET_HEARTBURN ([experience get suffer] * ~heartburn) ^factanswer ("I don't have any heartburn.")
 
 #! Any problems with digestion
-	?: ANY_PROBLEMS_WITH_DIGESTION ([problem difficulty] *~3 digestion) ^factanswer ("I have no issues with that.")
+u: ANY_PROBLEMS_WITH_DIGESTION ([problem difficulty] *~3 digestion) ^factanswer ("I have not had any problems like that.")
 
 #! Do you belch
-	?: DO_YOU_BELCH  ([notice experience 'do] * [belch burp])  ^factanswer ("I do not belch.")
+u: DO_YOU_BELCH  ([notice experience 'do] * [belch burp])  ^factanswer ("I have not had any problems like that.")

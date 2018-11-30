@@ -82,7 +82,7 @@ concept: ~GYN_Problems
 concept: ~MuscleRheum_Problems
 	[
 	muscle bone joint stiff stiffness arthritis cramp "range of motion" motion movement swelling "touching your toes"
-	back~n backache "back ache" leg disc rupture hernia herniated spine
+	back backache "back ache" leg disc rupture hernia herniated spine
 	knee shoulder wrist elbow finger hand ankle knee hip
 	"spinal stenosis"
 	]
@@ -140,8 +140,8 @@ concept: ~Other_Problems
 
 topic: ~jargon keep repeat deprioritize (~medical_jargon)
 
-	u: Have_medical_jargon(have * _~medical_jargon) ^factanswer(^"I don't know what '_0 means")
-	u: Medical_jargon(~medical_jargon) ^factanswer("I don't know what that means.")
+u: HAVE_MEDICAL_JARGON (have * _~medical_jargon) ^factanswer(^"I don't know what '_0 means")
+u: MEDICAL_JARGON (~medical_jargon) ^factanswer("I don't know what that means.")
 
 
 # This catches all symptoms that are negative. So, any positive symptoms will be caught by other topics, and everything else is no.
@@ -155,22 +155,22 @@ topic: ~jargon keep repeat deprioritize (~medical_jargon)
 topic: ~negativesymptoms keep repeat NoStay deprioritize ()
 
 # onewordinputs
-	u: (!. < *1 >) $$oneword = '_0 What do you want to know about '_0?
-		a: () $_sentence = ^join('_0 " "  $$oneword " " '_1) ^input($_sentence) ^fail(SENTENCE)
+u: (!. < *1 >) $$oneword = '_0 What do you want to know about '_0?
+	a: () $_sentence = ^join('_0 " "  $$oneword " " '_1) ^input($_sentence) ^fail(SENTENCE)
 
 
 #! Tell me more
-	u: TELL_ME_MORE # moved this here from opening dialogue so other "Tell me mores" will match first
-		([
-			("tell me more" >)
-			([continue elaborate])
-			(![we 'I] tell * [more happened doing "going on" about])
-		])
-		What do you want to know?
+u: TELL_ME_MORE # moved this here from opening dialogue so other "Tell me mores" will match first
+	([
+		("tell me more" >)
+		([continue elaborate])
+		(![we 'I] tell * [more happened doing "going on" about])
+		([talk speak] about this)
+	])
+		^factanswer("What do you want to know?")
 
-
-	u: THIS_MATCHED_NEGATIVE_FAMILY_SYMPTOMS (![back when pain just only ~joint who] << ~role_family ~all_systems >>) ^factanswer("No.")
-	u: THIS_MATCHED_NEGATIVE_SYMPTOMS (![back when pain just only ~joint who] ~all_systems) ^factanswer("No.")
+u: THIS_MATCHED_NEGATIVE_FAMILY_SYMPTOMS (![$bodypart when pain just only ~joint who] << ~role_family ~all_systems >>) ^factanswer("No.")
+u: THIS_MATCHED_NEGATIVE_SYMPTOMS (![$bodypart when pain just only ~joint who] ~all_systems) ^factanswer("No.")
 
 #! Catch-all for statements - need to check carefully
 #	s:() ^factanswer(" ")

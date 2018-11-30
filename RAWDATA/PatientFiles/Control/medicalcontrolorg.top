@@ -25,9 +25,8 @@ $cs_token = #DO_ESSENTIALS |
 						#DO_PARSE |
 						NO_ERASE
 
-
-$tokeninit = #DO_ESSENTIALS | #DO_SUBSTITUTES | #DO_PRIVATE | #DO_SPELLCHECK | #DO_SPELLING | #DO_CONTRACTIONS | #DO_POSTAG | #DO_PARSE | NO_ERASE
-$tokenfull =  #DO_SUBSTITUTE_SYSTEM | #DO_NUMBER_MERGE | #DO_PRIVATE
+$tokeninit = $cs_token
+$tokenfull =  #DO_SUBSTITUTE_SYSTEM | #DO_NUMBER_MERGE
 
 $botprompt = ^"$patientTitle. $patientlastname:"
 
@@ -36,7 +35,7 @@ $botprompt = ^"$patientTitle. $patientlastname:"
 table: defaultbot (^name)
 ^createfact(^name defaultbot defaultbot)
 DATA:
-patient21
+patient1
 
 # *****************************************************
 topic: ~introductions keep repeat()
@@ -54,18 +53,18 @@ t: (%input<%userfirstline) keep()
 
 topic: ~control system ()
 
+
 # get a master copy of input then do our normal copies
+# u: ($cs_token=#DO_ESSENTIALS | #DO_PRIVATE | #DO_SPELLCHECK | #DO_CONTRACTIONS _*) $$rawinput = '_0
 u: ($cs_token=#DO_ESSENTIALS _*) $$rawinput = '_0
-# u: ($cs_token=$tokeninit _*) $$rawinput = '_0
  	if (_0)
 	{
 		if (?) {$$rawinput = join($$rawinput ?)}
 		$cs_token = $tokenfull
 		retry(SENTENCE)
 	}
+u: ($cs_token!=#DO_ESSENTIALS _*) $cs_token = #DO_ESSENTIALS # | #DO_SPELLCHECK | NO_ERASE | #DO_PRIVATE # | #DO_SPELLCHECK | #DO_SPELLING | #DO_CONTRACTIONS | #DO_POSTAG | 	#DO_PARSE | NO_ERASE
 
-u: ($cs_token!=#DO_ESSENTIALS _*) $cs_token = #DO_ESSENTIALS
-# u: ($cs_token!=$tokeninit _*) $cs_token = $tokeninit # initial condition must match end condition
 
 # on startup, do introduction
 u: (< \[ * q: _*1 * \] ) $q_num_external = '_0 # record query num from web service
@@ -73,7 +72,6 @@ u: (< score me > ) respond(~finalscore)
 u: (< reset score  > ) reset(user) fail(INPUT)
 
 u: (%more) ^fail(SENTENCE)   # added 9.6.2012 to ignore multiple questions in one input sentence so unsure how this fits with $$startInput below
-
 
 # The following refine section ensures that only one variable is true at a time.
 u: () refine ()  # classify input into 3 zones: present, family, past
@@ -98,7 +96,6 @@ u: MAINCONTROL(_*) # main per-sentence processing
 	$$userInput = '_0			# memorize what he said
 	$$starttime = %fulltime		# time of current input
 	$$startInput = %response 	# added 8.22.2012 per BW to handle multiple inputs (hello, what brings you in today)
-	$_responseCount = %response # added 10.2018 to manage combining multiple sentences. not workign yet
 	$currenttopic = %topic		# get the current topic at start of volley
 	nofail(TOPIC ^rejoinder())	# try for rejoinders. might generate an answer directly from what we are looking for.
 
@@ -156,14 +153,12 @@ u: MAINCONTROL(_*) # main per-sentence processing
   if (%response == $$startInput)  {nofail(TOPIC ^respond(~keywordless))} # if still no matches look in keywordless
 	if (%response == $$startInput)  {nofail(TOPIC ^respond(~currentgeneralmatches))} # if still no matches look in variable match section
 	if (%response == $$startInput)  {nofail(TOPIC ^respond(~negativesymptoms))} # last ditch attempt to match in negativesymptoms
-
 	if (%response == $$startInput)  {nofail(TOPIC ^respond(~closure))} # See if we are finishing up
 
 	if (%response == $$startInput)
 	{
 		^repeat()
-		$dunno = [ I'm afraid I don't understand that question. ] [ I'm sorry, I don't understand that question. Would you restate it?]
-	 	^factanswer( $dunno )
+	 	factanswer(^"[I'm afraid I don't understand that question.]  [I'm sorry, I don't understand that question. Would you restate it?]")
 	}
 
 topic: ~control_post system()

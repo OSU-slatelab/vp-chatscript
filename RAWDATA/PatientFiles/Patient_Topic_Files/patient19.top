@@ -11,7 +11,7 @@ $currentjob = waitress
 $currentmedication1 = prenatal vitamins
 $currentmedication2 =
 $currentmedication3 =
-$currentrateofpain =
+$currentpainnum = 
 
 ^stdpatient()
 

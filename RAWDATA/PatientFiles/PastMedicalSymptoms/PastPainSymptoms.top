@@ -1,190 +1,198 @@
 
-# ***************************************************************************************************
-
 # PastPain - I have defined ~pain as a concept in MedicalConcepts.top
 
 topic: ~pastpain keep repeat (~pain previously injure injury painful problem)
 
-	u: ($present) respond(~currentpain) ^fail(TOPIC)
-	u: ($family) respond(~familypain) ^fail(TOPIC)
+u: ($present) respond(~currentpain) ^fail(TOPIC)
+u: ($family) respond(~familypain) ^fail(TOPIC)
 
-# Onset  ***************
+# Onset
 
 #! What were you doing when you injured yourself
-	?: WHAT_WERE_YOU_DOING_THAT_TIME
-		([
-			(what *~3 do *~3 [hurt injure] *~3 [yourself "your back"])
-			(what *~3 do *~3 [~the_pain $relevantpain?] *~3 ~start)
-		])
+u: WHAT_WERE_YOU_DOING_THAT_TIME
+	([
+		(what *~3 do *~3 [hurt injure] *~3 [yourself "your back"])
+		(what *~3 do *~3 [~the_pain $relevantpain?] *~3 [start began happen])
+	])
 	^factanswer("I didn't really have that much pain.")
 
 #! What were the circumstances of the injury
-	?: CIRCUMSTANCES_OF_THE_PAST_INJURY (circumstance *~3 injury)  ^factanswer("I didn't have an injury.")
+u: CIRCUMSTANCES_OF_THE_PAST_INJURY (circumstance *~3 injury)  ^factanswer("I didn't have an injury.")
 
 #! How did you injure yourself
-	?: HOW_DID_YOU_INJURE_YOURSELF_PREVIOUSLY (how did *~3 [injure injury])  ^factanswer("I didn't injure myself.")
+u: HOW_DID_YOU_INJURE_YOURSELF_PREVIOUSLY (how did *~3 [injure injury])  ^factanswer("I didn't injure myself.")
 
 #! Did you injure yourself
-	?: DID_YOU_INJURE_YOURSELF_BEFORE
-		([
-			([have did] you injure yourself)
-			(!other !~bodyparts have you had *~3 injury)
-			(were you injured)
-			(was there * injury)
-		])
+u: DID_YOU_INJURE_YOURSELF_BEFORE
+	([
+		([have did] you injure yourself)
+		(!other !~bodyparts have you had *~3 injury)
+		(were you injured)
+		(was there * injury)
+	])
 	^factanswer("I didn't.")
 
 #! How long ago was the incident
-	?: HOW_LONG_AGO_WAS_THE_PAST_INCIDENT
-		([
-			([when "long ago"] * [incident accident])
-			(how long *~3 [since ago] * [issue incident accident injury])
-		])
+u: HOW_LONG_AGO_WAS_THE_INCIDENT # this must be repeated here due to "ago" triggering past
+	([
+		([when "long ago"] *~3 [incident accident])
+		(how long * [since ago] *~3 [issue incident accident injury])
+		(~ [when "long ago"] *~3 [incident accident ~itwords])
+	])
+	^factanswer("There was no incident.")
+
+#! How long ago was the incident
+u: HOW_LONG_AGO_WAS_THE_PAST_INCIDENT # this probably does not work because previous rule will always block 9.2018
+	([
+		([when "long ago"] * [incident accident])
+		(how long *~3 [since ago] * [issue incident accident injury])
+		(~ [when "long ago"] *~3 [incident accident ~itwords])
+	])
 	^factanswer("I don't recall.")
 
 # Exacerbation  ******************************************************************************************
 
 #! Did the medicine help before
-	?: DID_THE_MEDICINE_HELP_BEFORE (!else [did does] *~3 [~itwords medicine] *~3 [help "go away" decrease difference]) ^factanswer("I did not take any medication.")
+u: DID_THE_MEDICINE_HELP_BEFORE (!else [did does] *~3 [~itwords medicine] *~3 [help "go away" decrease difference]) ^factanswer("I did not take any medication.")
 
 #! Did rest make the past pain go away
-	?: DID_REST_MAKE_THE_PAST_PAIN_GO_AWAY
-		([
-			(<< rest [~the_pain $relevantpain?] [relieve "go away" better help] >>)
-			(<< [rest ~the_pain] help >>)
-		])
+u: DID_REST_MAKE_THE_PAST_PAIN_GO_AWAY
+	([
+		(rest *~3 [~the_pain $relevantpain?] *~3 [relieve "go away" better help])
+		(~ rest *~3 ~itwords *~3 [relieve "go away" better help])
+		([~the_pain $relevantpain?] *~3 [relieve "go away" better help] *~3 rest )
+		(~ ~itwords *~3 [relieve "go away" better help] *~3 rest )
+		([rest ~the_pain] help)
+		(~ [rest ~itwords] help)
+	])
 	^factanswer("I don't have any pain.")
 
 #! Did you have pain when you were at rest
-	?: DID_YOU_HAVE_PAST_PAIN_AT_REST (<< rest [~the_pain $relevantpain?] >>)  ^factanswer("I don't have any pain at all.")
-
-# ***************************************************************************************************
+u: DID_YOU_HAVE_PAST_PAIN_AT_REST (<< rest [~the_pain $relevantpain?] >>)  ^factanswer("I don't have any pain at all.")
 
 # Intensity  ***************
 
-# ***************************************************************************************************
 # NOTE: the following is here because the word "ever" causes $pasthistory to be true so we need to put this question from ~currentpain here.
 
-#! Rate the pain
-	u: RATE_THE_PAIN
-		([
-			(rate the pain)
-			([scale range] * [pain painful] *~3 ever)
-		])
-	^factanswer("I have no friggin pain.")
+	#! Can you rate the pain
+	#! On a scale of 1-10
+u: RATE_THE_PAIN # essentially same as CAN_YOU_RATE_THE_PAIN in ~currentpain
+	([
+		(![describe 5 five] [rate scale rank quality quantify] * ~the_pain)
+		(![5 five] ~the_pain * [between rate scale rank])
+		(![5 five] [10 ten] * [painful severe worst highest])
+		(number * ~the_pain)
+		(scale * [10 ten])
+	])
+	^factanswer("I'm not really having any pain to rate.")
 
 #! Has the pain ever been worse
-	?: PAIN_BEEN_WORSE (~the_pain * ever *~2 [worse painful])  ^factanswer("It has not.")
-
-# ***************************************************************************************************
+u: PAIN_BEEN_WORSE (~the_pain * ever *~2 [worse painful])  ^factanswer("It has not.")
 
 # For rating scale is 1 - 10. probably should improve this rule
 
 #! Can you rate the pain
-	u: CAN_YOU_RATE_THE_PAST_PAIN
-		([
-			(!5 !five [rate scale range] * [~the_pain $relevantpain?])
-			(!5 !five [~the_pain $relevantpain?] * [rate scale range])
-		])
+u: CAN_YOU_RATE_THE_PAST_PAIN
+	([
+		(!5 !five [rate scale range] * [~the_pain $relevantpain?])
+		(!5 !five [~the_pain $relevantpain?] * [rate scale range])
+	])
 	^factanswer("I have not had pain in the past.")
 
 # For rating scale 1-5
 
 #! Can you rate past pain
-	u: CAN_YOU_RATE_YOUR_PAST_PAIN
-		([
-			(!10 !ten [rate scale range] * [~the_pain $relevantpain?])
-			(!10 !ten [~the_pain $relevantpain?] * [rate scale range])
-		])
+u: CAN_YOU_RATE_YOUR_PAST_PAIN
+	([
+		(!10 !ten [rate scale range] * [~the_pain $relevantpain?])
+		(!10 !ten [~the_pain $relevantpain?] * [rate scale range])
+	])
 	^factanswer("I have not had pain in the past.")
 
-#! How painful was past pain
-	?: HOW_PAINFUL_WAS_PAST_PAIN (is it *~2 painful >)    ^factanswer("I have not had pain in the past.")
+#! How painful was the past pain
+u: HOW_PAINFUL_WAS_PAST_PAIN (how painful was * ~the_pain >)    ^factanswer("I have not had pain in the past.")
 
 #! Did the past pain hurt a lot
-	?: DID_THE_PAST_PAIN_HURT_A_LOT (![when how if] does *~3 [~the_pain $relevantpain?] *~2 hurt *~2 [much lot "great deal"])    ^factanswer("I have not had pain in the past.")
+u: DID_THE_PAST_PAIN_HURT_A_LOT (![when how if] did *~3 [~the_pain $relevantpain?] *~2 hurt *~2 [much lot "great deal"])    ^factanswer("I have not had pain in the past.")
 
 # General ****************************************************************************************************
 
 #! Were you sore
-	?: WERE_YOU_SORE ('you *~3 [sore tender] *~2) ^factanswer("I was not sore.")
+u: WERE_YOU_SORE ('you *~3 [sore tender] *~2) ^factanswer("I was not sore.")
 
 #! Did the past pain start somewhere else
-	?: DID_THE_PAST_PAIN_START_SOMEWHERE_ELSE ([~the_pain $relevantpain?] *~3 ~start *~3 [anywhere anyplace "any place"] *~3 else)    ^factanswer("It did not.")
+u: DID_THE_PAST_PAIN_START_SOMEWHERE_ELSE ([~the_pain $relevantpain?] *~3 [start begin happen] *~3 [somewhere anywhere anyplace "any place"] *~3 else)    ^factanswer("It did not.")
 
 #! Did you have past pain anywhere else
-	?: DID_YOU_HAVE_PAST_PAIN_ANYWHERE_ELSE
-		([
-			(![go radiate] [~the_pain $relevantpain?] *~3 [anywhere anyplace "any place"] *~3 else)
-			(![go radiate] [anywhere anyplace "any place" anything] *~3 else *~3 [hurt painful sore])
-		])
+u: DID_YOU_HAVE_PAST_PAIN_ANYWHERE_ELSE
+	([
+		(![go radiate] [~the_pain $relevantpain?] *~3 [anywhere anyplace "any place"] *~3 else)
+		(![go radiate] [anywhere anyplace "any place" anything] *~3 else *~3 [hurt painful sore])
+	])
 	^factanswer("Nowhere else.")
 
 # Description  ***************
 
 #! Did the past pain radiate
-	?: DID_THE_PAST_PAIN_RADIATE
-		([
-			(!["how long" when away] [~the_pain $relevantpain?] *~3 [radiate travel go spread "move around"])
-			(!when !away does *~3 [~the_pain $relevantpain?] *~3 stay)
-			(!["how long" when away] ["same spot" "same area"])
-		])
+u: DID_THE_PAST_PAIN_RADIATE
+	([
+		(!["how long" when away] [~the_pain $relevantpain?] *~3 [radiate travel go spread "move around"])
+		(!when !away does *~3 [~the_pain $relevantpain?] *~3 stay)
+		(!["how long" when away] ["same spot" "same area"])
+	])
 	^factanswer("I have not had pain in the past.")
 
 #! Did you have past radiating pain
-	?: DID_YOU_HAVE_PAST_RADIATING_PAIN (radiating pain)    ^factanswer("I have not had pain in the past.")
+u: DID_YOU_HAVE_PAST_RADIATING_PAIN (radiating pain)    ^factanswer("I have not had pain in the past.")
 
 #! Was the past pain in your lower back
-	?: WAS_THE_PAST_PAIN_IN_YOUR_LOWER_BACK (![where when did] [~the_pain $relevantpain?] *~3 only *~3 ~pain_locations)   ^factanswer("I have not had pain in the past.")
+u: WAS_THE_PAST_PAIN_IN_YOUR_LOWER_BACK (![where when did] [~the_pain $relevantpain?] *~3 ~pain_locations)   ^factanswer("I have not had pain in the past.")
 
 #! Was the past pain on one side
-	?: WAS_THE_PAST_PAIN_ON_ONE_SIDE (![where when did] [~the_pain $relevantpain?] *~3 ~pain_locations)    ^factanswer("I have not had pain in the past.")
+u: WAS_THE_PAST_PAIN_ON_ONE_SIDE (![where when did] [~the_pain $relevantpain?] *~3 ~pain_locations)    ^factanswer("I have not had pain in the past.")
 
 #! Was the past pain sharp
-	?: WAS_THE_PAST_PAIN_SHARP
-		([
-			(![where when did] [~the_pain $relevantpain?] *~3 sharp)
-			(![where when] [feel experience] *~3 ~pain_descriptors pain)
-		])
+u: WAS_THE_PAST_PAIN_SHARP
+	([
+		(![where when did] [~the_pain $relevantpain?] *~3 sharp)
+		(![where when] [feel experience] *~3 ~pain_descriptors pain)
+	])
 	^factanswer("I have not had pain in the past.")
 
 #! Was the past pain dull
-	?: WAS_THE_PAST_PAIN_DULL
-		([
-			(![where when did ~bodyparts] [~the_pain $relevantpain?] *~3 "dull")
-			(![where when did ~bodyparts] [~the_pain $relevantpain?] *~3 ~pain_descriptors)
-			(!where !when [feel experience have] *~3 ~pain_descriptors pain)
-		])
+u: WAS_THE_PAST_PAIN_DULL
+	([
+		(![where when did ~bodyparts] [~the_pain $relevantpain?] *~3 "dull")
+		(![where when did ~bodyparts] [~the_pain $relevantpain?] *~3 ~pain_descriptors)
+		(!where !when [feel experience have] *~3 ~pain_descriptors pain)
+	])
 	^factanswer("I have not had pain in the past.")
 
 #! Was the area tender before
-	?: WAS_THE_AREA_TENDER_BEFORE (![where when did] [~itwords area] tender)      ^factanswer("I have not had pain in the past.")
+u: WAS_THE_AREA_TENDER_BEFORE (![where when did] [~itwords area] tender)      ^factanswer("I have not had pain in the past.")
 
 #! Was the past pain in the muscle
-	?: WAS_THE_PAST_PAIN_IN_THE_MUSCLE (![where when did] [~the_pain $relevantpain?] * muscle)      ^factanswer("I have not had pain in the past.")
+u: WAS_THE_PAST_PAIN_IN_THE_MUSCLE (![where when did] [~the_pain $relevantpain?] * muscle)      ^factanswer("I have not had pain in the past.")
 
 #! When did the pain hurt before
-	?: WHEN_DID_THE_PAIN_HURT_BEFORE (when *~3 [~the_pain $relevantpain?] *~3 hurt)      ^factanswer("I have not had pain in the past.")
+u: WHEN_DID_THE_PAIN_HURT_BEFORE (when *~3 [~the_pain $relevantpain?] *~3 hurt)      ^factanswer("I have not had pain in the past.")
 
 #! How did it feel before
-	?: HOW_DID_IT_FEEL_BEFORE (how *~3 [~the_pain $relevantpain?] *~3 [feel felt])      ^factanswer("I have not had pain in the past.")
+u: HOW_DID_IT_FEEL_BEFORE (how *~3 [~the_pain $relevantpain?] *~3 [feel felt])      ^factanswer("I have not had pain in the past.")
 
-# ***************************************************************************************************
 # NOTE: the following is here because the word "past" causes $pasthistory to be true so we need to put this question from ~currentpain here.
 
 #! How has the pain progressed in the past few days
-	?: HOW_HAS_THE_PAIN_PROGRESSED
-		([
-			(![when rest] how *~3 [~pain ~itwords] *~3 change *~3 [past last])
-			(![when what rest does position anything] [~pain ~itwords] * [progress progressed worse better increase change] *~3 [past last])
-			(![when rest] [past last] *~3 how *~3 [~pain ~itwords] *~3 change)
-			(![when what rest does position anything] [past last] * [~pain ~itwords] * [progress progressed worse better increase])
-		])
+u: HOW_HAS_THE_PAIN_PROGRESSED
+	([
+		(![when rest] how *~3 [~pain ~itwords] *~3 change *~3 [past last])
+		(![when what rest does position anything] [~pain ~itwords] * [progress progressed worse better increase change] *~3 [past last])
+		(![when rest] [past last] *~3 how *~3 [~pain ~itwords] *~3 change)
+		(![when what rest does position anything] [past last] * [~pain ~itwords] * [progress progressed worse better increase])
+	])
 	^factanswer("I have no pain.")
 
-# ***************************************************************************************************
 # NOTE: the following is here because the word "ever" causes $pasthistory to be true so we need to put this question from ~currentpain here.
 
 #! Is this the worst pain ever
-	?: IS_THIS_THE_WORST_PAIN_EVER ([worst "most painful"] * ever) ^factanswer("I have no pain.")
-# ***************************************************************************************************
+u: IS_THIS_THE_WORST_PAIN_EVER ([worst "most painful"] * ever) ^factanswer("I have no pain.")

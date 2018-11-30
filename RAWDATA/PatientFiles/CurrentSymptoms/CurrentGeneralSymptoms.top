@@ -4,168 +4,171 @@
 
 topic: ~currentmedicalproblems keep repeat (medical problem condition injury illness injury trauma chronic disease symptom accident hurt illnesses weight health)
 
-	u: ($pasthistory) respond(~pastmedicalproblems) ^fail(TOPIC)
-	u: ($family) respond(~familymedicalproblems) ^fail(TOPIC)
+u: ($pasthistory) respond(~pastmedicalproblems) ^fail(TOPIC)
+u: ($family) respond(~familymedicalproblems) ^fail(TOPIC)
 
 #! Do you have any medical problems
-	?: DO_YOU_HAVE_ANY_MEDICAL_PROBLEMS
-		([
-			(![when they chronic ~all_systems ~medicines ~cardiovascular home] [do are any] * medical *~3 [problem issue concern condition disease illness trauma])
-			# (![when they chronic ~all_systems other ~medicines ~cardiovascular home] [no any] * [problem issue concern condition disease illness illnesses trauma]) too generic
-			(![when they chronic ~all_systems ~medicines ~cardiovascular home] [problem issue concern condition disease illness trauma] *~3 [do are] you have)
-		])
+u: DO_YOU_HAVE_ANY_MEDICAL_PROBLEMS
+	([
+		(![when they chronic ~all_systems ~medicines ~cardiovascular home] [do are any] * medical *~3 [problem issue concern condition disease illness trauma])
+		# (![when they chronic ~all_systems other ~medicines ~cardiovascular home] [no any] * [problem issue concern condition disease illness illnesses trauma]) too generic
+		(![when they chronic ~all_systems ~medicines ~cardiovascular home] [problem issue concern condition disease illness trauma] *~3 [do are] you have)
+	])
 	^factanswer("I am pretty healthy.")
-		a: WHEN_DIAGNOSED ([how when] * [had diagnosed]) ^factanswer("I don't remember.")
+		a: WHEN_DIAGNOSED ([how when] * [had diagnosed]) ^factanswer("I am not sure.")
 
 #! Any other medical problems
-	?: ANY_OTHER_MEDICAL_PROBLEMS (![when they chronic ~all_systems] [additional further other] * [health medical] * [problem issue concern condition disease illness trauma])   ^factanswer("I don't have any other medical issues.")
+u: ANY_OTHER_MEDICAL_PROBLEMS (![when they chronic ~all_systems] [additional further other] * [health medical] * [problem issue concern condition disease illness trauma])   ^factanswer("I don't have any other medical issues.")
 
 #! Do you have a health problem
-	?: DO_YOU_HAVE_A_HEALTH_PROBLEM (!other << health problem >>) ^factanswer("I am pretty healthy.")
+u: DO_YOU_HAVE_A_HEALTH_PROBLEM (!other << health problem >>) ^factanswer("I am pretty healthy.")
 
 #! Did you hurt yourself
-	?: DID_YOU_HURT_YOURSELF ([did have describe] * ~hurt * yourself)    ^factanswer("I did not hurt myself.")
+u: DID_YOU_HURT_YOURSELF ([did have describe] * ~hurt * yourself)    ^factanswer("I did not hurt myself.")
 
 #! Do you have any chronic illnesses
-	?: DO_YOU_HAVE_ANY_CHRONIC_ILLNESSES
-		([
-			(["long term" chronic "long-term"] *~2 [illness problem disease condition illnesses])
-			(<<["long term" chronic "long-term"] [illness problem disease condition illnesses issues]>>)
-		])
+u: DO_YOU_HAVE_ANY_CHRONIC_ILLNESSES
+	([
+		(["long term" chronic "long-term"] *~2 [illness problem disease condition illnesses])
+		(<<["long term" chronic "long-term"] [illness problem disease condition illnesses issues]>>)
+	])
 	^factanswer("I have been very healthy all of my life.")
 
 #! Have you had an accident
-	?: HAVE_YOU_HAD_AN_ACCIDENT ([had been have in any] *~3 [injury accident])   ^factanswer("I have not had any accidents.")
+u: HAVE_YOU_HAD_AN_ACCIDENT (['had been any] *~3 [injury accident])   ^factanswer("I have not had any accidents.")
 
 #! What symptoms are you having
-	?: WHAT_SYMPTOMS_ARE_YOU_HAVING (![any other] [what describe] *~2 symptom)     ^factanswer("I'm not having any symptoms.")
+u: WHAT_SYMPTOMS_ARE_YOU_HAVING (![any other] [what describe] *~2 symptom)     ^factanswer("I'm not having any symptoms.")
 
 #! Has your weight changed
-	?: HAS_YOUR_WEIGHT_CHANGED
-		([
-			([change increase decrease fluctuation fluctuate lost] * weight)
-			(weight * [change increase decrease fluctuation fluctuate loss])
-		])
+u: HAS_YOUR_WEIGHT_CHANGED
+	([
+		([change increase decrease fluctuation fluctuate lost] * weight)
+		(weight * [change increase decrease fluctuation fluctuate loss])
+	])
 	^factanswer("My weight has not changed.")
 
-# ***************************************************************************************************
 
 topic: ~currentsleepingproblems keep repeat (~sleeping_problems snore ~nightmares kind trouble rest wake refresh)
 
-	u: ($pasthistory) respond(~pastsleepingproblems) ^fail(TOPIC)
+u: ($pasthistory) respond(~pastsleepingproblems) ^fail(TOPIC)
 
 #! Why are you having trouble sleeping
-	?: WHY_ARE_YOU_HAVING_TROUBLE_SLEEPING (![what describe] why * [~sleeping_problems ~itwords])  ^factanswer("I'm not having any trouble sleeping.")
+u: WHY_ARE_YOU_HAVING_TROUBLE_SLEEPING (![what describe] why * [~sleeping_problems ~itwords])  ^factanswer("I have not had any problems like that.")
 
 #! What position do you sleep in
-	?: WHAT_POSITION_DO_YOU_SLEEP_IN
-		([
-			(sleep *~3 [raised upright flat back front stomach side])
-			([position style stomach back side] * [sleep sleeper])
-		])
+u: WHAT_POSITION_DO_YOU_SLEEP_IN
+	([
+		(sleep *~3 [raised upright flat back front stomach side])
+		([position style stomach back side] * [sleep sleeper])
+	])
 	^factanswer("I sleep on my back.")
 
 #! Where do you sleep
-	?: WHERE_DO_YOU_SLEEP  (where *~3 [sleep asleep bed]) ^factanswer("In my bed.")
+u: WHERE_DO_YOU_SLEEP  (where *~3 [sleep asleep bed]) ^factanswer("I sleep in my bed.")
 
 #! How much sleep
-	?: HOW_MUCH_SLEEP  (how [much long] * [sleep rest])  ^factanswer("About 8 hours.")
+u: HOW_MUCH_SLEEP  (how [much long many] * [sleep rest])  ^factanswer("I usually get about 8 hours of sleep.")
 
-#! Do_you_have_trouble_remaining_asleep
-	?: DO_YOU_HAVE_TROUBLE_REMAINING_ASLEEP ([trouble problems issues able] * [stay remain] * [sleep asleep])  ^factanswer("I stay asleep.")
+#! Do you have trouble remaining asleep
+u: DO_YOU_HAVE_TROUBLE_REMAINING_ASLEEP ([trouble problems issues able] * [stay remain] * [sleep asleep])  ^factanswer("I have not had any problems like that.")
 
 #! Do you have any trouble sleeping
-	?: DO_YOU_HAVE_ANY_TROUBLE_SLEEPING
-		([
-			(![what describe stay remain] [trouble problems issues able are] * ~sleeping_problems)
-			(![what describe stay remain] ~sleeping_problems * [trouble problems issues])
-			(![what describe stay remain] how * ~sleeping_problems)
- 			(![what describe stay remain] sleeping [well OK])
-		])
-	^factanswer("I'm sleeping ok.")
+u: DO_YOU_HAVE_ANY_TROUBLE_SLEEPING
+	([
+		(![what describe stay remain] [trouble problems issues able are] * ~sleeping_problems)
+		(![what describe stay remain] ~sleeping_problems * [trouble problems issues])
+		(![what describe stay remain] how * ~sleeping_problems)
+		(![what describe stay remain] sleeping [well OK])
+	])
+	^factanswer("I have not had any problems like that.")
 
 #! Describe your sleeping trouble
-	?: DESCRIBE_YOUR_SLEEPING_TROUBLE
-		([
-			([sort kind describe] * [trouble difficulty issue problem] * ~sleeping_problems)
- 			(what * [sort kind describe] * [trouble difficulty issue problem] * ~sleeping_problems)
-		])
-	^factanswer("I have no trouble sleeping.")
+u: DESCRIBE_YOUR_SLEEPING_TROUBLE
+	([
+		([sort kind describe] * [trouble difficulty issue problem] * ~sleeping_problems)
+		([sort kind describe] * ~sleeping_problems * [trouble difficulty issue problem])
+		(what * [sort kind describe] * [trouble difficulty issue problem] * ~sleeping_problems)
+	])
+	^factanswer("I have not had any problems like that.")
 
 #! Do you feel rested upon waking
-	?: DO_YOU_FEEL_RESTED_UPON_WAKING ([rest refresh] *~3 [wake rise up]) ^factanswer("I feel rested.")
+u: DO_YOU_FEEL_RESTED_UPON_WAKING ([rest refresh] *~3 [wake rise up]) ^factanswer("I feel rested.")
 
 #! Do you snore
-	?: DO_YOU_SNORE (you * snore)  ^factanswer("I do not snore.")
+u: DO_YOU_SNORE (you * snore)  ^factanswer("I have not had any problems like that.")
 
 #! Do you sleep walk
-	?: DO_YOU_SLEEP_WALK (["sleep walk" "walk in your sleep"])  ^factanswer("I do not sleep walk.")
+u: DO_YOU_SLEEP_WALK (["sleep walk" "walk in your sleep"])  ^factanswer("I have not had any problems like that.")
 
 #! Do you have nightmares
-	?: DO_YOU_HAVE_NIGHTMARES  (~nightmares)  ^factanswer("I don't have nightmares.")
+u: DO_YOU_HAVE_NIGHTMARES  (~nightmares)  ^factanswer("I have not had any problems like that.")
 
 #! Do you have trouble waking up
-	?: DO_YOU_HAVE_TROUBLE_WAKING_UP ([trouble difficulty] * [wake get] * [bed up morning])  ^factanswer("I have not trouble like that.")
+u: DO_YOU_HAVE_TROUBLE_WAKING_UP ([trouble difficulty] * [wake get] * [bed up morning])  ^factanswer("I have not had any problems like that.")
+
+#! Sleeping
+u: SLEEPING (sleep) ^factanswer("I am not having any issues with sleeping.")
 
 # ***************************************************************************************************
 
 topic: ~currentdischarge keep repeat (discharge color ~discharge_descriptors pus drainage)
 
-	u: ($pasthistory) respond(~pastdischarge) ^fail(TOPIC)
+u: ($pasthistory) respond(~pastdischarge) ^fail(TOPIC)
 
 #! What color is the discharge
-	?: WHAT_COLOR_IS_THE_DISCHARGE
-		([
-			([color shade hue] * [discharge ~itwords])
-			([discharge ~itwords] * [color shade hue])
-		])
-	^factanswer("I don't know.")
+u: WHAT_COLOR_IS_THE_DISCHARGE
+	([
+		([color shade hue] * [discharge ~itwords])
+		([discharge ~itwords] * [color shade hue])
+	])
+	^factanswer("I am not sure.")
 
 #! Is the discharge thick
-	?: IS_THE_DISCHARGE_THICK
-		([
-			(!where !when !did !~bodyparts [~itwords discharge] * [~discharge_descriptors color])
- 			(!where !when [~itwords discharge] * [feel have] * [~discharge_descriptors color])
-		])
-	^factanswer("I don't have that.")
+u: IS_THE_DISCHARGE_THICK
+	([
+		(!where !when !did !~bodyparts [~itwords discharge] * [~discharge_descriptors color])
+		(!where !when [~itwords discharge] * [feel have] * [~discharge_descriptors color])
+	])
+	^factanswer("I am not sure.")
 
 #! Have you noticed a discharge
-	?: HAVE_YOU_NOTICED_A_DISCHARGE ([notice see experience any] * [drainage pus discharge]) ^factanswer("I have not noticed a discharge.")
+u: HAVE_YOU_NOTICED_A_DISCHARGE ([notice see experience any] * [drainage pus discharge]) ^factanswer("I have not had any problems like that.")
 
 # ***************************************************************************************************
 
 topic: ~currentitch keep repeat (itch ~itch_descriptors)
 
-	u: ($pasthistory) respond(~pastitch)   ^fail(TOPIC)
+u: ($pasthistory) respond(~pastitch)   ^fail(TOPIC)
 
 #! Is the itch crawling
-	?: IS_THE_ITCH_CRAWLING
-		([
-			(![where when did ~bodyparts] [~itwords itch] * ~itch_descriptors)
-			(![where when] [~itwords itch] * [feel experience] * ~itch_descriptors)
-		])
-	^factanswer("I don't have that.")
+u: IS_THE_ITCH_CRAWLING
+	([
+		(![where when did ~bodyparts] [~itwords itch] * ~itch_descriptors)
+		(![where when] [~itwords itch] * [feel experience] * ~itch_descriptors)
+	])
+	^factanswer("I have not had any problems like that.")
 
 #! IS there a rash with the itch
-	?: IS_THERE_A_RASH ([red redness bumps rash] * [~itwords itch]) ^factanswer("I have no rash or itch.")
+u: IS_THERE_A_RASH ([red redness bumps rash] * [~itwords itch]) ^factanswer("I have not had any problems like that.")
 
 #! Have you noticed an itch
-	?: HAVE_YOU_NOTICED_AN_ITCH ([notice see experience] * [itch rash]) ^factanswer("I have not noticed an itch.")
+u: HAVE_YOU_NOTICED_AN_ITCH ([notice see experience] * [itch rash]) ^factanswer("I have not had any problems like that.")
 
 # ***************************************************************************************************
 
 topic: ~currentodor keep repeat (odor smell stink)
 
-	u: ($pasthistory) respond(~pastodor)   ^fail(TOPIC)
+u: ($pasthistory) respond(~pastodor)   ^fail(TOPIC)
 
 #! Is the odor strong
-	?: IS_THE_ODOR_STRONG (![where when did ~bodyparts] [~itwords odor] * ~odor_descriptors)      ^factanswer("I don't have that.")
+u: IS_THE_ODOR_STRONG (![where when did ~bodyparts] [~itwords odor] * ~odor_descriptors)      ^factanswer("I have not had any problems like that.")
 
 #! Have you noticed an odor
-	?: HAVE_YOU_NOTICED_AN_ODOR
-		([
-			([notice smell] * [odor stink smell])
-			(<< [~itwords discharge] [odor smell stink] >>)
-			([experience had notice] * [odor smell stink] * [area region])
-		])
-	^factanswer("There is no odor.")
+u: HAVE_YOU_NOTICED_AN_ODOR
+	([
+		([notice smell] * [odor stink smell])
+		(<< [~itwords discharge] [odor smell stink] >>)
+		([experience had notice] * [odor smell stink] * [area region])
+	])
+	^factanswer("I have not had any problems like that.")

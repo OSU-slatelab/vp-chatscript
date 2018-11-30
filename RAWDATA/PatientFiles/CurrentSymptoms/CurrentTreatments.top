@@ -2,75 +2,83 @@
 topic: ~treatmentstried keep repeat
 
 	(ice heat "heating pad" ~medical_treatments ~medicines ~medical_tests ~medical_professionals treatment
-	test lab hospital manage treat cream ointment topical "over the counter" imaging "emergency room" ER)
+	test lab hospital manage treat cream ointment topical "over the counter" imaging "emergency room" ER brace)
 
 #! Have you tried a heating pad
-	?: HAVE_YOU_TRIED_A_HEATING_PAD (["heating pad" "hot pack"])   ^factanswer("I have not.")
+u: HAVE_YOU_TRIED_A_HEATING_PAD (["heating pad" "hot pack"])   ^factanswer("I have not.")
 
 #! Have you tried heat or ice
-	?: HAVE_YOU_TRIED_HEAT_OR_ICE (<< heat ice >>)  ^factanswer("I haven't tried either of those.")
+u: HAVE_YOU_TRIED_HEAT_OR_ICE (<< heat ice >>)  ^factanswer("I have not.")
 
 #! Have you tried heat
-	?: HAVE_YOU_TRIED_HEAT
-		([
-			([try use put] * [hot heat])
-			([heat hot "hot bath"] * help)
-		])
-	^factanswer("I haven't tried that.")
+u: HAVE_YOU_TRIED_HEAT
+	([
+		([try use put] * [hot heat])
+		([heat hot "hot bath"] * help)
+	])
+	^factanswer("I have not.")
 
 #! Have you tried ice
-	?: HAVE_YOU_TRIED_ICE
-		([
-			([try use put] * [cold ice])
-			([ice cold packs] * [help relieve ease])
-			([try use put] * [cold ice] * [~itwords])
-			(<< [cool cold] [washcloth cloth] >>)
-		])
-	^factanswer("I haven't tried that.")
+u: HAVE_YOU_TRIED_ICE
+	([
+		([try use put] * [cold ice])
+		([ice cold packs] * [help relieve ease])
+		([try use put] * [cold ice] * [~itwords])
+		(<< [cool cold] [washcloth cloth] >>)
+	])
+	^factanswer("I have not.")
 
 #! Have you tried any topical treatments
-	?: HAVE_YOU_TRIED_ANY_TOPICAL_TREATMENTS ([try attempt use] * [any some] * [cream topical])  ^factanswer("Not yet.")
+u: HAVE_YOU_TRIED_ANY_TOPICAL_TREATMENTS ([try attempt use] * [any some] * [cream topical])  ^factanswer("I have not.")
 
 #! What treatment would you like to try
-	?: WHAT_TREATMENT_WOULD_YOU_LIKE_TO_TRY (<< treatment 'try >>) ^factanswer("I don't know")
+u: WHAT_TREATMENT_WOULD_YOU_LIKE_TO_TRY (<< treatment 'try >>) ^factanswer("I am not sure.")
 
 #! What treatment have you tried
-	?: WHAT_TREATMENT_HAVE_YOU_TRIED (what *~3 treatment *~3 [had tried used received attempted])   ^factanswer("I have not tried anything.")
+u: WHAT_TREATMENT_HAVE_YOU_TRIED (what *~3 treatment *~3 [had tried used received attempted])   ^factanswer("I have not tried anything.")
 
 #! Have you had any imaging done
-	?: HAVE_YOU_HAD_ANY_IMAGING_DONE (![~cardiovascular we] [imaging x-ray "x ray" "x rays" xray MRI CT "Cat Scan" ultrasound])   ^factanswer("I have had no imaging.")
+u: HAVE_YOU_HAD_ANY_IMAGING_DONE (![~cardiovascular we] [imaging x-ray "x ray" "x rays" xray MRI CT "Cat Scan" ultrasound])   ^factanswer("I have not.")
 
 #! Have you had any lab work
-	?: HAVE_YOU_HAD_ANY_LABS([labs "lab work" blood])   ^factanswer("No, not yet.")
+u: HAVE_YOU_HAD_ANY_LABS([labs "lab work" blood])   ^factanswer("I have not.")
 
 #! Do you think that would help
-	?: DO_YOU_THINK_THAT_WOULD_HELP (<< [would could might ] [help benefit] >>)  ^factanswer("I have no idea.")
+u: DO_YOU_THINK_THAT_WOULD_HELP (<< [would could might ] [help benefit] >>)  ^factanswer("I am not sure.")
 
 #! I think we should run some tests
-	?: RUN_SOME_TESTS ([run try 'do get] * [test lab imaging])  ^factanswer("Ok.")
+u: RUN_SOME_TESTS ([run try 'do get] * [test lab imaging])  ^factanswer("Ok.")
 
 #! Did you go to the hospital
-	?: DID_YOU_GO_TO_THE_HOSPITAL (!ever you [go been seen] * [hospital ER "emergency room"])     ^factanswer("You're the first person I've seen about this.")
+u: DID_YOU_GO_TO_THE_HOSPITAL (!ever you [go been seen] * [hospital ER "emergency room"])     ^factanswer("You're the first person I've seen about this.")
 
 #! Would you be willing to see a physical therapist
-	?: WILL_YOU_SEE_A_PHYSICAL_THERAPIST (!have !did [see visit go think feel] * ["physical therapist" physiotherapist "physical therapy"])    ^factanswer("I would be willing.")
+u: WILL_YOU_SEE_A_PHYSICAL_THERAPIST (!have !did [see visit go think feel] * ["physical therapist" physiotherapist "physical therapy"])    ^factanswer("I guess so.")
 
 # #! have you had any physical therapy
-#	?: HAVE_YOU_HAD_PHYSICAL_THERAPY ([have tried] * ["physical therapy" physiotherapy])    ^factanswer("I haven't had physical therapy.")
+#	u: HAVE_YOU_HAD_PHYSICAL_THERAPY ([have tried] * ["physical therapy" physiotherapy])    ^factanswer("I haven't had physical therapy.")
 
 #! therapy
-	u: ([therapy therapist]) ^refine () # gets any reference to therapy
-		a: PHYSICAL_THERAPY ([physical physio*]) ^factanswer("I haven't had any therapy.")
-		a: MENTAL_THERAPY ([mental psych*]) ^factanswer("I haven't had any therapy.")
-		a: ANY_THERAPY () ^factanswer("I haven't had any therapy.")
+u: ([therapy therapist]) ^refine () # gets any reference to therapy
+	a: PHYSICAL_THERAPY ([physical physio*]) ^factanswer("I haven't had any therapy.")
+	a: MENTAL_THERAPY ([mental psych*]) ^factanswer("I haven't had any therapy.")
+	a: ANY_THERAPY () ^factanswer("I haven't had any therapy.")
 
 #! Would you like to try ice
-	?: TRY_SOME_TREATMENT (!have [try take have get] *~3 [~medical_treatments ~medical_tests]) ^factanswer("I don't know") # avoid have you tried any treatment
+u: TRY_SOME_TREATMENT (!have [try take have get] *~3 [~medical_treatments ~medical_tests]) ^factanswer("I am not sure.") # avoid have you tried any treatment
+
+#! In addition to the ibuprofen, have you tried any other treatments?
+u: HAVE_YOU_TRIED_OTHER_TREATMENTS
+	([
+		(<< [try use attempt do take] [other additional addition] [treat treatment medicine medication] >>)
+	])
+	^factanswer("I have not.")
 
 #! Have you tried any treatment
-	?: HAVE_YOU_TRIED_ANY_TREATMENT
-		([
-			(![~medicines we] ["have you" did] * [try attempt use receive had] * [treatment anything])
-		])
-	^factanswer("I have not tried anything.")
-		a: DID_THAT_HELP (did * [help 'do]) ^factanswer ("It didn't help.")
+#! What are you currently doing for treatment
+u: HAVE_YOU_TRIED_ANY_TREATMENT
+	([
+		(![~medicines we] ["have you" "are you" did] * [try attempt use receive had do] * [treatment anything])
+	])
+	^factanswer("I have not.")
+	a: DID_THAT_HELP (did * [help 'do]) ^factanswer ("It is difficult to say.")

@@ -11,7 +11,7 @@ $currentjob = Teacher
 $currentmedication1 = Ibuprofen
 $currentmedication2 = multivitamin
 $currentmedication3 =
-$currentrateofpain = 8
+$currentpainnum = 8
 
 ^stdpatient()
 

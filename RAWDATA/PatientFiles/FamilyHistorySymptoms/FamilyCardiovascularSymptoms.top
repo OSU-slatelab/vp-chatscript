@@ -1,63 +1,60 @@
-# ***************************************************************************************************
-
 # Blood Pressure - I have defined blood_pressure as a concept in MedicalConcepts.top
 
 topic: ~familybloodpressure keep repeat (~high_blood_pressure blood pressure ~role_family hypertension coronary artery heart cardiac)
 
-	u: ($pasthistory) respond(~pastbloodpressure) ^fail(TOPIC)
-	u: ($present) respond(~currentbloodpressure) ^fail(TOPIC)
+u: ($pasthistory) respond(~pastbloodpressure) ^fail(TOPIC)
+u: ($present) respond(~currentbloodpressure) ^fail(TOPIC)
 
 #! Any family history of hypertension
-	?: FAMILY_HISTORY_OF_HYPERTENSION (~high_blood_pressure)    ^factanswer("Not that I know of.")
+u: FAMILY_HISTORY_OF_HYPERTENSION (~high_blood_pressure)    ^factanswer("Not that I know of.")
 
 # ***************************************************************************************************
 
 topic: ~familychestpain keep repeat (~chest_pain ~role_family)
 
-	u: ($pasthistory) respond(~pastchestpain) ^fail(TOPIC)
-	u: ($present) respond(~currentchestpain) ^fail(TOPIC)
+u: ($pasthistory) respond(~pastchestpain) ^fail(TOPIC)
+u: ($present) respond(~currentchestpain) ^fail(TOPIC)
 
 #! Any family history of chest pain
-	?: FAMILY_HISTORY_OF_CHEST_PAIN (~chest_pain)    ^factanswer("Not that I know of.")
+u: FAMILY_HISTORY_OF_CHEST_PAIN (~chest_pain)    ^factanswer("Not that I know of.")
 
 # ***************************************************************************************************
 
 topic: ~familyheartproblem keep repeat (~chest_pain heart ~role_family)
 
-	u: ($pasthistory) respond(~pastheartproblem)  ^fail(TOPIC)
-	u: ($present) respond(~currentheartproblem) ^fail(TOPIC)
+u: ($pasthistory) respond(~pastheartproblem)  ^fail(TOPIC)
+u: ($present) respond(~currentheartproblem) ^fail(TOPIC)
 
 #! Any heart problems in your family
-	?: ANY_FAMILY_HEART_PROBLEMS (<< [coronary artery heart cardiac] [wrong condition issue problem trouble disease] >>)   ^factanswer("No heart issues in my family.")
+u: ANY_FAMILY_HEART_PROBLEMS (<< [coronary artery heart cardiac] [wrong condition issue problem trouble disease] >>)   ^factanswer("Not that I know of.")
 
 # ***************************************************************************************************
 
 topic: ~familyvascular keep repeat (~cardiovascular image probe catheter ultrasound ~role_family)
 
-	u: ($pasthistory) respond(~pastvascular)  ^fail(TOPIC)
-	u: ($present) respond(~currentvascular) ^fail(TOPIC)
+u: ($pasthistory) respond(~pastvascular)  ^fail(TOPIC)
+u: ($present) respond(~currentvascular) ^fail(TOPIC)
 
-#! Family history of vascular problems
-	?: FAMILY_HISTORY_OF_VASCULAR_PROBLEMS
-		([
-			(~cardiovascular * [wrong condition issue problem trouble disease])
-			([wrong condition issue problem trouble disease] * ~cardiovascular)
-		])
-	^factanswer("No one in my family has vascular problems.")
+#! Family history of vascular problems?
+u: FAMILY_HISTORY_OF_VASCULAR_PROBLEMS
+	([
+		(~cardiovascular * [wrong condition issue problem trouble disease])
+		([wrong condition issue problem trouble disease] * ~cardiovascular)
+	])
+	^factanswer("Not that I know of.")
 
+#! Family history of vascular testing?
+u: FAMILY_HISTORY_OF_VASCULAR_TESTING
+	([
+		(~cardiovascular * [test image probe catheter ultrasound check])
+		([test image probe catheter ultrasound check] * ~cardiovascular)
+	])
+	^factanswer("Not that I know of.")
 
-#! Family history of vascular testing
-	?: FAMILY_HISTORY_OF_VASCULAR_TESTING
-		([
-			(~cardiovascular * [test image probe catheter ultrasound check])
-			([test image probe catheter ultrasound check] * ~cardiovascular)
-		])
-	^factanswer("No one in my family had vascular testing.")
-
-#! Family history of clotting problems
-	?: FAMILY_HISTORY_OF_CLOTTING_PROBLEMS
-		([
-			(~family_members * ["blood clot" clot])
-			([blood vascular] * [clot problems thick thickness plaques embolism] * ~family_members)
-		])
-	^factanswer("No one in my family has clotting problems.")
+#! Family history of clotting problems?
+u: FAMILY_HISTORY_OF_CLOTTING_PROBLEMS
+	([
+		(~family_members * ["blood clot" clot])
+		([blood vascular] * [clot problems thick thickness plaques embolism] * ~family_members)
+	])
+	^factanswer("Not that I know of.")
