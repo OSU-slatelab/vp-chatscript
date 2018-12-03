@@ -68,11 +68,12 @@ u: ()
 		$$categoryCount = 0
 		$$didasksection = 0
 
-		@3 = query(direct_vo ? section $$section) # get the types of questions to ask, eg (Location section "History of Present Illness")
+		@3 = query(direct_vo ? section $$tmpsect) # get the types of questions to ask, eg (Location section "History of Present Illness")
 		loop()
 		{
 			$$tmpcat = ^last(@3subject)
 			$$category = ^eval( OUTPUT_NOQUOTES $$tmpcat )
+
 			if ($$categoryCount == 0)
 			{
 				createfact(^"/openCurly/\"name\": \"$$category\", \"questions\": /openSquare/" scorecard x FACTTRANSIENT)
@@ -82,7 +83,7 @@ u: ()
 			$$categoryCount += 1		# questions he should ask
 			$$didask = 0
 
-			@2 = query(direct_vo ? question $$category) # these are questions we recognize he should ask - he gets credit in the section if he asks at least one of these though we show all he asked
+			@2 = query(direct_vo ? question $$tmpcat) # these are questions we recognize he should ask - he gets credit in the section if he asks at least one of these though we show all he asked
 			loop()
 			{
 				$$question = ^last(@2subject)
