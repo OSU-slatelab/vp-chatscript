@@ -55,8 +55,9 @@ u: ()
 	# handle each section of grading
 	loop()
 	{
-		$$section = ^last(@4subject)  # get a section
-
+		$$tmpsect = ^last(@4subject)  # get a section
+		$$section = ^eval( OUTPUT_NOQUOTES $$tmpsect)
+		
 		if ($$sectionnumber == 0)
 		{
 			createfact(^"/openCurly/\"name\": \"$$section\", \"categories\": /openSquare/" scorecard x FACTTRANSIENT)
@@ -70,8 +71,8 @@ u: ()
 		@3 = query(direct_vo ? section $$section) # get the types of questions to ask, eg (Location section "History of Present Illness")
 		loop()
 		{
-			$$category = ^last(@3subject)
-
+			$$tmpcat = ^last(@3subject)
+			$$category = ^eval( OUTPUT_NOQUOTES $$tmpcat )
 			if ($$categoryCount == 0)
 			{
 				createfact(^"/openCurly/\"name\": \"$$category\", \"questions\": /openSquare/" scorecard x FACTTRANSIENT)
