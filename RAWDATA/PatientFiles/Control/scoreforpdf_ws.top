@@ -195,7 +195,7 @@ u: ()
 	loop()
 	{
 		$$tmp = last(@0subject)
-#		$$tmp
+		$$tmp
 		^log(FILE $$tmpfile $$tmp)
 
 	}
