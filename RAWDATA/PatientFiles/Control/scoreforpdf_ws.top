@@ -94,22 +94,22 @@ u: ()
 					$$form = ^last(@18subject)
 					if ($$didask == 0)
 					{	
-						createfact(^"\"$$form\"" scorecard x FACTTRANSIENT)
+						createfact(^"\"$$form\"" scorecard x FACTTRANSIENT FACTDUPLICATE)
 					}
-					else {createfact(^", \"$$form\"" scorecard x FACTTRANSIENT)}
+					else {createfact(^", \"$$form\"" scorecard x FACTTRANSIENT FACTDUPLICATE)}
 					$$didask += 1
 				}
 			}
 			if ($$didask == 0) 
 			{
-				createfact(^"\"No question asked.\"" scorecard x FACTTRANSIENT)
+				createfact(^"\"No question asked.\"" scorecard x FACTTRANSIENT FACTDUPLICATE)
 			}
 			else {$$didasksection += 1}
 		}
-		createfact(^"/closeSquare//closeCurly//closeSquare/, \"summary\": \"$$didasksection of $$categoryCount essential questions asked.\"/closeCurly/" scorecard x  FACTTRANSIENT)
+		createfact(^"/closeSquare//closeCurly//closeSquare/, \"summary\": \"$$didasksection of $$categoryCount essential questions asked.\"/closeCurly/" scorecard x  FACTTRANSIENT FACTDUPLICATE)
 	}
 
-	createfact(^"/closeSquare/, \"total questions\": \"$totalQueries\"" scorecard x  FACTTRANSIENT)
+	createfact(^"/closeSquare/, \"total questions\": \"$totalQueries\"" scorecard x  FACTTRANSIENT FACTDUPLICATE)
 
 
 	# open information
@@ -150,7 +150,7 @@ u: ()
 
 	if (^length(@0) == 0) 
 	{ 
-	 	createfact(^"\"none\"" scorecard x  FACTTRANSIENT)
+	 	createfact(^"\"none\"" scorecard x  FACTTRANSIENT FACTDUPLICATE)
 	}
 	
  	 $$count = 0
@@ -162,10 +162,10 @@ u: ()
 		{
 		createfact(^"\"$$count. Asked: _0 \( from topic _2 \ at question" scorecard x  FACTTRANSIENT)
 		}
-		else {createfact(^", \"$$count. Asked: _0 \( from topic _2 \ at question" scorecard x  FACTTRANSIENT)}
+		else {createfact(^", \"$$count. Asked: _0 \( from topic _2 \ at question" scorecard x  FACTTRANSIENT FACTDUPLICATE)}
 		@1 = query(direct_sv _0 asked ? 1 )
 		@19 = ^query(direct_vo ? form @1object)
- 	 	createfact(^"@1subject \)\"" scorecard x  FACTTRANSIENT)
+ 	 	createfact(^"@1subject \)\"" scorecard x  FACTTRANSIENT FACTDUPLICATE)
     }
 	 
 	 # here is the history of what they asked
@@ -182,10 +182,10 @@ u: ()
 			$$whichquestion += 1
   			createfact(^"\"_2. _0\"" scorecard x  FACTTRANSIENT)
 		}
-		else {createfact(^", \"_2. _0\"" scorecard x  FACTTRANSIENT)}
+		else {createfact(^", \"_2. _0\"" scorecard x  FACTTRANSIENT FACTDUPLICATE)}
    }
 
-	createfact(^"/closeSquare//closeCurly/" scorecard x  FACTTRANSIENT)
+	createfact(^"/closeSquare//closeCurly/" scorecard x  FACTTRANSIENT FACTDUPLICATE)
 
    # output all answers to user and file
 	$$tmpfile = join(TMP/ $cs_login .txt)
