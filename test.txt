@@ -1,0 +1,61 @@
+CommandLine: /home/stiff/projects/vp-chatscript/ChatScript
+    local
+    livedata=../MYLIVEDATA
+    system=LIVEDATA/SYSTEM
+    english=LIVEDATA/ENGLISH
+    userfacts=1000
+
+ChatScript EVSERVER Version 7.73 pid: 7359 64 bit LINUX compiled Dec  7 2017 18:33:35 host=local
+Params:   dict:2097151 fact:800000 text:100000kb hash:215127 
+          buffer:80x80kb cache:1x5000kb userfacts:1000 outputlimit:80000 loglimit:80000
+WordNet: dict=200490  fact=85552  heap=13575632 Dec03'17-08:58:36
+Build0:  dict=68198  fact=129730  heap=1151132 Compiled:Nov29'18-19:30:24 by version 7.73 "0"
+Build1:  dict=2331  fact=5111  heap=470460 Compiled:Dec02'18-12:26:16 by version 7.73 "patient"
+Used 61MB: dict 271,019 (23849kb) hashdepths 73437.68772.39614.19137.8468.3592.1353.498.169.68.16.1.2.1. words 271019 unusedbuckets 73437 fact 220,393 (10578kb) heap 15197kb
+           buffer (6400kb) cache (5000kb)
+Free 112MB: dict 1,826,131 fact 579,607 stack/heap 84,802KB 
+
+
+
+Enter user name: 
+Mr. Martinez: Hello Doctor
+Doctor:  input set to 1
+Mr. Martinez: 
+Doctor: Mr. Martinez: No.
+Doctor: ~negativesymptoms.3.0.4.12.0  u: THIS_MATCHED_NEGATIVE_SYMPTOMS ( ![ $bodypart when pain just only ~joint who ] ~all_systems ) ^factanswer ( "No." ) 
+ via ~control.4.12.0  u: MAINCONTROL ( _* ) $$userinput = '_0 $$starttime = %fulltime $$startinput = %response $_responsecount ...   
+Mr. Martinez: 
+Doctor: Mr. Martinez: I don't have any numbness or tingling in my back, if that is what you mean.
+Doctor: ~currentnumbness.1.0.170.0.0  u: DO_YOU_HAVE_NUMBNESS_OR_TINGLING ( !healthcare [ numb numbness tingle loss_of_feeling sensation ] ) ^factanswer ( "I am not...   
+ via ~pastnumbness.170.0.0  u:  ( $present ) ^respond ( ~currentnumbness ) ^fail ( TOPIC ) 
+Mr. Martinez: 
+Doctor: Mr. Martinez: I'm afraid I don't understand that question.
+Doctor: ~control.12.0  u: MAINCONTROL ( _* ) $$userinput = '_0 $$starttime = %fulltime $$startinput = %response $_responsecount ...   
+Mr. Martinez: 
+Doctor: Mr. Martinez: No.
+Doctor: ~negativesymptoms.3.0.4.12.0  u: THIS_MATCHED_NEGATIVE_SYMPTOMS ( ![ $bodypart when pain just only ~joint who ] ~all_systems ) ^factanswer ( "No." ) 
+ via ~control.4.12.0  u: MAINCONTROL ( _* ) $$userinput = '_0 $$starttime = %fulltime $$startinput = %response $_responsecount ...   
+Mr. Martinez: 
+Doctor: Mr. Martinez: No.
+Doctor: ~negativesymptoms.3.0.4.12.0  u: THIS_MATCHED_NEGATIVE_SYMPTOMS ( ![ $bodypart when pain just only ~joint who ] ~all_systems ) ^factanswer ( "No." ) 
+ via ~control.4.12.0  u: MAINCONTROL ( _* ) $$userinput = '_0 $$starttime = %fulltime $$startinput = %response $_responsecount ...   
+Mr. Martinez: 
+Doctor: Mr. Martinez: I have always been a pretty happy person.
+Doctor: ~mentalhealth.5.0.4.12.0  u: ARE_YOU_DEPRESSED ( ![ bend crouch lean ] [ depressed depression sad blue lonely mental_health down~8 hopele...   
+ via ~control.4.12.0  u: MAINCONTROL ( _* ) $$userinput = '_0 $$starttime = %fulltime $$startinput = %response $_responsecount ...   
+Mr. Martinez: 
+Doctor: Mr. Martinez: I'm afraid I don't understand that question.
+Doctor: ~control.12.0  u: MAINCONTROL ( _* ) $$userinput = '_0 $$starttime = %fulltime $$startinput = %response $_responsecount ...   
+Mr. Martinez: 
+Doctor: Mr. Martinez: I am an auto mechanic.  I have a garage a couple of blocks from here.  I do repairs and custom restorations.
+Doctor: ~jobrelatedquestions.34.0.4.12.0  u: WHAT_DO_YOU_DO_FOR_A_LIVING ( [ ( what *~3 for *~2 living ) ( ![ out outside after exercise ] [ what do are ] *~3 [ ~j...   
+ via ~control.4.12.0  u: MAINCONTROL ( _* ) $$userinput = '_0 $$starttime = %fulltime $$startinput = %response $_responsecount ...   
+Mr. Martinez: 
+Doctor: Mr. Martinez:  [Nope, no pain in my legs]
+Doctor: ~currentgeneralmatches.3.0.68.0.0  u: ANY_PAIN_IN_YOUR_BODYPART ( !$bodypart? [ ache pain ] *~3 _~bodyparts ) ^factanswer ( "^[I have no pain in my '_0]...   
+ via ~familygeneralmatches.68.0.0  u:  ( $present ) ^respond ( ~currentgeneralmatches ) ^fail ( TOPIC ) 
+Mr. Martinez: 
+Doctor: Mr. Martinez: I'm sorry, I don't understand that question. Would you restate it?
+Doctor: ~control.12.0  u: MAINCONTROL ( _* ) $$userinput = '_0 $$starttime = %fulltime $$startinput = %response $_responsecount ...   
+Mr. Martinez: 
+Doctor: Exiting ChatScript via Quit
