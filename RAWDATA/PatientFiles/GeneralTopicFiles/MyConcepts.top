@@ -26,7 +26,7 @@ concept: ~bone (bone carpus coccyx cranium femur fibula humerus  metatarsus pate
 concept: ~musculoskeletal (tendon ligament muscle)
 concept: ~blemishmark (dimple freckle mole wart )
 
-concept: ~caffeinated_drinks (cappuccino chai coffee espresso iced_coffee iced_tea latte tea )
+concept: ~caffeinated_drinks (caffeine cappuccino chai coffee espresso iced_coffee iced_tea latte tea )
 concept: ~cocktail (Alabama_Slammer Anejo_Highball Bay_Breeze Bellini Black_Russian Bloody_Caesar Bloody_Maria Bloody_Mary Blue_Lagoon Bocce_Ball Boilermaker Bourbon_and_Water Brandy Brandy_Alexander Brown_Cow Buck_'s_Fizz Cactus_Banger Campari_and_Soda Cape_Codder
                     Champagne_Cocktail Cherry_Hooker Cosmopolitan Cuba_Libre Daiquiri Freddie_Fuddpucker Fuzzy_Navel Gimlet Gin_and_Tonic Gin_Buck Gin_Rickey Hairy_Navel Harvey_Wallbanger Highball Horny_Bull Irish_coffee Kir Kir_Royale Lime_Rickey Long_Island_Ice_Tea
                     Madras Mai_Tai Manhattan Margarita Martini Mimosa Mint_Julep Mojito Moscow_Mule Old_Fashioned Orange_Blossom Pina_Colada Red_Beer Rum_and_Coke Rum_and_Pepsi Salty_Dog Sangria Scotch_and_soda Screwdriver Seven_and_Seven
@@ -56,6 +56,8 @@ concept: ~drugs_stimulant  NOUN (~TOBACCO amphetamine Benzedrine caffeine chocol
 concept: ~drugstore (~COSMETICS ~VITAMIN antacid blade chapstick cold_medicine cold_remedy comb cosmetics cough_syrup diapers drugstore film lipstick lotion medicine mouthwash nail_polish
                      ointment razor sunglasses sunscreen tissues toothpaste vitamins )
 
+concept: ~drugs_not_taking (cocaine benzodiazepines "sleep aids" amphetamines inhalants synthetics hallucinogens) # this is the list of drungs the VP is not taking
+
 concept: ~cosmetics (cosmetics cosmetic~1 )
 
 concept: ~vitamin (vitamin vitamin~1 multivitamin)
@@ -80,7 +82,7 @@ concept: ~fastfood_place (breakfast burger dinner food french_fries fried_chicke
 concept: ~father (dad dada daddy father old_man pa papa pappy step-father )
 concept: ~mother (mamma mama ma mammy momma mom mommy mother~n mother-in-law mum mummy step-mother mother)
 concept: ~brother (bro brother male_sibling~1 )
-concept: ~grandparents (grandma grandpa grandmother grandfather grandparents grandparent gram nanna NANA "mom 's mom" "mom 's dad" "dad 's mom" "dad 's dad" "mother 's mother" "mother 's father" "father 's mother" "father 's father" "father 's parents" "mother 's parents" "mothers parents" "fathers parents")
+concept: ~grandparents (grandma grandpa grandmother grandfather grandparents grandparent gram nanna NANA "mom 's mom" "mom 's mother" "mom 's dad" "mom 's father" "dad 's mom" "dad 's mother" "dad 's dad" "dad 's father" "mother 's mother" "mother 's mom" "mother 's father" "father 's mother" "father 's father" "father 's parents" "mother 's parents" "mothers parents" "fathers parents" "mom 's parents")
 concept: ~sister (sis sister )
 concept: ~sibling (brother sister sibling "brother or sister" "sister or brother" "brother and sister" "sister and brother")
 concept: ~female (babe bachelorette spinster chick chix dame damsel vixen female femme gal girl lady lass lassie woman women )

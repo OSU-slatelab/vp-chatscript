@@ -32,7 +32,9 @@ u: ARE_YOU_ABLE_TO_CONTROL_YOUR_BLADDER (![problem trouble bowel loss lost] cont
 u: HAVE_YOU_BEEN_INCONTINENT  ([incontinence incontinent])    ^factanswer("I have not had any problems like that.")
 
 #! Do you have any bladder problems
-u: DO_YOU_HAVE_ANY_BLADDER_PROBLEMS (![where when how bowel] ['do 'are can] * [~bladder_problems ~bladder_function])  ^factanswer("I have not had any problems like that.")
+#! Any changes in urination
+#! Any problems going to the bathroom
+u: DO_YOU_HAVE_ANY_BLADDER_PROBLEMS (![where when how bowel] ['do 'are can you trouble issues concerns problems changes] * [~bladder_problems ~bladder_function])  ^factanswer("I have not had any problems like that.")
 
 #! How about your bladder
 u: HOW_ABOUT_YOUR_BLADDER (!bowel bladder >)   ^factanswer("I have not had any problems like that.")

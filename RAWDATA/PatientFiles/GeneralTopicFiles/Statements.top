@@ -3,7 +3,7 @@
 topic: ~statements keep repeat deprioritize
 	("hear you" understand "healthcare team" nice noble pretty friend kind uncomfortable hard ask best doctor sounds "get to the bottom"
 	address "take care of" "look into" "get you back" "work on that" talk irritate confidential discuss address discussion "between you and me"
-	"I would like to" tough review system "I see" "I can see" "move on" patients first stressful worrisome concerning frustrate talk "right back")
+	"I would like to" tough review system "I see" "I can see" "move on" patients first stressful worrisome concerning frustrate talk "right back" "you said" "you mentioned" "you indicated")
 
 #! That was nice
 s: THAT_WAS_NICE
@@ -16,7 +16,7 @@ s: THAT_WAS_NICE
 #! I understand completely
 s: I_UNDERSTAND ([I ~itwords] *~3 [understand understandable "hear you"])  ^factanswer("Thanks for understanding.")
 
-#! Want to ask about
+#!P Want to ask about
 s: WANT_TO_ASK_ABOUT
 	([
 		(!confidential [want going like want] *~3 [ask discuss run over talk review] *~3 [about through system])
@@ -67,3 +67,8 @@ s: SOUNDS_LIKE ([sounds seems] *~4 [irritating like pretty really])  ^factanswer
 
 #! I will be right back
 s: I_WILL_BE_RIGHT_BACK (I will * [return "right back"] ) ^factanswer("OK.")
+
+#! You said you were a mechanic
+#! You said you owned a garage
+#! You said you work on cars
+u: YOU_SAID (you [said mentioned indicated]) ^factanswer ("Yes") # need u: instead of s: in case "you said you work on cars, right?"

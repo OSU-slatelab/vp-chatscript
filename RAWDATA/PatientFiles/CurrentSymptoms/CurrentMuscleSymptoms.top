@@ -79,7 +79,7 @@ u: HOW_DID_YOU_HURT_YOUR_BACK (![ago long] how * hurt * [back ~itwords !~bodypar
 u: DID_YOU_HURT_YOUR_BACK (![where when how] did * [hurt injure injury] * [back ~itwords] !~bodyparts) ^factanswer("I have not had any problems like that.")
 
 #! Did you strain a muscle in your back
-u: DID_YOU_STRAIN_A_MUSCLE_IN_YOUR_BACK ([strain pull] * [something muscle back vertebra back] !~bodyparts)   ^factanswer("I am not sure.")
+u: DID_YOU_STRAIN_A_MUSCLE_IN_YOUR_BACK ([strain pull] * [something muscle back vertebra back])   ^factanswer("I am not sure.")
 
 # ***************************************************************************************************
 
@@ -121,7 +121,7 @@ u: HAVE_YOU_HAD_ANY_OTHER_BACK_INJURIES (other *~2 ~back_injury)   ^factanswer("
 # ***************************************************************************************************
 # Muscle pain - I have defined muscle_pain as a concept in MedicalConcepts.top
 
-topic: ~currentmusclepain keep repeat (~muscle_pain !pain stretch stretching tenderness tender sore ache)
+topic: ~currentmusclepain keep repeat (~muscle_pain !pain stretch stretching tenderness tender sore ache weakness)
 
 u: ($pasthistory) respond(~pastmusclepain) ^fail(TOPIC)
 u: ($family) respond(~familymusclepain) ^fail(TOPIC)
@@ -138,8 +138,16 @@ u: ARE_YOUR_MUSCLES_SORE
 	])
 	^factanswer("I have not had any problems like that.")
 
+#! Any muscle weakness
+u: ANY_MUSCLE_WEAKNESS
+	([
+		(<< muscle [weak weakness] >>)
+	])
+	^factanswer("My muscles feel fine.")
+
 #! Is the pain muscular
-u: IS_THE_PAIN_MUSCULAR ([be do] *~3 [muscle muscular])   ^factanswer("I have not had any problems like that.")
+u: IS_THE_PAIN_MUSCULAR ([~muscle_pain ~pain] *~3 [muscle muscular])   ^factanswer("I have not had any problems like that.")
+
 
 # ***************************************************************************************************
 

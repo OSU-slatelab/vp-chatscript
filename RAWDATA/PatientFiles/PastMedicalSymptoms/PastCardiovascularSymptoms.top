@@ -6,7 +6,7 @@ u: ($present) respond(~currentbloodpressure) ^fail(TOPIC)
 u: ($family) respond(~familybloodpressure) ^fail(TOPIC)
 
 #! Any previous blood pressure problems
-u: ANY_PREVIOUS_BLOOD_PRESSURE_PROBLEMS ("blood pressure") ^factanswer("My blood pressure has always been normal.")
+u: ANY_PREVIOUS_BLOOD_PRESSURE_PROBLEMS (![medication medicine take] "blood pressure") ^factanswer("My blood pressure has always been normal.") # Wnat to avoid did you take any medicine for your blood pressure.
 
 topic: ~pastchestpain keep repeat (~chest_pain)
 
@@ -24,7 +24,7 @@ u: ($family) respond(~familyheartproblem) ^fail(TOPIC)
 #! Any previous heart problems
 u: ANY_PREVIOUS_HEART_PROBLEMS (<< [coronary artery heart cardiac] [wrong condition issue problem trouble disease] >>)   ^factanswer("I have not had any heart problems.")
 
-topic: ~pastvascular keep repeat (~cardiovascular image probe catheter ultrasound)
+topic: ~pastvascular keep repeat (~cardiovascular image probe catheter ultrasound clot clotting)
 
 u: ($present) respond(~currentvascular) ^fail(TOPIC)
 u: ($family) respond(~familyvascular)  ^fail(TOPIC)

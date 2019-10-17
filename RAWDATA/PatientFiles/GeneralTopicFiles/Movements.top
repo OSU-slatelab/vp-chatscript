@@ -88,18 +88,18 @@ u: CAN_YOU_MOVE_YOUR_BACK (![I we] move *~3 [back ~itwords]) ^factanswer("I can 
 u: HAVE_YOU_BEEN_MOVING (![were ~bodyparts][can been able] *~3 move) ^factanswer("I have been moving just fine.")
 
 #! Are you able to stand
-u: ARE_YOU_ABLE_TO_STAND (!does [able can] *~3 [stand "stand up" "get up"])  ^factanswer("I don't have any problems with that.")
+u: ARE_YOU_ABLE_TO_STAND (!does [able can] *~3 ["stand up" "get up" stand ])  ^factanswer("I don't have any problems with that.")
 
 #! Is standing a problem
 u: IS_STANDING_A_PROBLEM (!long-standing standing *~2 [problem issue concern difficult painful hurt])  ^factanswer("I don't have any problems with that.")
 
 #! Are you stiff
-u: ARE_YOU_STIFF (!neck [stiff stiffness tight tightness]) ^factanswer("I am not stiff.")
+u: ARE_YOU_STIFF (![neck chest] [stiff stiffness tight tightness]) ^factanswer("I am not stiff.")
 
 # ***************************************************************************************************
 topic: ~pastrangeofmotion keep repeat (motion move movement bend bending stiffness stiff)
 
-u: ($present) respond (~currentrangeofmotion) ^fail(TOPIC)
+# u: ($present) respond (~currentrangeofmotion) ^fail(TOPIC) removed to allow for use of "before" which was removed from control as past tense word
 
 #! Have you lost range of motion before
 u: HAVE_YOU_LOST_RANGE_OF_MOTION_BEFORE (<< "range of motion" [before prior past history ever] >>) ^factanswer("I've never had any problems with that.")

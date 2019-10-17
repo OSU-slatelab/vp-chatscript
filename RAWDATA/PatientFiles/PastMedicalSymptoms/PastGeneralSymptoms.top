@@ -11,6 +11,9 @@ u: HAVE_YOU_EVER_HAD_ANY_CHRONIC_ILLNESSES (!they [major chronic] * [illness pro
 #! Have you ever been in an accident
 u: HAVE_YOU_EVER_BEEN_IN_AN_ACCIDENT (!they [ever any] * [injury accident injured])    ^factanswer("Never.")
 
+#! Have you had any trauma
+u: HAVE_YOU_HAD_ANY_TRAUMA (['had been any] *~3 [trauma traumatic])   ^factanswer("I have not had anything like that.") # repeated from currentgeneralsymptoms
+
 #! Have you ever had any serious illnesses
 u: HAVE_YOU_EVER_HAD_ANY_SERIOUS_ILLNESSES
 	([
@@ -18,15 +21,16 @@ u: HAVE_YOU_EVER_HAD_ANY_SERIOUS_ILLNESSES
 		(had * [illness illnesses sickness])
 	])
 	^factanswer("I have not.")
-	a: ([other else]) No.
+	a: OTHER_SERIOUS_ILLNESS ([other else]) No.
 
+#! What is your past medical history
 u: WHAT_IS_YOUR_PAST_MEDICAL_HISTORY
 	([
 		(![when back they their] medical [history problems issues])
-		(![when back they their] history * disease)
+		(![when back they their] history of disease) # need to avoid Do you have a history of heart disease
 	])
 	^factanswer("What would you like to know?")
-	a: ([other else]) No.
+	a: OTHER_PAST_HISTORY ([other else]) No.
 
 # Past surgical history and hospitalizations
 

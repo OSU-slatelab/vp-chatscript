@@ -32,13 +32,13 @@ u: WHAT_BRINGS_YOU_IN_TODAY
  		(what is bringing you in)
 		(["to the office" "to my office" "the clinic"])
  		(why * [in into come] * ["to the doctor" today]) # What brings you in today tokenizes to Why are you in today
- 		(![worse better chronic] [problem trouble] * [having experiencing])
-		([what how] * [help assist] you)
+ 		(![worse better chronic] [wrong problem issue trouble] * [having experiencing])
+		([what how] * [help assist] 'you) # need 'you it doesn't catch your 
 		(come * see me)
-		(seems * [trouble problem issue]) # this tokenizes to What is the trouble so not sure I need it
+		(seems * [wrong problem issue trouble]) # this tokenizes to What is the trouble so not sure I need it
 		(why * [here in to at] * today)
 		(why * [here in])
-		(![back think] what * is * wrong)
+		(![back think] what * is * [wrong problem issue trouble])
 		(feel [OK "allright" "all right"])
 		(what * you * ["talk about" discuss])
 	])
@@ -47,7 +47,7 @@ u: WHAT_BRINGS_YOU_IN_TODAY
 		a: WHAT_HAPPENED (what happened) ^factanswer("I am not sure.")
 
 #! What should we do
-u: WHAT_SHOULD_WE_DO (!when what * [should we help helpful]) ^factanswer("I'm hoping you can tell me.")
+u: WHAT_SHOULD_WE_DO (what should we do) ^factanswer("I'm hoping you can tell me.") # this is a stupid question
 
 #! What would you like me to do
 u: WHAT_WOULD_YOU_LIKE_ME_TO_DO
@@ -85,7 +85,11 @@ u: ARE_YOU_AROUND_SICK_PEOPLE
 	^factanswer("Not that I know.")
 
 #! Are you sick
-u: ARE_YOU_SICK (![other else ~family_members sibling people] you [sick ill "feeling poorly" "under the weather"]) ^factanswer("Not that I know.")
+u: ARE_YOU_SICK
+([
+	(![other else ~family_members sibling people] you * [sick sickness ill "feeling poorly" "under the weather" ailments])
+])
+^factanswer("I am not feeling sick.")
 
 # << Moved Tell me more to Negative symptoms so it is searched as a last resort and other Tell me mores will match first
 
@@ -96,8 +100,8 @@ u: LET_ME_WASH_MY_HANDs ([wash clean] * hands) ^factanswer("OK.")
 s: HOPEFULLY_WE_CAN_HELP_YOU
 	([
 		(hopefully we can help you)
-		([hopefully hope] * [help "feeling better" "feel better" plan solution communicate "figure out" "take care"])
-		([I we] * [help "feeling better" "feel better" plan "go from here" "go from there" solution communicate "take care" "figure out"])
+		([hopefully hope] * [help "feeling better" "feel better" plan solution communicate "figure out" "take care"] * !with) # want to "avoid anything I can help you with"
+		([I we] * [help "feeling better" "feel better" plan "go from here" "go from there" solution communicate "take care" "figure out"] * !with)
 	])
 	 ^factanswer("Thank you.")
 
@@ -114,6 +118,7 @@ s: HOPEFULLY_WE_CAN_HELP_YOU
 u: I_AM_SORRY
 	([
 		(I am sorry)
+		(sorry to hear that)
 		(~emoapology >)
 		(*~3 [~emoapology])
 		])
@@ -132,8 +137,12 @@ u: THAT_IS_GOOD
 	([
 		(!better [good great awesome cool super excellent congratulations] >)
 		([good great super excellent glad] to [hear know] >)
+		([good great super excellent glad] to [hear know] that >)
+		(< very nice >)
+		(< nice >)
+		(< good for you >)
 	])
-	^factanswer("It is.")
+	^factanswer("Thanks.")
 
 #!!P Got it => ~yes
 u: GOT_IT (*~2 got it >) \[ Nod \] .
@@ -212,7 +221,6 @@ u: HOW_ARE_YOU
 		("how are you doing today")
 		("how have you been")
 		(how are you *~3 $patientlastname?)
-		(!~family_members you [ill sick "under the weather" ailments])
 		(![better worse did it long pain often] how *~4 [feel feeling going]) # want to avoid how often are you feeling ...
 	])
 	^factanswer("Ok, how are you?")
@@ -230,8 +238,8 @@ u: HELLO
 	([
 		(hello)
 		([hello hi hello ~emohello] *~3 >)
-		(good [morning afternoon day] *~3 >)
-		(good [morning afternoon evening day])
+		(!have good [morning afternoon day] *~3 >)
+		(!have good [morning afternoon evening day])
 	])
 	^factanswer("Hello, doctor.")
 
@@ -245,23 +253,50 @@ s: MY_NAME_IS (my name is _*~3)
 	^factanswer("Nice to meet you.")
 	# Nice to meet you '_0
 
-topic: ~followupdialogue erase norepeat (else other addition additional beside besides only "before now" discuss)
-
-#! Any other problems
-u: ANY_OTHER_PROBLEMS1 (![health medical seen] [other addition* beside* else only associated] * [symptom issue complaint concern worry problem "bothering you" discuss discussion trouble "talk about"])  ^factanswer("I don't believe so.")
-	# want to avoid have you seen anyone else about this problem
-
-#! Any other problems
-u: ANY_OTHER_PROBLEMS2 (![health medical seen] [other addition* beside* else associated] * [symptom issue concern worry problem "bothering you" discuss trouble])  ^factanswer("I don't believe so.")
-
-#! Any other problems
-u: ANY_OTHER_PROBLEMS3 (![health medical seen] [other addition* beside* else associated] * [symptom issue concern worry problem "bothering you" discuss trouble])  ^factanswer("I don't believe so.")
+topic: ~followupdialogue keep norepeat ()
 
 #! Have you seen anyone else
 u: HAVE_YOU_SEEN_ANYONE_ELSE
 	([
-		([see discuss] * [~medical_professionals anybody anyone] * ["before now" else])
-		([see discuss] * [any other] * [~medical_professionals])
+        ([see discuss "met with" "gone to"] * [any other anyone anybody ~medical_professionals] )
 	])
 	^factanswer("I have not.")
 		a: WHY_DID_YOU_WAIT (why * [wait take not] * [long soon sooner "before now"]) ^factanswer("I don't know.")
+
+#! Any other problems
+u: ANY_OTHER_PROBLEMS1 (
+	# want to avoid have you seen anyone else about this problem
+    # BUT moved rule to above to cover that as well.
+    [
+        (~other *~4 [illnesses symptom issue complaint concern worry problem "bothering you" discuss discussion trouble "talk about" "going on" diagnosis])
+        # avoid anything else about/on your current problem
+        (![about on] anything else )
+    ]
+    )
+    ^factanswer("I don't believe so.")
+
+u: ANY_OTHER_PROBLEMS2 (# NOT MEANINGFUL without symptom2 ref
+	# want to avoid have you seen anyone else about this problem
+    # BUT moved rule to above to cover that as well.
+    [
+        (~other *~4 [illnesses symptom issue complaint concern worry problem "bothering you" discuss discussion trouble "talk about" "going on" diagnosis])
+        # avoid anything else about/on your current problem
+        (![about on] anything else )
+    ]
+    )
+    ^factanswer("I don't believe so.")
+
+u: ANY_OTHER_PROBLEMS3 ( # NOT MEANINGFUL without symptom3 ref
+	# want to avoid have you seen anyone else about this problem
+    # BUT moved rule to above to cover that as well.
+    [
+        (~other *~4 [illnesses symptom issue complaint concern worry problem "bothering you" discuss discussion trouble "talk about" "going on" diagnosis])
+        # avoid anything else about/on your current problem
+        (![about on] anything else )
+    ]
+    )
+    ^factanswer("I don't believe so.")
+
+
+# else that is used to swallow the word to allow match in gap
+concept: ~other ( "else that" related different addition additional additionally beside besides associated else only more other)

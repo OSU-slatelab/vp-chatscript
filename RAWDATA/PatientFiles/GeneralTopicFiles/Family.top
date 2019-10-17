@@ -74,7 +74,7 @@ u: ANYONE_SICK_AT_AT_HOME
 	#! Any family history of illness
 	#! Are there any medical conditions that run in your family
 	#! Does anyone in your family have anything
-	#! Have they been diagnosed with anything
+	#!!K Have they been diagnosed with anything
 	u: ANY_FAMILY_HISTORY_OF_ILLNESS
 	 ([
 		 (!~depression [medical health inherit hereditary genetic history] * [issue condition disease illness problems] * [~itwords family])
@@ -122,7 +122,7 @@ u: ARE_YOUR_PARENTS_LIVING
 		(!~grandparents ~parents *~3 [alive living "with us"])
 	])
 	^factanswer("Both of my parents are alive and well.")
-		a: (~grandparents)  ^reuse(~grandparents_information.ARE_YOUR_GRANDPARENTS_LIVING)
+		a: (!~parents ~grandparents)  ^reuse(~grandparents_information.ARE_YOUR_GRANDPARENTS_LIVING)
 		a: ([age old]) ^reuse(~parents_information.HOW_OLD_ARE_YOUR_PARENTS)
 
 #! How did your parents die
@@ -133,7 +133,7 @@ u: HOW_DID_PARENTS_DIE
 		(did *~3 ~parents [die pass] *~3 [due because to result])
 	])
 		^factanswer("I am not sure.")
-		a: (~grandparents)  ^reuse(~grandparents_information.HOW_DID_GRANDPARENTS_DIE)
+		a: (!~parents ~grandparents)  ^reuse(~grandparents_information.HOW_DID_GRANDPARENTS_DIE)
 
 #! How old are your parents
 u: HOW_OLD_ARE_YOUR_PARENTS
@@ -147,11 +147,11 @@ u: HOW_OLD_ARE_YOUR_PARENTS
 #! Are your parents healthy
 #! Do you parents have any illnesses
 u: ARE_YOUR_PARENTS_HEALTHY ([he she ~parents them they] *~4b [healthy health conditions issues concerns disease illness illnesses]) ^factanswer("Both of my parents are in good health.")
-	a: (~grandparents)  ^reuse(~grandparents_information.ARE_YOUR_GRANDPARENTS_HEALTHY)
+	a: (!~parents ~grandparents)  ^reuse(~grandparents_information.ARE_YOUR_GRANDPARENTS_HEALTHY)
 
 #! Tell me about your parents
 u: TELL_ME_ABOUT_YOUR_PARENTS ([tell health what how] *~3 [~parents folks ~itwords]) ^factanswer("Both of my parents are in good health.")
-	a: (~grandparents) ^reuse(~grandparents_information.TELL_ME_ABOUT_YOUR_GRANDPARENTS)
+	a: (!~parents ~grandparents) ^reuse(~grandparents_information.TELL_ME_ABOUT_YOUR_GRANDPARENTS)
 
 #! Do your parents have any medical problems
 u: PARENTS_HAVE_ANY_MEDICAL_PROBLEMS
@@ -160,11 +160,11 @@ u: PARENTS_HAVE_ANY_MEDICAL_PROBLEMS
 		([chronic medical health] *~3 [problem issue illness condition illnesses] *~3 ~parents)
 	])
 	^factanswer("Both of my parents are in good health.")
-		a: (~grandparents) ^reuse(~grandparents_information.GRANDPARENTS_HAVE_ANY_MEDICAL_PROBLEMS)
+		a: (!~parents ~grandparents) ^reuse(~grandparents_information.GRANDPARENTS_HAVE_ANY_MEDICAL_PROBLEMS)
 
 #! Are your parents taking any medications
 u: PARENTS_TAKING_MEDICATION ([he she ~parents them they] *~3 [~medicines]) ^factanswer("I am not sure.")
-		a: (~grandparents)  ^reuse(~grandparents_information.GRANDPARENTS_TAKING_MEDICATION)
+		a: (!~parents ~grandparents)  ^reuse(~grandparents_information.GRANDPARENTS_TAKING_MEDICATION)
 
 #! Do you see your parents often
 #! How often do you see your parents
@@ -180,12 +180,13 @@ u: WHEN_DID_GRANDPARENTS_DIE (<< [when age "how old"] [~grandparents they] [die 
 #! How did your grandparents die
 #! Did your grandparents pass away due to disease
 u: HOW_DID_GRANDPARENTS_DIE
-	([
-		(!old [how what] * ~grandparents * [die pass "pass away"])
-		(did *~3 ~grandparents [die pass] *~3 [due to because result])
+	(!old [
+		<< [~grandparents they] [die dead death pass "what happened to"]
+      [because cause "due to" why what "pass away from"  "die of" "die from" "dead of" "dead from" how "pass of"  ] >>
+    (cause of *~2 death)
 	])
 	^factanswer("I am not sure.")
-		a: (~parents) ^reuse(~parents_information.HOW_DID_PARENTS_DIE)
+		a: (!~grandparents ~parents) ^reuse(~parents_information.HOW_DID_PARENTS_DIE)
 
 #! How old are your grandparents
 u: HOW_OLD_ARE_YOUR_GRANDPARENTS
@@ -194,15 +195,15 @@ u: HOW_OLD_ARE_YOUR_GRANDPARENTS
 		(~ their ages)
 	])
 	^factanswer("I am not sure.")
-		a: (~parents) ^reuse(~parents_information.HOW_OLD_ARE_YOUR_PARENTS)
+		a: (!~grandparents ~parents) ^reuse(~parents_information.HOW_OLD_ARE_YOUR_PARENTS)
 
 #! Are your grandparents living
-u: ARE_YOUR_GRANDPARENTS_LIVING (~grandparents * [dead passed died alive living "with us" "still around"]) ^factanswer("My grandparents are deceased.")
-		a: (~parents) ^reuse(~parents_information.ARE_YOUR_PARENTS_LIVING)
+u: ARE_YOUR_GRANDPARENTS_LIVING (~grandparents * [dead passed died alive living "with us" "still around" deceased]) ^factanswer("My grandparents are deceased.")
+		a: (!~grandparents ~parents) ^reuse(~parents_information.ARE_YOUR_PARENTS_LIVING)
 
 #! Are your grandparents healthy
 u: ARE_YOUR_GRANDPARENTS_HEALTHY (<< ~grandparents [healthy health chronic illness] >>) ^factanswer("My grandparents are deceased.")
-		a: (~parents) ^reuse(~parents_information.ARE_YOUR_PARENTS_HEALTHY)
+		a: (!~grandparents ~parents) ^reuse(~parents_information.ARE_YOUR_PARENTS_HEALTHY)
 
 #! Tell me about your grandparents
 #! What about your grandparents
@@ -419,7 +420,7 @@ u: ARE_YOU_ABUSED
 	^factanswer("I am not.")
 
 #! Do you feel safe at home
-u: DO_YOU_FEEL_SAFE (![work job] [secure safe]) ^factanswer("I feel safe.")
+u: DO_YOU_FEEL_SAFE (![work job sex] [secure safe]) ^factanswer("I feel safe.")
 
 #! Who supports you
 u: WHO_SUPPORTS_YOU (who * [support help turn talk])  ^factanswer("My family.")

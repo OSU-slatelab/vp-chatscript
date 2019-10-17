@@ -1,4 +1,4 @@
-topic: ~pastsex keep repeat (problem sexual sex sexually intercourse ~groin_male ~sex_problems_male ~groin_female ~sex_problems_female ~contraceptives ~STI infection rape force)
+topic: ~pastsex keep repeat (problem sexual sex sexually intercourse ~groin_male ~sex_problems_male ~groin_female ~sex_problems_female infection)
 
 #	u: ($present) respond(~currentsex) ^fail(TOPIC)
 u: ($family) respond(~familysex) ^fail(TOPIC)
@@ -16,92 +16,11 @@ u: DID_IT_EVER_HURT_DURING_INTERCOURSE
 #! Did you ever have bleeding after intercourse
 u: EVER_HAVE_BLEEDING_AFTER_INTERCOURSE ([blood bleeding bleed] * [sex intercourse "sexual activity"])    ^factanswer("Never.")
 
-#! Who were your past sexual partners
-u: WHO_WERE_YOUR_PAST_SEXUAL_PARTNERS
-	([
-		([who whom] * [sex sexually intercourse sexual])
-		(partner * [man male woman female])
-	])
-	^factanswer("I have never been sexually active.")
-
-#! Any other past sexual partners
-u: ANY_OTHER_PAST_SEXUAL_PARTNERS
-	([
-		([new other additional extra any] * [sex sexual] * partner)
-		(other * [sex sexual] * [~spouse])
-		(other * partners)
-	])
-	^factanswer("I have never been sexually active.")
-
-#! Have you been sexually active recently
-#! Have you been sexually active in the past 6 months
-u: BEEN_SEXUALLY_ACTIVE_RECENTLY
-	([
-		(<< [sex sexual sexually intercourse "sexually active"] [recent recently month year] >>)
-	])
-	^factanswer("I have not been sexually active recently.")
-
-#! Ever been sexually active
-u: EVER_BEEN_SEXUALLY_ACTIVE
-	([
-		(![when why how problem difficulty who ~STI unprotected symptoms force coerce] << [ever previously previous prior past before] [sex sexual sexually intercourse "sexually active"] >>)
-	])
-	 ^factanswer("I have never been sexually active.")
-
-#! Ever had problems with sexual activity in the past
-u: EVER_HAD_PREVIOUS_SEXUAL_PROBLEMS (<< [ever past prior previous] [issues problems trouble] [sex sexual intercourse] >>) ^factanswer("I have never had any previous sexual problems.")
-
-#! Have you ever had a sexually transmitted infection
-u: EVER_HAD_AN_STI
-	([
-		([ever had history] * [prior previous past] * [~STI])
-		([ever had history] * [~STI])
-		([ever had history] * [~STI] * [prior previously before past])
-	])
-	^factanswer("Never.")
-
-#! When did you have past sexually transmitted infection
-u: WHEN_HAD_PAST_STI ([when "how long ago"] * [~STI infection]) ^factanswer("I have never had any.")
-
-#! Did you take anything for the past infection
-u: TAKE_ANYTHING_FOR_THE_PAST_INFECTION ([take prescribed given treatment ~medicines used] * [~STI infection]) ^factanswer("I never had one of those.")
-
-#! Have you ever been raped
-u: HAVE_YOU_EVER_BEEN_RAPED ([rape forced]) ^factanswer("No, never.")
-
-#! Tell me about your past sexual history
-u: TELL_ME_ABOUT_YOUR_PAST_SEXUAL_HISTORY ([tell describe] * sexual history) ^factanswer("What do you want to know?")
-
-# CONTRACEPTION
-
-#! Did you use any other contraception in the past
-u: DID_YOU_USE_ANY_OTHER_PAST_CONTRACEPTION ([use try] * [other different] * ~contraceptives * [before past previously]) 	^factanswer("No.")
-
-#! Did you use protection every time before
-#! Did you always use protection
-u: DID_YOU_USE_PROTECTION_EVERY_TIME_BEFORE
-	([
-		([always "every time"] * ~contraceptives * [before past previously])
-		(~contraceptives * [always "every time"])
-	])
-	^factanswer("I have always used protection.")
-
-#! Have you had unprotected sex in the past
-u: HAVE_YOU_HAD_UNPROTECTED_SEX_IN_THE_PAST
-	([
-		(unprotected [sex intercourse] * [before past previously])
-		([sex intercourse] * without * ~contraceptives * [before past previously])
-	])
-	^factanswer("I have always used protection.")
-
-#! Did you use any contraception in the past
-u: USE_ANY_CONTRACEPTION_IN_THE_PAST (!other !additional ~contraceptives)    ^factanswer("I have always used protection.")
-
 
 # only for female patients
 
 topic: ~pastvaginal_bleeding keep repeat bot=patient4,patient5,patient6,patient7,patient11,patient12,patient13,patient15,patient19,patient20
-(~gyn_bleeding tampon cramp cramping clot cervix cervical flow heavy light abnormal normal spotting flow irregular always bloat bloating)
+(~gyn_bleeding tampon cramp cramping clot cervix cervical flow heavy light abnormal normal spotting flow irregular always bloat bloating vaginal groin)
 
 u: ($present) respond(~currentvaginal_bleeding) ^fail(TOPIC)
 u: ($family) respond(~familyvaginal_bleeding) ^fail(TOPIC)
@@ -111,8 +30,8 @@ u: ($family) respond(~familyvaginal_bleeding) ^fail(TOPIC)
 #! Have you ever had vaginal bleeding like this before
 u: HAVE_YOU_HAD_VAGINAL_BLEEDING_BEFORE
 	([
-		(![discharge itching] [vaginal bleeding spotting "vaginal bleeding"] * [before prior past history ever previously])
-		([ever past] * [vaginal bleeding spotting "vaginal bleeding"])
+		(![discharge itching] [ "vaginal bleeding" vaginal bleeding spotting] * [before prior past history ever previously])
+		([ever past] * ["vaginal bleeding" vaginal bleeding spotting ])
 	])
 	^factanswer("No, never.")
 
@@ -227,7 +146,7 @@ u: EVER_HAD_SORES_ON_YOUR_GROIN (["sores * ~groin" "bleeding * ~groin_male" ~gro
 # only for female patients
 
 topic: ~pastvaginalsymptoms keep repeat bot=patient4,patient5,patient6,patient7,patient11,patient12,patient13,patient15,patient19,patient20
-(~gyn_bleeding discharge odor itch douche vulva)
+(~gyn_bleeding discharge odor itch douche vulva vaginal)
 
 u: ($present) respond(~currentvaginalsymptoms) ^fail(TOPIC)
 u: ($family) respond(~familyvaginalsymptoms) ^fail(TOPIC)
@@ -241,7 +160,7 @@ u: EVER_DOUCHE (douche) ^factanswer("No.")
 # only for female patients
 
 topic: ~past_pregnancy keep repeat bot=patient4,patient5,patient6,patient7,patient11,patient12,patient13,patient15,patient19,patient20
-(~gyn_bleeding pregnant miscarry miscarriage pregnancy times vaginally c-section cesarean deliver birth born "last time" recent)
+(~gyn_bleeding pregnant miscarry miscarriage pregnancy times vaginally C-section caesarean cesarean deliver birth born "last time" recent)
 
 u: ($present) respond(~current_pregnancy) ^fail(TOPIC)
 u: ($family) respond(~family_pregnancy) ^fail(TOPIC)
@@ -270,7 +189,7 @@ u: EVER_BEEN_PREGNANT_BEFORE (<< [ever prior past before previous many times] [p
 u: DESCRIBE_PAST_PREGNANCY
 	([
 		([describe "how was"] * [past previous] * [pregnant pregnancy] >)
-		([pregnant pregnancy delivery deliver born] * [problem issues free easy normal complications go "all right" vaginally c-section cesarean])
+		([pregnant pregnancy delivery deliver born] * [problem issues free easy normal complications go "all right" vaginally C-section caesarean cesarean])
 	])
 	^factanswer("I have never been pregnant.")
 

@@ -1,0 +1,66 @@
+0. I updated you to the latest chatscript engine
+
+1. you have files0.txt and files0org.txt for building level 0...
+The first compiles the folder in Chatscript subfolder. The second does the one up at top level of VP. Both claim to be original cs files, dont mess with.
+
+That latter naming would be wrong and should be filesorg0.txt if you ever want to build it as level 0.  I have renamed it. 
+As the structure of CS English ontology for postagging changed (added an intermediate folder ENGLISH to support data for multiple languages) I revised your structure and moved the current pos-tagging data files into both VP/ChatScript/ONTOLOGY and to VP/ONTOLOGY.
+
+2. some patterns of yours dont compile anymore. This is because a pattern like: [die pass "pass away"] can never match "pass away" because "pass" would match first. When the flaw is at the end of the pattern it wouldnt matter, but if you are expecting to match "pass away" and effectively swallowing "away" is important, this would fail. The fix as CS tells you is to reorder your pattern: [die "pass away" pass ] so that the occluding word is after the larger phrase.
+
+3. I fixed capitalizaton of C-section and some other words (removes warning message) and added alternate spelling: caesarean to your patterns.
+
+4. Your scoring files for showing things in txt, pdf, etc, have a bunch of code in common. For safer engineering standards (so you dont edit one without the other and so you can understand the code better), I split off common code into outputmacros like: ^ProcessProperties() and ^TrackOpenQuestions().  The code of one file did not initialize $open to 0, unlike all the other files, so the macro makes it uniform. It wouldnt have mattered probably because null value and 0 are synonymous mostly.
+
+5. Your $tokeninit in medicalcontrol had a NO_ERASE which made no sense so I removed it: $tokeninit = #DO_ESSENTIALS | #DO_SUBSTITUTES | #DO_PRIVATE | #DO_SPELLCHECK | #DO_SPELLING | #DO_CONTRACTIONS | #DO_POSTAG | #DO_PARSE | NO_ERASE
+
+6. ^section tables have been altered to the tab indented notation you requested. A handful of your labels were jammed together becoming meaningless and those have been fixed.
+
+
+7. your factanswer code uses flag OUTPUT_NOQUOTE, which did not work for normal outputs, only ^"xxx" outputs. Added that to engine so it does now.
+
+8. when you ask a question not understood, you got [ ] around your choice answer, because [] notation does not work in ^"xxx" strings. I fixed your code. Eg
+	^factanswer(^"[No family history of '_0 problems.]	[Nope, nobody in my family has '_0 problems.]")
+becomes:     $_tmp = ^print(#OUTPUT_RETURNVALUE_ONLY [No family history of '_0 problems.]	[Nope, nobody in my family has '_0 problems.]).
+	^factanswer($_tmp)
+
+9. Fixed ^incontext use to move inside pattern instead of in output. 		
+
+10. you assign to $cs_tokens ... | NO_ERASE.  this is not valid syntax nor any value I know of. I have removed it.
+
+
+11. As far as I could tell the only diffeence between medicalcontrol.top and medicalcontrolorg.top was the default bot. So I created control.top, moved all the common stuff into that and removed the duplicate data from each file. And adjusted filespatient.txt to compile in this file. I dont know what file compiles medicalcontrolorg.top
+
+12. I simplified your control script from a bunch of IF's inside one rule to a bunch of rules, since topics stop once they generate an answer. This makes
+	if (%response == $$startInput)
+	{
+        $_tmp = ^print(#OUTPUT_RETURNVALUE_ONLY [I'm afraid I don't understand that question.]  [I'm sorry, I don't understand that question. Would you restate it?])
+	 	^factanswer($_tmp)
+	}
+become:
+u: ()  $_tmp = ^print(#OUTPUT_RETURNVALUE_ONLY [I'm afraid I don't understand that question.]  [I'm sorry, I don't understand that question. Would you restate it?])
+	 	^factanswer($_tmp)
+	} 
+reducing the visual complexity
+
+13. Your definition of ~itwords include "that's" which will never be seen because it is "that is" and you already have "that" so I don't know even why you'd want to absorb the "is" into this.
+
+14. in 1_WORSE_MORNING_OR_NIGHT you use collections of words for time of day and for betterorworse. But since you use [] for those, you do not always use the same list (I changed to concepts at the top and used here).  And using [] subjects you to posssible mismatch if your word order in [] can match later in the sentence. Using concepts insures you find the earliest match.
+
+15. patterns of IS_THE_PAIN_CONSTANT collide with 1_WORSE_MORNING_OR_NIGHT
+
+16. ~followupdialogue topic is not really amenable to keyword invocation so I added a direct call to it in the control script. And made its ANY_OTHER_PROBLEMS pattern be simpler and use a concept. But I dont know why you have topic flags ERASE and REPEAT. Presumably you wont say the same thing twice if you erase. But I would think you wouldnt want to erase.
+
+17. seems to me ARE_YOU_HAVING_ANY_OTHER is a lot like ANY_OTHER_PROBLEMS
+
+18. you have patterns like: 
+		(!ever << [other addition* beside*] ~medicines $complaint3? >>)
+		(!ever [other addition* beside*] * $complaint3? * ~medicines)
+where the 2nd pattern is merely the first pattern but requiring an order. There is no use for it since the 1st pattern matches.
+
+19. Trying to control the ordering and spacing of words is risky. easy to miss matching. I revised HOW_DID_GRANDPARENTS_DIE by asking myself what were the things one needed to find:
+1) reference to grandparent, 2) reference to dead, and 3) reference to cause/why/what.  A similar analysis would happen for WHEN did they did, which would replace 3) with when referencing
+
+20. I note for ANY_OTHER_PROBLEMS2 and ANY_OTHER_PROBLEMS3 that currently they are meaningless unless all the ANY_OTHER_PROBLEMS refer to specific complaints 1,2,3
+
+

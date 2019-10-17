@@ -12,7 +12,7 @@ u: ( $$family) ^fail(TOPIC)
 u: DO_YOU_DO_ANY_HEAVY_LIFTING_AT_WORK
 		([
 			(<< heavy [lifting lift] [~job] >>)
-			(![pain injure hurt] [bend lift back] *~3 [lot ~job ever]) # avoid did you in jure your back at work
+			(![pain injure hurt] [bend lift back~n] *~3 [lot ~job ever]) # avoid did you in jure your back at work
 		])
 	^factanswer("Not that I am aware of.")
 
@@ -142,7 +142,7 @@ u: DO_YOU_NEED_A_NOTE_FOR_WORK (need *~3 [excuse note] *~3 [~job me today]) ^fac
 #! Does the pain interfere with work
 #! Has your work been affected by your back pain?
 #! Does the pain make your job difficult
-#! The injury must really get in the way of that
+#!!K The injury must really get in the way of that
 u: DOES_THE_PAIN_INTERFERE_WITH_WORK
 	([
 		(!how [~pain ~itwords injury] *~3 [problem bother interfere interferring impair inhibit keep prevent stop miss affect impact difficult "in the way"] *~3 [~itwords working ~job])
@@ -183,13 +183,13 @@ u: DOES_IT_HURT_WHEN_NOT_WORKING (!~bodyparts [hurt pain] *~3 not *~3 work) ^fac
 #! Does the pain get worse at work
 u: DOES_IT_HURT_TO_WORK
 	([
-		(![~bodyparts not] [hurt pain] * [~job work working])
+		(![~bodyparts not at] [hurt pain] * [~job work working]) # want to avoid ever gotten hurt at work
 		([experience feel] *~3 pain * [~job work])
 	])
 	^factanswer("I am able to work OK.")
 
 #! Did you injure yourself at work
-u: DID_YOU_INJURE_YOURSELF_AT_WORK (injure *~3 ~job) ^factanswer("I have not been injured at work.")
+u: DID_YOU_INJURE_YOURSELF_AT_WORK ([injure hurt] *~3 ~job) ^factanswer("I have not been injured at work.")
 
 #! Where do you work
 u: WHERE_DO_YOU_WORK (where * ~job) ^factanswer("I work in town.")
@@ -235,7 +235,7 @@ u: WHAT_DO_YOU_DO_FOR_A_LIVING
 		([you currently] [working employed])
 		(what [kind type sort is] *~3 ~job)
 		(what *~2 work do you do)
-		(![out outside after fun entertainment exercise] what do you do)
+		(![out outside after fun entertainment exercise "free time" relax] what do you do)
 		(![pain "work out" exercise] [work job] *~3 outside [your the] [home house])
 		(employment)
 	])
@@ -273,3 +273,4 @@ u: HOW_LONG_HAVE_YOU_WORKED (how long * [work worker job own]) ^factanswer("Many
 
 #! We will get you back to work
 s: GET_YOU_BACK_TO_WORK (back to *~2 ~job) ^factanswer("Thank you.")
+

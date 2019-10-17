@@ -1,0 +1,125 @@
+topic: ~opioids keep repeat (opioid ~DRUGLIST)
+
+# concept: ~nodrugs (cocaine benzodiazepines "sleep aids" amphetamines inhalants synthetics hallucinogens) # this is the list of drungs the VP is not taking
+
+#! Have your ever bought opioids?
+u: EVER_BOUGHT_OPIOIDS
+	([
+		(ever * [buy purchase] * opioids)
+	])
+	^factanswer("Not until recently when I was having increased stress and insomnia.")
+
+#! Have you ever sold opioids?
+u: EVER_SOLD_OPIOIDS
+	([
+		(ever * [sell] * opioids)
+	])
+	^factanswer("No.")
+
+#! Have you used opioids or oxycodone since that time?
+u: USED_OPIOIDS_SINCE
+	([
+		(use * opioids * since)
+	])
+	^factanswer(" Yes, I have started taking them again 5 days ago.")
+
+#! Have you been able to control your use of opioids?
+u: CONTROL_OPIOID_USE
+	([
+		(control * [opioid opioids] * use)
+	])
+	^factanswer("Yes prior to getting the wrong oxycodone." )
+
+#! Do you spend excessive time getting opioids?
+u: SPEND_TIME_GETTING_OPIOIDS
+	([
+		(spend * time * get * opioids)
+	])
+	^factanswer("Yes, prior to the overdose.")
+
+#! Do you spend excessive time using opioids?
+u: SPEND_TIME_USING_OPIOIDS
+	([
+		(spend * time * use * opioids)
+	])
+	^factanswer("I do not think that I spend a lot of time using opioids.")
+
+#! Do you spend excessive time recovering from opioids?
+u: RECOVER_FROM_OPIOIDS
+	([
+		(spend * time * recover * opioids)
+	])
+	^factanswer("Recently it has taken longer to recover.")
+
+#! Has your opioid use negatively affected your school work?
+u: OPIOIDS_AFFECT_SCHOOL
+	([
+		(opioid * affect * school)
+	])
+	^factanswer("I am not currently in school.")
+
+#! Have had hurt yourself or others from using opioids?
+u: HURT_YOURSELF_FROM_OPIOIDS
+	([
+		(hurt * yourself * from * opioids)
+	])
+	^factanswer("Not intentionally.")
+
+#! Have you tried to cut back you’re your use?
+u: TRIED_TO_CUT_BACK
+([
+	(try * [reduce "cut back"]	* use)
+])
+^factanswer("Yes, after I was seen in the clinic in the past, I did try to cut back for a while.")
+
+# Substance use history
+
+#! How old where you when you first used a substance?
+u: HOW_OLD_WHEN_FIRT_USED_SUBSTANCE
+	([
+		(how old * first * used)
+	])
+	^factanswer("I started using marijuana occasionally when I started college at age 18.  I did not use any other substances or drugs until last year when I started taking the ambien which led to the oxycodone.")
+
+#! Have you had prior treatment for opioid use?
+u: HAD_PRIOR_TREATMENT
+([
+	(had * [prior previous] * treatment)
+])
+^factanswer("No.")
+
+#! Have you had a history of overdose?
+u: HISTORY_OF_OVERDOSE
+	([
+		(history * overdose)
+		(overdose * [previously past before])
+	])
+	^factanswer("Just the one time.")
+
+#! Do you use cocaine?
+u: DO_YOU_USE_NODRUGS
+	([
+		(do you use ~drugs_not_taking)
+	])
+	^factanswer("No.")
+
+#! Do you use marijuana?
+u: DO_YOU_USE_MARIJUANA
+	([
+		(do you use marijuana)
+	])
+	^factanswer("Yes, about 3 times per week")
+
+#! Do want to start treatment with suboxone?
+u: START_SUBOXONE_TREATMENT
+	([
+		(<< [start begin try] suboxone [treatment therapy] >>)
+	])
+	^factanswer("Yes, I have a friend who told me to do that as it is safe and will help with the withdrawal symptoms.")
+
+#! Do you have a naloxone kit at home?
+u: HAVE_NALOXONE
+	([
+		(have * naloxone)
+	])
+	^factanswer("No, yhey told me to get one when I was at the ED.")

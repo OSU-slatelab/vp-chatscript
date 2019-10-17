@@ -5,10 +5,10 @@ topic: ~currentwalking keep repeat (~walking_problems sit stair step home house)
 u: ($pasthistory) respond(~pastwalking) ^fail(TOPIC)
 
 #! Do you feel unsteady when you walk
-u: DO_YOU_FEEL_UNSTEADY_WHEN_YOU_WALK (unsteady * ~walking_problems)  ^factanswer("I can walk fine.")
+u: DO_YOU_FEEL_UNSTEADY_WHEN_YOU_WALK ([unstable unsteady] * ~walking_problems)  ^factanswer("I can walk fine.")
 
 #! Can you climb stairs
-u: CAN_YOU_CLIMB_STAIRS ([climb up down up_and_down] * [stairs steps])    ^factanswer("I can climb stairs.")
+u: CAN_YOU_CLIMB_STAIRS ([climb up_and_down up down ] * [stairs steps])    ^factanswer("I can climb stairs.")
 
 #! Do you have stairs at home
 u: DO_YOU_HAVE_STAIRS_AT_HOME ([stairs steps] * [home house]) ^factanswer("I have no stairs.")

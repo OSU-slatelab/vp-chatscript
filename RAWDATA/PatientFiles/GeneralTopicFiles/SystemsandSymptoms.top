@@ -155,7 +155,7 @@ u: MEDICAL_JARGON (~medical_jargon) ^factanswer("I don't know what that means.")
 topic: ~negativesymptoms keep repeat NoStay deprioritize ()
 
 # onewordinputs
-u: (!. < *1 >) $$oneword = '_0 What do you want to know about '_0?
+u: SIMPLEWORD (!. < *1 >) $$oneword = '_0 What do you want to know about '_0?
 	a: () $_sentence = ^join('_0 " "  $$oneword " " '_1) ^input($_sentence) ^fail(SENTENCE)
 
 

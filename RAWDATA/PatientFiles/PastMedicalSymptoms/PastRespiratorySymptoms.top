@@ -4,7 +4,7 @@ u: ($present) respond(~currentbreathing)  ^fail(TOPIC)
 u: ($family) respond(~familybreathing) ^fail(TOPIC)
 
 #! Have you ever had any breathing problems
-u: EVER_HAD_ANY_BREATHING_PROBLEMS ([~breathing_problems ~breathing_conditions] *~4b [before past previously prior child youth ever])  ^factanswer("My breathing has been fine.")
+u: EVER_HAD_ANY_BREATHING_PROBLEMS ([~breathing_problems ~breathing_conditions] *~4b [before past previously prior child youth ever had])  ^factanswer("My breathing has been fine.")
 
 #! Ever use an inhaler
 u: EVER_USE_AN_INHALER  ([inhaler puffer])  ^factanswer("I never have.")

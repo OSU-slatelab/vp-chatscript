@@ -19,8 +19,10 @@ u: I_HAVE_MORE_QUESTIONS ([need want more few ask] *~3 [questions concerns items
 #! Is there anything else I can help you with
 u: ANYTHING_ELSE_I_CAN_HELP_WITH
 	([
-		([anything else] *~2 ["help you with" "do for you" discuss "bring up" address need tell mind know add aware])
+		# ([anything else] *~2 ["help you with" "do for you" discuss "bring up" address need tell mind know add aware)
+		(anything else)
 		(any other problems)
+		(anything * [add discuss "talk about"])
 	])
 	^factanswer("I don't believe so.")
 
@@ -32,7 +34,8 @@ u: HAVE_ALL_THE_INFORMATION ([information everything have] *~3 I need)  ^factans
 
 #! May I do an exam now
 u: DO_AN_EXAM_NOW
-	([
+	(!example # because for some reason "exam" catches "example"
+		[
 		([we I] * [perform do] * [exam examination test])
 		([we I] * [examine exam examination "take a look" look])
 	])
@@ -53,6 +56,8 @@ u: NICE_TALKING_WITH_YOU
 u: GOODBYE
 	([
 		(~emogoodbye)
+		(bye)
+		(have a [good nice pleasant] [~dayname ~visittimes])
 		(< that is all >)
 	])
 	^factanswer("Goodbye and thanks.")

@@ -6,6 +6,12 @@ u: ($family) respond(~familybreathing) ^fail(TOPIC)
 #! Do you use an inhaler
 u: DO_YOU_USE_AN_INHALER  (!ever [use carry sniff have] * [inhaler puffer])  ^factanswer("I do not.")
 
+#! Are you having any breathing problems
+u: ARE_YOU_HAVING_ANY_BREATHING_PROBLEMS
+([
+	(!ever [~breathing_problems ~breathing_conditions])
+	])
+	^factanswer("My breathing is fine.")
 # ***************************************************************************************************
 
 topic: ~currentcough keep repeat (cough sputum phlegm)

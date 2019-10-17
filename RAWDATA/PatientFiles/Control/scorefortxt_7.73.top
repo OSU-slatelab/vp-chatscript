@@ -1,8 +1,25 @@
 
 topic: ~score ()
-u: () 
-    $totalQueries += 1
-    ^ProcessProperties($$label)
+u: () $totalQueries += 1
+
+	# get this label's properties for this bot's diagnosis
+	@1 = query(direct_sv '$$label $cs_bot ?) # get this label's properties
+	loop () # process each property
+	{
+		$$tmp = first(@1object) # DATA IS: ( What_is_your_goal Patient1a Open ) - so this gets property Open or whatever
+		if (query(direct_sv '$$label equivalent ?)) # this label is considered equivalent to some other one
+		{
+			$$label = ^first(@1object)  # get std label for this
+		}
+
+		if ($$tmp == summary )  # summary questions track from what topic user was when asking
+		{
+			Createfact($$label summary $currenttopic) # from what topic did they ask this question
+		}
+
+		$$kind = join('$ $$tmp) # get property like "open" making it $open
+		^$$kind += 1 	# increment count
+	}
 
 	# now note this new question was asked
 	$$tmp = $$rawinput
@@ -10,11 +27,18 @@ u: ()
 	{
 		$$tmp = ^"$$tmp    - Question not understood."
 	}
+	else
+	{
+		$$tmp = ^"$$tmp"
+	}
 	createfact($$tmp asked $totalQueries) # this was asked this turn
 
 	createfact($$tmp form $$label) # this was asked this way this turn
 
-#	^TrackOpenQuestions()
+	# track how many open questions asked in early stages
+#	if (%input == 5) {$first5open = $open}
+#	else if (%input == 10) {$first10open = $open}
+#	else if (%input == 15) {$first15open = $open}
 
 topic: ~finalscore system repeat()
 
@@ -98,8 +122,7 @@ u: ()
 
    # output all answers to user and file NOTE IF THIS FAILS TO CREATE THE FILE IN THE CORRECT FOLDER THEN SCORE ME FAILS. SO IF WRITING TO inetpub AND IT DOES NOT EXIST THEN SCORE ME WILL FAIL
 	$$tmpfile = join(TMP/ $cs_login .txt)
-	$$tmpfile = join(C:\inetpub\wwwroot/Scores/ $cs_login .txt)
-	# $$tmpfile = join(C:\ChatScript/Scores/ $cs_login .txt)
+#	$$tmpfile = join(C:\inetpub\wwwroot/Scores/ $cs_login .txt) # must uncomment this for WEBGL to work on server
 	^log(FILE $$tmpfile NEW)  # start file from scratch
 	@0 = query(direct_vo ? scorecard x)
 	loop()

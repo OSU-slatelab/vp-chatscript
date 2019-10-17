@@ -11,8 +11,8 @@ u: ($family) ^fail(TOPIC)
 #! Have you had a blood typing
 u: HAVE_YOU_HAD_A_BLOOD_TYPING
 	([
-		([screen screened screening test testing tested determined had] *~3 [blood type "blood typing" "blood type"])
-		([blood type "blood typing" "blood type"] *~3 [screen screened screening test testing tested determined])
+		([screen screened screening test testing tested determined had] *~3 ["blood typing" "blood type" blood type ])
+		(["blood typing" "blood type" blood type ] *~3 [screen screened screening test testing tested determined])
 	])
 	^factanswer("Not that I am aware of.")
 
@@ -68,8 +68,8 @@ u: RESULTS_OF_PROSTATE_EXAM
 #! Have you had a pap smear
 u: HAVE_YOU_HAD_A_PAP_SMEAR
 	([
-		(<<[screen screened screening] [cervical "cervical cancer"]>>)
-		(!abnormal [ever "have you had"] *~3 ["pap smear" pap Pap_smear])
+		(<<[screen screened screening] ["cervical cancer" cervical ]>>)
+		(!abnormal [ever "have you had"] *~3 ["pap smear" Pap_smear pap ])
 	])
 	^factanswer("I've never had one of those.")
 	a: RESULTS_OF_PAP_SMEAR  (result)  ^factanswer("I've never had one of those.")
@@ -78,10 +78,10 @@ u: HAVE_YOU_HAD_A_PAP_SMEAR
 u: RESULTS_OF_PAP_SMEAR  ([~itwords pap smear] *~4b [result normal])  ^factanswer("I've never had one of those.")
 
 #! Have you ever had an abnormal pap
-u: HAVE_YOU_EVER_HAD_AN_ABNORMAL_PAP  (<< abnormal [pap Pap_smear "pap smear"] >>)  ^factanswer("I've never had one of those.")
+u: HAVE_YOU_EVER_HAD_AN_ABNORMAL_PAP  (<< abnormal [Pap_smear "pap smear" pap ] >>)  ^factanswer("I've never had one of those.")
 
 #! When was your last pap smear
-u: WHEN_WAS_YOUR_LAST_PAP_SMEAR (when * [last recent] *~3 [pap smear "pap smear" "pap test" pap]) ^factanswer("I've never had one of those.")
+u: WHEN_WAS_YOUR_LAST_PAP_SMEAR (when * [last recent] *~3 [ smear "pap smear" "pap test" pap]) ^factanswer("I've never had one of those.")
 
 # This is the communicable disease section
 

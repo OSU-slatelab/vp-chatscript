@@ -1,0 +1,190 @@
+
+topic: ~control system repeat ()
+
+# use :source to run the test on vpatientregression.txt or similar
+# This starts regression test
+u: (start regression)
+    $regression_test = 1
+    regression started.
+    # clear output files
+    ^log(FILE tmp/match.txt NEW  )
+    ^log(FILE tmp/fail.txt NEW )
+    ^log(FILE tmp/unknown.txt NEW )
+
+  # this ends regression file
+ u: (end regression)
+    $regression_test = null
+    Regression results: $matched matched, $failed failed, $unknowns unknowns.
+    $total = $matched + $failed
+    Total real tests is $total.
+    $success = $matched * 100
+    $success /= $total
+    Success rate is $success \%.
+
+# lines of regression test have EXPECTED LABEL and then input
+u: ($regression_test _*1 _*)
+    $$regression_label = '_0
+    $$sentence =  '_1
+    ^analyze($$sentence) # get analysis w/o label
+
+
+# get a master copy of input
+u: ( %input _*)
+    $$rawinput = ^original(_0)
+	if (?) {$$rawinput = join($$rawinput ?)}
+
+# on startup, do introduction
+u: (< \[ * q: _*1 * \] ) $q_num_external = '_0 # record query num from web service
+u: (< score me > ) respond(~finalscore) 
+u: (< reset score  > ) reset(user) fail(INPUT)
+
+u: (%more) ^fail(SENTENCE)   # added 9.6.2012 to ignore multiple questions in one input sentence so unsure how this fits with $$startInput below
+
+# The following refine section ensures that only one variable is true at a time.
+u: () refine ()  # classify input into 3 zones: present, family, past
+	a: ([~role_family family they childhood]) $family = true $pasthistory = null $present = null
+	a: (!does [ever past history prior before previous ago "when were" "have you had"]) $pasthistory = true $family = null $present = null
+	a: ([%tense=present do does is are can would will might has]) $present = true $family = null $pasthistory = null
+
+u: (_[$patientfirstname? $patientlastname?]) mark(~Patient_name _0)  # note the topic should be triggerable by his name
+
+# pronoun reference to complaint
+u: PRONOUNCOMPLAINT ([$chiefcomplaint? symptom])
+    $complainttime = %input + 1 # good for 1 forward reference
+u: REFERREDCOMPLAINT ($complainttime>=%input ~itwords)
+    $complaintmentioned = 1
+    $complainttime = %input + 1
+u: CONTINUEDCOMPLAINT ($complainttime>=%input )
+    $complaintmentioned = 1 # presumed prior context
+
+u: (%input<%userfirstline)
+	$$starttime = %fulltime			# time of current input
+	$lastInputTime = $$starttime	# consider prior input to be at current time
+	$lastUnknownAnswer = -1			# no unknown answers so far
+	gambit(~introductions)			# on conversation start
+
+u: (%topic?) $$currentTopicIninput = 1 # is current topic continued in this sentence
+s: () $$punctuation = .		 # note punctuation used
+?: () $$punctuation = ?		  # note punctuation used
+
+u: MAINCONTROL(_*) # main per-sentence processing
+
+	$$starttime = %fulltime		# time of current input
+	$$startInput = %response 	# added 8.22.2012 per BW to handle multiple inputs (hello, what brings you in today)
+	$_responseCount = %response # added 10.2018 to manage combining multiple sentences. not workign yet
+    $currenttopic = %topic		# get the current topic at start of volley
+	nofail(TOPIC ^rejoinder())	# try for rejoinders. might generate an answer directly from what we are looking for.
+
+u: (%length==0)
+	nofail(TOPIC ^gambit($currenttopic))  # gambit current topic since no input (usually start of conversation)
+
+u: () nofail(TOPIC ^respond($currenttopic))  # current topic tries to respond to his input
+
+u: ()  # see if some other topic has keywords matching his input (given we have no response yet)
+	@8 = ^keywordtopics()	# get topics referred in input
+	loop()
+	{
+			$$topic = first(@8subject)
+			nofail(TOPIC ^respond($$topic))
+			if (%response != 0) # stop when we find something to say
+			{
+				^end(RULE)	# we are done, this terminates the loop (not the rule)
+			}
+	}
+
+u: ($$currentTopicIninput)  nofail(TOPIC ^gambit($currenttopic))  # gambit current topic since keywords match current topic
+u: ()  # gambit from ANY matching topic
+	@8 = ^keywordtopics()	# get topics referred in input
+	loop()
+	{
+			$$topic = first(@8subject)
+			nofail(TOPIC ^Gambit($$topic))	# gambit in best matching topic
+			if (%response != $$startInput) # stop when we find something
+			{
+				^end(RULE)
+			}
+	}
+u: () ^respond(~followupdialogue)
+u: ()  nofail(TOPIC ^gambit($currenttopic)) # gambit from current topic even though no keywords matched
+u: ()
+	@8 = ^GambitTopics()		# all topics with gambits (excluding system topics)
+	loop()
+	{
+		$$topic = pick(@8)
+		nofail(TOPIC ^Gambit($$topic))	# try a topic at random
+		if (%response != $$startInput)
+		{
+			^end(RULE)
+		}
+	}
+u: () nofail(TOPIC ^respond(~openingdialogue)) # if no matches yet, look in openingdialogue
+u: () nofail(TOPIC ^respond(~chiefcomplaint))  # if still no matches look in chiefcomplaint
+u: () nofail(TOPIC ^respond(~keywordless)) # if still no matches look in keywordless
+u: () nofail(TOPIC ^respond(~currentgeneralmatches)) # if still no matches look in variable match section
+u: () nofail(TOPIC ^respond(~closure)) # See if we are finishing up
+u: () nofail(TOPIC ^respond(~negativesymptoms)) # last ditch attempt to match in negativesymptoms
+
+u: MISUNDERSTAND()
+    $_tmp = ^print(#OUTPUT_RETURNVALUE_ONLY [I'm afraid I don't understand that question.]  [I'm sorry, I don't understand that question. Would you restate it?])
+	^factanswer($_tmp)
+
+topic: ~control_post system()
+t: RULE_USED ($$regression_label)
+    $_msg = ^response(1)
+    $_msg = ^join(\" $_msg \")
+
+    $_rulelabel = ^responseRuleID(0)
+    ^nofail(RULE
+        $_at = ^findtext($_rulelabel =)
+        $_rulelabel = ^extract($_rulelabel $_at 1000)
+        $_at = ^findtext($_rulelabel .)
+        $_at -= 1
+        $_rulelabel = ^extract($_rulelabel 0 $_at )
+    )
+    $$sentence = ^join(\" $$sentence \")
+    ^setresponse(1 null)
+    if ($$regression_label == watson_error OR $$regression_label == rewrite OR $$regression_label == unknownexpectation)
+    {
+        $unknowns += 1
+        Unknown.
+        ^Log(FILE tmp/unknown.txt $_rulelabel \t $$regression_label \t $$sentence $_msg \n)
+    }
+    else if ($_rulelabel == $$regression_label)
+    {
+        $matched += 1
+        Match - $$regression_label.
+        ^Log(FILE tmp/match.txt $$sentence \t $_msg \n)
+    }
+    else
+    {
+        $failed += 1
+        Fail  - Found $_rulelabel but wanted $$regression_label}
+        ^Log(FILE tmp/fail.txt $_rulelabel \t $$regression_label \t $$sentence \t $_msg \n)
+   }
+
+t: (^query(direct_v ? chatoutput ? -1 ? @9 )) # get the sentences
+
+	$lastoutput = null
+
+	loop()
+
+	{
+
+		$$tmp = ^last(@9subject)
+		$lastoutput = join($lastoutput _ $$tmp)
+	}
+
+
+# *****************************************************
+topic: ~introductions keep repeat()
+
+# matches every time on startup of a new conversation
+t: (%input<%userfirstline) keep()
+		if (%input > 0)
+        {
+		^reset(USER)
+        }
+		else
+        {
+		Hello Doctor
+        }

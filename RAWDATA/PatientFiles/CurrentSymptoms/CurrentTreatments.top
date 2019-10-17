@@ -14,7 +14,7 @@ u: HAVE_YOU_TRIED_HEAT_OR_ICE (<< heat ice >>)  ^factanswer("I have not.")
 u: HAVE_YOU_TRIED_HEAT
 	([
 		([try use put] * [hot heat])
-		([heat hot "hot bath"] * help)
+		(["hot bath" heat hot ] * help)
 	])
 	^factanswer("I have not.")
 
@@ -38,12 +38,12 @@ u: WHAT_TREATMENT_WOULD_YOU_LIKE_TO_TRY (<< treatment 'try >>) ^factanswer("I am
 u: WHAT_TREATMENT_HAVE_YOU_TRIED (what *~3 treatment *~3 [had tried used received attempted])   ^factanswer("I have not tried anything.")
 
 #! Have you had any imaging done
-u: HAVE_YOU_HAD_ANY_IMAGING_DONE (![~cardiovascular we] [imaging x-ray "x ray" "x rays" xray MRI CT "Cat Scan" ultrasound])   ^factanswer("I have not.")
+u: HAVE_YOU_HAD_ANY_IMAGING_DONE (![~cardiovascular we] [imaging X-ray "X ray" "X rays" Xray MRI CT "CAT Scan" ultrasound])   ^factanswer("I have not.")
 
 #! Have you had any lab work
 u: HAVE_YOU_HAD_ANY_LABS([labs "lab work" blood])   ^factanswer("I have not.")
 
-#! Do you think that would help
+#!K Do you think that would help
 u: DO_YOU_THINK_THAT_WOULD_HELP (<< [would could might ] [help benefit] >>)  ^factanswer("I am not sure.")
 
 #! I think we should run some tests

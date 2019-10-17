@@ -1,4 +1,4 @@
-topic: ~currentsex keep repeat (~groin_male ~sex_problems_male ~groin_female ~sex_problems_female ~contraceptives ~spouse bleeding rape force ~dating_friend ~STI ~pain)
+topic: ~currentsex keep repeat (~groin_male ~sex_problems_male ~groin_female ~sex_problems_female ~spouse bleeding ~dating_friend ~pain)
 
 u: ($pasthistory) respond(~pastsex) ^fail(TOPIC)
 #	u: ($family) respond(~familysex) ^fail(TOPIC) Commented this out to avoid do you and your husband use contraception - husband triggered family
@@ -16,43 +16,12 @@ u: DOES_IT_HURT_DURING_INTERCOURSE
 #! Do you have bleeding after intercourse
 u: BLEEDING_AFTER_INTERCOURSE ([blood bleeding] * [sex intercourse "sexual activity"])    ^factanswer("I have not had any problems like that.")
 
-#! Do you have a sexually transmitted infection
-u: DO_YOU_HAVE_AN_STI (![had been] [any have] * ~STI)	  ^factanswer("I have not had any problems like that.")
-
-#! Have you been raped
-u: HAVE_YOU_BEEN_RAPED ([rape forced]) ^factanswer("Never.")
-
-# CONTRACEPTION
-
-#! Do you use any other contraception
-u: DO_YOU_USE_ANY_OTHER_CONTRACEPTION (use * other * ~contraceptives) 	^factanswer("I do not.")
-
-#! Do you use any protection every time
-u: DO_YOU_USE_PROTECTION_EVERY_TIME (<< [always "every time"] ~contraceptives >>)     ^factanswer("Yes.")
-
-#! Have you had unprotected sex
-u: HAVE_YOU_HAD_UNPROTECTED_SEX
-	([
-		(unprotected [sex intercourse])
-		([sex intercourse] * without * ~contraceptives)
-	])
-	^factanswer("I have not.")
-
-#! Do you use any contraception
-u: DO_YOU_USE_CONTRACEPTION
-	([
-		(!other !additional use * ~contraceptives)
-		(!other !additional [practice use] * [safe ~contraceptives] * [intercourse sex])
-		(!other !additional [what which] * ~contraceptives * [use practice])
-	])
-	^factanswer("I do not.")
-
 # ###################################################################################
 
 # only use for female patients
 
 topic: ~currentvaginal_bleeding keep repeat bot=patient4,patient5,patient6,patient7,patient11,patient12,patient13,patient15,patient19,patient20
-(~gyn_bleeding tampon cramp cramping clot cervix cervical flow heavy light abnormal normal spotting flow irregular menses first)
+(~gyn_bleeding tampon cramp cramping clot cervix cervical flow heavy light abnormal normal spotting flow irregular menses first vaginal groin)
 
 u: ($pasthistory) respond(~pastvaginal_bleeding) ^fail(TOPIC)
 # u: ($family) respond(~familyvaginal_bleeding) ^fail(TOPIC) inactivated this to avoid "they" triggering family. Are they abnormal
@@ -197,7 +166,7 @@ u: DO_YOU_DOUCHE (douche) ^factanswer("I do not.")
 # only for female patients
 
 topic: ~current_pregnancy keep repeat bot=patient4,patient5,patient6,patient7,patient11,patient12,patient13,patient15,patient19,patient20
-(~gyn_bleeding pregnant miscarry miscarriage pregnancy vaginal vaginally c-section cesarean born)
+(~gyn_bleeding pregnant miscarry miscarriage pregnancy vaginal vaginally C-section caesarean cesarean born)
 
 u: ($pasthistory) respond(~past_pregnancy) ^fail(TOPIC)
 u: ($family) respond(~family_pregnancy) ^fail(TOPIC)
@@ -227,7 +196,7 @@ u: WHEN_WAS_LAST_TIME_YOU_WERE_PREGNANT ([when how] * "last time" * [pregnant pr
 u: DESCRIBE_PREGNANCY
 	([
 		([describe "how was"] * [pregnant pregnancy] >)
-		(<< [pregnant pregnancy delivery born] [problem issues free easy normal complications go "all right" vaginal vaginally c-section cesarean] >>)
+		(<< [pregnant pregnancy delivery born] [problem issues free easy normal complications go "all right" vaginal vaginally C-section caesarean cesarean] >>)
 	])
 	^factanswer("I have never been pregnant.")
 

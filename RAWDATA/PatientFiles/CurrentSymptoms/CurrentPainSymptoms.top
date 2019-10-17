@@ -7,7 +7,7 @@
 # ~itwords [it this that them those these they such]
 
 topic: ~currentpain keep repeat
-	(10 ten painful ~pain better worse "lie down" "lay down" food exercise position progress dull intensity injury injure onset exactly specifically
+	(10 ten painful ~pain better worse "lie down" "lay down" food exercise position progress dull intensity injury incident injure onset exactly specifically
 	ibuprofen cause rate uncomfortable~1 tender situation "go away" positions use symptom travel radiate shoot place spread swallow walk point)
 
 u: ($pasthistory) respond(~pastpain) ^fail(TOPIC)
@@ -56,14 +56,15 @@ u: DID_THE_PAIN_BEGIN_IMMEDIATELY ([pain hurt] *~3 immediately) ^factanswer("I a
 #! Has the pain changed
 #! Is the pain worse at any time of the day
 #! Is there a time of the day when it is worse
+# want to avoid what makes the pain get better
 u: IS_THE_PAIN_CONSTANT
 	([
-		(![intensity severity] ~the_pain *~3 ["come and go" consistent increase decrease always sometimes constant constantly intermittent "throughout the day" "always there" "always present" "all the time" "wax and wane" "ever go away" "ever get better" continuous "all day" ongoing change persist])
-		(![intensity severity] ~the_pain *~3 [change fluctuate] *~3 [severity intensity])
-		(["come and go" consistent always sometimes constant constantly intermittent "throughout the day" "always there" "always present" "all the time" "wax and wane" "ever go away" "ever get better" continuous "all day" ongoing change] *~3 ~the_pain)
-		(![intensity severity] ~the_pain *~3 [change "get worse" "get better" fluctuate])
-		(![intensity severity] ~the_pain *~3 [worse hurt better] * [time day])
-		(![intensity severity] [day time] *~3 ~the_pain *~3 [worse hurt better])
+		(![intensity severity what] ~the_pain *~3 ["come and go" consistent increase decrease  sometimes constant constantly intermittent "throughout the day" "always there" "always present" always "all the time" "wax and wane" "ever go away" "ever get better" continuous "all day" ongoing change persist])
+		(![intensity severity what] ~the_pain *~3 [change fluctuate] *~3 [severity intensity])
+		(["come and go" consistent  sometimes constant constantly intermittent "throughout the day" "always there" "always present" always "all the time" "wax and wane" "ever go away" "ever get better" continuous "all day" ongoing change] *~3 ~the_pain)
+		(![intensity severity what] ~the_pain *~3 [change "get worse" "get better" fluctuate])
+		(![intensity severity what] ~the_pain *~3 [worse hurt better] * [time day])
+		(![intensity severity what] [day time] *~3 ~the_pain *~3 [worse hurt better])
 	])
 	^factanswer("It's difficult to say.")
 
@@ -143,10 +144,12 @@ u: RATE_PAIN_ON_MEDICINE (rate * ~the_pain * on * [$currentmedication1? ~medicin
 u: CAN_YOU_RATE_THE_PAIN
 	([
 		(![describe 5 five] [rate scale rank quality quantify] * ~the_pain)
+		(![5 five] [rate scale rank quantify] * ~the_pain)
 		(![5 five] ~the_pain * [between rate scale rank])
 		(![5 five] [10 ten] * [painful severe worst highest])
 		(number * ~the_pain)
 		(scale * [10 ten])
+		([1 one] to [10 ten])
 	])
 	^factanswer("I'm not really having any pain to rate.")
 
@@ -183,7 +186,7 @@ u: ARE_YOU_IN_PAIN (are you [in feeling] *~3 pain) ^factanswer("I am not having 
 u: ARE_YOU_SORE (![throat mouth] 'you * [sore tender] *~2) ^factanswer("Not that I am aware of.")
 
 #! Does the pain start somewhere else
-u: DOES_THE_PAIN_START_SOMEWHERE_ELSE (~the_pain * [start begin] * [anywhere anyplace "any place"] * else) ^factanswer("It is difficult to say.")
+u: DOES_THE_PAIN_START_SOMEWHERE_ELSE (~the_pain * [start begin] * [anywhere somewhere someplace anyplace "any place"] * else) ^factanswer("It is difficult to say.")
 
 #! Do you have pain anywhere else
 #! Does the pain affect any other part of your body
@@ -217,14 +220,22 @@ u: DOES_PAIN_LIMIT_MOVEMENT (~the_pain *~3 [limit affect hinder] *~3 [movement m
 # Description  ***************
 
 #! Does the pain radiate
+#! DOes the pain move anywhere
 u: DOES_THE_PAIN_RADIATE
 	([
-		(!["how long" when away "going on" where ~pain_descriptors describe constant "come and go"] ~the_pain * [radiate travel go spread shoot place extend "move around"])
-		(!["how long" when away "going on" where ~pain_descriptors describe constant "come and go"] does * ~the_pain * stay)
+		(!["how long" when away "going on" where ~pain_descriptors describe constant "come and go"] ~the_pain * [radiate travel go spread shoot place extend "move around" widespread])
+		(!["how long" when away "going on" where ~pain_descriptors describe constant "come and go"] does *~2 ~the_pain * stay)
+		(!["how long" when away "going on" where ~pain_descriptors describe constant "come and go"] does *~2 ~the_pain *~1 move)
 		(!["how long" when away "going on" where ~pain_descriptors describe constant "come and go"] ["same spot" "same area"])
-		(!["how long" when away "going on" where ~pain_descriptors describe constant "come and go"] << [radiate travel go spread shoot extend "move around"][~the_pain feeling] >>)
+		(!["how long" when away "going on" where ~pain_descriptors describe constant "come and go"] << [radiate radiation travel go spread shoot extend "move around"][~the_pain feeling] >>)
 	])
 	^factanswer("It is difficult to say.")
+	a: RADIATE_HOW_FAR_DOWN ([far down]) ^factanswer("It is difficult to say.") # How far down.
+	a: RADIATE_DOWN_FRONT_OR_BACK ([front back]) ^factanswer("It is difficult to say.") # Does it radiate down the front or back of your leg?
+	a: RADIATE_TO_THIGH_CALF_FOOT ([thigh calf foot]) ^factanswer("It is difficult to say.") # Does it go to your thigh.
+u: ([far down])	^incontext ( DOES_THE_PAIN_RADIATE) ^reuse (RADIATE_HOW_FAR_DOWN) # incontext allows all three rejoinders to match
+u: ([front back])	^incontext ( DOES_THE_PAIN_RADIATE) ^reuse (RADIATE_DOWN_FRONT_OR_BACK)
+u: ([thigh calf foot])	^incontext ( DOES_THE_PAIN_RADIATE) ^reuse (RADIATE_TO_THIGH_CALF_FOOT)
 
 #! Do you have any radiating pain
 u: DO_YOU_HAVE_ANY_RADIATING_PAIN (!where radiating pain) ^factanswer("It is difficult to say.")
@@ -275,5 +286,5 @@ u: IS_THE_PAIN_IN_THE_MUSCLE (![where when did] ~the_pain * muscle) ^factanswer(
 #! When does the pain hurt
 u: WHEN_DOES_THE_PAIN_HURT (when *~3 ~pain *~3 [present hurt]) ^factanswer("It is difficult to say.")
 
-#! How did it feel
+#!!K How did it feel
 u: HOW_DID_IT_FEEL (how *~3 ~the_pain *~2 [feel felt])      ^factanswer("It is difficult to say.")

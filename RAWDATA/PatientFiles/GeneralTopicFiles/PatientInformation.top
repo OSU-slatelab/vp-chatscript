@@ -24,8 +24,17 @@ topic: ~Patient_weight keep repeat (weigh weight)
 
 #! How much do you weigh
 u: HOW_MUCH_DO_YOU_WEIGH ([weigh weight]) ^factanswer("I don't know. I haven't weighed myself in a while.")
+	a: CLOTHES_FIT_DIFFERENTLY ([clothes pants loose tight]) ^factanswer("I am not sure.")
 
 topic: ~Patient_name keep repeat (name Mr. Mrs. Ms Ms. address pronounce mind call speak "speaking with" who)
+
+#! Has your weight changed
+u: HAS_YOUR_WEIGHT_CHANGED
+	([
+		([change increase decrease fluctuation fluctuate lost] * weight)
+		(weight * [change increase decrease fluctuation fluctuate loss])
+	])
+	^factanswer("My weight has not changed.")
 
 #! Name and date of birth
 u: NAME_AND_DATE_OF_BIRTH
@@ -43,7 +52,15 @@ u: WHAT_IS_YOUR_NAME
 	 	([tell remind verify confirm] *~4 name)
 	])
 		^factanswer("You can call me anything you want.")
-#	$patientfirstname $patientlastname # putting variables in answer tables and using factanswer does not work so just putting variables in here also works.
+#	$patientfirstname $patientlastname # putting variables in answer tables and using ^factanswer does not work so just putting variables in here also works.
+
+#! Is your name Carlos Martinez
+u: IS_YOUR_NAME
+([
+	(is your name)
+])
+My Name is $patientfirstname $patientlastname.
+
 
 #! Did I pronounce that correctly
 u: DID_I_PRONOUNCE_THAT_CORRECTLY (pronounce *~3 [correct correctly]) ^factanswer("That is correct.")
@@ -64,7 +81,7 @@ u: HOW_DO_YOU_PRONOUNCE_THAT (pronounce that)  ^factanswer("Just like it looks."
 u: WHAT_SHOULD_I_CALL_YOU ([what how] * ["call you" name address]) ^factanswer("Please call me by my first name.")
 
 #!!P Are you Mr. Wilcox $patientlastname=Wilcox
-u: ARE_YOU_MR_PATIENTLASTNAME (< !brings !how !what are you *~3 $patientlastname?) Yes, I am $patientfirstname $patientlastname. # Note no factanswer
+u: ARE_YOU_MR_PATIENTLASTNAME (![brings how what] are you *~3 $patientlastname?) Yes, I am $patientfirstname $patientlastname. # Note no factanswer
 
 #!!P Are you Mr. $patientlastname=null
 u: ARE_YOU_MR_SOMEONEELSE (!how !$patientlastname? 'are you [Mr. Mrs. Ms Ms.]) No, I am $patientfirstname $patientlastname.  # Note no factanswer

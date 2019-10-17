@@ -1,4 +1,10 @@
 # HOPI This is the History of present illness topic file
+concept: ~betterness [relief relieves easier better best easier tolerable tolerate "go away" improve ease reduce less lessen least decrease alleviate]
+concept: ~worseness [worse worsen worst hurt painful increase more most aggravate exacerbate]
+concept: ~timeofday [noon morning  night "time of day" evening "time in the day" "time of day" "times of the day"  "day goes on"]
+
+# REMEMBER concept: ~the_pain is [~itwords ~pain]
+# RMEMBER order of words in [xxx xxx xxx] matters. See WHAT_MAKES_THE_1_WORSE below
 
 topic: ~chiefcomplaint  keep repeat ()
 
@@ -11,7 +17,7 @@ topic: ~chiefcomplaint  keep repeat ()
 #!!P Did anything happen to cause the 1 $chiefcomplaint=1
 u: DID_ANYTHING_HAPPEN_TO_CAUSE_THE_1
 	([
-		(!think [remember happen situation what did notice anything] *~3 ["bring on" caused cause trigger set specific new change] *~3 [~itwords $chiefcomplaint? symptoms life world])
+		(!think [remember happen situation what did notice anything] *~3 ["bring on" caused cause trigger set specific new change] *~3 [$chiefcomplaint? ~the_pain symptoms life world])
 		([describe discuss elaborate] *~3 [happen situation])
 	])
 	^factanswer("It is difficult to say.")
@@ -19,10 +25,10 @@ u: DID_ANYTHING_HAPPEN_TO_CAUSE_THE_1
 #!!P How did the 1 start $chiefcomplaint=1
 u: HOW_DID_THE_1_START
 	([
-		(!["how long" when exacerbate "how much"] how *~3 [~itwords $chiefcomplaint? symptoms] *~3 [start begin occur happen brought])
-		(!cause !causing ![does has] [what how] *~3 [precipitate start] *~3 [~itwords $chiefcomplaint?])
-		(what * [notice felt] *~3 [~itwords $chiefcomplaint?])
-		([~itwords $chiefcomplaint?] *~3 [start begin] *~3 [activity trauma physical death])
+		(!["how long" when exacerbate "how much"] how *~3 [$chiefcomplaint? ~the_pain symptoms] *~3 [start begin occur happen brought])
+		(!cause !causing ![does has] [what how] *~3 [precipitate start] *~3 [$chiefcomplaint? ~the_pain])
+		(what * [notice felt] *~3 [$chiefcomplaint? ~the_pain])
+		([$chiefcomplaint? ~the_pain] *~3 [start begin] *~3 [activity trauma physical death])
 	])
 	^factanswer("I am not sure.")
 
@@ -30,10 +36,10 @@ u: HOW_DID_THE_1_START
 #! What happened
 u: DOING_ANYTHING_WHEN_THE_1_STARTED
 	([
-		(![when else] do *~3 [~itwords $chiefcomplaint?] *~3 [start began] >)
-		(![else try] do *~3 felt *~3 [~itwords $chiefcomplaint?])
-		(![avoid exacerbate] [brought bring] *~3 [~itwords $chiefcomplaint?] *~3 on)
-		(![avoid exacerbate] [happening doing] *~3 [brought bring when] *~3 [~itwords $chiefcomplaint?])
+		(![when else] do *~3 [$chiefcomplaint? ~the_pain] *~3 [start began] >)
+		(![else try] do *~3 felt *~3 [$chiefcomplaint? ~the_pain])
+		(![avoid exacerbate] [brought bring] *~3 [$chiefcomplaint? ~the_pain] *~3 on)
+		(![avoid exacerbate] [happening doing] *~3 [brought bring when] *~3 [$chiefcomplaint? ~the_pain])
 		(~ ![exacerbate avoid injure away treatment] what *~3 [doing happened]) # will only match if already in topic
 	])
 	^factanswer("I am not sure.")
@@ -47,95 +53,90 @@ u: WAS_THE_ONSET_SUDDEN1
 	^factanswer("I am not sure.")
 
 #!!P Did the 1 start immediately $chiefcomplaint=1
-u: DID_THE_1_START_IMMEDIATELY (!when [~itwords $chiefcomplaint?] * [start begin hurt happen "come on"] * [immediately "right away" "right after" "straight away" suddenly abruptly])   ^factanswer("It is difficult to say.")
+u: DID_THE_1_START_IMMEDIATELY (!when [$chiefcomplaint? ~the_pain] * [start begin hurt happen "come on"] * [immediately "right away" "right after" "straight away" suddenly abruptly])   ^factanswer("It is difficult to say.")
 
 #!!P Is the 1 new $chiefcomplaint=1
 u: IS_THE_1_NEW
 	([
-		(!~medicines is *[~itwords $chiefcomplaint?] * [new novel])
-		(!~medicines is * [new novel] * [~itwords $chiefcomplaint?])
+		(!~medicines is *[$chiefcomplaint? ~the_pain] * [new novel])
+		(!~medicines is * [new novel] * [$chiefcomplaint? ~the_pain])
 	])
 	^factanswer("It is difficult to say.")
 
 #!!P Is this the first time you have had this 1 $chiefcomplaint=1
-u: IS_THIS_THE_FIRST_TIME_FOR_1 (first time * [~itwords $chiefcomplaint?])   ^factanswer("It is difficult to say.")
+u: IS_THIS_THE_FIRST_TIME_FOR_1 (first time * [$chiefcomplaint? ~the_pain])   ^factanswer("It is difficult to say.")
 
 #!!P When did the 1 start $chiefcomplaint=1
 u: WHEN_DID_THE_1_START
 	(!"before we" # want to avoid "before we start, is there ....."
 		[
-		(![what night 'do pregnant frequently describe] [when "how long ago"] *~3 [~itwords $chiefcomplaint?] *~3 [start happen begin occur]) # when only adverb not conjunction to avoid how bad was it when it first started
-		(![what night 'do pregnant frequently describe] [when "how long ago"] *~3 [start happen begin hurt] *~3 [~itwords $chiefcomplaint?])
-		(![what night 'do pregnant describe] [when "how long ago"] *~3 [feel experience notice] *~3 [~itwords $chiefcomplaint? symptom problem])
- 		(![pregnant describe] [when "how long ago"] * [onset start this] >)
-		(![much bad worse better] ["how long ago" ago] >)
- 		(![much bad worse better] [start begin notice onset ago] * ~timename) # avoid notice it getting worse throughout the day
- 		(![much bad worse better] ~timename * [start begin notice onset ago "so far"])
+		(![what night 'do pregnant frequently describe] [when "how long ago"] *~3 [$chiefcomplaint? ~the_pain] *~3 [start happen begin occur]) # when only adverb not conjunction to avoid how bad was it when it first started
+		(![what night 'do pregnant frequently describe] [when "how long ago"] *~3 [start happen begin hurt] *~3 [$chiefcomplaint? ~the_pain])
+		(![what night 'do pregnant describe] [when "how long ago"] *~3 [feel experience notice] *~3 [$chiefcomplaint? ~the_pain symptom problem])
+ 		(![pregnant describe night] [when "how long ago"] * [onset start this] >)
+		(![much bad worse better night] ["how long ago" ago] >)
+ 		(![much bad worse better night] [start begin notice onset ago] * ~timename) # avoid notice it getting worse throughout the day
+ 		(![much bad worse better night] ~timename * [start begin notice onset ago "so far"])
 	])
 	^factanswer("I am not sure.")
 
 #!!P How has the 1 changed over time $chiefcomplaint=1
 u: HOW_HAS_THE_1_CHANGED
 	([
-		(![when what rest does ~position anything] how *~3 [~itwords $chiefcomplaint?] *~3 [progress progressed worse better increase change] >)
-		(![when what rest does ~position anything] how *~3 [~itwords $chiefcomplaint?] *~3 [progress progressed worse better increase change been] *~3 [time day year])
-		(![when what rest does ~position anything] how *~3 [~itwords $chiefcomplaint?] *~3 since * [start begin then first])
+		(![when what rest does ~position anything] how *~3 [$chiefcomplaint? ~the_pain] *~3 [progress progressed worse better increase change] >)
+		(![when what rest does ~position anything] how *~3 [$chiefcomplaint? ~the_pain] *~3 [progress progressed worse better increase change been] *~3 [time day year])
+		(![when what rest does ~position anything] how *~3 [$chiefcomplaint? ~the_pain] *~3 since * [start begin then first])
 	])
 	^factanswer("I am not sure.")
 
 #!!P How long have you had the 1 $chiefcomplaint=1
 u: HOW_LONG_HAVE_YOU_HAD_1
 	([
-		(![last take] how [long "many days"] *~3 [had been having experience felt notice need] *~3 [~itwords $chiefcomplaint?])
-		(how *~3 [weeks days] *~3 [~itwords $chiefcomplaint?])
-		(![last does] how long *~3 [~itwords $chiefcomplaint?] *~3 [hurt going happen occur bother]) # want to avoid for how long does it usually hurt
-		(![were does similar had take severe] ["how long"] *~3 [~itwords $chiefcomplaint?] *~3 [start "been there" "been a problem"])
+		(![last take] how [long "many days"] *~3 [had been having experience felt notice need] *~3 [$chiefcomplaint? ~the_pain])
+		(how *~3 [weeks days] *~3 [$chiefcomplaint? ~the_pain])
+		(![last does] how long *~3 [$chiefcomplaint? ~the_pain] *~3 [hurt going happen occur bother]) # want to avoid for how long does it usually hurt
+		(![were does similar had take severe] ["how long"] *~3 [$chiefcomplaint? ~the_pain] *~3 [start "been there" "been a problem"])
 	])
 	^factanswer("I am not sure.")
-
-#!!P Is the 1 constant $chiefcomplaint=1
-#! Did the pain increase over time
-#! Does it hurt more at a certain time of day
-u: IS_THE_1_CONSTANT # u: does not work. Also have IS_THE_PAIN_CONSTANT in ~CurrentPainSymptoms
-	([
-		(![intensity severity] [~itwords $chiefcomplaint?] *~3 ["come and go" consistent increase decrease fluctuate change always sometimes constant constantly intermittent "throughout the day" "always there" "always present" "all the time" "wax and wane" "ever go away" "get better" "get worse" continuous "all day" ongoing persist])
-		(![intensity severity] [~itwords $chiefcomplaint?] *~3 [change fluctuate] *~3 [severity intensity])
-		(["come and go" consistent always sometimes constant constantly intermittent "throughout the day" "always there" "always present" "all the time" "wax and wane" "ever go away" "ever get better" continuous "all day" ongoing change] *~3 [~itwords $chiefcomplaint?])
-	])
-	^factanswer("It is difficult to say.")
 
 #!!P Do you have a cause for the 1 $chiefcomplaint=1
 u: DO_YOU_HAVE_A_CAUSE_FOR_1
 	([
-		([cause reason why] * [~itwords $chiefcomplaint? ~pain])
-		([thought think idea] * [~itwords $chiefcomplaint?] * [cause reason])
-		([thought think idea] * [cause reason] * [~itwords $chiefcomplaint?])
+		([cause reason why] * [$chiefcomplaint? ~the_pain])
+		([thought think idea] * [$chiefcomplaint? ~the_pain] * [cause reason])
+		([thought think idea] * [cause reason] * [$chiefcomplaint? ~the_pain])
 	])
 	^factanswer("I am not sure.")
 
 # Exacerbation  *********
 
+
+# IMPORTANT "that" is in ~itwords so "is there anythign that makes the pain feel worse" will not match if *~3. "is there anything that makes the pain worse" would match
+ 
+
 #!!P What makes the 1 worse $chiefcomplaint=1
+# want to avoid does anything else make it worse 
 u: WHAT_MAKES_THE_1_WORSE
 	([
-		(!avoid [what anything "any thing" seems] * [~itwords $chiefcomplaint?] *~3 [worse increase worsen more hard harder])
-		(!avoid [what anything "any thing"] [aggravate exacerbate worsen more affect increase] *~3 [~itwords $chiefcomplaint?])
-		(!avoid any *~3 [exacerbate exacerbating])
+		(![avoid else aside beside besides] [what anything seems] * [$chiefcomplaint? ~the_pain] * [~worseness hard harder])
+		(![avoid else aside beside besides] [what anything] * [~worseness affect] *~3 [$chiefcomplaint? ~the_pain])
+		(![avoid else aside beside besides] any *~3 [exacerbate exacerbating])
 	])
 	^factanswer("I am not sure.")
+	a: ([else beside besides]) I don't think so.
 
 #!!P Does anything change the intensity of the 1 $chiefcomplaint=1
 u: DOES_ANYTHING_CHANGE_1_INTENSITY
 	([
-		([what anything] *~3 change *~3 [intensity severity] *~3 [~itwords $chiefcomplaint?])
-		([what anything] *~3 change *~3 [~itwords $chiefcomplaint?] *~3 [intense intensity severity])
+		([what anything] *~3 change *~3 [intensity severity] *~3 [$chiefcomplaint? ~the_pain])
+		([what anything] *~3 change *~3 [$chiefcomplaint? ~the_pain] *~3 [intense intensity severity])
 	])
 	^factanswer("It is difficult to say.")
 
 #!!P What have you tried for the 1 $chiefcomplaint=1
 u: WHAT_HAVE_YOU_TRIED_FOR_THE_1
 	([
-		(![dose dosage else how] what [have are] *~3 [try take taken use attempt done doing 'do] *~3 [~itwords $chiefcomplaint?])
+		(![dose dosage else how] what [have are] *~3 [try take taken use found attempt done doing 'do] *~3 [$chiefcomplaint? ~the_pain])
 		(![dose dosage else how] what [have are] *~3 [try take taken use attempt done] >)
 	])
 	^factanswer("I have not tried anything.")
@@ -146,163 +147,170 @@ u: WHAT_HAVE_YOU_TRIED_FOR_THE_1
 #! have you tried anything at home
 u: HAVE_YOU_TRIED_ANYTHING_FOR_THE_1
 	([
-		(![else other how need ~medical_treatments ~medicines we work ever when] [try attempt take use] * [~itwords $chiefcomplaint?])
+		(![else other how need ~medical_treatments ~medicines we work ever when] [try attempt take use] * [$chiefcomplaint? ~the_pain])
 		(![else other ~medical_treatments ~medicines we work ever when] [try attempt take use] * home)
-		(![else other avoid exacerbate start hurt ~medical_treatments ~medicines we work ever when] [doing done use] * [~itwords $chiefcomplaint?])
-		(![else other how need ~medical_treatments ~medicines we work ever when] [try attempt take used] * [help relieve] * [~itwords $chiefcomplaint?])
+		(![else other avoid exacerbate start hurt ~medical_treatments ~medicines we work ever when] [doing done use] * [$chiefcomplaint? ~the_pain])
+		(![else other how need ~medical_treatments ~medicines we work ever when] [try attempt take used] * [help relieve] * [$chiefcomplaint? ~the_pain])
 		(![else ~medical_treatments ~medicines we ever when] [did have] *~2 [do try] *~2 anything >)
-		(![else ~medical_treatments ~medicines we ever when] [did have] *~2 [do try] *~2 anything * [symptoms $chiefcomplaint? ~itwords problem])
+		(![else ~medical_treatments ~medicines we ever when] [did have] *~2 [do try] *~2 anything * [symptoms $chiefcomplaint? ~the_pain problem])
 	])
 	^factanswer("I have not tried anything.")
-	a: ([dosage dose "how much"]) ^reuse (~currentmedications.HOW_MUCH_MEDICINE_HAVE_YOU_TAKEN)
-	a: (["did that" "how much"] * [work help ]) It helped a little but didn't make the pain go away.
-	a: WHEN_1 (when) ^reuse(~currentmedications.WHEN_DID_YOU_TAKE_MEDICINE)
+	a: HOW_MUCH_MEDICINE_HAVE_YOU_TAKEN ([dosage dose "how much"]) ^reuse (~currentmedications.HOW_MUCH_MEDICINE_HAVE_YOU_TAKEN)
+	a: DID_THE_MEDICINE_HELP (["did that" "how much"] * [work help ]) It helped a little but didn't make the pain go away.
+	a: WHEN_DID_YOU_TAKE_MEDICINE (when) ^reuse(~currentmedications.WHEN_DID_YOU_TAKE_MEDICINE)
 
 #!!P What makes the 1 better $chiefcomplaint=1
+# Want to avoid, "besides the ibuprofen, what makes it better."
 u: WHAT_MAKES_THE_1_BETTER
-	([
-		(!else [what anything] *~3 [$chiefcomplaint? ~itwords] *~3 [less better "hurt less""less painful" "go away" improve])
-		(!else [$chiefcomplaint? ~itwords] *~3 [less better "hurt less""less painful" "go away" improve] *~3 anything)
-		(!else [what anything] *~3 [help alleviate reduce lessen decrease improve relieve relief less ease] *~3 [$chiefcomplaint? ~itwords])
-		(!else [what anything] *~3 [help alleviate reduce lessen decrease improve relieve relief less ease])
-	])
+
+	(![else besides aside] << [what anything] [$chiefcomplaint? ~the_pain] ~betterness >>)
+
 	^factanswer("It is difficult to say.")
 		a: ([dosage dose "how much"]) ^reuse (~currentmedications.HOW_MUCH_MEDICINE_HAVE_YOU_TAKEN)
 
 #!!P Does anything else help the 1 $chiefcomplaint=1
 u: DOES_ANYTHING_ELSE_HELP_THE_1
-	([
-		([what anything] else *~3 [help alleviate reduce lessen decrease] *~3 [~itwords $chiefcomplaint?])
-		([what anything] else *~3 [~itwords $chiefcomplaint?] *~3 [help alleviate reduce lessen decrease better])
-	])
+
+		(<< [besides aside else] [$chiefcomplaint? ~the_pain] ~betterness >>)
+
 	^factanswer("I have not tried anything.")
 
-#!!K Have you tried anything else for the 1 $chiefcomplaint=1
-u: HAVE_YOU_TRIED_ANYTHING_ELSE_FOR_1 ([try take] *~3 else *~3 [~itwords $chiefcomplaint?])  ^factanswer("I have not tried anything.")
+#!!P Have you tried anything else for the 1 $chiefcomplaint=1
+u: HAVE_YOU_TRIED_ANYTHING_ELSE_FOR_1 ([try take] *~3 else *~3 [$chiefcomplaint? ~the_pain])  ^factanswer("I have not tried anything.")
 
-#!!K Have you tried anything else1 $chiefcomplaint=1
+#!!P Have you tried anything else1 $chiefcomplaint=1
 u: HAVE_YOU_TRIED_ANYTHING_ELSE1 (!take try *~3 [besides else])  ^factanswer("I have not tried anything.")
 
-#!!K Have you tried any other methods1 $chiefcomplaint=1
+#!!P Have you tried any other methods1 $chiefcomplaint=1
 u: HAVE_YOU_TRIED_ANY_OTHER_METHODS1 (try *~3 other *~3 [method approach treatment])   ^factanswer("I have not tried anything.")
 
 #!!P What else have you tried for the 1 $chiefcomplaint=1
-u: WHAT_ELSE_HAVE_YOU_TRIED_FOR_1 (<< [else other] [try attempt] [~itwords $chiefcomplaint?] >>) ^factanswer("I have not tried anything.")
+u: WHAT_ELSE_HAVE_YOU_TRIED_FOR_1 (<< [else other] [try attempt] [$chiefcomplaint? ~the_pain] >>) ^factanswer("I have not tried anything.")
 
-#!!K What else have you tried1 $chiefcomplaint=1
+#!!KP What else have you tried1 $chiefcomplaint=1
 u: WHAT_ELSE_HAVE_YOU_TRIED1 (![take ~medicines] << [else other] [try attempt] >>) ^factanswer("I have not tried anything.")
 
 #!!P Does moving increase the 1 $chiefcomplaint=1
 u: DOES_MOVING_INCREASE_THE_1
 	([
-		([activity move active] * [increase worse aggravate enhance] * [~itwords $chiefcomplaint?])
-		([activity move active]  * [~itwords $chiefcomplaint?] * [increase worse])
-		(![not rest] [~itwords $chiefcomplaint?] * [increase worse hurt] * [move movement activity active])
+		([activity move active] * [increase worse aggravate enhance] * [$chiefcomplaint? ~the_pain])
+		([activity move active]  * [$chiefcomplaint? ~the_pain] * [increase worse])
+		(![not rest] [$chiefcomplaint? ~the_pain] * [increase worse hurt] * [move movement activity active])
+		(![not rest] [$chiefcomplaint? ~the_pain] *~3 [move movement motion])
 	])
 	^factanswer("It is difficult to say.")
 
 #!!P Does any position relieve the 1 $chiefcomplaint=1
 u: DOES_ANY_POSITION_RELIEVE_THE_1
 	([
-		(!worse !anything position *~3 relieve *~3 [~itwords $chiefcomplaint?])
-		(!worse !anything position *~3 [~itwords $chiefcomplaint?] *~3 [better "hurt less"])
+		(!worse !anything position *~3 relieve *~3 [$chiefcomplaint? ~the_pain])
+		(!worse !anything position *~3 [$chiefcomplaint? ~the_pain] *~3 [better "hurt less"])
 		(!worse !anything position *~3 [better improve comfortable])
-		(!worse !anything [~itwords $chiefcomplaint?] *~3 [better improve] *~3 position)
-		(!worse !anything [better improve help] *~3 [~itwords $chiefcomplaint?] *~3 [move position])
+		(!worse !anything [$chiefcomplaint? ~the_pain] *~3 [better improve] *~3 position)
+		(!worse !anything [better improve help] *~3 [$chiefcomplaint? ~the_pain] *~3 [move position])
 	])
 	^factanswer("It is difficult to say.")
 
 #!!P Does any position make the 1 worse $chiefcomplaint=1
 u: DOES_ANY_POSITION_MAKE_THE_1_WORSE
 	([
-		(!better !anything position *~4 [increase worsen aggravate enhance] [~itwords $chiefcomplaint?])
-		(!better !anything position *~4 [~itwords $chiefcomplaint?] *~3 [worse increase])
+		(!better !anything position *~4 [increase worsen aggravate enhance] [$chiefcomplaint? ~the_pain])
+		(!better !anything position *~4 [$chiefcomplaint? ~the_pain] *~3 [worse increase])
 	])
 	^factanswer("It is difficult to say.")
 
 #!!P Do any positions make 1 worse or better $chiefcomplaint=1
-u: DO_ANY_POSITIONS_MAKE_1_WORSE_OR_BETTER (!anything [thing position] *~4 [~itwords $chiefcomplaint?] *~3 [better worse intensity severity most])   ^factanswer("It is difficult to say.")
+u: DO_ANY_POSITIONS_MAKE_1_WORSE_OR_BETTER (!anything [thing position] *~4 [$chiefcomplaint? ~the_pain] *~3 [better worse intensity severity most])   ^factanswer("It is difficult to say.")
 
 #!!P Can you move around with the 1 $chiefcomplaint=1
 u: CAN_YOU_MOVE_AROUND_WITH_THE_1
 	([
-		(!~bodyparts move * [~itwords $chiefcomplaint?])
-		(!~bodyparts [able "can you"] * [around move] * [~itwords $chiefcomplaint?])
+		(!~bodyparts move * [$chiefcomplaint? ~the_pain])
+		(!~bodyparts [able "can you"] * [around move] * [$chiefcomplaint? ~the_pain])
 	])
 	^factanswer("It is difficult to say.")
 
 #!!P Is 1 worse when you lie down $chiefcomplaint=1
-u: IS_1_WORSE_WHEN_YOU_LIE_DOWN (<< [~itwords $chiefcomplaint?] [hurt worse] ["lie down" "lying down" "lay down" rest] >>)     ^factanswer("It is difficult to say.")
+u: IS_1_WORSE_WHEN_YOU_LIE_DOWN (<< [$chiefcomplaint? ~the_pain] [hurt worse] ["lie down" "lying down" "lay down" rest] >>)     ^factanswer("It is difficult to say.")
 
 #!!P Do you have 1 when you lie down $chiefcomplaint=1
-u: DO_YOU_HAVE_1_WHEN_YOU_LIE_DOWN (![better less hurt feel] << [~itwords $chiefcomplaint?] ["lie down" "lying down" rest] >>)    ^factanswer("it is difficult to say.")
+u: DO_YOU_HAVE_1_WHEN_YOU_LIE_DOWN (![better less hurt feel] << [$chiefcomplaint? ~the_pain] ["lie down" "lying down" rest] >>)    ^factanswer("it is difficult to say.")
 
 #!!P Is 1 better when you lie down $chiefcomplaint=1
 u: IS_1_BETTER_WHEN_YOU_LIE_DOWN
 	([
-		([~itwords $chiefcomplaint?] * [improve better] * ["lay down" "lie down" "lying down" rest])
+		([$chiefcomplaint? ~the_pain] * [improve better] * ["lay down" "lie down" "lying down" rest])
 		([better help comfortable] * ["lay down" "lie down" "lying down" rest])
 		(["lay down" "lie down" "lying down" rest] * [better help comfortable])
 	])
 	^factanswer("It is difficult to say.")
 
 #!!P Does 1 increase when you stand $chiefcomplaint=1
-u: DOES_1_INCREASE_WHEN_YOU_STAND (<< [~itwords $chiefcomplaint?] [increase worse] stand >>) ^factanswer("I am not sure.")
+u: DOES_1_INCREASE_WHEN_YOU_STAND (<< [$chiefcomplaint? ~the_pain] [increase worse] stand >>) ^factanswer("I am not sure.")
 
 #!!P Does the 1 improve with exercise $chiefcomplaint=1
-u: DOES_THE_1_IMPROVE_WITH_EXERCISE (<< [~itwords $chiefcomplaint?] [improve better worse] [exercise sitting standing walking moving] >>) ^factanswer("I am not sure.")
+u: DOES_THE_1_IMPROVE_WITH_EXERCISE (<< [$chiefcomplaint? ~the_pain] [improve better worse] [exercise sitting standing walking moving] >>) ^factanswer("I am not sure.")
 
-#!!P Does the 1 keep you up at night $chiefcomplaint=1
+#!!P Is the 1 worse in the morning or at night $chiefcomplaint=1
+#! Does it hurt more at a certain time of day
+u: 1_WORSE_MORNING_OR_NIGHT
+	(
+        << $complaintmentioned ~betterness [~timeofday when] >>
+    )
+	^factanswer("It is difficult to say.")
+
+#!!P Is the 1 constant $chiefcomplaint=1
+#! Did the pain increase over time
+u: IS_THE_1_CONSTANT # u: does not work. Also have IS_THE_PAIN_CONSTANT in ~CurrentPainSymptoms
+	([
+		(![intensity severity] [$chiefcomplaint? ~the_pain] *~3 ["come and go" consistent increase decrease fluctuate change sometimes constant constantly intermittent "throughout the day" "always there" "always present" always  "all the time" "wax and wane" "ever go away" "get better" "get worse" continuous "all day" ongoing persist])
+		(![intensity severity] [$chiefcomplaint? ~the_pain] *~3 [change fluctuate] *~3 [severity intensity])
+		(["come and go" consistent sometimes constant constantly intermittent "throughout the day" "always there" "always present" always  "all the time" "wax and wane" "ever go away" "ever get better" continuous "all day" ongoing change] *~3 [~itwords $chiefcomplaint?])
+	])
+	^factanswer("It is difficult to say.")	
+
+#!!P Does the 1 keep you up at night $chiefcomplaint=1 # want to avoid "does your back hurt more in the morning or at night"
 u: DOES_THE_1_KEEP_YOU_UP_AT_NIGHT
 	([
-		(!worse !better [~itwords $chiefcomplaint? symptom] * [wake bed night sleep asleep sleeping])
-		(!worse !better [~itwords $chiefcomplaint? symptom] * [wake keep] * [night bed sleep asleep])
-		(!worse !better [wake bed night sleep asleep sleeping] * [~itwords $chiefcomplaint? symptom])
+		(![worse better more] [$chiefcomplaint? ~the_pain symptom] * [wake bed night sleep asleep sleeping])
+		(![worse better more] [$chiefcomplaint? ~the_pain symptom] * [wake keep] * [night bed sleep asleep])
+		(![worse better more] [wake bed night sleep asleep sleeping] * [$chiefcomplaint? ~the_pain symptom])
 	])
 	^factanswer("Not that I am aware of.")
 
-#!!P Is the 1 worse in the morning or at night $chiefcomplaint=1
-u: 1_WORSE_MORNING_OR_NIGHT
-	([
-		([~itwords $chiefcomplaint? symptoms] *~3 [worse better hurt painful worst more easier tolerable tolerate] *~3 [morning night evening "time of day" "time in the day" "times of the day" "day goes on"])
-		(!"trouble getting" [~itwords $chiefcomplaint? symptoms] *~3 [morning night evening "time of day" "time in the day"])
- 		([morning night "time of day" evening "time in the day" "day goes on"] *~3 [~itwords $chiefcomplaint? symptoms] *~3 [tolerable worse better hurt painful worst more])
-	])
-	^factanswer("It is difficult to say.")
-
 #!!P What have you been doing to avoid exacerbating the 1 $chiefcomplaint=1
-u: AVOID_EXACERBATE_1 (avoid * [~itwords $chiefcomplaint?])   ^factanswer("I am not sure.")
+u: AVOID_EXACERBATE_1 (avoid * [$chiefcomplaint? ~the_pain])   ^factanswer("I am not sure.")
 
 #!!P Is the 1 improving $chiefcomplaint=1
 u: IS_THE_1_IMPROVING
 	([
-		(![intensity severity] [~itwords $chiefcomplaint?] *~3 ["getting better" "getting worse" worsening "the same" improve worsened "gotten worse"])
-		(![intensity severity] [~itwords $chiefcomplaint?] *~3 the same)
+		(![intensity severity] [$chiefcomplaint? ~the_pain] *~3 ["getting better" "getting worse" worsening "the same" improve worsened "gotten worse"])
+		(![intensity severity] [$chiefcomplaint? ~the_pain] *~3 the same)
 	])
 	^factanswer("It is difficult to say.")
 
 #!!P Does the 1 get worse with your period $chiefcomplaint=1
-u: DOES_THE_1_GET_WORSE_WITH_PERIOD (<< [~itwords $chiefcomplaint?] [worse worsen increase] [~gyn_bleeding bleeding vaginal] >>)   ^factanswer("It is difficult to say.")
+u: DOES_THE_1_GET_WORSE_WITH_PERIOD (<< [$chiefcomplaint? ~the_pain] [worse worsen increase] [~gyn_bleeding bleeding vaginal] >>)   ^factanswer("It is difficult to say.")
 
 # Intensity  ***************
 
 #!!P Is 1 more intense  $chiefcomplaint=1
-u: IS_1_MORE_INTENSE  ([~itwords $chiefcomplaint?] *~2 [intense severe higher greater worse better] *~3 [$complaint2? $complaint3?])  ^factanswer("it is difficult to say.")
+u: IS_1_MORE_INTENSE  ([$chiefcomplaint? ~the_pain] *~2 [intense severe higher greater worse better] *~3 [$complaint2? $complaint3?])  ^factanswer("it is difficult to say.")
 
 #!!P Has the 1 become worse or better $chiefcomplaint=1
 u: HAS_THE_1_BECOME_WORSE
 	([
-		([have has] *~3 [~itwords $chiefcomplaint? symptoms] *~3 [worse better increase decrease change])
-		([have has] *~3 [~itwords $chiefcomplaint? symptoms] *~3 [worse better increase decrease change] *~3 [time ~timename all])
-		([~itwords $chiefcomplaint? symptoms] *~3 [has have] *~3 [worse better increase decrease change] *~3 [time ~timename all])
+		([have has] *~3 [$chiefcomplaint? ~the_pain symptoms] *~3 [worse better increase decrease change])
+		([have has] *~3 [$chiefcomplaint? ~the_pain symptoms] *~3 [worse better increase decrease change] *~3 [time ~timename all])
+		([$chiefcomplaint? ~the_pain symptoms] *~3 [has have] *~3 [worse better increase decrease change] *~3 [time ~timename all])
 	])
 	^factanswer("I am not sure.")
 
 #!!P How intense is the 1 $chiefcomplaint=1
 u: HOW_INTENSE_IS_THE_1
 	([
-		(![$currentmedication1? scale 1 one 10 ten rate ~job when] [can how what] * [severe intense 'much 'bad badly sore level painful] * [~itwords $chiefcomplaint? symptoms])
-		(![$currentmedication1? scale 1 one 10 ten rate ~job when] [~itwords $chiefcomplaint? symptoms] * [severe intense 'much 'bad badly sore level painful])
+		(![$currentmedication1? scale 1 one 10 ten rate ~job when] [can how what] * [severe intense 'much 'bad badly sore level painful] * [$chiefcomplaint? ~the_pain symptoms])
+		(![$currentmedication1? scale 1 one 10 ten rate ~job when] [$chiefcomplaint? ~the_pain symptoms] * [severe intense 'much 'bad badly sore level painful])
 	])
 	^factanswer("I am not sure.")
 		a: THAT_MUST_BE_STRESSFUL ([stressful awful terrible]) It is.
@@ -319,15 +327,15 @@ u: HAS_THE_INTENSITY1_CHANGED
 #!!P When is the 1 most severe $chiefcomplaint=1
 u: WHEN_IS_THE_1_MOST_SEVERE
 	([
-		(when *~3 [~itwords $chiefcomplaint?] *~3 [worst worse severe painful most])
-		([severity intensity painfulness] *~3 [~itwords $chiefcomplaint?] *~3 ~timename)
+		(when *~3 [$chiefcomplaint? ~the_pain] *~3 [worst worse severe painful most])
+		([severity intensity painfulness] *~3 [$chiefcomplaint? ~the_pain] *~3 ~timename)
 	])
 	^factanswer("I am not sure.")
 
 #!!P When is the 1 most severe $chiefcomplaint=1
 u: WHEN_IS_THE_1_BETTER
 	([
-		(when *~3 [~itwords $chiefcomplaint?] *~3 better)
+		(when *~3 [$chiefcomplaint? ~the_pain] *~3 better)
 	])
 	^factanswer("It is difficult to say.")
 
@@ -343,10 +351,10 @@ u: HOW_BAD_WAS_IT_WHEN_IT_STARTED
 # General ********************
 
 #!!P Do you currently have 1 $chiefcomplaint=1
-u: DO_YOU_CURRENTLY_HAVE_1 (![how what before] [current currently now moment] *~3b [~itwords $chiefcomplaint?]) ^factanswer("Not that I am aware of.")
+u: DO_YOU_CURRENTLY_HAVE_1 (![how what before] [current currently now moment] *~3b [$chiefcomplaint? ~the_pain]) ^factanswer("Not that I am aware of.")
 
 #!!P How is your 1 now $chiefcomplaint=1
-u: HOW_IS_YOUR_1_NOW (![rate scale] [what how] *~3 [~itwords $chiefcomplaint?] *~3 [now currently moment]) ^factanswer("Not that I am aware of.")
+u: HOW_IS_YOUR_1_NOW (![rate scale] [what how] *~3 [$chiefcomplaint? ~the_pain] *~3 [now currently moment]) ^factanswer("Not that I am aware of.")
 
 #!!P Are you having any other 1 $chiefcomplaint=1
 u: ARE_YOU_HAVING_ANY_OTHER_1
@@ -357,67 +365,67 @@ u: ARE_YOU_HAVING_ANY_OTHER_1
 	^factanswer("Not that I am aware of.")
 
 #!!P How else is the 1 affecting your life $chiefcomplaint=1
-u: HOW_ELSE_IS_THE_1_AFFECTING_YOUR_LIFE (how else *~3 [~itwords $chiefcomplaint?] [affect effect]) ^factanswer("It is difficult to say.")
+u: HOW_ELSE_IS_THE_1_AFFECTING_YOUR_LIFE (how else *~3 [$chiefcomplaint? ~the_pain] [affect effect]) ^factanswer("It is difficult to say.")
 
 #!!P Has the 1 stopped you from doing anything $chiefcomplaint=1
-u: HAS_THE_1_STOPPED_YOU (has * [~itwords $chiefcomplaint?] * [stopped kept] you from doing) ^factanswer("Not that I am aware of.")
+u: HAS_THE_1_STOPPED_YOU (has * [$chiefcomplaint? ~the_pain] * [stopped kept] you from doing) ^factanswer("Not that I am aware of.")
 
 #!!P Have you had 1 before $chiefcomplaint=1
 u: HAVE_YOU_HAD_1_BEFORE
 	([
-		(![when worse surgery accident how medical family they them rate use try tried] [~itwords $chiefcomplaint?] * [before prior past history ever previously])
-		(![when worse surgery accident how medical family they them rate use try tred] [prior past history ever had] * [~itwords $chiefcomplaint?])
+		(![when worse surgery accident how medical family they them rate use try tried] [$chiefcomplaint? ~the_pain] * [before prior past history ever previously])
+		(![when worse surgery accident how medical family they them rate use try tred] [prior past history ever had] * [$chiefcomplaint? ~the_pain])
 	])
 	^factanswer("Not that I am aware of.")
 
 #!!P Does the 1 affect your family
-u: DOES_THE_1_AFFECT_YOUR_FAMILY ([~itwords $chiefcomplaint?] *~3 [affect effect] *~3 family) ^factanswer("Not that I am aware of.")
+u: DOES_THE_1_AFFECT_YOUR_FAMILY ([$chiefcomplaint? ~the_pain] *~3 [affect effect] *~3 family) ^factanswer("Not that I am aware of.")
 
 # Description  ***************
 
 #!!P Has the 1 changed  $chiefcomplaint=1
-u: HAS_THE_1_CHANGED (!how has *~3 [~itwords $chiefcomplaint?] *~3 [change "better or worse" "worse or better"]) ^factanswer("Not that I am aware of.")
+u: HAS_THE_1_CHANGED (!how has *~3 [$chiefcomplaint? ~the_pain] *~3 [change "better or worse" "worse or better"]) ^factanswer("Not that I am aware of.")
 
 #! Have you noticed any physical changes   $chiefcomplaint=1
 u: ANY_PHYSICAL_CHANGES_IN_YOUR_1
 	([
 		([notice see look any] *~3 [~skin_changes ~physical_changes])
-		([~itwords $chiefcomplaint?] * [~skin_changes ~physical_changes])
+		([$chiefcomplaint? ~the_pain] * [~skin_changes ~physical_changes])
 	])
 	^factanswer("Not that I am aware of.")
 
 #!!P When do you have the 1 $chiefcomplaint=1
-u: WHEN_DO_YOU_HAVE_THE_1 (when *~3 [have notice get feel hurt] *~3 [~itwords $chiefcomplaint?]) ^factanswer("I am not sure.")
+u: WHEN_DO_YOU_HAVE_THE_1 (when *~3 [have notice get feel hurt] *~3 [$chiefcomplaint? ~the_pain]) ^factanswer("I am not sure.")
 
 #!!P When else do you have the 1 $chiefcomplaint=1
 u: WHEN_ELSE_DO_YOU_HAVE_THE_1
 	([
-		(when else *~3 [have notice get feel] * [~itwords $chiefcomplaint?])
+		(when else *~3 [have notice get feel] * [$chiefcomplaint? ~the_pain])
 		(when else *~3 [~itwords $chiefcomplaint?])
 	])
 ^factanswer("I am not sure.")
 
 #!!P How long does the 1 last $chiefcomplaint=1
-u: HOW_LONG_DOES_THE_1_LAST (how long *~3 [~itwords $chiefcomplaint?] *~3 last) ^factanswer("It is difficult to say.")
+u: HOW_LONG_DOES_THE_1_LAST (how long *~3 [$chiefcomplaint? ~the_pain] *~3 last) ^factanswer("It is difficult to say.")
 
 #!!P How frequent is the 1 $chiefcomplaint=1
-u: HOW_FREQUENT_IS_THE_1 (!take !use << [frequent frequently often] [~itwords $chiefcomplaint?] >>) ^factanswer("It is difficult to say.")
+u: HOW_FREQUENT_IS_THE_1 (!take !use << [frequent frequently often] [$chiefcomplaint? ~the_pain] >>) ^factanswer("It is difficult to say.")
 
 #!!P What concerns you about the 1 $chiefcomplaint=1
 u: WHAT_CONCERNS_YOU_ABOUT_THE_1
 	([
-		(![else other beside besides aside] [concern worry bother] * [~itwords $chiefcomplaint?]) # want to avoid what concerns you besides the back pain
-		(![else other beside besides aside] [~itwords $chiefcomplaint?] * [concern worry bother])
+		(![else other beside besides aside] [concern worry bother] * [$chiefcomplaint? ~the_pain]) # want to avoid what concerns you besides the back pain
+		(![else other beside besides aside] [$chiefcomplaint? ~the_pain] * [concern worry bother])
 	])
 	^factanswer("I am not sure.")
 
 #!!P Where is the 1 $chiefcomplaint=1
 u: WHERE_IS_THE_1
 	([
-		(!scale where *~3 [~itwords $chiefcomplaint?])
-		(!scale where *~3 [~itwords $chiefcomplaint?] *~3 [located location feel hurt])
-		(!scale where *~3 [located location feel] *~3 [~itwords $chiefcomplaint?] )
-		(!scale what [area part location] *~3 [~itwords $chiefcomplaint?])
+		(!scale where *~3 [$chiefcomplaint? ~the_pain])
+		(!scale where *~3 [$chiefcomplaint? ~the_pain] *~3 [located location feel hurt])
+		(!scale where *~3 [located location feel] *~3 [$chiefcomplaint? ~the_pain] )
+		(!scale what [area part location] *~3 [$chiefcomplaint? ~the_pain])
 		(!scale where *~3 [exactly specifically])
 	])
 	^factanswer("I am not sure.")
@@ -426,11 +434,11 @@ u: WHERE_IS_THE_1
 #!!P Describe the 1 $chiefcomplaint=1
 u: DESCRIBE_THE_1
 	([
-		(![when where else] [tell ~describe description] * [~itwords $chiefcomplaint?])
+		(![when where else] [tell ~describe description] * [$chiefcomplaint? ~the_pain])
 		(what * [kind type nature] * $chiefcomplaint?)
-		(!outside [how what] * [~itwords $chiefcomplaint?] * [look like smell feel])
-		([kind type sort manner] * [~itwords $chiefcomplaint?])
-		(![when where else] how * [~describe description] * [$chiefcomplaint?])
+		(!outside [how what] * [$chiefcomplaint? ~the_pain] * [look like smell feel])
+		([kind type sort manner] * [$chiefcomplaint? ~the_pain])
+		(![when where else] how * [~describe description] * [$chiefcomplaint? ~pain])
 	])
 	^factanswer("It is difficult to describe.")
 		a: WHERE (where) ^factanswer("It is difficult to describe.")

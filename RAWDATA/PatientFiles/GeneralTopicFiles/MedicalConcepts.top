@@ -12,7 +12,7 @@ concept: ~sex_problems_male [sex intercourse "sex drive" libido erection erectil
 
 concept: ~sex_problems_female [sex intercourse "sex drive" libido lubricate lubrication dryness orgasm]
 
-concept: ~STI [STD stds stis sti STI "sexually transmitted infection" "sexually transmitted disease" chlamydia gonorrhea herpes syphilis HPV PID HIV AIDS "pelvic inflammatory disease" "human papillomavirus"]
+concept: ~STI [STD stds stis sti STI "sexually transmitted infection" "sexually transmitted infections" "sexually transmitted disease" "sexually transmitted diseases" chlamydia gonorrhea herpes syphilis HPV PID HIV AIDS "pelvic inflammatory disease" "human papillomavirus"]
 
 concept: ~Vaginal_discharge ["vaginal discharge" discharge]
 
@@ -27,7 +27,7 @@ concept: ~gyndoctor [ob obstetrician ob/gyn gyn gynecologist]
 
 # Musculoskeletal
 
-concept: ~back_pain [back~6 back~7 back pain "back problem" "back problems" "back pain" backache "back ache" "back soreness" "back tenderness" "back tightness" "back discomfort" "back hurt" "hurt your back" "back trouble" "back stiffness"]
+concept: ~back_pain [back~6 back~7 back "back problem" "back problems" "back pain" backache "back ache" "back soreness" "back tenderness" "back tightness" "back discomfort" "back hurt" "hurt your back" "back trouble" "back stiffness"]
 
 concept: ~muscle_pain [muscle pain "muscle pain" "muscle ache" "muscle soreness" "muscle tenderness" "muscle tightness" "muscle discomfort" "muscle achiness" "muscle achy" "muscle hurt" muscular "muscle cramp"]
 
@@ -60,7 +60,7 @@ concept: ~cardiovascular [aorta vein capillary artery vascular cardiovascular]
 
 # Respiratory
 
-concept: ~breathing_problems ["shortness of breath" "short of breath" "labored breathing" breath breathe breathing "breathing problem" ]
+concept: ~breathing_problems ["shortness of breath" "short of breath" "labored breathing" breath breathe breathing "breathing problem" "trouble breathing"]
 
 concept: ~breathing_conditions [asthma emphysema bronchitis]
 
@@ -102,7 +102,7 @@ concept: ~heartburn [heartburn acid reflux GERD "acid reflux"]
 
 concept: ~bladder_problems [UTI "urinary tract infection" bladder incontinence incontinent continence leak "bladder infection"]
 
-concept: ~bladder_function [urinate pee potty bathroom urine urination stream]
+concept: ~bladder_function [urinate pee potty bathroom restroom toilet urine urination stream]
 
 concept: ~urinary_frequency_complaint ["urinary frequency" "frequent urination" "urinate more frequently" "urinating more frequently" "problems urinating" "increase in frequency" "increased frequency" urge "urge to urinate"]
 
@@ -174,14 +174,14 @@ concept: ~diabetes [diabetes diabetic "high blood sugar" "blood sugar" sugar "bl
 
 # ***************************************************************************************************
 
-concept: ~itwords [it this that that's them those these they such]
+concept: ~itwords [it this that "that is" them those these they such]
 
 concept: ~pastwords [ever past history prior before previous ago "when were" "have you had" always]
 
 
 # ***************************************************************************************************
 
-concept: ~medicines [medication medications medicine pill tablet antidote remedy analgesia meds drug drugs ~drugs_legal]
+concept: ~medicines [medication medications medicine prescription pill tablet antidote remedy analgesia meds drug drugs ~drugs_legal]
 
 concept: ~prescribedmedicines [prescription  prescribed painkiller "pain killer" "pain killers" narcotic steroid hormone hormonal antibiotics]
 
@@ -195,7 +195,7 @@ concept: ~medical_treatments [hot heat cold rest ice "heating pad" "physical the
 
 concept: ~medical_professionals [doctor nurse therapist physiotherapist psychologist psychiatrist chiropractor "mental health provider" "mental health professional" counselor physician specialist cardiologist endocrinologist pediatrician]
 
-concept: ~medical_tests ["spinal tap" MRI x-ray xray "x ray" "x rays" imaging]
+concept: ~medical_tests ["spinal tap" MRI X-ray Xray "X ray" "X rays" imaging]
 
 concept: ~medical_devices ["back brace" wheelchair cane walker crutch "heating pad"]
 

@@ -2,7 +2,7 @@
 
 # General
 
-topic: ~currentmedicalproblems keep repeat (medical problem condition injury illness injury trauma chronic disease symptom accident hurt illnesses weight health)
+topic: ~currentmedicalproblems keep repeat (medical problem condition injury illness injury trauma chronic disease symptom accident hurt illnesses health)
 
 u: ($pasthistory) respond(~pastmedicalproblems) ^fail(TOPIC)
 u: ($family) respond(~familymedicalproblems) ^fail(TOPIC)
@@ -10,9 +10,9 @@ u: ($family) respond(~familymedicalproblems) ^fail(TOPIC)
 #! Do you have any medical problems
 u: DO_YOU_HAVE_ANY_MEDICAL_PROBLEMS
 	([
-		(![when they chronic ~all_systems ~medicines ~cardiovascular home] [do are any] * medical *~3 [problem issue concern condition disease illness trauma])
+		(![when they chronic ~all_systems ~medicines ~cardiovascular home other] [do are any] * medical *~3 [problem issue concern condition disease illness trauma])
 		# (![when they chronic ~all_systems other ~medicines ~cardiovascular home] [no any] * [problem issue concern condition disease illness illnesses trauma]) too generic
-		(![when they chronic ~all_systems ~medicines ~cardiovascular home] [problem issue concern condition disease illness trauma] *~3 [do are] you have)
+		(![when they chronic ~all_systems ~medicines ~cardiovascular home other] [problem issue concern condition disease illness trauma] *~3 [do are] you have)
 	])
 	^factanswer("I am pretty healthy.")
 		a: WHEN_DIAGNOSED ([how when] * [had diagnosed]) ^factanswer("I am not sure.")
@@ -37,16 +37,11 @@ u: DO_YOU_HAVE_ANY_CHRONIC_ILLNESSES
 #! Have you had an accident
 u: HAVE_YOU_HAD_AN_ACCIDENT (['had been any] *~3 [injury accident])   ^factanswer("I have not had any accidents.")
 
+#! Have you had any trauma
+u: HAVE_YOU_HAD_ANY_TRAUMA (['had been any] *~3 [trauma traumatic])   ^factanswer("I have not had anything like that.")
+
 #! What symptoms are you having
 u: WHAT_SYMPTOMS_ARE_YOU_HAVING (![any other] [what describe] *~2 symptom)     ^factanswer("I'm not having any symptoms.")
-
-#! Has your weight changed
-u: HAS_YOUR_WEIGHT_CHANGED
-	([
-		([change increase decrease fluctuation fluctuate lost] * weight)
-		(weight * [change increase decrease fluctuation fluctuate loss])
-	])
-	^factanswer("My weight has not changed.")
 
 
 topic: ~currentsleepingproblems keep repeat (~sleeping_problems snore ~nightmares kind trouble rest wake refresh)
@@ -108,7 +103,7 @@ u: DO_YOU_HAVE_NIGHTMARES  (~nightmares)  ^factanswer("I have not had any proble
 u: DO_YOU_HAVE_TROUBLE_WAKING_UP ([trouble difficulty] * [wake get] * [bed up morning])  ^factanswer("I have not had any problems like that.")
 
 #! Sleeping
-u: SLEEPING (sleep) ^factanswer("I am not having any issues with sleeping.")
+u: SLEEPING (!~sexualpartners sleep) ^factanswer("I am not having any issues with sleeping.") # Trying to avoid did you sleep with multiple partners
 
 # ***************************************************************************************************
 

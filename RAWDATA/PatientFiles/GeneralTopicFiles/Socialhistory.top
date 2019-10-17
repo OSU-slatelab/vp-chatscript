@@ -1,4 +1,5 @@
 
+concept: ~activities [hobby fun entertainment outside enjoy activities enjoyment relax "free time"  excitement "extracurricular activity" "spare time" "free time" "daily basis" "like to do" interests friends weekend ]
 # Activity
 
 topic: ~normal_activity keep repeat (exercise ~exerciselist activity rest drive seatbelt seat_belt "work out" active energy bedridden shape tired walk sedentary)
@@ -44,7 +45,7 @@ u: WEAR_A_SEATBELT ([seatbelt seat_belt]) ^factanswer("I always wear a seatbelt.
 
 # Alcohol use
 
-topic: ~alcoholuse keep repeat (~alcoholic_beverage "eye opener" "eye-opener" drink guilty intake social socially)
+topic: ~alcoholuse keep repeat (!caffeinated_drinks ~alcoholic_beverage "eye opener" "eye-opener" drink guilty intake social socially)
 
 u: ( $$family) ^fail(TOPIC)
 
@@ -98,9 +99,9 @@ u: WHAT_ABOUT_ALCOHOL (alcohol) ^factanswer("I don't drink.")
 #! Do you drink
 u: DO_YOU_DRINK
 	([
-		([drink use consume any] * [social socially ~alcoholic_beverage])
-		([social ~alcoholic_beverage] * [drink use consume consumption intake])
-		(![what where when] [drink ~alcoholic_beverage])
+		(!~caffeinated_drinks [drink use consume any] * [social socially ~alcoholic_beverage])
+		(!~caffeinated_drinks [social ~alcoholic_beverage] * [drink use consume consumption intake])
+		(![~caffeinated_drinks what where when] [drink ~alcoholic_beverage])
 	])
 	^factanswer("I don't drink.")
 
@@ -122,9 +123,9 @@ u: ( $$family) ^fail(TOPIC)
 #! Do you drink enough fluid
 u: DO_YOU_DRINK_ENOUGH_FLUID
 	([
-		(![~caffeinated_drinks caffeinated] [drink consume take] * [fluid water liquid beverage])
+		(![~caffeinated_drinks caffeinated ~alcoholic_beverage] [drink consume take] * [fluid water liquid beverage])
 		(hydrate)
-		(![~caffeinated_drinks caffeinated] [fluid water liquid beverage] * [drink consume take])
+		(![~caffeinated_drinks caffeinated ~alcoholic_beverage] [fluid water liquid beverage] * [drink consume take])
 	])
 	^factanswer("I think I do.")
 		a: HOW_MUCH_FLUID (how [many much dose]) ^factanswer("I drink the recommended amount of 8 glasses per day.")
@@ -144,8 +145,8 @@ u: DO_YOU_EAT_FAST_FOOD ([fast junk] food) ^factanswer("I don't go to fast food 
 #! Do you eat healthy food
 #! What healthy food do you eat
 u: HEALTHY_FOOD ([healthy nutritious] food) refine ()
-	a: (what) ^factanswer("I like apples and bananas, but really I will eat almost any fruit or vegetable you put in front of me.")
-	a: (do) ^factanswer("I try to eat pretty healthy foods.")
+	a: WHAT_FOOD (what) ^factanswer("I like apples and bananas, but really I will eat almost any fruit or vegetable you put in front of me.")
+	a: DO_FOOD (do) ^factanswer("I try to eat pretty healthy foods.")
 
 # #! Do you eat fruits and vegetables
 # 	u: DO_YOU_EAT_FRUIT (!what [fruit vegetable]) ^factanswer("I do eat them.")
@@ -153,8 +154,9 @@ u: HEALTHY_FOOD ([healthy nutritious] food) refine ()
 #! Do you eat fruits and vegetables
 #! What fruits and vegetables do you eat
 u: FRUITS_AND_VEGETABLES ([fruit vegetable]) refine ()
-	a: (what) ^factanswer("I like apples and bananas, but really I will eat almost any fruit or vegetable you put in front of me.")
-	a: (do) ^factanswer("I love them, espcially fruit.")
+	a: WHAT_FRUIT (what) ^factanswer("I like apples and bananas, but really I will eat almost any fruit or vegetable you put in front of me.")
+	a: WHAT_FRUIT_DO (do) ^factanswer("I love them, espcially fruit.")
+	a: HOW_MANY_FRUIT (many) ^factanswer("I am not sure, at least a couple of servings.")
 
 #! Any changes in your diet
 u: ANY_CHANGES_IN_YOUR_DIET (change * [diet eating]) ^factanswer("My diet is the same.")
@@ -184,7 +186,7 @@ u: WHAT_WERE_YOU_EATING_BEFORE (eat *~3 before)  ^factanswer("My diet hasn't cha
 u: WHAT_DO_YOU_EAT
 	([
 		(what * eat)
-		([breakfast lunch dinner])
+		([breakfast lunch dinner food])
 	])
 	^factanswer("I try to eat a healthy diet.")
 
@@ -198,6 +200,13 @@ u: HOW_IS_YOUR_DIET
 		(!change !on eat * [healthy well])
 	])
 	^factanswer("My diet is fine.")
+
+#! Describe a typical meal
+u: DESCRIBE_TYPICAL_MEAL
+	([
+		([describe example] * [meal food eat])
+	])
+	^factanswer("I just eat normal stuff.")
 
 # Tobacco Use
 
@@ -242,17 +251,18 @@ u: ARE_YOU_EXPOSED_TO_SECONDHAND_SMOKE
 	])
 	^factanswer("I am not around smoke.")
 
+#! Any other tobacco
+u: ANY_OTHER_TOBACCO ([any other] *~3 tobacco)  ^factanswer("I haven't touched tobacco.")
+
 #! Do you smoke
 u: DO_YOU_SMOKE
-	([
+	(!other
+		[
 		([smoke smoker tobacco] >)
 		([smoke chew use try] * [tobacco cigarettes pipe nicotine])
 		([tobacco cigarettes pipe nicotine] * [smoke chew use try])
 	])
 	^factanswer("I have never smoked.")
-
-#! Any other tobacco
-u: ANY_OTHER_TOBACCO ([any other] *~3 tobacco)  ^factanswer("I haven't touched tobacco.")
 
 # Education
 
@@ -279,13 +289,15 @@ u: HOW_HAS_THIS_AFFECTED_YOU (!~medicines how * [~pain ~itwords symptoms injury]
 
 #! Can you do normal activities
 u: CAN_YOU_DO_NORMAL_ACTIVITIES
-	([
+	(!what
+		[
 		([day daily limit normal difficult] * [activity routine things])
 		([activity routine things] * [day daily])
 		([activity routine things activities routines chores] * [impacted affected 'do challenge])
 		([impacted affected restrict difficult able can] * [activity routine things activities routines function])
 		(daily [activity function])
-	])
+		]
+	)
 	^factanswer("I can do normal activities.")
 
 #! Has the pain affected your activity
@@ -352,7 +364,7 @@ u: ( $$family) ^fail(TOPIC)
 #! Do you use illegal drugs
 u: DO_YOU_USE_ILLEGAL_DRUGS
 	([
-		(!other !ever [use take do indulge] * [drugs substances]>)
+		(![other ever] [use take do indulge] * [drugs substances]>)
 		(![taste reflux feel ever] [~drugs_illegal "pcp" MDMA Adam])
 		(!ever ["bath salts" bathsalts])
 		(!ever ["recreational drug" "street drug" "drug use" "IV drugs" "intraveous drugs"])
@@ -367,10 +379,10 @@ u: DO_YOU_USE_ILLEGAL_DRUGS
 #! Have you ever used illegal drugs
 u: HAVE_YOU_EVER_USED_ILLEGAL_DRUGS
 	([
-		([use take do indulge experiment] *~3 [drugs substances] {ever} >)
+		([use take do indulge experiment] [drugs substances] {ever} >)
 		(![taste reflux feel] [~drugs_illegal "pcp" MDMA Adam])
 		(["bath salts" bathsalts])
-		(["recreational drug" "street drug" "drug use" "IV drugs" "intraveous drugs"])
+		(["recreational drug" "street drug" "drug use" "IV drugs" "intraveous drugs" "recreational substances"])
 		(<< drug [recreationally recreational illicit illegal] >>)
 	])
 	^factanswer("I have never used any illegal drugs.")
@@ -406,14 +418,16 @@ u: HAVE_YOU_BEEN_ON_A_PLANE
 
 topic: ~hobbyquestions keep repeat (hobby fun entertainment outside work job enjoy "free time" "extracurricular activity" relax outside activities "spare time" "daily basis" "like to do" interests "social life" "personal life")
 
+
+
 u: ( $$family) ^fail(TOPIC)
 
 #! Do you have any hobbies
 u: DO_YOU_HAVE_ANY_HOBBIES
 	([
 		(hobby)
-		(![daily normal] [activity hobby] * [enjoy like participate])
-		(![daily normal] [enjoy like participate 'do] * [activity hobby])
+		(![daily normal] [activity hobby] * [enjoy like participate involve 'do])
+		(![daily normal] [involve enjoy like participate 'do] * [activity hobby])
 	])
 	 ^factanswer("I don't have any specific hobbies.")
 
@@ -421,7 +435,7 @@ u: DO_YOU_HAVE_ANY_HOBBIES
 #! Are you involved with groups outside of work
 u: WHAT_DO_YOU_DO_FOR_FUN
 	([
-		([what how anything] * [enjoy enjoyment fun relax "free time" entertainment excitement "extracurricular activity" "spare time" "free time" "daily basis" "like to do" interests])
+		([what how anything] * ~activities)
 		([what anything group] * [outside when after besides] * [work job])
 		([outside when after besides] * [work job] * [what anything group])
 	])
@@ -432,116 +446,6 @@ u: WHAT_DO_YOU_DO_FOR_FUN
 
 	#! How is your personal Life
 	u: HOW_IS_YOUR_PERSONAL_LIFE ("personal life") ^factanswer("My personal life is fine.")
-
-# Sexual Activity
-
-topic: ~sexualactivity keep repeat (sex sexual sexually sexuality intercourse men women partner monogamous problems)
-
-u: ( $$family) ^fail(TOPIC)
-
-#! How many sexual partners ever
-#! How many life-time sexual partners have you had
-u: HOW_MANY_SEXUAL_PARTNERS_EVER
-	([
-		([many number several one] * [partner men women] * [past ever life life-time])
-		([many number several one] * [life life-time] * [partner men women])
-		([before previously past] * [many number several] * [partner men women] * [past ever life life-time])
-	])
-	^factanswer("I am not sure. Not very many.")
-
-#! How many sexual partners
-u: HOW_MANY_SEXUAL_PARTNERS
-	([
-		([many number several one] * [partner men women])
-		([before previously past] * [many number several] * [partner men women])
-		([many number several any] * [partner men women] * [past last] * [recent recently year month])
- 		([past last recent recently year month] * [many number several] * [partner men women])
-	])
-	^factanswer("None.")
-
-#! Are you monogamous
-u: MONOGAMOUS (monogamous)	^factanswer("Yes.")
-
-#! Any other sexual partners
-u: ANY_OTHER_SEXUAL_PARTNERS
-	([
-		([new other additional extra] * [sex sexual] * [partner men women])
-		(other * [sex sexual] * [~spouse])
-		(other * [partner men women])
-		([sex sexual] * [other besides] * [~spouse])
-	])
-	^factanswer("I'm not sexually active.")
-
-#! Do you prefer men or women
-u: DO_YOU_PREFER_MEN_OR_WOMEN
-	([
-		([sex prefer like interested sexual sexually engage] * [male man men woman women female])
- 		(sexual * [orientation preference])
- 		([men women] *~2 or both)
-	])
-	^factanswer("I'm not sexually active.")
-
-#! Who are your sexual partners
-u: WHO_ARE_YOUR_SEXUAL_PARTNERS
-	([
-		([who whom] * [sex sexual sexually intercourse])
-		(partner * [man male woman female ~dating_friend])
-		([sex sexual sexually intercourse] * [man men male woman women female ~dating_friend])
-	])
-	^factanswer("I'm not sexually active.")
-
-#! Are you considering being sexually active
-u: ARE_YOU_CONSIDERING_BEING_SEXUALLY_ACTIVE (be * [consider considering contemplate contemplating plan planning think thinking] * [sex sexually]) ^factanswer("Not really.")
-
-#! Are you sexually active
-u: ARE_YOU_SEXUALLY_ACTIVE
-	([
-		(![ever past previously when why how problem difficulty who ~STI unprotected symptoms force coerce pain] [are is have] * [sex sexual sexually intercourse "sexually active"])
-	])
-	^factanswer("I'm not sexually active.")
-		a: EVER_BEEN_SEXUALLY_ACTIVE ([ever before past prior previously]) ^reuse(~pastsex.EVER_BEEN_SEXUALLY_ACTIVE)
-		a: HOW_OFTEN_DO_YOU_HAVE_SEX ([often frequent regularly frequently]) ^reuse(HOW_OFTEN_DO_YOU_HAVE_SEX)
-
-# #! Have you ever been sexually active this is in ~pastsex in PastGYNSymptoms - need to validate
-#	u: EVER_BEEN_SEXUALLY_ACTIVE
-#		([
-#			(![when why how problem difficulty who ~STI unprotected symptoms force coerce pain] [are is have] * [sex sexual sexually intercourse "sexually active"])
-#		])
-# ^factanswer("I have never been sexually active.")
-
-#! When was the last time you had intercourse
-u: WHEN_DID_YOU_LAST_HAVE_INTERCOURSE
-	([
- 		([when "long ago"] * [last previous] * [sex sexual sexually intercourse ~itwords])
- 		([when "long ago"] * [sex sexual sexually intercourse ~itwords] * [last previous before])
-	])
-	^factanswer("I'm not sexually active.")
-
-#! Tell me about your sexual history
-#! How about your sexual activity
-u: TELL_ME_ABOUT_YOUR_SEXUAL_HISTORY
-	([
-		([tell describe] * sexual [history activity])
-		(how about * sexual [history activity])
-		([tell describe] * sexuality)
-	])
-	 ^factanswer("What do you want to know?")
-
-#! Any sexual problems
-u: ANY_SEXUAL_PROBLEMS
-	([
-		([sex sexual] [problem issue concern])
-		([problem issue concern] * [with in about concerning] *~3 [sex sexual])
-	])
-	^factanswer("I have no concerns about that.")
-
-#! How often do you have sex
-u: HOW_OFTEN_DO_YOU_HAVE_SEX
-	([
-		(how [often frequent regularly frequently] * [sex sexual sexually intercourse])
-		(do you *~3 [sex sexual sexually intercourse] * [often frequent regularly frequently])
-	])
-	^factanswer("I am not currenlty sexually active.")
 
 # Religion
 
@@ -586,9 +490,12 @@ u: ( $$family) ^fail(TOPIC)
 u: WERE_YOU_HEALTHY_CHILD (!are !diet [healthy sick ill health] * [past childhood child])   ^factanswer("I have always been healthy.")
 
 #! Are you healthy
+#! How would you say your health is
+#! Would you describe yourself as a healthy person
 u: ARE_YOU_HEALTHY
 	([
-		(![diet food eat mental ~parents] [do be] *~3 you * [health healthy])
+	(![diet food eat mental ~parents] << [do be] you  [health healthy] >>)
+	(healthy person)
 	])
 	^factanswer("I am pretty healthy.")
 

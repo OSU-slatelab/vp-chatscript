@@ -20,7 +20,7 @@ u: ($present) respond(~currentvaginal_bleeding) ^fail(TOPIC)
 # PERIODS
 
 #! Anyone in your family have vaginal bleeding problems?
-u: FAMILY_HAVE_VAGINAL_BLEEDING_PROBLEMS  (~family_members ~gyn_bleeding)  ^factanswer("Not that I know of.")
+u: FAMILY_HAVE_VAGINAL_BLEEDING_PROBLEMS  (<< ~family_members ~gyn_bleeding >>)  ^factanswer("Not that I know of.")
 
 
 topic: ~familyvaginalsymptoms keep repeat (~role_family ~gyn_bleeding douche vulva)
@@ -50,7 +50,7 @@ u: ($pasthistory) respond(~past_breast) ^fail(TOPIC)
 u: ($present) respond(~current_breast) ^fail(TOPIC)
 
 #! Anyone in your family had breast cancer?
-u: FAMILY_HAD_BREAST_CANCER (~role_family breast cancer) ^factanswer("Not that I know of.")
+u: FAMILY_HAD_BREAST_CANCER (<< ~role_family "breast cancer" >>) ^factanswer("Not that I know of.")
 
 #! Any breast changes?
 u: ANY_FAMILY_BREAST_CHANGES  (~Breast_Problems)   ^factanswer("Not that I know of.")

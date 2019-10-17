@@ -74,8 +74,8 @@ u: MEDICAL_PROFESSIONAL
 		(![any other else] [been see sought discuss] *~3 [~medical_professionals anyone counseling help])
 	])
 	^refine()
-		a: (have) ^factanswer("I have not.")
-		a: ([do any]) ^factanswer("If you think I should.")
+		a: HAVE_YOU_SEEN_A_DOCTOR (have) ^factanswer("I have not.")
+		a: DO_YOU_WANT_TO_SEE_A_SPECIALIST ([do any]) ^factanswer("If you think I should.")
 
 # #! Do you want to see a specialist
 #	u: DO_YOU_WANT_TO_SEE_A_SPECIALIST (![any other else] do * [~medical_professionals anyone counseling help])  ^factanswer("I have not.")
@@ -130,7 +130,7 @@ topic: ~mentalhealth keep repeat
  image self "self image" down hopeless worry hurt distracted concentrate think "panic attack"
  tearful teary "tear up" "not worth living" "better off dead" empty helpless worthless guilt guilty blame
  happy happier satisfied pleasure ~weapons bed morning death dying die "mind racing" "stopping your mind" thoughts
- relax anxious swing grumpy overwhelmed emotion emotional)
+ relax anxious swing grumpy overwhelmed emotion emotional mind "loss of control" interest)
 
 #! Ever have postpartum depression
 u: EVER_HAVE_POSTPARTUM_DEPRESSION
@@ -250,7 +250,7 @@ u: DO_YOU_THINK_ABOUT_DEATH  ([think thought] * [death dying]) ^factanswer("I tr
 u: DO_YOU_HAVE_A_WEAPON ([~weapons]) ^factanswer("I don't own any weapons.")
 
 #! What is your self image
-u: WHAT_IS_SELF_IMAGE ([what how] * [self image "self image"]) ^factanswer("I have no issues there.")
+u: WHAT_IS_SELF_IMAGE ([what how] * ["self image" self image ]) ^factanswer("I have no issues there.")
 
 #! Are you happy
 u: ARE_YOU_HAPPY ([happy happier satisfied pleasure "mental health"])  ^factanswer("I am happy.")
@@ -263,7 +263,7 @@ u: HOW_IS_YOUR_MOOD (how *~3 mood) ^factanswer("My mood is fine.")
 
 # This is the relationship health section note - we have included past and family relationship health questions here instead of having separate topics for those.
 
-topic: ~relationshiphealth keep repeat (relationship relation "get along" "getting along" ~spouse ~family_children ~family_members sexual sex anyone anybody)
+topic: ~relationshiphealth keep repeat (relationship relation "get along" "getting along" ~spouse ~family_children ~family_members sexual sex anyone anybody married)
 
 #! How is your relationship with children
 u: HOW_IS_RELATIONSHIP_WITH_CHILDREN (![spouse partner husband wife] [relationship relation "getting along"] * [~family_children children kid])  ^factanswer("We have a good relationship.")

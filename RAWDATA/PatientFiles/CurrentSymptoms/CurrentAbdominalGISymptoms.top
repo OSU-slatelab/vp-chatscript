@@ -49,7 +49,7 @@ u: DO_YOU_HAVE_BOWEL_OR_BLADDER_CONTROL (![loss lost] << bowel bladder >>) ^fact
 
 # abdominal_pain - I have defined abdominal_pain as a concept in MedicalConcepts.top
 
-topic: ~currentabdominalpain keep repeat (~abdominal_pain nausea nauseous vomit nauseated regurgitate regurgitation)
+topic: ~currentabdominalpain keep repeat (~abdominal_pain nausea nauseous vomit nauseated regurgitate regurgitation "thrown up")
 
 u: ($pasthistory) respond(~pastabdominalpain)  ^fail(TOPIC)
 u: ($family) respond(~familyabdominalpain) ^fail(TOPIC)

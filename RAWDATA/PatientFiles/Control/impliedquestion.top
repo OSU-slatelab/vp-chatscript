@@ -93,7 +93,7 @@ s: QUESTION (!~interjections) if (%length == 0) {END(TOPIC)}
 	#! what famous person would you like to meet
 	a: (<  ~qwords *~3  [~auxverblist ~verb] ) SetTokenFlags(#QUESTIONMARK)
 
-	#! please Tell me about birds.
+	#!!P please Tell me about birds
 	a: (!'I < *~1 [~describe ~list ~explain define  ~explain tell define suggest recommend] %tokenflags&#COMMANDMARK) SetTokenFlags(#QUESTIONMARK)
 
 	#! name a poet

@@ -1,7 +1,7 @@
 
 # PastPain - I have defined ~pain as a concept in MedicalConcepts.top
 
-topic: ~pastpain keep repeat (~pain previously injure injury painful problem)
+topic: ~pastpain keep repeat (~pain previously injure injury painful tender problem incident)
 
 u: ($present) respond(~currentpain) ^fail(TOPIC)
 u: ($family) respond(~familypain) ^fail(TOPIC)
@@ -52,7 +52,7 @@ u: HOW_LONG_AGO_WAS_THE_PAST_INCIDENT # this probably does not work because prev
 
 # Exacerbation  ******************************************************************************************
 
-#! Did the medicine help before
+#!!K Did the medicine help before
 u: DID_THE_MEDICINE_HELP_BEFORE (!else [did does] *~3 [~itwords medicine] *~3 [help "go away" decrease difference]) ^factanswer("I did not take any medication.")
 
 #! Did rest make the past pain go away
@@ -75,14 +75,16 @@ u: DID_YOU_HAVE_PAST_PAIN_AT_REST (<< rest [~the_pain $relevantpain?] >>)  ^fact
 # NOTE: the following is here because the word "ever" causes $pasthistory to be true so we need to put this question from ~currentpain here.
 
 	#! Can you rate the pain
-	#! On a scale of 1-10
+	#!!K On a scale of 1-10
 u: RATE_THE_PAIN # essentially same as CAN_YOU_RATE_THE_PAIN in ~currentpain
 	([
 		(![describe 5 five] [rate scale rank quality quantify] * ~the_pain)
+		(![5 five] [rate scale rank quantify] * ~the_pain)
 		(![5 five] ~the_pain * [between rate scale rank])
 		(![5 five] [10 ten] * [painful severe worst highest])
 		(number * ~the_pain)
 		(scale * [10 ten])
+		([1 one] to [10 ten])
 	])
 	^factanswer("I'm not really having any pain to rate.")
 
@@ -177,7 +179,7 @@ u: WAS_THE_PAST_PAIN_IN_THE_MUSCLE (![where when did] [~the_pain $relevantpain?]
 #! When did the pain hurt before
 u: WHEN_DID_THE_PAIN_HURT_BEFORE (when *~3 [~the_pain $relevantpain?] *~3 hurt)      ^factanswer("I have not had pain in the past.")
 
-#! How did it feel before
+#!!K How did it feel before
 u: HOW_DID_IT_FEEL_BEFORE (how *~3 [~the_pain $relevantpain?] *~3 [feel felt])      ^factanswer("I have not had pain in the past.")
 
 # NOTE: the following is here because the word "past" causes $pasthistory to be true so we need to put this question from ~currentpain here.
