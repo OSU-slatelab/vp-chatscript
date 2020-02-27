@@ -38,7 +38,7 @@
 # ../RAWDATA/PatientFiles/Patient_Topic_Files/patient19.top	# This is one of the patients for Rachel Umoren Brittany Watson prenatal counselling
 # ../RAWDATA/PatientFiles/Patient_Topic_Files/patient20.top	# This is VANESSA for Rachel Umoren Vanessa Watson
 ../RAWDATA/PatientFiles/Patient_Topic_Files/patient21.top	# Carlos Martinez - back pain
-../RAWDATA/PatientFiles/Patient_Topic_Files/patient21LEP.top	# Carlos Martinez - back pain with Limited English Proficiency
+../RAWDATA/PatientFiles/Patient_Topic_Files/patient210.top	# Carlos Martinez - back pain with Limited English Proficiency
 
 # Grading Tables
 

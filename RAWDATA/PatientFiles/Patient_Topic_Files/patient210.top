@@ -1,11 +1,11 @@
-outputmacro: patient21lep()
+outputmacro: patient210()
 $patientfirstname = Carlos
 $patientlastname = Martinez
 $chiefcomplaint = ~back_pain
 $complaint2 =
 $complaint3 =
-$Vpatient2 = Vpatient21lep
-$Vpatient = Vpatient21lep
+$Vpatient2 = Vpatient210
+$Vpatient = Vpatient210
 $patientTitle = Mr
 $currentjob = mechanic
 $currentmedication1 = Ibuprofen
@@ -15,7 +15,7 @@ $currentpainnum = 7
 
 ^stdpatient()
 
-table: ^patientdata(Vpatient21lep)
+table: ^patientdata(Vpatient210)
 
 
 ### OpeningDialogue
