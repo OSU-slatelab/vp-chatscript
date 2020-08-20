@@ -1,0 +1,93 @@
+tablemacro: ^equivalent ($_label1 $_label2) # credit for only one in the open/closed world
+createfact( $_label1 equivalent $_label2)
+
+tablemacro: ^grade_sheet ($_patient $_section.KEEP_QUOTES)
+createfact($_section $_patient grade_items)
+
+outputmacro: ^showgradingdata($_type)
+	\n
+	@0 = ^query(direct_vo ? %bot grade_items)
+	Loop()
+	{
+		_0 = ^last(@0subject)
+		_0 \n 
+
+		if ($_type == section OR $_type == question)
+		{
+			@1 = ^query(direct_vo ? section _0)
+			loop ()
+			{
+				$_category = ^last(@1subject)
+				\t $_category \n 
+
+				if ($_type == question)
+				{
+					@2 = query(direct_vo ? question $_category) 
+					loop ()
+					{
+						_2 = ^last(@2subject)
+						\t \t _2 \n 
+					}
+				}
+			}
+		}
+
+	}
+	$_tmp = $cs_response
+	$cs_response = 0 # allow newline use
+	^flushoutput()
+	$cs_response = $_tmp
+
+tablemacro: ^section variable (^sectionname.KEEP_QUOTES ^entry.KEEP_QUOTES ^rule ^rule1 ^rule2 ^rule3 ^rule4 ^rule5 ^rule6 ^rule7 ^rule8 ^rule9 ^rule10)  
+createfact(^entry section ^sectionname)
+createfact(^rule question ^entry)
+if (^rule1 != * ) {createfact(^rule1 question ^entry)}
+if (^rule2 != * ) {createfact(^rule2 question ^entry)}
+if (^rule3 != * ) {createfact(^rule3 question ^entry)}
+if (^rule4 != * ) {createfact(^rule4 question ^entry)}
+if (^rule5 != * ) {createfact(^rule5 question ^entry)}
+if (^rule6 != * ) {createfact(^rule6 question ^entry)}
+if (^rule7 != * ) {createfact(^rule7 question ^entry)}
+if (^rule8 != * ) {createfact(^rule8 question ^entry)}
+if (^rule9 != * ) {createfact(^rule9 question ^entry)}
+if (^rule10 != * ) {createfact(^rule10 question ^entry)}
+
+tablemacro: ^newsection variable TAB ($_sectionname.KEEP_QUOTES $_entry.KEEP_QUOTES $_rule $_junk $_junk1  $_junk2  )
+# $_junk is the tab
+if ($_entry != *  )
+{
+  $$entry = $_entry # track this column's value for future lines
+  ^createfact($_entry section $_sectionname)
+}
+
+# validate that table line was good (tabs instead of spaces)
+
+$_error = ^"Bad Table data in $_sectionname $_entry ($$entry) $_rule $_junk $_junk1 $_junk2 \n"
+if ($_entry != * AND $_rule != *) # not allowed both
+{
+	$_tmp = ^join("Not both entry and rule " $_error)
+    ^Bug($_tmp)
+}
+else if ($_entry == * AND $_rule == *) # not allowed neither
+{
+	$_tmp = ^join("Neither entry nor rule " $_error)
+    ^Bug($_tmp)
+}
+else if ($_junk != * OR $_junk1 != * OR $_junk2 != * ) # excess data
+{
+	$_tmp = ^join("Excess data " $_error)
+    ^Bug($_tmp)
+}
+if (^extract(%tableinput 0 1) == " ") 
+{
+    ^Bug(^"spaces at start of table entry $_error")
+}
+
+# actual data save
+
+if ($_rule != *)
+{
+    $_rule = ^pos(allupper $_rule)
+    ^createfact($_rule question $$entry)
+}
+

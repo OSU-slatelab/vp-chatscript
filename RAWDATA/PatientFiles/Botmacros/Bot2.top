@@ -1,0 +1,16 @@
+
+outputmacro: patient2()
+$patientfirstname = April
+$patientlastname = Stanley
+$chiefcomplaint = ~opioid_use_disorder
+$complaint2 = null
+$complaint3 = null
+$patientTitle = Ms
+$currentjob = null
+$currentmedication1 = null
+$currentmedication2 = null
+$currentmedication3 = null
+$currentpainnum = 7
+$cs_botid = 2
+
+^stdpatient()

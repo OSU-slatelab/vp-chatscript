@@ -1,0 +1,5 @@
+
+topic: ~inappropriate_language keep repeat (~emocurse)
+
+#!!KP Any curse word
+u: ANY_CURSE_WORD (!worse [~emocurse]) I don't respond to vulgarities.

@@ -1,0 +1,143 @@
+topic: ~currentgeneralmatches keep repeat deprioritize nostay ()
+
+u: ($pasthistory) respond(~pastgeneralmatches)  ^fail(TOPIC)
+u: ($family) respond(~familygeneralmatches) ^fail(TOPIC)
+
+#!!S Can you move your hip
+u: CAN_YOU_MOVE_YOUR_BODYPART (![$bodypart? back] can *~3 move your _~bodyparts)
+    $_tmp = ^print(#OUTPUT_RETURNVALUE_ONLY [I have no problems with my '_0.][I can move my '_0 just fine.])
+	^factanswer($_tmp)
+
+#!!S Do you have any pain in your hip
+u: ANY_PAIN_IN_YOUR_BODYPART (![$bodypart? back] [ache pain] *~3 _~bodyparts)
+    $_tmp = ^print(#OUTPUT_RETURNVALUE_ONLY [I have no pain in my '_0.]	[Nope, no pain in my '_0.])
+	^factanswer($_tmp)
+
+#!!S Do you have any hip pain
+u: DO_YOU_HAVE_ANY_BODYPART_PAIN (![~medicines long where why how $bodypart? back] [have experience feel felt any] *~3 _~bodyparts pain)
+    $_tmp = ^print(#OUTPUT_RETURNVALUE_ONLY [I have no '_0 pain.]	[No, no '_0 pain.]).
+	^factanswer($_tmp)
+
+#!!S Have you had any surgeries
+u: HAVE_YOU_HAD_ANY_MEDICALTREATMENTS (had any _~medical_treatments)
+	^factanswer(^"No, no '_0")
+
+#!!S Does your hip hurt
+u: DOES_YOUR_BODYPART_HURT (![$bodypart? back] does your _~bodyparts hurt) # !$bodypart? excludes the bodypart for the current bot
+    $_tmp = ^print(#OUTPUT_RETURNVALUE_ONLY [No, my '_0 is fine.]	[My '_0 feels fine.]).
+	^factanswer($_tmp)
+
+#!!S Do your toes hurt
+u: DO_YOUR_BODYPARTS_HURT (![$bodypart? back] do your _~bodyparts hurt)
+    $_tmp = ^print(#OUTPUT_RETURNVALUE_ONLY [No, my '_0 is fine.]	[My '_0 feels fine.]).
+	^factanswer($_tmp)
+
+#!!S How is your hip
+u: HOW_IS_YOUR_BODYPART (![pain back] how is your _[~bodyparts ~all_systems]) # need to remove back and fix if we add more VPs
+	^factanswer(^"My '_0 is fine")
+
+#!!S How does your hip feel
+u: HOW_DOES_YOUR_BODYPART_FEEL (![$bodypart? back] how [has does] your _~bodyparts [been feel])
+	^factanswer(^"My '_0 feels fine")
+
+#!!S Do you have any problems with your hip
+u: ANY_PROBLEMS_WITH_YOUR_BODYPART (![$bodypart? back] any [problems issues difficulty] with your _*~2)
+	^factanswer(^"No problems with my '_0")
+
+#!!S Do you have any problems with urination
+u: ANY_PROBLEMS_WITH_BODILYFUNCTION (![$bodypart? back] any [problems issues difficulty] with _*~2)
+	^factanswer(^"No problems with _0")
+
+#!!S Do you have any problems urinating
+u: ANY_PROBLEMS_BODILYFUNCTIONING ( any [problems issues difficulty] _*1)
+	^factanswer(^"No problems '_0")
+
+#!!S Can you control your urination
+u: CAN_YOU_CONTROL_YOUR_BODILYFUNCTION ([are can able] * control your _*1)
+	^factanswer(^"No problems with my '_0")
+
+#!!S Is your urination normal
+u: IS_YOUR_BODILYFUNCTION_NORMAL ([are is] [your you] _*1 [normal normally usual usually])
+	^factanswer(^"No problems with my '_0")
+
+#!!S Have you tried heat
+u: HAVE_YOU_TRIED_SOMETREATMENT (!~medicines [have did] *~3 [try] *~2 _~medical_treatments)
+	^factanswer(^"No, I have not tried '_0")
+
+#!!S Have you used heat
+u: HAVE_YOU_USED_SOMETREATMENT (!~medicines [use] _~medical_treatments)
+	^factanswer(^"No, I have not used '_0")
+
+#!!S Have you used a back brace
+u: HAVE_YOU_USED_SOMEDEVICE (!~medicines [use try] _*~1 _~medical_devices)
+	^factanswer(^"No, I have not used '_0 '_1")
+
+#!!S How about your Hip
+u: HOW_ABOUT_YOUR_BODYPART (![$bodypart? back] how about 'your _~bodyparts)
+	^factanswer(^"No problems with my '_0")
+
+#!!S How about your breathing
+u: HOW_ABOUT_YOUR_BODILYFUNCTION ( how about 'your _~activity)
+	^factanswer(^"No problems with my '_0")
+
+#!!S Does it hurt when you breathe
+u: DOES_IT_HURT_WHEN_YOU_ACTIVITY ([does is] it [hurt painful] *~2 [when for] you *~1 _~activity)
+	^factanswer(^"No, I can '_0  OK")
+
+#!!S Does lying down help
+u: DOES_SOMEPOSITION_HELP (does _~position *~3 [help better]) ^factanswer(^"'_0  doesn't seem to help much")
+	u: (_~position * does [help better]) ^reuse (DOES_SOMEPOSITION_HELP)
+
+#! What about anyone in your family
+u: WHAT_ABOUT (< what about _*) ^factanswer("What do you mean?")
+
+# ***************************************************************************************************
+
+topic: ~pastgeneralmatches keep repeat deprioritize (~medical_treatments ~medical_tests ~all_systems ~pain_descriptors)
+
+u: ($present) respond(~currentgeneralmatches) ^fail(TOPIC)
+u: ($family) respond(~familygeneralmatches) ^fail(TOPIC)
+
+#!!S Have you had any pain in your hip
+u: HAVE_YOU_HAD_ANY_PAIN_IN_YOUR_BODYPART (!back pain [in on] [your the] _~bodyparts)
+    $_tmp = ^print(#OUTPUT_RETURNVALUE_ONLY [I have not had any pain in my '_0.]	[Nope, never had pain in my '_0.]).
+	^factanswer($_tmp)
+
+#!!SP Have you had any hip pain
+u: HAVE_YOU_HAD_ANY_BODYPART_PAIN (![back ~joint] had * _~bodyparts pain)
+    $_tmp = ^print(#OUTPUT_RETURNVALUE_ONLY [I have no '_0 pain.]	[No, no '_0 pain.]).
+	^factanswer($_tmp)
+
+#!!S Have you had any problems with urination
+u: HAD_PROBLEMS_WITH_BODILYFUNCTION (![~joint back] any [problems issues] with _*1)
+	^factanswer(^"Not had any problems with '_0")
+
+#!!S Have you had any problems urinating
+u: HAD_PROBLEMS_BODILYFUNCTIONING (![~joint back] any [problems issues] _*1)
+	^factanswer(^"No problems '_0")
+
+#!!S Have you ever been treated for whiplash
+u: EVER_BEEN_TREATED_FOR_SOMECONDITION ([treat treated treatment] for _*1)
+	^factanswer(^"No '_0 treatments or anything like that")
+
+#!!S Have you ever had an MRI
+u: EVER_HAD_AN_MEDICALTEST (ever had 'an _~medical_tests)
+	^factanswer(^"No, I have never had an '_0")
+
+#!!S Have you ever had a spinal tap
+u: EVER_HAD_A_MEDICALTEST (ever had 'a _~medical_tests)
+	^factanswer(^"No, I have never had a '_0")
+
+#!!S Have you ever used a back brace
+u: HAVE_YOU_EVER_USED_SOMEDEVICE (!~medicines [use try] _*1 _~medical_devices)
+	^factanswer(^"No, I have never used '_0 '_1")
+
+topic: ~familygeneralmatches keep repeat deprioritize (~medical_treatments ~all_systems ~pain_descriptors)
+
+u: ($present) respond(~currentgeneralmatches) ^fail(TOPIC)
+u: ($pasthistory) respond(~pastgeneralmatches) ^fail(TOPIC)
+
+#!!SP Anyone in your family have hip problems # this doesn't seem to work (not needed) because family problems are caught in family.top
+u: ANY_FAMILY_BODYPART_PROBLEMS (_~bodyparts problems)
+    $_tmp = ^print(#OUTPUT_RETURNVALUE_ONLY [No family history of '_0 problems.]	[Nope, nobody in my family has '_0 problems.]).
+	^factanswer($_tmp)

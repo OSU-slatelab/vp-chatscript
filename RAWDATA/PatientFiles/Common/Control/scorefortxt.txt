@@ -1,0 +1,111 @@
+
+topic: ~score ()
+u: () 
+    $totalQueries += 1
+    ^ProcessProperties($$label)
+
+	# now note this new question was asked
+	$$tmp = $$rawinput
+	if ($$label == NOANSWER OR $$label == MAINCONTROL)
+	{
+		$$tmp = ^"$$tmp    - Question not understood."
+	}
+	createfact($$tmp asked $totalQueries) # this was asked this turn
+
+	createfact($$tmp form $$label) # this was asked this way this turn
+
+#	^TrackOpenQuestions()
+
+topic: ~finalscore system repeat()
+
+u: ()
+#	 createfact(^"\nScorecard for:  $login\n" scorecard x FACTTRANSIENT)
+	 createfact(^"\nScorecard for:  %bot\n" scorecard x FACTTRANSIENT)
+
+	@4 = query(direct_vo ? %bot grade_items)  # get sections to grade for this patient, eg ("Family History" zone grade_items)
+
+	# handle each section of grading
+	loop()
+	{
+		$$section = ^last(@4subject)  # get a section
+		createfact(^"\n$$section:\n" scorecard x FACTTRANSIENT)
+
+		$$categoryCount = 0
+		$$didasksection = 0
+
+		@3 = query(direct_vo ? section $$section) # get the types of questions to ask, eg (Location section "History of Present Illness")
+		loop()
+		{
+			$$category = ^last(@3subject)
+			createfact(^"    $$category: \n" scorecard x FACTTRANSIENT)
+
+			$$categoryCount += 1		# questions he should ask
+			$$didask = 0
+
+			@2 = query(direct_vo ? question $$category) # these are questions we recognize he should ask - he gets credit in the section if he asks at least one of these though we show all he asked
+			loop()
+			{
+				$$question = ^last(@2subject)
+
+				# did he ask this?
+				if (^query(direct_vo ? form $$question)) # he asked this
+				{
+					createfact(^"        @0subject \n" scorecard x FACTTRANSIENT)
+					$$didask += 1
+				}
+			}
+			if ($$didask == 0)
+			{
+				createfact(^"        No question asked.  \n" scorecard x FACTDUPLICATE)
+				$$didask += 1
+			}
+			else {$$didasksection += 1}
+		}
+		createfact(^"    Summary: $$didasksection of $$categoryCount essential questions asked. \n" scorecard x  FACTTRANSIENT)
+	}
+
+# going to comment out this next section because it isn't working 12.2018
+##<<
+	createfact(^"\n\nTotal questions: $totalQueries \n" scorecard x  FACTTRANSIENT)
+
+	if (^length(@0) == 0)
+	{
+	 	createfact(^" none \n" scorecard x  FACTTRANSIENT)
+	}
+
+ 	 $$count = 0
+     loop()
+	 {
+		$$count += 1
+         _0 = last(@0all)
+		createfact(^"     $$count. Asked: _0 \( from topic _2 \ at question" scorecard x  FACTTRANSIENT)
+
+		@1 = query(direct_sv _0 asked ? 1 )
+ 	 	createfact(^"@1object \) \n" scorecard x  FACTTRANSIENT)
+    }
+##>>
+
+	 # here is the history of what they asked
+ 	createfact(^"\nThese questions were asked in this order: \n" scorecard x  FACTTRANSIENT)
+
+	 nofail(rule query(direct_v ? asked ?))
+     loop()
+	 {
+        _0 = last(@0all)
+  		createfact(^"     _2. _0 \n" scorecard x  FACTTRANSIENT)
+
+   }
+
+   # output all answers to user and file NOTE IF THIS FAILS TO CREATE THE FILE IN THE CORRECT FOLDER THEN SCORE ME FAILS. SO IF WRITING TO inetpub AND IT DOES NOT EXIST THEN SCORE ME WILL FAIL
+	# $$tmpfile = join(TMP/ %bot .txt)
+	$$tmpfile = join(C:\inetpub\\wwwroot/Scores/ %bot .txt)
+	# $$tmpfile = join(C:\ChatScript/Scores/ %bot .txt)
+	^log(FILE $$tmpfile NEW)  # start file from scratch
+	@0 = query(direct_vo ? scorecard x)
+	loop()
+	{
+		$$tmp = last(@0subject)
+		$$tmp
+		^log(FILE $$tmpfile $$tmp)
+
+	}

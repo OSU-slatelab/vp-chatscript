@@ -1,0 +1,276 @@
+﻿# Job
+
+topic: ~jobrelatedquestions keep repeat
+	(!workout !"work out" work~n worker ~job employ employer "do for a living" insurance
+	~chemicals solvent military mechanic "you do" "on your feet" insured Medicare Medicaid hazardous material
+	asbestos lead stressful stress retire disable disability "social security" mistake error "in the office" note)
+
+u: ( $$family) ^fail(TOPIC)
+
+#! Do you do any heavy lifting at work
+#! Do you use your back a lot at work
+u: DO_YOU_DO_ANY_HEAVY_LIFTING_AT_WORK
+		([
+			(<< heavy [lifting lift] [~job] >>)
+			(![pain injure hurt] [bend lift back~n] *~3 [lot ~job ever]) # avoid did you in jure your back at work
+		])
+	^factanswer("Not that I am aware of.")
+
+#! Do you bend down a lot at work
+#! Do you move a lot at work
+#! Does your job require tyou to move around a lot
+u: DO_YOU_BEND_AT_WORK (<< [bend move] [~job] >>) ^factanswer("Not that I am aware of.")
+
+#! Is your job physically demanding
+u: IS_YOUR_JOB_PHYSICALLY_DEMANDING
+	([
+		(is *~3 ~job *~3 ['demanding difficult strenuous "physical labor"])
+		(<< [job employer] "physical labor" >>)
+	])
+	^factanswer("Not really.")
+
+#! Is your job stressful
+u: IS_YOUR_JOB_STRESSFUL (<< ~job [stress stressful stressors change] >>)	^factanswer("Not really.")
+
+#! Does work affect your health
+u: DOES_WORK_AFFECT_YOUR_HEALTH (~job *~3 [affect impact] *~3 health)	^factanswer("Not that I am aware of.")
+
+#! Are you on your feet a lot
+u: ARE_YOU_ON_YOUR_FEET_A_LOT (!able are *~3 on your feet) ^factanswer("not really.")
+
+#! Are you currently working
+#! Are you working today
+u: ARE_YOU_CURRENTLY_WORKING
+	([
+		(![where "how long"] [currently presently "gone to"] *~3 [employ work])
+		(![where "how long"] ~job *~3 [now today])
+	])
+ ^factanswer("I currently work.")
+
+#! How many hours do you work
+#! Do you work a lot
+u: HOW_MANY_HOURS_DO_YOU_WORK
+	([
+		(!away [hours days time] * ~job) # want to avoid questions about time away from work
+		(~job *~3 [lot long])
+	])
+	^factanswer("I usually work about 40 hours per week.")
+
+#! How does missing work make you feel
+#! Not working must be difficult
+u: NOT_WORKING_MUST_BE_DIFFICULT
+	([
+		(not * [~job working] * [sad difficult hard tough])
+		(how * [not missing unable] * feel)
+	])
+	^factanswer("Not working has been stressful.")
+
+#! How long have you been off work
+u: HOW_LONG_HAVE_YOU_BEEN_OFF_WORK (how long *~3 [not off unable miss absent] *~3 ~job) ^factanswer("I have not been off work.")
+
+#! Have you been off work because of $chiefcomplaint
+#! And you can't work because of the back pain?
+u: HAVE_YOU_BEEN_OFF_WORK_BECAUSE
+	([
+		([off unable "can not" can't] *~3 ~job *~3 [because due] *~3 $chiefcomplaint)
+		($chiefcomplaint *~3 [stop prevent keep] *~3 ~job)
+	])
+	^factanswer("Not really.")
+
+#! Have you been off work
+#! Are you taking time away from work
+u: HAVE_YOU_BEEN_OFF_WORK (![what pain] [away off unable miss absent "not able"] *~3 ~job) ^factanswer("I have not been off work.")
+
+#! Why are you off work
+u: WHY_ARE_YOU_OFF_WORK (why *~3 [off unable] *~3 ~job) ^factanswer("I have not been off work.")
+
+#! Have you been able to work
+u: HAVE_YOU_BEEN_ABLE_TO_WORK
+	([
+		(![what not] [can able] * work)
+		(![what not] have you been *~3 work)
+	])
+	^factanswer("I am able to work OK.")
+
+#! What can't you do at work
+u: WHAT_CAN_YOU_NOT_DO_AT_WORK
+	([
+		(!else what can *~2 not *~2 do *~2 ~job)
+		(!else what ["can't" "can not"] *~2 do *~2 ~job)
+	])
+	^factanswer("I am not having any issues at work.")
+		a: WHAT_ELSE_CAN_YOU_NOT_DO (else) ^factanswer("Nothing.")
+
+#! Do you have problems working
+u: DO_YOU_HAVE_PROBLEMS_WORKING (problem *~3 ~job) ^factanswer("Work is fine.")
+
+#! Do you feel safe at work
+u: DO_YOU_FEEL_SAFE_AT_WORK (safe * ~job) ^factanswer("I feel safe.")
+
+#! Has your inability to work caused problems
+u: INABILITY_TO_WORK_CAUSED_PROBLEMS ([inability ability able] *~3 work *~3 [problems issues concerns]) ^factanswer("Not really.")
+
+#! Have you made mistakes at work
+u: HAVE_YOU_MADE_MISTAKES_AT_WORK (![kind type sort] [mistake error] *~3 ~job) ^factanswer("I have not.")
+	a: KIND_OF_MISTAKES (<< [kind type sort] [mistake error] >>) ^factanswer ("I didn't make any.")
+
+#! Is your job secure
+u: IS_YOUR_JOB_SECURE
+	([
+		(~job *~3 [secure worry jeopardy])
+		([worry concern] *~3 [~job security])
+	])
+	^factanswer("As far as I know.")
+
+#! How is work
+#! Any issues at work
+#! How has your job been
+#! How is work going
+u: HOW_IS_WORK
+	([
+		(how [is are has about has] *~2 ~job)
+		([issues problems] *~3 ~job)
+	])
+	^factanswer("Work is fine.")
+
+#! When was the last time you worked
+u: WHEN_WAS_THE_LAST_TIME_YOU_WORKED ([when how] *~3 [days last] *~3 ["in the office" work "drove a bus"]) ^factanswer("I worked the last weekday.")
+
+#! Do you need a note for work
+u: DO_YOU_NEED_A_NOTE_FOR_WORK (need *~3 [excuse note] *~3 [~job me today]) ^factanswer("I do not.")
+
+#! Does the pain interfere with work
+#! Has your work been affected by your back pain?
+#! Does the pain make your job difficult
+#!!K The injury must really get in the way of that
+u: DOES_THE_PAIN_INTERFERE_WITH_WORK
+	([
+		(!how [~pain ~itwords injury] *~3 [problem bother interfere interferring impair inhibit keep prevent stop miss affect impact difficult "in the way"] *~3 [~itwords working ~job])
+		(!how [~pain injury] *~3 [problem bother interfere interferring impair inhibit keep prevent stop miss affect impact difficult "in the way"] *~3 [~itwords working ~job])
+		(!how [~pain ~itwords injury] *~3 [working ~job] *~3 [difficult hard])
+		(!how ~job * [affect inhibit bother impact] * [~pain ~itwords injury])
+	])
+	^factanswer("I am able to work OK.")
+	a: HOW_HAS_THIS_AFFECTED_YOUR_JOB (how) ^factanswer("It has not affected my job.")
+
+#! How has this affected your job
+#! How has it been trying to work with the pain?
+u: HOW_HAS_THIS_AFFECTED_YOUR_JOB
+	([
+		(how *~3 [~pain ~itwords injury] *~3 [interfere impair inhibit keep stop miss affect impact difficult] *~3 [working ~job])
+		(how *~3 [does has be] *~2 ~job * [affect inhibit bother impact] * [~pain ~itwords injury])
+		(how *~3 [does has be] * [work~v working] *~3 ~pain)
+		(how *~3 [affect inhibit bother impact] *~3 [working ~job])
+	])
+	^factanswer("It has not affected my job.")
+
+#! Is the pain related to work
+#! Did the pain start at work
+#! Were you at work when the pain started
+u: IS_THE_PAIN_RELATED_TO_WORK
+	([
+		([~pain injury ~itwords] *~3 [related due because] *~3 ~job)
+		([~pain injury ~itwords] *~3 [start caused begin] *~3 ~job)
+		([~job working] * when * [~pain injury ~itwords])
+	])
+	^factanswer("I don't believe so.")
+
+#! Does it hurt when you are not working
+u: DOES_IT_HURT_WHEN_NOT_WORKING (!~bodyparts [hurt pain] *~3 not *~3 work) ^factanswer("Not that I am aware of.")
+
+#! Does it hurt to work
+#! Do you feel the pain at work
+#! Does the pain get worse at work
+u: DOES_IT_HURT_TO_WORK
+	([
+		(![~bodyparts not at] [hurt pain] * [~job work working]) # want to avoid ever gotten hurt at work
+		([experience feel] *~3 pain * [~job work])
+	])
+	^factanswer("I am able to work OK.")
+
+#! Did you injure yourself at work
+u: DID_YOU_INJURE_YOURSELF_AT_WORK ([injure hurt] *~3 ~job) ^factanswer("I have not been injured at work.")
+
+#! Where do you work
+u: WHERE_DO_YOU_WORK (where * ~job) ^factanswer("I work in town.")
+	a: HOW_LONG_HAVE_YOU_WORKED (how long) ^factanswer("Many years")
+
+#! Do you have exposure to chemicals
+#! Do you have exposure to hazardous materials
+u: DO_YOU_HAVE_EXPOSURE_TO_CHEMICALS
+	([
+		([expose exposure around] *~3 [~chemicals solvent hazardous hazard asbestos fumes noise lead])
+		(<< [work job] [~chemicals solvent hazardous hazard asbestos fumes noise lead] >>)
+	])
+	 ^factanswer("Not that I know of.")
+
+#! Is your job pleasurable
+#! Do you enjoy working
+u: IS_YOUR_JOB_PLEASURABLE
+ ([
+		(!"sounds like" [working ~job] [fun pleasurable pleasant enjoy])
+ 		(!"sounds like" [do be] *~3 [enjoy like~v] *~3 [~job working])
+		([happy enjoy like~v] * ~job)
+ 	])
+ 	^factanswer("I enjoy my job.")
+
+	#! Do you work alone
+	#! Does anyone else work with you
+	#! Anyone to help you at work
+u: DO_YOU_WORK_ALONE
+	([
+		(~job *~3 [alone yourself else])
+		(else *~3 [work working] with you)
+		(<< [help assist] ~job >>)
+	])
+	^factanswer("I generally work by myself.")
+
+#! What do you do for a living
+#! Do you work outside the home
+#! What is your job like
+u: WHAT_DO_YOU_DO_FOR_A_LIVING
+	([
+		(what *~3 for *~2 living)
+		(![out outside after exercise] [what do are] *~3 [~job mechanic])
+		([you currently] [working employed])
+		(what [kind type sort is] *~3 ~job)
+		(what *~2 work do you do)
+		(![out outside after fun entertainment exercise "free time" relax] what do you do)
+		(![pain "work out" exercise] [work job] *~3 outside [your the] [home house])
+		(employment)
+	])
+	^factanswer("I work.")
+		a: HOW_LONG_HAVE_YOU_WORKED (how long) ^factanswer("Many years")
+
+#! Tell me about your work
+u: TELL_ME_ABOUT_YOUR_WORK (tell me * ~job) ^factanswer("What would you like to know?")
+
+#! Any other jobs
+u: ANY_OTHER_JOBS ([other else] * ~job) ^factanswer("I only have the one job.")
+
+#! Are you retired
+u: ARE_YOU_RETIRED ([retire retiree]) ^factanswer("I still work.")
+
+#! Are you disabled
+u: ARE_YOU_DISABLED ([disable disability]) ^factanswer("I am not.")
+
+#! Are you on social security
+u: ARE_YOU_ON_SOCIAL_SECURITY ("social security") ^factanswer("I still work.")
+
+#! Do you have health insurance
+u: DO_YOU_HAVE_INSURANCE ([insurance insured Medicare Medicaid]) ^factanswer("I do.")
+
+#! Have you ever been in the military
+u: HAVE_YOU_EVER_BEEN_IN_THE_MILITARY ([military]) ^factanswer("I have not.")
+
+#! Is anyone sick at work
+u: ANYONE_SICK_AT_AT_WORK ([anyone anybody] *~3 [sick ill] *~3 ~job) ^factanswer("Not that I am aware of.")
+
+#! How long have you worked
+#! How long have you owned your shop
+#! How long have you been a worker
+u: HOW_LONG_HAVE_YOU_WORKED (how long * [work worker job own]) ^factanswer("Many years")
+
+#! We will get you back to work
+s: GET_YOU_BACK_TO_WORK (back to *~2 ~job) ^factanswer("Thank you.")
+

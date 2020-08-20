@@ -1,0 +1,78 @@
+# walking- I have defined walking_problems as a concept in MedicalConcepts.top
+
+topic: ~currentwalking keep repeat (~walking_problems sit stair step home house)
+
+u: ($pasthistory) respond(~pastwalking) ^fail(TOPIC)
+
+#! Do you feel unsteady when you walk
+u: DO_YOU_FEEL_UNSTEADY_WHEN_YOU_WALK ([unstable unsteady] * ~walking_problems)  ^factanswer("I can walk fine.")
+
+#! Can you climb stairs
+u: CAN_YOU_CLIMB_STAIRS ([climb up_and_down up down ] * [stairs steps])    ^factanswer("I can climb stairs.")
+
+#! Do you have stairs at home
+u: DO_YOU_HAVE_STAIRS_AT_HOME ([stairs steps] * [home house]) ^factanswer("I have no stairs.")
+
+#! How far can you walk
+u: HOW_FAR_CAN_YOU_WALK
+	([
+		(walk * [far distance ~distance_quantity long])
+		([far distance ~distance_quantity long much] * walk)
+	])
+	^factanswer("I can walk pretty far.")
+
+#! Are you able to walk
+#! Do you have any trouble walking
+u: ARE_YOU_ABLE_TO_WALK 
+	([
+		([can able] * walk) 
+		(<< [trouble problem difficulty issue challenge] [walk walking] >>)
+	])
+	^factanswer("I can walk fine.")
+
+#! Are you able to sit
+u: ARE_YOU_ABLE_TO_SIT
+	([
+		([can able] * sit)
+		(sit * straight)
+	])
+	^factanswer("I can sit just fine.")
+
+#! Did you fall
+u: DID_YOU_FALL (!asleep [did have] * [fall fallen])   ^factanswer("I did not fall.")
+
+# ***************************************************************************************************
+
+topic: ~currentnumbness keep repeat (numb numbness tingle sensation)
+
+u: ($pasthistory) respond(~pastnumbness)  ^fail(TOPIC)
+
+#! Do you have numbness or tingling
+u: DO_YOU_HAVE_NUMBNESS_OR_TINGLING (!healthcare [numb numbness tingle "loss of feeling" sensation])  ^factanswer("I am not sure.")
+
+# ***************************************************************************************************
+
+topic: ~currentweakness keep repeat (weak weakness)
+
+u: ($pasthistory) respond(~pastweakness) ^fail(TOPIC)
+
+#! Do you have any weakness
+u: DO_YOU_HAVE_ANY_WEAKNESS (![back muscle] [weak weakness strength])  ^factanswer("I have not had any problems like that.")
+
+# ***************************************************************************************************
+
+topic: ~currentdizziness keep repeat (dizzy dizziness lightheaded lightheadedness spin "passed out" faint spin fainted "blacked out")
+
+u: ($pasthistory) respond(~pastdizziness) ^fail(TOPIC)
+
+#! How long have you been dizzy
+u: HOW_LONG_HAVE_YOU_BEEN_DIZZY  (how * [have experience notice] * [dizzy dizziness lightheaded lightheadedness])  ^factanswer("I have not had any problems like that.")
+
+#! Have you noticed spinning
+u: HAVE_YOU_NOTICED_SPINNING ([noticed felt experienced feel] * [spin spinning])  ^factanswer("I have not had any problems like that.")
+
+#! Have you fainted
+u: HAVE_YOU_FAINTED ([fainted "passed out" "blacked out"])  ^factanswer("I have not had any problems like that.")
+
+#! Are you dizzy
+u: ARE_YOU_DIZZY  ([dizzy lightheaded "light headed" lightheadedness])  ^factanswer("I have not had any problems like that.")

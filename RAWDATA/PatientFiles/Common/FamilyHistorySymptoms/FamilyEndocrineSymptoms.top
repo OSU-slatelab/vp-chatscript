@@ -1,0 +1,8 @@
+topic: ~familyendocrine keep repeat (diabetes)
+
+u: ($present) respond(~currentendocrine)  ^fail(TOPIC)
+u: ($pasthistory) respond(~pastendocrine)  ^fail(TOPIC)
+
+#! Do you have a family history of diabetes
+#! Anyone in your family have diabetes?
+u: FAMILY_HISTORY_OF_DIABETES(<< diabetes ~role_family >>)^factanswer("Not that I know of.")

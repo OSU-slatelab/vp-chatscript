@@ -1,0 +1,15 @@
+outputmacro: patient1()
+$patientfirstname = Marcus
+$patientlastname = Robinson
+$bodypart = back # we use this to exclude matching in variablematches
+$chiefcomplaint = ~back_pain
+$complaint2 = null
+$complaint3 = null
+$patientTitle = Mr
+$currentjob = mechanic
+$currentmedication1 = Ibuprofen
+$currentmedication2 = null
+$currentmedication3 = null
+$currentpainnum = 7
+$cs_botid = 1
+^stdpatient()

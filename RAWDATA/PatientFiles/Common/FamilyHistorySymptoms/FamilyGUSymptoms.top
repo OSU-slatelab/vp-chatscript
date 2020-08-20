@@ -1,0 +1,19 @@
+# bladder - I have defined bladder_problems as a concept in MedicalConcepts.top
+
+topic: ~familybladder keep repeat (~bladder_problems ~role_family)
+
+u: ($present) respond(~currentbladder) ^fail(TOPIC)
+u: ($pasthistory) respond(~pastbladder) ^fail(TOPIC)
+
+#! Do you have a family history of incontinence
+u: FAMILY_HISTORY_OF_INCONTINENCE (incontinence)    ^factanswer("Not that I know of.")
+
+# ***************************************************************************************************
+
+topic: ~familymaleGU keep repeat (!bowel erection ~role_family prostate cancer)
+
+u: ($present) respond(~currentmaleGU) ^fail(TOPIC)
+u: ($pasthistory) respond(~pastmaleGU) ^fail(TOPIC)
+
+#! Any family history of prostate cancer
+u: ANY_FAMILY_HISTORY_OF_PROSTATE_CANCER (<< ~role_family prostate cancer >>) ^factanswer("Not that I know of.")

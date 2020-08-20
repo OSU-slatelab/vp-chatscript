@@ -1,0 +1,5 @@
+
+table: defaultbot (^name)
+^createfact(^name defaultbot defaultbot)
+DATA:
+patient1

@@ -1,0 +1,176 @@
+
+
+concept: ~all_systems [~General_Problems ~HEENT_Problems ~Cardiac_Problems ~Orthopedic_Problems ~Pulmonary_Problems ~Breast_Problems ~AbdomenGI_Problems ~GU_Problems ~GYN_Problems ~MuscleRheum_Problems ~Neurologic_Problems ~Psychiatric_Problems ~Dermatologic_Problems ~Hematologic_Problems ~Endocrine_Problems ~Cancer_Problems ~Other_Problems]
+
+concept: ~General_Problems
+	[
+	weight
+	sweat chill fever chills fevers ache malaise
+	dizzy dizziness lightheaded fall vertigo spin
+	sleep insomnia "nightsweats" "night sweats"
+	faint consciousness temperature
+	"worn out" "worn down" tired fatigue weak "pass out" "fall out"
+	syncope "passed out" "blacked out" "tiredness"
+	pain sleepy
+	]
+
+concept: ~HEENT_Problems
+	[
+	headache "head ache" head
+	neck gland whiplash "earache" "ear pain"
+	hair hoarse hoarseness nosebleed
+	"dry mouth" mouth taste canker "mouth sore" "mouth sores" breath halitosis drool drooling gum voice throat teeth tongue lip toothache
+	eye eyesight vision flasher light floater tear visual blind blindness glasses contacts "contact lens"
+	ear hearing tinnitus "ringing in your ears" sneezing sneeze ringing
+	nose nasal sinus smell congestion snore snoring "sore throat" swallowing
+	]  # removed "hear" because of "I'm sorry to hear that" 8.26.2012 Removed "seeing because of "Are you seeing anyone" 1.2018
+
+
+concept: ~Cardiac_Problems
+	[
+	heart chest "chest pain" "chest pressure" hypertension angina heart palpitations rhythm tight tightness murmur beat race racing "high cholesterol" cholesterol
+	edema swell swelling
+	blood vein varicose "cardiac problem"
+	leg calf ankle feet digit finger arm toe
+	cold
+	]
+
+concept: ~Orthopedic_Problems
+	[
+	osteoporosis bursitis fracture bone joint
+	]
+
+concept: ~Pulmonary_Problems
+	[
+	breath breathing wheeze wheezing cough coughing sputum lung asthma TB
+	]
+
+concept: ~Breast_Problems
+	[
+	breast nipple boob mammary
+	lump mastalgia mastitis
+	]
+
+concept: ~AbdomenGI_Problems
+	[
+	swallow swallowing reflux heartburn acid GERD
+	nausea vomit stomach belly intestines digestion thirst thirsty
+	bowel colon rectum stool poop diarrhea constipation
+	liver gallbladder jaundice yellow
+	rectal rectum hemorrhoids hernia gas
+	abdomen abdominal GI nauseous ulcer
+	"kidney stones" bloat ulcers
+	]
+
+concept: ~GU_Problems
+	[
+	urine urinating urination urinary pee peeing dysuria bladder "pass water" kidney
+	testicle testicular penis penile erection erectile
+	sex intercourse genital
+	groin
+	]
+
+concept: ~GYN_Problems
+	[
+	vaginal vagina
+	menstrual period "vaginal bleeding" menses spotting
+	labia pelvis pelvic
+	"hot flashes" cycle menopause cramps "menstrual cramps" cramping "night sweats"
+	]
+
+
+concept: ~MuscleRheum_Problems
+	[
+	muscle bone joint stiff stiffness arthritis cramp "range of motion" motion movement swelling "touching your toes"
+	back backache "back ache" leg disc rupture hernia herniated spine
+	knee shoulder wrist elbow finger hand ankle knee hip
+	"spinal stenosis"
+	]
+
+concept: ~Neurologic_Problems
+	[
+	arm leg hand
+	numbness numb tingling tingle paresthesia
+	speech speaking face facial weakness weak
+	memory seizure spells
+	paralysis paralyzed balance confused confusion
+	walk walking nerve "loss of strength" "pins and needles" "loss of sensation" sensation
+	]
+
+concept: ~Psychiatric_Problems
+	[
+	depression depressed anxious anxiety mood
+	hallucination hallucinate
+	stress nervous concentration
+	manic mania
+	suicide death kill killing thoughts
+	psychiatric psychiatry
+	]
+
+concept: ~Dermatologic_Problems
+	[
+	nail skin dryness
+	rash mole rashes
+	dry itching itchy
+	]
+
+concept: ~Hematologic_Problems
+	[
+	blood bleed bleeding clot bruise anemia anemic iron
+	lymph nodes cancer infection infections "bleeding in your brain" "brain bleed" stroke
+	]
+
+concept: ~Endocrine_Problems
+	[
+	insulin sugar diabetes diabetic
+	thyroid goiter
+	hormone endocrine
+	thirst heat cold hair growth sweat sweating
+	]
+
+	concept: ~Cancer_Problems
+		[
+		cancer tumor
+		]
+
+concept: ~Other_Problems
+	[
+	bedridden
+	]
+
+topic: ~jargon keep repeat deprioritize (~medical_jargon)
+
+u: HAVE_MEDICAL_JARGON (have * _~medical_jargon) ^factanswer(^"I don't know what '_0 means")
+u: MEDICAL_JARGON (~medical_jargon) ^factanswer("I don't know what that means.")
+
+
+# This catches all symptoms that are negative. So, any positive symptoms will be caught by other topics, and everything else is no.
+# Need to work on this because it also catches all negative family symptoms. OK for now since they are all negative for covington
+# Added nostay (8.26.2012) because I don't want this to be an intereting topic since I call it explicitly in medcalcontrol.top
+# Added !how !what to avoid "How is your breathing" "What is your breathing like"
+# Removed nostay 10.12.2012 because it was making validation difficult
+# Added !pain 10.12.2012 to avoid the keyword pain making this an interesting topic
+# This topic is called directly from control script, so I removed its keywords so it doesn't match prematurely
+
+topic: ~negativesymptoms keep repeat NoStay deprioritize ()
+
+# onewordinputs
+u: SIMPLEWORD (!. < *1 >) $$oneword = '_0 What do you want to know about '_0?
+	a: () $_sentence = ^join('_0 " "  $$oneword " " '_1) ^input($_sentence) ^fail(SENTENCE)
+
+
+#! Tell me more
+u: TELL_ME_MORE # moved this here from opening dialogue so other "Tell me mores" will match first
+	([
+		("tell me more" >)
+		([continue elaborate])
+		(![we 'I] tell * [more happened doing "going on" about])
+		([talk speak] about this)
+	])
+		^factanswer("What do you want to know?")
+
+u: THIS_MATCHED_NEGATIVE_FAMILY_SYMPTOMS (![$bodypart when pain just only ~joint who] << ~role_family ~all_systems >>) ^factanswer("No.")
+u: THIS_MATCHED_NEGATIVE_SYMPTOMS (![$bodypart when pain just only ~joint who] ~all_systems) ^factanswer("No.")
+
+#! Catch-all for statements - need to check carefully
+#	s:() ^factanswer(" ")

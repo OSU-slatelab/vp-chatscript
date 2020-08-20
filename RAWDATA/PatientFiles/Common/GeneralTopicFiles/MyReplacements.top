@@ -1,0 +1,13 @@
+# this is the topic for my spelling corrections
+# using ...LIVEDATA/ENGLISH/SUBSTITUTES/spellfix.txt so will only need to add unique words here 5.2018
+
+replace: exersise exercise # already corrected by CS so probably no need to put here
+replace: excersise exercise
+replace: excersize exercise
+replace: exersize exercise
+replace: surgies surgeries
+replace: hospilizations hospitalizations
+replace: "grand parents" grandparents
+replace: "any thing" anything
+replace: opiod opioid
+replace: opoid opioid

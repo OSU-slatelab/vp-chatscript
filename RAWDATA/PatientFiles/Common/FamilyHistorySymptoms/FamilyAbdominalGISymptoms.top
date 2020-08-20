@@ -1,0 +1,36 @@
+# bowel - I have defined bowel as a concept in MedicalConcepts.top
+
+topic: ~familybowel keep repeat (~bowel_problems ~role_family)
+
+u: ($present) respond(~currentbowel) ^fail(TOPIC)
+u: ($pasthistory) respond(~pastbowel) ^fail(TOPIC)
+
+#! Do you have a family history of bowel problems
+u: FAMILY_HISTORY_OF_BOWEL_PROBLEMS (![~bladder_function ~bladder_problems] ~bowel_problems)     ^factanswer("Not that I know of.")
+
+# Both bowel and bladder
+
+#! Any bowel or bladder problems in your family
+u: BOWEL_OR_BLADDER_PROBLEMS_IN_YOUR_FAMILY (<< bowel bladder >>)    ^factanswer("Not that I know of.")
+
+# ***************************************************************************************************
+
+topic: ~familyabdominalpain keep repeat (~role_family ~abdominal_pain nausea nauseous vomit)
+
+u: ($present) respond(~currentabdominalpain)  ^fail(TOPIC)
+u: ($pasthistory) respond(~pastabdominalpain) ^fail(TOPIC)
+
+#! Anyone in your family been nauseous?
+u: ANYONE_IN_YOUR_FAMILY_BEEN_NAUSEOUS (family * [nausea nauseous stomachache bellyache "sick to your stomach"]) ^factanswer("Not that I know of.")
+
+# ***************************************************************************************************
+
+# heartburn - I have defined heartburn as a concept in MedicalConcepts.top
+
+topic: ~familyheartburn keep repeat (~role_family ~heartburn acid reflux metallic food)
+
+u: ($present) respond(~currentheartburn)  ^fail(TOPIC)
+u: ($pasthistory) respond(~pastheartburn) ^fail(TOPIC)
+
+#! Do you have a family history of heartburn
+u: FAMILY_HISTORY_OF_HEARTBURN (~heartburn) ^factanswer("Not that I know of.")

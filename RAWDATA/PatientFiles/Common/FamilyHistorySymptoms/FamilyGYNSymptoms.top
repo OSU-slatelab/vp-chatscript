@@ -1,0 +1,56 @@
+topic: ~familysex keep repeat (~role_family ~groin_male ~sex_problems_male ~groin_female ~sex_problems_female ~contraceptives sex sexual sexually intercourse)
+
+ u: ($present) respond(~currentsex) ^fail(TOPIC)
+u: ($pasthistory) respond(~pastsex) ^fail(TOPIC)
+
+# Sexual health
+
+#! Anyone in your family had a sexually transmitted infection?
+u: FAMILY_HAD_AN_STI (~STI)	  ^factanswer("Not that I know of.")
+
+#! Anyone in your family been raped?
+u: FAMILY_BEEN_RAPED ([rape forced]) ^factanswer("Not that I know of.")
+
+
+topic: ~familyvaginal_bleeding keep repeat (~role_family ~gyn_bleeding tampon cramp cramping clot cervix cervical flow heavy light abnormal normal spotting flow irregular)
+
+u: ($pasthistory) respond(~pastvaginal_bleeding) ^fail(TOPIC)
+u: ($present) respond(~currentvaginal_bleeding) ^fail(TOPIC)
+
+# PERIODS
+
+#! Anyone in your family have vaginal bleeding problems?
+u: FAMILY_HAVE_VAGINAL_BLEEDING_PROBLEMS  (<< ~family_members ~gyn_bleeding >>)  ^factanswer("Not that I know of.")
+
+
+topic: ~familyvaginalsymptoms keep repeat (~role_family ~gyn_bleeding douche vulva)
+
+u: ($pasthistory) respond(~pastvaginalsymptoms) ^fail(TOPIC)
+u: ($present) respond(~currentvaginalsymptoms) ^fail(TOPIC)
+
+
+topic: ~family_pregnancy keep repeat (~role_family ~gyn_bleeding pregnant miscarry miscarriage pregnancy)
+
+u: ($pasthistory) respond(~past_pregnancy) ^fail(TOPIC)
+u: ($present) respond(~current_pregnancy) ^fail(TOPIC)
+
+#! Has your sister been pregnant
+u: HAS_YOUR_SISTER_BEEN_PREGNANT (sister * pregnant)	 ^factanswer("Not that I know of.")
+
+#! Has anyone in your family miscarried
+u: ANYONE_IN_YOUR_FAMILY_MISCARRIED  ([miscarry miscarried miscarriage])  ^factanswer("Not that I know of.")
+
+#! How many children did your mother have
+u: HOW_MANY_CHILDREN_DID_YOUR_MOTHER_HAVE (how many children did your mother have) ^factanswer("Just me.")
+
+
+topic: ~family_breast keep repeat (~role_family breast ~breast_problems cancer)
+
+u: ($pasthistory) respond(~past_breast) ^fail(TOPIC)
+u: ($present) respond(~current_breast) ^fail(TOPIC)
+
+#! Anyone in your family had breast cancer?
+u: FAMILY_HAD_BREAST_CANCER (<< ~role_family "breast cancer" >>) ^factanswer("Not that I know of.")
+
+#! Any breast changes?
+u: ANY_FAMILY_BREAST_CHANGES  (~Breast_Problems)   ^factanswer("Not that I know of.")

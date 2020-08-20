@@ -1,0 +1,17 @@
+
+topic: ~emotion_motions keep repeat ("show_emotion")
+
+# this file is just for displaying the avatar emotions. It shold never be called during a normal dialogue
+
+u: (< show emotion nod >)  Yes
+u: (< show emotion no >)  No
+u: (< show emotion contempt >) \[ Contempt4 \] Contempt
+u: (< show emotion happiness >) \[ Happiness4 \] Happiness
+u: (< show emotion sadness >) \[ Sadness4 \] Sadness
+u: (< show emotion anger >) \[ Anger4 \] Anger
+u: (< show emotion fear >) \[ Fear4 \] Fear
+u: (< show emotion surprise >) \[  Surprise4 \]  Surprise
+u: (< show emotion disgust >) \[ Disgust4 \] Disgust
+u: (< show emotion pain >) \[ Pain4 \] Pain
+u: (< show emotion confusion >) \[ Confusion4 \] Confusion
+u: (< show emotion worried >) \[ Worried4 \] Worried

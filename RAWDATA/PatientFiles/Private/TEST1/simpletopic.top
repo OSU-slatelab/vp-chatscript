@@ -1,0 +1,138 @@
+﻿outputmacro: ^startConversation()
+	if ($stats) {^delete($stats)} # kill prior data
+	$stats = ^jsoncreate(PERMANENT object)
+	$volleyid = 0
+
+outputmacro: ^scoreConversation()
+
+	# find hardest volley
+	^jsonloop($stats.volleys $_index $_volley)
+	{
+		^jsonloop($_volley.sentences $_tmp $_sentence)
+		{
+			$_totalwords += $_sentence.length
+			$_totalsyllables += $_sentence.syllables
+			$_sentences += 1
+			$_worse = null
+			if ($_sentence.hardwords > $_maxhard) {$_worse = 1}
+			else if ($_sentence.hardwords == $_maxhard AND $_sentence.syllables > $_maxsyllable)
+			{
+				$_worse = 1
+			}
+			if ($_worse)
+			{
+				$_maxhard = $_sentence.hardwords 
+				$_maxsyllable = $_sentence.syllables 
+				$_volleyid = $_index
+				$_sentenceid = $_tmp
+			}
+	}
+	}
+	
+	# Flesch-Kincaid grade level of entire conversation
+	$_tsratio = $_totalwords
+	$_tsratio /= $_sentences
+	$_tmp = $_tsratio * .39
+	$_sylperword = $_totalsyllables / $_totalwords
+	$_tmp1 = $_sylperword * 11.8
+	$_score = $_tmp +  $_tmp1 - 15.59
+	\n \n Flesch-Kincaid Grade Level: $_score \n \n
+
+	if ($_maxhard)
+	{
+		Most difficult sentence:
+		$stats.volleys[$_volleyid].sentences[$_sentenceid].input
+		\n \n
+	}
+
+	Conversation: \n
+	^jsonloop($stats.volleys $_index $_volley)
+	{
+		$_tmp = $_index + 1
+		^"$_tmp :  "
+		^jsonloop($_volley.sentences $_tmp $_sentence)
+		{
+			^"$_sentence.input "
+		}
+		\n
+	}
+	\n
+
+topic: ~introductions keep repeat ()
+# t: Type "start conversation", have your conversation, type "score conversation"
+u: () ^respond(~AnalyzeConversation)
+	  ok
+
+topic: ~AnalyzeConversation keep  repeat() # call per sentence of volley
+u: (cheat show data) ^jsontree($stats)
+u: (start conversation)
+	^startConversation()
+	Conversation started.
+	^end(TOPIC)
+u: (score conversation)
+	^scoreConversation()
+	^end(TOPIC)
+u: (cheat detail) 
+	if (!$detail) {$detail = 1}
+	else {$detail = null}
+	^end(TOPIC)
+
+s: () $_punctuation = .
+?: () $_punctuation = ?
+
+u: (_*) # sentence as a whole
+	if (!$$volley)
+	{ 
+		$$volley = ^jsoncreate(PERMANENT object)   # holder for volley data
+		$stats.volleys[] = $$volley
+	}
+	$$sentence =  ^jsoncreate(PERMANENT object)
+	$$volley.sentences[] = $$sentence
+	$_tmp = ^original('_0)
+	$_first = ^extract($_tmp 0 1)
+	$_rest = ^extract($_tmp 1 1000)
+	$_first = ^pos(uppercase $_first)
+	$_tmp = ^join($_first $_rest)
+	$$sentence.input = ^join($_tmp $_punctuation ) # the sentence
+	$$totalwords = %length # its naive length
+	$$hardwords = 0
+
+u: (_*1) # word property analysis
+	$_length = ^pos(syllable '_0)
+	$$totalsyllables += $_length
+	if ($_length > 2) {$$hardwords += $_length} # syllable count of hardness
+	
+	# adjust for contractions
+	$_tmp = ^original(_0)
+	if ($_tmp == $_unexpanded) # eg expansion of  I've ->  I have
+	{
+		$$totalwords -= 1
+		$$totalsyllables -= $_length
+	}
+	else if ('_0 == \' OR '_0 == \'s) # tokenizer breaks apart possessives
+	{
+		$$totalwords -= 1
+		$$totalsyllables -= $_length
+	}
+	$_unexpanded = $_tmp
+		
+	if ($detail) # debug syllables
+	{
+		syllables: '_0 $_length  \n
+		original: $_tmp  \n
+		^flushoutput()
+	}
+
+	^retry(RULE)
+
+u: () 
+	$$sentence.length = $$totalwords 
+	$$sentence.hardwords = $$hardwords
+	$$sentence.syllables = $$totalsyllables
+	$$sentence = null
+
+u: (%more) ^fail(SENTENCE)
+	
+u: () # summary accumulation of volley
+	$$volley = null
+	^fail(TOPIC)

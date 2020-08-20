@@ -1,0 +1,95 @@
+
+# topic: ~closure deprioritize keep repeat (~emothanks else "anything else" other questions physician comments concern ~emogoodbye "help you with" "do for you" information "on your mind" exam examine talk speak pleasure everything need pleasant "take a look" attending wonderful detail ~yes OK ok okay Ok welcome helpful informative understand follow-up follow)
+topic: ~closure keep repeat ()
+
+#! do you have any questions
+u: DO_YOU_HAVE_ANY_QUESTIONS (![start begin] any * [questions concerns comments]) ^factanswer("I don't believe so.")
+
+#! Make a follow up appointment
+u: MAKE_A_FOLLOW_UP_APPOINTMENT
+	([
+		(<< ["follow up" follow-up] [visit appointment] >>)
+		(["follow up" follow-up])
+	])
+	^factanswer("Of course.")
+
+#! I have more questions
+u: I_HAVE_MORE_QUESTIONS ([need want more few ask] *~3 [questions concerns items detail understand]) ^factanswer("OK.")
+
+#! Is there anything else I can help you with
+u: ANYTHING_ELSE_I_CAN_HELP_WITH
+	([
+		# ([anything else] *~2 ["help you with" "do for you" discuss "bring up" address need tell mind know add aware)
+		(anything else)
+		(any other problems)
+		(anything * [add discuss "talk about"])
+	])
+	^factanswer("I don't believe so.")
+
+#! Do you have all the information you need
+u: HAVE_EVERYTHING_YOU_NEED ([information everything] *~3 you need) ^factanswer("I believe so.")
+
+#! I have all the information I need
+u: HAVE_ALL_THE_INFORMATION ([information everything have] *~3 I need)  ^factanswer("OK Thanks.")
+
+#! May I do an exam now
+u: DO_AN_EXAM_NOW
+	(!example # because for some reason "exam" catches "example"
+		[
+		([we I] * [perform do] * [exam examination test])
+		([we I] * [examine exam examination "take a look" look])
+	])
+	^factanswer("OK.")
+
+#! I'll go report to the doctor
+u: I'LL_GO_REPORT_TO_THE_DOCTOR ([go take give report talk pass let meet discuss get find] *~3 [doctor attending physician team]) ^factanswer("OK thanks.")
+
+#! Nice talking with you
+u: NICE_TALKING_WITH_YOU
+	([
+		([nice pleasant pleasure glad happy good] * [talk speak meet see came])
+		([~itwords you] * [helpful informative pleasure])
+	])
+	^factanswer ("Thank you.")
+
+#! Goodbye
+u: GOODBYE
+	([
+		(~emogoodbye)
+		(bye)
+		(have a [good nice pleasant] [~dayname ~visittimes])
+		(< that is all >)
+	])
+	^factanswer("Goodbye and thanks.")
+
+#! Thanks
+u: THANKS
+	([
+		([thanks "thank you"])
+		(~emothanks)
+	])
+	^factanswer("Thank you.")
+
+#! You are welcome
+s: YOU_ARE_WELCOME (you *~3 welcome)  ^factanswer("Thanks.")
+
+# Summary section
+
+topic: ~summarize priority keep repeat (summary summarize miss forget recap correct right)
+
+# Need to figure out a way to tell if the summary statement is appropriately thorough. For now, no matter what they say it will be OK
+
+#! Can you summarize
+u: CAN_YOU_SUMMARIZE (you *~3 [summarize recap]) ^factanswer("What would you like to know?")
+
+#! To summarize
+u: TO_SUMMARIZE
+	([
+		([summary summarize recap])
+		(is that {about} [correct right])
+		(does that [seem sound] {about} [correct right])
+	])
+	^factanswer("That sounds correct.")
+
+#! Did I miss anything
+u: DID_I_MISS_ANYTHING (I *~3 [miss forget]) ^factanswer("I think you've got everything.")

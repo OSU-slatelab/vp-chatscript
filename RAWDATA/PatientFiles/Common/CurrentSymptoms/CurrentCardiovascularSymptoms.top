@@ -1,0 +1,65 @@
+# ***************************************************************************************************
+
+# Blood Pressure - I have defined blood_pressure as a concept in MedicalConcepts.top
+
+topic: ~currentbloodpressure keep repeat ("blood pressure" high low normal hypertension ~high_blood_pressure)
+
+u: ($pasthistory) respond(~pastbloodpressure)  ^fail(TOPIC)
+u: ($family) respond(~familybloodpressure) ^fail(TOPIC)
+
+#! How is your blood pressure
+u: HOW_IS_YOUR_BLOOD_PRESSURE (![urine pee] ["blood pressure" ~high_blood_pressure])   ^factanswer("My blood pressure has been normal.")
+
+# ***************************************************************************************************
+
+topic: ~currentchestpain keep repeat (~chest_pain chest)
+
+u: ($pasthistory) respond(~pastchestpain)  ^fail(TOPIC)
+u: ($family) respond(~familychestpain) ^fail(TOPIC)
+
+#! Any chest pain
+u: ANY_CHEST_PAIN (~chest_pain)   ^factanswer("I don't have any chest pain.")
+
+# ***************************************************************************************************
+
+topic: ~currentheartproblem keep repeat (~chest_pain heart race cardiovascular)
+
+u: ($pasthistory) respond(~pastheartproblem)  ^fail(TOPIC)
+u: ($family) respond(~familyheartproblem) ^fail(TOPIC)
+
+#! Any heart problems
+u: ANY_HEART_PROBLEMS (heart * [wrong condition issue problem trouble disease race])   ^factanswer("I have not had any problems like that.")
+
+# ***************************************************************************************************
+
+topic: ~currentvascular keep repeat (~cardiovascular image probe catheter ultrasound test check cholesterol clotting)
+
+u: ($pasthistory) respond(~pastvascular)  ^fail(TOPIC)
+u: ($family) respond(~familyvascular) ^fail(TOPIC)
+
+#! Any vascular problems
+u: ANY_VASCULAR_PROBLEMS
+	([
+		(~cardiovascular * [wrong condition issue problem trouble disease])
+		([wrong condition issue problem trouble disease] * ~cardiovascular)
+	])
+	^factanswer("I have not had any problems like that.")
+
+#! Any vascular testing
+u: ANY_VASCULAR_TESTING
+	([
+		(~cardiovascular * [test image probe catheter ultrasound check])
+		([test image probe catheter ultrasound check] * ~cardiovascular)
+	])
+	^factanswer("I have not had any tests like that.")
+
+#! Any clotting problems
+u: ANY_CLOTTING_PROBLEMS
+	([
+		([have any experience] * ["blood clot" clot])
+		([blood vascular] * [clot problems thick thickness plaques embolism])
+	])
+	^factanswer("I have not had any problems like that.")
+
+#! How is your cholesterol
+u: HOW_IS_YOUR_CHOLESTEROL (cholesterol) ^factanswer ("I am not sure.")

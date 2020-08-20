@@ -1,0 +1,70 @@
+# bladder - I have defined bladder_problems as a concept in MedicalConcepts.top
+
+topic: ~pastbladder keep repeat (~bladder_problems hold control difficulty UTI "urinary tract infection" "urinary retention")
+
+u: ($present) respond(~currentbladder) ^fail(TOPIC)
+u: ($family) respond(~familybladder) ^fail(TOPIC)
+
+
+#! Have you had incontinence before
+u: HAVE_YOU_HAD_INCONTINENCE_BEFORE ([incontinence incontinent])    ^factanswer("I have not had that before.")
+
+#! Have you had any  past bladder problems
+u: HAVE_YOU_HAD_ANY_PAST_BLADDER_PROBLEMS (![where wwhen how bowel] [ever past] * [~bladder_problems "urinary retention"])    ^factanswer("I have no problems with my bladder.")
+
+topic: ~pastmaleGU keep repeat (!bowel erection prostate erectile ED dysfunction)
+
+u: ($present) respond(~currentmaleGU) ^fail(TOPIC)
+u: ($family) respond(~familymaleGU) ^fail(TOPIC)
+
+#! Have you had erectile dysfunction before
+u: HAVE_YOU_HAD_ERECTILE_DYSFUNCTION_BEFORE (["erectile dysfunction" erection])  ^factanswer("I have not experienced that.")
+
+# below is repeated from currentGU to catch have you had issues with ....
+
+#! Do you have any erection issues
+u: DO_YOU_HAVE_ANY_ERECTION_ISSUES
+	([
+		(erection * [problem issue])
+		([keep get able] * erection)
+	])
+	^factanswer("I have no problems with that.")
+
+#! Have you ever had prostate cancer
+u: EVER_HAD_PROSTATE_CANCER
+	([
+		(you * [had treated dignosed] * prostate cancer)
+	])
+	^factanswer("I have never had that.")
+
+#! When were you diagnosed with prostate cancer?
+u: WHEN_PROSTATE_CANCER
+	([
+		(when * [have diagnose] * prostate)
+		(when * [have diagnose] * ~itwords ~) # should only match if we are in this topic already.
+	])
+	^factanswer("I am not sure.")
+
+#! How was your prostate cancer treated?
+u: HOW_PROSTATE_CANCER_TREATED
+	([
+		(how * prostate cancer * treat)
+		(how * ~itwords * treat ~) # should only match if we are in this topic already.
+	])
+	^factanswer("I am not sure.")
+
+#! How advanced was your prostate cancer?
+u: HOW_ADVANCED_PROSTATE_CANCER
+	([
+		(how [bad advanced] * prostate cancer)
+		(how [bad advanced] * ~itwords ~) # should only match if we are in this topic already.
+	])
+	^factanswer("I am not sure.")
+
+#! Do you have prostate problems
+u: DO_YOU_HAVE_PROSTATE_PROBLEMS
+	([
+		(prostate * [problem issue trouble])
+		([problem issue trouble wrong] * prostate)
+	])
+	^factanswer("I have no problems with my prostate.")
